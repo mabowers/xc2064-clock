@@ -1,0 +1,301 @@
+:QueryBlk
+
+  %yQueryBlk%g gives information on block configuration and placement.  
+
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+  For a detailed description of the options available for QueryBlk  
+  refer to the XACT Design Editor chapter in the Reference Guide.
+
+:QueryBlk-All
+
+  Choosing %yAll%g will report on all of the blocks in the design.
+
+:QueryBlk-CLB
+
+  Choosing %yCLB%g will report on all of the CLBs in the design.  
+
+:QueryBlk-CLB_Enable_WE
+
+  Choosing %yCLB_Enable_WE%g will report all of the CLB's which
+  have been selected using %yFlagblk CLB_Enable_WE%g.  These are 
+  the CLB's whose paths from WE to RAM output will be reported 
+  by %yXDelay%g.
+
+:QueryBlk-CLB_Enable_DIN
+
+  Choosing %yCLB_Enable_DIN%g will report all of the CLB's which
+  have been selected using %yFlagblk CLB_Enable_DIN%g.  These are 
+  the CLB's whose paths from DIN to RAM output will be reported 
+  by %yXDelay%g.
+
+:QueryBlk-CLB_Disable_SR_Q
+
+  Choosing %yCLB_Disable_SR_Q%g will report all of the CLB's which
+  have been selected using %yFlagblk CLB_Disable_SR_Q%g.  These
+  are the CLB's whose paths from Set/Reset to flip-flop Q will not
+  be reported by %yXDelay%g.
+
+:QueryBlk-Synchronous
+
+  Choosing %ySynchronous%g will report all blocks with their
+  function generator outputs marked as synchronous.  %yXDelay%g
+  will start and stop paths at these outputs, rather than
+  tracing through them asynchronously.  This simplifies timing
+  analysis of designs using combinational logic latches.
+
+:QueryBlk-IOB
+
+  Choosing %yIOB%g will report on all of the IOBs in the design.  
+
+:QueryBlk-IOB_Enable_T_I
+
+  Choosing %yIOB_Enable_T_I%g will report all of the IOB's which
+  have been selected using %yFlagblk IOB_Enable_T_I%g.  These
+  are the IOB's whose paths from T pin through the output buffer
+  to the pad and back to their I pin will not be reported by
+  %yXDelay%g.
+
+:QueryBlk-IOB_Enable_O_I
+
+  Choosing %yIOB_Enable_O_I%g will report all of the IOB's which
+  have been selected using %yFlagblk IOB_Enable_O_I%g.  These
+  are the IOB's whose paths from O pin through the output buffer
+  to the pad and back to their I pin will not be reported by
+  %yXDelay%g .
+
+:QueryBlk-TBUF
+
+  Choosing %yTBUF%g will report on all of the TBUFs in the design.  
+
+:QueryBlk-TBUF_Disable_I_O
+
+  Choosing %yTBUF_Disable_I_O%g will report all of the TBUF's which
+  have been selected using %yFlagblk TBUF_Disable_I_O%g.  These
+  are the TBUF's whose paths from I pin to O pin will not be reported
+  by %yXDelay%g.
+
+:QueryBlk-TBUF_Disable_T_O
+
+  Choosing %yTBUF_Disable_T_O%g will report all of the TBUF's which
+  have been selected using %yFlagblk TBUF_Disable_T_O%g.  These
+  are the TBUF's whose paths from T pin to O pin will not be reported
+  by %yXDelay%g.
+
+:QueryBlk-Used
+
+  Choosing %yUsed%g will report on all of the blocks in the design  
+  which have pins connected to them.
+
+:QueryBlk-Unused
+
+  Choosing %yUnused%g will report on all of the blocks in the design  
+  which don't have pins connected to them.
+
+:QueryBlk-UsedFG
+
+  Choosing %yUsedFG%g will report on all CLBs that have at least  
+  one used function generator.
+
+:QueryBlk-UnusedFG
+
+  Choosing %yUnusedFG%g will report on all CLBs that have at least  
+  one unused function generator.
+
+:QueryBlk-Configured
+
+  Choosing %yConfigured%g will report on all blocks that are configured.  
+   
+:QueryBlk-Unconfigured
+
+  Choosing %yUnconfigured%g will report on all blocks that are  
+  not configured.  
+   
+:QueryBlk-Locked
+
+  Choosing %yLocked%g will report on all blocks which are locked  
+  in place.
+
+  The %yReadcst%g or %yReadscp%g commands must first be used to 
+  read in constraint information.
+
+:QueryBlk-Unlocked
+
+  Choosing %yUnlocked%g will report on all blocks which are not  
+  locked in place.
+
+  The %yReadcst%g or %yReadscp%g commands must first be used to
+  read in constraint information.
+
+:QueryBlk-Prohibited
+
+  Choosing %yProhibited%g will report on all blocks which are  
+  prohibited.
+
+  The %yReadcst%g or %yReadscp%g commands must first be used to
+  read in constraint information.
+
+:QueryBlk-Notprohibited
+
+  Choosing %yNotprohibited%g will report on all blocks which are  
+  not prohibited.
+
+  The %yReadcst%g or %yReadscp%g commands must first be used to
+  read in constraint information.
+
+:QueryBlk-Ainput
+
+  %yAinput%g reports on all blocks with an available input pin.  
+
+:QueryBlk-Aoutput
+
+  %yAoutput%g reports on all blocks with an available output pin.  
+
+:QueryBlk-Net
+
+  %yNet%g reports on all blocks attached to the selected net.  
+
+:QueryBlk-Long
+
+  Choosing %yLong%g displays QueryBlk information in the long  
+  format.
+
+:QueryBlk-Wide
+
+  Choosing %yWide%g displays QueryBlk information in the wide  
+  format. This is the default format.
+
+:QueryNet
+
+  %yQueryNet%g displays information about one or more nets.  
+  The QueryNet output uses the following format:
+
+          net         source   block           delay  load   block
+          name          pin    name             (ns)  pin    name
+   ----------------------------------------------------------------  
+   ----  $1-abc . . . . CC.X  (ASEL) . . . . . . 6.4  BC.C  (REG1)
+   --C-  $2-xyz . . . . FB.Y  (MUX)  . . . . . . 2.3  DE.E  (BA0)
+                                                 ***  AC.C  (BA1)
+                                               ~12.1  BC.E  (AOUT)
+
+  The first four spaces describe characteristics of the net.
+
+  Character 1:     S - Net has no source
+                   M - Net has multiple sources
+  Character 2:     L - Net has no loads
+  Character 3:     C - Net is marked critical
+  Character 4:     T - Net was modified by TIE.
+ 
+  In the Delay section, the symbol "***" means that the corresponding pin
+  is not routed. A tilde (~) means that the rise time to this pin can take  
+  up to 20 percent longer, and the fall time can be 20 percent faster.
+  To remove the tilde, re-route the net so that it passes through more
+  bi-directional buffers (BIDIs).
+ 
+
+:QueryNet-All
+
+  Choosing %yAll%g will report on all of the nets in the design.
+
+:QueryNet-Inputs
+
+  Choosing %yInputs%g will report on all of the nets which connect  
+  to IOB .I pins.
+
+:QueryNet-Outputs
+
+  Choosing %yOutputs%g will report on all of the nets which connect  
+  to IOB .O pins.
+
+:QueryNet-Threestates
+
+  Choosing %yThreestates%g will report on all of the nets which
+  connect to IOB and/or TBUF .T pins. 
+  
+:QueryNet-Threestates-All
+
+  Choosing %yAll%g will report on all the nets which connect to
+  IOB or TBUF .T pins.
+
+:QueryNet-Threestates-IOBs
+
+  Choosing %yIOB%g will report on all the nets which connect to
+  IOB .T pins.
+
+:QueryNet-Threestates-TBUFs
+
+  Choosing %yTBUF%g will report on all the nets which connect to
+  TBUF .T pins.
+
+:QueryNet-Unrouted
+
+  Choosing %yUnrouted%g will report on all nets with at least  
+  one unrouted load pin.
+
+:QueryNet-Nosource
+
+  Choosing %yNosource%g will report on all nets with no source pin.  
+
+:QueryNet-Nodest
+
+  Choosing %yNodest%g will report on all nets with no destination pin. 
+
+:QueryNet-Critical
+
+  Choosing %yCritical%g will report on all nets which were flagged
+  critical.
+
+:QueryNet-Tiechange
+
+  Choosing %yTiechange%g will report on all nets which have had  
+  their delays changed by the %yMakebits -Tie%g command.
+
+  The first number listed is the net delay before TIE was run,
+  the second number is the delay after TIE was run.  If the
+  delay numbers differ, it means that MAKEBITS attached a piece
+  of unused interconnect to that net.
+
+  If you don't want MAKEBITS -TIE to have access to a particular
+  net, use the %yFLAGNET -CRITICAL%g command.
+
+:QueryNet-Tieadd
+
+  Choosing %yTieadd%g will report on all nets which were added  
+  by the %yMakebits -Tie%g command.
+
+:QueryNet-Baddelay
+
+  Choosing %yBaddly%g will report on all nets with tildes (~).  
+
+:QueryNet-Locked
+
+  Choosing %yLocked%g will report on all nets which were locked.  
+
+:QueryNet-Unlocked
+
+  Choosing %yUnlocked%g will report on all nets which were unlocked.  
+
+:QueryNet-Delayless
+
+  Choosing %yDelayless%g will report on all nets which have a delay  
+  less than the specified value.
+
+:QueryNet-Delaygreater
+
+  Choosing %yDelaygreater%g will report on all nets which have a delay  
+  greater than the specified value.
+
+:QueryNet-ClockNets
+
+  Choosing %yClockNets%g will report on all nets which connect to a
+  clock pin (.K, .IK, or .OK).
+
+:QueryNet-Probed
+
+  Choosing %yProbed%g will report on all nets which are currently
+  attached to probes.  Refer to the XACT Design Editor chapter in
+  the Reference Manual for a detailed description of the commands
+  found in the %yProbe%g menu.
+
+

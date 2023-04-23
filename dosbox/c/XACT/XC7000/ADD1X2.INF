@@ -1,0 +1,39 @@
+`F  1.00 ADD1X2
+`B "1" "1" "A" "September 30, 1993" "" "A" 
+"XC7000 Family ADD1X2 Model" "Xilinx"
+""
+""
+""
+""
+`P I "A0"
+`P I "B0"
+`P I "CI"
+`P O "S0"
+`P O "CO"
+`S "AB0" 1 
+`S "A0CI" 1 
+`S "B0CI" 1 
+`E XC7000.LIB
+`I R "AND2" XC7000.LIB "AND2" d5aafff1  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC7000.LIB "AND2" d5ab001b  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC7000.LIB "AND2" d5ab0024  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "XOR3" XC7000.LIB "XOR3" d5ab017d  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "OR3" XC7000.LIB "OR3" d5ab023e  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`J ( P I "A0" ) ( R U2 "I1" I ) ( R U1 "I1" I ) ( R U4 "I1" I ) 
+`J ( R U1 "O" O ) ( S "AB0" 1  ) ( R U5 "I2" I ) 
+`J ( P I "B0" ) ( R U3 "I0" I ) ( R U1 "I0" I ) ( R U4 "I2" I ) 
+`J ( R U2 "O" O ) ( S "A0CI" 1  ) ( R U5 "I1" I ) 
+`J ( R U5 "O" O ) ( P O "CO" ) 
+`J ( P I "CI" ) ( R U3 "I1" I ) ( R U2 "I0" I ) ( R U4 "I0" I ) 
+`J ( R U3 "O" O ) ( S "B0CI" 1  ) ( R U5 "I0" I ) 
+`J ( R U4 "O" O ) ( P O "S0" ) 

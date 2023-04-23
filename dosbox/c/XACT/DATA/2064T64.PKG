@@ -1,0 +1,66 @@
+package 2064vq64 1 0 1 0
+pin PAD1 P16
+pin PAD2 P15
+pin PAD3 P14
+pin PAD4 P13
+pin PAD5 P12
+pin PAD6 P11
+pin PAD7 P10
+pin PAD8 P9 
+
+pin PAD9 P7 
+pin PAD10 P6 
+pin PAD11 P5 
+pin PAD12 
+pin PAD13 P4 
+pin PAD14 P3 
+pin PAD15 P2 
+pin PAD16 P1 
+
+pin PAD17 P63 
+pin PAD18 P62 
+pin PAD19 P61 
+pin PAD20 P60 
+pin PAD21 P59 
+pin PAD22 P58 
+pin PAD23 P57 
+
+pin PAD24 P55 
+pin PAD25 P54 
+pin PAD26 P53 
+pin PAD27 P52 
+pin PAD28 P51 
+pin PAD29 P50 
+
+pin PAD30 P47 
+pin PAD31 P46 
+pin PAD32 P45 
+pin PAD33 P44
+pin PAD34 P43 
+pin PAD35  
+pin PAD36 P42
+pin PAD37  
+
+pin PAD38 P40 
+pin PAD39 P39 
+pin PAD40 P38 
+pin PAD41 P37 
+pin PAD42 P36
+pin PAD43 P35 
+pin PAD44 P34 
+pin PAD45 P33 
+
+pin PAD46 P30 
+pin PAD47 P29 
+pin PAD48 P28 
+pin PAD49 P27 
+pin PAD50 P26 
+pin PAD51 P25 
+
+pin PAD52 P23 
+pin PAD53 P22
+pin PAD54 P21 
+pin PAD55 P20 
+pin PAD56 P19 
+pin PAD57 
+pin PAD58 P18 

@@ -1,0 +1,39 @@
+TITLE           Decoder: 4-to-16, 2 output-enable, active low outputs
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/26/93
+
+CHIP            X74_154  COMPONENT
+ 
+;Inputs
+a b c d /g1 /g2
+
+; a..d          address
+; g1..g2        enable
+
+;Outputs
+/y0 /y1 /y2 /y3 /y4 /y5 /y6 /y7 /y8 /y9 /y10 /y11 /y12 /y13 /y14 /y15
+
+; y[15:0]       output
+
+EQUATIONS 
+
+y0  = /d*/c*/b*/a*g2*g1
+y1  = /d*/c*/b* a*g2*g1
+y2  = /d*/c* b*/a*g2*g1
+y3  = /d*/c* b* a*g2*g1
+y4  = /d* c*/b*/a*g2*g1
+y5  = /d* c*/b* a*g2*g1
+y6  = /d* c* b*/a*g2*g1
+y7  = /d* c* b* a*g2*g1
+y8  =  d*/c*/b*/a*g2*g1
+y9  =  d*/c*/b* a*g2*g1
+y10 =  d*/c* b*/a*g2*g1
+y11 =  d*/c* b* a*g2*g1
+y12 =  d* c*/b*/a*g2*g1
+y13 =  d* c*/b* a*g2*g1
+y14 =  d* c* b*/a*g2*g1
+y15 =  d* c* b* a*g2*g1
+

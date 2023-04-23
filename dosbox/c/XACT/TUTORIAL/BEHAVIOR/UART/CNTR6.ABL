@@ -1,0 +1,29 @@
+module cntr6 
+title '6_Bit Binary State Counter For UART Receiver Design
+       Xilinx EPLD Applications, Feb. 93'
+
+        cntr6  device  'p22V10';
+
+" Inputs
+  x4clk     pin 1; " External clock source, 4X baud rate
+  start     pin 2; " Start bit detect (from rcvr). When (start = 0),
+                   " counter resets to 0. When (start = 1), enable counter.
+  rd        pin 4; " CPU read strobe (external, active-low)
+  cs        pin 5; " UART chip select (external, active-low)
+
+" Outputs
+  read               pin 16;                " Output enable for data register
+  c0,c1,c2,c3,c4,c5  pin 22,21,20,19,18,17 istype 'reg';
+                                            " Counter outputs.        
+          
+" Variables
+  count = [c5..c0]; " c5 is msb
+
+Equations
+
+count := (count + 1) & start;   " When start = 1 enable count, else reset 
+count.clk = x4clk; 
+
+read = !rd & !cs;              " Decode data register read (active-low)
+
+end 

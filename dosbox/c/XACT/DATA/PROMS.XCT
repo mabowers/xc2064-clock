@@ -1,0 +1,21 @@
+revision 1
+
+prom 8K		8192
+prom 16K	16384
+prom 32K	32768
+prom 64K	65536
+prom 128K	131072
+prom 256K	262144
+prom 512K	524288
+prom 1M		1048576
+prom 2M		2097152
+prom 4M		4194304
+prom 8M		8388608
+prom 16M	16777216
+prom 32M	33554432
+
+prom XC3720	1773		Type=Xilinx 
+prom XC1736	4536		Type=Xilinx
+prom XC1765	8192		Type=Xilinx
+prom XC17128	16384		Type=Xilinx
+prom XC17256	32768		Type=Xilinx

@@ -1,0 +1,19 @@
+TITLE           Flip-flop: D-type, 1-bit, sync set
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/23/93
+
+CHIP            FDS  COMPONENT
+ 
+;Inputs
+c d s
+
+;Outputs
+q
+
+EQUATIONS 
+
+q     := d + s
+q.clkf = c

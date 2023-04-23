@@ -1,0 +1,309 @@
+;: xroms.lca (4003APC84-4), xdelay 4.8.8, Wed Apr 20 23:24:01 1994
+Version 2
+Design 4003APC84 4 0
+Speed -4
+Addnet $1N31_1 BB.Y P10.O 
+Netdelay $1N31_1 P10.O 1.3 
+Program $1N31_1 {61G429} {70G429} 
+NProgram $1N31_1 row.B.local.4:PAD1.O row.B.local.4:BB.Y 
+Addnet $1N31_2 bufgp_bl.O BB.G1 
+Netdelay $1N31_2 BB.G1 1.6 
+Program $1N31_2 {52G414} {52G239} 
+NProgram $1N31_2 col.B.long.5:BB.G1 col.B.long.5:bufgp_bl.O 
+Addnet $1N119 P6.I1 startup.GSR 
+Netdelay $1N119 startup.GSR 6.0 
+Program $1N119 {433G24} {433G242} {433G461} {229G461} {118G461} {118G453} 
+NProgram $1N119 col.M.long.2:startup.GSR col.M.long.2:row.G.local.1 col.M.long.2:row.A.long.1-s col.G.local.1:row.A.long.1 col.D.local.2:row.A.long.1-l col.D.local.2:PAD5.I1 
+Addnet $1N144 md0.I rdbk.TRIG 
+Netdelay $1N144 rdbk.TRIG 1.3 
+Program $1N144 {19G37} {26G37} 
+NProgram $1N144 row.M.local.3:rdbk.TRIG row.M.local.3:md0.I 
+Addnet $1N146 rdbk.DATA md1.O 
+Netdelay $1N146 md1.O 1.3 
+Program $1N146 {18G38} {32G38} 
+NProgram $1N146 row.M.local.2:md1.O row.M.local.2:rdbk.DATA 
+Addnet $1N216_1 i_bufgp_bl.I bufgp_bl.I 
+Netdelay $1N216_1 bufgp_bl.I 3.1 
+Program $1N216_1 {16G15} 
+NProgram $1N216_1 bufgp_bl.I:i_bufgp_bl.I 
+Addnet $1N216_2 osc.F500K P35.O 
+Netdelay $1N216_2 P35.O 5.7 
+Program $1N216_2 {62G47} {229G47} {459G47} {459G242} {459G430} {435G430} {439G451} 
+NProgram $1N216_2 row.L.long.3:PAD60.O col.G.local.1:row.L.long.3 col.M.long.10:row.L.long.3-l col.M.long.10:row.G.local.1 col.M.long.10:row.B.local.3-s col.M.local.15:row.B.local.3-l row.A.long.6:osc.F500K 
+Addnet $1N387 osc.F15 bufgs_tr.I 
+Netdelay $1N387 bufgs_tr.I 4.2 
+Program $1N387 {461G460} {427G464} {427G452} {442G452} 
+NProgram $1N387 col.M.local.8:bufgs_tr.I col.M.local.3:row.A.local.5-l col.M.local.3:row.A.long.5-s row.A.long.5:osc.F15 
+Addnet $1N389_1 LC.XQ P37.O 
+Netdelay $1N389_1 P37.O 1.3 
+Program $1N389_1 {104G38} {97G38} 
+NProgram $1N389_1 row.M.local.2:PAD57.O row.M.local.2:LC.XQ 
+Addnet $1N389_2 bufgs_tr.O LC.C1 
+Netdelay $1N389_2 LC.C1 2.6 
+Program $1N389_2 {92G59} {92G245} 
+NProgram $1N389_2 col.C.long.7:LC.C1 col.C.long.7:bufgs_tr.O 
+Addnet $1N421 BE.XQ P5.O 
+Netdelay $1N421 P5.O 1.3 
+Program $1N421 {160G446} {162G402} 
+NProgram $1N421 col.E.local.6:PAD6.O col.E.local.7:BE.XQ 
+Addnet $1N427 P4.I2 BE.K 
+Netdelay $1N427 BE.K 2.4 
+Program $1N427 {156G411} {156G426} {161G428} {192G428} {199G428} {207G428} 
+NProgram $1N427 col.E.local.2:BE.K BE.24.1.16 BE.24.1.10 BF.24.1.19 BF.24.1.10 row.B.local.5:PAD9.I2 
+Addnet ADR0 JC.YQ KE.F2 KF.F2 KH.G2 IH.G2 JH.G4 JC.F4 ID.F2 IE.G2 IF.G2 JF.F4 JE.F4 JD.F4 
+Netdelay ADR0 KE.F2 2.4 KF.F2 2.7 KH.G2 2.7 IH.G2 3.1 JH.G4 3.1 JC.F4 3.8 ID.F2 3.8 IE.G2 3.8 IF.G2 3.8 JF.F4 3.8 JE.F4 3.8 JD.F4 3.8 
+Program ADR0 {260G72} {213G74} {199G74} {192G74} {175G72} {123G74} {117G80} {117G141} {100G146} {217G146} {214G146} {179G146} {176G146} {138G146} {137G146} {261G161} {260G161} {229G161} {80G161} {80G156} {85G151} {105G151} {105G146} 
+NProgram ADR0 row.L.local.7:KH.G2 row.L.local.6:KF.F2 LF.24.1.11 LF.24.1.18 row.L.local.7:KE.F2 LD.24.1.11 LD.24.1.0 col.D.local.1:JC.YQ row.J.long.1:JC.F4 row.J.long.1:IF.G2 row.J.long.1:JF.F4 row.J.long.1:IE.G2 row.J.long.1:JE.F4 row.J.long.1:JD.F4 row.J.long.1:ID.F2 row.I.long.3:JH.G4 row.I.long.3:IH.G2 col.G.local.1:row.I.long.3 col.C.local.2:row.I.long.3-l JC.24.1.1 JC.24.1.10 row.J.local.5:JC.YQ row.J.long.1:JC.YQ 
+Addnet ADR1 JD.YQ IH.G4 IF.G4 IE.G4 ID.F4 JF.F2 JH.G2 KH.G4 KE.F1 JD.F2 JE.F2 KF.F4 
+Netdelay ADR1 IH.G4 4.0 IF.G4 3.9 IE.G4 3.9 ID.F4 3.9 JF.F2 3.5 JH.G2 3.9 KH.G4 3.9 KE.F1 2.0 JD.F2 5.3 JE.F2 5.3 KF.F4 5.3 
+Program ADR1 {153G94} {261G116} {260G116} {242G116} {235G116} {213G116} {199G116} {192G116} {161G116} {159G118} {138G185} {261G185} {229G185} {218G185} {180G185} {159G185} {159G156} {159G149} {159G141} {155G141} {214G108} {175G108} {137G108} {118G108} {118G111} {118G118} {118G149} {123G151} {143G151} 
+NProgram ADR1 col.E.local.0:KE.F1 row.K.local.2:KH.G4 row.K.local.2:JH.G2 KH.24.1.7 KH.24.1.22 row.K.local.2:JF.F2 KF.24.1.7 KF.24.1.22 KE.24.1.7 KE.24.1.4 row.I.long.0:ID.F4 row.I.long.0:IH.G4 col.G.local.1:row.I.long.0 row.I.long.0:IF.G4 row.I.long.0:IE.G4 col.E.local.5:row.I.long.0-l JE.24.1.4 JE.24.1.13 col.E.local.5:JD.YQ col.E.local.1:JD.YQ row.K.long.1:KF.F4 row.K.long.1:JE.F2 row.K.long.1:JD.F2 col.D.local.2:row.K.long.1-l KD.24.1.16 KD.24.1.1 JD.24.1.16 JD.24.1.10 row.J.local.5:JD.YQ 
+Addnet ADR2 ID.XQ ID.F1 IH.G1 JH.G1 KH.G1 KF.F3 JF.F3 IF.G3 IE.G1 JE.F1 KE.F3 
+Netdelay ADR2 ID.F1 2.3 IH.G1 4.2 JH.G1 4.2 KH.G1 4.2 KF.F3 4.2 JF.F3 4.2 IF.G3 4.2 IE.G1 2.5 JE.F1 2.5 KE.F3 2.3 
+Program ADR2 {232G95} {232G99} {232G133} {232G137} {232G175} {232G176} {232G189} {199G189} {192G189} {161G189} {154G189} {123G189} {118G187} {118G170} {118G163} {191G95} {193G149} {192G150} {135G150} {157G132} {157G149} {154G152} {157G175} {157G156} {154G152} {135G152} 
+NProgram ADR2 col.H.long.0:KF.F3 col.H.long.0:KH.G1 col.H.long.0:JF.F3 col.H.long.0:JH.G1 col.H.long.0:IH.G1 col.H.long.0:IF.G3 col.H.long.0:row.I.local.5-s IF.24.1.10 IF.24.1.19 IE.24.1.10 IE.24.1.19 ID.24.1.10 ID.24.1.16 col.D.local.2:ID.F1 col.D.local.2:ID.XQ col.F.local.0:KE.F3 JF.24.1.17 JF.24.1.18 row.J.local.6:ID.XQ col.E.local.3:JE.F1 JE.24.1.15 JE.24.1.20 col.E.local.3:IE.G1 JE.24.1.2 JE.24.1.20 row.J.local.4:ID.XQ 
+Addnet ADR3 JE.YQ KE.F4 IF.G1 IE.G3 JF.F1 KF.F1 JE.F3 IH.G3 KH.G3 JH.G3 
+Netdelay ADR3 KE.F4 2.2 IF.G1 2.4 IE.G3 2.4 JF.F1 2.4 KF.F1 2.4 JE.F3 2.4 IH.G3 3.2 KH.G3 3.2 JH.G3 3.2 
+Program ADR3 {176G114} {192G114} {195G118} {195G141} {189G94} {189G132} {189G133} {189G176} {189G175} {189G151} {281G100} {279G138} {279G149} {273G155} {281G176} {279G156} {273G155} {199G155} {192G155} {181G157} {181G151} 
+NProgram ADR3 row.K.local.4:KE.F4 KF.24.1.20 KF.24.1.2 col.F.local.3:JE.YQ col.F.long.0:KF.F1 col.F.long.0:JF.F1 col.F.long.0:JE.F3 col.F.long.0:IE.G3 col.F.long.0:IF.G1 col.F.long.0:row.J.local.5-s col.I.local.7:KH.G3 col.I.local.6:JH.G3 JI.24.1.12 JI.24.1.23 col.I.local.7:IH.G3 JI.24.1.5 JI.24.1.23 JF.24.1.6 JF.24.1.23 row.J.local.0:JE.YQ row.J.local.5:JE.YQ 
+Addnet ROM0 IH.Y P61.O 
+Netdelay ROM0 P61.O 2.6 
+Program ROM0 {441G195} {394G193} {387G193} {318G193} {311G193} {265G193} 
+NProgram ROM0 row.I.local.0:PAD32.O IL.24.1.6 IL.24.1.23 IJ.24.1.6 IJ.24.1.23 row.I.local.1:IH.Y 
+Addnet ROM1 IE.Y P62.O 
+Netdelay ROM1 P62.O 2.9 
+Program ROM1 {436G223} {240G223} {240G194} {235G192} {199G192} {192G192} {184G192} 
+NProgram ROM1 row.H.long.0:PAD31.O col.H.local.5:row.H.long.0-l IH.24.1.4 IH.24.1.22 IF.24.1.7 IF.24.1.22 row.I.local.2:IE.Y 
+Addnet ROM2 JH.Y P65.O 
+Netdelay ROM2 P65.O 3.4 
+Program ROM2 {441G233} {394G231} {387G231} {318G231} {317G225} {317G156} {311G155} {265G155} 
+NProgram ROM2 row.H.local.0:PAD30.O HL.24.1.6 HL.24.1.23 HJ.24.1.6 HJ.24.1.12 JJ.24.1.5 JJ.24.1.23 row.J.local.1:JH.Y 
+Addnet ROM3 IF.Y P66.O 
+Netdelay ROM3 P66.O 3.4 
+Program ROM3 {430G262} {430G194} {424G193} {356G193} {349G193} {280G193} {273G193} {222G193} 
+NProgram ROM3 col.M.local.6:PAD29.O IM.24.1.5 IM.24.1.23 IK.24.1.6 IK.24.1.23 II.24.1.6 II.24.1.23 row.I.local.1:IF.Y 
+Addnet ROM4 KE.X P57.O 
+Netdelay ROM4 P57.O 4.9 
+Program ROM4 {436G70} {239G70} {239G73} {235G77} {199G77} {192G77} {169G77} 
+NProgram ROM4 row.L.long.1:PAD39.O col.H.local.4:row.L.long.1-l LH.24.1.14 LH.24.1.21 LF.24.1.8 LF.24.1.21 row.L.local.3:KE.X 
+Addnet ROM5 KF.X P58.O 
+Netdelay ROM5 P58.O 2.2 
+Program ROM5 {441G85} {237G85} {237G80} {235G75} {207G75} 
+NProgram ROM5 row.K.long.3:PAD38.O col.H.local.2:row.K.long.3-l LH.24.1.1 LH.24.1.19 row.L.local.5:KF.X 
+Addnet ROM6 KH.Y P59.O 
+Netdelay ROM6 P59.O 2.6 
+Program ROM6 {441G119} {394G117} {387G117} {318G117} {311G117} {265G117} 
+NProgram ROM6 row.K.local.0:PAD36.O KL.24.1.6 KL.24.1.23 KJ.24.1.6 KJ.24.1.23 row.K.local.1:KH.Y 
+Addnet ROM7 JF.X P60.O 
+Netdelay ROM7 P60.O 2.9 
+Program ROM7 {436G147} {240G147} {240G149} {235G154} {199G154} {197G149} {197G130} 
+NProgram ROM7 row.J.long.0:PAD35.O col.H.local.5:row.J.long.0-l JH.24.1.13 JH.24.1.22 JF.24.1.7 JF.24.1.13 col.F.local.5:JF.X 
+Addnet SCLK P8.I2 ID.K JD.K JE.K JC.K 
+Netdelay SCLK ID.K 3.4 JD.K 3.4 JE.K 3.6 JC.K 2.9 
+Program SCLK {87G134} {87G242} {87G444} {125G134} {125G172} {125G242} {163G134} {163G242} {163G430} {161G430} {154G430} {125G430} {123G430} {116G430} {93G430} 
+NProgram SCLK col.C.long.2:JC.K col.C.long.2:row.G.local.1 col.C.long.2:PAD3.I2 col.D.long.2:JD.K col.D.long.2:ID.K col.D.long.2:row.G.local.1 col.E.long.2:JE.K col.E.long.2:row.G.local.1 col.E.long.2:row.B.local.3-s BE.24.1.8 BE.24.1.21 col.D.long.2:row.B.local.3-s BD.24.1.8 BD.24.1.21 row.B.local.3:PAD3.I2 
+Beginpath $1N31
+Pathnet $1N31_1
+Pathnet $1N31_2
+Endpath
+Beginpath $1N216
+Pathnet $1N216_1
+Pathnet $1N216_2
+Endpath
+Beginpath $1N389
+Pathnet $1N389_1
+Pathnet $1N389_2
+Endpath
+Editblk LC
+Base FG
+Config F4: G2: G3: X: Y: XQ:DIN YQ: FFX:RESET FFY:RESET DX: DY: F: G: H: H1: DIN:C1 SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Endblk
+Editblk KE
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F2:F1:F3:F4 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ((~F4*~F3*~F1*~F2)+(~F4*~F3*~F1*F2)+(~F4*~F3*F1*~F2)+(~F4*~F3*F1*F2)+(~F4*F3*~F1*~F2)+(~F4*F3*~F1*F2)+(F4*~F3*F1*~F2)+(F4*~F3*F1*F2)+(F4*F3*~F1*~F2)+(F4*F3*~F1*F2)+(F4*F3*F1*~F2)+(F4*F3*F1*F2))
+Endblk
+Editblk KF
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F2:F4:F3:F1 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ((~F1*~F3*~F4*~F2)+(~F1*~F3*~F4*F2)+(~F1*~F3*F4*~F2)+(~F1*~F3*F4*F2)+(~F1*F3*F4*~F2)+(~F1*F3*F4*F2)+(F1*~F3*~F4*~F2)+(F1*~F3*~F4*F2)+(F1*F3*~F4*~F2)+(F1*F3*~F4*F2)+(F1*F3*F4*~F2)+(F1*F3*F4*F2))
+Endblk
+Editblk KH
+Base FG
+Config F4: G2:G2I G3:G3I X: Y:G XQ: YQ: FFX:RESET FFY:RESET DX: DY: F: G:G2:G4:G1:G3 H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate G = ((~G3*~G1*~G4*~G2)+(~G3*~G1*~G4*G2)+(~G3*G1*~G4*~G2)+(~G3*G1*~G4*G2)+(~G3*G1*G4*~G2)+(~G3*G1*G4*G2)+(G3*~G1*~G4*~G2)+(G3*~G1*~G4*G2)+(G3*~G1*G4*~G2)+(G3*~G1*G4*G2)+(G3*G1*G4*~G2)+(G3*G1*G4*G2))
+Endblk
+Editblk JC
+Base FG
+Config F4:F4I G2: G3: X: Y: XQ: YQ:QY FFX:RESET FFY:K:RESET DX: DY:F F:F4 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ~(F4)
+Endblk
+Editblk JD
+Base FG
+Config F4:F4I G2: G3: X: Y: XQ: YQ:QY FFX:RESET FFY:K:RESET DX: DY:F F:F4:F2 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (F2@F4)
+Endblk
+Editblk JE
+Base FG
+Config F4:F4I G2: G3: X: Y: XQ: YQ:QY FFX:RESET FFY:K:RESET DX: DY:F F:F4:F2:F1:F3 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (F3@(F1*F2*F4))
+Endblk
+Editblk JF
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F4:F2:F3:F1 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ((~F1*~F3*F2*~F4)+(~F1*~F3*F2*F4)+(~F1*F3*~F2*~F4)+(~F1*F3*~F2*F4)+(~F1*F3*F2*~F4)+(~F1*F3*F2*F4)+(F1*~F3*~F2*~F4)+(F1*~F3*~F2*F4)+(F1*~F3*F2*~F4)+(F1*~F3*F2*F4)+(F1*F3*~F2*~F4)+(F1*F3*~F2*F4))
+Endblk
+Editblk JH
+Base FG
+Config F4: G2:G2I G3:G3I X: Y:G XQ: YQ: FFX:RESET FFY:RESET DX: DY: F: G:G4:G2:G1:G3 H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate G = ((~G3*~G1*~G2*~G4)+(~G3*~G1*~G2*G4)+(~G3*~G1*G2*~G4)+(~G3*~G1*G2*G4)+(~G3*G1*G2*~G4)+(~G3*G1*G2*G4)+(G3*~G1*~G2*~G4)+(G3*~G1*~G2*G4)+(G3*G1*~G2*~G4)+(G3*G1*~G2*G4)+(G3*G1*G2*~G4)+(G3*G1*G2*G4))
+Endblk
+Editblk ID
+Base FG
+Config F4:F4I G2: G3: X: Y: XQ:QX YQ: FFX:K:RESET FFY:RESET DX:F DY: F:F2:F4:F1 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (F1@(F4*F2))
+Endblk
+Editblk IE
+Base FG
+Config F4: G2:G2I G3:G3I X: Y:G XQ: YQ: FFX:RESET FFY:RESET DX: DY: F: G:G2:G4:G1:G3 H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate G = ((~G3*~G1*~G4*~G2)+(~G3*~G1*~G4*G2)+(~G3*G1*~G4*~G2)+(~G3*G1*~G4*G2)+(~G3*G1*G4*~G2)+(~G3*G1*G4*G2)+(G3*~G1*~G4*~G2)+(G3*~G1*~G4*G2)+(G3*~G1*G4*~G2)+(G3*~G1*G4*G2)+(G3*G1*G4*~G2)+(G3*G1*G4*G2))
+Endblk
+Editblk IF
+Base FG
+Config F4: G2:G2I G3:G3I X: Y:G XQ: YQ: FFX:RESET FFY:RESET DX: DY: F: G:G2:G4:G3:G1 H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate G = ((~G1*~G3*~G4*~G2)+(~G1*~G3*~G4*G2)+(~G1*~G3*G4*~G2)+(~G1*~G3*G4*G2)+(~G1*G3*~G4*~G2)+(~G1*G3*~G4*G2)+(G1*~G3*G4*~G2)+(G1*~G3*G4*G2)+(G1*G3*~G4*~G2)+(G1*G3*~G4*G2)+(G1*G3*G4*~G2)+(G1*G3*G4*G2))
+Endblk
+Editblk IH
+Base FG
+Config F4: G2:G2I G3:G3I X: Y:G XQ: YQ: FFX:RESET FFY:RESET DX: DY: F: G:G2:G4:G1:G3 H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate G = ((~G3*~G1*G4*~G2)+(~G3*~G1*G4*G2)+(~G3*G1*~G4*~G2)+(~G3*G1*~G4*G2)+(~G3*G1*G4*~G2)+(~G3*G1*G4*G2)+(G3*~G1*~G4*~G2)+(G3*~G1*~G4*G2)+(G3*~G1*G4*~G2)+(G3*~G1*G4*G2)+(G3*G1*~G4*~G2)+(G3*G1*~G4*G2))
+Endblk
+Editblk BB
+Base FG
+Config F4: G2: G3: X: Y:G XQ: YQ: FFX:RESET FFY:RESET DX: DY: F: G:G1 H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate G = G1
+Endblk
+Editblk BE
+Base FG
+Config F4: G2: G3: X: Y: XQ:QX YQ: FFX:K:RESET FFY:RESET DX:F DY: F: G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = 1
+Endblk
+Editblk startup
+Base STARTUP
+Config GTS: GSR:NOT 
+Endblk
+Editblk P35
+Base IO
+Config INFF: I1: I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P37
+Base IO
+Config INFF: I1: I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P57
+Base IO
+Config INFF: I1: I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P58
+Base IO
+Config INFF: I1: I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P59
+Base IO
+Config INFF: I1: I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P60
+Base IO
+Config INFF: I1: I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P61
+Base IO
+Config INFF: I1: I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P62
+Base IO
+Config INFF: I1: I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P65
+Base IO
+Config INFF: I1: I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P66
+Base IO
+Config INFF: I1: I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P10
+Base IO
+Config INFF: I1: I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P8
+Base IO
+Config INFF: I1: I2:I O: OUT: PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P6
+Base IO
+Config INFF: I1:I I2: O: OUT: PAD:PULLUP TRI: OSPEED:SLOW 
+Endblk
+Editblk P5
+Base IO
+Config INFF: I1: I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P4
+Base IO
+Config INFF: I1: I2:I O: OUT: PAD: TRI: OSPEED:SLOW 
+Endblk
+Nameblk P37 BLINK
+Nameblk P57 BIT4
+Nameblk KE ROM4
+Nameblk KF ROM5
+Nameblk KH ROM6
+Nameblk P58 BIT5
+Nameblk JC ADR0
+Nameblk JD ADR1
+Nameblk JE ADR3
+Nameblk JF ROM7
+Nameblk JH ROM2
+Nameblk P59 BIT6
+Nameblk P60 BIT7
+Nameblk ID ADR2
+Nameblk IE ROM1
+Nameblk IF ROM3
+Nameblk IH ROM0
+Nameblk P61 BIT0
+Nameblk P62 BIT1
+Nameblk P65 BIT2
+Nameblk P66 BIT3
+Nameblk BE $1N421
+Nameblk P10 TO_CLKI
+Nameblk P8 FROM_CLKO
+Nameblk P6 RESETB
+Nameblk P5 QDATA
+Nameblk P4 DATA
+Intnet $1N421 F VCC
+Intnet ADR2 F $1I231/D2
+Intnet ADR0 F $1I231/D0
+Intnet ADR1 F $1I231/D1
+Intnet ADR3 F $1I231/D3
+Intnet DATA PAD DATA
+Intnet QDATA PAD QDATA
+Intnet RESETB PAD RESETB
+Intnet FROM_CLKO PAD FROM_CLKO
+Intnet TO_CLKI PAD TO_CLKI
+Intnet P35 PAD $1N216
+Intnet BLINK PAD BLINK
+Intnet BIT4 PAD BIT4
+Intnet BIT5 PAD BIT5
+Intnet BIT6 PAD BIT6
+Intnet BIT7 PAD BIT7
+Intnet BIT0 PAD BIT0
+Intnet BIT1 PAD BIT1
+Intnet BIT2 PAD BIT2
+Intnet BIT3 PAD BIT3
+System FGG 0 VERS 1 !
+System FGG 1 GD0 0 !
+System Xdelay TimeGroup ffs -FF $1N421 ADR0 ADR1 ADR2 ADR3
+System Xdelay TimeGroup pads -IOB BIT0 BIT1 BIT2 BIT3 BIT4 BIT5 BIT6 BIT7 BLINK
+System Xdelay TimeGroup pads -IOB DATA FROM_CLKO QDATA RESETB TO_CLKI
+System Xdelay TimeSpec DEFAULT_FROM_FFS_TO_FFS ffs ffs 0.0
+System Xdelay TimeSpec DEFAULT_FROM_FFS_TO_PADS ffs pads 0.0
+System Xdelay TimeSpec DEFAULT_FROM_PADS_TO_FFS pads ffs 0.0

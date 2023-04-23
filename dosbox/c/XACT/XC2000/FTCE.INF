@@ -1,0 +1,27 @@
+`F  1.00 ftce
+`B "1" "1" "A" "      May  2, 1993" "" "A" 
+"XC4000 Family FTCE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "T"
+`P O "Q"
+`P I "CE"
+`P I "C"
+`P I "CLR"
+`S "TQ" 1 
+`E XC2000.LIB
+`I R "FDCE" XC2000.LIB "FDCE" CFCDA76F  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "CLR" "CLR" I ) 
+( "Q" "Q" O ) 
+`I R "XOR2" XC2000.LIB "XOR2" CFCDAA29  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`J ( R U2 "I1" I ) ( R U1 "Q" O ) ( P O "Q" ) 
+`J ( R U2 "O" O ) ( S "TQ" 1  ) ( R U1 "D" I ) 
+`J ( P I "T" ) ( R U2 "I0" I ) 
+`J ( P I "CE" ) ( R U1 "CE" I ) 
+`J ( P I "C" ) ( R U1 "C" I ) 
+`J ( P I "CLR" ) ( R U1 "CLR" I ) 

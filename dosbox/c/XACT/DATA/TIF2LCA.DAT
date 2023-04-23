@@ -1,0 +1,1028 @@
+# "@(#)tif2lca.dat	6.2 4/6/93"
+#############################################################################
+# This is the tif2lca.dat.  It is used as a mapping aide in translating
+# tif information to lca2 information.  The basic syntax to the file is
+# <type>
+#   :
+# <information for type>
+#   :
+# *
+# where there will be a series series of different type (BELS, PINS, EW-SEGS,
+# NS-SEGS, ...) whose information will be listed before the next type.
+#############################################################################
+#
+#
+#############################################################################
+# BELS: mapping of tif bel names to their closest equivalent lca names.  
+# syntax:  '<tif belname>  <lca name>'
+#############################################################################
+BELS
+AD	DEC
+BD	DEC
+CD	DEC
+APAD	PAD
+BPAD	PAD
+A1PAD   PAD
+B1PAD   PAD
+AIQ	IQ	
+BIQ	IQ	
+AOQ	OQ	
+BOQ	OQ	
+AT	TBUF	
+BT	TBUF	
+F	F
+G	G
+H	H
+FFX	FFX
+FFY	FFY
+CY4	CARRY
+BSCAN	BSCAN
+GP	BUFGP
+GS	BUFGS
+OSC	OSC
+BSCANT	UPDATE
+TDO	TDO
+RDBK	RDBK
+MD1	MD1
+MD0	MD0
+MD2	MD2
+RDCLK	RDCLK
+STARTUP	STARTUP
+APU 	PULLUP
+BPU 	PULLUP
+PULLDOWN   PULLDOWN
+VPU3 	PULLUP
+VPU2 	PULLUP
+VPU1 	PULLUP
+VPU0 	PULLUP
+HPU3 	PULLUP
+HPU2 	PULLUP
+HPU1 	PULLUP
+HPU0 	PULLUP
+*
+
+#############################################################################
+# PINS: Mapping of tif name to their associated lca pinname.
+# syntax : '<tif name> <type> <row_name> <col_name>'
+# the row name and column name are both there because depending on whether
+# the name is associated with a row or column it could be different.
+#############################################################################
+PINS
+AT 	PADA	.T	.T
+AO 	PADA	.O	.O
+A1O     PADA1   .O      .O
+AOK 	PADA	.OK	.OK
+AIK 	PADA	.IK	.IK
+ATS     PADA    .TS     .TS
+A1TS    PADA1   .TS     .TS
+ATP     PADA    .TP     .TP
+A1TP    PADA1   .TP     .TP
+AI1 	PADA	.I1	.I1
+AI2 	PADA	.I2	.I2
+AI      PADA    .I      .I
+A1I     PADA1   .I      .I
+BT 	PADB	.T	.T
+BO 	PADB	.O	.O
+B1O     PADB1   .O      .O
+BOK 	PADB	.OK	.OK
+BIK 	PADB	.IK	.IK
+BTS     PADB    .TS     .TS
+B1TS    PADB1   .TS     .TS
+BTP     PADB    .TP     .TP
+B1TP    PADB1   .TP     .TP
+BI1 	PADB	.I1	.I1
+BI2 	PADB	.I2	.I2
+BI      PADB    .I      .I
+B1I     PADB1   .I      .I
+ATI 	TBUF	.2.I	.2.I
+ATT 	TBUF	.2.T	.2.T
+ATO 	TBUF	.2.O	.2.O
+BTI 	TBUF	.1.I	.1.I
+BTT 	TBUF	.1.T	.1.T
+BTO 	TBUF	.1.O	.1.O
+
+GPIP	BUFG	bufgp	 bufgp
+GPI	BUFG	bufgp	 bufgp
+GPO	BUFG	bufgp	 bufgp
+GSIP	BUFG	bufgs	 bufgs
+GSI	BUFG	bufgs	 bufgs
+GSO	BUFG	bufgs	 bufgs
+
+F8M	LOGIC	osc.F8M osc.F8M
+F500K	LOGIC	osc.F500K osc.F500K
+F16K	LOGIC	osc.F16K osc.F16K
+F490	LOGIC	osc.F490 osc.F490
+F15	LOGIC	osc.F15 osc.F15
+TDOO	LOGIC	tdo.O tdo.O
+TDOT	LOGIC	tdo.T tdo.T
+UPD	LOGIC	update.O update.O
+
+TDI	LOGIC 	NO_PIN NO_PIN
+TMS	LOGIC 	NO_PIN NO_PIN
+TCK	LOGIC 	NO_PIN NO_PIN
+TDO1	LOGIC 	bscan.TDO1 bscan.TDO1
+TDO2	LOGIC 	bscan.TDO2 bscan.TDO2
+TDO	LOGIC 	NO_PIN NO_PIN
+IDLE	LOGIC 	bscan.IDLE bscan.IDLE
+SEL1	LOGIC 	bscan.SEL1 bscan.SEL1
+SEL2	LOGIC 	bscan.SEL2 bscan.SEL2
+DRCK	LOGIC 	bscan.DRCK bscan.DRCK
+
+RDCLK   LOGIC	rdclk.I rdclk.I
+GSR	LOGIC	startup.GSR startup.GSR
+GTS	LOGIC	startup.GTS startup.GTS
+CLK	LOGIC	startup.CLK startup.CLK
+Q2	LOGIC	startup.Q2 startup.Q2
+Q3	LOGIC	startup.Q3 startup.Q3
+Q14	LOGIC	startup.Q1Q4 startup.Q1Q4
+DONEIN	LOGIC	startup.DONEIN startup.DONEIN
+
+TRIG	LOGIC	rdbk.TRIG rdbk.TRIG
+DATA	LOGIC	rdbk.DATA rdbk.DATA
+RIP	LOGIC	rdbk.RIP rdbk.RIP
+MD1O	LOGIC	md1.O md1.O
+MD1T	LOGIC	md1.T md1.T
+MD0	LOGIC	md0.I md0.I
+MD2	LOGIC	md2.I md2.I
+
+acout	CARRY	COUT	COUT
+bcout	CARRY	COUT	COUT
+nwgpo	LOGIC	bufgp_tl.O bufgp_tl.O
+negpo	LOGIC	bufgp_tr.O bufgp_tr.O
+swgpo	LOGIC	bufgp_bl.O bufgp_bl.O
+segpo	LOGIC	bufgp_br.O bufgp_br.O
+nwgso	LOGIC	bufgs_tl.O bufgs_tl.O
+negso	LOGIC	bufgs_tr.O bufgs_tr.O
+swgso	LOGIC	bufgs_bl.O bufgs_bl.O
+segso	LOGIC	bufgs_br.O bufgs_br.O
+
+#
+# used to setup the segment assocaited with an oscillator pin
+#
+OSC1	OSC	local.3 local.34
+OSC2	OSC	local.5 local.5
+
+#
+# used to setup the segment assocaited with the corner logic pullups
+#
+ne_pullup PULLUP_NAME 	local.8 local.34
+nw_pullup PULLUP_NAME 	local.8 local.19
+se_pullup PULLUP_NAME 	local.37 local.14
+sw_pullup PULLUP_NAME 	local.37 local.19
+
+
+
+#
+# used to translate the special segments in HYDRA iob block 
+#
+EHAI       SPECIAL       local.39   local.39
+EHAI1      SPECIAL       local.23   local.23
+EVAI       SPECIAL       local.39  local.39
+EVAI_1     SPECIAL       local.19  local.19
+EVAI_2     SPECIAL       local.35  local.35
+EVAI1      SPECIAL       local.38  local.38
+EVAI1_1    SPECIAL       local.34  local.34
+EVAI1_2    SPECIAL       local.12  local.12
+EHAO       SPECIAL       local.15   local.15
+EVAO_1     SPECIAL       local.16   local.16
+EVAO_2     SPECIAL       local.17   local.17
+EHAO1      SPECIAL       local.25   local.25
+EHATP      SPECIAL       local.25  local.25
+EVAO       SPECIAL       local.41  local.41
+EVAO1      SPECIAL       local.40  local.40
+EVATP      SPECIAL       local.19  local.19
+EHBI       SPECIAL       local.39   local.39
+EHBI1      SPECIAL       local.21   local.21
+EVBI       SPECIAL       local.39   local.39 
+EVBI_1     SPECIAL       local.18   local.18
+EVBI_2     SPECIAL       local.33   local.33 
+EVBI1      SPECIAL       local.38   local.38
+EVBI1_1    SPECIAL       local.34   local.34
+EVBI1_2    SPECIAL       local.15   local.15
+EVBI1_3    SPECIAL       local.13   local.13
+EHBO       SPECIAL       local.13   local.13
+EHBO1      SPECIAL       local.18   local.18
+EHBTP      SPECIAL       local.19   local.19
+EVBO       SPECIAL       local.41   local.41
+EVBO_1     SPECIAL       local.14   local.14
+EVBO1      SPECIAL       local.40   local.40
+EVBTP      SPECIAL       local.19   local.19
+WHAI       SPECIAL       local.14   local.14
+WVAI_1     SPECIAL       local.17   local.17
+WVAI_2     SPECIAL       local.16   local.16
+WHAI1      SPECIAL       local.16   local.16
+WHAI1_1    SPECIAL       local.20   local.20
+WVAI       SPECIAL       local.14   local.14
+WVAI1      SPECIAL       local.22   local.22
+WVAI1_1    SPECIAL       local.26   local.26
+WVAI1_2    SPECIAL       local.25   local.25
+WHAO       SPECIAL       local.15   local.15
+WHAO1      SPECIAL       local.17   local.17
+WHATP      SPECIAL       local.17   local.17
+WVAO_1     SPECIAL       local.19   local.19
+WVAO_2     SPECIAL       local.23   local.23
+WVAO       SPECIAL       local.20   local.20
+WVAO1      SPECIAL       local.21   local.21
+WVATP      SPECIAL       local.17   local.17
+WHBI       SPECIAL       local.14   local.14
+WHBI1      SPECIAL       local.21   local.21
+WHBI1_1    SPECIAL       local.22   local.22
+WVBI       SPECIAL       local.14   local.14
+WVBI_1     SPECIAL       local.18   local.18
+WVBI_2     SPECIAL       local.15   local.15
+WVBI_3     SPECIAL       local.25   local.25
+WVBI1      SPECIAL       local.22   local.22
+WVBI1_1    SPECIAL       local.26   local.26
+WVBI1_2    SPECIAL       local.24   local.24
+WHBO       SPECIAL       local.14   local.14
+WHBO1      SPECIAL       local.19   local.19
+WHBTP      SPECIAL       local.18   local.18
+WHBTP_1    SPECIAL       local.19   local.19
+WVBO       SPECIAL       local.20   local.20
+WVBO_1     SPECIAL       local.19   local.19
+WVBO1      SPECIAL       local.21   local.21
+WVBTP      SPECIAL       local.17   local.17
+NHAI       SPECIAL       local.1    local.1
+NHAI1      SPECIAL       local.8    local.8
+NVAI       SPECIAL       local.1    local.1
+NHAI_1     SPECIAL       local.6    local.6
+NHAI_2     SPECIAL       local.23    local.23
+NVAI1      SPECIAL       local.20   local.20
+NHAO       SPECIAL       local.9    local.9
+NHAO_1     SPECIAL       local.1    local.1
+NHAO1      SPECIAL       local.7    local.7
+NHATP      SPECIAL       local.22   local.22
+NVAO       SPECIAL       local.12   local.12
+NVAO1      SPECIAL       local.15   local.15
+NVATP      SPECIAL       local.15   local.15
+NHBI       SPECIAL       local.1    local.1
+NHBI_1     SPECIAL       local.3    local.3
+NHBI_2     SPECIAL       local.24    local.24
+NHBI1      SPECIAL       local.8    local.8
+NHBI1_1    SPECIAL       local.0    local.0 
+NVBI       SPECIAL       local.1    local.1
+NVBI1      SPECIAL       local.21   local.21
+NHBO       SPECIAL       local.9    local.9
+NHBO_1     SPECIAL       local.2    local.2
+NHBO1      SPECIAL       local.7    local.7
+NHBTP      SPECIAL       local.22   local.22
+NVBO       SPECIAL       local.19   local.19
+NVBO1      SPECIAL       local.22   local.22
+NVBTP      SPECIAL       local.22   local.22
+NVBTP_1    SPECIAL       local.17   local.17
+SHAI       SPECIAL       local.36   local.36
+SHAI_1     SPECIAL       local.25   local.25
+SHAI_2     SPECIAL       local.24   local.24
+SHAI1      SPECIAL       local.41   local.41
+SHAI1_1    SPECIAL       local.26   local.26
+SVAI       SPECIAL       local.36   local.36
+SVAI1      SPECIAL       local.14   local.14
+SHAO       SPECIAL       local.28   local.28
+SHAO1      SPECIAL       local.35   local.35
+SHATP      SPECIAL       local.34   local.34
+SVATP_1    SPECIAL       local.15   local.15
+SVAO       SPECIAL       local.13   local.13
+SVAO1      SPECIAL       local.16   local.16
+SVATP      SPECIAL       local.16   local.16
+SHBI       SPECIAL       local.36   local.36
+SHBI_1     SPECIAL       local.33   local.33
+SHBI_2     SPECIAL       local.24   local.24
+SHBI1      SPECIAL       local.41   local.41
+SHBI1_1    SPECIAL       local.37   local.37
+SVBI       SPECIAL       local.36   local.36
+SVBI1      SPECIAL       local.18   local.18
+SHBO       SPECIAL       local.28   local.28
+SHBO_1     SPECIAL       local.27   local.27
+SHBO1      SPECIAL       local.35   local.35
+SHBTP      SPECIAL       local.34   local.34
+SVBO       SPECIAL       local.19   local.19
+SVBO1      SPECIAL       local.17   local.17
+SVBTP      SPECIAL       local.17   local.17
+
+#
+# used to map a tif decoder pin to a lca deocoder pin syntax
+# syntax: '<tif pin name> DEC <north name> <south name> <west name> <east name>'
+#
+ADI 	DEC	.1.I	.3.I	.1.I	.3.I
+ADO1	DEC	.1.O1	.3.O1	.1.O4	.3.O4
+ADO2	DEC	.1.O2	.3.O2	.1.O3	.3.O3
+ADO3	DEC	.1.O3	.3.O3	.1.O2	.3.O2
+ADO4	DEC	.1.O4	.3.O4	.1.O1	.3.O1
+CDI 	DEC	.2.I	.2.I	.2.I	.2.I
+CDO1 	DEC	.2.O1	.2.O1	.2.O4	.2.O4
+CDO2 	DEC	.2.O2	.2.O2	.2.O3	.2.O3
+CDO3 	DEC	.2.O3	.2.O3	.2.O2	.2.O2
+CDO4 	DEC	.2.O4	.2.O4	.2.O1	.2.O1
+BDI 	DEC	.3.I	.1.I	.3.I	.1.I
+BDO1 	DEC	.3.O1	.1.O1	.3.O4	.1.O4
+BDO2 	DEC	.3.O2	.1.O2	.3.O3	.1.O3
+BDO3 	DEC	.3.O3	.1.O3	.3.O2	.1.O2
+BDO4 	DEC	.3.O4	.1.O4	.3.O1	.1.O1
+
+#
+# used to map pullup pin numbers from tif pullups to lca pullups
+# syntax: '<tif pullup name> PULLUP <northwest number> <northeast number> 
+#			<southwest number> <southeast number>'
+#
+APUO	PULLUP  2	2	0	0
+BPUO	PULLUP  1	1	0	0
+HPU0O	PULLUP  4	4	8	8
+HPU1O	PULLUP  3	3	7	7
+HPU2O	PULLUP  2	2	6	6
+HPU3O	PULLUP  1	1	5	5
+VPU0O	PULLUP  5	8	4	1
+VPU1O	PULLUP  6	7	3	2
+VPU2O	PULLUP  7	6	2	3
+VPU3O	PULLUP  8	5	1	4
+
+*
+
+#############################################################################
+# EW_SEGS: used to map the east/west segment numbers in tif to the column
+# numbers in lca.  
+# syntax:
+#     EW-SEGS
+#     <type>
+#      :
+#     <tif number> <lca column number>
+#      :
+#     *
+#############################################################################
+# tif locals to lca locals
+EW-SEGS
+X
+0 2
+1 3
+2 4
+3 5
+4 6
+5 7
+6 8
+7 9
+*
+# tif doubles to lca locals
+EW-SEGS
+D
+0 0
+1 1
+2 10
+3 11
+*
+# tif longs to lca longs
+EW-SEGS
+L
+0 0
+1 1
+2 2
+3 3
+4 4
+5 5
+*
+# tif globals to lca longs
+EW-SEGS
+G
+0 6
+1 7
+2 8
+3 9
+*
+# used to map the local to long line connections in the tif magic boxes.
+# the numbers represent the tif long line and the lca local line to which
+# it connects.
+EW-SEGS
+M
+0 1
+1 2
+2 3
+3 4
+4 5
+5 6
+*
+
+
+#############################################################################
+# NS_SEGS: used to map the north/south segment numbers in tif to the row
+# numbers in lca.  
+# syntax:
+#     NS-SEGS
+#     <type>
+#      :
+#     <tif number> <lca row number>
+#      :
+#     *
+#############################################################################
+# tif locals to lca locals
+NS-SEGS
+X
+0 9
+1 8
+2 7
+3 6
+4 5
+5 4
+6 3
+7 2
+*
+# tif doubles to lca locals
+# The tif line 13 corresponds to the tif double line 3 connected to the north
+# from clb pin Y.
+NS-SEGS
+D
+0 11
+1 10
+2 1
+3 0
+13 13
+*
+# tif longs to lca longs
+# The last three are mappings for the tif long lines along the top edge
+# they mean the long lines 3, 4 and 5 in the norhternmost tile map to 
+# tif long lines 10, 9 and 8.  The numbers are 13, 14, and 15 to distinguish
+# them from the earlier 3, 4 and 5.
+NS-SEGS
+L
+0 2
+1 1
+2 0
+3 5
+4 4
+5 3
+13 10
+14 9
+15 8
+*
+# used to map the local to long line connections in the tif magic boxes.
+# the numbers represent the tif long line and the lca local line to which
+# it connects.
+NS-SEGS
+M
+0 4
+1 5
+2 6
+3 1
+4 2
+5 3
+*
+
+
+#############################################################################
+# MAGIC/EAST/*: used to map the segments associated with the magic boxes on 
+# the east edge of the chip to their associated lca segments.  
+# numbers in lca.  
+# syntax:
+#     MAGIC/EAST/NORTH || SOUTH || WEST
+#     <type>
+#      :
+#     <tif number> <lca number>
+#      :
+#     *
+#############################################################################
+# tif trixies lines to lca long lines
+MAGIC/EAST/SOUTH
+T
+0 10
+1 11
+2 12
+3 13
+*
+# tif long lines to lca long lines
+MAGIC/EAST/SOUTH
+L
+0 14
+1 15
+2 16
+3 17
+*
+# tif double lines to lca local lines
+MAGIC/EAST/SOUTH
+D
+0 20
+1 22
+2 23
+3 25
+4 26
+5 28
+6 29
+7 31
+*
+# tif redrive buffer line to lca long lines
+MAGIC/EAST/SOUTH
+R
+0 1
+1 0
+*
+# tif trixie line to lca long lines
+MAGIC/EAST/NORTH
+T
+0 10
+1 11
+2 12
+3 13
+*
+# tif long line to lca long lines
+MAGIC/EAST/NORTH
+L
+0 14
+1 15
+2 16
+3 17
+*
+# tif double line to lca local lines
+MAGIC/EAST/NORTH
+D
+0 22
+1 21
+2 25
+3 24
+4 28
+5 27
+6 31
+7 30
+*
+# tif redrive buffer line to lca local lines
+# The tif line 20 corresponds to the northernmost tif line 0 in the southeast
+# corner tile.
+MAGIC/EAST/NORTH
+R
+0 14
+1 0
+20 40
+*
+# tif long line to lca long lines
+# the tif lines 33, 34 and 35 correspond to lines 3, 4 and 5 on the norhtern
+# most tile on the eastern edge.  This is to account for the difference 
+# between tif tiles and lca tiles.
+MAGIC/EAST/WEST
+L
+0 2
+1 1
+2 0
+3 5
+4 4
+5 3
+33 10
+34 9 
+35 8
+*
+# tif double line to lca local lines
+# The tif line 23 corresponds to the tif line 3 on the southwest corner tile.
+MAGIC/EAST/WEST
+D
+0 11
+1 10
+2 1
+3 13
+23 39
+*
+# tif local line to lca local lines
+MAGIC/EAST/WEST
+X
+0 9
+1 8
+2 7
+3 6
+4 5
+5 4
+6 3
+7 2
+*
+# double line to double line connection in tif to local to local connections
+# in lca.  the 21, 23, 25 and 27 tif values correspond to tif lines 1, 3, 5
+# and 7 connections in the southeast corner.  The -1 value in the lca portion 
+# means there is no lca line that corresponds with the tif line (should not be 
+# encountered).
+MAGIC/EAST/DBL_DBL
+D
+0 -1
+1 12
+2 -1
+3 12
+4 -1
+5 12
+6 -1
+7 12
+21 38
+23 38
+25 38
+27 38
+*
+
+
+#############################################################################
+# MAGIC/NORTH/*: used to map the segments associated with the magic boxes on 
+# the north edge of the chip to their associated lca segments.  
+# syntax:
+#     MAGIC/NORTH/EAST || SOUTH || WEST
+#     <type>
+#      :
+#     <tif number> <lca number>
+#      :
+#     *
+#############################################################################
+# tif long lines to lca long lines
+MAGIC/NORTH/WEST
+L
+0 3
+1 2
+2 1
+3 0
+*
+# tif trixies lines to lca long lines
+MAGIC/NORTH/WEST
+T
+0 7
+1 6
+2 5
+3 4
+*
+MAGIC/NORTH/WEST
+# tif global lines to lca long lines
+G
+0 6
+1 5
+2 4
+3 3
+*
+# tif double lines to lca local lines
+MAGIC/NORTH/WEST
+D
+0 12
+1 11
+2 15
+3 14
+4 18
+5 17
+6 21
+7 20
+*
+# tif redrive buffer lines to lca long lines
+MAGIC/NORTH/WEST
+R
+0 1
+1 2
+*
+# tif long lines to lca long lines
+MAGIC/NORTH/EAST
+L
+0 3
+1 2
+2 1
+3 0
+*
+# tif trixie lines to lca long lines
+MAGIC/NORTH/EAST
+T
+0 7
+1 6
+2 5
+3 4
+*
+# tif double lines to lca local lines
+MAGIC/NORTH/EAST
+D
+0 10
+1 12
+2 13
+3 15
+4 16
+5 18
+6 19
+7 21
+*
+# tif redrive buffer lines to lca long lines
+MAGIC/NORTH/EAST
+R
+0 4
+1 3
+*
+# tif long lines to lca long lines
+MAGIC/NORTH/SOUTH
+L
+0 0
+1 1
+2 2
+3 3
+4 4
+5 5
+*
+# tif double lines to lca local lines
+MAGIC/NORTH/SOUTH
+D
+0 0
+1 1
+2 10
+3 11
+*
+# tif local lines to lca local lines
+MAGIC/NORTH/SOUTH
+X
+0 2
+1 3
+2 4
+3 5
+4 6
+5 7
+6 8
+7 9
+*
+# double line to double line connection in tif to local to local connections
+# in lca.  The -1 value in the lca portion means there is no lca line that
+# corresponds with the tif line (should not be encountered).
+MAGIC/NORTH/DBL_DBL
+D
+0 -1
+1 12
+2 -1
+3 0
+4 -1
+5 0
+6 -1
+7 0
+*
+
+
+#############################################################################
+# MAGIC/WEST/*: used to map the segments associated with the magic boxes on 
+# the west edge of the chip to their associated lca segments.  
+# syntax:
+#     MAGIC/WEST/EAST || SOUTH || NORTH
+#     <type>
+#      :
+#     <tif number> <lca number>
+#      :
+#     *
+#############################################################################
+# tif long lines to lca long lines
+MAGIC/WEST/NORTH
+L
+0 0
+1 1
+2 2
+3 3
+*
+# tif trixie lines to lca long lines
+MAGIC/WEST/NORTH
+T
+0 4
+1 5
+2 6
+3 7
+*
+# tif double lines to lca local lines
+MAGIC/WEST/NORTH
+D
+0 3
+1 2
+2 6
+3 5
+4 9
+5 8
+6 12
+7 11
+*
+# tif redrive buffer lines to lca local lines
+# The tif line 20 corresponds to the northernmost tif line 0 in the southwest
+# corner tile.
+MAGIC/WEST/NORTH
+R
+0 14
+1 0
+20 40
+*
+# tif long lines to lca long lines
+MAGIC/WEST/SOUTH
+L
+0 0
+1 1
+2 2
+3 3
+*
+# tif trixie lines to lca long lines
+MAGIC/WEST/SOUTH
+T
+0 4
+1 5
+2 6
+3 7
+*
+# tif double lines to lca local lines
+MAGIC/WEST/SOUTH
+D
+0 1
+1 3
+2 4
+3 6
+4 7
+5 9
+6 10
+7 12
+*
+# tif redrive buffer lines to lca long lines
+MAGIC/WEST/SOUTH
+R
+0 1
+1 0
+*
+# tif long lines to lca long lines
+# the tif lines 33, 34 and 35 correspond to lines 3, 4 and 5 on the norhtern
+# most tile on the western edge.  This is to account for the difference 
+# between tif tiles and lca tiles.
+MAGIC/WEST/EAST
+L
+0 2
+1 1
+2 0
+3 5
+4 4
+5 3
+33 10
+34 9 
+35 8
+*
+# tif global lines to lca long lines
+MAGIC/WEST/EAST
+G
+0 8
+1 9
+2 10
+3 11
+*
+# tif double lines to lca local lines
+# The tif line 23 corresponds to the tif line 3 on the southwest corner tile.
+MAGIC/WEST/EAST
+D
+0 11
+1 10
+2 1
+3 13
+23 39
+*
+# tif local lines to lca local lines
+# The tif line 11 corresponds to the tif line 1 on all the even tiles.  The
+# tif line 21 corresponds to the tif line 1 on the southwest corner tile.
+MAGIC/WEST/EAST
+X
+0 9
+1 8
+2 7
+3 6
+4 5
+5 4
+6 3
+7 2
+11 12
+21 38
+*
+# double line to double line connection in tif to local to local connections
+# in lca.  The 13 tif value correspondes to tif line 3 in even tiles on the
+# west edge.  the 21, 23 and 25 tif values correspond to tif lines 1, 3, and 5 
+# connections in the southwest corner.  The -1 value in the lca portion means
+# there is no lca line that corresponds with the tif line.
+MAGIC/WEST/DBL_DBL
+D
+0 -1
+1 12
+2 -1
+3 12
+4 -1
+5 12
+6 -1
+7 12
+13 8
+21 10
+23 8
+25 38
+27 38
+*
+
+
+#############################################################################
+# MAGIC/SOUTH/*: used to map the segments associated with the magic boxes on 
+# the south edge of the chip to their associated lca segments.  
+# syntax:
+#     MAGIC/SOUTH/EAST || WEST || NORTH
+#     <type>
+#      :
+#     <tif number> <lca number>
+#      :
+#     *
+#############################################################################
+# tif long lines to lca long lines
+MAGIC/SOUTH/WEST
+L
+0 10
+1 9
+2 8
+3 7
+*
+# tif trixie lines to lca long lines
+MAGIC/SOUTH/WEST
+T
+0 6
+1 5
+2 4
+3 3
+*
+# tif global lines to lca long lines
+MAGIC/SOUTH/WEST
+G
+0 30
+1 31
+2 32
+3 33
+*
+# tif double lines to lca local lines
+MAGIC/SOUTH/WEST
+D
+0 14
+1 13
+2 17
+3 16
+4 20
+5 19
+6 23
+7 22
+*
+# tif redrive buffers lines to lca long lines
+MAGIC/SOUTH/WEST
+R
+0 1
+1 2
+*
+# tif long lines to lca long lines
+MAGIC/SOUTH/EAST
+L
+0 10
+1 9
+2 8
+3 7
+*
+# tif trixie lines to lca long lines
+MAGIC/SOUTH/EAST
+T
+0 6
+1 5
+2 4
+3 3
+*
+# tif double lines to lca local lines
+MAGIC/SOUTH/EAST
+D
+0 12
+1 14
+2 15
+3 17
+4 18
+5 20
+6 21
+7 23
+*
+# tif redrive buffer lines to lca long lines
+MAGIC/SOUTH/EAST
+R
+0 4
+1 3
+*
+# tif long lines to lca long lines
+MAGIC/SOUTH/NORTH
+L
+0 0
+1 1
+2 2
+3 3
+4 4
+5 5
+*
+# tif double lines to lca local lines
+MAGIC/SOUTH/NORTH
+D
+0 0
+1 1
+2 10
+3 11
+*
+# tif local lines to lca local lines
+MAGIC/SOUTH/NORTH
+X
+0 2
+1 3
+2 4
+3 5
+4 6
+5 7
+6 8
+7 9
+*
+# double line to double line connection in tif to local to local connections
+# in lca.  The -1 value in the lca portion means there is no lca line that
+# corresponds with the tif line.
+MAGIC/SOUTH/DBL_DBL
+D
+0 -1
+1 12
+2 -1
+3 12
+4 -1
+5 12
+6 -1
+7 12

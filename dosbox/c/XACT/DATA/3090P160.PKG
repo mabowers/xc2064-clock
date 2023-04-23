@@ -1,0 +1,152 @@
+package 3090p160 2 0 1 0
+pin  PAD1      P156
+pin  PAD2      P155
+pin  PAD3      P154
+pin  PAD4      P153
+pin  PAD5      P152
+pin  PAD6      P151
+pin  PAD7      P150
+pin  PAD8      P149
+pin  PAD9      P148
+pin  PAD10     P147
+pin  PAD11     P146
+pin  PAD12     P145
+pin  PAD13     P144
+pin  PAD14     P143
+pin  PAD15     P142
+pin  PAD16     P141
+
+pin  PAD17     P138
+pin  PAD18
+pin  PAD19     P137
+pin  PAD20     P136
+pin  PAD21     P135
+pin  PAD22     P134
+pin  PAD23     P133
+pin  PAD24     P132
+pin  PAD25     P131
+pin  PAD26     P130
+pin  PAD27     P129
+pin  PAD28     P128
+pin  PAD29     P127
+pin  PAD30     P126
+pin  PAD31     P125
+pin  PAD32     P124
+
+pin  PAD33     P120
+pin  PAD34     P119
+pin  PAD35
+pin  PAD36     P118
+pin  PAD37     P117
+pin  PAD38     P116
+pin  PAD39     P115
+pin  PAD40     P114
+pin  PAD41     P113
+pin  PAD42     P112
+pin  PAD43     P111
+pin  PAD44     P110
+pin  PAD45     P109
+pin  PAD46     P108
+pin  PAD47     P107
+pin  PAD48     P106
+pin  PAD49     P105
+pin  PAD50     P104
+pin  PAD51     P103
+pin  PAD52     P102
+
+pin  PAD53     P99
+pin  PAD54     P98
+pin  PAD55     P97
+pin  PAD56     P96
+pin  PAD57     P95
+pin  PAD58     P94
+pin  PAD59     P93
+pin  PAD60     P92
+pin  PAD61     P91
+pin  PAD62     P90
+pin  PAD63     P89
+pin  PAD64     P88
+pin  PAD65     P87
+pin  PAD66     P86
+pin  PAD67
+pin  PAD68     P85
+pin  PAD69     P84
+pin  PAD70     P83
+pin  PAD71     P82
+pin  PAD72     P81
+
+pin  PAD73     P76
+pin  PAD74     P75
+pin  PAD75     P74
+pin  PAD76     P73
+pin  PAD77     P72
+pin  PAD78     P71
+pin  PAD79     P70
+pin  PAD80
+pin  PAD81     P69
+pin  PAD82     P68
+pin  PAD83     P67
+pin  PAD84     P66
+pin  PAD85     P65
+pin  PAD86     P64
+pin  PAD87     P63
+pin  PAD88     P62
+
+pin  PAD89     P59
+pin  PAD90     P58
+pin  PAD91     P57
+pin  PAD92     P56
+pin  PAD93     P55
+pin  PAD94     P54
+pin  PAD95     P53
+pin  PAD96     P52
+pin  PAD97     P51
+pin  PAD98     P50
+pin  PAD99     P49
+pin  PAD100    P48
+pin  PAD101    P47
+pin  PAD102    P46
+pin  PAD103    P45
+pin  PAD104    P44
+
+pin  PAD105    P39
+pin  PAD106    P38
+pin  PAD107    P37
+pin  PAD108    P36
+pin  PAD109
+pin  PAD110    P35
+pin  PAD111    P34
+pin  PAD112    P33
+pin  PAD113    P32
+pin  PAD114    P31
+pin  PAD115    P30
+pin  PAD116    P29
+pin  PAD117    P28
+pin  PAD118    P27
+pin  PAD119    P26
+pin  PAD120    P25
+pin  PAD121    P24
+pin  PAD122    P23
+pin  PAD123    P22
+pin  PAD124    P21
+
+pin  PAD125    P18
+pin  PAD126    P17
+pin  PAD127    P16
+pin  PAD128    P15
+pin  PAD129    P14
+pin  PAD130    P13
+pin  PAD131    P12
+pin  PAD132    P11
+pin  PAD133    P10
+pin  PAD134    P9
+pin  PAD135    P8
+pin  PAD136    P7
+pin  PAD137    P6
+pin  PAD138
+pin  PAD139    P5
+pin  PAD140    P4
+pin  PAD141    P3
+pin  PAD142    P2
+pin  PAD143    P1
+pin  PAD144    P160

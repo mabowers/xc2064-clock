@@ -1,0 +1,718 @@
+
+                          Schematic Design Tools                         OrCAD
+                       Printer Driver Documentation
+------------------------------------------------------------------------------
+This note lists most of the known devices compatible with the OrCAD drivers.
+It is provided for your convenience.
+
+If you do not find your device listed here, check the device manual. It may
+list compatible devices that are mentioned in this note. 
+
+
+NOTES:
+
+* New drivers not listed in this note may be found on the OrCAD Bulletin
+  Board System (503) 690-9791.
+
+  After 24 September 1993, the OrCAD bulletin board phone number will be 
+  (503) 671-9401. For a period of one year, users calling (503) 690-9791
+  will be automatically forwarded to the new phone number
+
+* Additional information may be found in PLOTTERS.DOC, PRNTINFO.DOC and
+  PLOTINFO.DOC. Use the View Reference tool to access these files.
+
+See the OrCAD "Installation and Technical Support User's Guide" for 
+information about selected OrCAD drivers.
+
+The remainder of this note lists the drivers.
+                                                                               
+==============================================================================
+                                                                        Page 2
+               DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+VENDOR         DESCRIPTION                          RESOLUTION
+
+AEG Olympia  NP 80-24, NP 136-24, NPC 136-24          90 x  90    LQ1000_2.DRV
+AEG Olympia  NP 80-24, NP 136-24, NPC 136-24         180 x 180    LQ1000.DRV
+AGFA         P3400 PS  (Letter Paper)                 75 x  75    HPLASER1.DRV
+AGFA         P3400 PS  (Letter Paper)                100 x 100    HPLASER2.DRV
+AGFA         P3400 PS  (Letter Paper)                150 x 150    HPLASER3.DRV
+AGFA         P3400 PS  (Letter Paper)                300 x 300    HPLASER4.DRV
+AGFA         P3400 PS  (Legal Paper)                  75 x  75    HPLASER5.DRV
+AGFA         P3400 PS  (Legal Paper)                 100 x 100    HPLASER6.DRV
+AGFA         P3400 PS  (Legal Paper)                 150 x 150    HPLASER7.DRV
+AGFA         P3400 PS  (Legal Paper)                 300 x 300    HPLASER8.DRV
+AGFA         P3400 PS  (PostScript mode - see PLOTTERS.DOC)
+Alps         ALQ200, ALQ300 P2400C, P2424C            90 x  90    LQ1000_2.DRV
+Alps         ALQ200, ALQ300 P2400C, P2424C           180 x 180    LQ1000.DRV
+Amstrad      DMP 3000                                120 x 108    EPSONFX2.DRV
+Amstrad      DMP 3000                                240 x 216    EPSONFX.DRV
+Amstrad      LQ 3500                                  90 x  90    LQ1000_2.DRV
+Amstrad      LQ 3500                                 180 x 180    LQ1000.DRV
+AMT          250 Office Printer                      120 x 120    AMT.DRV
+AMT          ACCEL-500                               120 x 120    AMT_ACEL.DRV
+AMT          ACCEL-500                                90 x  90    LQ1000_2.DRV
+AMT          ACCEL-500                               180 x 180    LQ1000.DRV
+Apple        ImageWriter                             136 x 144    CITH1550.DRV
+Apple        Personal Laserjet   (Letter Paper)       75 x  75    HPLASER1.DRV
+Apple        Personal Laserjet   (Letter Paper)      100 x 100    HPLASER2.DRV
+Apple        Personal Laserjet   (Letter Paper)      150 x 150    HPLASER3.DRV
+Apple        Personal Laserjet   (Letter Paper)      300 x 300    HPLASER4.DRV
+Apple        Personal Laserjet   (Legal Paper)        75 x  75    HPLASER5.DRV
+Apple        Personal Laserjet   (Legal Paper)       100 x 100    HPLASER6.DRV
+Apple        Personal Laserjet   (Legal Paper)       150 x 150    HPLASER7.DRV
+Apple        Personal Laserjet   (Legal Paper)       300 x 300    HPLASER8.DRV
+Apple        Personal Laserjet   (PostScript mode - see PLOTTERS.DOC)
+AT & T       477, 570                                120 x 108    EPSONFX2.DRV
+AT & T       477, 570                                240 x 216    EPSONFX.DRV
+AT & T       583                                      90 x  90    LQ1000_2.DRV
+AT & T       583                                     180 x 180    LQ1000.DRV
+Axonix       LiteWrite                               120 x 108    EPSONFX2.DRV
+Axonix       LiteWrite                               240 x 216    EPSONFX.DRV
+Blue Chip    M200/NLQ                                120 x 108    EPSONFX2.DRV
+Blue Chip    M200/NLQ                                240 x 216    EPSONFX.DRV
+Brother      2024L,Twinriter 5,Twinriter 6           120 x 108    EPSONFX2.DRV
+Brother      2024L,Twinriter 5,Twinriter 6           240 x 216    EPSONFX.DRV
+Brother      HL-4/8E/8PS         (Letter Paper)       75 x  75    HPLASER1.DRV
+Brother      HL-4/8E/8PS         (Letter Paper)      100 x 100    HPLASER2.DRV
+Brother      HL-4/8E/8PS         (Letter Paper)      150 x 150    HPLASER3.DRV
+Brother      HL-4/8E/8PS         (Letter Paper)      300 x 300    HPLASER4.DRV
+Brother      HL-4/8E/8PS         (Legal Paper)        75 x  75    HPLASER5.DRV
+Brother      HL-4/8E/8PS         (Legal Paper)       100 x 100    HPLASER6.DRV
+Brother      HL-4/8E/8PS         (Legal Paper)       150 x 150    HPLASER7.DRV
+Brother      HL-8E               (HPGL mode - see PLOTTERS.DOC)
+Brother      M-1109,M-1509,M-1709,M-1809             120 x 108    EPSONFX2.DRV
+Brother      M-1109,M-1509,M-1709,M-1809             240 x 216    EPSONFX.DRV
+Brother      M-2518,M-4018                           120 x 108    EPSONFX2.DRV
+Brother      M-2518,M-4018                           240 x 216    EPSONFX.DRV  
+------------------------------------------------------------------------------
+                                                                        Page 3
+               DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+Brother      M-1724L,M-1824L                          90 x  90    LQ1000_2.DRV
+Brother      M-1724L,M-1824L                         180 x 180    LQ1000.DRV
+C. ITOH      1550/8510                               136 x 144    CITH1550.DRV
+C. ITOH      P310                                    136 x 144    CITOH310.DRV
+C. ITOH      CI-2500,C-310 XP,C-315 XP,C-815,5000    120 x 108    EPSONFX2.DRV
+C. ITOH      CI-2500,C-310 XP,C-315 XP,C-815,5000    240 x 216    EPSONFX.DRV
+C. ITOH      C-610,C-715A                             90 x  90    LQ1000_2.DRV
+C. ITOH      C-610,C-715A                            180 x 180    LQ1000.DRV
+C. ITOH      ProWriter C-310 CXP, ProWriter Jr Plus  120 x 108    EPSONFX2.DRV
+C. ITOH      ProWriter C-310 CXP, ProWriter Jr Plus  240 x 216    EPSONFX.DRV
+Camintonn    Turbolaser/PC-Plus 3  (Letter Paper)     75 x  75    HPLASER1.DRV
+Camintonn    Turbolaser/PC-Plus 3  (Letter Paper)    100 x 100    HPLASER2.DRV
+Camintonn    Turbolaser/PC-Plus 3  (Letter Paper)    150 x 150    HPLASER3.DRV
+Camintonn    Turbolaser/PC-Plus 3  (Letter Paper)    300 x 300    HPLASER4.DRV
+Camintonn    Turbolaser/PC-Plus 3  (Legal Paper)      75 x  75    HPLASER5.DRV
+Camintonn    Turbolaser/PC-Plus 3  (Legal Paper)     100 x 100    HPLASER6.DRV
+Camintonn    Turbolaser/PC-Plus 3  (Legal Paper)     150 x 150    HPLASER7.DRV
+Camintonn    Turbolaser/PC-Plus 3  (Legal Paper)     300 x 300    HPLASER8.DRV
+Camintonn    Turbolaser/PC-Plus 3  (PostScript mode-see PLOTTERS.DOC)
+Canon        BJ 10   (LQ emulation mode)             360 x 360    LQ1000_3.DRV
+Canon        BJ 130,BJ 300,BJ 330 (LQ emul. mode)     90 x  90    LQ1000_2.DRV
+Canon        BJ 130,BJ 300,BJ 330 (LQ emul. mode)    180 x 180    LQ1000.DRV
+Canon        BJ 330  (LQ emulation mode)             360 x 360    LQ1000_3.DRV
+Canon        BJ 330  (Default/IBM mode)              360 x 360    IBMPRO24.DRV
+Canon        LBP-4?/8,LBP-8 MARK III?/IIIR?/IIIT? A1 150 x 150    CANON150.DRV
+Canon        LBP-4?/8,LBP-8 MARK III?/IIIR?/IIIT? A2  75 x  75    CANON75.DRV
+Canon        LBP-4?/8,LBP-8 MARK III?/IIIR?/IIIT? A2 300 x 300    CANON300.DRV
+Centronix    GLP, PrintStation 260                   120 x 108    EPSONFX2.DRV
+Centronix    GLP, PrintStation 260                   240 x 216    EPSONFX.DRV
+CIE          TriPrinter CI3500 Model 20              120 x 108    EPSONFX2.DRV
+CIE          TriPrinter CI3500 Model 20              240 x 216    EPSONFX.DRV
+Citizen      GSX-140, Tribute 124                     90 x  90    LQ1000_2.DRV
+Citizen      GSX-140, Tribute 124                    180 x 180    LQ1000.DRV
+Citizen      MSP-40/55, HSP-500/550, Tribute 224     120 x 108    EPSONFX2.DRV
+Citizen      MSP-40/55, HSP-500/550, Tribute 224     240 x 216    EPSONFX.DRV
+Copal        WriteHand 5930                          120 x 108    EPSONFX2.DRV
+Copal        WriteHand 5930                          240 x 216    EPSONFX.DRV
+DataProducts 8000, 8010, 8050, 8070 Plus              84 x  84    DP8000.DRV
+DataProducts 8012                                    165 x 165    DATAPROD.DRV
+DataProducts 8012                                    165 x 165    IBMCOLOR.DRV
+DataProducts 9044                                     90 x  90    LQ1000_2.DRV
+DataProducts 9044                                    180 x 180    LQ1000.DRV
+DataProducts IDS-480, SI 480                          84 x  84    DP8000.DRV
+DataProducts LZR 650/2450 D        (Letter Paper)     75 x  75    HPLASER1.DRV
+DataProducts LZR 650/2450 D        (Letter Paper)    100 x 100    HPLASER2.DRV
+DataProducts LZR 650/2450 D        (Letter Paper)    150 x 150    HPLASER3.DRV
+DataProducts LZR 650/2450 D        (Letter Paper)    300 x 300    HPLASER4.DRV
+DataProducts LZR 650/2450 D        (Legal Paper)      75 x  75    HPLASER5.DRV
+DataProducts LZR 650/2450 D        (Legal Paper)     100 x 100    HPLASER6.DRV
+DataProducts LZR 650/2450 D        (Legal Paper)     150 x 150    HPLASER7.DRV
+DataProducts LZR 650/2450 D        (Legal Paper)     300 x 300    HPLASER8.DRV
+Desktop      Laser Beam            (Letter Paper)     75 x  75    HPLASER1.DRV
+Desktop      Laser Beam            (Letter Paper)    100 x 100    HPLASER2.DRV
+Desktop      Laser Beam            (Letter Paper)    150 x 150    HPLASER3.DRV
+Desktop      Laser Beam            (Letter Paper)    300 x 300    HPLASER4.DRV 
+------------------------------------------------------------------------------
+                                                                        Page 4
+               DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+Desktop      Laser Beam            (Legal Paper)      75 x  75    HPLASER5.DRV
+Desktop      Laser Beam            (Legal Paper)     100 x 100    HPLASER6.DRV
+Desktop      Laser Beam            (Legal Paper)     150 x 150    HPLASER7.DRV
+Desktop      Laser Beam            (Legal Paper)     300 x 300    HPLASER8.DRV
+Epson                                                 60 x  72    EPSON.DRV
+Epson        EPL-6000              (Letter Paper)     75 x  75    HPLASER1.DRV
+Epson        EPL-6000              (Letter Paper)    100 x 100    HPLASER2.DRV
+Epson        EPL-6000              (Letter Paper)    150 x 150    HPLASER3.DRV
+Epson        EPL-6000              (Letter Paper)    300 x 300    HPLASER4.DRV
+Epson        EPL-6000              (Legal Paper)      75 x  75    HPLASER5.DRV
+Epson        EPL-6000              (Legal Paper)     100 x 100    HPLASER6.DRV
+Epson        EPL-6000              (Legal Paper)     150 x 150    HPLASER7.DRV
+Epson        EPL-6000              (Legal Paper)     300 x 300    HPLASER8.DRV
+Epson        EX-800/1000                             120 x 108    EPSONFX2.DRV
+Epson        EX-800/1000                             240 x 216    EPSONFX.DRV
+Epson        FX-80/85/86E/288/288E/580/1050/5000     120 x 108    EPSONFX2.DRV
+Epson        FX-80/85/86E/288/288E/580/1050/5000     240 x 216    EPSONFX.DRV
+Epson        LQ500/510/850/950/1050/1500/2500/2550    90 x  90    LQ1000_2.DRV
+Epson        LQ500/510/850/950/1050/1500/2500/2550   180 x 180    LQ1000.DRV
+Epson        LQ500/510/850/950/1050/1500/2500/2550   360 x 360    LQ1000_3.DRV
+Epson        LX-800/1000                             120 x 108    EPSONFX2.DRV
+Epson        LX-800/1000                             240 x 216    EPSONFX.DRV
+Epson        MX                                      120 x 216    EPSONMX.DRV
+Epson        MX, RX                                  120 x 108    EPSONFX2.DRV
+Epson        RX                                      240 x 216    EPSONFX.DRV
+Epson        VP 7690                                 180 x 180    EPSONVP.DRV
+Ergo Systems Hush 80PR                               120 x 216    EPSONMX.DRV
+Everex       Abaton Laserscript (Letter Paper)        75 x  75    HPLASER1.DRV
+Everex       Abaton Laserscript (Letter Paper)       100 x 100    HPLASER2.DRV
+Everex       Abaton Laserscript (Letter Paper)       150 x 150    HPLASER3.DRV
+Everex       Abaton Laserscript (Letter Paper)       300 x 300    HPLASER4.DRV
+Everex       Abaton Laserscript (Legal Paper)         75 x  75    HPLASER5.DRV
+Everex       Abaton Laserscript (Legal Paper)        100 x 100    HPLASER6.DRV
+Everex       Abaton Laserscript (Legal Paper)        150 x 150    HPLASER7.DRV
+Everex       Abaton Laserscript (Legal Paper)        300 x 300    HPLASER8.DRV
+Everex       Abaton Laserscript (PostScript mode - see PLOTTERS.DOC)
+Facit        4513                                    120 x 216    EPSONMX.DRV
+Facit        4513                                    120 x 108    EPSONFX2.DRV
+Facit        4513                                    240 x 216    EPSONFX.DRV
+Facit        B2400                                    90 x  90    LQ1000_2.DRV
+Facit        B2400                                   180 x 180    LQ1000.DRV
+Facit        B3100/3150/3550/3550C                   120 x 108    EPSONFX2.DRV
+Facit        B3100/3150/3550/3550C                   240 x 216    EPSONFX.DRV
+Facit        P6060              (Letter Paper)        75 x  75    HPLASER1.DRV
+Facit        P6060              (Letter Paper)       100 x 100    HPLASER2.DRV
+Facit        P6060              (Letter Paper)       150 x 150    HPLASER3.DRV
+Facit        P6060              (Letter Paper)       300 x 300    HPLASER4.DRV
+Facit        P6060              (Legal Paper)         75 x  75    HPLASER5.DRV
+Facit        P6060              (Legal Paper)        100 x 100    HPLASER6.DRV
+Facit        P6060              (Legal Paper)        150 x 150    HPLASER7.DRV
+Facit        P6060              (Legal Paper)        300 x 300    HPLASER8.DRV
+Fortis       DH-45,DM 1310/2010/2015/2210/2215       120 x 108    EPSONFX2.DRV
+Fortis       DH-45,DM 1310/2010/2015/2210/2215       240 x 216    EPSONFX.DRV  
+------------------------------------------------------------------------------
+                                                                        Page 5
+               DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+Fortis       DM 2015                                 120 x 216    EPSONMX.DRV
+Fortis       DP600P             (PostScript mode - see PLOTTERS.DOC)
+Fortis       DP600S             (Letter Paper)        75 x  75    HPLASER1.DRV
+Fortis       DP600S             (Letter Paper)       100 x 100    HPLASER2.DRV
+Fortis       DP600S             (Letter Paper)       150 x 150    HPLASER3.DRV
+Fortis       DP600S             (Letter Paper)       300 x 300    HPLASER4.DRV
+Fortis       DP600S             (Legal Paper)         75 x  75    HPLASER5.DRV
+Fortis       DP600S             (Legal Paper)        100 x 100    HPLASER6.DRV
+Fortis       DP600S             (Legal Paper)        150 x 150    HPLASER7.DRV
+Fortis       DP600S             (Legal Paper)        300 x 300    HPLASER8.DRV
+Fortis       DQ 4110/4210/4215                        90 x  90    LQ1000_2.DRV
+Fortis       DQ 4110/4210/4215                       180 x 180    LQ1000.DRV
+Fujitsu      DL2400/2600/3400/5600/5600C             120 x 108    EPSONFX2.DRV
+Fujitsu      DL2400/2600/3400/5600/5600C             240 x 216    EPSONFX.DRV
+Fujitsu      DL2400                                  120 x 216    EPSONMX.DRV
+Fujitsu      DL4400                                   90 x  90    LQ1000_2.DRV
+Fujitsu      DL4400                                  180 x 180    LQ1000.DRV
+Fujitsu      RX7100/7100PS/7100PS PLUS (Letter Paper) 75 x  75    HPLASER1.DRV
+Fujitsu      RX7100/7100PS/7100PS PLUS (Letter Paper)100 x 100    HPLASER2.DRV
+Fujitsu      RX7100/7100PS/7100PS PLUS (Letter Paper)150 x 150    HPLASER3.DRV
+Fujitsu      RX7100/7100PS/7100PS PLUS (Letter Paper)300 x 300    HPLASER4.DRV
+Fujitsu      RX7100/7100PS/7100PS PLUS (Legal Paper)  75 x  75    HPLASER5.DRV
+Fujitsu      RX7100/7100PS/7100PS PLUS (Legal Paper) 100 x 100    HPLASER6.DRV
+Fujitsu      RX7100/7100PS/7100PS PLUS (Legal Paper) 150 x 150    HPLASER7.DRV
+Fujitsu      RX7100/7100PS/7100PS PLUS (Legal Paper) 300 x 300    HPLASER8.DRV
+Fujitsu      RX7200/7300E              (Letter Paper) 75 x  75    HPLASER1.DRV
+Fujitsu      RX7200/7300E              (Letter Paper)100 x 100    HPLASER2.DRV
+Fujitsu      RX7200/7300E              (Letter Paper)150 x 150    HPLASER3.DRV
+Fujitsu      RX7200/7300E              (Letter Paper)300 x 300    HPLASER4.DRV
+Fujitsu      RX7200/7300E              (Legal Paper)  75 x  75    HPLASER5.DRV
+Fujitsu      RX7200/7300E              (Legal Paper) 100 x 100    HPLASER6.DRV
+Fujitsu      RX7200/7300E              (Legal Paper) 150 x 150    HPLASER7.DRV
+Fujitsu      RX7200/7300E              (Legal Paper) 300 x 300    HPLASER8.DRV
+Fujitsu      RX7100 S/2                              120 x 108    EPSONFX2.DRV
+Fujitsu      RX7100 S/2                              240 x 216    EPSONFX.DRV
+Fujitsu      RX7100PS/7100PS PLUS/7100S/2  (PostScript mode see PLOTTERS.DOC)
+General Electric   3-8100                            120 x 216    EPSONMX.DRV
+Hewlett-Packard    DeskJet          (Letter Paper)    75 x  75    HPDESK1.DRV
+Hewlett-Packard    DeskJet          (Letter Paper)   100 x 100    HPDESK2.DRV
+Hewlett-Packard    DeskJet          (Letter Paper)   150 x 150    HPDESK3.DRV
+Hewlett-Packard    DeskJet          (Letter Paper)   300 x 300    HPDESK4.DRV
+Hewlett-Packard    DeskJet          (Legal Paper)     75 x  75    HPDESK5.DRV
+Hewlett-Packard    DeskJet          (Legal Paper)    100 x 100    HPDESK6.DRV
+Hewlett-Packard    DeskJet          (Legal Paper)    150 x 150    HPDESK7.DRV
+Hewlett-Packard    DeskJet          (Legal Paper)    300 x 300    HPDESK8.DRV
+Hewlett-Packard    Laser 2000       (Ledger Paper)    75 x  75    HP2K1.DRV
+Hewlett-Packard    Laser 2000       (Ledger Paper)   100 x 100    HP2K2.DRV
+Hewlett-Packard    Laser 2000       (Ledger Paper)   150 x 150    HP2K3.DRV
+Hewlett-Packard    Laser 2000       (Ledger Paper)   300 x 300    HP2K4.DRV
+Hewlett-Packard    LaserJet+/II/III (Letter Paper)    75 x  75    HPLASER1.DRV
+Hewlett-Packard    LaserJet+/II/III (Letter Paper)   100 x 100    HPLASER2.DRV
+Hewlett-Packard    LaserJet+/II/III (Letter Paper)   150 x 150    HPLASER3.DRV
+Hewlett-Packard    LaserJet+/II/III (Letter Paper)   300 x 300    HPLASER4.DRV
+Hewlett-Packard    LaserJet+/II/III (Legal Paper)     75 x  75    HPLASER5.DRV
+Hewlett-Packard    LaserJet+/II/III (Legal Paper)    100 x 100    HPLASER6.DRV 
+------------------------------------------------------------------------------
+                                                                        Page 6
+               DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+Hewlett-Packard    LaserJet+/II/III (Legal Paper)    150 x 150    HPLASER7.DRV
+Hewlett-Packard    LaserJet+/II/III (Legal Paper)    300 x 300    HPLASER8.DRV
+Hewlett-Packard    LaserJet III     (HP-GL mode - see PLOTTERS.DOC)
+Hewlett-Packard    PaintJet         (Letter Paper)   180 x 180    HPPAINT1.DRV
+Hewlett-Packard    PaintJet         (Legal Paper)    180 x 180    HPPAINT2.DRV
+Hewlett-Packard    PaintJet XL      (Legal Paper)    180 x 180    HPAINTXL.DRV
+Hewlett-Packard    QuietJet         (Letter Paper)    96 x  96    HPQUIET1.DRV
+Hewlett-Packard    QuietJet         (Letter Paper)   192 x 192    HPQUIET2.DRV
+Hewlett-Packard    QuietJet         (Continuous)      96 x  96    HPQUIET3.DRV
+Hewlett-Packard    QuietJet         (Continuous)     192 x 192    HPQUIET4.DRV
+Hewlett-Packard    RuggedWriter                       90 x  90    LQ1000_2.DRV
+Hewlett-Packard    RuggedWriter                      180 x 180    LQ1000.DRV
+Hewlett-Packard    ThinkJet                           96 x  96    HPINKJET.DRV
+Honeywell    Honeywell-Bull 4/66                     120 x 108    EPSONFX2.DRV
+Honeywell    Honeywell-Bull 4/66                     240 x 216    EPSONFX.DRV
+Howtek       Pixelmaster            (Letter Paper)    75 x  75    HPLASER1.DRV
+Howtek       Pixelmaster            (Letter Paper)   100 x 100    HPLASER2.DRV
+Howtek       Pixelmaster            (Letter Paper)   150 x 150    HPLASER3.DRV
+Howtek       Pixelmaster            (Letter Paper)   300 x 300    HPLASER4.DRV
+Howtek       Pixelmaster            (Legal Paper)     75 x  75    HPLASER5.DRV
+Howtek       Pixelmaster            (Legal Paper)    100 x 100    HPLASER6.DRV
+Howtek       Pixelmaster            (Legal Paper)    150 x 150    HPLASER7.DRV
+Howtek       Pixelmaster            (Legal Paper)    300 x 300    HPLASER8.DRV
+Howtek       Pixelmaster             (HP-GL mode - see PLOTTERS.DOC)
+Hyundai      HDP-910/920/1810/1820                   120 x 108    EPSONFX2.DRV
+Hyundai      HDP-910/920/1810/1820                   240 x 216    EPSONFX.DRV
+IBM          Color Printer                           168 x 168    IBMCOLOR.DRV
+IBM          Graphics Printer/ProPrinter              60 x  72    EPSON.DRV
+IBM          Graphics Printer                        120 x 108    EPSONFX2.DRV
+IBM          Graphics Printer                        240 x 216    EPSONFX.DRV
+IBM          LaserPrinter/LaserPrinter E (Ltr Paper)  75 x  75    HPLASER1.DRV
+IBM          LaserPrinter/LaserPrinter E (Ltr Paper) 100 x 100    HPLASER2.DRV
+IBM          LaserPrinter/LaserPrinter E (Ltr Paper) 150 x 150    HPLASER3.DRV
+IBM          LaserPrinter/LaserPrinter E (Ltr Paper) 300 x 300    HPLASER4.DRV
+IBM          LaserPrinter/LaserPrinter E (Lgl Paper)  75 x  75    HPLASER5.DRV
+IBM          LaserPrinter/LaserPrinter E (Lgl Paper) 100 x 100    HPLASER6.DRV
+IBM          LaserPrinter/LaserPrinter E (Lgl Paper) 150 x 150    HPLASER7.DRV
+IBM          LaserPrinter/LaserPrinter E (Lgl Paper) 300 x 300    HPLASER8.DRV
+IBM          LaserPrinter/LaserPrinter E (HP-GL mode - see PLOTTERS.DOC)
+IBM          ProPrinter,ProPrinter II/II XL/XL       120 x 108    EPSONFX2.DRV
+IBM          ProPrinter,ProPrinter II/II XL/XL       240 x 216    EPSONFX.DRV
+IBM          ProPrinter GL24E, X24E, XL24E           360 x 360    IBMPRO24.DRV
+IBM          QuietWriter III/III XL/Model 2          120 x 108    EPSONFX2.DRV
+IBM          QuietWriter III/III XL/Model 2          240 x 216    EPSONFX.DRV
+IBM          QuietWriter Model 2                     120 x 216    EPSONMX.DRV
+IBM          QuickWriter                             120 x 108    EPSONFX2.DRV
+IBM          QuickWriter                             240 x 216    EPSONFX.DRV
+InfoScribe   100/1400                                120 x 216    EPSONMX.DRV
+JDL          750                                     180 x 180    JDL750.DRV
+JDL          750E                                    120 x 108    EPSONFX2.DRV
+JDL          750E                                    240 x 216    EPSONFX.DRV
+JDL          750E                                    120 x 216    EPSONMX.DRV
+JDL          850                                     180 x 180    JDL850.DRV
+Kodak        Diconix 150 Plus                        120 x 108    EPSONFX2.DRV
+Kodak        Diconix 150 Plus                        240 x 216    EPSONFX.DRV  
+------------------------------------------------------------------------------
+                                                                        Page 7
+               DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+Kyocera      F-1800A                  (Letter Paper)  75 x  75    HPLASER1.DRV
+Kyocera      F-1800A                  (Letter Paper) 100 x 100    HPLASER2.DRV
+Kyocera      F-1800A                  (Letter Paper) 150 x 150    HPLASER3.DRV
+Kyocera      F-1800A                  (Letter Paper) 300 x 300    HPLASER4.DRV
+Kyocera      F-1800A                  (Legal Paper)   75 x  75    HPLASER5.DRV
+Kyocera      F-1800A                  (Legal Paper)  100 x 100    HPLASER6.DRV
+Kyocera      F-1800A                  (Legal Paper)  150 x 150    HPLASER7.DRV
+Kyocera      F-1800A                  (Legal Paper)  300 x 300    HPLASER8.DRV
+Laptopp      Laptopp Systems On The Go               120 x 216    EPSONMX.DRV
+Laser        190E,240                                120 x 108    EPSONFX2.DRV
+Laser        190E,240                                240 x 216    EPSONFX.DRV
+Mannesmann Tally    81/85/87/90/290/330/340          120 x 108    EPSONFX2.DRV
+Mannesmann Tally    81/85/87/90/290/330/340          240 x 216    EPSONFX.DRV
+Mannesmann Tally    24/222/230                        90 x  90    LQ1000_2.DRV
+Mannesmann Tally    24/222/230                       180 x 180    LQ1000.DRV
+Mannesmann Tally    490                              120 x 216    EPSONMX.DRV
+Mannesmann Tally    905/906/906PS/910UPS (Ltr Paper)  75 x  75    HPLASER1.DRV
+Mannesmann Tally    905/906/906PS/910UPS (Ltr Paper) 100 x 100    HPLASER2.DRV
+Mannesmann Tally    905/906/906PS/910UPS (Ltr Paper) 150 x 150    HPLASER3.DRV
+Mannesmann Tally    905/906/906PS/910UPS (Ltr Paper) 300 x 300    HPLASER4.DRV
+Mannesmann Tally    905/906/906PS/910UPS (Lgl Paper)  75 x  75    HPLASER5.DRV
+Mannesmann Tally    905/906/906PS/910UPS (Lgl Paper) 100 x 100    HPLASER6.DRV
+Mannesmann Tally    905/906/906PS/910UPS (Lgl Paper) 150 x 150    HPLASER7.DRV
+Mannesmann Tally    905/906/906PS/910UPS (Lgl Paper) 300 x 300    HPLASER8.DRV
+Mannesmann Tally    906/906PS/910UPS  (PostScript mode - see PLOTTERS.DOC)
+Mitek        130T                     (Letter Paper)  75 x  75    HPLASER1.DRV
+Mitek        130T                     (Letter Paper) 100 x 100    HPLASER2.DRV
+Mitek        130T                     (Letter Paper) 150 x 150    HPLASER3.DRV
+Mitek        130T                     (Letter Paper) 300 x 300    HPLASER4.DRV
+Mitek        130T                     (Legal Paper)   75 x  75    HPLASER5.DRV
+Mitek        130T                     (Legal Paper)  100 x 100    HPLASER6.DRV
+Mitek        130T                     (Legal Paper)  150 x 150    HPLASER7.DRV
+Mitek        130T                     (Legal Paper)  300 x 300    HPLASER8.DRV
+Mitek        130T                     (HP-GL mode - see PLOTTERS.DOC)
+Mitek        130T                     (PostScript mode - see PLOTTERS.DOC)
+NCR          6435,6436-0501           (Letter Paper)  75 x  75    HPLASER1.DRV
+NCR          6435,6436-0501           (Letter Paper) 100 x 100    HPLASER2.DRV
+NCR          6435,6436-0501           (Letter Paper) 150 x 150    HPLASER3.DRV
+NCR          6435,6436-0501           (Letter Paper) 300 x 300    HPLASER4.DRV
+NCR          6435,6436-0501           (Legal Paper)   75 x  75    HPLASER5.DRV
+NCR          6435,6436-0501           (Legal Paper)  100 x 100    HPLASER6.DRV
+NCR          6435,6436-0501           (Legal Paper)  150 x 150    HPLASER7.DRV
+NCR          6435,6436-0501           (Legal Paper)  300 x 300    HPLASER8.DRV
+NCR          6435,6436-0501           (HP-GL mode - see PLOTTERS.DOC)
+NCR          6435,6436-0501           (PostScript mode - see PLOTTERS.DOC)
+NEC          PR-201                                  160 x 160    NECPR201.DRV
+NEC          8023                                    136 x 144    NEC8023.DRV
+NEC          PinWriter P7/9/9XL/2200XE/5200/5300      90 x  90    LQ1000_2.DRV
+NEC          PinWriter P7/9/9XL/2200XE/5200/5300     180 x 180    LQ1000.DRV
+NEC          PinWriter P5/5XL                        120 x 108    EPSONFX2.DRV
+NEC          PinWriter P5/5XL                        240 x 216    EPSONFX.DRV
+NEC          SilentWriter LC 890XL    (Letter Paper)  75 x  75    HPLASER1.DRV
+NEC          SilentWriter LC 890XL    (Letter Paper) 100 x 100    HPLASER2.DRV
+NEC          SilentWriter LC 890XL    (Letter Paper) 150 x 150    HPLASER3.DRV
+NEC          SilentWriter LC 890XL    (Letter Paper) 300 x 300    HPLASER4.DRV 
+------------------------------------------------------------------------------
+                                                                        Page 8
+               DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+NEC          SilentWriter LC 890XL    (Legal Paper)   75 x  75    HPLASER5.DRV
+NEC          SilentWriter LC 890XL    (Legal Paper)  100 x 100    HPLASER6.DRV
+NEC          SilentWriter LC 890XL    (Legal Paper)  150 x 150    HPLASER7.DRV
+NEC          SilentWriter LC 890XL    (Legal Paper)  300 x 300    HPLASER8.DRV
+NEC          SilentWriter LC 890XL    (PostScript mode see PLOTTERS.DOC)
+NEC          SilentWriter2 90/290     (Letter Paper)  75 x  75    HPLASER1.DRV
+NEC          SilentWriter2 90/290     (Letter Paper) 100 x 100    HPLASER2.DRV
+NEC          SilentWriter2 90/290     (Letter Paper) 150 x 150    HPLASER3.DRV
+NEC          SilentWriter2 90/290     (Letter Paper) 300 x 300    HPLASER4.DRV
+NEC          SilentWriter2 90/290     (Legal Paper)   75 x  75    HPLASER5.DRV
+NEC          SilentWriter2 90/290     (Legal Paper)  100 x 100    HPLASER6.DRV
+NEC          SilentWriter2 90/290     (Legal Paper)  150 x 150    HPLASER7.DRV
+NEC          SilentWriter2 90/290     (Legal Paper)  300 x 300    HPLASER8.DRV
+NEC          SilentWriter2 90/290     (PostScript mode see PLOTTERS.DOC)
+Newgen       Turbo PC/360, Turbo PC/480 (Ltr Paper)   75 x  75    HPLASER1.DRV
+Newgen       Turbo PC/360, Turbo PC/480 (Ltr Paper)  100 x 100    HPLASER2.DRV
+Newgen       Turbo PC/360, Turbo PC/480 (Ltr Paper)  150 x 150    HPLASER3.DRV
+Newgen       Turbo PC/360, Turbo PC/480 (Ltr Paper)  300 x 300    HPLASER4.DRV
+Newgen       Turbo PC/360, Turbo PC/480 (Lgl Paper)   75 x  75    HPLASER5.DRV
+Newgen       Turbo PC/360, Turbo PC/480 (Lgl Paper)  100 x 100    HPLASER6.DRV
+Newgen       Turbo PC/360, Turbo PC/480 (Lgl Paper)  150 x 150    HPLASER7.DRV
+Newgen       Turbo PC/360, Turbo PC/480 (Lgl Paper)  300 x 300    HPLASER8.DRV
+Newgen       Turbo PC/360, Turbo PC/480 (HP-GL mode - see PLOTTERS.DOC)
+Newgen       Turbo PC/360, Turbo PC/480 (PostScript mode see PLOTTERS.DOC)
+Nissho       NP-2405,NP2410                           90 x  90    LQ1000_2.DRV
+Nissho       NP-2405,NP2410                          180 x 180    LQ1000.DRV
+Nissho       NP-910                                  120 x 216    EPSONMX.DRV
+Nissho       NP-910                                  120 x 108    EPSONFX2.DRV
+Nissho       NP-910                                  240 x 216    EPSONFX.DRV
+OKIData      9  pin print head models                120 x 216    EPSONMX.DRV
+OKIData      9  pin print head models                240 x 216    EPSONFX.DRV
+OKIData      24 pin print head models                 90 x  90    LQ1000_2.DRV
+OKIData      24 pin print head models                180 x 180    LQ1000.DRV
+OKIData      OKIData mode                             72 x  72    OKI92.DRV
+OKIData      OKIData mode                            144 x 144    OKI192.DRV
+OKIData      OKIData mode                            144 x 144    OKI2410.DRV
+OKIData      Epson mode                              120 x 108    EPSONFX2.DRV
+OKIData      Epson mode                              240 x 216    EPSONFX.DRV
+OKIData      Epson mode                               90 x  90    LQ1000_2.DRV
+OKIData      Epson mode                              180 x 180    LQ1000.DRV
+OKIData      Microline 92/93                          72 x  72    OKI92.DRV
+OKIData      Microline 192/193                       144 x 144    OKI192.DRV
+OKIData      Microline 193/292/293/294/320/321       120 x 108    EPSONFX2.DRV
+OKIData      Microline 193/292/293/294/320/321       240 x 216    EPSONFX.DRV
+OKIData      Microline 172/182/182 Turbo             120 x 108    EPSONFX2.DRV
+OKIData      Microline 172/182/182 Turbo             240 x 216    EPSONFX.DRV
+OKIData      Microline 2410                          144 x 144    OKI2410.DRV
+OKIData      OKILaser 400/820/840     (Letter Paper)  75 x  75    HPLASER1.DRV
+OKIData      OKILaser 400/820/840     (Letter Paper) 100 x 100    HPLASER2.DRV
+OKIData      OKILaser 400/820/840     (Letter Paper) 150 x 150    HPLASER3.DRV
+OKIData      OKILaser 400/820/840     (Letter Paper) 300 x 300    HPLASER4.DRV
+OKIData      OKILaser 400/820/840     (Legal Paper)   75 x  75    HPLASER5.DRV
+OKIData      OKILaser 400/820/840     (Legal Paper)  100 x 100    HPLASER6.DRV
+OKIData      OKILaser 400/820/840     (Legal Paper)  150 x 150    HPLASER7.DRV
+OKIData      OKILaser 400/820/840     (Legal Paper)  300 x 300    HPLASER8.DRV 
+------------------------------------------------------------------------------
+                                                                        Page 9
+               DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+OKIData      OKILaser 820/840         (PostScript mode - see PLOTTERS.DOC)
+Olivetti     DM280                                   120 x 216    EPSONMX.DRV
+Olivetti     PG 306                   (Letter Paper)  75 x  75    HPLASER1.DRV
+Olivetti     PG 306                   (Letter Paper) 100 x 100    HPLASER2.DRV
+Olivetti     PG 306                   (Letter Paper) 150 x 150    HPLASER3.DRV
+Olivetti     PG 306                   (Letter Paper) 300 x 300    HPLASER4.DRV
+Olivetti     PG 306                   (Legal Paper)   75 x  75    HPLASER5.DRV
+Olivetti     PG 306                   (Legal Paper)  100 x 100    HPLASER6.DRV
+Olivetti     PG 306                   (Legal Paper)  150 x 150    HPLASER7.DRV
+Olivetti     PG 306                   (Legal Paper)  300 x 300    HPLASER8.DRV
+Olympia      NP136,NP30,NP80                         120 x 108    EPSONFX2.DRV
+Olympia      NP136,NP30,NP80                         240 x 216    EPSONFX.DRV
+OT           Trimatrix 850XL, 700N Trimatrix, 700E   120 x 108    EPSONFX2.DRV
+OT           Trimatrix 850XL, 700N Trimatrix, 700E   240 x 216    EPSONFX.DRV
+Output Technology 560DL                              120 x 108    EPSONFX2.DRV
+Output Technology 560DL                              240 x 216    EPSONFX.DRV
+Packard Bell PB9500                   (Letter Paper)  75 x  75    HPLASER1.DRV
+Packard Bell PB9500                   (Letter Paper) 100 x 100    HPLASER2.DRV
+Packard Bell PB9500                   (Letter Paper) 150 x 150    HPLASER3.DRV
+Packard Bell PB9500                   (Letter Paper) 300 x 300    HPLASER4.DRV
+Packard Bell PB9500                   (Legal Paper)   75 x  75    HPLASER5.DRV
+Packard Bell PB9500                   (Legal Paper)  100 x 100    HPLASER6.DRV
+Packard Bell PB9500                   (Legal Paper)  150 x 150    HPLASER7.DRV
+Packard Bell PB9500                   (Legal Paper)  300 x 300    HPLASER8.DRV
+Panasonic    KX-P1092/1180/1191/1592/1595            120 x 108    EPSONFX2.DRV
+Panasonic    KX-P1092/1180/1191/1592/1595            240 x 216    EPSONFX.DRV
+Panasonic    KX-P1124/1524                            90 x  90    LQ1000_2.DRV
+Panasonic    KX-P1124/1524                           180 x 180    LQ1000.DRV
+Panasonic    KX-P4420 Laser Partner   (Letter Paper)  75 x  75    HPLASER1.DRV
+Panasonic    KX-P4420 Laser Partner   (Letter Paper) 100 x 100    HPLASER2.DRV
+Panasonic    KX-P4420 Laser Partner   (Letter Paper) 150 x 150    HPLASER3.DRV
+Panasonic    KX-P4420 Laser Partner   (Letter Paper) 300 x 300    HPLASER4.DRV
+Panasonic    KX-P4420 Laser Partner   (Legal Paper)   75 x  75    HPLASER5.DRV
+Panasonic    KX-P4420 Laser Partner   (Legal Paper)  100 x 100    HPLASER6.DRV
+Panasonic    KX-P4420 Laser Partner   (Legal Paper)  150 x 150    HPLASER7.DRV
+Panasonic    KX-P4420 Laser Partner   (Legal Paper)  300 x 300    HPLASER8.DRV
+Panasonic    KX-P4450i Laser Partner  (Letter Paper)  75 x  75    HPLASER1.DRV
+Panasonic    KX-P4450i Laser Partner  (Letter Paper) 100 x 100    HPLASER2.DRV
+Panasonic    KX-P4450i Laser Partner  (Letter Paper) 150 x 150    HPLASER3.DRV
+Panasonic    KX-P4450i Laser Partner  (Letter Paper) 300 x 300    HPLASER4.DRV
+Panasonic    KX-P4450i Laser Partner  (Legal Paper)   75 x  75    HPLASER5.DRV
+Panasonic    KX-P4450i Laser Partner  (Legal Paper)  100 x 100    HPLASER6.DRV
+Panasonic    KX-P4450i Laser Partner  (Legal Paper)  150 x 150    HPLASER7.DRV
+Panasonic    KX-P4450i Laser Partner  (Legal Paper)  300 x 300    HPLASER8.DRV
+Panasonic    9  pin print head models                 60 x  72    EPSON.DRV
+Panasonic    9  pin print head models                120 x 216    EPSONMX.DRV
+Panasonic    9  pin print head models                240 x 216    EPSONFX.DRV
+Panasonic    24 pin (Proprinter mode)                 60 x  72    EPSON.DRV
+Panasonic    24 pin (LQ emulation mode)               90 x  90    LQ1000_2.DRV
+Panasonic    24 pin (LQ emulation mode)              180 x 180    LQ1000.DRV
+Panasonic    24 pin (Proprinter mode)                120 x 216    EPSONMX.DRV
+Panasonic    24 pin (Proprinter mode)                240 x 216    EPSONFX.DRV
+Primage      90-GT, 100                              120 x 108    EPSONFX2.DRV
+Primage      90-GT, 100                              240 x 216    EPSONFX.DRV
+Printronix   L2324                    (Letter Paper)  75 x  75    HPLASER1.DRV 
+------------------------------------------------------------------------------
+                                                                       Page 10
+               DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+Printronix   L2324                    (Letter Paper) 100 x 100    HPLASER2.DRV
+Printronix   L2324                    (Letter Paper) 150 x 150    HPLASER3.DRV
+Printronix   L2324                    (Letter Paper) 300 x 300    HPLASER4.DRV
+Printronix   L2324                    (Legal Paper)   75 x  75    HPLASER5.DRV
+Printronix   L2324                    (Legal Paper)  100 x 100    HPLASER6.DRV
+Printronix   L2324                    (Legal Paper)  150 x 150    HPLASER7.DRV
+Printronix   L2324                    (Legal Paper)  300 x 300    HPLASER8.DRV
+Printronix   P1013                                    90 x  90    LQ1000_2.DRV
+Printronix   P1013                                   180 x 180    LQ1000.DRV
+Printronix   S-7024                                  120 x 108    EPSONFX2.DRV
+Printronix   S-7024                                  240 x 216    EPSONFX.DRV
+Printware    720 IQ Professional II   (PostScript mode - see PLOTTERS.DOC)
+PostScript   (See PLOTTERS.DOC for PostScript plotter drivers)
+QMS          Colorscript 100 Model 10/30 (PostScript mode see Plotter drivers)
+QMS          PS-410/810 Turbo         (Letter Paper)  75 x  75    HPLASER1.DRV
+QMS          PS-410/810 Turbo         (Letter Paper) 100 x 100    HPLASER2.DRV
+QMS          PS-410/810 Turbo         (Letter Paper) 150 x 150    HPLASER3.DRV
+QMS          PS-410/810 Turbo         (Letter Paper) 300 x 300    HPLASER4.DRV
+QMS          PS-410/810 Turbo         (Legal Paper)   75 x  75    HPLASER5.DRV
+QMS          PS-410/810 Turbo         (Legal Paper)  100 x 100    HPLASER6.DRV
+QMS          PS-410/810 Turbo         (Legal Paper)  150 x 150    HPLASER7.DRV
+QMS          PS-410/810 Turbo         (Legal Paper)  300 x 300    HPLASER8.DRV
+QMS          PS-410/810 Turbo         (HP-GL mode - see PLOTTERS.DOC)
+QMS          PS-410/810 Turbo         (PostScript mode - see PLOTTERS.DOC)
+QMS          PS-820/820 Turbo         (Letter Paper)  75 x  75    HPLASER1.DRV
+QMS          PS-820/820 Turbo         (Letter Paper) 100 x 100    HPLASER2.DRV
+QMS          PS-820/820 Turbo         (Letter Paper) 150 x 150    HPLASER3.DRV
+QMS          PS-820/820 Turbo         (Letter Paper) 300 x 300    HPLASER4.DRV
+QMS          PS-820/820 Turbo         (Legal Paper)   75 x  75    HPLASER5.DRV
+QMS          PS-820/820 Turbo         (Legal Paper)  100 x 100    HPLASER6.DRV
+QMS          PS-820/820 Turbo         (Legal Paper)  150 x 150    HPLASER7.DRV
+QMS          PS-820/820 Turbo         (Legal Paper)  300 x 300    HPLASER8.DRV
+QMS          PS-820/820 Turbo         (HP-GL mode - see PLOTTERS.DOC)
+QMS          PS-820/820 Turbo         (PostScript mode - see PLOTTERS.DOC)
+QMS          PS-1500/2200 MODEL S     (PostScript mode - see PLOTTERS.DOC)
+QMS          PS-2210                  (Letter Paper)  75 x  75    HPLASER1.DRV
+QMS          PS-2210                  (Letter Paper) 100 x 100    HPLASER2.DRV
+QMS          PS-2210                  (Letter Paper) 150 x 150    HPLASER3.DRV
+QMS          PS-2210                  (Letter Paper) 300 x 300    HPLASER4.DRV
+QMS          PS-2210                  (Legal Paper)   75 x  75    HPLASER5.DRV
+QMS          PS-2210                  (Legal Paper)  100 x 100    HPLASER6.DRV
+QMS          PS-2210                  (Legal Paper)  150 x 150    HPLASER7.DRV
+QMS          PS-2210                  (Legal Paper)  300 x 300    HPLASER8.DRV
+QMS          PS-2210                  (HP-GL mode - see PLOTTERS.DOC)
+QMS          PS-2210                  (PostScript mode - see PLOTTERS.DOC)
+QUME         Crystalprint Express     (Letter Paper)  75 x  75    HPLASER1.DRV
+QUME         Crystalprint Express     (Letter Paper) 100 x 100    HPLASER2.DRV
+QUME         Crystalprint Express     (Letter Paper) 150 x 150    HPLASER3.DRV
+QUME         Crystalprint Express     (Letter Paper) 300 x 300    HPLASER4.DRV
+QUME         Crystalprint Express     (Legal Paper)   75 x  75    HPLASER5.DRV
+QUME         Crystalprint Express     (Legal Paper)  100 x 100    HPLASER6.DRV
+QUME         Crystalprint Express     (Legal Paper)  150 x 150    HPLASER7.DRV
+QUME         Crystalprint Express     (Legal Paper)  300 x 300    HPLASER8.DRV
+QUME         Crystalprint Express     (PostScript mode - see PLOTTERS.DOC)
+QUME         Crystalprint Publisher/II (Letter Paper) 75 x  75    HPLASER1.DRV 
+------------------------------------------------------------------------------
+                                                                       Page 11
+               DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+QUME         Crystalprint Publisher/II (Letter Paper)100 x 100    HPLASER2.DRV
+QUME         Crystalprint Publisher/II (Letter Paper)150 x 150    HPLASER3.DRV
+QUME         Crystalprint Publisher/II (Letter Paper)300 x 300    HPLASER4.DRV
+QUME         Crystalprint Publisher/II (Legal Paper)  75 x  75    HPLASER5.DRV
+QUME         Crystalprint Publisher/II (Legal Paper) 100 x 100    HPLASER6.DRV
+QUME         Crystalprint Publisher/II (Legal Paper) 150 x 150    HPLASER7.DRV
+QUME         Crystalprint Publisher/II (Legal Paper) 300 x 300    HPLASER8.DRV
+QUME         Crystalprint Publisher/II (PostScript mode - see PLOTTERS.DOC)
+QUME         Crystalprint Series II   (Letter Paper)  75 x  75    HPLASER1.DRV
+QUME         Crystalprint Series II   (Letter Paper) 100 x 100    HPLASER2.DRV
+QUME         Crystalprint Series II   (Letter Paper) 150 x 150    HPLASER3.DRV
+QUME         Crystalprint Series II   (Letter Paper) 300 x 300    HPLASER4.DRV
+QUME         Crystalprint Series II   (Legal Paper)   75 x  75    HPLASER5.DRV
+QUME         Crystalprint Series II   (Legal Paper)  100 x 100    HPLASER6.DRV
+QUME         Crystalprint Series II   (Legal Paper)  150 x 150    HPLASER7.DRV
+QUME         Crystalprint Series II   (Legal Paper)  300 x 300    HPLASER8.DRV
+QUME         Crystalprint Series II   (PostScript mode - see PLOTTERS.DOC)
+QUME         Crystalprint Super Series II (Ltr Paper) 75 x  75    HPLASER1.DRV
+QUME         Crystalprint Super Series II (Ltr Paper)100 x 100    HPLASER2.DRV
+QUME         Crystalprint Super Series II (Ltr Paper)150 x 150    HPLASER3.DRV
+QUME         Crystalprint Super Series II (Ltr Paper)300 x 300    HPLASER4.DRV
+QUME         Crystalprint Super Series II (Lgl Paper) 75 x  75    HPLASER5.DRV
+QUME         Crystalprint Super Series II (Lgl Paper)100 x 100    HPLASER6.DRV
+QUME         Crystalprint Super Series II (Lgl Paper)150 x 150    HPLASER7.DRV
+QUME         Crystalprint Super Series II (Lgl Paper)300 x 300    HPLASER8.DRV
+QUME         Crystalprint Super Series II (HP-GL mode - see PLOTTERS.DOC)
+QUME         Crystalprint Super Series II (PostScript mode see PLOTTERS.DOC)
+Raster Devices  Direct Impression     (Letter Paper)  75 x  75    HPLASER1.DRV
+Raster Devices  Direct Impression     (Letter Paper) 100 x 100    HPLASER2.DRV
+Raster Devices  Direct Impression     (Letter Paper) 150 x 150    HPLASER3.DRV
+Raster Devices  Direct Impression     (Letter Paper) 300 x 300    HPLASER4.DRV
+Raster Devices  Direct Impression     (Legal Paper)   75 x  75    HPLASER5.DRV
+Raster Devices  Direct Impression     (Legal Paper)  100 x 100    HPLASER6.DRV
+Raster Devices  Direct Impression     (Legal Paper)  150 x 150    HPLASER7.DRV
+Raster Devices  Direct Impression     (Legal Paper)  300 x 300    HPLASER8.DRV
+RCA          VP2100                                  120 x 216    EPSONMX.DRV
+RCA          VP2100                                  120 x 108    EPSONFX2.DRV
+RCA          VP2100                                  240 x 216    EPSONFX.DRV
+Relisys      RP1814/2410, VP1821                     120 x 108    EPSONFX2.DRV
+Relisys      RP1814/2410, VP1821                     240 x 216    EPSONFX.DRV
+Ricoh        PC Laser 6000/PS         (PostScript mode - see PLOTTERS.DOC)
+Roland       DG PR-1012/1112/1212A/1215/1250/1550    120 x 108    EPSONFX2.DRV
+Roland       DG PR-1012/1112/1212A/1215/1250/1550    240 x 216    EPSONFX.DRV
+Roland       DG PR-2417/2450                          90 x  90    LQ1000_2.DRV
+Roland       DG PR-2417/2450                         180 x 180    LQ1000.DRV
+Sanyo        PR-241                                   90 x  90    LQ1000_2.DRV
+Sanyo        PR-241                                  180 x 180    LQ1000.DRV
+Seikosha     BP-5420/5460, MP-1300/5300              120 x 108    EPSONFX2.DRV
+Seikosha     BP-5420/5460, MP-1300/5300              240 x 216    EPSONFX.DRV
+Seikosha     SK-3000AI/35005AI, SL1600AI             120 x 108    EPSONFX2.DRV
+Seikosha     SK-3000AI/35005AI, SL1600AI             240 x 216    EPSONFX.DRV
+Seikosha     SP-1000/1200AI/180AI                    120 x 108    EPSONFX2.DRV
+Seikosha     SP-1000/1200AI/180AI                    240 x 216    EPSONFX.DRV
+Seikosha     SBP-10AI, SL-80AI/130AI/230AI            90 x  90    LQ1000_2.DRV
+Seikosha     SBP-10AI, SL-80AI/130AI/230AI           180 x 180    LQ1000.DRV   
+------------------------------------------------------------------------------
+                                                                       Page 12
+               DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+Seiko Instruments CH-5504-PS     (PostScript mode - see PLOTTERS.DOC)
+Siemens      Inkjet PT 90-12, PT 88S-32               96 x  96    HPINKJET.DRV
+Siemens      Inkjet PT 90-12, PT 88S-32              240 x 216    EPSONFX.DRV
+Siemens      Inkjet PT 90-12, PT 88S-32              120 x 108    EPSONFX2.DRV
+Spear        Desktop Laser Printer    (Letter Paper)  75 x  75    HPLASER1.DRV
+Spear        Desktop Laser Printer    (Letter Paper) 100 x 100    HPLASER2.DRV
+Spear        Desktop Laser Printer    (Letter Paper) 150 x 150    HPLASER3.DRV
+Spear        Desktop Laser Printer    (Letter Paper) 300 x 300    HPLASER4.DRV
+Spear        Desktop Laser Printer    (Legal Paper)   75 x  75    HPLASER5.DRV
+Spear        Desktop Laser Printer    (Legal Paper)  100 x 100    HPLASER6.DRV
+Spear        Desktop Laser Printer    (Legal Paper)  150 x 150    HPLASER7.DRV
+Spear        Desktop Laser Printer    (Legal Paper)  300 x 300    HPLASER8.DRV
+Star         Laserprinter 8II         (Letter Paper)  75 x  75    HPLASER1.DRV
+Star         Laserprinter 8II         (Letter Paper) 100 x 100    HPLASER2.DRV
+Star         Laserprinter 8II         (Letter Paper) 150 x 150    HPLASER3.DRV
+Star         Laserprinter 8II         (Letter Paper) 300 x 300    HPLASER4.DRV
+Star         Laserprinter 8II         (Legal Paper)   75 x  75    HPLASER5.DRV
+Star         Laserprinter 8II         (Legal Paper)  100 x 100    HPLASER6.DRV
+Star         Laserprinter 8II         (Legal Paper)  150 x 150    HPLASER7.DRV
+Star         Laserprinter 8II         (Legal Paper)  300 x 300    HPLASER8.DRV
+Star Micronics   Gemini 10X/15X                      120 x 144    STAR10.DRV
+Star Micronics   NL/NR/NX-10, NB/NL/NR/NX-15         240 x 216    EPSONFX.DRV
+Star Micronics   NL/NR/NX-10, NB/NL/NR/NX-15         120 x 108    EPSONFX2.DRV
+Star Micronics   NX1000, XR-1500                     240 x 216    EPSONFX.DRV
+Star Micronics   NX1000, XR-1500                     120 x 108    EPSONFX2.DRV
+Star Micronics   NB/XB/XR-2410, NB/XB/XR-2415         90 x  90    LQ1000_2.DRV
+Star Micronics   NB/XB/XR-2410, NB/XB/XR-2415        180 x 180    LQ1000.DRV
+Star Micronics   NX-2400, XB-2145                     90 x  90    LQ1000_2.DRV
+Star Micronics   NX-2400, XB-2145                    180 x 180    LQ1000.DRV
+Talaris      1590-T PrintStation      (Letter Paper)  75 x  75    HPLASER1.DRV
+Talaris      1590-T PrintStation      (Letter Paper) 100 x 100    HPLASER2.DRV
+Talaris      1590-T PrintStation      (Letter Paper) 150 x 150    HPLASER3.DRV
+Talaris      1590-T PrintStation      (Letter Paper) 300 x 300    HPLASER4.DRV
+Talaris      1590-T PrintStation      (Legal Paper)   75 x  75    HPLASER5.DRV
+Talaris      1590-T PrintStation      (Legal Paper)  100 x 100    HPLASER6.DRV
+Talaris      1590-T PrintStation      (Legal Paper)  150 x 150    HPLASER7.DRV
+Talaris      1590-T PrintStation      (Legal Paper)  300 x 300    HPLASER8.DRV
+Tally        Spirit 80                               170 x 216    TALLY80.DRV
+Tandy        DMP 106/107/133/440/442                 240 x 216    EPSONFX.DRV
+Tandy        DMP 106/107/133/440/442                 120 x 108    EPSONFX2.DRV
+Tandy        DMP 300                                  90 x  90    LQ1000_2.DRV
+Tandy        DMP 300                                 180 x 180    LQ1000.DRV
+Tandy        DMP 300                                 360 x 360    IBMPRO24.DRV
+Tandy        DMP 2100                                180 x 180    DMP2100.DRV
+Tandy        DMP 2101/2102/2110/2120                  90 x  90    LQ1000_2.DRV
+Tandy        DMP 2101/2102/2110/2120                 180 x 180    LQ1000.DRV
+Tektronix    Phaser CP                (HP-GL mode - see PLOTTERS.DOC)
+Texas Instruments    850, 855?                       120 x 216    TI850.DRV
+Texas Instruments    857, 865, 880 AT                240 x 216    EPSONFX.DRV
+Texas Instruments    857, 865, 880 AT                120 x 108    EPSONFX2.DRV
+Texas Instruments    857, 865                        120 x 216    EPSONMX.DRV
+Texas Instruments    875, 877                         90 x  90    LQ1000_2.DRV
+Texas Instruments    875, 877                        180 x 180    LQ1000.DRV
+Toshiba      ExpressWriter 301/311                    90 x  90    LQ1000_2.DRV
+Toshiba      ExpressWriter 301/311                   180 x 180    LQ1000.DRV   
+------------------------------------------------------------------------------
+                                                                       Page 13
+               DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+Toshiba      P321SL/SLC                              240 x 216    EPSONFX.DRV
+Toshiba      P321SL/SLC                              120 x 108    EPSONFX2.DRV
+Toshiba      P1340/P1350/P1351/P351                   90 x  90    TOSHIBA2.DRV
+Toshiba      P1340/P1350/P1351/P351                  180 x 180    TOSHIBA.DRV
+Toshiba      Pagelaser6               (Letter Paper)  75 x  75    HPLASER1.DRV
+Toshiba      Pagelaser6               (Letter Paper) 100 x 100    HPLASER2.DRV
+Toshiba      Pagelaser6               (Letter Paper) 150 x 150    HPLASER3.DRV
+Toshiba      Pagelaser6               (Letter Paper) 300 x 300    HPLASER4.DRV
+Toshiba      Pagelaser6               (Legal Paper)   75 x  75    HPLASER5.DRV
+Toshiba      Pagelaser6               (Legal Paper)  100 x 100    HPLASER6.DRV
+Toshiba      Pagelaser6               (Legal Paper)  150 x 150    HPLASER7.DRV
+Toshiba      Pagelaser6               (Legal Paper)  300 x 300    HPLASER8.DRV
+Unisys       AP 1324                                 240 x 216    EPSONFX.DRV
+Unisys       AP 1324                                 120 x 108    EPSONFX2.DRV
+Unisys       AP 1327                                  90 x  90    LQ1000_2.DRV
+Unisys       AP 1327                                 180 x 180    LQ1000.DRV
+Unisys       AP 9206/9230/9415        (Letter Paper)  75 x  75    HPLASER1.DRV
+Unisys       AP 9206/9230/9415        (Letter Paper) 100 x 100    HPLASER2.DRV
+Unisys       AP 9206/9230/9415        (Letter Paper) 150 x 150    HPLASER3.DRV
+Unisys       AP 9206/9230/9415        (Letter Paper) 300 x 300    HPLASER4.DRV
+Unisys       AP 9206/9230/9415        (Legal Paper)   75 x  75    HPLASER5.DRV
+Unisys       AP 9206/9230/9415        (Legal Paper)  100 x 100    HPLASER6.DRV
+Unisys       AP 9206/9230/9415        (Legal Paper)  150 x 150    HPLASER7.DRV
+Unisys       AP 9206/9230/9415        (Legal Paper)  300 x 300    HPLASER8.DRV
+Unisys       AP 9415                  (HP-GL mode - see PLOTTERS.DOC)
+Unisys       AP 9415                  (PostScript mode - see PLOTTERS.DOC)
+Versatec     (LPT1: and special cable)               200 x 200    VERSATEC.DRV
+Varityper    VT600P                   (PostScript mode - see PLOTTERS.DOC)
+generic raster output driver                         100 x 100    RASTER.DRV
+==============================================================================
+Although every effort has been made to ensure the accuracy of this note, OrCAD
+drivers may change without notification. Those changes may not be reflected in
+this listing. The information in this note was derived from a variety of
+sources.
+
+All other brand and product names mentioned herein are used for identification
+purposes only, and are trademarks or registered trademarks of their respective
+holders.
+------------------------------------------------------------------------------

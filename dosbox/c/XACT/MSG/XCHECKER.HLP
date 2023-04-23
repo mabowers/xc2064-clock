@@ -1,0 +1,2037 @@
+#------------------------------------------------------------------------#
+# HELP FILE for XCHECKER                                                 #
+#                                                                        #
+# 01.00   07/09/90  Kinh Le         Original Version                     #
+# 01.00   07/09/91  Kinh Le         Complete commands                    #
+# 01.01                             No changes                           #
+# 01.02   09/04/92  Tony Maraldo    Command revisions/enhancements       #
+#                                   Addition of warning & error messages #
+# 01.03                             No changes                           #
+# 01.04                             No changes                           #
+# 01.05   3/30/94  Tony Maraldo     Updated error messages, more info    #
+#------------------------------------------------------------------------#
+.INDEX main
+
+    XCHECKER [-help] [-port name] [-batch name] [-part name|-p name]
+	     [[-verify] [datafile]]
+
+    Available options:
+
+     -help       Display this help page
+
+     -port name  Specify the communication port. See the command 'port' in the
+		 'Interactive Command' section for supported names.
+
+     -part name  Specify the target LCA device package name.
+     -p name
+
+     -batch name Specify batch name to be executed (filename.CMD).
+
+     datafile    Specify the datafile to download to the target LCA. The
+		 datafile can be in Intel(.MCS), Motorola(.EXO), 
+		 Tektronix(.TEK) or in Xilinx(.BIT or .RBT) format.  
+		 If no extension is included the following search order 
+		 is followed: .BIT, .MCS, .TEK, .EXO.
+
+		 Data files must be in the current directory or in the XACT
+		 environmental search path.  The full path to the datafile
+		 may also be specified. Additional paths may be specified with
+		 the XChecker 'path' command.
+
+		 If the -verify option is used, the target LCA will be
+		 read back immediately after configuration, and compared to 
+		 the original datafile.
+
+     Extended help is available for XChecker commands and error messages
+     at the XCHECKER? prompt in the interactive mode.
+
+     For a list of commands type 'help command' at the XCHECKER? prompt.
+     For an explanation of an error or warning message type the following:
+
+     XCHECKER? help e001 <enter>   <==== for specific help on ERROR 001
+
+     XCHECKER? help w001 <enter>   <==== for specific help on WARNING 001
+
+   *************************************************************************
+   * Note: The XChecker online help file contains information and examples *
+   *       which are more current than the XChecker manual in the          *
+   *       XACT Reference Guide.                                           *
+   *************************************************************************
+
+.INDEX command
+
+    !<command_number>
+	  Execute a previously entered command. Similar to the UNIX
+	  convention. Use the 'history' command to display command
+	  history. 
+
+    alias name definition
+    	  Allows commands to be aliased to user defined names.
+
+    < batchname     
+    or
+    batch batchname
+	  Execute commands from a file, the file must have a .CMD extension.
+
+    browse filename
+	  Browse or view a text file on PC platforms.
+
+    baud baud_rate
+	  Change the communication baud rate between the host system and
+	  XChecker or the serial download cable. If no baud rate is specified
+	  the current baud rate is displayed.
+
+    break
+	  Stop the free-running clock on XChecker's CLKO pin.  This is the
+	  same command as 'clock -stop'.
+
+    clock [-stop|-resume] [-int|-ext -speed 1|3|5|11] nclocks
+	  Specify the origin, speed, and number of clocks generated on
+	  XChecker's CLKO pin. With no arguments, the current settings are
+	  displayed.
+
+    diag [-p] number [-np]
+	  Run the XChecker diagnostics test; the supplied test fixture
+	  must be plugged into XChecker's socket.  The option 'number'
+	  specifies the number of times to execute the diagnostics test.
+	  The -p option pauses before executing the test, the -np option
+	  supresses the pause.
+
+#    dump [ -bin | -oct | -dec | -hex ] [ -s start_addr ] [ -l number_of_bits ]
+#	  Dumps data captured from the last readback snapshot or 
+#	  verify command. 
+
+    display [-clear -all -add|-delete] [-bin|-oct|-dec|-hex] [*|signal_list]
+	  Setup displayed format for the signal list. The signals
+	  defined in this display list are a subset of the signals
+	  defined in probe list.  This command is the same as the 'pick'
+	  command.
+
+    exit [-nsave]
+	  Exits the current XChecker session. Also used to exit
+	  the current command shell and return to the XChecker session,
+	  if at a system prompt originally started by XChecker's 'sys' command.
+	  The -nsave option exits the program without saving the profile
+	  in the 'xchecker.pro' file.
+
+    export [-v|-viewlogic] save_file
+	  Saves the current readback data to the file save_file.
+	  Default save_file format is XChecker binary format.
+	  With the -v or -viewlogic option, the file is saved
+	  as a Viewwave .GEN file; the file may then be viewed in Viewwave.
+
+	  Retrieve previous snapshots saved by 'export' with 'import'.
+	  The file must be in XChecker binary format.
+	  
+     group [group_name] [signal_list]
+	  The 'group' command defines a  group_name for a set of signals.
+	  This group can then be used as the signal name in the 'pick'
+	  command.  Typing 'group' without any arguments displays all
+	  signal groups.
+
+     history
+	  Displays commands entered during the current sessions. As in
+	  UNIX, previously entered commands may be executed by specifying
+	  '!<command_number>'. Only the last 20 commands entered are
+	  retained.
+
+     import save_file
+	  The 'import' command retrieves previous snapshots saved by the
+	  'export' command. The file must be in XChecker binary format.
+
+     ls [-s] filemask
+	  List directory entries. The -s option searches for the specified
+	  file in the XACT environment and subdirectories.
+
+     load [-v] design
+	  Download a design to the user's LCA device. Use the -v option
+	  to verify the design after configuration.
+
+     log [-on|-off] [-out filename ] "string"
+	  Redirect displayed output to a logfile.  Use the -out filename
+	  option to open a new logfile. The -on and -off toggle logging
+	  on and off.
+
+     quit [-nsave]
+	  Quits the current XChecker session. The -nsave option exits the 
+	  program without saving the profile in the 'xchecker.pro' file. Same
+	  as the 'exit' command.
+
+     path path_name1 path_name2 ... path_name_n
+	  Specifies the current working directory.
+
+     part part_name
+	  Specify LCA device package in use. If no part name is specified
+	  the current parttype is displayed along with a list of valid
+  	  part names.
+
+     pick [-clear -all -add|-delete] [-bin|-oct|-dec|-hex] [*|signal_list]
+	  Setup the display format for the signal list. The signals
+	  defined in the display list are a subset of the signals
+	  defined in probe list.  This command affects the way data is
+	  displayed when the 'show' command is used. This command is the same
+	  as the 'display' command.
+
+     port portname
+	  Set or change the cable communication port.
+
+     probe [-clear -all -add|-delete] [*|signal_list]
+	  The 'probe' command specifies which signals to extract when a
+	  target LCA is read back.  A signal name must be listed in the
+	  design.LL file.
+
+     readback [-a] [-c] #snapshots
+	  Take #snapshots of the target LCA.  Each snapshot is one full
+	  readback of the target.  Use -a to append new snapshot data to
+	  previous values, -c to readback the target LCA's configuration.
+
+     reset [-cable | -target]
+	  Reset the cable hardware (-c) or pulse RESET line to reset
+	  the target LCA (-t). No arguments has the same effect as -t.
+
+     save
+	  Save current session settings in the file 'xchecker.pro'.
+
+     settings
+	  Display current environment settings.
+
+     show [-signal x y] [-snapshot n m] [-tabular|-vdata] [-text|-hdata]
+	  Show data captured after a readback or series of snapshots are
+	  performed.  Data is displayed in the format specified by the
+	  'pick' command.
+
+     status
+	  Display the status of the cable hardware.
+
+     trigger [-auto|-manual|-none] [-clock #x #y] [-timeout #t] [-reset]
+	  Setup triggering events to be used in a subsequent readback or
+	  series of snapshots.
+
+     verify [name]
+	  Verify if the recent download is correct.
+
+     version
+	  Displays version information about the XChecker software.
+
+     where filename
+	  Searches directories specified by the XChecker 'path' variable
+	  for the specified filename.
+
+     Extended help is available for XChecker commands and error messages
+     at the XCHECKER? prompt in the interactive mode.
+
+     For help in a specific command type 'help <command_name>' at the
+     XCHECKER? prompt.
+
+     For an explanation of a error or warning message type the following:
+
+     XCHECKER? help e001 <enter>   <==== for specific help on ERROR 001
+
+     XCHECKER? help w001 <enter)   <==== for specific help on WARNING 001
+
+.INDEX where
+     where filename
+     Abbrev: wh
+
+	  The 'where' command searches directories specified by the 
+	  XChecker 'path' environment variable for the specified filename.
+	  If the file is found, its full path is printed. If the file is
+	  not found there is no output.
+
+.INDEX history
+     history
+     Abbrev: hi
+
+	  The 'history' command is similar to the UNIX command in
+	  that it displays the command history for the current session.
+	  Command history is kept for the current session only and is 
+	  lost when the XChecker software is exited.
+
+	  The !<command_number> convention may be used to execute previously
+	  entered commands. Only the 20 most recent commands are retained.
+
+	  Example:
+
+		XCHECKER ? load test2			   <== download file
+ 
+		About to download 'test2.bit'.		   <== screen output
+		Press ENTER key to continue or Q to quit:
+		> 
+		Total of 2236 bytes transmitted.
+		DONE signal went high.
+		Transmitting time =  1.15 secs
+		XCHECKER ? readback -c			   <== readback
+		Readback 2230 bytes of configuration	  
+		XCHECKER ? history			   <== show history
+   		   1  load test2
+    		   2  readback -c
+    		   3  history
+		XCHECKER ? !2				   <== execute command
+		Readback 2230 bytes of configuration           two again
+		XCHECKER ? 
+
+.INDEX !
+     !<command_number>
+	  
+	  The !<command_number> convention may be used to execute previously
+	  entered commands. Use the 'history' command to see the history
+	  list.
+	
+	  Example:
+
+		XCHECKER ? load test2			   <== download file
+ 
+		About to download 'test2.bit'.		   <== screen output
+		Press ENTER key to continue or Q to quit:
+		> 
+		Total of 2236 bytes transmitted.
+		DONE signal went high.
+		Transmitting time =  1.15 secs
+		XCHECKER ? readback -c			   <== readback
+		Readback 2230 bytes of configuration	  
+		XCHECKER ? history			   <== show history
+   		   1  load test2
+    		   2  readback -c
+    		   3  history
+		XCHECKER ? !2				   <== execute command
+		Readback 2230 bytes of configuration           two again
+		XCHECKER ? 
+
+.INDEX alias
+     alias name definition
+     Abbrev: ali
+	
+	  The 'alias' command allows commands, batch file sequences,
+	  and other operations to be assigned to a user defined name.
+	  All aliases assigned during a session are saved in the profile
+	  file 'xchecker.pro'.
+
+	  If no arguments are included all current aliases are printed.
+
+.INDEX batch
+     < batchname
+     batch batchname
+
+	  Execute commands specified in a file. The default file
+	  extension is '.cmd'
+
+	  Example:
+		       batch xyz
+		  or   < xyz
+
+.INDEX baud
+     baud baudrate
+     Abbrev: bau
+
+	  Specify new the communication baud rate for the XChecker or serial 
+	  cable. The valid baud rates are:
+
+			  9600   19200  38400 115200
+	       IBM PC       X      X      X      X
+	       APOLLO       X      X      X
+	       DEC3100      X
+	       SUN          X      X      X
+
+	  At initialization, the fastest baud rate is selected based
+	  on the host system's capability.
+
+.INDEX browse
+     browse [filename]
+     Abbrev: br
+
+	  The 'browse' command allows the user to view a text file.  It
+	  is similar to the MS-DOS 'more' command. This command works 
+	  only on PC platforms.
+
+.INDEX error
+     Error Messages
+
+	  For an explanation of an error message type the following:
+
+	  XCHECKER? help e001 <enter>   <==== for specific help on ERROR 001
+	  XCHECKER? help e250 <enter>   <==== for specific help on ERROR 250
+
+.INDEX warning
+     Warning Messages
+
+	  For an explanation of a warning message type the following:
+
+	  XCHECKER? help w001 <enter>   <==== for specific help on WARNING 001
+
+.INDEX help
+     help topic
+     Abbrev: he
+
+	  Displays help pages for the requested topic. Extended help is
+	  available for XChecker commands and error messages at the
+	  XCHECKER? prompt in the interactive mode.
+
+	  For help in a specific command type 'help <command_name>' at the
+	  XCHECKER? prompt.
+
+	  For an explanation of a error or warning message type the following:
+
+	  XCHECKER? help e001 <enter>   <==== for specific help on ERROR 001
+
+	  XCHECKER? help w001 <enter)   <==== for specific help on WARNING 001
+
+.INDEX log
+     log [-on|-off] [-out filename] "string"
+     Abbrev: log
+
+	  The 'log' command is used to direct screen output to a specified
+	  file. The -out option is used to specify the name of the log file.
+	  The "string" field allows the user to add comments to the log file,
+	  in addition to the data captured on the screen.  The command
+	  'log "string"' may be used after a log file has been opened.
+
+	  The -on and -off options toggle data capture on and off to
+	  the current logfile. The -out option must be used to open
+	  a logfile before the -on and -off options are used.
+
+	  A log file will remain open until another 'log -out filename'
+	  is executed the or the XChecker program is exited.
+
+	  Note that commands typed at the XCHECKER? prompt are not captured
+	  in the log file.
+
+	  Example:
+		log -out capture.txt         <=== XChecker opens a new log
+						  file called 'capture.txt'
+		probe A B C D E F
+		pick A B C D E F
+		trigger -none -clock 0 1
+		readback 3
+		log This is counter #1       <=== XChecker inserts the user
+						  comment into the log file
+		show
+
+		------ ABCDEF                <=== screen output from XChecker
+		    0: 000000                     is also captured to log file
+		    1: 000001           
+		    2: 000010
+
+.INDEX part
+
+     part part_name
+     Abbrev: pa
+
+	  Specify the LCA device type in use.  This command is required if
+	  target verification or signal probing is to be performed. There
+	  should be a <device_type>.ll in the search path. Specify the device
+	  type as follows:
+
+	       Example:
+			 part XC4005         <== the device type is an XC4005           
+			 part XC3042L        <== the device type is an XC3042L
+
+	  In addition to the <device_type>.LL file, an design.LL file
+	  is required to probe signals from a downloaded design. 
+
+	  If no parttype is specified, the current type will be displayed
+	  along with a list of available parttypes. The file 'xpart.def'
+	  in the XACT data directory determines the available parts.
+
+.INDEX ls
+     ls [-s] filemask
+     Abbrev: ls
+
+	  List directory entries of the matching filemask. If option
+	  -s is specified, the Xilinx search path (XACT environment and
+	  subdirectories) is used to look for matching files.
+
+#.INDEX dump [ -bin | -oct | -dec | -hex ] [ -s start_addr ] [ -l number_of_bits ]
+#     dump
+#     Abbrev: du
+#
+#	  This command dumps data captured by a 'readback' or 'verify'
+#	  command. The data is displayed on byte boundaries and is
+#	  unformated. Available options are:
+#
+#	  -bin	   Display the data in binary format.
+#	 
+#	  -oct	   Display the data in octal format.
+#
+#	  -dec     Display the data in decimal format.
+#
+#	  -hex     Display the data in hexadecimal format.
+#
+#	  -s start_addr
+#		   Data is normally displayed 16 bytes at a time.  This option
+#		   sets the starting address for the data to be displayed.
+#
+#	  -l number_of_bits
+#		   Overrides the 16 byte block display default and specifies
+#		   the total amount of data to be displayed.
+#
+#	     Example:
+#	
+#		   dump -bin -s 100 -l 14000	<== Sets the display format to
+#						    binary, dump data starting
+#						    at byte address 100, and 
+#						    display a total of 14000 bits
+#
+#
+.INDEX save
+     save
+     Abbrev: sa
+
+	  This command saves the current session settings to the file
+	  'xchecker.pro'. If a previous 'xchecker.pro' is
+	  found in the search path, the file is updated with the new settings.
+	  If no file is found, a new 'xchecker.pro' will be created in the
+	  current directory.
+
+.INDEX sys
+     sys command
+     Abbrev: sys
+
+	  The 'sys' command executes a system command.  On IBM PCs running DOS,
+	  a new DOS shell is invoked if no command is specified. The user
+	  must type 'exit' to return to the XChecker session.  The field
+	  'command' specifies a command to execute; when execution is finished
+	  the user is returned to the XChecker session.
+
+	       Examples:
+			  sys lca2xnf test.lca tout.xnf
+			  sys rm *.bak
+
+.INDEX diag
+     diag [-p ] num [ -np ]
+     Abbrev: dia
+
+	  The 'diag' command runs the XChecker diagnostic test routines.  Each
+	  diagnostic test consists of three low level XChecker tests.  The tests
+	  consists of (1) a communications check, (2) hardware register check,
+	  and (3) an XChecker SRAM memory check.
+
+	  The -p option causes XChecker to pause between each test.  The 'num'
+	  field specifies the number of times to run the above three tests.
+
+	  The -np option suppresses the "press ENTER" prompt normally displayed
+	  before executing the diagnostics test.
+
+.INDEX load
+     load [-v] design -np
+     Abbrev: loa
+
+	  Read the specified design and download it to the user's target
+	  LCA device. With -v option, the design will be immediately read back
+	  and verified to make sure the recent download process is correct.
+	  If you want to verify a device after configuring it, type 'verify'.
+
+	  The -np (no pause) option supresses the prompt to press ENTER,
+	  and immediately begins the configuration process.
+
+	       Example:
+			 load demo3020
+			 load -v ~xact/designs/4kdemo
+
+.INDEX reset
+     reset [-cable|-target]
+     Abbrev: res
+
+	  The 'reset' command is used in two types of resets.  If the -cable
+	  option is used, the XChecker cable is forced into a hardware reset.
+	  Use this option if communication errors are experienced.
+
+	  Without the -cable option, the RESET pin on XChecker is pulsed once.
+	  The RESET pin on XChecker is active low.  The -target option
+	  has the same effect.
+
+.INDEX port
+     port portname
+     Abbrev: po
+
+	  The 'port' command specifies the name of the port to be used by the
+	  cable for communications. If you are using the Parallel download
+	  cable, valid ports are 'lpt1', 'lpt2', or 'lpt3'.
+	  
+	  If you using the XChecker cable or Serial download cable, the 
+	  following RS232 ports are valid for the listing platform. 
+	 
+	       IBM         com1         com2         com3       com4
+	       
+	       NEC         com1
+
+	       APOLLO      /dev/sio1    /dev/sio     /dev/sio2
+
+	       DEC3100     /dev/ttyd0   /dev/ttyd1
+
+	       SUN         /dev/ttya    /dev/ttyb
+
+	  If port is defined as 'AUTO', all communication ports are scanned
+	  to search for a cable.
+
+	       Example:
+			 port /dev/ttyb      <== define port explicitly
+			 port auto           <== scan all available ports
+
+.INDEX resume
+     resume     
+     Abbrev: resu
+
+	  Resume or restart the free running system clock on XChecker's CLKO
+	  pin. This command is used during single stepping/probing of a
+	  target LCA. The following example illustrates this:
+
+	       Example:
+			 <Power Up target... Target is running>
+
+			 break          # Stop the system clock on the CLKO pin
+			 reset          # Reset the system
+			 clock 2034     # Generate 2034 system clocks
+			 readback 5     # Readback 5 snapshots
+
+			<Show/View the snapshots>
+
+			clock 123      # Extra 123 clocks
+			readback 5     # Read 5 snap shots
+
+			<Show/View the snap shots>
+
+			resume         # Back to free running
+
+.INDEX status
+     status      
+     Abbrev: st
+
+	  This 'status' command displays the current status of the cable
+	  hardware. The levels of the following signals are sampled and
+	  displayed.
+
+	       RESET=0   INIT=1    D/P=1     PROG=1
+	       CCLK=1    TRIG=1    RT=0      RD=0
+
+	  Note that the TRIG pin is registered, so if a hardware
+	  has been previously detected the TRIG pin will be shown as 'high'.
+
+.INDEX verify
+     verify [design_name] [-m]
+     Abbrev: ve
+
+	  Verify if a previous download or configured LCA is correct.
+	  Verification is done by reading back the target device configuration
+	  data and comparing it to a .BIT or PROM data file (.MCS, .TEK, .EXO).
+	  (If a PROM data file is used, be sure to set the device parttype
+	  using the 'part' command).
+
+	  This command differs from 'load -v design' command in that the target
+	  LCA is not configured with the bitstream before verification.
+
+	  After verification, a message is displayed displaying the results of
+	  the comparison.  If a target LCA's configuration data is the same as
+	  the original data file the message 'VERIFIED' will be displayed.
+	  If any bits did not compare the number of bytes mismatching will
+	  be shown.
+
+	  If 'verify' is typed without a design name, the most recent downloaded
+	  bitstream or PROM file is used as the comparison file.
+
+	  The -m option will display any data that does not match the original
+	  .BIT file; bits which are '0' but read back as a '1' are marked with a
+	  '+' character, and bits which are '1' but read back as '0' are
+	  marked with a '-' character.
+
+	  If the readback data matches the original bitstream, the -m option
+	  has no effect.
+
+.INDEX break
+     break     
+     Abbrev: bre
+
+	  The 'break' command stops the free-running clock on XChecker's CLKO
+	  pin. This command is used to enable the single step feature.
+	  This command is similar in function to the command 'clock -stop'.
+	  To start the free-running clock again type 'resume' or 'clock -resume'.
+
+.INDEX clock
+
+     clock [-int|-ext -speed 1|3|5|11] [-stop|-resume] nclocks
+     Abbrev: cl
+
+	  Specify the origin, speed, and number of clocks generated on
+	  XChecker's CLKO pin.
+
+	  -ext      Indicate that the system clock is generated from the user's
+		    board, applied at XChecker's CLKI pin, and passed out the
+		    CLKO pin. (The clock at the CLKI pin must be between 120 Hz
+		    and 10 MHz.)
+
+	  -int      Indicate that the system clock is generated from XChecker's
+		    internal crystal; any clocks on the CLKI pin are ignored.
+
+	  -speed #  Setup system clock speed where
+
+		    1:   0.921 MHz    ( Period = 1.086 uS )
+		    3:   2.75  MHz    ( Period = 363.6 nS )
+		    5:   5.50  MHz    ( Period = 181.8 nS )
+		   11:  11.00  MHz    ( Period = 90.9 nS )
+			
+		    If XC3000L or XC2000L devices are to be read back or
+		    verified, clock speed 3 is replaced with a slower
+		    70kHz clock.
+
+	  -stop     This option stops the free-running clock on XChecker's
+		    CLKO pin.  This option must be used before single
+		    stepping can begin.  The 'break' command is equivalent
+		    to this option.
+	  
+	  -resume   The -resume option restores the free-running clock to
+		    XChecker's CLKO pin.  The 'resume' command is equivalent
+		    to this option.
+
+	  nclocks   Indicate the number of clocks (0-32767) to be generated
+		    either between readback snapshots, or to single step the
+		    target LCA.
+
+	  This command also affects the speed of clocks used during readback
+	  snapshots of XC4000 devices.  XC4000 devices may be readback at
+	  settings of 1, 3, or 5.  If a speed of 11 is specified and the -int
+	  option is used, the burst clock between snapshots will be at 11 MHz,
+	  but actual readback clocks will be at 5.5 MHz.  If the -ext option is
+	  specified the -speed option may be used to set the readback clock
+	  speed also.
+
+	  Not specifying the -speed option selects the default readback speed
+	  for all device families, 0.921 MHz.  XC2000 and XC3000(A) family 
+	  readback clock speed is fixed at 0.921 MHz.  
+
+	  XC3000L and XC2000L (3V) family devices are read back at 70kHz. If
+	  a 'verify' or 'readback' command is executed, the 2.75MHz clock
+	  speed is replaced with a 70kHz clock.  This clock speed is also
+	  on the CLKO pin.
+
+.INDEX display
+     display [-bin|-oct|-dec|-hex] [-add|-delete|-all] [*|signal_list] [-clear]
+     Abbrev: dis
+
+	  The 'display' command is the same as the 'pick' command.  Please see
+	  the entry for 'pick'.
+
+.INDEX pick
+     pick [-bin|-oct|-dec|-hex] [-add|-delete|-all] [*|signal_list] [-clear]
+     Abbrev: pi
+
+	  The 'pick' command is used to setup the display format of the signal
+	  list.  The signals defined in the display list are a subset of
+	  the signals defined in the probe list or signal names defined in the
+	  design.LL file.  This command is the same as the 'display' command.
+
+	  -bin      This option displays signals in binary format.
+
+	  -oct      This option displays signals in octal format.
+
+	  -hex      This option displays signals in hex format.
+
+	  -dec      This option displays signals in decimal format.
+
+	  -add|-delete|-all
+		    Use the [-add|-delete|-all] [signal_list] to add or
+		    delete signals to/from the display set.
+
+	   -clear   This option is equivalent to -delete -all.
+
+	   Examples:
+
+		pick -bin -add address_data  <=== adds signal address_data in
+						  binary format to the
+						  display list
+
+		pick -hex bus_name           <=== adds signal bus_name to the
+						  display list in hex format
+
+		pick -delete -all            <=== removes all signals from
+						  the display list
+
+	  This command can also be used to modify any previous display settings.
+	  Typing 'pick' without any options displays a list of selected signals.
+
+	  Example of typical session:
+
+	       probe u1 u2 u3 u4 u5 u6 u7 u8 u9 <=== extract signals u1 to u9
+	       readback 5                            from the data read back
+	       pick u4 u3                            from the target LCA
+	       show
+	       >  u4     00101                  <=== output from XChecker
+	       >  u3     11001
+
+.INDEX probe
+help     probe [-add|delete] [*|signal_list] [-all] [-clear]
+     Abbrev: pr
+
+	  The 'probe' command is used to add or delete signals from
+	  the list of signals to be read back from a target LCA.
+	  This list defines a "mask" which is used by the XChecker
+	  hardware to extract the desired signals and states.  All signals
+	  specified must be in the design.LL file to be "probable."
+
+	  -add|-delete
+		    This option adds or deletes signals from the probing list.
+
+	  -all      This option selects all probable signals in the
+		    design.LL file.
+
+	  -clear    This option removes all signals from the probe list;
+		    equivalent to 'probe -delete -all'.
+
+	  Examples:
+
+	       probe U1 U2 U3 U4             <=== add these signals to the list
+	       probe U3                      <=== only add U3 to the probe list
+	       probe -add -all               <=== add all signals to the list
+
+.INDEX export
+     export [-v|-viewlogic] save_file
+     Abbrev: exp
+
+	  Saves the current readback data to the file save_file.
+	  Default save_file format is XChecker binary format.
+	  With the -v or -viewlogic option, the file is saved
+	  as a Viewwave .GEN file; the file may then be viewed in
+	  Viewlogic Viewwave.
+
+	  Previously saved XChecker binary files may be retrieved
+	  by using the 'import' command.
+
+.INDEX import
+     import save_file
+     Abbrev: im
+
+	  The 'import' command retrieves previous snapshots saved by the 
+	  'export' command. The file must be in XChecker binary format.
+
+.INDEX group
+     group [group_name] [signal_list]
+     Abbrev: gr
+
+	  The 'group' command defines a group_name for a set of signals.
+	  This group can then be used as a signal name in the 'pick'
+	  command.  
+	 
+	  Typing 'group' without any arguments displays all signal groups.
+
+	  Example 1:
+
+	       group address_bus a0 a1 a3 a4 a5 a6 a7  <=== defines signals
+	       pick -hex address_bus                        a0-a7 as the 
+	       pick u4 u3                                   single signal
+	       readback 5                                   'address_bus'
+	       show
+	       > address_bus  AA
+	       > u4      00101
+	       > u3      11001
+	       
+	  Example 2:
+
+	       group rom_data rom*   <============ defines all signals
+						   in the design.LL
+						   file with the
+						   characters 'rom'
+						   as the signal rom_data
+.INDEX trigger
+     trigger [-auto|-manual|-none] [-clock #x #y] [-timeout #t] [-reset]
+     Abbrev: tr
+
+	  The 'trigger' command sets up triggering events to be used
+	  in subsequent readbacks.
+
+	  -auto     The trigger to start a readback is provided by
+		    a low to high transition on the XChecker TRIG pin.
+		    This is also called a 'hardware' trigger.
+
+	  -manual   The trigger to start a readback is provided by
+		    the user pressing the ENTER key on the host
+		    system keyboard.
+
+	  -none     The readback will start immediately after the
+		    'readback' command is issued.  No external
+		    event will trigger a readback.
+
+	  -clock #x #y
+		    After detecting a trigger, the XChecker software will
+		    insert #x clocks before the first readback snapshot,
+		    and #y clocks between each subsequent snapshot. This
+		    option is only functional if XChecker's CLKO pin is
+		    attached to the target system.
+
+	 -timeout #t
+		    This option specifies the amount of time XChecker should
+		    wait for a trigger to start a readback.  If a trigger
+		    is not received within #t seconds, the readback is
+		    canceled (#t must be an integer between 0 and 32767).
+
+	 -reset     Tells XChecker to reset the target system before starting
+		    a readback.  A high-to-low-to-high pulse is sent on
+		    XChecker's RESET line.
+
+	 Examples:
+		   trigger -manual           <=== XChecker will wait for a
+		   readback 1                     keypress before starting
+						  the readback; one snapshot
+						  is taken.
+
+		   trigger -auto -clock 2 5  <=== readback triggered by a
+		   readback 10                    low to high transition on
+						  XChecker's TRIG pin, insert
+						  two clocks before the first
+						  snapshot and insert five
+						  clocks between each subsequent
+						  snapshot.  Ten snapshots
+						  will be taken.
+
+		   trigger -none             <=== XChecker initiates two
+		   readback 2                     readback snapshots
+						  immediately after the
+						  'readback 2' command
+						  is issued.
+
+.INDEX show
+     show [-signal x y] [-snapshot n m] [-tabular|-vdata] [-text|-hdata]
+     Abbrev: sh
+
+	  The 'show' command displays data read back in the format specified
+	  by the 'pick' command.
+
+	  -signal x y
+	       The signal option is used to select the number of signals to
+	       be displayed, beginning with the 'x' signal and the number
+	       of signals to show (y) after signal x.  
+	       
+	       Signals 'x' and 'y' are integer values of the desired signals
+	       as entered in the 'pick' list; i.e., if signal 'A' was the
+	       first signal entered in the display set, it is referred to as
+	       signal '0', if signal 'D' was the fourth signal entered in
+	       the display set, it is referred to as signal '3'.  See the
+	       example following this list.
+
+	       This option is useful for selecting a set of signals without 
+	       modifying the display set (signals set up by the 'pick' command).
+
+	  -snapshot n m
+	       The snapshot option defines the number of the first snapshot
+	       to show (n) and the number of snapshots to show (m) after
+	       snapshot n.
+
+	  -vdata|-tabular
+	       The signal data is displayed vertically from top to bottom.
+	       This is the default mode.
+
+	  -hdata|-text
+	       The signal data is displayed horizontally from left to right.
+
+	  Example:
+
+		    probe A B C D E F        <=== signals to be extracted from
+						  target
+
+		    pick A B C D E F         <=== signals to be viewed
+
+		    trigger -none -clock 0 1 <=== start readback immediately
+						  after command is 'readback'
+						  command is given, and insert
+						  1 clock between each snapshot
+
+		    readback 10              <=== take a total of ten snapshots
+
+		    show                     <=== show all data read back
+
+		------ ABCDEF                <=== screen output from XChecker
+		    0: 000000
+		    1: 000001
+		    2: 000010
+		    3: 000011
+		    4: 000100
+		    5: 000101
+		    6: 000110
+		    7: 000111
+		    8: 001000
+		    9: 001001
+
+		    show -signal 0 3         <=== only display signals A,B,C
+						  (A is signal 0, include the
+						  next three signals from the
+						  display list, B,C and D)
+
+		------ ABCD                  <=== screen output from XChecker
+		    0: 0000
+		    1: 0000
+		    2: 0000
+		    3: 0000
+		    4: 0001
+		    5: 0001
+		    6: 0001
+		    7: 0001
+		    8: 0010
+		    9: 0010
+
+		    show -snapshot 1 5       <=== start the display w/ snapshot
+						  1, and show five more
+
+		------ ABCD                  <=== screen output from XChecker
+		    1: 0000
+		    2: 0000
+		    3: 0000
+		    4: 0001
+		    5: 0001
+		    6: 0001
+
+.INDEX readback
+     readback [-a] [-c] #snapshot
+     Abbrev: rea
+
+	  The 'readback' command reads back one or more snapshots
+	  from the target LCA.  The maximum number of snapshots to be taken
+	  is indicated by #snapshot.  No number specified generates
+	  a single snapshot.
+
+	  -a    The -a option appends additional snapshots to those previously
+		taken.
+
+	  -c    The -c option reads back the target LCA configuration data.
+		This is similar to the 'verify' command, except the retrieved
+		data is not compared with the original bitstream.
+
+	  #snapshot
+		This variable specifies the number of snapshots, or subsequent
+		readbacks to be performed.
+
+	  Special triggering requirements should be set up using the
+	  'trigger' command before the 'readback' command is issued.
+	  At completion, the user can use the 'show' command to the
+	  captured data.
+
+	  Example:
+
+		probe A B C D E F          <=== setup signals to probe
+		pick A B C D               <=== signals to view
+		trigger -none -clock 0 1   <=== setup trigger requirements
+		readback 5                 <=== read back five snapshots
+		show                       <=== show the captured data
+
+	  ----- ABCD                       <=== XChecker screen output
+	      0:0000
+	      1:0001
+	      2:0010
+	      3:0011
+	      4:0100
+
+		readback -a 3              <=== take three more snapshots,
+						and append the data to the
+						previous five snapshots
+		show
+
+	  ----- ABCD                       <=== XChecker screen output
+	      0:0000
+	      1:0001
+	      2:0010
+	      3:0011
+	      4:0100
+	      5:0101
+	      6:0110
+	      7:0111
+
+.INDEX exit
+     exit [-nsave]       
+     Abbrev: exi
+
+	  The 'exit' command terminates the current XChecker session, if typed
+	  at the XCHECKER? prompt.  The user is then asked if the xchecker.pro
+	  file should be updated. 
+
+	  If the -nsave option is specified, the profile information is not
+	  saved the file 'xchecker.pro'.
+
+	  If typed at a system prompt originally created by the 'sys' command,
+	  the command shell is terminated and the user is returned to the
+	  XChecker session.
+
+	  This command is the same as the 'quit' command.
+
+.INDEX quit
+     quit [-nsave]
+     Abbrev: qu
+
+	  The 'quit' command terminates the current XChecker session, if typed
+	  at the XCHECKER? prompt.  The user is then asked if the xchecker.pro
+	  file should be updated.
+
+	  If the -nsave option is specified, the profile information is not
+	  saved the file 'xchecker.pro'.
+
+	  This command is the same as the 'exit' command.
+
+.INDEX settings
+     settings
+     Abbrev: set
+
+	  The 'settings' command provides a listing for the following
+	  information:
+
+		path . c:\xact                <=== current path
+		port com2                     <=== current communication port
+		baud 115200                   <=== current baud rate
+		cable SERIAL-READBACK         <=== This is XChecker's ID
+		---
+		No part has been setup        <=== specified parttype
+		Clock source is internal      <=== XChecker internal clock
+		Clock speed is 1 (921.6 kHz)  <=== current clock speed
+		No triggering is required     <=== triggering configuration
+		No signals has been assigned  <=== status of probe list
+						
+.INDEX path
+     path path_name1 path_name2 path_name3 ... path_name_n
+     Abbrev: pat
+
+	  The 'path' command specifies the current working directory.
+	  The current directory is searched first when downloading
+	  design files (.BIT,.MCS, etc.).                 
+	  
+	  Multiple directories may be specified; separate each directory
+	  path with a space character.
+
+	  Example:
+	      
+	      path . c:\xact c:\xact\designs  <== search path for files
+		
+
+############################################################################
+# Warning message explanations follow:                                     #
+############################################################################
+
+.INDEX w001
+
+WARNING 001: Current design does not have ReadCapture option
+	     set. Snapshot readback is incorrect.
+
+To verify the design or probe the internal logic, set the following
+configuration options in MakeBits (from XDE).
+
+For the XC4000 parts:
+
+		SyncToDone:    No
+		ReadCapture:   Enable        <== Enable Readback
+		ReadClk:       CCLK          <== CCLK is the readback clock
+
+For XC2000(L), XC3000(A,L) and XC3100(A) family devices:
+
+		Read:  CMD                   <== Enable Readback on command
+
+Refer to the MakeBits Chapter, under 'Configuration Options' for details.
+
+.INDEX w002
+
+WARNING 002: Current design does not have Readback clock set
+	     to CCLK. Snapshot readback is incorrect.
+
+XC4000 family devices allow the Readback clock to be set to a user
+defined clock rather than the CCLK pin. The XChecker cable can only
+generate readback clocks on its CCLK pin. The ReadClk option needs to
+be set to CCLK. 
+					      
+To verify the design or probe the internal logic, set the following
+configuration options in MakeBits (from XDE).
+
+For XC4000 parts:
+
+		SyncToDone:    No
+		ReadCapture:   Enable        <== Enable Readback
+		ReadClk:       CCLK          <== CCLK is the Readback clock
+
+Refer to the MakeBits chapter for more details.
+
+.INDEX w003
+
+WARNING 003: Current design does not have DONE set to be active
+	     before or at IOB enable. Device may not be configured correctly.
+
+For XC4000 parts, you need to set the following configuration options
+in MakeBits (from XDE).
+
+For the XC4000 parts:
+
+		DoneActive:    C1 c2 C3 C4  <=== DoneActive should be set to 
+		OutputsActive: C2 C3 c4          go high before or at 
+						 OutputsActive
+
+Refer to the MakeBits Chapter, under 'Configuration Options' for details.
+
+.INDEX w004
+
+WARNING 004: Current design may not have one of the following
+	     options set up correctly. Please verify them with XDE.
+
+If you plan to verify the design or probe the internal logic, you need to set
+the following configuration options in MakeBits (from XDE).
+
+For the XC4000 parts:
+
+		SyncToDone:    No
+		ReadCapture:   Enable       <=== Enable Readback
+		ReadClk:       CCLK         <=== CCLK is the Readback clock
+		DoneActive:    C1 c2 C3 C4  <=== DoneActive should be set to
+		OutputsActive: C2 C3 c4          go high before or at 
+						 OutputsActive     
+
+For XC2000(L), XC3000(A,L) and XC3100 family devices:
+
+		Read:  CMD                   <== Enable Readback on command                                                 
+
+Refer to the MakeBits chapter for more details.
+
+.INDEX w005
+
+WARNING 005: LL file <filename.ll>  is not found. Design
+	     verification will not work correctly.
+
+The file <filename.ll> must be found in the current directory
+or in the directory XACT\DATA. (For workstations, the XACT directory
+is referred to as the "Xilinx_dir" in the installation notes.)
+
+Check the read permissions for your directory and for the file <filename.ll>. 
+Check your XACT environment variable to make sure that it points to the 
+XACT directory.
+
+############################################################################
+# Error message explanations follow:                                       #
+############################################################################
+
+.INDEX e001
+
+ERROR 001: Command file <batfile.cmd> is not found.
+
+Make sure that the command file you specified is in the current directory
+or the environment search path. Make sure that the command file has
+the extension .cmd
+
+.INDEX e002
+
+ERROR 002: Internal Error - Command table out of syn (Cmd = <number>)
+
+This is an internal program error that should not occur.
+Try entering the command sequence again. If the error persists, try
+reinstalling your XChecker software. If the error reappears, call
+Xilinx Technical Support. Be prepared to duplicate the error and reference
+specific files or examples.
+
+.INDEX e003
+
+ERROR 003: Diagnostic is not supported on this cable.
+
+The diagnostics command, as well as other readback and verification
+commands are only supported for the XChecker cable. Older download cables,
+such as the "Parallel" and "Serial" download cables, do not supprt the
+'diag', 'verify', or 'readback' commands.
+
+.INDEX e004  
+
+ERROR 004: Not enough memory.
+
+The error usually occurs on DOS and Windows based platforms. The normal
+version of the XChecker software is a protected mode program. On a 386
+or higher computer XChecker uses extended memory. Check the configuration
+of your memory manager (QEMM, HIMEM.SYS, etc) for proper usage. Also,
+try moving TSRs into upper memory (the region above the 640KB barrier) to 
+free conventional memory. 
+
+A second "non-protected mode" version of the XChecker software is 
+provided for use on 8088, 8086, and 286 based machines. It is called
+'xck88.exe'. This version requires a minimum of 512 kB free base RAM. 
+Make sure no other program or TSR (Terminate and Stay Resident
+application, i.e., mouse drivers, network drivers, window drivers,
+etc.) is running simultaneous with XChecker.
+
+If you are running XChecker from another program, for example Workview,
+type "exit" at the DOS command line and return to your first application.
+Quit that application, and run XChecker again.
+
+Other applications may also be running. Type 'EXIT' at the DOS command
+prompt to return to a previously loaded application and exit the program.
+
+#Are these errors still valid, or duplicated at 40 to 43??
+
+.INDEX e010
+
+ERROR 010: Cannot open output file <filename>.
+
+Check available disk space. Current directory or file must have write
+permission.
+
+.INDEX e011
+
+ERROR 011: Cannot create output file <filename>.
+
+Check available disk space. Current directory or file must have write
+permission.
+ 
+.INDEX e012
+
+ERROR 012: Cannot open input file <filename>.
+
+Make sure that <filename> exists in you working directory or
+in the environment search path. Current directory or file must have
+write permission.
+
+.INDEX e013
+
+ERROR 013: File <filename> is not found.
+
+The file <filename> does not exist in the current directory
+or search path. Check your environment search path to make sure that
+it contains the directory where <filename> is.
+
+.INDEX e021
+
+ERROR 021: Help file 'xchecker.hlp' is not accessible.
+
+Make sure that the XACT environment variable points to the XACT directory
+in the PC (the XACT directory in the PC is equivalent to the  Installation
+Directory" on the workstations). Also make sure that the file 'xchecker.hlp'
+is in the directory XACT\MSG. If you cannot find this file in the XACT\MSG 
+directory, you must reinstall the XChecker software.
+
+.INDEX e022
+
+ERROR 022: No help for command <command> entered.
+
+Help is not available for the specified command.  Type 'help command'at the 
+XChecker prompt for a list of supported commands.  Also refer to the "Valid
+Commands in the Interactive Mode" section in the XChecker chapter for help.
+
+.INDEX e023
+
+ERROR 023: Cannot save configuration to <filename.pro>.
+
+Check the available disk space. Current directory or file must have write
+permission.
+
+.INDEX e024
+
+ERROR 024: Invalid command at line <line number>.
+
+Check the file 'xchecker.pro' in your current directory for illegal
+commands. Delete the 'xchecker.pro' file. XChecker will create a new
+profile when you exit the program.
+
+.INDEX e030
+
+ERROR 030: Ambiguous command.
+
+The XChecker software did not recognize the command you entered.                                        
+Enter the minimum unique characters that identify the command or enter
+complete commands with no abbreviations. Type 'help command' at the
+XCHECKER? prompt for a listing of valid commands. Also refer to the 
+"Valid Commands in the Interactive Mode" section in the XChecker chapter 
+for help.
+
+.INDEX e031
+
+ERROR 031: Invalid command.
+
+The command you entered is illegal. Type 'help command' at the
+XCHECKER? prompt for a listing of valid commands. Also refer to the 
+"Valid Commands in the Interactive Mode" section in the XChecker chapter 
+for help.
+
+.INDEX e032
+
+ERROR 032: Invalid number of arguments.
+
+Refer to the "Valid Commands in the Interactive Mode" section
+in the XChecker chapter for help, or type 'help <command_name>' at the
+XCHECKER? prompt for a listing of command arguments.
+
+.INDEX e033
+ 
+ERROR 033: Invalid option <selected option>.
+
+The option you specified is not valid for that command. Type 'help
+<command_name>' at the XCHECKER prompt for a listing command arguments
+and options.
+				
+Also refer to the "Valid Options from the Command Line" and "Valid
+Commands in the Interactive Mode" sections in the XChecker chapter for help.
+
+.INDEX e034
+
+ERROR 034: Invalid value given to <parameter>.
+		 
+You specfied an invalid value for one or more arguments of a command. Type 
+'help <command_name>' at the XCHECKER prompt for a listing command arguments
+and options.                           
+
+Refer to the "Valid Options from the Command Line" and "Valid
+Commands in the Interactive Mode" sections in the XChecker chapter for help.
+
+.INDEX e035
+
+ERROR 035: Value is required for <command entered>.
+				  
+You did not supply enough arguments or information for the command to
+properly execute. Type 'help <command_name>' at the XCHECKER? prompt
+for a listing of command arguments. Also refer to the 
+"Valid Commands in the Interactive Mode" section in the XChecker 
+chapter for help.
+
+.INDEX e040 
+
+ERROR 040: Cannot open output file <filename>
+
+The XChecker software cannot open the output file 'filename'. 
+Check available disk space and file permissions.
+
+.INDEX e041 
+
+ERROR 041: Cannot create output file <filename>
+
+The XChecker software cannot create the output file 'filename'. 
+Check available disk space and file permissions.
+
+.INDEX e042 
+
+ERROR 042: Cannot open input file <filename>
+
+The XChecker software cannot open the input file 'filename'.
+Check available disk space and file permissions.
+
+.INDEX e043
+
+ERROR 043: File <filename> is not found
+
+The file 'filename' cannot be found in the current directory or in the
+search path.
+
+.INDEX e050
+
+ERROR 050: <System ERROR Messages>
+				  
+This is an error message or code generated by the operating system.
+Their value and meaning will vary.
+
+.INDEX e051
+
+ERROR 051: System file error code.
+		 
+System error codes are usually a string of messages generated by your
+operating system.
+
+.INDEX e101
+
+ERROR 101: Cable is not initialized.
+
+Try the command  "reset -cable" or cycle power to XChecker and
+then "reset -cable." See the "Improper or Unstable Vcc" section
+in the XChecker chapter.
+
+.INDEX e102
+
+ERROR 102: Cable is not located.
+
+No cable has been recognized at any port. Make sure there is power
+to your board and to XChecker. If using the Test Fixture, you must
+connect Vcc and Ground to it. XChecker draws power from your target
+system, not from your host computer. Also make sure the RS-232
+connector is firmly attached.
+
+For the PC, remember that your serial port needs to be set to the
+following IRQ lines and I/O addresses:
+
+COM1 IRQ4 at address 03f8
+
+COM2 IRQ3 at address 02f8
+
+.INDEX e103
+
+ERROR 103 Invalid port name.
+
+Refer to the  "XChecker Hardware" section in the XChecker chapter for help.
+Also type 'help port' at the XCHECKER? prompt for a listing of supported
+ports by platform type.
+
+.INDEX e104
+
+ERROR 104: Invalid baud specified.
+	  
+XChecker can communicate with a host at up to four baud rates, depending
+on host capabilities.  For a list of valid baud rates, type 'help baud'
+at the XChecker prompt.  Also, refer to the " XChecker Hardware" section in 
+the XChecker chapter for help.
+
+.INDEX e105
+
+ERROR 105: Cable is not reset.
+
+Try to cycle power to the cable. Try the command 'reset -cable'.
+
+.INDEX e107
+
+ERROR 107: Communication line is broken.
+
+Try using the 'reset -cable' command. Also make sure there is
+power to your board and to XChecker. Check all power and port connections.
+
+.INDEX e108
+
+ERROR 108: Communication checksum error.
+
+Check for noise induced into your target system or from your target
+system into the XChecker connections. Do not use cable extensions.
+
+The length of the XChecker serial cable is about 6 feet, and is designed
+to produce minimal noise levels. If this connection is extended via a
+ribbon cable or to excessively long lengths, communications errors can result.
+
+You should also check the power supply to the target system and to XChecker.
+A logic high must be 80 to 100% of VCC and a logic low must the at or below 25%
+of VCC.
+
+.INDEX e109
+
+ERROR 109: Cable has no power.
+
+Make sure there is power from your target system to XChecker. Remember
+that XChecker draws power from an external source, not from the host
+computer. Older download cables such as the Parallel and Serial cables
+also draw power from the target system.
+
+.INDEX e110
+
+ERROR 110: Communication time-out
+
+XChecker has not received an expected signal, for example, a system
+trigger to initiate readback or data coming from readback. Make sure
+that the selected options for trigger and readback are what you intended.
+Check all connections. 
+
+If the error occurred during a 'readback' or 'verify' command check
+the following:
+
+For XC4000 devices, make sure that you used
+the Readback symbol in your schematics and check the location of RTRIG
+and RDATA. Consult your PPR report file for signal locations.
+
+For XC3000(A,L) and XC2000(L) devices, check the location of the
+signals RTRIG and RDATA in your pinouts. Consult your APR or PPR report
+file for signal locations.
+
+.INDEX e111
+
+ERROR 111: DONE did not go high as expected.
+
+The design has not been configured properly. Make sure that you compiled
+your design for the correct part type and package. 
+
+Make sure that the target LCA has been set up for Serial Slave mode. 
+All mode pins (M0, M1, M2) should be pulled to a high logic level.
+
+Check all connections. Remember that connections to the LCA differ slightly
+across the different families. 
+
+Check the bitstream options in MakeBits to assure that a pull-up has been 
+selected for the DONE pin.
+
+.INDEX e112
+
+ERROR 112: Cannot reset DONE signal.
+
+XChecker cannot set DONE signal to Low. Make sure DONE is pulled-up,
+not tied High. Check the corresponding package pinouts.
+
+.INDEX e113
+
+ERROR 113: DONE went high earlier than expected.
+
+Make sure that you compiled your design for the correct part type
+and package. Check for noise in the CCLK line. Refer to the "Troubleshooting
+Guide" section in the XChecker manual.
+
+If the bitstream you downloaded is meant for a larger LCA device than
+the target device, you run the risk improperly configuring your target
+device. For example, if the target device is an XC3020, but the bitstream
+downloaded was compiled for an XC3042, the XC3020 can be configured with
+"garbage" and possibly become damaged.
+
+.INDEX e114
+
+ERROR 114: DONE went high later than expected.
+
+Make sure that you compiled your design for the correct part type
+and package. Check for noise in the CCLK line. Refer to the "Troubleshooting
+Guide" section.
+
+.INDEX e115
+
+ERROR 120: Cannot communicate to the cable.
+
+Try using the  reset -cable" command. Also make sure there is
+power to your board and to XChecker. Check all connections. Make sure
+the RS-232 connector is firmly attached.
+
+.INDEX e121
+
+ERROR 121: Cable datafile <filename> is empty.
+
+Try using the "reset -cable" command. Make sure that the XACT
+environment variable points to the XACT directory on the PC. (On workstations,
+the XACT directory is equivalent to the "Xilinx_Directory" referenced
+in the installation notes).
+
+.INDEX e122
+
+ERROR 122: Cable datafile <filename> has invalid format.
+
+Make sure that the XACT environment variable points to the XACT directory
+on the PC (On the workstations the XACT directory is equivalent to
+the "Xilinx_Directory" referenced in the installation notes).
+
+.INDEX e123
+
+ERROR 123: No XChecker cable is connected to the port <portname>.
+
+Make sure there is power to your board and to XChecker. If using the
+Test Fixture, you must connect Vcc and Ground to it. Remember that
+XChecker draws power from your target system, not from your host computer.
+Also make sure the RS 232 connector is firmly attached.
+
+For the PC, remember that your serial port (for use with XChecker
+and serial cables) needs to be set to the following IRQ lines and
+I/O addresses:
+
+COM1 IRQ4 at address 03f8
+
+COM2  IRQ3 at address 02f8
+	  
+.INDEX e124
+
+ERROR 124: No XChecker cable is connected to the system.
+
+Make sure there is power to your board and to XChecker. If using the
+supplied diagnostics test fixture, you must connect Vcc and Ground to it. Remember
+that XChecker draws power from your target system, not from your host
+computer. Also make sure the RS232 connector is firmly attached.
+
+For the PC, remember that your serial port (for use with XChecker
+and serial cables) needs to be set to the following IRQ lines and
+I/O addresses:
+
+COM1  IRQ4 at address 03f8
+
+COM2  IRQ3 at address 02f8
+
+.INDEX e125
+
+ERROR 125: Fail reading cable status.
+
+The XChecker (Parallel, Serial) cable did not respond as expected.
+Check the power connections to your board and XChecker.
+
+Try using the ' reset -cable' command to reset the cable. If there
+is no response, quit the XChecker program and execute it again.
+
+.INDEX e126
+
+ERROR 126: Unsupported command for this cable.
+
+See the "Valid Commands in the Interactive Mode" for specific
+commands valid with the XChecker cable. If you are using the previous
+Parallel or Serial download cables, you can only use the 'load' command
+to download.
+
+Only the XChecker cable supports readback operations.
+
+.INDEX e127
+
+ERROR 127: Can't open cable datafile <filename>.
+
+Make sure that the XACT environment variable points to the XACT directory
+on the PC (On the workstations the XACT directory is equivalent to
+the "Xilinx_Directory" referenced in the installation notes).
+
+.INDEX e128
+
+ERROR 128: Read only <number of bits received>
+
+Check all connections. Check for noise induced into your target system
+or from your target system into the XChecker connections. Do not use
+cable extensions. The XChecker cable length is tested to produce minimal
+noise levels. Remember that a logic High must be 80 100% of
+Vcc and a Logic Low must be 0 25% of Vcc.
+
+.INDEX e130
+
+ERROR 130: Invalid baud rate. Current baud rate is <baud> rate.
+
+XChecker can communicate with a host at up to four baud rates, depending
+on host capabilities.  For a list of valid baud rates, type 'help baud'
+at the XChecker prompt.  Also, refer to the " XChecker Hardware" section in 
+the XChecker chapter for help.          
+
+.INDEX e131
+
+ERROR 131: Missing baud rate. Current baud rate is <baud> rate.
+
+See the "Valid Commands in the Interactive Mode" section in the
+XChecker manual for correct command usage.
+
+.INDEX e132
+
+ERROR 132: Block <number> : Communication ERROR
+
+Check for noisy connections. Check power stability. You may want to
+try the 'reset -c' command to reinitialize the cable and try to
+read back again.
+
+.INDEX e133
+
+ERROR 133: Communication Timeout
+
+XChecker has not received an expected block of data. Check all connections.
+Check for power stability and for contention with the control signals
+that may cause a Readback Abort.
+
+.INDEX e134
+
+ERROR 134: Cannot communicate with port <port> name.
+
+Check the XChecker chapter for supported ports. See the Port command. When
+using the XChecker cable with a PC, the serial port needs to be set
+to the following IRQ lines and I/O addresses:
+
+COM1  IRQ4 at address 03f8
+
+COM2  IRQ3 at address 02f8
+
+.INDEX e135
+
+ERROR 135: Invalid port name <port> name
+
+Check the XChecker manual for supported ports. See the Port command.
+Also type 'help port' at the XChecker prompt for a listing of
+supported ports by platforms.
+
+.INDEX e140
+
+ERROR 140: Datafile <filename> has invalid format
+
+XChecker supports the following formats: Xilinx .BIT, Xilinx .RBT,
+Intel .MCS, Tektronix .TEK and Motorola .EXO.
+
+.INDEX e141
+
+ERROR 141: Datafile <filename> is empty
+
+The specified datafile is either empty or contains invalid data. XChecker
+supports the following formats: Xilinx .BIT, Xilinx .RBT, Intel .MCS, 
+Tektronix .TEK and Motorola .EXO.
+
+.INDEX e142
+
+ERROR 142: Datafile <filename> is not found
+
+The file <filename> does not exits in the current directory
+or search path. Check your environment search path to make sure that
+it contains the directory where <filename> is.
+
+.INDEX e143
+
+ERROR 143: Can't open datafile <filename>
+
+The file <filename> does not exits in the current directory
+or search path. Check your environment search path to make sure that
+it contains the directory where <filename> is.
+					  
+.INDEX e150
+
+ERROR 150: Only <number> bytes read
+
+The amount of data expected from the XChecker cable was not received.
+This error can occur if connections to the XChecker 18-pin connector
+are flakey, or if the existing 6 foot serial cable has been extended
+with ribbon cables.
+
+Check all connections, and try attaching the XChecker serial connector
+directly to the host computer. The serial cable length is shielded and
+tested to produce minimal noise levels.
+
+.INDEX e180
+
+ERROR 180: Cannot create export file <filename>
+
+Check available disk space. Current directory or file must have write
+permission.
+
+.INDEX e181
+
+ERROR 181: Cannot open export file <filename>
+
+Check available disk space and file accessibility (i.e., write privileges
+to the current directory).
+
+.INDEX e182
+
+ERROR 182: Missing design name to export
+
+You must specify a name to create an export file. Check the XChecker
+chapter for correct command usage.
+
+.INDEX e183
+
+ERROR 183: Missing design name to import
+
+You must specify a name to open an import file. Check the XChecker chapter
+for correct command usage.
+
+.INDEX e190
+
+ERROR 190: Missing .ll filename
+
+You must specify a file name for the .ll file.
+
+.INDEX e191
+
+ERROR 191: .ll file  <filename>.ll  is not found
+
+The file <filename>.ll  must be found in the current directory
+or in the directory XACT\DATA (for workstations the XACT directory
+is referred to as the "Xilinx_dir" in the installation notes).
+Check read permissions to your directory and to the file  <filename> .ll.
+Check your XACT environment variable to make sure that it points to
+the XACT directory.
+
+.INDEX e192
+
+ERROR 192: Cannot open .ll file <filename>.ll
+
+The file  <filename> .ll must be found in the current directory
+or in the directory XACT\DATA (for workstations the XACT directory
+is referred to as the "Xilinx_dir" in the installation notes).
+Check read permissions to your directory and to the file  <filename> .ll.
+Check your XACT environment variable to make sure that it points to
+the XACT directory.
+
+.INDEX e202
+
+ERROR 202: Invalid number of clocks
+
+The valid number of clocks range from 1 to 32767. See the clock command
+in the XChecker chapter for correct usage.  Also type 'help clock' at the
+XCHECKER? prompt.
+
+.INDEX e210
+
+ERROR 210: Not enough memory for loading design datafile
+
+The error usually occurs on DOS and Windows based platforms. The normal
+version of the XChecker software is a protected mode program. On a 386
+or higher computer XChecker uses extended memory. Check the configuration
+of your memory manager (QEMM, HIMEM.SYS, etc) for proper usage.
+
+A second "non-protected mode" version of the XChecker software is 
+provided for use on 8088, 8086, and 286 based machines. It is called
+'xck88.exe'. This version requires a minimum of 512 kB free base RAM. 
+Make sure no other program or TSR (Terminate and Stay Resident
+application, i.e., mouse drivers, network drivers, window drivers,
+etc.) is running simultaneous with XChecker.
+
+If you are running XChecker from another program, for example Workview,
+type "exit" at the DOS command line and return to your first application.
+Quit that application, and run XChecker again.
+
+.INDEX e211
+
+ERROR 211: Not enough memory for bitmap result
+
+The error usually occurs on DOS and Windows based platforms. The normal
+version of the XChecker software is a protected mode program. On a 386
+or higher computer XChecker uses extended memory. Check the configuration
+of your memory manager (QEMM, HIMEM.SYS, etc) for proper usage.
+
+A second "non-protected mode" version of the XChecker software is 
+provided for use on 8088, 8086, and 286 based machines. It is called
+'xck88.exe'. This version requires a minimum of 512 kB free base RAM. 
+Make sure no other program or TSR (Terminate and Stay Resident
+application, i.e., mouse drivers, network drivers, window drivers,
+etc.) is running simultaneous with XChecker.
+
+If you are running XChecker from another program, for example Workview,
+type "exit" at the DOS command line and return to your first application.
+Quit that application, and run XChecker again.
+
+.INDEX e220
+
+ERROR 220: No part type is defined
+
+The part type specified in your design or by you (using the 'part' command)
+is invalid. Check 'The Programmable Gate Array Data Book' for
+valid part types and packages.
+
+.INDEX e240
+
+ERROR 240: Data is corrupted. Bad checksum in file PROM file,
+	   line <linenumber>                               
+
+The input (hexadecimal) file is corrupted. Try regenerating the input
+file using MakePROM. Remember that supported hexadecimal formats are:
+Intel .MCS, Motorola .EXO, and Tektronix .TEK.
+
+.INDEX e241
+
+ERROR 241: Invalid data character in file PROM file, line <linenumber>
+
+The input (hexadecimal) file is corrupted. Try regenerating the input
+file using MakePROM. Remember that supported hexadecimal formats are:
+Intel .MCS, Motorola .EXO, and Tektronix .TEK.
+
+.INDEX e242
+
+ERROR 242: Invalid datafile format in file PROM file, line <linenumber>
+
+XChecker supports the following formats: Xilinx .BIT and .RBT, Intel .MCS,
+Tektronix .TEK and Motorola .EXO.  In the case of a PROM file, try
+regenerating the PROM file using the MakePROM program.
+
+.INDEX e243
+
+ERROR 243: Internal ERROR <errorname> in file <filename>,
+	   line <linenumber>
+
+An illegal character has been detected in  <filename> . This
+could be caused by an illegally formatted PROM file (supported PROM
+formats are .TEK, .EXO, and .MCS) or simply a corrupted data or command
+file.  Try regenerating the PROM file using the MakePROM program.
+
+.INDEX e250
+
+ERROR 250: Readback configuration contains all '0/1'
+
+Check all connections. Particularly, check the connections to the
+XChecker RT and RD pins. See the XChecker chapter, or 'The Programmable
+Gate Array Data Book' for pin functions and proper connections.
+
+Check MakeBits options: in XC3000(A,L) and XC2000(L) devices make sure that you
+have selected readback upon command from MakeBits (Read option must be Cmd);
+in XC4000 devices make sure that ReadCapture is Enabled.
+Check power to the target LCA.
+
+Use the Test Board to determine if any of the pins on XChecker were damaged.
+The signals used in Readback are CCLK, RT, and RD. See the 'diag' command
+on how to use the Test Board.
+
+.INDEX e251
+
+ERROR 251: No data in readback buffer
+
+You need to execute a 'readback' command before you can show any data.
+Type "help readback" at the XChecker prompt for more details.
+
+.INDEX e260
+
+ERROR 260: Signal name <name> is not defined
+
+Execute a Probe command (without arguments) to display the available
+signal names. You can also check the design.LL file for this information.
+Make sure to include the complete net names, with
+their hierarchical prefixes. Remember that valid signal names are:
+user defined net names connected to flip flops latches
+and memory outputs; user defined group names and IOB names.
+
+.INDEX e262
+
+ERROR 262: Signal name <name> is not user defined
+
+Execute a Probe command (without arguments) to display the available
+signal names. You can also check the design.LL file for this information.
+Make sure to include the complete net names, with their hierarchical
+prefixes. Remember that valid signal names are: user defined
+net names connected to flip flops latches and memory outputs,
+user defined group names, and IOB names.
+
+.INDEX e263
+
+ERROR 263: DONE signal went High early
+
+Make sure that you compiled your design for the correct part type
+and package. Check for noise in the CCLK line. Refer to Trouble Shooting
+Guide section.
+
+.INDEX e264
+
+ERROR 264: DONE signal did not go High
+	   LCA may not be configured properly
+
+The design has not been configured properly. Make sure that you compiled
+your design for the correct part type and package. Make sure that
+the target LCA has been set up for Serial Slave mode (mode pins M0, M1
+and M2 must all be pulled high).
+
+Check all connections. Remember that connections to the LCA differ slightly 
+across the different families. Check the bitstream options in MakeBits to 
+assure that a pull-up has been selected for the DONE pin.
+
+.INDEX e265
+
+ERROR 265: INIT signal is low
+
+The design has not been configured properly. Make sure that you compiled
+your design for the correct part type and package. Make sure that
+the target LCA has been set up for Serial Slave mode (mode pins M0,
+M1, M2 must all be pulled high).
+
+Check all connections. Remember that connections to the LCA differ slightly
+across the different families. Check for noisy signals that may corrupt
+the data or CCLK going to the target LCA.
+
+If an XC4000 device detects an error during configuration, INIT will
+be held low as an error indication.
+
+.INDEX e266
+
+ERROR 266: Probe list is empty
+
+If you have executed a 'probe -clear' command, you need to execute another
+'probe' command to add signals to the probe list. Check the file design.LL
+to make sure that it contains your design's net names.
+
+.INDEX e267
+
+ERROR 267: Display list is empty
+
+You need to execute a 'pick' command before you can show the readback
+data. Type 'help pick' or 'help show' at the XChecker command prompt
+for information and examples.
+
+.INDEX e268
+
+ERROR 268: Group list is empty
+
+See the "Valid Commands in the Interactive Mode" section in the XChecker
+chapter for proper use of the 'group' command.  Also type 'help group'
+at the XChecker command prompt for additional help.
+
+.INDEX e300
+
+ERROR 300: Current version of XCHECKER cable does not support 3V devices.
+	   3V devices can only be configured by PROM or by your hardware.
+
+Configuring and reading back a 3V device requires version 1.05 or later of the
+XCHECKER software.  Check the current version of software and the
+device type your bitstream is meant for.
+
+.INDEX e301
+
+ERROR 301: System file for 3V devices is not found
+
+The system file 'xck3v.sys' for 3V devices cannot be found. The current
+directory, the path defined with the 'path' command, and Xilinx
+environment are searched.
+
+.INDEX e302
+
+ERROR 302: Cannot reconfigure the cable
+
+The XCHECKER software cannot reset the XChecker cable for 3V operation.
+This error occurs when a 'load -v', 'verify', or 'readback' command of a 3V device
+is executed. Type 'res -c' at the XCHECKER? prompt to reset XChecker,
+and then try the 'load -v', 'verify', or 'readback' command again.
+
+.INDEX eof

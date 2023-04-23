@@ -1,0 +1,22 @@
+TITLE           Flip-flop: T-type, 1-bit, async clear
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/26/93
+
+CHIP            FTC  COMPONENT
+ 
+;Inputs
+c t clr
+
+;Outputs
+q
+
+EQUATIONS 
+
+q.d1   = t
+q.fbk  = VCC
+q     := q.d1 XOR q.d2
+q.clkf = c
+q.rstf = clr

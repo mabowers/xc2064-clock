@@ -1,0 +1,21 @@
+TITLE           Latch: D-type, 1-bit
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/23/93
+
+CHIP            LD  COMPONENT
+ 
+;Inputs
+g d
+
+;Outputs
+q
+
+EQUATIONS 
+
+q.rstf = /d*g
+q.setf = d*g
+q     := gnd
+q.clkf = gnd

@@ -1,0 +1,1206 @@
+.Helphelp
+
+  If you need help with a particular menu item, point to it with the
+  cursor and press the %yF1%g key; a HELP file will appear on the
+  screen.  You can scroll up or down in this file with the UP
+  arrow, DOWN arrow, PgUp, PgDn, HOME and END keys. Try it.  For
+  your convenience, a HELP file is provided for every main menu and
+  submenu item.
+
+  To return to the Executive Screen, type %yEXIT%g on the command
+  line or use the mouse to select %yEXIT%g from the %yMisc%g menu
+  at the top of the screen.  To "select" a menu or a menu item,
+  point to it with the cursor (a box surrounds the item) and press
+  the "SELECT" mouse button.  The default profile (included with XDE)
+  programs the left mouse button to perform the "SELECT" function.
+  You can change the function of each mouse button with the %yMOUSE%g
+  command in the %yPROFILE%g menu.
+
+:Config
+
+  The %yConfig%g menu contains the commands which are used to  
+  create bitstreams.
+  
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:Makebits
+
+  %yMakebits%g generates a bitstream for the design that is  
+  currently loaded in memory.
+
+  HELP can be used on the individual options in the %yMakebits%g
+  menu for information on how they affect the configuration  
+  of the LCA.
+
+:Makebits-Tie
+
+  %yTie%g is used to minimize noise and reduce power consumption  
+  by assigning a level to all unused interconnects.
+
+  As much interconnect as possible is tied to unused CLB outputs.  
+  Next, the remaining interconnect is tied to existing nets 
+  which are not marked critical.
+
+  Tie should be used when the design is going into production, 
+  but it can be skipped to expediate bitstream generation for
+  prototyping.
+
+:Makebits-Norestore
+
+  %yNorestore%g is used in conjunction with the %yTie%g command   
+  to leave the interconnects in the "tied" state, so the effects  
+  can be examined using %yQueryNet%g.
+ 
+:Makebits-Verbose
+
+  The %yVerbose%g option is most useful when used in conjunction  
+  with the %yTIE%g option.
+
+  When Verbose is selected, %yMAKEBITS%g produces a more detailed
+  listing of the steps it goes through when it %yTIE%gs a design.
+
+:Makebits-UseCriticalNetsLast
+
+  %yUseCriticalNetsLast%g allows %yMakebits%g to %yTIE%g using critical nets.
+
+  By default, TIE cannot use nets which are marked critical, and may fail 
+  because of this.  If this happens, one of the following things should 
+  be done.  
+  
+  1)  Use the %yFlagNet Noncritical%g command found in the %yEditLCA%g screen 
+      to flag some nets as non-critical.
+      
+  2)  Use this option (or the %yMAKEBITS%g %y-U%g command line flag) to tell 
+      Makebits it can TIE using critical nets.  Use of this option will tell 
+      TIE to build a list of critical nets and use them as sources of last 
+      resort.
+
+  3)  Use the %yIgnoreCriticalNetFlags%g option (or the %yMAKEBITS%g %y-I%g 
+      command line flag) to tell Makebits to ignore critical net flags
+      during the TIE operation.  If this is done, the critical flags are 
+      removed from all critical nets, and they are used in the "normal"
+      sequence to TIE interconnect if it becomes necessary to do so.  Note 
+      that they are not used last as they are if %yUseCriticalNetsLast%g 
+      is specified.  The critical net flags are restored after TIE.
+
+:Makebits-IgnoreCriticalNetFlags
+
+  %yIgnoreCriticalNetFlags%g allows %yMakebits%g to %yTIE%g using critical 
+  nets.  It differs from %yUseCriticalNetsLast%g in that critical nets are
+  used in the "normal" tie order.  Use of this flag (or the %yMAKEBITS %y-I%g
+  command line flag) directs TIE to ignore critical flags and use any nets
+  flagged as such if it is necessary to do so.  Note that they are not used
+  as resources of last resort, but are used in the normal TIE order.
+
+:Makebits-MakeLL
+
+  Selecting %yMakeLL%g instructs %yMakebits%g to create a file called 
+  <design-name>.LL (where <design-name> is the name of the design
+  loaded into XDE) in addition to creating the bitstream.
+
+  The .LL file contains the bit positions in the readback
+  bitstream of the variable bits in the LCA.  These bits are:
+
+   2000 and 3000 families:   CLB QY and QX states
+                             IOB IQ and OQ states
+
+              4000 family:   CLB XQ and YQ states
+                             CLB X and Y states
+                             IOB IQ and OQ states
+                             IOB I1 and I2 states
+
+  The bit position is given as an absolute position and as a
+  relative position in frame-frame offset notation.
+  The bit position numbers do not include framing bits.
+
+:Makebits-AlignedLengthCount
+
+  When %yMakebits AlignedLengthCount%g is used, the length count value
+  in the bitstream is calculated so that the length count value is placed 
+  at bit zero of the last byte in the stream.
+
+  Note that when %yMakeprom%g is used to assemble bitstreams into PROM files
+  the length count is recalculated by Makeprom for each daisychain.  The
+  %yAlignedLengthCount%g option is available in Makeprom as well.
+
+:Makebits-AlignedDone
+
+  When %yMakebits AlignedDone%g is used, the length count value in the
+  bitstream is calculated so that the DONE signal (DONE/~PROG for 
+  XC2000 and XC3000 devices) is placed at the end of the last byte 
+  in the stream.
+
+  Note that when %yMakeprom%g is used to assemble bitstreams into PROM files
+  the length count is recalculated by Makeprom for each daisychain.  The
+  %yAlignedDone%g option is available in Makeprom as well.
+
+:Configure
+
+  %yConfigure%g can be used to set the options for %yMakebits%g.
+  Alternately, the desired settings can be chosen by selecting  
+  them from the box in the lower left corner of the screen using
+  the select button of the mouse.
+
+  HELP can be used on the individual options in the %yConfigure%g
+  pull-down menu for more information on how they affect LCA
+  configuration and performance.
+ 
+:cfg2-Input
+
+  %yInputs%g thresholds can be configured to have either %yTTL%g
+  or %yCMOS%g levels.
+
+:cfg2-Donepad
+
+  The %yDone Pin%g can be configured with or without an internal 
+  pullup. This pullup has a value between 10KOhms and 50KOhms.
+
+  In the case that your application contains several LCA's with
+  the Done pins wire ANDed, enabling the Done Pullup for all devices
+  can cause excessive power dissipation, and possible failure of
+  the Done line to go high.  This is due to the low resistance 
+  between the wire anded Done and Vcc caused by having ALL pullups
+  active in parallel.
+
+  If you have this type of configuration it is easier to add a
+  pullup externally to the LCA's, or calculate the current load
+  on the wire ANDed Done line and enable as many internal pullups
+  as are needed to ensure that Done will go high.
+
+:cfg2-Read
+
+  %yRead%g refers to how many times Readback can be performed  
+  on the LCA.
+
+      0 - 0 times.     Readback can never be performed.
+      1 - 1 time.      Readback can be performed only once.
+    cmd - on command.  Readback can be performed on command.
+
+:cfg3-Input
+
+  %yInputs%g thresholds can be configured to have either %yTTL%g  
+  or %yCMOS%g levels.
+
+:cfg3-Donepad
+
+  The %yDone Pin%g can be configured with or without an internal 
+  pull-up. This pull-up has a value of 2-8 kOhms.  
+
+:cfg3-Read
+
+  %yRead%g refers to how many times Readback can be performed  
+  on the LCA.
+
+      0 - 0 times.    Readback can never be performed.
+      1 - 1 time.     Readback can be performed only once.
+     md - on command. Readback can be performed on command.
+
+:cfg3-Xtalosc
+
+  %yXtalosc%g allows the crystal oscillator to be disabled, 
+  enabled, or be enabled with a divide-by-two. 
+  
+:cfg3-Donetime
+
+  %yDonetime%g makes the Done pin go high either one clock  
+  cycle %yBefore%g or one clock cycle %yAfter%g the IO pins    
+  are enabled.
+
+:cfg3-Resettime
+
+  %yResettime%g removes the internal global reset either one  
+  clock cycle %yBefore%g or one clock cycle %yAfter%g the IO
+  pins are enabled. 
+
+:cfg4-CRC
+
+  %yCRC%g can be %yEnable%gd or %yDisable%gd.  The default is for
+  the CRC checking to be disabled.  Even when the %yCRC%g is 
+  disabled there is some checking of the framing carried out
+  using a dummy code instead of the CRC.  If errors are
+  detected the %rINIT%g signal will be activated.
+
+:cfg4-ConfigRate
+
+  The %yConfigRate%g option selects the clock speed used for
+  the configuration clock.  This clock is generated inside
+  the LCA, and the default is %ySlow%g to maintain compatibility
+  with other LCA families.  For the actual specification of
+  the %ySlow%g and %yFast%g frequencies you should refer to the
+  %rXC4000 Family Technical Data%g.
+
+:cfg4-DonePin
+
+  The %yDone Pin%g can be configured with or without an internal 
+  pull-up. This pull-up has a value of .4 to 1 kOhms.  
+
+:cfg4-TdoPin
+
+  The %yTdo Pin%g can be configured with or without an internal 
+  pull-up or pull-down resistor. These resistors value is 40 to
+  150kOhms.  
+  
+
+:cfg4-M1Pin
+
+  The %yM1 Pin%g can be configured with or without an internal 
+  pull-up or pull-down resistor. These resistors value is 40 to
+  150 kOhms.  
+
+:cfg4-ReadCapture
+
+  If %yEnable%gd the %yReadCapture%g option allows the capture
+  of certain internal nodes in the LCA prior to %yReadback%g.
+  The nodes which are captured are the CLB outputs X, Y, XQ 
+  and YQ, and the IOB signals I1, I2 and OQ.
+
+  If %yReadCapture%g is %yDisable%gd the CLB and IOB state bits
+  read back will be the same value as they were set to when the
+  bitsream was initially loaded into the LCA.
+
+  The default is %yDisable%g.
+
+  If the position of the CLB and IOB state bits in the bitstream
+  is required, the %yMakeLL%g option in the %yConfig-Makebits%g
+  sub-menu should be selected when generating the bitstream.
+
+:cfg4-ReadAbort
+
+  If the %yReadAbort%g option is %yEnable%gd the readback sequence
+  can be aborted at any time during the readback sequence.  If
+  %yDisable%g is selected the %yReadback%g sequence in progress 
+  must be completed before another %yReadback%g can be initiated.
+
+  The default is %yDisable%g.
+
+:cfg4-ReadClk
+
+  The source of the clock used during the %yReadback%g sequence
+  can be selected to be %yCclk%g pin or an user net inside the
+  LCA connected to the %yi%g pin of the %yrdclk%g block.
+
+  The default is %yCclk%g.
+
+:cfg4-StartupClk
+
+  The post-configuration %yStartup%g phase of the LCA initialisation
+  can be controlled by the Configuration Clock (%yCclk%g) or a user
+  clock (%yUserClk%g) connected to the %yCLK%g input of the %ySTARTUP%g
+  block of the LCA.
+
+  The default for the %yStartupClk%g option is %yCclk%g.
+
+  The selection made for %yStartupClk%g will affect the default values
+  for %yDoneActive%g, %yOutputsActive%g and %yGSRInactive%g.
+
+:cfg4-SyncToDone
+
+  The post-configuration %yStartup%g phase of the LCA initialisation
+  can be synchronised to the %yDone%g signal by selecting %yYes%g for the
+  %ySyncToDone%g option.   This is useful in situations where there
+  are multiple 4000 family devices in a daisy chain which should all
+  start operation synchronously.  For more details on this refer to
+  the %rXC4000 LCA Configuration and Debugging Hints%g Application Note%g,
+  found in the %rUser's Guide%g.
+
+  The default for the %ySyncToDone%g option is %yNo%g.
+
+  The selection made for %ySyncToDone%g will affect the default values
+  for %yDoneActive%g, %yOutputsActive%g and %yGSRInactive%g.
+
+
+:cfg4-DoneActive
+
+  The selection made for %yDoneActive%g defines the clock edge which is
+  used to activate the %yDone%g signal at the end of the %yStartup%g phase.
+
+  The default value and options depend on the selections made for
+  %ySyncToDone%g and %yStartupClk%g.  For details on the meaning of the
+  options you should refer to the %rXC4000 Family Technical Data%g or
+  the %rXC4000 LCA Configuration and Debugging Hints%g Application Note%g,
+  found in the %rUser's Guide%g.
+
+:cfg4-OutputsActive
+
+  The selection made for %yOutputsActive%g defines the clock edge which is
+  used to activate the IOB %yOutputs%g at the end of the %yStartup%g phase.
+
+  The default value and options depend on the selections made for
+  %ySyncToDone%g and %yStartupClk%g.  For details on the meaning of the
+  options you should refer to the %rXC4000 Family Technical Data%g or
+  the %rXC4000 LCA Configuration and Debugging Hints%g Application Note%g,
+  found in the %rUser's Guide%g.
+
+:cfg4-GSRInactive
+
+  The selection made for %yGSRInactive%g defines the clock edge which is
+  used to de-activate the internal %yGlobal Set/Reset%g signal at the end
+  of the %yStartup%g phase.
+
+  The default values and options depend on the selections made for
+  %ySyncToDone%g and %yStartupClk%g.  For details on the meaning of the
+  options you should refer to the %rXC4000 Family Technical Data%g or
+  the %rXC4000 LCA Configuration and Debugging Hints%g Application Note,
+  found in the %rUser's Guide%g.
+
+:Defaults
+
+  %yDefaults%g can be used to set the default values for the following
+  initialisation scenarios:
+
+   - %yCClk%g driven start-up, not synchronised to %yDONE%g
+   - %yCClk%g driven start-up, synchronised to %yDONE%g
+   - %yUser Clock%g driven start-up, not synchronised to %yDONE%g
+   - %yUser Clock%g driven start-up, synchronised to %yDONE%g
+
+  HELP can be used on the individual options in the %yDefaults%g
+  menu for information on how they affect the configuration  
+  of the LCA.
+
+:Cclk_Nosync
+
+  The %yCclk_Nosync%g default defines the settings for %yCclk%g driven
+  start-up, not synchronised to %yDone%g.  The default settings are:
+
+      %yStartupClk%g = %yCclk%g
+      %ySyncToDone%g = %yNo%g
+      %yDoneActive%g = %yC2%g
+   %yOutputsActive%g = %yC3%g
+     %yGSRInactive%g = %yC4%g
+
+  For a description of these settings you should refer to the %rXC4000 LCA%g
+  %rConfiguration and Debugging Hints%g Application Note, found in the
+  %rUser's Guide%g.
+
+:Cclk_Sync
+
+  The %yCclk_Sync%g default defines the settings for %yCclk%g driven
+  start-up, synchronised to %yDone%g.  The default settings are:
+
+      %yStartupClk%g = %yCclk%g
+      %ySyncToDone%g = %yYes%g
+      %yDoneActive%g = %yC3%g
+   %yOutputsActive%g = %yDI%g
+     %yGSRInactive%g = %yDI_PLUS_1%g
+
+  For a description of these settings you should refer to the %rXC4000 LCA%g
+  %rConfiguration and Debugging Hints%g Application Note, found in the
+  %rUser's Guide%g.
+
+:Uclk_Nosync
+
+  The %yUclk_Nosync%g default defines the settings for %yUser clock%g driven
+  start-up, not synchronised to %yDone%g.  The default settings are:
+
+      %yStartupClk%g = %yUserClk%g
+      %ySyncToDone%g = %yNo%g
+      %yDoneActive%g = %yU2%g
+   %yOutputsActive%g = %yU3%g
+     %yGSRInactive%g = %yU4%g
+
+  For a description of these settings you should refer to the %rXC4000 LCA%g
+  %rConfiguration and Debugging Hints%g Application Note, found in the
+  %rUser's Guide%g.
+
+:Uclk_Sync
+
+  The %yUclk_Sync%g default defines the settings for %yUser clock%g driven
+  start-up, synchronised to %yDone%g.  The default settings are:
+
+      %yStartupClk%g = %yUserClk%g
+      %ySyncToDone%g = %yYes%g
+      %yDoneActive%g = %yU2%g
+   %yOutputsActive%g = %yDI%g
+     %yGSRInactive%g = %yDI_PLUS_1%g
+
+  For a description of these settings you should refer to the %rXC4000 LCA%g
+  %rConfiguration and Debugging Hints%g Application Note, found in the
+  %rUser's Guide%g.
+
+:Writebits
+
+  The %yWritebits%g command writes a bitstream created with  
+  %yMakebits%g to a .BIT file. 
+
+:Readbits
+
+  The %yReadbits%g command loads a .BIT file from your disk drive.
+
+:Makemask
+
+  The %yMakemask%g command is used to create a masked bitstream.  
+
+  When doing a readback, all data bits (including flip-flop values)  
+  are sent out. These flip-flop values must be masked out to 
+  properly compare the LCA configuration to the downloaded bitstream.  
+  Makemask creates a file which masks out flip-flop locations.
+
+  For more information refer to the Application Note titled
+  %rVerification by Readback and Signature Analysis%g, found in
+  the %rUser's Guide%g. 
+
+:Rawbits
+
+  %yRawbits%g writes a bitstream created with %yMakebits%g into  
+  an ASCII text file. This differs from %yWritebits%g which
+  creates a binary file.
+
+  The extension for files created with Rawbits is .RBT
+
+:MakeConfigSet
+
+  %yMakeConfigSet%g defines a new Configuration Set based on
+  the currently-selected configuration options. These options are
+  selected using the %yConfigure%g command or by clicking on the
+  tags in the %rProgram Options%g table on the MakeBits screen.
+
+  A %rConfiguration Set%g allows you to associate a logical name
+  with a particular set of configuration options. For example, you
+  might change the default XC4000 configuration options so that
+  both ReadCapture and ReadAbort are enabled, and name this new
+  Configuration Set "RdbkEnabled." The next time you need to make
+  an XC4000 bitstream for which readback is enabled, you could 
+  simply set the Configuration Set to be "RdbkEnabled" using the
+  %ySetConfigSet%g command. The current Configuration Set is always
+  displayed on the MakeBits command line.
+
+  Since configuration options differ among LCA families, a given
+  Configuration Set will apply to only one family. The %yMakeConfigSet%g
+  command automatically defines the correct family, based upon the
+  part type loaded at the time.
+
+  Configuration Sets are stored in the makebits.pro file, along with
+  other profile information for MakeBits. In order to save your
+  Configuration Sets for future use, use the %ySaveProfile%g command 
+  before exiting from MakeBits.
+
+:SetConfigSet
+
+  %ySetConfigSet%g changes the current Configuration Set.
+
+  A %rConfiguration Set%g allows you to associate a logical name
+  with a particular set of configuration options. For example, you
+  might change the default XC4000 configuration options so that
+  both ReadCapture and ReadAbort are enabled, and name this new
+  Configuration Set "RdbkEnabled." The next time you need to make
+  an XC4000 bitstream for which readback is enabled, you could 
+  simply set the Configuration Set to be "RdbkEnabled" using the
+  %ySetConfigSet%g command. The current Configuration Set is always
+  displayed on the MakeBits command line.
+
+  Configuration Sets are stored in the makebits.pro file, along with
+  other profile information for MakeBits. In order to access a given
+  Configuration Set, it must be defined in the current makebits.pro.
+
+:QueryConfigSet
+
+  %yQueryConfigSet%g displays the currently available Configuration
+  Sets. A specific Configuration Set may be selected using the
+  %ySetConfigSet%g command.
+
+  A %rConfiguration Set%g allows you to associate a logical name
+  with a particular set of configuration options. For example, you
+  might change the default XC4000 configuration options so that
+  both ReadCapture and ReadAbort are enabled, and name this new
+  Configuration Set "RdbkEnabled." The next time you need to make
+  an XC4000 bitstream for which readback is enabled, you could 
+  simply set the Configuration Set to be "RdbkEnabled" using the
+  %ySetConfigSet%g command. The current Configuration Set is always
+  displayed on the MakeBits command line.
+
+  Configuration Sets are stored in the makebits.pro file, along with
+  other profile information for MakeBits. In order to access a given
+  Configuration Set, it must be defined in the current makebits.pro.
+
+:Download
+
+  The %yDownload%g menu contains the commands which are used to  
+  download bitstreams to the LCA
+
+:SelfTest
+
+  Selecting %ySelfTest%g allows you to test your download cable.
+
+:Misc
+ 
+  The %yMisc%g menu contains commands that don't fit into any other menu.
+  
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:Exit
+
+  %yExit%g leaves Makebits and takes you back to the Executive screen.  
+
+:Help
+
+  If you need help with a particular menu item, point to it with the
+  cursor and press the %yF1%g key; a HELP file will appear on the
+  screen.  You can scroll up or down in this file with the UP
+  arrow, DOWN arrow, PgUp, PgDn, HOME and END keys. Try it.  For
+  your convenience, a HELP file is provided for every main menu and
+  submenu item.
+
+  To return to the Executive Screen, type %yEXIT%g on the command
+  line or use the mouse to select %yEXIT%g from the %yMisc%g menu
+  at the top of the screen.  To "select" a menu or a menu item,
+  point to it with the cursor (a box surrounds the item) and press
+  the "SELECT" mouse button.  The default profile (included with XDE)
+  programs the left mouse button to perform the "SELECT" function.
+  You can change the function of each mouse button with the %yMOUSE%g
+  command in the %yPROFILE%g menu.
+
+:Port
+
+  %yPort%g selects where the bitstream should be sent when a
+  %yDownload%g or %yDebugLoad%g command is executed.
+
+  %yCOM1%g, %yCOM2%g, %yCOM3%g, and %yCOM4%g are serial ports, and are
+  used by the Xchecker serial cable.
+
+  Before using the Port command to initialize a serial cable you 
+  should make sure you specify the correct COM port.  Initializing
+  a COM port that is used by the mouse or other pointing device can
+  confuse or even hang the mouse (or other) device driver.
+
+  %yLPT1%g, %yLPT2%g, and %yLPT3%g are PC parallel ports.  These ports
+  are used by the parallel download cable.
+
+  %yUSER%g is an open-ended user definable action.  You can assign any
+  command you want to the USER port.  If, for example, you have written
+  your own program called MYDOWNLOAD which downloads a bitstream to a
+  card in your computer, the USER port can be defined to execute
+  MYDOWNLOAD.  This saves you from having to go out to DOS and manually
+  execute your program, and then come back into the Design Editor.
+
+
+:DOS
+ 
+  %yDOS%g suspends the Design Editor and enters the operating system.  
+  If "DOS <command>" is entered, the command executes immediately.
+ 
+  When in DOS, type %yEXIT%g to return to XDE.
+
+:Execute
+ 
+  %yExecute%g allows you to execute a file of commands.
+
+:Restore
+
+  %yRestore%g returns TIED interconnects to the unused state after
+  %yMakeBits -TIE -NoRestore%g has been executed.
+
+:Print
+ 
+  The %yPrint%g command allows you to print all or part of the %yMakebits%g
+  display screen. Before using this command you must use the %yPrinter%g
+  command to select the correct printer. If your printer doesn't
+  appear, refer to the %rReference Manual Vol 1.%g, which describes how to
+  add a printer to the PRINTCAP.XCT file.
+ 
+  The options for the print command are:
+ 
+        %yScreen%g  - Print the entire screen, including menus.
+        %yDisplay%g - Print the displayed portion of the screen.
+  
+:Print-Screen
+
+  %yScreen%g prints exactly what is shown on the monitor,
+  including menus and the status lines.
+
+:Print-Display
+ 
+  %yDisplay%g prints the part of the LCA screen that currently
+  appears on the monitor. Menus are NOT printed.
+
+:Printer
+
+  Use the %yPrinter%g command to tell XDE what type of printer you
+  have. If your printer does not appear in the list of options,
+  refer to the %rAppendix of Chapter 2 in the XACT Reference Manual,
+  Volume 1%g. This will show you how to add your printer to the list.
+
+:QueryNet
+ 
+  %yQueryNet%g displays information about one or more nets.
+  The %yQueryNet%g output uses the following format:
+ 
+          net         source   block           delay  load   block
+          name          pin    name             (ns)  pin    name
+   ----------------------------------------------------------------
+   ----  $1-abc . . . . CC.X  (ASEL) . . . . . . 6.4  BC.C  (REG1)
+   --C-  $2-xyz . . . . FB.Y  (MUX)  . . . . . . 2.3  DE.E  (BA0)
+                                                 ***  AC.C  (BA1)
+                                               ~12.1  BC.E  (AOUT)
+ 
+  The first four spaces describe characteristics of the net.
+ 
+  Character 1:     S - Net has no source
+                   M - Net has multiple sources
+  Character 2:     L - Net has no loads
+  Character 3:     C - Net is marked critical
+  Character 4:     T - Net was modified by TIE.
+ 
+  In the Delay section, the symbol "***" means that the corresponding pin
+  is not routed. A tilde (~) means that the rise time to this pin can take
+  up to 20 percent longer, and the fall time can be 20 percent faster.
+  To remove the tilde, re-route the net so that utilises faster routing
+  resources, or is repowered more often (using bi-directional buffers in 
+  the 2000 and 3000 families or feed-throughs in the 4000 family).
+
+  After running %yMakebits -Tie%g the %yQueryNet%g options you will most  
+  want to use are %y-Tiechange%g and %y-Tieadd%g. Refer to the %yQueryNet%g  
+  sub-menu for HELP on these options.
+
+:QueryNet-All
+ 
+  Choosing %yAll%g will report on all of the nets in the design.
+ 
+:QueryNet-Inputs
+ 
+  Choosing %yInputs%g will report on all of the nets which connect
+  to IOB .I pins.
+ 
+:QueryNet-Outputs
+ 
+  Choosing %yOutputs%g will report on all of the nets which connect
+  to IOB .O pins.
+ 
+:QueryNet-Threestates
+ 
+  Choosing %yThreestates%g will report on all of the nets which
+  connect to IOB .T pins.
+
+:QueryNet-Unrouted
+ 
+  Choosing %yUnrouted%g will report on all nets with at least
+  one unrouted load pin.
+ 
+:QueryNet-Nosource
+ 
+  Choosing %yNosource%g will report on all nets with no source pin.
+ 
+:QueryNet-Nodest
+ 
+  Choosing %yNodest%g will report on all nets with no destination pin.
+ 
+:QueryNet-Critical
+ 
+  Choosing %yCritical%g will report on all nets which were flagged
+  critical.
+ 
+:QueryNet-Tiechange
+ 
+  Choosing %yTiechange%g will report on all nets which have had
+  their delays changed by the %yMakebits -Tie%g command.
+ 
+:QueryNet-Tieadd
+ 
+  Choosing %yTieadd%g will report on all nets which were added
+  by the %yMakebits -Tie%g command.
+ 
+:QueryNet-Baddelay
+ 
+  Choosing %yBaddly%g will report on all nets with tildes (~).
+ 
+:QueryNet-Locked
+ 
+  Choosing %yLocked%g will report on all nets which were locked.
+ 
+:QueryNet-Unlocked
+ 
+  Choosing %yUnlocked%g will report on all nets which were unlocked.
+ 
+:QueryNet-Delayless
+ 
+  Choosing %yDelayless%g will report on all nets which have a delay
+  less than the specified value.
+ 
+:QueryNet-Delaygreater
+ 
+  Choosing %yDelaygreater%g will report on all nets which have a delay
+  greater than the specified value.
+ 
+:QueryNet-Clocknets
+
+  Choosing %yClocknets%g will report on all nets that connect to a
+  clock pin (.K, .IK, or .OK).
+
+:QueryNet-Probed
+ 
+  Choosing %yProbed%g will report on all nets which are currently
+  attached to probes.
+
+:Report
+
+  %yReport%g redirects the output of certain commands to a file
+  instead of displaying the information on the screen.
+
+:Report-QueryNet
+ 
+  %yQueryNet%g displays information about one or more nets.
+  The QueryNet output uses the following format:
+ 
+          net         source   block           delay  load   block
+          name          pin    name             (ns)  pin    name
+   ----------------------------------------------------------------
+   ----  $1-abc . . . . CC.X  (ASEL) . . . . . . 6.4  BC.C  (REG1)
+   --C-  $2-xyz . . . . FB.Y  (MUX)  . . . . . . 2.3  DE.E  (BA0)
+                                                 ***  AC.C  (BA1)
+                                               ~12.1  BC.E  (AOUT)
+ 
+  The first four spaces describe characteristics of the net.
+ 
+  Character 1:     S - Net has no source
+                   M - Net has multiple sources
+  Character 2:     L - Net has no loads
+  Character 3:     C - Net is marked critical
+  Character 4:     T - Net was modified by TIE.
+ 
+  In the Delay section, the symbol "***" means that the corresponding pin
+  is not routed. A tilde (~) means that the rise time to this pin can take
+  up to 20 percent longer, and the fall time can be 20 percent faster.
+  To remove the tilde, re-route the net so that it passes through more
+  bi-directional buffers (BIDIs).
+
+  After running %yMakebits -Tie%g the QueryNet options you will most  
+  want to use are %y-Tiechange%g and %y-Tieadd%g. Refer to the QueryNet  
+  sub-menu for HELP on these options.
+
+:Report-QueryBlk
+ 
+  %yQueryBlk%g gives information on block configuration and placement.
+
+  For a detailed description of the options available for QueryBlk
+  refer to the XACT Reference Manual, Vol. 1.
+ 
+:QueryBlk-All
+
+  Choosing %yAll%g will report on all of the blocks in the design.
+
+:QueryBlk-CLB
+
+  Choosing %yCLB%g will report on all of the CLBs in the design.  
+
+:QueryBlk-IOB
+
+  Choosing %yIOB%g will report on all of the IOBs in the design.  
+
+:QueryBlk-TBUF
+
+  Choosing %yTBUF%g will report on all of the TBUFs in the design.  
+
+:QueryBlk-Used
+
+  Choosing %yUsed%g will report on all of the blocks in the design  
+  which have pins connected to them.
+
+:QueryBlk-Unused
+
+  Choosing %yUnused%g will report on all of the blocks in the design  
+  which don't have pins connected to them.
+
+:QueryBlk-UsedFG
+
+  Choosing %yUsedFG%g will report on all CLBs that have at least  
+  one used function generator.
+
+:QueryBlk-UnusedFG
+
+  Choosing %yUnusedFG%g will report on all CLBs that have at least  
+  one unused function generator.
+
+:QueryBlk-Configured
+
+  Choosing %yConfigured%g will report on all blocks that are configured.  
+   
+:QueryBlk-Unconfigured
+
+  Choosing %yUnconfigured%g will report on all blocks that are  
+  not configured.  
+   
+:QueryBlk-Locked
+
+  Choosing %yLocked%g will report on all blocks which are locked  
+  in place.
+
+  The %yReadcst%g or %yReadscp%g commands must first be used to 
+  read in constraint information.
+
+:QueryBlk-Unlocked
+
+  Choosing %yUnlocked%g will report on all blocks which are not  
+  locked in place.
+
+  The %yReadcst%g or %yReadscp%g commands must first be used to
+  read in constraint information.
+
+:QueryBlk-Prohibited
+
+  Choosing %yProhibited%g will report on all blocks which are  
+  prohibited.
+
+  The %yReadcst%g or %yReadscp%g commands must first be used to
+  read in constraint information.
+
+:QueryBlk-Notprohibited
+
+  Choosing %yNotprohibited%g will report on all blocks which are  
+  not prohibited.
+
+  The %yReadcst%g or %yReadscp%g commands must first be used to
+  read in constraint information.
+
+:QueryBlk-Ainput
+
+  %yAinput%g reports on all blocks with an available input pin.  
+
+:QueryBlk-Aoutput
+
+  %yAoutput%g reports on all blocks with an available output pin.  
+
+:QueryBlk-Net
+
+  %yNet%g reports on all blocks attached to the selected net.  
+
+:QueryBlk-Long
+
+  Choosing %yLong%g displays QueryBlk information in the long  
+  format.
+
+:QueryBlk-Wide
+
+  Choosing %yWide%g displays QueryBlk information in the wide  
+  format. This is the default format.
+
+:Report-QuerySavedBlk
+ 
+  %yQuerySavedBlk%g reports on all blocks that were saved using
+  the %ySaveblk%g command.
+
+:Report-DRC
+
+  %yDRC%g is the Design Rules Checker.
+
+  It check for errors which would cause your design to not function
+  correctly.
+
+  Fatal errors must be fixed for your design to function properly.
+  Warnings should be fixed, but a bitstream can still be generated
+  for a design that has warnings.
+
+:DRC-Net
+
+  Selecting %yNet%g enables net DRC checks.
+
+:DRC-Nonet
+
+  Selecting %yNet%g disables net DRC checks.
+  
+:DRC-Block
+
+  Selecting %yBlock%g enables CLB and IOB DRC checks.
+  
+:DRC-Noblock
+
+  Selecting %yNoBlock%g disables CLB and IOB DRC checks.
+  
+:DRC-Noroute
+
+  Selecting %yNoRoute%g disables routing DRC checks.
+  
+:DRC-Verbose
+
+  Selecting %yVerbose%g provides a running comment about the
+  DRC as it proceeds.
+  
+:DRC-Informational
+
+  Selecting %yInformational%g provides more details about which 
+  part of the LCA is being checked as the DRC proceeds.
+  
+:Report-XDelay
+
+  The %yXDelay%g command allows you to obtain detailed timing 
+  information about your design.  The report contains the 
+  worst-case path delays for the selected of path sources 
+  and loads.  Sources and loads can be specified individually, 
+  or by clock nets.  There are also filters used to limit 
+  which types of paths are reported.  For example, have %yXDelay%g 
+  report only Clock to Setup paths, or only paths that use a 
+  specified net).  This command will not analyze your design
+  with respect to any TimeSpec information that may have been 
+  created for the design.  Use the %yXDelay-TimeSpec%g command 
+  to do this.
+
+:Report-XDelay-TimeSpec
+
+  The %yXDelay-TimeSpec%g command allows you to obtain detailed 
+  timing information about your design.  It is very much like the
+  %yXDelay%g command, except that your design will be analyzed 
+  with reference to the TimeSpec information.
+
+:Report-Analyze
+
+  %yAnalyze%g will produce a perfomance analysis of a design.
+  The %yAnalyze%g command calculates the maximum clock frequency  
+  for each clock net in the design, and shows the limiting
+  delay paths for each clock net.
+
+:XDelay-DelayFrom
+
+  %yFrom%g allows you to select starting points for 
+  the path delay calculator. Starting points can be  
+  specified as pins, blocks, nets, or a wild card (*).
+
+:XDelay-DelayTo
+
+  %YTo%g allows you to set ending points for the
+  path delay.  Ending points can be specified as pins,
+  blocks, nets, or a wild card (*).
+
+:XDelay-DelaySourceClock
+
+  %ySourceClock%g sets the selected clock net to be the
+  starting point for all path searches.  This would start  
+  searches only at the flip-flops (or latches) that are clocked  
+  by this clock signal.
+
+  This command is very useful if you have multiple clocks  
+  running at different frequencies, and want to look at
+  the timing for these signals separately.
+  
+:XDelay-DelayDestClock
+
+  %yDestClock%g selects a clock net as a destination for 
+  path searches.  This would only report path delays
+  where the ending point (flip-flop or latch) is clocked
+  by the specified clock signal.
+
+  The search can be further limited by defining the active  
+  edge of the clock.  The default edge will be %yAny%g.
+
+:XDelay-PadtoPad
+
+  The %yPadToPad%g option reports only combinational paths.  
+  These are paths that start at input pads and end at 
+  output pads, with no clocked elements in the path.
+
+:XDelay-PadtoSetup
+
+ 
+  The %yPadToSetup%g option reports only paths that start  
+  at input pads and end at clocked elements, like 
+  flip-flop data inputs.
+
+:XDelay-ClockToPad
+
+  The %yClockToPad%g option reports only paths that start at  
+  clocked outputs, like flip-flop Q outputs, and end at
+  output pads. 
+
+:XDelay-ClockToSetup
+
+  The %yClockToSetup%g option reports only paths that start  
+  at clocked outputs, like flip-flop Q outputs, and end at  
+  clocked inputs, like flip-flop data inputs.
+
+:XDelay-ClockInput
+
+  The %yClockInput%g option reports only paths that 
+  end at clock pins.  These paths can start at either  
+  input pads or at clocked outputs of flip-flops or
+  latches.
+
+:XDelay-Delayless
+
+  The %yDelayless%g option sets the maximum delay in nanoseconds  
+  that will be reported.  Only delays less than or equal to this  
+  number will be reported.
+
+ 
+:XDelay-Delaygreater
+
+  The %yDelaygreater%g option sets the minimum delay in nanoseconds  
+  that will be reported.  Only delays equal to or greater than this  
+  number will be reported.
+
+:XDelay-Widereport
+
+  %yWidereport%g outputs data on lines that are 132 characters long.  
+  This option can be used to avoid chopping off the ends of long
+  names.
+
+:XDelay-Shortreport
+
+  %yShortreport%g prints one delay path per line. It lists only  
+  beginning and end points, instead of listing all of the 
+  elements in the path.
+
+:XDelay-Delaysort
+
+  %ySort%g changes the order in which path delays are displayed.   
+
+  The default is to list delays in order from largest to
+  smallest.
+
+  HELP can be used on the individual commands in this menu  
+  for an explaination of their usage.
+
+:XDelay-Sort-DelayLong
+
+  The %yDelayLong%g option specifies that path delays  
+  should be listed in order from largest to smallest
+  delay.
+
+:XDelay-Sort-DelayShort
+
+  The %yDelayShort%g option specifies that path delays  
+  should be listed in order from smallest to largest 
+  delay.
+
+:XDelay-Sort-DestBlock
+
+  The %yDestBlock%g option specifies that path delays  
+  should be sorted by the name of the destination block.  
+
+  This is useful when trying to group a set of paths
+  that all end at one block.  It makes it very easy to
+  find the worst-case path to each block.
+
+:XDelay-Sort-SRCBlock
+
+  The %ySRCBlock%g option specifies that path delays  
+  should be sorted by the name of the source block.  
+
+  This is useful when trying to determine the worst-
+  case path from a given block.
+
+:XDelay-Sort-SRCClockNet
+
+  The %ySRCClockNet%g option specifies that path delays  
+  should be sorted by the name of the clock which
+  sources the first element in the path.
+
+  This is useful when you want to separate delay
+  information for two or more clock nets in the
+  same design.
+
+:XDelay-Sort-DestClockNet
+
+  The %yDestClockNet%g option specifies that path delays  
+  should be sorted by the name of the clock which  
+  sources the last element in a path.
+
+:Profile
+ 
+  The %yProfile%g menu contains the group of commands that can be used to
+  customize the Design Editor to your personal tastes.
+
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+ 
+:Settings
+ 
+  %ySettings%g lists the current values for all of the user definable
+  options.
+ 
+:Saveprofile
+ 
+  %ySaveprofile%g saves the current settings into the makebits.pro file.
+  This file contains the default settings for the %yMakeBits%g screen display.
+   
+:Readprofile
+ 
+  %yReadprofile%g reads the makebits.pro file and resets all user
+  definable options to these values.
+   
+  This command is useful if you change some settings but want to
+  go back to the way %yMakeBits%g was set up when you entered it.
+   
+:Keydef
+ 
+  %yKeydef%g allows you to define the function keys.
+ 
+  Rather than having to repeatedly type command names or search through
+  menus, define the function keys to perform your most frequently used
+  commands.
+ 
+:Cursor
+
+  The %yCursor%g command allows you to change the shape of the cursor.  
+
+  The available cursor types are %yarrow%g, %ybug%g, %ycross%g and %ygunsight%g.
+
+:Cursor-Arrow
+
+  Selecting %yArrow%g sets the cursor to a small pointy arrow.
+
+:Cursor-Bug
+
+  Selecting %yBug%g sets the cursor to a thing that looks like
+  an "+" superimposed on a "o", but bigger.  Try it and see.
+  
+  %rA Warning from the Surgeon General:%g
+  
+  %rWriting help for long periods can turn your brain into glop.%g  
+
+:Cursor-Cross
+
+  Selecting %yCross%g sets the cursor to a small crosshair
+
+:Cursor-Gunsight
+
+  Selecting %yGunsight%g sets the cursor to a large crosshair
+
+:Mouse
+
+  The %yMouse%g command allows you to define what functions
+  your mouse buttons should perform.
+ 
+  The options are:
+ 
+     %ySelect%g - Select the item which the cursor is currently on.
+     %yDone%g   - Finish a command.
+     %yMenu%g   - Return to the last selected menu item.
+     %ySwitch%g - Switch between the Editlca and Editblk screens.
+
+:Mouse-B1
+
+  Selecting %yB1%g selects the left button of the mouse.
+
+:Mouse-B2
+
+  Selecting %yB2%g selects the middle button of a 3-button mouse.
+  
+  On some 2-button mice this is equivalent to pressing both buttons.
+
+:Mouse-B3
+
+  Selecting %yB3%g selects the right button of the mouse.
+
+:Mouse-Select
+
+  Programming a mouse button to perform %ySelect%g will make a press
+  on that particular mouse button select the item which the cursor 
+  is currently on.
+
+:Mouse-Switch
+
+  Programming a mouse button to perform %ySwitch%g will make a press
+  on that particular mouse button switch between the Editlca and 
+  Editblk screens.
+
+:Mouse-Done
+
+  Programming a mouse button to perform %yDone%g will make a press
+  on that particular mouse button finish a command.
+
+
+:Mouse-Menu
+
+  Programming a mouse button to perform %yMenu%g will make a press
+  on that particular mouse button return to the last selected menu 
+  item.
+

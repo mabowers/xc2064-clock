@@ -1,0 +1,18 @@
+TITLE           Sum-Of-Products Gate: 2+2 inputs, active low i0 i1
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/23/93
+
+CHIP            SOP4B2A  COMPONENT
+ 
+;Inputs
+/i0 /i1 i2 i3
+
+;Outputs
+o
+
+EQUATIONS 
+
+o = i0*i1 + i2*i3

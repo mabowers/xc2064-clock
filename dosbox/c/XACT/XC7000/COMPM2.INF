@@ -1,0 +1,51 @@
+`F  1.00 COMPM2
+`B "1" "1" "A" "    April  5, 1993" "" "A" 
+"XC4000 Family COMPM2 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "LT"
+`P I "A0"
+`P I "B0"
+`P I "A1"
+`P I "B1"
+`P O "GT"
+`S "EQ_1" 1 
+`S "LE0_1" 1 
+`S "GE0_1" 1 
+`S "GT_1" 1 
+`S "LT_1" 1 
+`E XC7000.LIB
+`I R "OR2" XC7000.LIB "OR2" c7abe5c2  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "OR2" XC7000.LIB "OR2" c7abe6a2  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND3B1" XC7000.LIB "AND3B1" c7abea06  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND3B1" XC7000.LIB "AND3B1" c7abeac3  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND2B1" XC7000.LIB "AND2B1" c7abec98  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2B1" XC7000.LIB "AND2B1" c7abed73  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC7000.LIB "XNOR2" c7abf332  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`J ( P I "B1" ) ( R U7 "I1" I ) ( R U6 "I1" I ) ( R U5 "I0" I ) 
+`J ( P I "B0" ) ( R U4 "I2" I ) ( R U3 "I0" I ) 
+`J ( S "EQ_1" 1  ) ( R U7 "O" O ) ( R U3 "I1" I ) ( R U4 "I1" I ) 
+`J ( S "LE0_1" 1  ) ( R U4 "O" O ) ( R U1 "I1" I ) 
+`J ( P I "A1" ) ( R U7 "I0" I ) ( R U6 "I0" I ) ( R U5 "I1" I ) 
+`J ( P I "A0" ) ( R U4 "I0" I ) ( R U3 "I2" I ) 
+`J ( R U1 "O" O ) ( P O "LT" ) 
+`J ( R U1 "I0" I ) ( S "LT_1" 1  ) ( R U6 "O" O ) 
+`J ( R U3 "O" O ) ( S "GE0_1" 1  ) ( R U2 "I1" I ) 
+`J ( R U5 "O" O ) ( S "GT_1" 1  ) ( R U2 "I0" I ) 
+`J ( R U2 "O" O ) ( P O "GT" ) 

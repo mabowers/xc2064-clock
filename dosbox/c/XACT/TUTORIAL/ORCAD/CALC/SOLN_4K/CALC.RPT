@@ -1,0 +1,283 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                         PPR RESULTS FOR DESIGN CALC
+                         From PPR Version pre-5.0.0p 
+
+                             1994/03/16 08:12:53
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 Xilinx, Inc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  (c) Copyright 1994.  All Rights Reserved. 
+
+    PPR RESULTS FOR DESIGN CALC                                      Page   i
+
+    Table of Contents
+    -----------------
+    
+    Design Statistics and Device Utilization .........................   1
+     
+    Chip Pinout Description ..........................................   3
+     
+    Split Nets .......................................................   4
+     
+    Information in Other Reports .....................................   5
+     
+
+    PPR RESULTS FOR DESIGN CALC                                      Page   1
+
+    Design Statistics and Device Utilization
+    ----------------------------------------
+    
+    Design Summary from XNF File 
+      Number of Signals:              114  
+      Number of Pins:                 417  
+      
+      
+    Partitioned Design Utilization Using Part 4003PC84-6 
+    
+    
+                                     No. Used   Max Available   % Used 
+      ----------------------------    -------   -------------   ------  
+      Occupied CLBs                       43          100          43% 
+      Packed CLBs                         22          100          22% 
+      ----------------------------    -------   -------------   ------ 
+      Bonded I/O Pins:                    20          61           32% 
+      F and G Function Generators:        45          200          22% 
+      H  Function Generators:             5           100          5% 
+      CLB Flip Flops:                     13          200          6% 
+      IOB Input Flip Flops:               7           80           8% 
+      IOB Output Flip Flops:              0           80           0% 
+      Memory Write Controls:              2           100          2% 
+      3-State Buffers:                    0           240          0% 
+      3-State Half Longlines:             0           40           0% 
+      Edge Decode Inputs:                 7           120          5% 
+      Edge Decode Longlines:              8           32           25% 
+      
+      
+    Routing Summary
+    
+      Number of unrouted connections: 0 
+      
+      
+    PPR Parameters
+    
+      Design          = calc.xtf 
+      Parttype        = 4003PC84-6 
+      Guide_cell      =  
+      Seed            = 763804682 
+      Estimate        = FALSE 
+      Complete        = TRUE 
+      Placer_effort   = 2 
+      Router_effort   = 2 
+      Path_timing     = TRUE 
+      Stop_on_miss    = FALSE 
+      DC2S            = none 
+      DP2S            = none 
+      DC2P            = none 
+      DP2P            = none 
+      Guide_only      = FALSE 
+      Ignore_maps     = FALSE 
+      Ignore_rlocs    = FALSE 
+      Outfile         = <design name> 
+      
+      
+
+    PPR RESULTS FOR DESIGN CALC                                      Page   2
+
+    CPU Times
+    
+      Partition:                      00:06:12 
+      Placement:                      00:04:18 
+      Routing:                        00:02:25 
+      Total:                          00:13:27 
+      
+      
+
+    PPR RESULTS FOR DESIGN CALC                                      Page   3
+
+    Chip Pinout Description
+    ----------------------- 
+    
+    This chapter describes where your design's pins were placed in terms
+    of the package pins.  This first list is sorted by package pin
+    location.  The second list presents the same data sorted by your
+    design's pin names. 
+    
+    Package Pin Location   Pin Name
+    --------------------   ----------------- 
+    P19                  : EXC_P 
+    P20                  : SW7/SW6_P 
+    P23                  : SW7/SW5_P 
+    P24                  : SW7/SW4_P 
+    P25                  : SW7/SW3_P 
+    P26                  : SW7/SW2_P 
+    P27                  : SW7/SW1_P 
+    P28                  : SW7/SW0_P 
+    P41                  : 7SEG/OFL_P 
+    P45                  : 7SEG/E_P 
+    P46                  : 7SEG/D_P 
+    P47                  : 7SEG/C_P 
+    P48                  : 7SEG/B_P 
+    P49                  : 7SEG/A_P 
+    P50                  : 7SEG/F_P 
+    P51                  : 7SEG/G_P 
+    P57                  : LED/LED3_P 
+    P58                  : LED/LED2_P 
+    P59                  : LED/LED1_P 
+    P60                  : LED/LED0_P 
+    
+    This list describes where your design's pins are in terms of the
+    package pins; it is sorted by your design's pin name.  The list
+    presented above has the same data sorted by package pin location. 
+    
+    Package Pin Location   Pin Name
+    --------------------   ----------------- 
+    P49                  : 7SEG/A_P 
+    P48                  : 7SEG/B_P 
+    P47                  : 7SEG/C_P 
+    P46                  : 7SEG/D_P 
+    P45                  : 7SEG/E_P 
+    P50                  : 7SEG/F_P 
+    P51                  : 7SEG/G_P 
+    P41                  : 7SEG/OFL_P 
+    P19                  : EXC_P 
+    P60                  : LED/LED0_P 
+    P59                  : LED/LED1_P 
+    P58                  : LED/LED2_P 
+    P57                  : LED/LED3_P 
+    P28                  : SW7/SW0_P 
+    P27                  : SW7/SW1_P 
+    P26                  : SW7/SW2_P 
+    P25                  : SW7/SW3_P 
+    P24                  : SW7/SW4_P 
+    P23                  : SW7/SW5_P 
+    P20                  : SW7/SW6_P 
+
+    PPR RESULTS FOR DESIGN CALC                                      Page   4
+
+    Split Nets
+    ------------------- 
+    The list below identifies those signals which were routed through
+    CLBs or other blocks. In XDE and XDelay reports, these signals will
+    have two or more segments. An underscore (_) and a number will be
+    added to the end of the original signal name to identify the
+    different segments. To analyze all segments of a signal in XDelay or
+    QueryNet reports, append the original name with "_*" when prompted
+    for a signal name. 
+    
+    PPR may route signals through CLBs or other blocks in any of the 
+    following situations: 
+    
+    * The delay on a signal might be reduced by routing it through a CLB, 
+    given the extra flexibility in routing resources and the reduced 
+    capacitive loading on the signal. PPR takes this into consideration. 
+    
+    * The delay on a signal might be reduced by sourcing it from two
+    block outputs instead of one, which is possible in some block
+    configurations. PPR will do this where possible. 
+    
+    * A signal on a global buffer may not be able to connect directly to 
+    a load pin, given the placement of that load pin and the other global 
+    resources which are used. PPR will pass the signal through another 
+    CLB and route the load pin using general-purpose interconnect. 
+    
+    * In an XC4000 design, A BUFGP can be sourced only from an IOB. If 
+    the design indicates that a BUFGP is driven from an internal source, 
+    PPR will route the signal through the output path of the IOB in order
+    to access the BUFGP input.
+    
+    Segments   Original Signal Name 
+    --------   ------------------------------------------------------- 
+    
+      2           ADDR0 
+    
+      2           SW2 
+    
+      2           SW1 
+    
+      2           SW5 
+    
+      2           SW4 
+
+    PPR RESULTS FOR DESIGN CALC                                      Page   5
+
+    Information in Other Reports
+    ---------------------------- 
+     
+    
+    Since not all pertinent design information is listed in this PPR
+    report file, this section describes where additional information can
+    be found. 
+    
+    
+    Information                                  Report File  Created By
+    -----------------------------------------    -----------  ----------
+    
+    
+    Connection of signals between levels of      design.mrg   XNFMERGE
+    design hierarchy
+    
+    Resolution of relative location (RLOC)       design.mrg   XNFMERGE
+    constraints through design hierarchy
+    
+    X-BLOX designs: design rule check for        design.prx   XNFPREP
+    pre-expanded design
+    
+    X-BLOX designs: results of optimization      design.blx   XBLOX
+    and module expansion in X-BLOX
+    
+    Design rule check for invalid and/or         design.prp   XNFPREP
+    inefficient use of LCA architecture
+    
+    Unused or disabled logic removed from        design.prp   XNFPREP
+    design, due to sourceless or loadless
+    signals and VCC or ground connections
+    
+    XC3000A/L designs: Mapping of design         design.crf   XNFMAP
+    logic into each CLB or IOB
+    
+    XC3000A/L designs: Summary of guided         design.crf   XNFMAP
+    partitioning results
+    

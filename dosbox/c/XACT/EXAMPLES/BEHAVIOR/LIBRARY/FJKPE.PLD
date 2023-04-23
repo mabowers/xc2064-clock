@@ -1,0 +1,28 @@
+TITLE           Flip-flop: JK-type, async preset, clock-enable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/23/93
+
+CHIP            FJKPE  COMPONENT
+ 
+;Inputs
+c j k pre ce
+
+;Outputs
+q
+
+EQUATIONS 
+
+q.d1   = /j*/k*/q
+       + /ce*/q
+q.d2   = /j*k*ce
+q.fbk  = j*k*ce
+q     := q.d1 nor q.d2
+q.clkf = c
+q.setf = pre
+q.prld = vcc
+
+; q output logic defined active-low to allow j*k term onto q.fbk p-term
+; allowing divide-by-2 to toggle higher than fMAX while j,k,ce,r,s constant.

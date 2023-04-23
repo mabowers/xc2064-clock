@@ -1,0 +1,24 @@
+`F  1.00 sop3b2a
+`B "1" "1" "A" "    March  5, 1993" "" "A" 
+"XC4000 Family SOP3B2A Macro" "Xilinx"
+""
+""
+""
+""
+`P I "I2"
+`P O "O"
+`P I "I1"
+`P I "I0"
+`S "I0B1B" 1 
+`E XC4000.LIB
+`I R "AND2B2" XC4000.LIB "AND2B2" C9B7B5AE  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "OR2" XC4000.LIB "OR2" C9B7B6A7  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`J ( P I "I2" ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( P O "O" ) 
+`J ( R U1 "O" O ) ( S "I0B1B" 1  ) ( R U2 "I0" I ) 
+`J ( P I "I1" ) ( R U1 "I1" I ) 
+`J ( P I "I0" ) ( R U1 "I0" I ) 

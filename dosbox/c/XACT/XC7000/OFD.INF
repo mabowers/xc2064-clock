@@ -1,0 +1,21 @@
+`F  1.00 OFD
+`B "1" "1" "A" "September  1, 1993" "" "A" 
+"XC7000 Family OFD Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D"
+`P O "Q"
+`P I "C"
+`E XC7000.LIB
+`I R "OBUF" XC7000.LIB "OBUF" d9c7ab90  B1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "FD" XC7000.LIB "FD" d9e5ec7d  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`J ( P I "D" ) ( R U1 "D" I ) 
+`J ( R U1 "Q" O ) ( R B1 "I" I ) 
+`J ( R B1 "O" O ) ( P O "Q" ) 
+`J ( P I "C" ) ( R U1 "C" I ) 

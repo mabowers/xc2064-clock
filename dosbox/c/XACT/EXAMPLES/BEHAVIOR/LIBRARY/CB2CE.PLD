@@ -1,0 +1,44 @@
+TITLE           Counter: binary, up, 2-bit, async-clear
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/24/93
+
+CHIP            CB2CE  COMPONENT
+ 
+;Inputs
+ce c clr
+
+; ce            count enable
+; c             clock (optional FastCLK)
+; clr           async clear
+ 
+;Outputs
+q0 q1 tc ceo
+
+; q[1:0]        counter output
+; tc            terminal count (optimizable AND)
+; ceo           chip enable output (optimizable AND)
+
+NODE (UIM) tc ceo
+
+EQUATIONS 
+
+tc       = q0*q1
+ceo      = ce*q0*q1
+
+q1.d1    = ce*q0
+q1.fbk   = VCC
+q1      := q1.d1 xor q1.d2
+q1.clkf  = c
+q1.rstf  = clr
+
+q0.d1    = ce
+q0.fbk   = VCC
+q0      := q0.d1 xor q0.d2
+q0.clkf  = c
+q0.rstf  = clr
+
+q0.prld  = gnd
+q1.prld  = gnd

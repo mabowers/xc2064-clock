@@ -1,0 +1,68 @@
+# @(#)RT.TXT	3.1 Copyright(C)1992 Xilinx Inc. 5/4/94 23:55:52
+# file: rt.txt
+# date: 6/29/90; rev 11/08/90
+# what: Xilinx EPLD router error messages -user file
+# Z.K.
+#
+# 0001:Invalid net pointer!
+0001: [Internal Error - invalid pointer].
+0002:Did not find any nets in the design. 
+0003: No source for net %s.
+0004: No sinks for net %s.
+# 0005:Invalid device linkage	(device may not be placed)
+# 0006:Invalid Interconnection matrix ID!	    (device may not be placed)
+# 0007:Cannot get DEVICE info from instance!	(device may not be placed)
+# 0008:Cannot get PIN info from instance		(device may not be placed)
+# 0009:Cannot get PIN id from instance		(device may not be placed)
+# 0010:No MATRIX link! There may be an error in the chip model.(contact Xilinx)
+#
+0005: [Internal Error - device may not be placed].
+0006: [Internal Error - device may not be placed].
+0007: [Internal Error - device may not be placed].
+0008: [Internal Error - device may not be placed].
+0009: [Internal Error - device may not be placed].
+0010: [Internal Error - possible error in the chip model].
+#
+0011: Cannot get net sink line.
+0012: Cannot get net source line.
+# 0013:Cannot SNAP net SEGMENT together in interconnection matrix!
+#
+# 0014:Cannot get device id from instance pin! (device may not be placed)
+# 0015:Invalid interconnect matrix ID! skipping source line...
+# lmh - 03/16/89
+0013: [Internal Error - in net segment].
+0014: [Internal Error - device may not be placed].
+0015: [Internal Error - invalid ID].
+0016: The source pin for this net segment is not placed.
+# 0017:Cannot find any interconnect matrix bitmaps!
+# 0018:Cannot connect net segments! (sompins broke)
+# 0019:No design loaded!
+# 0020:PassThrough net not routed!
+0017: [Internal Error - cannot find a bitmap].
+0018: [Internal Error - cannot connect net segments].
+0019:Netlist reader did not load the design.
+0020:Net cannot be routed.
+#
+0021:Cannot connect points %s and %s. 
+# 0022:(%s)INVALID PLACEMENT PIN ID!
+# 0023:(%s)INVALID PLACEMENT PIN TYPE!
+# 0024:(%s)INVALID PLACEMENT DEV ID!
+0022:[Internal Error - (%s) invalid pin ID].
+0023:[Internal Error - (%s) invalid pin type].
+0024:[Internal Error - (%s) invalid device ID].
+0025:Instance (%s) not placed.
+0026:Node (%s) removed.
+0027:Port (%s) not placed
+# 0028:(%s)INVALID PLACEMENT DEV TYPE!
+0028:[Internal Error - (%s) invalid device type].
+# end of file
+
+
+
+
+
+
+
+
+
+

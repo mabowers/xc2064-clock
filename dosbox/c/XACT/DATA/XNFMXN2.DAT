@@ -1,0 +1,132 @@
+# "%% 5/6/92"
+
+BEGIN_UPARAM
+# user parameters to be translated to Xilinx attributes
+TTL
+CMOS
+CAP
+RES
+# end of user parameter exceptions
+END_UPARAM
+
+BEGIN_CELLLIB
+# cell library data
+AND2	AND	2 1 	-I0 . -I1 . -O . ;
+AND3	AND	3 1 	-I0 . -I1 . -I2 . -O . ;
+AND4	AND	4 1 	-I0 . -I1 . -I2 . -I3 . -O . ;
+AND5	AND	5 1 	-I0 . -I1 . -I2 . -I3 . -I4 . -O . ;
+
+OR2	OR	2 1 	-I0 . -I1 . -O . ;
+OR3	OR	3 1 	-I0 . -I1 . -I2 . -O . ;
+OR4	OR	4 1 	-I0 . -I1 . -I2 . -I3 . -O . ;
+OR5	OR	5 1 	-I0 . -I1 . -I2 . -I3 . -I4 . -O . ;
+
+NOR2	NOR	2 1 	-I0 . -I1 . -O . ;
+NOR3	NOR	3 1 	-I0 . -I1 . -I2 . -O . ;
+NOR4	NOR	4 1 	-I0 . -I1 . -I2 . -I3 . -O . ;
+NOR5	NOR	5 1 	-I0 . -I1 . -I2 . -I3 . -I4 . -O . ;
+
+NAND2	NAND	2 1 	-I0 . -I1 . -O . ;
+NAND3	NAND	3 1 	-I0 . -I1 . -I2 . -O . ;
+NAND4	NAND	4 1 	-I0 . -I1 . -I2 . -I3 . -O . ;
+NAND5	NAND	5 1 	-I0 . -I1 . -I2 . -I3 . -I4 . -O . ;
+
+XNOR2	XNOR	2 1 	-I0 . -I1 . -O . ;
+XNOR3	XNOR	3 1 	-I0 . -I1 . -I2 . -O . ;
+XNOR4	XNOR	4 1 	-I0 . -I1 . -I2 . -I3 . -O . ;
+XNOR5	XNOR	5 1 	-I0 . -I1 . -I2 . -I3 . -I4 . -O . ;
+
+XOR2	XOR	2 1 	-I0 . -I1 . -O . ;
+XOR3	XOR	3 1 	-I0 . -I1 . -I2 . -O . ;
+XOR4	XOR	4 1 	-I0 . -I1 . -I2 . -I3 . -O . ;
+XOR5	XOR	5 1 	-I0 . -I1 . -I2 . -I3 . -I4 . -O . ;
+
+INV	INV	1 1 	-I . -O . ;
+
+RAM16x1	RAM16x1	6 1	A0 . A1 . A2 . A3 . WE . D . O . ;
+RAM32x1	RAM32x1	7 1	A0 . A1 . A2 . A3 . A4 . WE . D . O . ;
+RAM16x1	ROM16x1	6 1	A0 . A1 . A2 . A3 . WE . D . O . ;
+RAM32x1	ROM32x1	7 1	A0 . A1 . A2 . A3 . A4 . WE . D . O . ;
+
+# NOTE:  The order of the following three symbols is important.
+#        All three MXN symbols translate to the XNF FG symbol, but the
+#        preferred MXN symbol for XNF->MXN translation must be last.
+FG3	FG	3 1	I0 . I1 . I2 .  O . ;
+FG4	FG	4 1	I0 . I1 . I2 . I3 . O . ;
+FG	FG	5 1	I0 . I1 . I2 . I3 . I4 . O . ;
+
+EQN	EQN	5 1	I0 . I1 . I2 . I3 . I4 . O . ;
+
+CY4	CY4	6 2	A0 . B0 . A1 . B1 . ADD . CIN . COUT0 . COUT . ;
+WAND	WAND	1 1	I . O . ;
+
+# NOTE:  The WORAND symbol may have input pins I0 & I1 (preferred) or I1 & I2.
+#        This is accomodated by mapping the I1 pin of the XNF WORAND symbol
+#        to the I pin of the MXN TBUF instance.  The I0 or I2 pin of the XNF
+#        WORAND symbol is mapped to the T pin of the MXN TBUF instance.  The
+#        preferred XNF pin name (I0) must appear first, so that the preferred
+#        name is found when translating from MXN to XNF.
+TBUF 	WORAND	3 1	I1 I I0 T I2 T O O ;
+
+BUFGP	BUFGP	1 1 	I . O . ; 
+BUFGS	BUFGS	1 1 	I . O . ; 
+
+PULLUP	PULLUP	0 1 	O . ;
+PULLDOWN PULLDOWN  0 1 	O . ;
+INFF	INFF	2 1 	D . -C . Q . ;
+
+# NOTE:  The order of the input pins in the INLAT symbol is significant.
+#        Either G or L is accepted as the XNF name of the MXN G pin.  The
+#        preferred name (G) must appear first in the list of XNF pin names so
+#        that the preferred name is found when translating from MXN to XNF.
+INLAT	INLAT	3 1 	D . -G . -L G Q . ;
+
+INREG	INREG	2 2 	D . -C . Q . QM . ;
+OUTFF	OUTFFT	2 1 	-D . -C . O Q ;
+OUTFFT!M2X  OUTFFT!M2X	2 1 	-D . -C . O Q ;
+OUTFF	OUTFF	2 1 	-D . -C . Q . ;
+IBUF	IBUF	1 1 	I . O . ;
+OBUFT	OBUF	2 1 	-I . -T . O . ;
+OBUFT	OBUFT	2 1 	-I . -T . O . ;
+PAD	PAD	1 1 	O . I . ;
+
+BUF	BUF	1 1 	-I . -O . ;
+
+# NOTE:  The order of the input pins in the DFF symbol is significant.
+#        Either PRE or SD is accepted as the XNF name of the MXN PRE pin and
+#        either CLR or RD is accepted as the XNF name of the MXN CLR pin.
+#        The preferred name (PRE or CLR) must appear first in the list of
+#        XNF pin names so that the preferred name is found when translating
+#        from MXN to XNF.
+DFF	DFF	7 1 	D . -C . CE . PRE . CLR . SD PRE RD CLR Q . ;
+
+TBUF	TBUF	2 1 	I . T . O . ;
+
+BITCFG	BITCFG	0 0	;
+
+BSCAN 	BSCAN	5 5	TDI . TMS . TCK . TDO1 . TDO2 . TDO . IDLE . SEL1 . SEL2 . DRCK .;
+OSC4 	OSC4	0 5	F8M . F500K . F16K . F490 . F15 . ;
+RDBK	RDBK	1 2	TRIG . DATA . RIP . ;
+RDCLK	RDCLK	1 0	I . ;
+STARTUP STARTUP	3 4	-GSR . -GTS . CLK . Q2 . Q3 . Q1Q4 . DONEIN . ;
+PAD	TDI	1 1	O . I . ;
+PAD	TMS	1 1	O . I . ;
+PAD	TCK	1 1	O . I . ;
+MD0	MD0	0 1	I . ;
+MD2	MD2	0 1	I . ;
+MD1	MD1	1 0	O . ;
+TDO	TDO	1 0	O . ;
+HMAP	HMAP	4 0	I1 . I2 . I3 . O . ;
+FMAP	FMAP	5 0	I1 . I2 . I3 . I4 . O . ;
+TIMESPEC	TIMESPEC	0 0 ;
+TIMEGRP		TIMEGRP		0 0 ;
+
+
+# 3K specific symbols
+ACLK	ACLK	1 1 	I . O . ; 
+GCLK	GCLK	1 1 	I . O . ; 
+OSC	OSC	0 1	O . ;
+CLB_MUX	CLB_MUX	3 1	F . G . SEL . O . ;
+
+# end of cell library data
+END_CELLLIB

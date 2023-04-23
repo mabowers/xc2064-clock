@@ -1,0 +1,633 @@
+Quickref of XNF structures and functions
+Version 6.35
+/*+************************************************************************
+ * Xnfdesign: this is the top level structure of an XNF data structure.
+ * The data manager cell body pointer points to this structure.
+ ************************************************************************-*/
+PUBLIC struct xnfdesign_struct
+{ Xnfsym      *rootsymbol;     /* the parent of the root network          */
+  Xnfnetwork  *rootnetwork;    /* the root network of the design          */
+  DTABLE(Xnfnetwork) *networktable;   /* ALL networks assoc'd with this data  */
+  DTABLE(Xnfsym)     *symtable;       /* ALL symbols in ALL networks */
+  DTABLE(Xnfsig)     *sigtable;       /* ALL signals in ALL networks */
+  DTABLE(Xnfbus)     *bustable;       /* ALL busses in ALL networks  */
+  DTABLE(Xnfext)     *exttable;       /* ALL ext recs in ALL networks  */
+  DTABLE(Xnfhierg)   *hiergtable;     /* ALL hierg recs in ALL networks  */
+  HASHTABLE(Xnfsym)  *symhashtable;   /* Hash table to find symbols by name */
+  HASHTABLE(Xnfsig)  *sighashtable;   /* Hash table to find signals by name */
+  HASHTABLE(Xnfhierg)*hierghash;      /* Hash table to find hierg by sym_name */
+  HASHTABLE(Char)    *namehashtable;  /* Hash table for Char* names         */
+  Dmcell             *dmcell;         /* Data manager cell pointer          */
+  Int4               pincount;        /* number of pins in the design       */
+  Int4               lcanet;          /* Lcanet version number */
+  Heap               heap;            /* Memory heap which contains all this */
+};
+
+/*+************************************************************************
+ * Xnfnetwork: this structure contains the equivalent of a single XNF file.
+ * An Xnfdesign contains one or more Xnfnetworks.
+ ************************************************************************-*/
+PUBLIC struct xnfnetwork_struct
+{ Char       *parttype;       /* the parttype to use                     */
+  Char       *filename;       /* network's associated file name          */
+  Xnfsym     *parentsym;      /* network's assoc symbol in parent netwk  */
+  Xnfprog    *proglines;      /* program lines assoc. with this network  */
+  Xnfuser    *userlines;      /* user lines assoc. with this network     */
+  Xnfdesign  *design;         /* the design to which this network belongs*/
+  Xnfnetwork *archnetwork;    /* the archtype network for this network   */
+  Int4       num;             /* unique among all networks in the design */
+  Unsf       is_model:1;      /* TRUE if network represents a sym MODEL  */
+  Unsf       is_subdesign:1;  /* TRUE if network represents a subdesign  */
+  Unsf       is_archnetwork:1;/* TRUE if network is a arch network       */
+};
+
+/*+************************************************************************
+ * Xnfsym: this structure represents a symbol instance.
+ ************************************************************************-*/
+PUBLIC struct xnfsym_struct
+{ Char       *name;             /* the name of the symbol                  */
+  Char       *typename;         /* the type of symbol                      */
+  Xnfnetwork *network;          /* the network to which symbol belongs     */
+  Xnfparam   *params;           /* the parameters associated with the sym  */
+  Xnfuser    *userparams;       /* the user params associated with the sym */
+  Xnfpin     *pins;             /* the pins on the symbol                  */
+  Xnfsetup   *setups;           /* the setup and hold info, may be NULL    */
+  Xnfconfig  *configs;          /* the symbol config info, may be NULL     */
+  Xnfloc     *locs;             /* the loc parameters, may be NULL         */
+  Xnfnetwork *childnetwork;     /* sym's subnetwork or model info          */
+  Int4       num;               /* unique among all symbols in the design  */
+  Xnftype    type;              /* sym's type bit values                   */
+};
+
+/*+************************************************************************
+ * Xnfsig: this structure represents a signal
+ ************************************************************************-*/
+PUBLIC struct xnfsig_struct
+{ Char        *name;             /* the name of the signal                  */
+  Xnfnetwork  *network;          /* the network to which signal belongs     */
+  Xnfparam    *params;           /* the params assoc. with the signal       */
+  Xnfuser     *userparams;       /* the user params assoc. with the signal  */
+  Xnfbus      *bus;              /* the bus to which the signal belongs     */
+  Xnfext      *ext;              /* the ext to which the signal belongs     */
+  Xnfpin      *pins;             /* the pins on the signal                  */
+  Xnfpin      *parentpin;        /* the assoc pin in the parent network     */
+  Int4        num;               /* unique among all signals in the design  */
+  Unsf        is_vdd:1;          /* TRUE if the signal is the VDD signal    */
+  Unsf        is_gnd:1;          /* TRUE if the signal is the GND signal    */
+  Unsf        is_ext:1;          /* TRUE if sig is referenced in an ext rec */
+};
+
+/*+************************************************************************
+ * Xnfpin: this structure represents a pin which connects a sig and a sym
+ ************************************************************************-*/
+PUBLIC struct xnfpin_struct
+{ Char      *name;             /* the name of the pin                     */
+  Xnfsym    *sym;              /* the symbol to which this pin belongs    */
+  Xnfsig    *sig;              /* the signal to which this pin belongs    */
+  Xnfpin    *symnext;          /* the next pin on the symbol              */
+  Xnfpin    *signext;          /* the next pin on the signal              */
+  Xnfsig    *childsig;         /* the assoc sig in the child network      */
+  Xnfparam  *params;           /* the params assoc. with the pin          */
+  Xnfuser   *userparams;       /* the user params assoc. with the pin     */
+  Flt4      pulsewidth;        /* the minimum pulse width of pin          */
+  Flt4      rise,fall;         /* the pin delay rise/fall time            */
+  Int4      num;               /* unique among all pins in the design     */
+  Char      dir;               /* the pin direction: I, O, or B           */
+  Unsf      is_inv;            /* TRUE if pin is inverted                 */
+};
+
+/*+************************************************************************
+ * Xnfext: this structure represents the info in an EXT record
+ ************************************************************************-*/
+PUBLIC struct xnfext_struct
+{ Xnfsig     *sig;              /* the signal associated with this ext rec */
+  Xnfnetwork *network;          /* the network to which the ext belongs    */
+  Char       *packpinname;      /* the "pinnum" of the ext rec             */
+  Xnfloc     *locs;             /* the loc parameters, may be NULL         */
+  Xnfparam   *params;           /* the params assoc. with the ext rec      */
+  Xnfuser    *userparams;       /* the user params assoc. with the ext rec */
+  Int4       num;               /* unique among all ext recs in the design */
+  Char       dir;               /* the signal direction: I, O, B, T or U   */
+};
+
+/*+************************************************************************
+ * Xnfbus: this structure represents the info in a BUS record
+ ************************************************************************-*/
+PUBLIC struct xnfbus_struct
+{ Char           *name;             /* the base name of the bus       */
+  DTABLE(Xnfsig) *bittable;         /* the signals contained in the bus */
+  Xnfnetwork     *network;          /* the network to which the bus belongs */
+  Int4           num;               /* unique among all busses in the design */
+};
+
+/*+************************************************************************
+ * Xnfsetup: this structure represents the info in a SETUP record
+ ************************************************************************-*/
+PUBLIC struct xnfsetup_struct
+{ Xnfsetup    *next;             /* ptr to next setup record on symbol      */
+  Xnfpin      *inpin;            /* ptr to the input pin of symbol          */
+  Xnfpin      *clkpin;           /* ptr to the clock pin of symbol          */
+  Flt4        setup;             /* the setup time in nanoseconds           */
+  Flt4        hold;              /* the hold time in nanoseconds            */
+  Char        edge;              /* the active clock edge: + or -           */
+};
+
+/*+************************************************************************
+ * Xnfconfig: this structure represents the info in a CFG record
+ ************************************************************************-*/
+PUBLIC struct xnfconfig_struct
+{ Xnfconfig    *next;             /* ptr to next config command on symbol    */
+  Char         *command;          /* xact config command                     */
+};
+
+/*+************************************************************************
+ * Xnfloc: this structure represents the values of the LOC parameters
+ * These LOC parameters are not stored in the Xnfparam structure because
+ * there may be multiple LOCs on a symbol or external record.  Moreover,
+ * the order of multiple LOCs *is* important.
+ ************************************************************************-*/
+PUBLIC struct xnfloc_struct
+{ Xnfloc    *next;             /* ptr to next loc parameter on sym or ext */
+  Char      *val1;             /* the first value of a LOC range          */
+  Char      *val2;             /* the second value of a LOC range         */
+                               /* val2==val1 for single block LOC values  */
+  Bool      prohibit;          /* TRUE-> LOC<>; FALSE-> LOC=              */
+};
+
+/*+************************************************************************
+ * Xnfparam: this structure represents the name=value of a parameter
+ * These parameters may appear on symbols, pins, signal, ext records, etc.
+ * If the parameter does not have a value, (for instance, the X parameter on
+ * a signal) then the value will be "".  LOC parameters are not stored using
+ * this structure, but use the Xnfloc structure instead.
+ ************************************************************************-*/
+PUBLIC struct xnfparam_struct
+{ Xnfparam   *next;             /* ptr to next param on sym, sig, etc.     */
+  Char       *name;             /* the name of the parameter               */
+  Char       *value;            /* the value of the parameter              */
+};
+
+/*+************************************************************************
+ * Xnfuser: this structure represents user parameters and user records
+ ************************************************************************-*/
+PUBLIC struct xnfuser_struct
+{ Xnfuser   *next;             /* ptr to the next user param on sig, etc  */
+  Char      *name;             /* the name (for params: "=name=" or "=")  */
+  Char      *value;            /* the value of the user parameter         */
+};
+
+/*+************************************************************************
+ * Xnfprog: this structure represents the info in the PROG record
+ ************************************************************************-*/
+PUBLIC struct xnfprog_struct
+{ Xnfprog   *next;             /* ptr to the next prog record in network  */
+  Char      *name;             /* the name of the program                 */
+  Char      *rev;              /* the revision number of the program      */
+  Char      *comment;          /* the comment string of the program       */
+};
+
+/*+************************************************************************
+ * Xnfhierg: this structure represents the info in the HIERG record
+ ************************************************************************-*/
+PUBLIC struct xnfhierg_struct
+{ Xnfnetwork *network;            /* ptr to the network structure */
+  Char       *sym_type;           /* the macro symbol type */
+  Char       *sym_name;           /* the macro symbol name */
+  Char       *filename;           /* the macro filename */
+  Int4        hier_id;            /* the hier id */
+  Int4        parent_id;          /* the parent hier id (NULL if none) */
+  Xnfparam   *params;             /* the parameters on this record */
+};
+
+
+/*+************************************************************************
+ * Xnftype: this structure contains bit fields to indicate the various
+ * type category that a symbol belongs to.  These fields are typically
+ * referenced via the xnf_sym_is_* macros.
+ ************************************************************************-*/
+PUBLIC struct xnftype_struct
+{ Unsf  is_valid:1;       /* T->other fields are valid, F->invalid   */
+  Unsf  is_standard:1;    /* T->sym is a standard type, F-> it is not*/
+  Unsf  is_boolean:1;     /* T->sym is a boolean, F-> it is not      */
+  Unsf  is_and:1;         /* T->sym is an and gate, F-> it is not    */
+  Unsf  is_nand:1;        /* T->sym is a nand gate, F-> it is not    */
+  Unsf  is_or:1;          /* T->sym is an or gate, F-> it is not     */
+  Unsf  is_nor:1;         /* T->sym is a nor gate, F-> it is not     */
+  Unsf  is_xor:1;         /* T->sym is an xor gate, F-> it is not    */
+  Unsf  is_xnor:1;        /* T->sym is a nxor gate, F-> it is not    */
+  Unsf  is_buffer:1;      /* T->sym is a buffer, F-> it is not       */
+  Unsf  is_carry:1;       /* T->sym is a carry, F-> it is not        */
+  Unsf  is_clb:1;         /* T->sym is a clb, F-> it is not          */
+  Unsf  is_clock:1;       /* T->sym is a clock, F->it is not         */
+  Unsf  is_equation:1;    /* T->sym is an equation, F-> it is not    */
+  Unsf  is_flipflop:1;    /* T->sym is a flipflop, F->it is not      */
+  Unsf  is_globalbuf:1;   /* T->sym is a global buffer, F-> its not  */
+  Unsf  is_input:1;       /* T->sym is an input, F-> it is not       */
+  Unsf  is_inverter:1;    /* T->sym is an inverter, F-> it is not    */
+  Unsf  is_iob:1;         /* T->sym is an iob, F-> it is not         */
+  Unsf  is_latch:1;       /* T->sym is a latch, F->it is not         */
+  Unsf  is_map:1;         /* T->sym is a clbmap/fmap/hmap; F->its not*/
+  Unsf  is_memory:1;      /* T->sym is a memory, F->it is not        */
+  Unsf  is_output:1;      /* T->sym is an output, F->it is not       */
+  Unsf  is_register:1;    /* T->sym is a register, F->it is not      */
+  Unsf  is_special:1;     /* T->sym is a special one, F->it is not   */
+  Unsf  is_special_pad:1; /* T->sym is a special pad, F->it is not   */
+  Unsf  is_3state:1;      /* T->sym is a 3state, F-> it is not       */
+  Unsf  is_pullup:1;      /* T->sym is a pullup, F->it is not   */
+  Unsf  is_pulldown:1;    /* T->sym is a pulldown, F->it is not   */
+  Unsf  is_ram:1;         /* T->sym is a ram, F->it is not   */
+  Unsf  is_rom:1;         /* T->sym is a rom, F->it is not   */
+  Unsf  is_wand:1;        /* T->sym is a wand, F->it is not   */
+  Unsf  is_worand:1;      /* T->sym is a worand, F->it is not   */
+  Unsf  is_tbuf:1;        /* T->sym is a tbuf, F->it is not   */
+  Unsf  is_buf_sym:1;     /* T->sym is a BUF, F->it is not   */
+  Unsf  is_carrymode:1;   /* T->sym is a carry mode sym, F->it is not   */
+  Unsf  is_fg:1;          /* T->sym is a function generator, F->it is not   */
+  Unsf  is_mux:1;         /* T->sym is a mux, F->it is not   */
+};
+
+/************************  XNF Flavors  *******************************/
+     Dmtype      file extension     description
+     ------      --------------     -----------
+     XNF            xnf             basic XNF design
+     XNF_FLAT       xff             flattened design
+     XNF_TRIM       xtf             trimmed design
+     XNF_BLOX       xg              BLOX design
+     XNF_MAP        xmf             the xnf portion of MAP files
+     XNF_MERGE      xgf             currently not used in design flow
+     XNF_ROUTE      xrf             currently not used in design flow
+     XNF_ANNOTATE   xaf             currently not used in design flow
+
+
+/************************  Functions  *******************************/
+/** Dmcell **/
+Bool      xnf_cell_type     (dmcell)
+Dmcell   *xnf_new_dmcell    (type,name)
+Dmtype    xnf_identify_type (ext)
+
+/** Design **/
+Xnfnetwork *xnf_design_add_network (design,parentsym,parttype,filename,ismodel)
+Xnfdesign  *xnf_design_new              (heap,desname,part,filename)
+Xnfnetwork *xnf_design_find_network     (design,name)
+Xnfnetwork *xnf_design_get_network      (design,num)
+Xnfnetwork *xnf_design_get_rootnetwork  (design)
+Xnfsym     *xnf_design_get_sym          (design,num)
+Xnfsig     *xnf_design_get_sig          (design,num)
+Xnfbus     *xnf_design_get_bus          (design,num)
+Xnfext     *xnf_design_get_ext          (design,num)
+Proc        xnf_design_remove_network   (pnetwork)
+Int4        xnf_design_network_count    (design)
+Int4        xnf_design_sym_count        (design)
+Int4        xnf_design_sig_count        (design)
+Int4        xnf_design_bus_count        (design)
+Int4        xnf_design_ext_count        (design)
+Int4        xnf_design_pin_count        (design)
+Int4        xnf_design_network_maxnum   (design)
+Int4        xnf_design_sym_maxnum       (design)
+Int4        xnf_design_sig_maxnum       (design)
+Int4        xnf_design_bus_maxnum       (design)
+Int4        xnf_design_ext_maxnum       (design)
+Int4        xnf_design_pin_maxnum       (design)
+Bool        xnf_design_connect_archtypes(design)
+Int4        xnf_design_get_lcanet       (design)
+Proc        xnf_design_set_lcanet       (design,lcanet)
+
+/* Design Validity Check functions */
+Bool  xnf_design_is_valid       (design)
+Bool  xnf_design_validity_check (design,invalid_name,legal_pin,pin_inv,
+                                 bool_in,param)
+Bool  xnf_design_check_names    (design)
+
+
+/** Network **/
+Xnfprog   *xnf_network_add_prog     (network,progname,rev,comment)
+Xnfuser   *xnf_network_add_user     (network,name,info)
+Xnfsym    *xnf_network_add_sym      (network,symname,typename)
+Xnfsig    *xnf_network_add_sig      (network,signame)
+Xnfpin    *xnf_network_add_pin      (network,sig,sym,pinname,dir)
+Xnfext    *xnf_network_add_ext      (network,packpinname,sig,dir)
+Xnfbus    *xnf_network_add_bus      (network,busname)
+Xnfhierg  *xnf_network_add_hierg    (network,hier_id,sym_type,sym_name,
+                                     filename,parent_id)
+Xnfsym    *xnf_network_find_sym     (network,name)
+Xnfsig    *xnf_network_find_sig     (network,name)
+Xnfbus    *xnf_network_find_bus     (network,name)
+Xnfext    *xnf_network_find_ext     (network,packpinname)
+Xnfhierg  *xnf_network_find_hierg   (network,sym_name)
+Xnfhierg  *xnf_network_find_hierg_id(network,hier_id)
+Proc       xnf_network_remove_sym   (psym)
+Proc       xnf_network_remove_sig   (psig)
+Proc       xnf_network_remove_pin   (ppin)
+Proc       xnf_network_remove_ext   (pext)
+Proc       xnf_network_remove_hierg (network,phierg)
+Proc       xnf_network_remove_bus   (pbus)
+Proc       xnf_network_remove_prog  (network,pprog)
+Proc       xnf_network_remove_user  (network,puser)
+Proc       xnf_network_remove_progs (network)
+Proc       xnf_network_remove_users (network)
+Proc       xnf_network_remove_pinless_syms(network)
+Proc       xnf_network_remove_pinless_sigs(network)
+Bool       xnf_network_set_parttype (network,parttype)
+Char      *xnf_network_get_parttype (network)
+Char      *xnf_network_get_filename (network)
+Bool       xnf_network_set_filename (network,filename)
+Int4       xnf_network_subnetwork_count(network)
+Int4       xnf_network_sym_count    (network)
+Int4       xnf_network_sig_count    (network)
+Int4       xnf_network_bus_count    (network)
+Int4       xnf_network_ext_count    (network)
+Int4       xnf_network_pin_count    (network)
+Bool       xnf_network_move_pin     (pin,pinname,sym)
+Xnf_family xnf_network_family       (network)
+Char      *xnf_network_unique_signame(network,prefix)
+Char      *xnf_network_unique_symname(network,prefix)
+Bool       xnf_network_is_model     (network)
+Bool       xnf_network_is_archnetwork(network)
+
+/** Param **/
+Bool      xnf_sym_add_param     (sym,name,value)
+Bool      xnf_sig_add_param     (sig,name,value)
+Bool      xnf_pin_add_param     (pin,name,value)
+Bool      xnf_ext_add_param     (ext,name,value)
+Bool      xnf_hierg_add_param   (hierg,name,value)
+Xnfparam *xnf_sym_find_param    (sym,name)
+Xnfparam *xnf_sig_find_param    (sig,name)
+Xnfparam *xnf_pin_find_param    (pin,name)
+Xnfparam *xnf_ext_find_param    (ext,name)
+Xnfparam *xnf_hierg_find_param  (hierg,name)
+Proc      xnf_sym_remove_param  (sym,pparam)
+Proc      xnf_sig_remove_param  (sig,pparam)
+Proc      xnf_pin_remove_param  (pin,pparam)
+Proc      xnf_ext_remove_param  (ext,pparam)
+Proc      xnf_hierg_remove_param(hierg,pparam)
+Proc      xnf_sym_remove_paramlist(sym)
+Proc      xnf_sig_remove_paramlist(sig)
+Proc      xnf_pin_remove_paramlist(pin)
+Proc      xnf_ext_remove_paramlist(ext)
+Proc      xnf_hierg_remove_paramlist(hierg)
+
+Char     *xnf_param_get_name    (param)
+Char     *xnf_param_get_value   (param)
+Char     *xnf_sym_param_value   (sym,name,defvalue)
+Char     *xnf_sig_param_value   (sig,name,defvalue)
+Char     *xnf_pin_param_value   (pin,name,defvalue)
+Char     *xnf_ext_param_value   (ext,name,defvalue)
+Char     *xnf_hierg_param_value (hierg,name,defvalue)
+Bool      xnf_sym_param_is_legal(sym,name,pdetail,pparam)
+Bool      xnf_pin_param_is_legal(pin,name,pdetail,pparam)
+Bool      xnf_sig_param_is_legal(sig,name,pdetail,pparam)
+Bool      xnf_ext_param_is_legal(ext,name,pdetail,pparam)
+
+/** Userparams **/
+Char     *xnf_userparam_get_name    (userparam)
+Char     *xnf_userparam_get_value   (userparam)
+Xnfuser  *xnf_sym_add_userparam     (sym,name,value)
+Xnfuser  *xnf_sig_add_userparam     (sig,name,value)
+Xnfuser  *xnf_pin_add_userparam     (pin,name,value)
+Xnfuser  *xnf_ext_add_userparam     (ext,name,value)
+Xnfuser  *xnf_sym_find_userparam    (sym,name)
+Xnfuser  *xnf_sig_find_userparam    (sig,name)
+Xnfuser  *xnf_pin_find_userparam    (pin,name)
+Xnfuser  *xnf_ext_find_userparam    (ext,name)
+Char     *xnf_sym_userparam_value   (sym,name,defvalue)
+Char     *xnf_sig_userparam_value   (sig,name,defvalue)
+Char     *xnf_pin_userparam_value   (pin,name,defvalue)
+Char     *xnf_ext_userparam_value   (ext,name,defvalue)
+Proc      xnf_sym_remove_userparam  (sym,puser)
+Proc      xnf_sig_remove_userparam  (sig,puser)
+Proc      xnf_pin_remove_userparam  (pin,puser)
+Proc      xnf_ext_remove_userparam  (ext,puser)
+Proc      xnf_sym_remove_userlist   (sym)
+Proc      xnf_sig_remove_userlist   (sig)
+Proc      xnf_pin_remove_userlist   (pin)
+Proc      xnf_ext_remove_userlist   (ext)
+
+/* Locs */
+Xnfloc    *xnf_loc_attach_loc     (loclist,loc);
+Xnfloc    *xnf_loc_detach_loc     (loclist,loc);
+Proc       xnf_loc_change_val1    (design,loc,newval);
+Proc       xnf_loc_change_val2    (design,loc,newval);
+Char      *xnf_loc_get_val1       (loc,dflt);
+Char      *xnf_loc_get_val2       (loc,dflt);
+Bool       xnf_loc_check_prohibit (loc);
+Xnfloc    *xnf_sym_add_loc        (sym,locvalue)
+Xnfloc    *xnf_ext_add_loc        (ext,locvalue);
+Proc       xnf_sym_remove_loc     (sym,ploc);
+Proc       xnf_ext_remove_loc     (ext,ploc);
+Bool       xnf_sym_attach_loclist (sym,loclist);
+Bool       xnf_ext_attach_loclist (ext,loclist);
+Xnfloc    *xnf_sym_detach_loclist (sym);
+Xnfloc    *xnf_ext_detach_loclist (ext);
+Proc       xnf_ext_remove_loclist (ext);
+Proc       xnf_sym_remove_loclist (sym);
+
+/** Sig **/
+Char   *xnf_sig_get_name     (sig)
+Xnfext *xnf_sig_get_ext      (sig)
+Bool    xnf_sig_is_gnd       (sig)
+Bool    xnf_sig_is_vdd       (sig)
+Bool    xnf_sig_is_ext       (sig)
+Int4    xnf_sig_pin_count    (sig)
+Int4    xnf_sig_ldpin_count  (sig)
+Int4    xnf_sig_srcpin_count (sig)
+Int4    xnf_sig_bidipin_count(sig)
+Int4    xnf_sig_eqsig_count  (sig)
+Proc    xnf_sig_detach_pin   (sig,pin)
+Proc    xnf_sig_attach_pin   (sig,pin)
+Proc    xnf_sig_set_gnd      (sig)
+Proc    xnf_sig_set_vdd      (sig)
+Proc    xnf_sig_set_ext      (sig)
+Proc    xnf_sig_attach_parentpin(sig,parentpin)
+Proc    xnf_sig_detach_parentpin(sig,parentpin)
+Bool    xnf_sig_change_name  (sig,newname)
+
+/** Sym **/
+Char     *xnf_sym_get_name       (sym)
+Xnfsetup *xnf_sym_add_setup      (sym,inpin,clkpin,edge,setup,hold)
+Xnfconfig*xnf_sym_add_config     (sym,command)
+Xnfpin   *xnf_sym_find_pin       (sym,pinname)
+Char     *xnf_sym_outsig_name    (sym)
+Xnfsig   *xnf_sym_outsig         (sym)
+Proc      xnf_sym_remove_setup   (sym,psetup)
+Proc      xnf_sym_remove_config  (sym,pconfig)
+Prod      xnf_sym_remove_setuplist  (sym);
+Prod      xnf_sym_remove_configlist (sym);
+Int4      xnf_sym_pin_count      (sym)
+Int4      xnf_sym_inpin_count    (sym)
+Int4      xnf_sym_outpin_count   (sym)
+Int4      xnf_sym_bidipin_count  (sym)
+Int4      xnf_sym_setup_count    (sym)
+Int4      xnf_sym_config_count   (sym)
+Int4      xnf_sym_loc_count      (sym)
+Proc      xnf_sym_change_type    (sym,typename)
+Proc      xnf_sym_set_typebits   (sym)
+Proc      xnf_sym_clear_typebits (sym)
+Proc      xnf_sym_attach_pin     (sym,pin)
+Proc      xnf_sym_detach_pin     (sym,pin)
+Proc      xnf_sym_attach_network (parentsym,childnetwork)
+Proc      xnf_sym_detach_network (parentsym,childnetwork)
+Proc      xnf_sym_attach_setup   (sym,setup)
+Proc      xnf_sym_detach_setup   (sym,setup)
+Proc      xnf_sym_attach_config  (sym,config)
+Proc      xnf_sym_detach_config  (sym,config)
+Bool      xnf_sym_pin_is_legal   (sym,pinname,pdetail,ppin);
+Bool      xnf_sym_has_req_params (sym,paramname);
+Bool      xnf_check_boolean_inputs (sym)
+Bool      xnf_sym_change_name    (sym,newname)
+Bool      xnf_sym_pin_is_legal   (sym,pinname,pdetail,ppin)
+Char     *xnf_sym_get_rlocrange1 (sym,defvalue)
+Char     *xnf_sym_get_rlocrange2 (sym,defvalue)
+Bool      xnf_sym_set_rlocrange1 (sym,value)
+Bool      xnf_sym_set_rlocrange2 (sym,value)
+
+/* Sym types */
+Bool xnf_sym_is_standard    (sym) -- standard symbol type (primitive)
+Bool xnf_sym_is_boolean     (sym) -- boolean gate sym type (includes BUF, INV)
+Bool xnf_sym_is_and         (sym) -- AND gate symbol type
+Bool xnf_sym_is_nand        (sym) -- NAND gate symbol type
+Bool xnf_sym_is_or          (sym) -- OR gate symbol type
+Bool xnf_sym_is_nor         (sym) -- NOR gate symbol type
+Bool xnf_sym_is_xor         (sym) -- XOR gate symbol type
+Bool xnf_sym_is_xnor        (sym) -- XNOR gate symbol type
+Bool xnf_sym_is_buffer      (sym) -- buffer symbol type
+                                     (includes BUF, TBUF, OBUFT, O/IBUF)
+Bool xnf_sym_is_carry       (sym) -- carry symbol type
+Bool xnf_sym_is_carrymode   (sym) -- carry mode symbol
+Bool xnf_sym_is_fg          (sym) -- FG symbol
+Bool xnf_sym_is_mux         (sym) -- CLB_MUX symbol
+Bool xnf_sym_is_clb         (sym) -- CLB symbol
+Bool xnf_sym_is_iob         (sym) -- IOB symbol
+Bool xnf_sym_is_equation    (sym) -- EQN symbol
+Bool xnf_sym_is_clock       (sym) -- 2K, 3K clock driver source symbol type
+Bool xnf_sym_is_globalbuf   (sym) -- 4K global buffer source symbol type
+Bool xnf_sym_is_input       (sym) -- symbol associated with an IOB input
+Bool xnf_sym_is_output      (sym) -- symbol associated with an IOB output
+Bool xnf_sym_is_inverter    (sym) -- INV symbol type
+Bool xnf_sym_is_flipflop    (sym) -- flipflop symbol type
+Bool xnf_sym_is_register    (sym) -- register symbol
+Bool xnf_sym_is_latch       (sym) -- latch symbol type
+Bool xnf_sym_is_map         (sym) -- CLBMAP, FMAP, HMAP symbol
+Bool xnf_sym_is_memory      (sym) -- symbol which is a RAM or ROM
+Bool xnf_sym_is_special     (sym) -- special corner logic symbol type
+Bool xnf_sym_is_special_pad (sym) -- special pad type (subset of special type)
+Bool xnf_sym_is_3state      (sym) -- symbol which has a 3state pin
+Bool xnf_sym_is_pullup      (sym) -- symbol which is a pullup
+Bool xnf_sym_is_pulldown    (sym) -- symbol which is a pulldown
+Bool xnf_sym_is_ram         (sym) -- RAM symbol
+Bool xnf_sym_is_rom         (sym) -- ROM symbol
+Bool xnf_sym_is_wand        (sym) -- WAND symbol
+Bool xnf_sym_is_worand      (sym) -- WORAND symbol
+Bool xnf_sym_is_tbuf        (sym) -- TBUF symbol
+Bool xnf_sym_is_buf_sym     (sym) -- BUF symbol
+Bool xnf_sym_is_xblox       (sym) -- XBLOX symbol 
+Bool xnf_sym_is_hard_marcro (sym) -- DEF=HM symbol
+ 
+/** Pin **/
+Xnfsig *xnf_pin_get_sig         (pin)
+Xnfsym *xnf_pin_get_sym         (pin)
+Char   *xnf_pin_get_name        (pin)
+Bool    xnf_pin_check_dir       (dir)
+Proc    xnf_pin_toggle_inversion(pin)
+Bool    xnf_pin_is_inverted     (pin)
+Bool    xnf_pin_is_input        (pin)
+Bool    xnf_pin_is_output       (pin)
+Bool    xnf_pin_is_bidi         (pin)
+Bool    xnf_pin_change_name     (pin,newname)
+Bool    xnf_pin_is_invertible   (pin)
+Proc    xnf_pin_add_pulse       (pin,pulsewidth)
+Bool    xnf_legal_pin_inv       (pin)
+Bool    xnf_legal_symbol_pin    (pin)
+Bool    xnf_pin_is_clockpin     (pin)
+
+/** Ext **/
+Bool     xnf_ext_check_dir      (dir)
+Proc     xnf_ext_set_dir        (ext,dir)
+Char     xnf_ext_get_dir        (ext)
+Char     *xnf_ext_get_signame   (ext)
+Xnfsig   *xnf_ext_get_sig       (ext)
+Int4     xnf_ext_loc_count      (ext)
+Bool     xnf_ext_set_packpinname(ext,packpinname)
+Proc     xnf_ext_remove_packpinname(ext)
+Char    *xnf_ext_get_packpinname(ext)
+Char    *xnf_ext_get_rlocrange1 (ext,defvalue)
+Char    *xnf_ext_get_rlocrange2 (ext,defvalue)
+Bool     xnf_ext_set_rlocrange1 (ext,value)
+Bool     xnf_ext_set_rlocrange2 (ext,value)
+
+/** Pwr **/
+Bool     xnf_pwr_check_polarity (polarity)
+
+/** Setup, Pulse **/
+Bool     xnf_setup_check_edge    (edge)
+Bool     xnf_pulse_check_polarity(polarity)
+
+/** Bus **/
+Int4     xnf_bus_add_bit   (bus,sig)
+Proc     xnf_bus_clear_bit (bus,bitnum)
+Int4     xnf_bus_find_sig  (bus,sig)
+Int4     xnf_bus_bit_count (bus)
+
+/** Printing Functions **/
+Proc  xnf_print_design    (design,outfile)
+Proc  xnf_print_network   (networ,outfile)
+Proc  xnf_print_sym       (sym,outfile)
+Proc  xnf_print_sig       (sig,outfile)
+Proc  xnf_print_ext       (ext,outfile)
+Proc  xnf_print_sym_typebits(sym,outfile)
+Proc  xnf_print_sym_params(sym,outfile)
+Proc  xnf_print_sym_pins  (sym,outfile)
+Proc  xnf_print_pin_params(pin,outfile)
+Proc  xnf_print_sig_params(sig,outfile)
+Proc  xnf_print_sig_pins  (sig,outfile)
+Proc  xnf_print_ext_params(ext,outfile)
+
+/** Misc **/
+Bool     xnf_name_is_legal         (name,pptr)
+Proc     xnf_std_error_invalid_name(symlist,siglist)
+
+/** Looping macros **/
+XNF_DESIGN_NETWORKS    (design,loop,network)
+XNF_DESIGN_SYMS        (design,loop,sym)
+XNF_DESIGN_SIGS        (design,loop,sig)
+XNF_DESIGN_BUSSES      (design,loop,bus)
+XNF_DESIGN_EXTS        (design,loop,ext)
+XNF_DESIGN_HIERGS      (design,loop,hierg)
+XNF_NETWORK_SUBNETWORKS(network,loop,subnetwork)
+XNF_NETWORK_SYMS       (network,loop,sym)
+XNF_NETWORK_SIGS       (network,loop,sig)
+XNF_NETWORK_BUSSES     (network,loop,bus)
+XNF_NETWORK_EXTS       (network,loop,ext)
+XNF_NETWORK_PROGS      (network,loop,prog)
+XNF_NETWORK_USERS      (network,loop,user)
+XNF_NETWORK_HIERGS     (network,loop,hierg)
+XNF_SYM_PINS      (sym,loop,pin)
+XNF_SYM_INPINS    (sym,loop,pin)
+XNF_SYM_OUTPINS   (sym,loop,pin)
+XNF_SYM_BIDIPINS  (sym,loop,pin)
+XNF_SYM_SETUPS    (sym,loop,setup)
+XNF_SYM_CONFIGS   (sym,loop,config)
+XNF_SYM_LOCS      (sym,loop,loc)
+XNF_SYM_PARAMS    (sym,loop,param)
+XNF_SYM_USERPARAMS(sym,loop,user)
+XNF_SIG_PINS      (sig,loop,pin)
+XNF_SIG_LDPINS    (sig,loop,pin)
+XNF_SIG_SRCPINS   (sig,loop,pin)
+XNF_SIG_BIDIPINS  (sig,loop,pin)
+XNF_SIG_PARAMS    (sig,loop,param)
+XNF_SIG_USERPARAMS(sig,loop,user)
+XNF_SIG_EQSIGS    (sig,loop,eqsig)
+XNF_PIN_PARAMS    (pin,loop,param)
+XNF_PIN_USERPARAMS(pin,loop,user)
+XNF_EXT_LOCS      (ext,loop,loc)
+XNF_EXT_PARAMS    (ext,loop,param)
+XNF_EXT_USERPARAMS(ext,loop,user)
+XNF_BUS_BITS      (bus,bitnum,sig)
+XNF_HIERG_PARAMS  (hierg,loop,param)
+
+/* Special functions for non-DM users */
+Xnfdesign *xnf_new_design          (name,parttype)
+Xnfdesign *xnf_read_design         (xnffile,errorproc)
+Bool       xnf_write_design        (name,parttype)
+Proc       xnf_free_design         (pdesign)
+Bool       xnf_read_archtype_file  (archfile,errorproc)
+Bool       xnf_check_design        (design,errorproc) 

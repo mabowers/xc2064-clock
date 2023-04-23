@@ -1,0 +1,24 @@
+TITLE           Flip-flop: T-type, 1-bit, async clear/preset, clock enable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/30/93
+
+CHIP            FTCPE  COMPONENT
+ 
+;Inputs
+c t ce clr pre
+
+;Outputs
+q
+
+EQUATIONS 
+
+q.d1   = ce*t
+q.fbk  = vcc
+q     := q.d1 XOR q.d2
+q.clkf = c
+q.rstf = clr
+q.setf = pre
+q.prld = gnd

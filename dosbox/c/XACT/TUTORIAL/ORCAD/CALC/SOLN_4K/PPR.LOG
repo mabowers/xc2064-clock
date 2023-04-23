@@ -1,0 +1,336 @@
+ppr [pre-5.0.0p]  --  Xilinx Automatic CAE Tools
+Copyright (c) 1994 Xilinx Inc.  All Rights Reserved. 
+386|DOS-Extender 4.1 - Copyright (C) 1986-1993 Phar Lap Software, Inc.
+
+*** Warning [EXPIRE:WARNING]
+    This version of the ppr program has a built-in expiration date.  
+    It will stop running 56 days from today.
+
+
+
++ ppr  @ 1994/03/16 07:58:02 [00:00:38]
+  
+  + Parameters 
+    ----------------------- 
+    design            = calc.xtf 
+    outfile           = <design name> 
+    parttype          = 4003PC84-6 
+    estimate          = FALSE 
+    logfile           = ppr.log 
+    ----------------------- 
+  
+  + Additional Specified or Non-Default Parameters 
+    ----------------------- 
+    seed              = 763804682 
+    cstfile           = calc_4k.cst 
+    ----------------------- 
+    
+    Parameter values from the xactinit.dat files
+    [Environment Variable XACT = j:\;k:\;o:\;l:\;n:\;m:\]
+    --------------------------------------------
+    no xactinit.dat parameter values defined
+    --------------------------------------------
+    
+  Reading constraints from file calc_4k.cst 
+   
+  
+  
+  ppr:  Reading input design data...
+  
+  
+  + xnfmxn2  @ 1994/03/16 07:58:05 [00:00:41]
+  - xnfmxn2  @ 1994/03/16 07:58:36 [00:01:12]
+  = -------- @ 1994/03/16 00:00:31 [00:00:31]
+  
+  + picprep  @ 1994/03/16 07:58:36 [00:01:12]
+  - picprep  @ 1994/03/16 07:58:42 [00:01:18]
+  = -------- @ 1994/03/16 00:00:06 [00:00:06]
+  Speedfile version 4000.1, revision 4003.4.
+  
+  
+  + cstmerge  @ 1994/03/16 07:58:49 [00:01:25]
+    
+    + Loading the PIC net list  @ 07:58:49 [00:01:25]
+    - Loading the PIC net list  @ 07:58:49 [00:01:25]
+    = ------------------------- @ 00:00:00 [00:00:00]
+    
+    + CSTMerge main routines  @ 07:58:49 [00:01:25]
+    - CSTMerge main routines  @ 07:58:54 [00:01:30]
+    = ----------------------- @ 00:00:05 [00:00:05]
+    
+    + Writing PIC net list  @ 07:58:54 [00:01:30]
+    - Writing PIC net list  @ 07:58:54 [00:01:30]
+    = --------------------- @ 00:00:00 [00:00:00]
+  - cstmerge  @ 1994/03/16 07:58:54 [00:01:30]
+  = --------- @ 1994/03/16 00:00:05 [00:00:05]
+  
+  ppr:  Mapping function generators...
+  
+  
+  + fgmap  @ 1994/03/16 07:58:55 [00:01:31]
+    
+    + Mx Netlist Acquisition  @ 07:58:55 [00:01:31]
+    - Mx Netlist Acquisition  @ 07:58:55 [00:01:31]
+    = ----------------------- @ 00:00:00 [00:00:00]
+  - fgmap  @ 1994/03/16 07:58:55 [00:01:31]
+  = ------ @ 1994/03/16 00:00:00 [00:00:00]
+  
+  + fgmake  @ 1994/03/16 07:58:56 [00:01:32]
+    
+    + Mx Netlist Acquisition  @ 07:58:56 [00:01:32]
+    - Mx Netlist Acquisition  @ 07:58:56 [00:01:32]
+    = ----------------------- @ 00:00:00 [00:00:00]
+
+    *** PPR: WARNING 7034: 
+          In categories of paths that have NO timing specifications, the design 
+          has 34 path end-point pairs.  Note that there may be multiple paths
+          between any listed pair of end-points.  To limit the number of paths
+          reported in each category, set PPR parameter show_tsi_paths =
+          <value>.   
+    The end-point pairs are listed in file calc.tsi. To suppress the listing
+    of paths for categories with no timing specifications, set PPR parameter
+    tsi_show_all=FALSE. 
+    
+    + Loading the tif model  @ 07:58:58 [00:01:34]
+    - Loading the tif model  @ 07:58:58 [00:01:34]
+    = ---------------------- @ 00:00:00 [00:00:00]
+    
+    + dly_tab  @ 1994/03/16 07:58:58 [00:01:34]
+    - dly_tab  @ 1994/03/16 07:58:59 [00:01:35]
+    = -------- @ 1994/03/16 00:00:01 [00:00:01]
+    
+    + Boolean Gate Mapping  @ 07:59:02 [00:01:38]
+    - Boolean Gate Mapping  @ 07:59:06 [00:01:42]
+    = --------------------- @ 00:00:04 [00:00:04]
+    
+    + Replacing Boolean Primitives  @ 07:59:06 [00:01:42]
+      
+      + Loading the tif model  @ 07:59:06 [00:01:42]
+      - Loading the tif model  @ 07:59:06 [00:01:42]
+      = ---------------------- @ 00:00:00 [00:00:00]
+    - Replacing Boolean Primitives  @ 07:59:07 [00:01:43]
+    = ----------------------------- @ 00:00:01 [00:00:01]
+  - fgmake  @ 1994/03/16 07:59:07 [00:01:43]
+  = ------- @ 1994/03/16 00:00:11 [00:00:11]
+  
+  + partest  @ 1994/03/16 07:59:07 [00:01:43]
+    Preliminary estimate of device utilization for part  4003PC84: 
+    ------------------------------------------------------------------------- 
+       33% utilization of I/O pins.                ( 20 of  61) 
+       24% utilization of CLB function generators. ( 47 of 200) 
+        7% utilization of CLB flip-flops.          ( 14 of 200) 
+    ------------------------------------------------------------------------- 
+    Device utilization comparison shown for part  4002APC84: 
+    ------------------------------------------------------------------------- 
+       33% utilization of I/O pins.                ( 20 of  61) 
+       37% utilization of CLB function generators. ( 47 of 128) 
+       11% utilization of CLB flip-flops.          ( 14 of 128) 
+    ------------------------------------------------------------------------- 
+    This comparison does not consider packages for which the supporting data 
+    files have not been installed. 
+    Consult the PPR report file for final device utilization statistics. 
+  - partest  @ 1994/03/16 08:05:07 [00:07:43]
+  = -------- @ 1994/03/16 00:06:00 [00:06:00]
+  
+  + mdmake  @ 1994/03/16 08:05:07 [00:07:43]
+    
+    + Pic Acquisition  @ 08:05:07 [00:07:43]
+    - Pic Acquisition  @ 08:05:07 [00:07:43]
+    = ---------------- @ 00:00:00 [00:00:00]
+    
+    + Replacing Memory and Wand Primitives  @ 08:05:07 [00:07:43]
+    - Replacing Memory and Wand Primitives  @ 08:05:07 [00:07:43]
+    = ------------------------------------- @ 00:00:00 [00:00:00]
+  - mdmake  @ 1994/03/16 08:05:07 [00:07:43]
+  = ------- @ 1994/03/16 00:00:00 [00:00:00]
+  
+  + cstmerge  @ 1994/03/16 08:05:08 [00:07:44]
+    
+    + Loading the PIC net list  @ 08:05:08 [00:07:44]
+    - Loading the PIC net list  @ 08:05:08 [00:07:44]
+    = ------------------------- @ 00:00:00 [00:00:00]
+    
+    + CSTMerge main routines  @ 08:05:08 [00:07:44]
+    - CSTMerge main routines  @ 08:05:14 [00:07:50]
+    = ----------------------- @ 00:00:06 [00:00:06]
+    
+    + Writing PIC net list  @ 08:05:14 [00:07:50]
+    - Writing PIC net list  @ 08:05:14 [00:07:50]
+    = --------------------- @ 00:00:00 [00:00:00]
+  - cstmerge  @ 1994/03/16 08:05:14 [00:07:50]
+  = --------- @ 1994/03/16 00:00:06 [00:00:06]
+  
+  ppr:  Placing logic...
+  
+  
+  + placer  @ 1994/03/16 08:05:14 [00:07:50]
+    
+    + Loading the tif model  @ 08:05:29 [00:08:05]
+    - Loading the tif model  @ 08:05:29 [00:08:05]
+    = ---------------------- @ 00:00:00 [00:00:00]
+    
+    + Getting delays as a function of delta_x and delta_y  @ 08:05:29 [00:08:05]
+      
+      + dly_tab  @ 1994/03/16 08:05:29 [00:08:05]
+      - dly_tab  @ 1994/03/16 08:05:35 [00:08:11]
+      = -------- @ 1994/03/16 00:00:06 [00:00:06]
+      
+      + dly_tab  @ 1994/03/16 08:05:35 [00:08:11]
+      - dly_tab  @ 1994/03/16 08:05:39 [00:08:15]
+      = -------- @ 1994/03/16 00:00:04 [00:00:04]
+    - Getting delays as a function of delta_x and delta_y  @ 08:05:40 [00:08:16]
+    = ---------------------------------------------------- @ 00:00:11 [00:00:11]
+    * Improve initial placement: 
+    * Optimize the improved placement: 
+  - placer  @ 1994/03/16 08:09:32 [00:12:08]
+  = ------- @ 1994/03/16 00:04:18 [00:04:18]
+  
+  ppr:  Routing signals...
+  
+  
+  + router  @ 1994/03/16 08:09:34 [00:12:10]
+    Begin pre-routing, Phase 2, TIMING=OFF; 20 connections. 
+    Begin pre-routing, Phase 3, TIMING=OFF; 2 connections. 
+    Begin routing, NO_RIP, TIMING=OFF; 265 connections. 
+    Begin fixing 8 unroutes on 1 nets, (8 VCC/GND), TIMING=OFF;  
+    Begin routing 4 pullups, TIMING=OFF 
+    
+    Design has  0  unroutes.
+    
+  - router  @ 1994/03/16 08:10:09 [00:12:45]
+  = ------- @ 1994/03/16 00:00:35 [00:00:35]
+  
+  ppr:  Generating .LCA File...
+  
+  
+  + pic2lca  @ 1994/03/16 08:10:11 [00:12:47]
+    
+    + Loading the PIC netlist  @ 08:10:11 [00:12:47]
+    - Loading the PIC netlist  @ 08:10:12 [00:12:48]
+    = ------------------------ @ 00:00:01 [00:00:01]
+    
+    + Loading the tif model  @ 08:10:19 [00:12:55]
+    - Loading the tif model  @ 08:10:19 [00:12:55]
+    = ---------------------- @ 00:00:00 [00:00:00]
+  - pic2lca  @ 1994/03/16 08:10:33 [00:13:09]
+  = -------- @ 1994/03/16 00:00:22 [00:00:22]
+  
+  ppr:  Making Report File...
+  
+  
+  + pprsum  @ 1994/03/16 08:10:35 [00:13:11]
+    
+    + Cell Data Acquisition  @ 08:10:35 [00:13:11]
+    - Cell Data Acquisition  @ 08:10:39 [00:13:15]
+    = ---------------------- @ 00:00:04 [00:00:04]
+    
+    + Summary Report Generation  @ 08:10:39 [00:13:15]
+    - Summary Report Generation  @ 08:10:41 [00:13:17]
+    = -------------------------- @ 00:00:02 [00:00:02]
+  - pprsum  @ 1994/03/16 08:10:41 [00:13:17]
+  = ------- @ 1994/03/16 00:00:06 [00:00:06]
+  Wrote report on the result without delay optimization to calc.rpf. 
+  
+  ppr:  Routing signals...
+  
+  
+  + router  @ 1994/03/16 08:10:41 [00:13:17]
+    
+    + Loading the tif model  @ 08:10:42 [00:13:18]
+    - Loading the tif model  @ 08:10:42 [00:13:18]
+    = ---------------------- @ 00:00:00 [00:00:00]
+    Begin pre-routing, Phase 2, TIMING=PATH; 20 connections. 
+    Begin pre-routing, Phase 3, TIMING=PATH; 2 connections. 
+    Begin routing, NO_RIP, TIMING=PATH; 265 connections. 
+    Begin fixing 8 unroutes on 1 nets, (8 VCC/GND), TIMING=PATH; (First LCA
+    made) 
+    Improving a   73.6ns  path with 8 pins. 
+    Improving a   73.5ns  path with 10 pins. 
+    Begin routing 7 pullups, TIMING=OFF 
+    
+    Design has  0  unroutes.
+    
+    ----------------------------------------------------------------------
+    Timing analysis summary
+    ----------------------------------------------------------------------
+    
+        Deadline  Actual(*)  Specification
+        --------  ---------  ------------- 
+          <auto>   73.5ns    DEFAULT_FROM_FFS_TO_FFS=FROM:ffs:TO:ffs 
+          <auto>   25.0ns    DEFAULT_FROM_PADS_TO_FFS=FROM:pads:TO:ffs 
+          <auto>   38.9ns    DEFAULT_FROM_FFS_TO_PADS=FROM:ffs:TO:pads 
+    (*) Note: please run xdelay to confirm the actual path delays computed by
+    PPR. 
+
+    *** PPR: WARNING 7028: 
+          The design has flip-flops with asynchronous set/reset controls
+          (PRE/SD or CLR/RD pins).  When PPR analyzes design timing, it does
+          not trace paths through the asynchronous set/reset input and on
+          through the Q output.
+          
+          If you want PPR to control the delay on paths through asynchronous
+          set/reset pins, you must split the delay requirement into two
+          segments: one ending at the set/reset input, and the other beginning
+          at the flip-flop output.
+          If you want PPR not to analyze paths that lead to asynchronous
+          set/reset pins, attach an IGNORE specification to the pin(s) or
+          signal(s).
+          
+          By default, XDelay reports all paths through asynchronous set/reset
+          pins. To prevent XDelay from showing these paths, use FlagBlk
+          CLB_Disable_SR_Q on the appropriate flip-flops. 
+
+    *** PPR: WARNING 7029: 
+          The design has RAM elements.  When PPR analyzes design timing, it
+          does not trace paths through the data or write-enable inputs and on
+          through the RAM output.  Such paths are normally of interest only
+          when the RAM is being read during a write operation.
+          
+          If you want PPR to control the delay on paths through the D or WE
+          inputs, you must split the delay requirement into two segments: one
+          ending at the RAM input pin, and the other beginning at the RAM
+          output.
+          
+          By default, XDelay does not report paths through D or WE pins either. 
+          To allow XDelay to show these paths, use FlagBlk CLB_Enable_WE and/or 
+          FlagBlk CLB_Enable_DIN on the appropriate RAMs. 
+  - router  @ 1994/03/16 08:12:25 [00:15:01]
+  = ------- @ 1994/03/16 00:01:44 [00:01:44]
+  
+  ppr:  Generating .LCA File...
+  
+  
+  + pic2lca  @ 1994/03/16 08:12:27 [00:15:03]
+    
+    + Loading the PIC netlist  @ 08:12:27 [00:15:03]
+    - Loading the PIC netlist  @ 08:12:28 [00:15:04]
+    = ------------------------ @ 00:00:01 [00:00:01]
+
+    *** PPR: WARNING 10604: 
+          A .LCA file already exists.  The old .LCA file will be saved as
+          'calc.lcb'. 
+    
+    + Loading the tif model  @ 08:12:35 [00:15:11]
+    - Loading the tif model  @ 08:12:35 [00:15:11]
+    = ---------------------- @ 00:00:00 [00:00:00]
+  - pic2lca  @ 1994/03/16 08:12:49 [00:15:25]
+  = -------- @ 1994/03/16 00:00:22 [00:00:22]
+  
+  ppr:  Making Report File...
+  
+  
+  + pprsum  @ 1994/03/16 08:12:51 [00:15:27]
+    
+    + Cell Data Acquisition  @ 08:12:51 [00:15:27]
+    - Cell Data Acquisition  @ 08:12:51 [00:15:27]
+    = ---------------------- @ 00:00:00 [00:00:00]
+    
+    + Summary Report Generation  @ 08:12:51 [00:15:27]
+    - Summary Report Generation  @ 08:12:53 [00:15:29]
+    = -------------------------- @ 00:00:02 [00:00:02]
+  - pprsum  @ 1994/03/16 08:12:53 [00:15:29]
+  = ------- @ 1994/03/16 00:00:02 [00:00:02]
+- ppr  @ 1994/03/16 08:12:54 [00:15:30]
+= ---- @ 1994/03/16 00:14:52 [00:14:52]
+
++ ppr required [4394.379] Kbytes of dynamic/allocated memory 

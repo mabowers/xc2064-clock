@@ -1,0 +1,21 @@
+TITLE           Flip-flop: D-type, 1-bit, async preset
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/23/93
+
+CHIP            FDP  COMPONENT
+ 
+;Inputs
+c d pre
+
+;Outputs
+q
+
+EQUATIONS 
+
+q     := d
+q.clkf = c
+q.setf = pre
+q.prld = vcc

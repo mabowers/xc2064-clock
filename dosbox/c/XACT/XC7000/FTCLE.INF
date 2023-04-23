@@ -1,0 +1,41 @@
+`F  1.00 FTCLE
+`B "1" "1" "A" " November 28, 1993" "" "A" 
+"XC4000 Family FTCLE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "T"
+`P I "D"
+`P I "L"
+`P I "CE"
+`P O "Q"
+`P I "C"
+`P I "CLR"
+`S "TQ" 1 
+`S "MD" 1 
+`S "L_CE" 1 
+`E XC7000.LIB
+`I R "XOR2" XC7000.LIB "XOR2" c7a6cc32  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "M2_1" XC7000.LIB "M2_1" c96dd65e  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "OR2" XC7000.LIB "OR2" cc503a5a  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "FDCE" XC7000.LIB "FDCE" c7a6be9b  U4  []
+"RLOC=R0C0" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "CLR" "CLR" I ) 
+( "Q" "Q" O ) 
+`J ( R U1 "I1" I ) ( R U4 "Q" O ) ( P O "Q" ) 
+`J ( R U1 "O" O ) ( S "TQ" 1  ) ( R U2 "D0" I ) 
+`J ( P I "T" ) ( R U1 "I0" I ) 
+`J ( R U2 "O" O ) ( S "MD" 1  ) ( R U4 "D" I ) 
+`J ( P I "D" ) ( R U2 "D1" I ) 
+`J ( P I "L" ) ( R U3 "I1" I ) ( R U2 "S0" I ) 
+`J ( R U3 "O" O ) ( S "L_CE" 1  ) ( R U4 "CE" I ) 
+`J ( P I "CE" ) ( R U3 "I0" I ) 
+`J ( P I "C" ) ( R U4 "C" I ) 
+`J ( P I "CLR" ) ( R U4 "CLR" I ) 

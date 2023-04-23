@@ -1,0 +1,15 @@
+`F  1.00 bufod
+`B "1" "1" "A" "    April  6, 1993" "" "A" 
+"XC4000 Family BUFOD Macro" "Xilinx"
+""
+""
+""
+""
+`P I "I"
+`P O "O"
+`E XC4000.LIB
+`I R "WAND1" XC4000.LIB "WAND1" CD073FD1  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`J ( P I "I" ) ( R U1 "I" I ) 
+`J ( R U1 "O" C ) ( P O "O" ) 

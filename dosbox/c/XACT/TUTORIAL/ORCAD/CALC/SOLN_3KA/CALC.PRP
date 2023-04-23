@@ -1,0 +1,426 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                         XNFPREP For Design calc.xff
+                        From XNFPREP Version pre5.0.0w
+                                       
+
+                             1994/03/06 11:30:32
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 Xilinx, Inc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  (c) Copyright 1994.  All Rights Reserved. 
+
+    XNFPREP For Design calc.xff                                      Page   i
+
+    Table of Contents
+    -----------------
+    
+    XNFPREP Errors  ..................................................   1
+     
+    XNFPREP Warnings  ................................................   2
+     
+    Clock Signals Report  ............................................   3
+     
+    Timing Specification Summary  ....................................   4
+     
+    Logic Trimming  ..................................................   5
+     
+
+    XNFPREP For Design calc.xff                                      Page   1
+
+    XNFPREP Errors 
+    -------------- 
+      No XNFPREP errors were issued. 
+      
+
+    XNFPREP For Design calc.xff                                      Page   2
+
+    XNFPREP Warnings 
+    ---------------- 
+    XNFPREP: WARNING 4037: 
+      These inverters could not be absorbed and each will be implemented 
+      in a single function generator.  This will introduce additional 
+      delay and use resources inefficiently. (Note that some of the
+      symbols listed below may have been reduced to inverters by earlier
+      trimming.)
+      
+      Inverter Name = DEBOUNCE/U137
+      Output Signal = DEBOUNCE/$U137_O
+       
+      Inverter Name = OSC_3K/U124/U1/U1
+      Output Signal = OSC_3K/U124/U1/TQ
+       
+      Inverter Name = CONTROL/U230/U1/U2/U1
+      Output Signal = CONTROL/U230/U1/MD
+       
+
+    XNFPREP For Design calc.xff                                      Page   3
+
+    Clock Signals Report 
+    -------------------- 
+      
+      The following clock signals were found in the design:
+      
+      Driver = GCLK ; Fan Out = 36 ; Signal Name = CLK 
+      Driver = ACLK ; Fan Out = 4 ; Signal Name = OSC_3K/QCLK 
+      
+      
+
+    XNFPREP For Design calc.xff                                      Page   4
+
+    Timing Specification Summary 
+    ----------------------------
+    
+      All timing specifications will be processed.
+      
+          
+
+    XNFPREP For Design calc.xff                                      Page   5
+
+    Logic Trimming 
+    -------------- 
+        
+    This chapter shows the logic removed from your design due to
+    sourceless or loadless signals and VCC or ground connections.  If the
+    removal of a signal or symbol results in the subsequent removal of an
+    additional signal or symbol, the message explaining that second
+    removal will be indented.  This indentation will be repeated as a
+    chain of related logic is removed.
+    
+    To quickly locate the original cause for the removal of a chain of 
+    logic, look at the lines which begin at the leftmost edge of the page 
+    below. 
+        
+    Due to duplicate inputs of opposite sense on pins 'I0' and 'I3' on
+    XNOR symbol 'ALU/U166/U9': 
+      Unneeded pin 'I0' on XNOR symbol 'ALU/U166/U9' removed. 
+        Unneeded pin 'I3' on XNOR symbol 'ALU/U166/U9' removed. 
+          Output pin of XNOR symbol 'ALU/U166/U9' inverted. 
+        
+    Loadless signal 'CONTROL/U230/CEO' removed. 
+      Unused pin 'O' on AND symbol 'CONTROL/U230/U8' removed. 
+        Disabled AND symbol 'CONTROL/U230/U8' removed. 
+          Loadless signal 'CONTROL/U230/TC' removed. 
+            Unused pin 'O' on OR symbol 'CONTROL/U230/U5/U1' removed. 
+              Disabled OR symbol 'CONTROL/U230/U5/U1' removed. 
+                Loadless signal 'CONTROL/U230/U5/$U3_O' removed. 
+                  Unused pin 'O' on AND symbol 'CONTROL/U230/U5/U3'
+                  removed. 
+                    Disabled AND symbol 'CONTROL/U230/U5/U3' removed. 
+                      Loadless signal 'CONTROL/U230/$U7_O' removed. 
+                        Unused pin 'O' on AND symbol 'CONTROL/U230/U7'
+                        removed. 
+                          Disabled AND symbol 'CONTROL/U230/U7' removed. 
+                Loadless signal 'CONTROL/U230/U5/$U2_O' removed. 
+                  Unused pin 'O' on AND symbol 'CONTROL/U230/U5/U2'
+                  removed. 
+                    Disabled AND symbol 'CONTROL/U230/U5/U2' removed. 
+                      Loadless signal 'CONTROL/U230/$U6_O' removed. 
+                        Unused pin 'O' on AND symbol 'CONTROL/U230/U6'
+                        removed. 
+                          Disabled AND symbol 'CONTROL/U230/U6' removed. 
+        
+    Sourceless signal 'CONTROL/U230/D1' removed. 
+      Unused pin 'I0' on AND symbol 'CONTROL/U230/U2/U2/U3' removed. 
+        
+    Sourceless signal 'CONTROL/U230/D0' removed. 
+      Unused pin 'I0' on AND symbol 'CONTROL/U230/U1/U2/U3' removed. 
+        
+    Loadless signal 'ALU/U166/OFL' removed. 
+      Unused pin 'O' on AND symbol 'ALU/U166/U41' removed. 
+        Disabled AND symbol 'ALU/U166/U41' removed. 
+          Loadless signal 'ALU/U166/AABXS' removed. 
+            Unused pin 'O' on XOR symbol 'ALU/U166/U40' removed. 
+              Disabled XOR symbol 'ALU/U166/U40' removed. 
+                Loadless signal 'ALU/U166/AAB' removed. 
+                  Unused pin 'O' on AND symbol 'ALU/U166/U39' removed. 
+                    Disabled AND symbol 'ALU/U166/U39' removed. 
+          Loadless signal 'ALU/U166/AXB' removed. 
+            Unused pin 'O' on XNOR symbol 'ALU/U166/U38' removed. 
+
+    XNFPREP For Design calc.xff                                      Page   6
+
+              Disabled XNOR symbol 'ALU/U166/U38' removed. 
+                Loadless signal 'ALU/U166/B_M' removed. 
+                  Unused pin 'O' on XNOR symbol 'ALU/U166/U37' removed. 
+                    Disabled XNOR symbol 'ALU/U166/U37' removed. 
+        
+    Sourceless signal 'OSC_3K/U124/CE' removed. 
+      Unused pin 'CE' on DFF symbol 'OSC_3K/U124/U1/U2' removed. 
+      Unused pin 'CE' on DFF symbol 'OSC_3K/U124/U2/U2' removed. 
+      Unused pin 'CE' on DFF symbol 'OSC_3K/U124/U3/U2' removed. 
+      Unused pin 'CE' on DFF symbol 'OSC_3K/U124/U4/U2' removed. 
+      Unused pin 'I0' on AND symbol 'OSC_3K/U124/U9' removed. 
+        
+    Loadless signal 'OSC_3K/U124/CEO' removed. 
+      Unused pin 'O' on AND symbol 'OSC_3K/U124/U9' removed. 
+        Disabled AND symbol 'OSC_3K/U124/U9' removed. 
+          Loadless signal 'OSC_3K/U124/TC' removed. 
+            Unused pin 'O' on AND symbol 'OSC_3K/U124/U8' removed. 
+              Disabled AND symbol 'OSC_3K/U124/U8' removed. 
+        
+    Sourceless signal 'OSC_3K/U124/CLR' removed. 
+      Unused pin 'CLR' on DFF symbol 'OSC_3K/U124/U1/U2' removed. 
+      Unused pin 'CLR' on DFF symbol 'OSC_3K/U124/U2/U2' removed. 
+      Unused pin 'CLR' on DFF symbol 'OSC_3K/U124/U3/U2' removed. 
+      Unused pin 'CLR' on DFF symbol 'OSC_3K/U124/U4/U2' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'CONTROL/U230/U1/U2/U2' removed. 
+      AND symbol 'CONTROL/U230/U1/U2/U2' absorbed. 
+        Signal 'CONTROL/U230/U1/U2/$U2_O' merged into signal
+        'CONTROL/U230/U1/TQ'. 
+        
+    Due to GND signal on pin 'I1' of AND symbol 'CONTROL/U230/U1/U2/U3': 
+      Signal 'CONTROL/U230/U1/U2/$U3_O' tied to GND. 
+        Logically reduced AND symbol 'CONTROL/U230/U1/U2/U3' removed. 
+        
+    Grounded input pin 'I1' on OR symbol 'CONTROL/U230/U1/U3' removed. 
+      OR symbol 'CONTROL/U230/U1/U3' absorbed. 
+        Signal 'CONTROL/U230/U1/L_CE' merged into signal 'CONTROL/CE_ADDR
+        '. 
+        
+    VCC input pin 'I0' on AND symbol 'CONTROL/U230/U2/U2/U2' removed. 
+      AND symbol 'CONTROL/U230/U2/U2/U2' absorbed. 
+        Signal 'CONTROL/U230/U2/U2/$U2_O' merged into signal
+        'CONTROL/U230/U2/TQ'. 
+        
+    Due to GND signal on pin 'I1' of AND symbol 'CONTROL/U230/U2/U2/U3': 
+      Signal 'CONTROL/U230/U2/U2/$U3_O' tied to GND. 
+        Logically reduced AND symbol 'CONTROL/U230/U2/U2/U3' removed. 
+        
+    Grounded input pin 'I1' on OR symbol 'CONTROL/U230/U2/U3' removed. 
+      OR symbol 'CONTROL/U230/U2/U3' absorbed. 
+        Signal 'CONTROL/U230/U2/L_CE' merged into signal 'CONTROL/CE_ADDR
+        '. 
+        
+    VCC input pin 'I0' on XOR symbol 'CONTROL/U230/U1/U1' removed. 
+      Output pin of XOR symbol 'CONTROL/U230/U1/U1' inverted. 
+        Single input XOR symbol 'CONTROL/U230/U1/U1' changed to INV
+        symbol. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U187/U3/U1' removed. 
+        
+
+    XNFPREP For Design calc.xff                                      Page   7
+
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U187/U3/U2' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U188/U3/U1' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U188/U3/U2' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U189/U3/U1' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U189/U3/U2' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U190/U3/U1' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U190/U3/U2' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U37/U1/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U37/U1/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U37/U2/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U37/U2/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U37/U3/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U37/U3/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U37/U4/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U37/U4/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U36/U1/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U36/U1/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U36/U2/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U36/U2/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U36/U3/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U36/U3/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U36/U4/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U36/U4/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U32/U3/U1' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U32/U3/U2' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U33/U3/U1' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U33/U3/U2' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U34/U3/U1' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U34/U3/U2' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U35/U3/U1' removed. 
+        
+
+    XNFPREP For Design calc.xff                                      Page   8
+
+    VCC input pin 'I1' on AND symbol 'STACK/U35/U3/U2' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U31/U1/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U31/U1/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U31/U2/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U31/U2/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U31/U3/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U31/U3/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U31/U4/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U31/U4/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U30/U1/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U30/U1/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U30/U2/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U30/U2/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U30/U3/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U30/U3/U3' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'STACK/U30/U4/U1' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'STACK/U30/U4/U3' removed. 
+        
+    VCC input pin 'I0' on XOR symbol 'OSC_3K/U124/U1/U1' removed. 
+      Output pin of XOR symbol 'OSC_3K/U124/U1/U1' inverted. 
+        Single input XOR symbol 'OSC_3K/U124/U1/U1' changed to INV
+        symbol. 
+        
+    Grounded input pin 'I0' on OR symbol 'CONTROL/U230/U2/U2/U1' removed. 
+      OR symbol 'CONTROL/U230/U2/U2/U1' absorbed. 
+        Signal 'CONTROL/U230/U2/TQ' merged into signal 'CONTROL/U230/U2/MD
+        '. 
+        
+    Grounded input pin 'I0' on OR symbol 'CONTROL/U230/U1/U2/U1' removed. 
+        Single input OR symbol 'CONTROL/U230/U1/U2/U1' changed to INV
+        symbol. 
+        
+    
+    
+    Buffers were found in the design and were removed.  The following
+    signals have been merged together as a result:
+    
+    (Note that the merged signal name is used in the output netlist.) 
+        
+    Signal = CTL3
+    Replaces Signal = CONTROL/STATMACH/SEL_OP 
+        
+    
+    
+
+    XNFPREP For Design calc.xff                                      Page   9
+
+    Inverters were found in the design and were optimized by merging them
+    with adjacent functions.  The following signals were removed as a 
+    result of this optimization:
+    
+    (Note that the replaced signal will not appear in the output netlist,
+    and that the signal which replaces it is the opposite sense.) 
+        
+    Signal = ADD_SUB
+     Replaces Inverted Signal = CONTROL/STATMACH/OP_CTL2 
+        
+    Signal = ADD_SUB
+     Replaces Inverted Signal = ALU/$U170_O 
+        
+    Signal = G
+     Replaces Inverted Signal = 7SEG/G_INV 
+        
+    Signal = F
+     Replaces Inverted Signal = 7SEG/F_INV 
+        
+    Signal = E
+     Replaces Inverted Signal = 7SEG/E_INV 
+        
+    Signal = D
+     Replaces Inverted Signal = 7SEG/D_INV 
+        
+    Signal = C
+     Replaces Inverted Signal = 7SEG/C_INV 
+        
+    Signal = B
+     Replaces Inverted Signal = 7SEG/B_INV 
+        
+    Signal = A
+     Replaces Inverted Signal = 7SEG/A_INV 
+        
+    Signal = OFL
+     Replaces Inverted Signal = 7SEG/O_INV 
+        
+    Signal = STACK0
+     Replaces Inverted Signal = LED/LED0 
+        
+    Signal = STACK1
+     Replaces Inverted Signal = LED/LED1 
+        
+    Signal = STACK2
+     Replaces Inverted Signal = LED/LED2 
+        
+    Signal = STACK3
+     Replaces Inverted Signal = LED/LED3 
+        
+    Signal = OSC_3K/Q
+     Replaces Inverted Signal = OSC_3K/QB 
+        
+    Signal = ADDR0
+     Replaces Inverted Signal = CONTROL/U230/U1/TQ 

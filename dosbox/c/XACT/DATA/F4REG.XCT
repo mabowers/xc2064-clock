@@ -1,0 +1,12 @@
+320 200
+dbregion 162 0 0 319
+ctregion 162 110 30 96
+clregion 162 110 0 30
+feregion 10 0 0 319
+nbregion 96 10 126 319
+pbregion 96 10 96 126
+sdregion 162 96 96 206
+ttregion 110 10 0 48
+kmregion 110 10 48 96
+osregion 162 96 206 319
+5 5

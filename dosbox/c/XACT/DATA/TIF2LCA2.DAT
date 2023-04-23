@@ -1,0 +1,369 @@
+# @(#)tif2lca2.dat	6.5 7/9/93
+# 3000 bel 
+BELS
+APAD	PAD
+BPAD	PAD
+AIQ	IQ	
+BIQ	IQ	
+AOQ	OQ	
+BOQ	OQ	
+AT	TBUF	
+BT	TBUF	
+F	F
+G	G
+FFX	FFX
+FFY	FFY
+OSC	OSC
+MD1	MD1
+MD0	MD0
+MD2	MD2
+RDCLK	RDCLK
+APU 	PULLUP
+BPU 	PULLUP
+PULLDOWN   PULLDOWN
+*
+
+PINS
+AT 	PADA	.T	.T
+AO 	PADA	.O	.O
+AOK 	PADA	.OK	.OK
+AIK 	PADA	.IK	.IK
+AI 	PADA	.I	.I
+AQ 	PADA	.Q	.Q
+BT 	PADB	.T	.T
+BO 	PADB	.O	.O
+BOK 	PADB	.OK	.OK
+BIK 	PADB	.IK	.IK
+BI 	PADB	.I	.I
+BQ 	PADB	.Q	.Q
+ATI 	TBUF	.1.I	.1.I
+ATT 	TBUF	.1.T	.1.T
+ATO 	TBUF	.1.O	.1.O
+BTI 	TBUF	.2.I	.2.I
+BTT 	TBUF	.2.T	.2.T
+BTO 	TBUF	.2.O	.2.O
+APUO	PULLUP  1	1	0	0
+BPUO	PULLUP  2	2	0	0
+X       FG      X       X
+Y       FG      Y       Y
+A       FG      A       A
+B       FG      B       B
+C       FG      C       C
+D       FG      D       D
+E       FG      E       E
+EC      FG      EC      EC
+DIN     FG      DI      DI
+K       FG      K       K
+RD      FG      RD      RD
+      
+NWX1	SPECIAL	   local.6 local.11
+NWX2	SPECIAL	   local.7 local.7
+SWX1	SPECIAL	   local.9 local.7
+SWX2	SPECIAL	   local.10 local.10
+NEX1	SPECIAL	   local.9 local.8
+INEX1	SPECIAL	   local.8 local.8
+NEX2	SPECIAL	   local.7 local.9
+SEX1	SPECIAL	   local.9 local.9
+SEX2	SPECIAL	   local.8 local.10
+nbidix0	SPECIAL	   local.0 local.11
+nbidix2	SPECIAL	   local.0 local.11
+nbidix4	SPECIAL	   local.0 local.0
+ebidix0	SPECIAL	   local.7 local.8
+ebidix2	SPECIAL	   local.7 local.8
+ebidix4	SPECIAL	   local.7 local.8
+VACLKO  LOGICBOX    aclk.O   aclk.O 
+HACLKO  LOGICBOX    aclk.O   aclk.O
+VGCLKO  LOGICBOX    gclk.O   gclk.O  
+HGCLKO  LOGICBOX    gclk.O   gclk.O 
+GCLKI	LOGICBOX   gclk.I   gclk.I
+GCLKO	LOGICBOX   gclk.O   gclk.O	 
+ACLKI	LOGICBOX   aclk.I   aclk.I	 
+ACLKO	LOGICBOX   aclk.O   aclk.O
+TCLKINI  LOGICBOX   TCLKIN.I TCLKIN.I
+BCLKINI  LOGICBOX   BCLKIN.I BCLKIN.I
+OSCO	LOGICBOX   OSC.O  OSC.O
+TDO	LOGIC 	NO_PIN NO_PIN
+
+RDCLK   LOGIC	rdclk.I rdclk.I
+
+MD1O	LOGIC	md1.O md1.O
+MD1T	LOGIC	md1.T md1.T
+MD0	LOGIC	md0.I md0.I
+*
+
+
+EW-SEGS
+X
+0 1
+1 2
+2 3
+3 4
+4 5
+*
+EW-SEGS
+L
+0 1
+1 2
+2 3
+*
+EW-SEGS
+G
+0 0
+*
+
+EW-SEGS
+M
+0 1
+1 2
+2 3
+3 4
+4 5
+5 6
+*
+NS-SEGS
+X
+0 5
+1 4
+2 3
+3 2
+4 1
+*
+
+NS-SEGS
+L
+0 2
+1 1
+*
+NS-SEGS
+M
+0 4
+1 5
+2 6
+3 1
+4 2
+5 3
+*
+EW1-SEGS
+X
+0 1
+1 2
+2 3
+3 4
+4 5
+*
+EW1-SEGS
+L
+0 1
+1 2
+2 3
+3 4
+4 5
+*
+EW1-SEGS
+G
+0 6
+*
+EW1-SEGS
+M
+0 1
+1 2
+2 3
+3 4
+4 5
+5 6
+*
+NS1-SEGS
+X
+0 5
+1 4
+2 3
+3 2
+4 1
+*
+
+NS1-SEGS
+L
+0 3
+1 2
+2 1
+*
+NS1-SEGS
+M
+0 4
+1 5
+2 6
+3 1
+4 2
+5 3
+*
+MAGIC/EAST/SOUTH
+X
+0 1
+1 2
+2 3
+3 4
+4 5
+*
+
+MAGIC/EAST/SOUTH
+L
+0 1
+1 2
+2 6
+3 7
+*
+MAGIC/EAST/NORTH
+X
+0 1
+1 2
+2 3
+3 4
+4 5
+*
+MAGIC/EAST/NORTH
+L
+0 1
+1 2
+2 6
+3 7
+*
+MAGIC/EAST/WEST
+L
+0 2
+1 1
+*
+MAGIC/EAST/WEST
+X
+0 5
+1 4
+2 3
+3 2
+4 1
+*
+MAGIC/EAST/EAST
+L
+0 3
+1 2
+2 1
+*
+MAGIC/EAST/EAST
+X
+0 5
+1 4
+2 3
+3 2
+4 1
+*
+MAGIC/NORTH/WEST
+L
+0 1
+1 2 
+2 3
+*
+MAGIC/NORTH/EAST
+L
+0 10
+1 11
+*
+MAGIC/NORTH/SOUTH
+L
+0 1
+1 2
+2 3
+*
+MAGIC/WEST/NORTH
+L
+0 12
+1 13
+2 2
+3 3
+*
+MAGIC/WEST/SOUTH
+L
+0 12
+1 13
+2 2
+3 3
+*
+MAGIC/WEST/EAST
+L
+0 2
+1 1
+2 0
+*
+MAGIC/WEST/EAST
+X
+0 5
+1 4
+2 3
+3 2
+4 1
+*
+MAGIC/SOUTH/WEST
+X
+0 5
+1 4
+2 3
+3 2
+4 1
+*
+MAGIC/SOUTH/WEST
+L
+0 7
+1 6
+2 3
+3 2
+4 1
+*
+MAGIC/SOUTH/EAST
+X
+0 5
+1 4
+2 3
+3 2
+4 1
+*
+MAGIC/SOUTH/EAST
+L
+0 7
+1 6
+2 3
+3 2
+4 1
+*
+MAGIC/SOUTH/EAST
+G
+0 0
+*
+
+MAGIC/SOUTH/NORTH
+L
+0 1
+1 2
+2 3
+*
+
+MAGIC/SOUTH/NORTH
+X
+0 1
+1 2
+2 3
+3 4
+4 5
+*
+MAGIC/SOUTH/SOUTH
+L
+0 1
+1 2
+2 3
+3 4
+4 5
+*
+
+MAGIC/SOUTH/SOUTH
+X
+0 1
+1 2
+2 3
+3 4
+4 5

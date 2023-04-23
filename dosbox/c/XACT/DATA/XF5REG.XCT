@@ -1,0 +1,12 @@
+640 350
+dbregion 288 0 0 639
+ctregion 288 188 60 192
+clregion 288 188 0 60
+feregion 30 0 0 639
+nbregion 188 30 252 412
+pbregion 188 30 192 252
+sdregion 288 30 412 639
+ttregion 188 30 0 80
+kmregion 188 30 80 192
+osregion 288 188 192 412
+10 10

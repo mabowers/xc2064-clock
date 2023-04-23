@@ -1,0 +1,21 @@
+TITLE           Decoder: 2-to-4, output-enable
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung 
+COMPANY         Xilinx EPLD
+DATE            7/23/93
+
+CHIP            D2_4E  COMPONENT
+ 
+;Inputs
+a0 a1 e
+
+;Outputs
+d0 d1 d2 d3
+
+EQUATIONS 
+
+d0  = /a1*/a0*e
+d1  = /a1* a0*e
+d2  =  a1*/a0*e
+d3  =  a1* a0*e

@@ -1,0 +1,78 @@
+# @(#)clb1sw.bel	6.3 10/5/93 
+#
+# CLB1 Southwest corner odds and ends
+#
+_BELS
+LCA4_RDBK  RDBK,
+LCA4_MD0   MD0,
+LCA4_MD1   MD1,
+LCA4_MD2   MD2,
+LCA4_BUFGP GP,
+LCA4_BUFGS GS,
+LCA4_PU    HPU0(is_pullup_src),
+LCA4_PU    HPU1(is_pullup_src),
+LCA4_PU    VPU0(is_pullup_src),
+LCA4_PU    VPU1(is_pullup_src),
+IOB4_OBUFT      MD1OBUFT,
+IOB4_IBUF       MD0IBUF,
+IOB4_IBUF       MD2IBUF,
+;
+
+_NODES
+# Input pins
+TRIG,
+MD1O,
+MD1T,
+GPI,
+GSI,
+# Output pins
+DATA,
+RIP,
+MD0,
+MD2,
+GPO,
+GSO,
+HPU0O,
+HPU1O,
+VPU0O,
+VPU1O,
+;
+
+_ARCS
+# Input to RDBK
+TRIG RDBK_TRIG,
+
+# Outputs from RDBK
+RDBK_RIP  RIP,
+RDBK_DATA DATA,
+
+# Inputs to MD1 pad
+MD1O MD1OBUFT_I,
+MD1T MD1OBUFT_T,
+MD1OBUFT_O MD1_O,
+
+# Outputs from MD0 and MD2 pads
+MD0_I MD0IBUF_I,
+MD0IBUF_O MD0,
+MD2_I MD2IBUF_I,
+MD2IBUF_O MD2,
+
+# Connections to primary buffer GP
+GPI GP_I,
+GP_O GPO,
+
+# Connections to secondary buffer GS
+GSI GS_I,
+GS_O GSO,
+
+# Feedthru buffer 
+GP_I GP_O (is_gbuf_feedthru),
+GS_I GS_O (is_gbuf_feedthru),
+
+# Connections to pullups
+HPU0_O HPU0O,
+HPU1_O HPU1O,
+VPU0_O VPU0O,
+VPU1_O VPU1O,
+;
+

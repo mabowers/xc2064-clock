@@ -1,0 +1,29 @@
+`F  1.00 m2_1b2
+`B "1" "1" "A" "      May  1, 1993" "" "A" 
+"XC4000 Family M2_1B2 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D0"
+`P I "S0"
+`P O "O"
+`P I "D1"
+`S "M0" 1 
+`S "M1" 1 
+`E XC4000.LIB
+`I R "OR2" XC4000.LIB "OR2" C9B66D08  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND2B1" XC4000.LIB "AND2B1" C9B729C6  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2B2" XC4000.LIB "AND2B2" CFAECE2A  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`J ( P I "D0" ) ( R U3 "I1" I ) 
+`J ( R U3 "O" O ) ( S "M0" 1  ) ( R U1 "I1" I ) 
+`J ( P I "S0" ) ( R U3 "I0" I ) ( R U2 "I1" I ) 
+`J ( R U1 "O" O ) ( P O "O" ) 
+`J ( R U2 "O" O ) ( S "M1" 1  ) ( R U1 "I0" I ) 
+`J ( P I "D1" ) ( R U2 "I0" I ) 

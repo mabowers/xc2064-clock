@@ -1,0 +1,56 @@
+TITLE           Latch: D-type, 8-bit
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/23/93
+
+CHIP            LD8  COMPONENT
+ 
+;Inputs
+g d0 d1 d2 d3 d4 d5 d6 d7 
+
+;Outputs
+q0 q1 q2 q3 q4 q5 q6 q7 
+
+EQUATIONS 
+
+q0.rstf = /d0*g
+q0.setf = d0*g
+q0     := gnd
+q0.clkf = gnd
+
+q1.rstf = /d1*g
+q1.setf = d1*g
+q1     := gnd
+q1.clkf = gnd
+
+q2.rstf = /d2*g
+q2.setf = d2*g
+q2     := gnd
+q2.clkf = gnd
+
+q3.rstf = /d3*g
+q3.setf = d3*g
+q3     := gnd
+q3.clkf = gnd
+
+q4.rstf = /d4*g
+q4.setf = d4*g
+q4     := gnd
+q4.clkf = gnd
+
+q5.rstf = /d5*g
+q5.setf = d5*g
+q5     := gnd
+q5.clkf = gnd
+
+q6.rstf = /d6*g
+q6.setf = d6*g
+q6     := gnd
+q6.clkf = gnd
+
+q7.rstf = /d7*g
+q7.setf = d7*g
+q7     := gnd
+q7.clkf = gnd

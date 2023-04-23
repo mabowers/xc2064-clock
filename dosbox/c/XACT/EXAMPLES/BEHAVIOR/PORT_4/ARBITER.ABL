@@ -1,0 +1,150 @@
+module arbiter
+ 
+ title 'Quad Port Arbiter 
+        Equation file included in port_4.abl design example
+        Jeffrey Goldberg 
+        Xilinx';
+
+" 4-port rotating priority memory access arbiter with locking ports 
+" and port grant outputs
+
+   arbiter device;
+
+" Inputs
+        Clk,reset,done                          pin;
+        port_a_req                              pin;
+        port_b_req                              pin;
+        port_c_req                              pin;
+        port_d_req                              pin;
+        port_a_lock                             pin;
+        port_b_lock                             pin;
+        port_c_lock                             pin;
+        port_d_lock                             pin;
+       
+" Outputs
+        arb0,arb1,arb2,access_req                   pin istype 'reg';
+        grant_a,grant_b,grant_c,grant_d             pin istype 'reg';
+
+
+        arb_state = [arb2,arb1,arb0];
+        grant     = [grant_d,grant_c,grant_b,grant_a];
+
+"State Definition
+        idle_a=0;
+        idle_b=1;
+        idle_c=2;
+        idle_d=3;
+        port_a=4;
+        port_b=5;
+        port_c=6;
+        port_d=7;
+
+@alternate
+
+state_diagram arb_state;
+
+state idle_a:
+ if reset then idle_a with access_req :=0;
+                           grant :=14; endwith;
+ else if (port_a_lock*/port_a_req) then idle_a with access_req :=0;
+                                                         grant :=14; endwith;
+ else if (port_a_lock*port_a_req) then port_a with access_req :=1;    
+                                                        grant :=14; endwith;
+ else if port_b_req then port_b with access_req :=1;
+                                          grant :=13; endwith; 
+ else if port_c_req then port_c with access_req :=1;
+                                          grant :=11; endwith; 
+ else if port_d_req then port_d with access_req :=1; 
+                                          grant :=7; endwith;
+ else if port_a_req then port_a with access_req :=1;
+                                          grant :=14; endwith;
+ else idle_a with access_req :=0;
+                       grant :=14; endwith; 
+
+state idle_b:    
+ if reset then idle_a with access_req :=0;
+                                grant :=14; endwith;
+ else if (port_b_lock*/port_b_req) then idle_b with access_req :=0;
+                                                         grant :=13; endwith;
+ else if (port_b_lock*port_b_req) then port_b with access_req :=1;
+                                                        grant :=13; endwith; 
+ else if port_c_req then port_c with access_req :=1;
+                                          grant :=11; endwith; 
+ else if port_d_req then port_d with access_req :=1;
+                                          grant :=7; endwith;
+ else if port_a_req then port_a with access_req :=1;
+                                          grant :=14; endwith; 
+ else if port_b_req then port_b with access_req :=1;
+                                          grant :=13; endwith;
+ else idle_b with access_req :=0;
+                       grant :=13; endwith; 
+      
+state idle_c:    
+ if reset then idle_a with access_req :=0;
+                                grant :=14; endwith;
+ else if (port_c_lock*/port_c_req) then idle_c with access_req :=0;
+                                                         grant :=11; endwith;
+ else if (port_c_lock*port_c_req) then port_c with access_req :=1;
+                                                        grant :=11; endwith;
+ else if port_d_req then port_d with access_req :=1;
+                                          grant :=7; endwith; 
+ else if port_a_req then port_a with access_req :=1;
+                                          grant :=14; endwith; 
+ else if port_b_req then port_b with access_req :=1;
+                                          grant :=13; endwith; 
+ else if port_c_req then port_c with access_req :=1;
+                                          grant :=11; endwith;
+ else idle_c with access_req :=0;
+                       grant :=11; endwith; 
+
+state idle_d:    
+ if reset then idle_a with access_req :=0;
+                                grant :=14; endwith;
+ else if (port_d_lock*/port_d_req) then idle_d with access_req :=0;
+                                                         grant :=7; endwith; 
+ else if (port_d_lock*port_d_req) then port_d with access_req :=1;
+                                                        grant :=7; endwith;
+ else if port_a_req then port_a with access_req :=1;
+                                          grant :=14; endwith; 
+ else if port_b_req then port_b with access_req :=1;
+                                          grant :=13; endwith; 
+ else if port_c_req then port_c with access_req :=1;
+                                          grant :=11; endwith; 
+ else if port_d_req then port_d with access_req :=1;
+                                          grant :=7; endwith;
+ else port_d with access_req :=0;
+                       grant :=7; endwith; 
+
+state port_a:
+ if reset then idle_a with access_req :=0;
+                                grant :=14; endwith;
+ else if done then idle_a with access_req :=0;
+                                    grant :=14; endwith;      
+ else port_a with access_req :=1;
+                       grant :=14; endwith;
+
+state port_b:
+ if reset then idle_a with access_req :=0;
+                                grant :=14; endwith;
+ else if done then idle_b with access_req :=0;
+                                grant :=13; endwith; 
+ else port_b with access_req :=1;
+                       grant :=13; endwith;
+
+state port_c:
+ if reset then idle_a with access_req :=0;
+                                grant :=14; endwith;
+ else if done then idle_c with access_req :=0;
+                                    grant :=11; endwith; 
+ else port_c with access_req :=1;
+                       grant :=11; endwith;
+   
+state port_d:
+ if reset then idle_a with access_req :=0;
+                                grant :=14; endwith;
+ else if done then idle_d with access_req :=0;
+                                    grant :=7; endwith; 
+ else port_d with access_req :=1;
+                       grant :=7; endwith;
+
+end

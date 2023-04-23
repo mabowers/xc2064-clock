@@ -1,0 +1,23 @@
+`F  1.00 OFDE
+`B "1" "1" "A" " November  9, 1993" "" "A" 
+"XC7000 Family OFDE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P I "D"
+`P O "O"
+`P I "C"
+`E XC7000.LIB
+`I R "FD" XC7000.LIB "FD" d9e5ec7d  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "OBUFE" XC7000.LIB "OBUFE" d9e602c5  B1  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( P I "E" ) ( R B1 "E" I ) 
+`J ( P I "D" ) ( R U1 "D" I ) 
+`J ( R U1 "Q" O ) ( R B1 "I" I ) 
+`J ( R B1 "O" T ) ( P O "O" ) 
+`J ( P I "C" ) ( R U1 "C" I ) 

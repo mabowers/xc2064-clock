@@ -1,0 +1,23 @@
+`F  1.00 IFDX1
+`B "1" "1" "A" "  October  5, 1993" "" "" 
+"XC7000 IFDX1 Model" "Xilinx"
+""
+""
+""
+""
+`P I "D"
+`P O "Q"
+`P I "CE"
+`P I "C"
+`E XC7000.LIB
+`I R "IFD" XC7000.LIB "IFD" e012ebac  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "M2_1" XC7000.LIB "M2_1" e012ec90  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`J ( P I "D" ) ( R U2 "D0" I ) 
+`J ( R U2 "O" O ) ( R U1 "D" I ) 
+`J ( R U2 "D1" I ) ( R U1 "Q" O ) ( P O "Q" ) 
+`J ( P I "CE" ) ( R U2 "S0" I ) 
+`J ( P I "C" ) ( R U1 "C" I ) 

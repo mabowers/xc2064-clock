@@ -1,0 +1,18 @@
+TITLE           XOR Gate: 2 inputs
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung 
+COMPANY         Xilinx EPLD
+DATE            7/23/93
+
+CHIP            XOR2  COMPONENT
+ 
+;Inputs
+i0 i1
+
+;Outputs
+o
+
+EQUATIONS 
+
+o = i0*/i1 + /i0*i1

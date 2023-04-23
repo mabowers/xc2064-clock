@@ -1,0 +1,99 @@
+`F  1.00 bus_if17
+`B "1" "1" "B" " February 13, 1992" "BUS_IF17" "01" 
+"BLOX Bus Interface Module" "Xilinx Inc."
+""
+""
+""
+""
+`P I "XBLOX_BUS"
+`P I "E00"
+`P I "E08"
+`P I "E16"
+`P I "E01"
+`P I "E09"
+`P I "E02"
+`P I "E10"
+`P I "E03"
+`P I "E11"
+`P I "E04"
+`P I "E12"
+`P I "E05"
+`P I "E13"
+`P I "E06"
+`P I "E14"
+`P I "E07"
+`P I "E15"
+`E XC4000.LIB
+`E XBLOX.LIB
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b3e  BX1  []
+"ELEM=0" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b48  BX2  []
+"ELEM=1" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b49  BX3  []
+"ELEM=2" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b4a  BX4  []
+"ELEM=3" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b4b  BX5  []
+"ELEM=4" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b4c  BX6  []
+"ELEM=5" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b4d  BX7  []
+"ELEM=6" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b4e  BX8  []
+"ELEM=7" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b67  BX9  []
+"ELEM=8" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b50  BX10  []
+"ELEM=9" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b51  BX11  []
+"ELEM=10" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b52  BX12  []
+"ELEM=11" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b53  BX13  []
+"ELEM=12" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b54  BX14  []
+"ELEM=13" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b55  BX15  []
+"ELEM=14" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b56  BX16  []
+"ELEM=15" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b4f  BX17  []
+"ELEM=16" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`J ( P I "XBLOX_BUS" ) ( R BX2 "XBLOX_BUS" I ) ( R BX9 "XBLOX_BUS" I ) ( R BX17 "XBLOX_BUS" I ) 
+( R BX1 "XBLOX_BUS" I ) ( R BX10 "XBLOX_BUS" I ) ( R BX3 "XBLOX_BUS" I ) ( R BX11 "XBLOX_BUS" I ) ( R BX4 "XBLOX_BUS" I ) 
+( R BX12 "XBLOX_BUS" I ) ( R BX5 "XBLOX_BUS" I ) ( R BX13 "XBLOX_BUS" I ) ( R BX6 "XBLOX_BUS" I ) ( R BX14 "XBLOX_BUS" I ) 
+( R BX7 "XBLOX_BUS" I ) ( R BX15 "XBLOX_BUS" I ) ( R BX8 "XBLOX_BUS" I ) ( R BX16 "XBLOX_BUS" I ) 
+`J ( P I "E00" ) ( R BX1 "ELEM" I ) 
+`J ( P I "E08" ) ( R BX9 "ELEM" I ) 
+`J ( P I "E16" ) ( R BX17 "ELEM" I ) 
+`J ( P I "E01" ) ( R BX2 "ELEM" I ) 
+`J ( P I "E09" ) ( R BX10 "ELEM" I ) 
+`J ( P I "E02" ) ( R BX3 "ELEM" I ) 
+`J ( P I "E10" ) ( R BX11 "ELEM" I ) 
+`J ( P I "E03" ) ( R BX4 "ELEM" I ) 
+`J ( P I "E11" ) ( R BX12 "ELEM" I ) 
+`J ( P I "E04" ) ( R BX5 "ELEM" I ) 
+`J ( P I "E12" ) ( R BX13 "ELEM" I ) 
+`J ( P I "E05" ) ( R BX6 "ELEM" I ) 
+`J ( P I "E13" ) ( R BX14 "ELEM" I ) 
+`J ( P I "E06" ) ( R BX7 "ELEM" I ) 
+`J ( P I "E14" ) ( R BX15 "ELEM" I ) 
+`J ( P I "E07" ) ( R BX8 "ELEM" I ) 
+`J ( P I "E15" ) ( R BX16 "ELEM" I ) 

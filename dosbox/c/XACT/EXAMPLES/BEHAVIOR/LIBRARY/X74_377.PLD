@@ -1,0 +1,62 @@
+TITLE           Register: 8-bit, active low clock-enable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/27/93
+
+CHIP            X74_377  COMPONENT
+ 
+;Inputs
+ck d1 d2 d3 d4 d5 d6 d7 d8 /g
+
+; ck            clock
+; d[8:1]        data input
+; g             enable
+
+;Outputs
+q1 q2 q3 q4 q5 q6 q7 q8
+
+; q[8:1]        register output
+
+EQUATIONS 
+
+q1.d1   = d1*g
+q1.fbk  = /g
+q1     := q1.d1 or q1.d2
+q1.clkf = ck
+
+q2.d1   = d2*g
+q2.fbk  = /g
+q2     := q2.d1 or q2.d2
+q2.clkf = ck
+
+q3.d1   = d3*g
+q3.fbk  = /g
+q3     := q3.d1 or q3.d2
+q3.clkf = ck
+
+q4.d1   = d4*g
+q4.fbk  = /g
+q4     := q4.d1 or q4.d2
+q4.clkf = ck
+
+q5.d1   = d5*g
+q5.fbk  = /g
+q5     := q5.d1 or q5.d2
+q5.clkf = ck
+
+q6.d1   = d6*g
+q6.fbk  = /g
+q6     := q6.d1 or q6.d2
+q6.clkf = ck
+
+q7.d1   = d7*g
+q7.fbk  = /g
+q7     := q7.d1 or q7.d2
+q7.clkf = ck
+
+q8.d1   = d8*g
+q8.fbk  = /g
+q8     := q8.d1 or q8.d2
+q8.clkf = ck

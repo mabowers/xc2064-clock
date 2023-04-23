@@ -1,0 +1,30 @@
+TITLE           Magnitude comparator: 2-bit
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/4/93
+
+CHIP            COMPM2  COMPONENT
+ 
+;Inputs
+a0 a1 b0 b1
+
+; a[1:0]        comparator A-operand
+; b[1:0]        comparator B-operand
+ 
+;Outputs
+gt lt
+
+; gt            A>B output
+; lt            A<B output
+
+EQUATIONS 
+
+gt =  a0* a1*/b0
+   +  a0*/b0*/b1
+   +  a1*/b1
+
+lt = /a0*/a1* b0
+   + /a0* b0* b1
+   + /a1* b1

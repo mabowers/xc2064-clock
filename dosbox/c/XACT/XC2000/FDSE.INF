@@ -1,0 +1,33 @@
+`F  1.00 fdse
+`B "1" "1" "A" " February 16, 1993" "" "A" 
+"XC4000 Family FDSE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "S"
+`P I "CE"
+`P I "D"
+`P O "Q"
+`P I "C"
+`E XC2000.LIB
+`I R "FD" XC2000.LIB "FD" C7A61F94  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "OR3" XC2000.LIB "OR3" C7A620CA  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND2B1" XC2000.LIB "AND2B1" C7A62375  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC2000.LIB "AND2" C7A62449  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`J ( R U3 "I1" I ) ( R U1 "Q" O ) ( P O "Q" ) 
+`J ( R U3 "O" O ) ( R U2 "I2" I ) 
+`J ( P I "CE" ) ( R U3 "I0" I ) ( R U4 "I1" I ) 
+`J ( P I "S" ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( R U1 "D" I ) 
+`J ( R U2 "I0" I ) ( R U4 "O" O ) 
+`J ( P I "D" ) ( R U4 "I0" I ) 
+`J ( P I "C" ) ( R U1 "C" I ) 

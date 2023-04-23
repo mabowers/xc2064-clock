@@ -1,0 +1,79 @@
+TITLE           Counter: Johnson, 8-bit, async-clear
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/30/93
+
+CHIP            CJ8CE  COMPONENT
+ 
+;Inputs
+ce c clr
+
+; ce            count enable
+; c             clock (optional FastCLK)
+; clr           async clear
+ 
+;Outputs
+q0 q1 q2 q3 q4 q5 q6 q7
+
+; q[7:0]        counter output
+
+EQUATIONS 
+
+q7.d1    = ce*q6
+q7.fbk   = /ce
+q7      := q7.d1 or q7.d2
+q7.clkf  = c
+q7.rstf  = clr
+
+q6.d1    = ce*q5
+q6.fbk   = /ce
+q6      := q6.d1 or q6.d2
+q6.clkf  = c
+q6.rstf  = clr
+
+q5.d1    = ce*q4
+q5.fbk   = /ce
+q5      := q5.d1 or q5.d2
+q5.clkf  = c
+q5.rstf  = clr
+
+q4.d1    = ce*q3
+q4.fbk   = /ce
+q4      := q4.d1 or q4.d2
+q4.clkf  = c
+q4.rstf  = clr
+
+q3.d1    = ce*q2
+q3.fbk   = /ce
+q3      := q3.d1 or q3.d2
+q3.clkf  = c
+q3.rstf  = clr
+
+q2.d1    = ce*q1
+q2.fbk   = /ce
+q2      := q2.d1 or q2.d2
+q2.clkf  = c
+q2.rstf  = clr
+
+q1.d1    = ce*q0
+q1.fbk   = /ce
+q1      := q1.d1 or q1.d2
+q1.clkf  = c
+q1.rstf  = clr
+
+q0.d1    = ce*/q7
+q0.fbk   = /ce
+q0      := q0.d1 or q0.d2
+q0.clkf  = c
+q0.rstf  = clr
+
+q0.prld  = gnd
+q1.prld  = gnd
+q2.prld  = gnd
+q3.prld  = gnd
+q4.prld  = gnd
+q5.prld  = gnd
+q6.prld  = gnd
+q7.prld  = gnd

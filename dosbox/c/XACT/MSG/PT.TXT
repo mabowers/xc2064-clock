@@ -1,0 +1,58 @@
+# @(#)PT.TXT	3.1 Copyright(C)1992 Xilinx Inc. 5/4/94 23:55:43
+# file: pt.txt
+# date: 06/29/90
+# what: Xilinx EPLD system error messages - user file
+#
+# Z.K.
+#
+# 0001:initialization failed!
+# 0002:cannot start!
+# 0003:Termination failed!
+# 0004:Cannot allocate space for the chip!
+# 0005:Cannot allocate space for the FAST COMPARE functional unit information!
+# 0006:Cannot allocate space for the functional unit information!
+# 0007:Cannot allocate space for the LOGIC functional unit information!
+# 0008:Cannot allocate space for the INTERCONNECTION bitmap!
+# 0009:Cannot allocate space for the INTERCONNECTION information!
+# 0010:Cannot allocate space for CHIP PAD information!
+0001: [Internal Error - Initialization failed].
+0002: [Internal Error - Can not start].
+0003: [Internal Error  in termination].
+0004: [Internal Error - may be out of memory].
+0005: [Internal Error - may be out of memory].
+0006: [Internal Error - may be out of memory].
+0007: [Internal Error - may be out of memory].
+0008: [Internal Error - may be out of memory].
+0009: [Internal Error - may be out of memory].
+0010: [Internal Error - may be out of memory].
+#
+# 0011:Cannot allocate space for the CHIP PAD list!
+# 0012:Cannot allocate space for the CHIP PAD array!
+# 0013:Cannot allocate space for a PIN array!
+# 0014:That command is not available!
+# 0015:Cannot open the configuration file
+# 0016:There is no shared memory!
+0011: [Internal Error - may be out of memory].
+0012: [Internal Error - may be out of memory].
+0013: [Internal Error - may be out of memory].
+0014: [Internal Error - unavailable command].
+0015: Cannot find the configuration file, xepld.cfg, in the XACT path].
+0016: [Internal Error - memory problem].
+0017:Cannot open the log file (Check disk space, write protection, FILES=20 in config.sys).
+0018:Cannot open the ERROR log (Check disk space, write protection, FILES=20 in config.sys).
+0019:Netlist reader did not read in the design.
+0020:No output filename specified.
+#
+0021:Out of memory.
+# 0022:Attempt to deallocate NULL pointer. (internal error)!
+# 0023:Not enough memory for the next token.
+0022: [Internal Error - Null pointer].
+0023:Not enough memory.
+0024:Cannot find the component library file %s.VMD file for PLD %s.
+0025:Some PLD's in the Design directory are not compiled.
+0026:You must set the XACT environment variable to point to your data files!
+#
+# end of file
+#
+
+

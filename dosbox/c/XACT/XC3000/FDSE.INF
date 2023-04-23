@@ -1,0 +1,34 @@
+`F  1.00 fdse
+`B "1" "1" "A" "   August 12, 1993" "" "A" 
+"XC3000 Family FDSE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "S"
+`P I "CE"
+`P I "D"
+`P O "Q"
+`P I "C"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "OR3" XC3000.LIB "OR3" C7A620CA  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND2B1" XC3000.LIB "AND2B1" C7A62375  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC3000.LIB "AND2" C7A62449  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "FD" XC3000.LIB "FD" C7A61F94  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`J ( R U2 "I1" I ) ( R U4 "Q" O ) ( P O "Q" ) 
+`J ( R U2 "O" O ) ( R U1 "I2" I ) 
+`J ( P I "CE" ) ( R U2 "I0" I ) ( R U3 "I1" I ) 
+`J ( P I "S" ) ( R U1 "I1" I ) 
+`J ( R U1 "O" O ) ( R U4 "D" I ) 
+`J ( R U1 "I0" I ) ( R U3 "O" O ) 
+`J ( P I "D" ) ( R U3 "I0" I ) 
+`J ( P I "C" ) ( R U4 "C" I ) 

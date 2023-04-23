@@ -1,0 +1,47 @@
+
+TITLE SHIFTER
+
+CHIP   SHIFTER   P22V10;
+
+;PINLIST (Highest pin number = 24)
+      bitclk NC NC NC NC NC NC NC NC sdin NC NC NC NC d7 d6 d5 d4 d3 d2 d1 
+      d0 NC NC 
+
+;8-Bit Shift Register for UART Receiver Design
+;       Xilinx EPLD Applications, Feb. 93
+
+
+
+EQUATIONS
+
+d0 := (sdin);
+
+d0.CLKF = (bitclk);
+
+d1 := (d0);
+
+d1.CLKF = (bitclk);
+
+d2 := (d1);
+
+d2.CLKF = (bitclk);
+
+d3 := (d2);
+
+d3.CLKF = (bitclk);
+
+d4 := (d3);
+
+d4.CLKF = (bitclk);
+
+d5 := (d4);
+
+d5.CLKF = (bitclk);
+
+d6 := (d5);
+
+d6.CLKF = (bitclk);
+
+d7 := (d6);
+
+d7.CLKF = (bitclk);

@@ -1,0 +1,48 @@
+`F  1.00 IPAD8
+`B "1" "1" "A" " February 23, 1993" "" "A" 
+"XC4000 Family IPAD8 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "I0"
+`P O "I1"
+`P O "I2"
+`P O "I3"
+`P O "I4"
+`P O "I5"
+`P O "I6"
+`P O "I7"
+`E XC7000.LIB
+`I R "IPAD" XC7000.LIB "IPAD" c861c280  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861c295  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861c2a4  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861c2c9  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861d3cc  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861d3cc  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861d3cc  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861d3cc  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`J ( P O "I0" ) ( R U1 "I" O ) 
+`J ( P O "I1" ) ( R U2 "I" O ) 
+`J ( P O "I2" ) ( R U3 "I" O ) 
+`J ( P O "I3" ) ( R U4 "I" O ) 
+`J ( P O "I4" ) ( R U5 "I" O ) 
+`J ( P O "I5" ) ( R U6 "I" O ) 
+`J ( P O "I6" ) ( R U7 "I" O ) 
+`J ( P O "I7" ) ( R U8 "I" O ) 

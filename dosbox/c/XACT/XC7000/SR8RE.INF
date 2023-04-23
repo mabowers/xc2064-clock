@@ -1,0 +1,67 @@
+`F  1.00 SR8RE
+`B "1" "1" "A" " February 17, 1993" "" "A" 
+"XC4000 Family SR8RE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "SLI"
+`P I "CE"
+`P I "C"
+`P I "R"
+`P O "Q0"
+`P O "Q1"
+`P O "Q2"
+`P O "Q3"
+`P O "Q4"
+`P O "Q5"
+`P O "Q6"
+`P O "Q7"
+`E XC7000.LIB
+`I R "FDRE" XC7000.LIB "FDRE" c7a73354  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC7000.LIB "FDRE" c7a733d3  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC7000.LIB "FDRE" c7a734d9  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC7000.LIB "FDRE" c7a73b86  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC7000.LIB "FDRE" c7a73e72  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC7000.LIB "FDRE" c7a73eee  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC7000.LIB "FDRE" c7a73f10  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC7000.LIB "FDRE" c7a7720e  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`J ( P I "SLI" ) ( R U7 "D" I ) 
+`J ( P O "Q0" ) ( R U7 "Q" O ) ( R U8 "D" I ) 
+`J ( P O "Q3" ) ( R U5 "Q" O ) ( R U4 "D" I ) 
+`J ( P O "Q4" ) ( R U4 "Q" O ) ( R U3 "D" I ) 
+`J ( R U4 "CE" I ) ( R U3 "CE" I ) ( R U2 "CE" I ) ( R U1 "CE" I ) 
+( P I "CE" ) ( R U8 "CE" I ) ( R U7 "CE" I ) ( R U6 "CE" I ) ( R U5 "CE" I ) 
+`J ( R U7 "C" I ) ( R U8 "C" I ) ( R U6 "C" I ) ( R U5 "C" I ) 
+( P I "C" ) ( R U4 "C" I ) ( R U3 "C" I ) ( R U2 "C" I ) ( R U1 "C" I ) 
+`J ( R U7 "R" I ) ( R U8 "R" I ) ( R U6 "R" I ) ( R U5 "R" I ) 
+( P I "R" ) ( R U4 "R" I ) ( R U3 "R" I ) ( R U2 "R" I ) ( R U1 "R" I ) 
+`J ( P O "Q1" ) ( R U8 "Q" O ) ( R U6 "D" I ) 
+`J ( P O "Q5" ) ( R U3 "Q" O ) ( R U2 "D" I ) 
+`J ( P O "Q2" ) ( R U6 "Q" O ) ( R U5 "D" I ) 
+`J ( P O "Q6" ) ( R U2 "Q" O ) ( R U1 "D" I ) 
+`J ( P O "Q7" ) ( R U1 "Q" O ) 

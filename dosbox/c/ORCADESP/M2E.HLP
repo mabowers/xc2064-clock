@@ -1,0 +1,1427 @@
+%1 MainScreen
+%2 HelpMenu
+The main screen of the Stony Brook Modula-2 environment
+lists all the modules in the current module library.
+
+The highlighted module is the selected module.  To edit
+the selected module, press Enter or point to the selected
+module and press the left mouse button.
+
+Commands and menus are listed on the top border of the
+window.  To execute commands or pull down a menu, hold Alt
+and type the first letter of the command or menu, or use
+the mouse to point to the command and press the left button.
+
+Important: Read the Help topics listed below for information
+on how to use this system.  Use the Arrow keys or mouse to
+select a topic, then press Enter or the left mouse button.
+
+%%Selecting  Menus  Commands  ControlPanels
+%2 Selecting
+
+To select a module on the main screen:
+
+Using	Use Arrow keys to position to the new module
+keys    OR
+        Type the name of the new module.  The module
+	is selected as you type.  When the module you
+	want is selected, type a space.
+
+Using	Point to the new module and press the left
+mouse	button
+%2 Menus
+The menus are:  New  Compile  Module  View  Options  System
+
+Using	To pull down a menu, hold Alt and type the first
+keys	letter of the menu name.
+
+	For menu Help, hold Alt and type H.
+
+
+Using	To pull down a menu, point to the menu name and press
+mouse	the left button.
+
+        For menu Help, press the right button.
+%% MenuOptions
+%3 MenuOptions
+Using	To select a menu option, arrow to the option and
+keys	press Enter
+	OR
+	To select and immediately execute an option, type
+	the first letter of the option
+ 
+	For Help, arrow to option, hold Alt and type H
+
+Using	To select an option, point to the option and press 
+mouse	the left button
+	OR
+	To select and immediately execute an option, hold
+	the left button while moving to the option, then
+	release the button
+
+	For Help, point to the option and press the right
+	button
+%2 Commands
+The commands are:  Run  Debug  Link  Help  Exit
+
+To execute a command:
+
+Using	Hold Alt and type the first letter of the
+keys	command.
+
+	For Help on commands, select a topic name below
+	and press enter.
+
+Using	Point to the command name and press the left
+mouse	button.
+
+	For Help on a command, press the right button.
+
+%% Run Debug Link Exit
+%2 RunMenu
+%3 Run
+Use the Run command to run your program.  Select a program
+module before invoking Run.
+
+Any compilations necessary before running the program are
+performed automatically.
+
+To stop the program while it is executing, hold the Ctrl key
+and press break key.
+%2 DebugMenu
+%3 Debug
+
+Use the Debug command to run a program under the control of
+the debugger.  Select a program module before invoking Debug.
+
+Any compilations necessary before running the program are
+performed automatically.
+
+To interrupt the program, hold the Ctrl key and press Scroll
+Lock.  Control returns to the debugger, and you can continue
+to debug your program.
+%2 LinkMenu
+%3 Link
+
+Use the Link command to create an executable program.
+This enables you to run the program outside the environment.
+
+Any compilations necessary before running the program are
+performed automatically.
+
+Linker options can be set from the Options menu.
+%2 ControlPanels
+A control panel lists a set of options on the left of side
+of the window, and choices for the option on the right side.
+
+To change the setting of an option:
+
+Using	Press the down arrow key until the option
+keys	you want to change is highlighted, then
+	press the left or right arrow keys until
+	the value you want is highlighted.
+
+Using	Point to the new value you want to set
+mouse	and press the left mouse button.
+
+When you are finished, press Enter to accept the changes
+or Esc to abandon them.  With a mouse, select Okay or 
+Cancel to accept or abandon the changes.
+%2 ExitMenu
+%3 Exit
+
+Use the Exit command to exit from the environment.
+
+If the Prompt before saving environment option is set to
+Yes, the editor prompts you before saving any editor buffers
+that you have modified.
+%2 NewMenu
+
+Use the New menu option to add new modules or libraries 
+to the current module library.
+
+When you add a Modula-2 module or program, the environment
+automatically adds all modules that the new module imports.
+%%Module  Program  Foreign  EXE  Library  All  Obj
+%3 Module
+
+Use the Module option to add a new Modula-2 module to the
+current library.  When you select this option, the 
+environment adds entries for both a DEFINITION and an
+IMPLEMENTATION module to the library.
+
+The environment prompts you for the name of the module.
+The name must be a valid Modula-2 identifier.
+%3 Program
+
+Use the program option to add a new program to the current
+library.
+
+A program is a Modula-2 module that is neither a DEFINITION
+nor an IMPLEMENTATION module.  A program is the only kind
+of module that you can link or run.
+
+The environment prompts you for the name of the program
+module.  The name must be a valid Modula-2 identifier.
+%3 Foreign
+
+Use the Foreign module option to add a module that was
+implemented in assembler or another language.  A Modula-2
+DEFINITION module is also added to the library when
+you add Foreign modules.
+
+The environment prompts you for the name of the module.
+The name must be a valid Modula-2 identifier.
+%3 Library
+
+Use the Library option to refer to another module library
+from the current library.
+
+You can refer to up to eight additional libraries.
+
+Modules in the current library can import modules in another
+library add that library using this option.
+
+The environment prompts you for the name of the new library.
+The name is the file name of the module library to add.  If
+you do not specify a file extension, M2L is assumed.
+%3 All
+
+The All option adds all modules that can be found in the
+source directories of the current module library.
+
+By default, the environment looks in the subdirectory DEF
+for definition modules, and in the directory MOD for
+implementation modules, foreign modules, and program modules.
+
+You can use the Directories option on the Options menu to
+specify different directories to search for source modules.
+
+Use this option for the initial setup of a module library.
+%3 EXE def
+%3 EXE
+
+Use the EXE def option to add a new EXE def file to a module
+library.  EXE def modules are used by the linker for over-
+laying programs on DOS, and for creating and using dynamic
+link libraries on OS/2 and Microsoft Windows.
+
+The environment prompts you for the name of the new EXE def.
+The name must be the same as the name of a program module
+(implementation module for Windows) in the current library.
+The EXE def is used when linking the module with the same
+name.
+%3 Obj library
+%3 Obj
+
+Use the Object library option to add a new Object library to
+the current module library.  Any object libraries you add
+using this option are included when you link any program in
+the current module library.
+
+The environment prompts you for the name of the new object
+library.  The name is a file name.  If you do not specify an
+extension, LIB is assumed.
+%2 CompileMenu
+%3 Selected
+%3 All
+%3 Unconditional
+
+Use the Compile menu to compile one or more modules in the
+current module library.
+
+    Selected	    compiles the selected module and any
+		    other modules required to compile it
+
+    All		    compiles all modules requiring
+		    compilation at the time
+
+    Unconditional   compiles all modules, whether they
+		    need it or not
+
+Usually you do not need to use this menu, since the Run,
+Debug, and Link commands automatically compile all modules
+that need compilation when you use those commands.
+%2 ModuleMenu
+The Module menu contains miscellaneous functions related
+to modules.  The options function as follows:
+
+    Remove	removes the module from the library.
+
+    Filename	overrides the filename for a module.
+
+    Altered	informs the environment that the selected
+                module has been altered from outside.
+
+    Command	allows you to specify a DOS command line
+		to compile or assemble a foreign module.
+		
+    Type	allows you to change the type of a module.
+    
+%% Remove  Filename  Altered  Command  Type
+%3 Remove
+
+The Remove option removes the module from the library,	and
+optionally deletes the source files.
+
+If the module is imported by some any other module, the
+environment prompts you before removing the module.
+
+If the module is removed, the environment prompts you to
+delete the source files.  Answer Y to delete them, N to
+leave them intact.
+%3 Filename
+
+The Filename option overrides the filename for a module.
+Use this option if the source file for a module does not
+have the same name as the module, or is in a different
+directory.
+%3 Altered
+
+The Altered option informs the environment that the source
+file of a module has been altered from outside the Environ-
+ment.  You must use this command if you	change or replace a
+source module from outside the environment.
+%3 Command
+
+The Command option allows you to specify a DOS command line
+to compile or assemble a foreign module.
+
+When you select this option, the environment prompts you for
+the command line.  This command line overrides the assembler
+command line that you can set on the Options menu.
+
+The command line you specify should compile or assemble the
+module, leaving the object file in the OBJ subdirectory of
+the current directory.  If you cannot do this with a simple
+command, you can use the command line to run a batch file.
+%3 Type
+
+The Type option allows you to change the type of an imple-
+mentation module.  You can change the type from Implementa-
+tion to Foreign or from Foreign to Implementation.
+%2 ToolsMenu
+The Tools menu contains the following tools you can use
+from the environment:
+
+	Import list	  - shows the modules imported by the
+			    selected module.
+			  
+	Client list	  - shows the modules that import the
+			    selected module
+			  
+	Profiler	  - this option will be available in
+			    a free update to version 2.1
+	
+	Object librarian  - this option will be available in
+	                    a free update to version 2.1
+
+%% Import  Client  Profiler  Object
+%3 Import list
+%3 Import
+You must select a DEFINITION or IMPLEMENTATION module before
+using this option.
+
+Use the Import list option to list the modules imported by
+the selected module.
+
+The environment creates a popup window listing all the
+modules that are imported by the selected module.
+%3 Client list
+%3 Client
+You must select a DEFINITION module before using this
+option.
+
+Use the Client list option to list the modules that import
+the selected module.
+
+The environment creates a popup window that lists all the
+modules that import the selected module.
+%3 Profiler
+%3 Object Librarian
+%3 Object
+
+This option is not yet available, but will be provided in
+your free update to version 2.1.
+%2 OptionsMenu
+
+Use the Options Menu to view and alter various options.
+
+Many options are available to control the operation of
+the environment, compiler, and linker.
+
+Each module library maintains the settings of options
+across invocations.  Compiler options are kept separately
+for QuickMod and the optimizing compiler.
+
+You can also change the default options that are given when
+you create a new library by using Save, or you can reset all
+the options to defaults by using Read.
+
+%% C  O  E  M  W  T  L  P  D  V  A  R  S  U
+%3 C
+%3 Compiler options
+%2 CompilerOptionsMenu
+%3 Global
+%3 Module
+%3 Reset defaults
+
+Use the compiler options menu to select compiler options.
+
+    Global	selects options for all modules in the
+		library.
+
+    Module	selects options for the selected module
+		only.
+
+    Reset 	resets all module options to default for
+		all modules.
+%3 O
+%3 Optimizer options
+%3 OptimizerOptionsMenu
+%3 Global
+%3 Module
+%3 Reset defaults
+
+Use the optimizer options menu to select optimizer options.
+
+    Global	selects options for all modules in the
+		library.
+
+    Module	selects options for the selected module
+		only.
+
+    Reset 	resets all module options to default for
+		all modules.
+%3 E
+%3 Environment options
+
+Use the Environment option panel to set various options
+of the Stony Brook Modula-2 Environment.
+
+Select this option to see the panel.  From there you can
+get help on the individual options.
+%3 Module list options
+%3 M
+%1 View Options
+The Module list control panel allows you to set options
+related to the module display on the main screen, and to
+control whether snow removal is preformed on all displays.
+
+    Order	  controls the order in which the modules are
+		  displayed on the main screen.
+
+    Modules       determines whether or not library modules
+		  are listed.
+
+    Format	  determines whether the long or short format
+		  of the module list is used.
+
+    Snow removal  determines whether or not the environment 
+                  takes care to avoid creating snow on CGA 
+		  screens.  Select this option if your CGA 
+		  display is snowy.
+%3 W
+%3 Window colors
+%3 Colors
+
+Use the Window colors option to set display colors.
+You can select:
+
+    Window background and foreground
+
+    Border background and foreground
+    
+    Selected text background and foreground
+
+You can select colors for each of six different windows.
+
+Use the mouse or arrow keys to select colors.  Use the mouse
+or Pg Up and Pg Dn keys to select the window type.
+%3 Text editor name
+%3 T
+
+Use the Text editor name option if you want the environment
+to use an editor of your choice instead of the Stony Brook
+Editor.
+
+The environment prompts you for the path name of the editor
+that you want to use.  You must specify the complete path
+name, including the file extension.  For example:
+
+	\BRIEF\B.EXE
+%3 Linker options
+%3 L
+%1 Linker Options
+%2 Produce map file
+%2 Include lines in map
+%2 Include debug info
+%2 Dynamic link library
+Use the linker options control panel to set the following
+options for the linker:
+
+    Produce map file	  Controls whether or not a map
+			  file is produced when you link
+
+    Include line numbers  Controls whether or not the map
+			  file contains line numbers
+			  
+    Include debug info	  Controls whether or not debugging
+    			  information is included in the
+			  executable program.
+
+    Dynamic link library  Controls whether or not a dynamic
+                          link library is linked when you
+			  select the link command.
+%3 P
+%3 Program stack size
+
+Use the Stack size option to set the stack size for your
+program.  The stack is used to store procedure return
+addresses and local variables.
+
+The stack requirements depend on your program.  Set the
+stack size between 1024 and 65534 bytes.
+%3 D
+%3 Directories
+Use the Directories option to specify the source and object
+directories used by the current module library.  The
+environment prompts you for the following directories:
+
+	DEF  - a list of directories to search for
+	       definition modules.  Separate multiple
+	       directories with semicolons.
+	
+	SYM  - subdirectory of directory containing the
+	       library in which symbol files are placed.
+
+	MOD  - a list of directories to search for
+	       implementation, foreign, and program modules.
+	       Separate multiple directories with semicolons.
+	
+	OBJ  - subdirectory of directory containing the
+	       library in which object files are placed.
+%3 V
+%3 Version tags
+
+Use the Versions tags option to set the version tags used
+for conditional compilation.  The environment prompts you
+for the new version tag settings.
+
+Version tags are identifiers.  Separate the version tags
+with commas.
+%3 A
+%3 Assembler command line
+
+Use the Assembler command line option to set a default
+command line to assemble or compile foreign modules.
+
+The command line can contain the special symbols %S and %O.
+These symbols are replaced by the full file name of the
+source program and object program, respectively.
+
+The assembler command line you specify must assemble or 
+compile the source module, placing the object in the OBJ 
+directory of the current module library.
+%3 R
+%3 Read default options
+
+Use the Read defaults option to set all options back to
+the default options settings.
+
+The default options are set by selecting Save default
+options on the Options menu.
+%3 S
+%3 Save default options
+
+Use the Save default option to save the current option
+settings as defaults.
+
+These settings are then used when you create a new
+module library or when you Read default options.
+%3 U
+%3 Use quick compiler
+%3 Use optimizing compiler
+
+You must have the Professional Modula-2 package to use
+this option.
+
+Use the Use quick compiler option or the Use optimizing 
+compiler option to select the alternate compiler.
+%2 SystemMenu
+Use the options on the System menu to:
+
+    Perform a DOS command
+    
+    Specify command parameters for your program
+    
+    Edit a file that is not a module in the current library
+    
+    Create and execute log files, which perform a series
+    of commands automatically
+    
+    Close the current module library and enter a new one
+    
+    Discard all objects in memory to maximize the memory
+    available before running a program
+%%DosCommand  ProgParam Edit LogFiles NewLibrary FreeMemory
+%3 DosCommand
+%3 Dos command
+
+Use the DOS command option to perform a DOS command
+without leaving the environment.
+
+QuickMod prompts you for the command line, and executes
+the command.   When the procedure is complete, press any
+key to return to the environment.
+
+If you want to perform several DOS commands, you can type
+COMMAND at the prompt.  This will invoke the DOS command
+interpreter and allow you to perform as many commands as you
+like.  When you are ready to return to the environment, type
+EXIT at the DOS prompt.
+%3 Edit
+%3 Edit file
+
+Use the Edit option to edit a file that is not a module in
+the current library.
+
+	DO NOT use the Edit command to edit a
+	module in the current module library.  The
+	environment will not register the changes,
+	and automatic compilation will not be done
+	correctly.
+%3 Program parameters
+%3 ProgParam
+
+Use the Program parameters option to specify command line
+parameters for your program.  These parameters are used
+whenever you run a program.
+
+The environment prompts you for the new command line
+parameters.
+
+The program parameters are the strings that are normally
+specified after the program name when running a program
+under DOS.
+
+Your program can access these parameters by using the
+GetCommandLine procedure in the library module Environment.
+%3 LogFiles
+%3 Create log
+%3 Terminate log
+%3 Run log
+Log files let you perform a series of commands and record
+them so you can perform them again automatically.
+
+Use the Open log option to start recording commands.  The
+environment prompts you for a filename.  Execute the
+commands as you want them recorded.  Use the Terminate log
+option to end recording.
+
+Use the Run log option to run the log file.  The environment
+prompts you for the filename, then executes the commands as
+you recorded them.
+
+To run a log file immediately when entering the environment,
+use:
+	M2E library logfile
+
+%3 NewLibrary
+%3 New library
+
+Use the New Library command to close the current module
+library and work on a different library.
+
+You will be prompted for the path name of the new module
+library.  The environment automatically sets your default
+drive and directory to that of the new library.
+%3 FreeMemory
+%3 Free memory
+
+Use the Free memory option when using QuickMod on DOS,
+before running a program that has large memory requirements.
+
+When you use this option, QuickMod frees all memory that is
+occupied by source files, object files, and symbol files,
+writing them out to disk.
+
+If the Prompt before saving option is selected on the
+Environment options panel, the environment prompts you
+before any source files are written to disk.
+%1 Compiler Options
+%2 Check subscripts
+
+Check subscipts compiler option
+
+If you answer Yes, the compiler generates code to check
+all subscripts to make sure the subscripts are within the
+specified array bounds.  If a subscript is found to be out
+of bounds, the program generates a runtime error.
+
+Answering Yes to this option causes the compiler to generate
+larger and slower code, but since it simplifies debugging,
+you should used this option while developing a program.
+
+Answer No to produce the smallest and fastest code, after
+debugging the program.
+%2 Check assignments
+
+Check assignments compiler option
+
+If you answer Yes, the compiler checks for the assignment
+of values that are out of range.  If it finds a value that
+is out of range, the program generates a runtime error.
+
+Answering Yes to this option causes the compiler to generate
+larger and slower code, but since it simplifies debugging,
+you should used this option while developing a program.
+
+Answer No to produce the smallest and fastest code, after
+debugging the program.
+%2 Check variants
+
+Check variants compiler option
+
+If you answer Yes, the compiler generates code to check the
+tag field of variant records, when you refer to a field
+inside a variant.
+
+Answering Yes to this option causes the compiler to generate
+larger and slower code, but since it simplifies debugging,
+you should used this option while developing a program.
+
+Answer No to produce the smallest and fastest code, after
+debugging the program.
+%2 Check pointers
+
+Check pointers compiler option
+
+If you answer Yes to this option, the compiler checks for 
+use of pointer that have the value NIL.
+
+Answering Yes to this option causes the compiler to generate
+larger and slower code, but since it simplifies debugging,
+you should used this option while developing a program.
+
+Answer No to produce the smallest and fastest code, after
+debugging the program.
+%2 Check for overflow
+
+Check for overflow compiler option
+
+If you answer Yes to this option, the compiler checks for 
+calculations that result in arithmetic overflow.
+
+Answering Yes to this option causes the compiler to generate
+larger and slower code, but since it simplifies debugging,
+you should used this option while developing a program.
+
+Answer No to produce the smallest and fastest code, after
+debugging the program.
+%2 Check stack
+
+Check stack compiler option
+
+If you answer Yes to this option, the compiler checks for
+stack overflow on the entry to each procedure.
+
+Answering Yes to this option causes the compiler to generate
+larger and slower code, but since it simplifies debugging,
+you should used this option while developing a program.
+
+Answer No to produce the smallest and fastest code, after
+debugging the program.
+%2 Initialize data
+
+Initialize data compiler option
+
+If you answer Yes to this option, the compiler generates
+code to initialize all of the variables in your program.
+Use this option in conjunction with the check pointers
+option to guarantee that all NIL pointers are found.
+
+Failure to use these two options may result in crashing
+your machine if there are bugs in your program.
+
+Answering Yes to this option causes the compiler to generate
+larger and slower code, but since it simplifies debugging,
+you should used this option while developing a program.
+
+Answer No to produce the smallest and fastest code, after
+debugging the program.
+%2 Aliasing occurs
+Aliasing refers to a situation where a variable can be
+referred to by two distinct names.  This occurs most often
+when a procedure takes two parameters of the same type,
+and the same variable is passed for both parameters in a call
+to the procedure.  The compiler can generate better code if
+it knows that aliasing never occurs.  Otherwise, it must
+assume that aliasing can occur, which generates poorer code.
+
+Answer No only if you are certain that your program does not
+refer to the same variable by two different names.  A No
+causes the compiler to assume that aliasing does not occur,
+and produces code that is faster, but could be incorrect if
+aliasing does occur.
+
+Answer Yes if you know that your program makes use of
+aliasing, or if you are not sure.
+%2 Emulate floating point
+
+Emulate floating point compiler option
+
+If you answer Yes for this option, the compiler generates
+calls to floating point emulation procedures instead of
+generating 80x87 instructions for floating point.  This
+enables your program to run on machines that are not
+equipped with a floating point processor.
+
+Answering No causes the compiler to generate 80x87
+instructions directly.  This produces smaller and faster
+code, but the program will not run on machines that do
+not have a floating point processor.
+%2 Include line numbers
+
+Include line numbers compiler option
+
+If you answer Yes for this option, the compiler includes
+the line numbers from your program.  The line numbers are
+used by the debugger and, when a runtime error occurs, to
+tell you where the error occurred.
+
+This option is automatically set when you use the Debug
+command on the main screen.
+%2 Include debug info
+
+Include debug info compiler option
+
+If you answer Yes for this option, the compiler includes
+information about your program for use by the debugger.  This
+option is automatically set when you use the Debug command
+on the main screen.
+
+Answering No when choosing module options causes the compiler
+to omit debug information.  As a result, you will not be
+able to set break points or examine variables from that module
+in the debugger.
+
+Large programs may not fit into memory if all modules are
+compiled with debug information.  You can answer No for
+modules that are already debugged, to reduce the size of the
+program.
+%1 Additional Compiler Options
+%2 Generate sparse cases
+
+Generate sparse cases compiler option
+
+If you answer Yes to this option, the compiler uses a lookup
+table for sparse cases.  This is smaller but slower than the
+jump table used for more dense cases.
+
+If you answer No,, the compiler always generates a jump
+table, which is faster but larger.
+%2 Generate listing file
+
+Generate listing file compiler option
+
+If you answer Yes to this option, the compiler creates a
+printable listing when it compiles your program.
+
+If you answer No, the compiler does not produce a listing
+file.
+%2 List machine code
+
+List machine code compiler option
+
+If you answer Yes to this option, the compiler creates a
+printable listing of your source program and the machine
+code generated for it.
+
+If you answer No, the compiler does not create a machine
+code listing.
+%2 Use short calls
+
+Use short calls compiler option.
+
+If you answer Yes to this option, the compiler uses short
+call instructions for all procedures that are not exported.
+
+If you answer No, the memory model you are using determines
+whether calls are short or long.
+%2 Convert to upper case
+
+Convert to upper case compiler option
+
+If you answer Yes to this option, the compiler converts all
+names to upper case.  This effectively makes the language
+case-insensitive.
+
+If you answer No, the case of identifiers is not changed and
+identifiers spelled with different case are not considered 
+the same.  This is the standard interpretation of Modula-2.
+%2 Separate stack segment
+
+Separate stack segment compiler option.
+
+If you answer Yes to this option, the compiler uses a
+separate segment for the program stack.
+
+If you answer No, the program stack is placed in the
+default data segment.
+
+You should use a separate stack when using the medium or
+large data models, and a stack in the data segment when
+using the small data model.
+%2 Has init code
+
+Has init code compiler option
+
+Use this option for a definition module to inform the
+compiler whether or not the implementation module has
+initialization code.
+
+If you answer Yes to this option, the compiler generates
+calls to the initialization code from each module that
+imports this module.
+
+If you answer No, the initialization calls are suppressed.
+%2 Windows prologue
+
+Windows prologue compiler option
+
+If you answer Yes to this option, the compiler places a
+special sequence of instructions required by Microsoft
+windows, at the beginning and end of each procedure.
+
+If you answer No, the Windows prologue and epilogue are
+not generated.
+
+Set this option to Yes only when developing applications
+for Microsoft Windows.
+%2 Check modules
+
+Check modules compiler option
+
+If you answer Yes to this option, the compiler generates a
+runtime check to make sure that each implementation module
+imported by this module was compiled with the same
+definition module as the importing program.
+
+If answer No, the compiler does not generate these checks.
+
+Use this option to guarantee that you have not made a
+mistake in building a program by including the wrong version
+of a module or by referring to two modules with the same name.
+%2 Output file type
+
+Output file type compiler option
+
+If you answer Object to this option, the compiler produces a
+single object module for each module compiled.  In this
+case, ll procedures in a module are linked into a program if
+any procedure in the module is used.
+
+If you answer Library, the compiler produces an object
+library for each module compiled.  When you link a program
+compiled to libraries, only the required procedures are
+included in the program, making the executable program
+smaller.
+
+Use the Library option to reduce the size of your executable
+program, at the expense of longer link times.
+%2 Code memory model
+
+Code memory model compiler option
+
+Use the Code memory model option to select the memory model
+used for code.  The choices are:
+
+	Small	- The combined code of all modules in a
+		  program must be less and 64K bytes.
+		  
+	Large	- The code of each module can be up to
+		  64K bytes.
+%2 Data memory model
+Use the Data memory model option to select the memory model
+used for data.  The choices are:
+
+	Small	- The combined static data, stack and
+		  heap of all modules in a program
+		  must be less and 64K bytes.
+		  
+	Medium	- The combined static data of all modules
+	 	  in a program must be less than 64K, but
+		  an additional 64K can be used for stack, 
+		  and heap can be as large as the memory
+		  available.
+		  
+	Large	- Like medium model, except that each module
+		  can have 64K of static data.
+%2 Expand procedures
+
+Expand procedures compiler option
+
+Use this option to instruct the compiler to expand some
+procedures in line instead of calling them.  This can
+dramatically improve runtime performance, but at the 
+expense of code size.
+
+Answer No to this option to suppress in line expansion of
+procedures.
+
+Answer 10 or 20 to expand procedures containing up to that
+number of statements.
+%2 Align data
+
+Align data compiler option
+
+Use this option to specify that variable are aligned on
+special address boundaries.  On processors with a 16- or
+32-bit bus, this can improve runtime performance.
+
+If you answer No to this option, the compiler does not
+align variables.
+
+If you answer 2 or 4, the compiler aligns data on 2 or 4
+byte boundaries.  Use 2 for machines with 16-bit busses and
+4 for machines with 32-bit busses to maximize performance.
+%1 View Options
+%2 Order
+
+Use the Order option to determine the order in which modules
+are displayed in the main window.
+
+   Alphabetic	displays the modules in alphabetic order
+
+   Dependency	displays the modules in the order of
+		their dependency.  The names of all modules
+		that a module depends upon precede it.
+%2 Modules
+
+Use the Modules option to determine which modules are listed 
+in the main window. 
+
+    Local 	displays only the modules in the current
+		library.
+
+    All 	displays all modules referred to by the
+		current library, including modules from other
+		module libraries.
+%2 Format
+
+Use the Format option to specify whether to display the list
+of modules in long or short format.
+
+	Short format displays only the module type and name 
+
+	Long format displays all information about the module
+
+%2 Snow Removal
+
+Use the snow removal option if you have a CGA display and
+snow appears on the screen when it is changing.  Setting
+this option will slow screen output a little.
+%1 Environment Options
+%2 Safety belts
+Safety belts environment option
+
+This option determines whether or not the environment
+attempts to keep the disk updated at all times.
+
+When safety belts are on, the environment automatically 
+updates files when you edit them and automatically updates
+the module library whenever you run a program.
+
+This option minimizes that danger of losing edits you
+have made, while slowing the system down somewhat.  On 
+fast machines with hard disks, you will hardly notice 
+the speed degradation, whereas on standard PC's with 
+floppy disks it can be significant.
+
+Use the safety belts option to minimize the chance that
+edits and compilations are lost.
+%2 Maximize program memory
+
+Maximize program memory environment option
+
+This option applies only to QuickMod for DOS.
+
+Use the Maximize program memory option when running large
+programs that will not run in the free memory available in
+QuickMod.
+
+When you use this option, QuickMod discards most of its
+own code and makes this memory available to your program.
+
+When the program completes, QuickMod reads back its own
+code from the disk.
+%2 Compress library
+
+Compress library environment option
+
+Use the compress library option to reduce the amount of
+disk space required by a module library, at the expense
+of access time.
+
+This options should be used only on libraries that will
+not be updated frequently.  To compress such a library,
+create a new library and set the compress library
+option before compiling the modules of the library.
+%2 Keep symbol files
+
+Keep symbol files environment option
+
+This option controls whether or not QuickMod attempts to
+keep symbol files in memory.
+
+Symbol files are generated by QuickMod as a result of
+compiling definition modules.  They are read whenever
+the module is imported by another module.
+
+Keeping the symbol files in memory considerably
+improves the speed of compiling large, multi-module
+programs.
+%2 Keep object files
+
+Keep object files environment option
+
+This option controls whether or not QuickMod attempts to
+keep object files in memory.
+
+Object files are generated by QuickMod as a result of
+compiling implementation modules.  They are needed
+when the program is run or linked.
+
+Keeping the object files in memory reduces the delay
+when running a program after compiling it.  For small
+programs, this will improve the overall performance of
+QuickMod.  On large programs, the memory occupied by
+object modules may be needed by the compiler, and
+performance is better if they are not kept in memory.
+%2 Recompile for debug
+
+Recompile for debug environment option
+
+This option controls whether or not the environment
+automatically recompiles modules when you debug.
+If this option is on, all modules that were not compiled
+with debug options are compiled automatically.
+
+If this option is off, modules are not automatically
+recompiled.  This method is preferable for large programs.
+You can use the Module compiler options to turn on debug
+options only for those modules you are interested in.
+%2 Prompt before saving
+
+Prompt before saving environment option
+
+Use this option to control whether or not the editor prompts
+you before saving source files.
+
+If this option is off, you should not change source files
+that you do not want saved to the disk.  When this option is
+off, the editor will save all altered files without asking you
+when it needs to recover the memory they occupy.
+%2 Prompt after foreign
+
+Prompt after foreign environment option
+
+If you answer Yes to this option, the environment prompts
+you to continue before erasing the screen after compiling
+or assembling a foreign module.  This allows you to view
+the ouptut of the compiler or assembler.
+
+If you answer No, the environment continues immediately
+after building a foreign module.
+%1 Optimizer Options
+%2 Optimization strategy
+
+Optimization strategy optimizer option
+
+Use the Optimization strategy option to set the general
+strategy for the optimizer:
+
+	Time  - the optimizer attempts to minimize execution
+	        time, producing larger code if necessary.
+		
+	Space - the optimizer attempts to minimize code
+	        size, generating slower code if necessary.
+%2 Common subexpressions
+
+Common subexpressions optimization option.
+
+If you answer Yes to this option, the compiler looks for
+expressions that are used more once, without any of the
+variables changing.  It then computes the expression only
+once.
+
+If you answer No, the compiler does not perform common
+subexpression elimination.
+%2 Loop invariant motion
+
+Loop invariant motion optimization option
+
+If you answer Yes to this option, the compiler looks for
+expressions inside loops whose value does not change during
+the loop.  The expressions are then moved outside the loop
+and computed only once.
+
+If you answer No, the compiler does not perform Loop
+invariant motion.
+%2 Induction variables
+
+Induction variables optimizer option
+
+If you answer Yes to this option, the compiler looks for
+multiplications by a loop index.  The multiplication is then
+changed to an addition of the multiplier in the loop,
+decreasing execution time.
+
+If you answer No, the compiler does not look for induction
+variables.
+%2 Constant/Copy propagation
+
+Constant/Copy propagation optimizer option
+
+If you answer Yes to this option, the compiler looks for
+assignments of constants or simple variables to a variable.
+Subsequent uses of the variable on the left side of the
+assignment are then replaced with the constant or variable on
+the right side.  This often result in the elimination of an
+unnecessary assignment and temporary variable.
+
+If you answer No, the compiler does not perform constant and
+copy propagation.
+%2 Dead code elimination
+
+Dead code elimination optimizer option
+
+If you answer Yes to this option, the compiler locates and
+removes code in your program than cannot possibly be
+executed.
+
+If you answer No, the compiler does not look for dead code.
+%2 Dead store elimination
+
+Dead store elimination optimizer option
+
+If you answer Yes to this option, the compiler locates and
+eliminates assignments in which the variable assigned to is
+not used after the assignment.
+
+If you answer No, the compiler does not look for dead
+assignments.
+%2 Jump chaining
+
+Jump chaining optimizer option
+
+If you answer Yes, the compiler looks for jump instructions
+that jump to other jump instructions, and replaces them with
+jumps to the ultimate destination.
+
+If you answer No, the compiler does not look for jump chains.
+%2 Live variable analysis
+
+Live variable analysis optimizer option
+
+If you answer Yes, the compiler determines exactly when
+the value of a variable might be used before it is changed.
+This allows the compiler to perform better register
+allocation, for example, when using the same register to store
+two variables whose lifetimes do not overlap.
+
+If you answer No, the compiler does not perform live
+variable analysis.
+%2 Peephole optimizations
+
+Peephole optimizations optimizer options
+
+If you answer Yes, the compiler examines the generated code,
+looking for specific code sequences.  These sequences are
+then replaced with more efficient sequences that accomplish
+the same function.
+
+If you answer no, the compiler does not perform peephole
+optimizations.
+%1 Editor
+The Stony Brook Editor is a full screen WYSIWYG (What You
+See Is What You Get) editor.
+
+The editor keeps text in memory areas called buffers.  Each
+buffer is associated with a file.  Changes you make to a
+buffer are not reflected in the file until you save it.
+
+When you exit the environment, or when the environment needs
+the memory used by editor buffers, it will prompt you to
+save any buffer you have changed since it was last saved.
+
+To execute the commands on the top border of the window,
+hold the Alt key and type the first letter of the command,
+or point with the mouse and press the left button.
+%%Buffer Cursor Delete Block SrchRepl Shift Dos Exit Key
+%2 FileMenu
+%2 Buffer
+%2 OutputMenu
+%2 RenameMenu
+%2 ModuleMenu
+Buffer manipulation commands:
+
+  Open a new buffer or move to an existing	ALT/F
+  buffer. 					
+
+  If editing a source file in the current
+  module library with ALT/F, type only the
+  module name, not a file name.
+
+  To save a buffer to its associated file.	ALT/O
+												
+  To change the name of the file associated	ALT/R
+  with the current buffer.  This file will be	
+  created when you save the file.
+%2 QuitMenu
+%2 Exit
+%2 ExitMenu
+%2 ContinueMenu
+
+Exiting and Quitting:
+
+  Exit back to the environment		ALT/E
+
+  Exit and continue compiling		ALT/C
+  
+  Abandon changes to current buffer	ALT/Q
+  
+If Safety belts are On, the editor will save all files
+that have been altered whenever you exit.
+%2 Cursor
+To move the cursor:
+
+  Left one character		Left arrow   or  Ctrl/S
+  Right one character		Right arrow  or  Ctrl/D
+  Left one word			Ctrl/A
+  Right one word		Ctrl/F
+  Up one line			Up arrow     or  Ctrl/E
+  Down one line		        Down arrow   or  Ctrl/X
+  To top of file		Ctrl/PgUp
+  To end of file		Ctrl/PgDn
+  Up one screen			Pg Up	     or  Ctrl/R
+  Down one screen		Pg Dn	     or  Ctrl/C
+  To beginning of line	 	Home
+  To end of line		End
+  To a line (by number)		Shift/F2
+  To next compilation error	F8
+%2 Delete
+
+To delete:
+
+  Character at the cursor	Del          or   Ctrl/G
+  Character left of cursor	Backspace
+  Word at the cursor		Ctrl/T
+  Line cursor is on		Ctrl/Y	     or   F6
+
+To delete large blocks of text, use the Cut command:
+
+  1  Press F3 to mark the beginning of the block.
+
+  2  Move to the end of the block using any cursor movement
+     commands.
+
+  3  Press F5 to cut the block of text.
+%2 Block
+Marking commands:
+
+  Start marking 		Ctrl/K B   or  F3
+  End marking			Ctrl/K K
+  Mark a word at the cursor	Ctrl/K T
+  Mark a line at the cursor	Ctrl/K L	
+  Read a file			Ctrl/K L
+	
+Block commands:
+
+  Cut the marked block		Ctrl/K Y   or  F5
+  Move the block of text	Ctrl/K V
+  Copy the block of text	Ctrl/K C
+  Write the block to a file	Ctrl/K W
+  Paste the block last cut	F7
+%2 SrchRepl
+
+Searching and replacing:
+
+  Enter a search string		Ctrl/Q F or Shift/F1
+  Search backwards		F1
+  Search forward		F2
+  Enter replace string		Shift F4
+  Replace next occurrence	F4
+	
+For global or block searches and replaces:
+
+  Enter search parameters	Alt/P
+  Search and replace		Ctrl/Q A
+  Perform previous command	Ctrl/L
+%2 Shift
+To shift blocks of text by multiples of 4 characters:
+
+  Shift the cursor line left	Shift/F9
+  Shift the cursor line right 	Shift/F10
+  Shift previous line		Shift/F5
+  Shift next line 		Shift/F7
+
+When inserting or deleting a structured statement, you
+often need to shift the statements inside to a new
+indent level.  This is easily accomplished as follows:
+
+  1  Move to the first line to be shifted.
+
+  2  Use Shift/F9 or Shift/F10 to shift that line by the
+     required amount.
+
+  3  Use Shift/F7 repeatedly to shift the next line.
+%2 Dos
+%2 DosMenu
+
+Performing DOS commands:
+
+  Perform a DOS command			Alt/D
+					
+You are prompted for the DOS command to perform.  The
+screen is cleared and the command is performed.  When
+it finishes, you are prompted to Press a key to return
+to the editor.	
+
+To perform a series of DOS commands, answer the prompt
+with COMMAND or CMD on OS/2.  This will place you at the
+DOS or OS/2 prompt, and you can execute as many commands
+as you want.  Enter the EXIT command at the prompt to return
+to the editor.
+%2 KeyMenu
+%2 Key
+
+The Key definition control panel allows you to redefine
+the keys used for many editor functions.
+
+Use the arrow keys or the mouse to select the function
+for which you want to redefine the key.  Next, press the 
+new key you have chosen to perform the function.
+
+You can use the following keys:
+
+  Ctrl / any letter
+
+  F1 to F12 and Shift F1 to F12
+  
+  Home, End, PgUp, PgDn, Ins, Del
+  
+  Ctrl / Home, End, PgUp, PgDn
+%2 Split
+%2 SplitMenu
+%2 WindowMenu
+%2 NextMenu
+
+Window manipulation commands:
+
+  Split or unsplit the screen		Alt/S
+											
+  Alternate between the two windows	Alt/W
+											
+  Select the next buffer		Alt/N

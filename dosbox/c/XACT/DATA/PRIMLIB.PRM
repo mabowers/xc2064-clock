@@ -1,0 +1,94 @@
+DM:B PRIM 1 primlib ;
+DM:H [Mx ByHand] [1990/01/02 15:00:00] "@(#)primlib.prm	6.11 11/3/93" ;
+DM:E ;
+
+AND2	N	";boolean;"	3	-I0 :I -I1 :I -O :O ;
+AND3	N	";boolean;"	4	-I0 :I -I1 :I -I2 :I -O :O ;
+AND4	N	";boolean;"	5	-I0 :I -I1 :I -I2 :I -I3 :I -O :O ;
+AND5	N	";boolean;"	6	-I0 :I -I1 :I -I2 :I -I3 :I -I4 :I -O :O ;
+
+OR2	N	";boolean;"	3	-I0 :I -I1 :I -O :O ;
+OR3	N	";boolean;"	4	-I0 :I -I1 :I -I2 :I -O :O ;
+OR4	N	";boolean;"	5	-I0 :I -I1 :I -I2 :I -I3 :I -O :O ;
+OR5	N	";boolean;"	6	-I0 :I -I1 :I -I2 :I -I3 :I -I4 :I -O :O ;
+
+NOR2	N	";boolean;"	3	-I0 :I -I1 :I -O :O ;
+NOR3	N	";boolean;"	4	-I0 :I -I1 :I -I2 :I -O :O ;
+NOR4	N	";boolean;"	5	-I0 :I -I1 :I -I2 :I -I3 :I -O :O ;
+NOR5	N	";boolean;"	6	-I0 :I -I1 :I -I2 :I -I3 :I -I4 :I -O :O ;
+
+NAND2	N	";boolean;"	3	-I0 :I -I1 :I -O :O ;
+NAND3	N	";boolean;"	4	-I0 :I -I1 :I -I2 :I -O :O ;
+NAND4	N	";boolean;"	5	-I0 :I -I1 :I -I2 :I -I3 :I -O :O ;
+NAND5	N	";boolean;"	6	-I0 :I -I1 :I -I2 :I -I3 :I -I4 :I -O :O ;
+
+XNOR2	N	";boolean;"	3	-I0 :I -I1 :I -O :O ;
+XNOR3	N	";boolean;"	4	-I0 :I -I1 :I -I2 :I -O :O ;
+XNOR4	N	";boolean;"	5	-I0 :I -I1 :I -I2 :I -I3 :I -O :O ;
+XNOR5	N	";boolean;"	6	-I0 :I -I1 :I -I2 :I -I3 :I -I4 :I -O :O ;
+
+XOR2	N	";boolean;"	3	-I0 :I -I1 :I -O :O ;
+XOR3	N	";boolean;"	4	-I0 :I -I1 :I -I2 :I -O :O ;
+XOR4	N	";boolean;"	5	-I0 :I -I1 :I -I2 :I -I3 :I -O :O ;
+XOR5	N	";boolean;"	6	-I0 :I -I1 :I -I2 :I -I3 :I -I4 :I -O :O ;
+
+INV	Y	";boolean;inv;"	2	-I :I -O :O ;
+BUF	Y	";buf;"		2	-I :I -O :O ;
+DFF	Y	";ff;"		6	D :I -C :I CE :I PRE :I CLR :I Q :O ;
+TBUF	Y	";buf;tbuf;"	3	I :I T :I O :OT ;
+
+IBUF	Y	";buf;input;"	2	I :I O :O ;
+OBUFT	Y	";buf;output;"	3	-I :I -T :I O :O ;
+INFF	Y	";ff;input;"	3	D :I -C :I Q :O ;
+INLAT	Y	";ff;input;inlat;"	3	D :I -G :I Q :O ;
+INREG	Y	";ff;input;4k;"	4	D :I -C :I Q :O QM :O ;
+OUTFF	Y	";ff;output;"	3	-D :I -C :I Q :O ;
+PAD	Y	";pad;"		2	O :I I :O ;
+
+HOOK	Y	";hook;"	2	O :I I :O ;
+
+PULLUP	Y	";pullup;"	1	O :OT ;
+PULLDOWN   Y	";pulldown;4k;"	1	O :OT ;
+
+WAND	Y	";wand;4k;"	2	-I :I O :OT ;
+DEC	Y	";dec;4k;"	5	I :I -O1 :OT :2 -O2 :OT :3 -O3 :OT :4 -O4 :OT :1 ;
+DEC_CLB1   Y	";dec;4k;"	3	I :I -O1 :OT :2 -O2 :OT :1 ;
+
+FG	Y	";fg;"		6   	I0 :I :1 I1 :I :2 I2 :I :3 I3 :I :4 I4 :I :0 O :O ;
+EQN	Y	";eqn;"		6   	I0 :I :1 I1 :I :2 I2 :I :3 I3 :I :4 I4 :I :0 O :O ;
+FG3	Y	";fg;4k;"	4   	I0 :I :1 I1 :I :2 I2 :I :0 O :O ;
+FG4	Y	";fg;"		5   	I0 :I :1 I1 :I :2 I2 :I :3 I3 :I :0 O :O ;
+MFG4 	Y       ";fg;mem;4k;"	7   	I0 :I :1 I1 :I :2 I2 :I :3 I3 :I :0 WE :I DIN :I O :O ;
+MFGWC	Y	";mfgwc;4k;"	7	D0 :I D1 :I WE :I WEF :O DF :O WEG :O DG :O ;
+RAM16X1 Y       ";mem;4k;"	7   	A0 :I A1 :I A2 :I A3 :I WE :I D :I O :O ;
+RAM32X1 Y       ";mem;4k;"	8   	A0 :I A1 :I A2 :I A3 :I A4 :I WE :I D :I O :O ;
+
+CY4	Y	";carry;4k;"	8 	A0 :I B0 :I A1 :I B1 :I ADD :I CIN :I COUT0 :O COUT :O ;
+
+TDO 	Y 	";tdo;special_pad;4k;" 	1 	O :I ;
+MD0 	Y 	";md0;special_pad;4k;" 	1 	I :O ;
+MD1 	Y 	";md1;special_pad;4k;" 	1 	O :I ;
+MD2 	Y 	";md2;special_pad;4k;" 	1 	I :O ;
+
+STARTUP	Y 	";startup;4k;" 	7 	-GSR :I -GTS :I CLK :I Q2 :O Q3 :O Q1Q4 :O DONEIN :O ;
+
+BSCAN	Y	";bscan;4k;"	10	TDI :I TMS :I TCK :I TDO1 :I TDO2 :I TDO :O IDLE :O SEL1 :O SEL2 :O DRCK :O ;
+BSCANT	Y	";bscant;4k;"	3	CAP1 :I CAP2 :I UPD :O ;
+
+RDBK	Y	";rdbk;4k;"	3	TRIG :I DATA :O RIP :O ;
+RDCLK	Y	";rdclk;4k;"	1	I :I ;
+
+OSC4	Y	";osc;4k;"	5	F8M :O F500K :O F16K :O F490 :O F15 :O ;
+OSC	Y	";osc;3k;"	1	O :O ;
+
+BUFGP	Y	";bufgp;4k;"	2	I :I O :O ;
+BUFGS	Y	";bufgs;4k;"	2	I :I O :O ;
+
+ACLK	Y	";aclk;3k;"	2	I :I O :O ;
+GCLK	Y	";gclk;3k;"	2	I :I O :O ;
+CLB_MUX	Y	";mux;3k;"	4	F :I G :I SEL :I O :O ;
+
+HMAP	Y	";fgmap;4k;"	4	I1 :X I2 :X I3 :X O :X ;
+FMAP	Y	";fgmap;4k;"	5	I1 :X I2 :X I3 :X I4 :X O :X ;
+TIMESPEC Y	";timespec;"	0	;
+TIMEGRP Y	";timegrp;"	0	;

@@ -1,0 +1,34 @@
+`F  1.00 ram16x2
+`B "1" "1" "A" "    March 10, 1993" "" "A" 
+"XC4000 Family RAM16X2 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D0"
+`P O "O0"
+`P I "D1"
+`P O "O1"
+`P I "WE"
+`P I "A0"
+`P I "A1"
+`P I "A2"
+`P I "A3"
+`E XC4000.LIB
+`I R "RAM16X1" XC4000.LIB "RAM16X1" CA41FD3F  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "WE" "WE" I ) ( "A0" "A0" I ) ( "A1" "A1" I ) 
+( "A2" "A2" I ) ( "A3" "A3" I ) ( "O" "O" O ) 
+`I R "RAM16X1" XC4000.LIB "RAM16X1" CA41FDDA  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "WE" "WE" I ) ( "A0" "A0" I ) ( "A1" "A1" I ) 
+( "A2" "A2" I ) ( "A3" "A3" I ) ( "O" "O" O ) 
+`J ( P I "D0" ) ( R U1 "D" I ) 
+`J ( R U1 "O" O ) ( P O "O0" ) 
+`J ( P I "WE" ) ( R U1 "WE" I ) ( R U2 "WE" I ) 
+`J ( P I "A0" ) ( R U1 "A0" I ) ( R U2 "A0" I ) 
+`J ( P I "A1" ) ( R U1 "A1" I ) ( R U2 "A1" I ) 
+`J ( P I "A2" ) ( R U1 "A2" I ) ( R U2 "A2" I ) 
+`J ( P I "A3" ) ( R U1 "A3" I ) ( R U2 "A3" I ) 
+`J ( P I "D1" ) ( R U2 "D" I ) 
+`J ( R U2 "O" O ) ( P O "O1" ) 

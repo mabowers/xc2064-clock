@@ -1,0 +1,41 @@
+TITLE           Barrel Shifter: 4-bit
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/30/93
+
+CHIP            BRLSHFT4  COMPONENT
+ 
+;Inputs
+i0 i1 i2 i3 s0 s1
+
+; i[3:0]        shifter input
+; s[1:0]        number of shift positions
+ 
+;Outputs
+o0 o1 o2 o3
+
+; o[3:0]        shifter output
+
+EQUATIONS 
+
+o3       = i3*/s1*/s0
+         + i0*/s1* s0
+         + i1* s1*/s0
+         + i2* s1* s0
+
+o2       = i2*/s1*/s0
+         + i3*/s1* s0
+         + i0* s1*/s0
+         + i1* s1* s0
+
+o1       = i1*/s1*/s0
+         + i2*/s1* s0
+         + i3* s1*/s0
+         + i0* s1* s0
+
+o0       = i0*/s1*/s0
+         + i1*/s1* s0
+         + i2* s1*/s0
+         + i3* s1* s0

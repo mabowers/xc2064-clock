@@ -1,0 +1,25 @@
+`F  1.00 fdc
+`B "1" "1" "A" "   August 12, 1993" "" "A" 
+"XC3000 Family FDC Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D"
+`P O "Q"
+`P I "C"
+`P I "CLR"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "VCC" XC3000.LIB "VCC" C8809D97  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "P" "P" O ) 
+`I R "FDCE" XC3000.LIB "FDCE" C8809B65  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "CLR" "CLR" I ) 
+( "Q" "Q" O ) 
+`J ( R U1 "P" O ) ( R U2 "CE" I ) 
+`J ( P I "D" ) ( R U2 "D" I ) 
+`J ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( P I "C" ) ( R U2 "C" I ) 
+`J ( P I "CLR" ) ( R U2 "CLR" I ) 

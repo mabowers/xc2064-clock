@@ -1,0 +1,54 @@
+`F  1.00 CB2RLE
+`B "1" "1" "A" "  October  4, 1993" "" "A" 
+"XC7000 Family CB2RLE Model" "Xilinx"
+""
+""
+""
+""
+`P I "D0"
+`P O "Q0"
+`P I "D1"
+`P I "L"
+`P O "Q1"
+`P I "CE"
+`P I "C"
+`P I "R"
+`P O "TC"
+`P O "CEO"
+`E XC7000.LIB
+`I R "AND2" XC7000.LIB "AND2" ca0a2106  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "VCC" XC7000.LIB "VCC" ca0a2fa7  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "P" "P" O ) 
+`I R "AND2" XC7000.LIB "AND2" dbbe96f6  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "FTRSLE" XC7000.LIB "FTRSLE" dffb5cab  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "L" "L" I ) ( "T" "T" I ) ( "R" "R" I ) 
+( "S" "S" I ) ( "Q" "Q" O ) ( "CE" "CE" I ) ( "C" "C" I ) 
+`I R "GND" XC7000.LIB "GND" dffb5cab  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "G" "G" O ) 
+`I R "FTRSLE" XC7000.LIB "FTRSLE" dffb5cd0  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "L" "L" I ) ( "T" "T" I ) ( "R" "R" I ) 
+( "S" "S" I ) ( "Q" "Q" O ) ( "CE" "CE" I ) ( "C" "C" I ) 
+`I R "GND" XC7000.LIB "GND" dffb5cd0  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "G" "G" O ) 
+`J ( R U2 "P" O ) ( R U6 "T" I ) 
+`J ( R U6 "S" I ) ( R U7 "G" O ) 
+`J ( P I "D0" ) ( R U6 "D" I ) 
+`J ( P I "L" ) ( R U6 "L" I ) ( R U8 "L" I ) 
+`J ( R U6 "Q" O ) ( R U8 "T" I ) ( P O "Q0" ) ( R U1 "I1" I ) 
+`J ( P I "CE" ) ( R U6 "CE" I ) ( R U8 "CE" I ) ( R U5 "I0" I ) 
+`J ( P I "C" ) ( R U6 "C" I ) ( R U8 "C" I ) 
+`J ( P I "R" ) ( R U6 "R" I ) ( R U8 "R" I ) 
+`J ( R U8 "S" I ) ( R U9 "G" O ) 
+`J ( P I "D1" ) ( R U8 "D" I ) 
+`J ( R U8 "Q" O ) ( R U1 "I0" I ) ( P O "Q1" ) 
+`J ( R U1 "O" O ) ( R U5 "I1" I ) ( P O "TC" ) 
+`J ( R U5 "O" O ) ( P O "CEO" ) 

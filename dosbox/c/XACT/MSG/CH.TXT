@@ -1,0 +1,19 @@
+# @(#)CH.TXT	3.1 Copyright(C)1992 Xilinx Inc. 5/4/94 23:55:16
+# file: ch.txt
+# date: 06/27/90
+# what: Xilinx EPLD database error messages
+#
+#
+# 0001: Can not find array header. Invalid array type? - internal error
+0001: [Internal Error - Call Xilinx]
+0002: Cannot open chip model file '%s'.
+0003: No such chip model '%s'. Supply proper model.
+#
+# 0024:Unexpected index after loading of functional unit
+0024: [Internal Error - Call Xilinx]
+# 0050: Cannot allocate frame
+0050: [Internal Error - may be out of memory]
+0075:Cannot open the log file (Check disk space, write protection, FILES=20 in config.sys)
+0076: [Internal Error - bitmap not found]
+# end of file
+

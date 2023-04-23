@@ -1,0 +1,453 @@
+AUTOMATIC PLACE AND ROUTE PROGRAM -- Version pre-5.0.0r
+Copyright (C) 1986-1994 by Xilinx, Inc.  All Rights Reserved.
+386|DOS-Extender 4.1 - Copyright (C) 1986-1993 Phar Lap Software, Inc.
+Sun Mar  6 11:47:15 1994
+ Input Design File: calc.lca
+         Part Type: 3020PC68
+       Speed Grade: -70
+ Guide Design File: (none)
+    Schematic File: calc.scp
+  Constraints File: (none)
+           Options: -a3 -r4 -s17091 -w -y
+Output Design File: calc.lca
+       Report File: calc.rpt
+      Message File: (none)
+    Placement time: 0 hrs, 1 mins, 53 secs
+      Routing time: 0 hrs, 1 mins, 18 secs
+Total elapsed time: 0 hrs, 3 mins, 22 secs
+
+FINAL RESULTS:
++------------------------------------------------------+---------------+
+|  Total:                                              |  Unrouted:    |
+|  Blks (CLBs IOBs TBUFs PLUPs CLKs OSCs)  Pins  Nets  |  Loads  Nets  |
+||   77    52   23     0     0    2    0    335    90  |      0     0  |
++------------------------------------------------------+---------------+
+
+
+Net Routing Order:
+    CLK, OSC_3K/Q, OSC_3K/QCLK, RST, ALU/ENOV, CONTROL/CE_ADDR, CE_ALU, G, 
+    ALU/MUXBLK5/U180/M23, CONTROL/STATMACH/PUSH, DEBOUNCE/DELAY3, OSC_3K/NSET, 
+    OSC_3K/U124/Q2, STACK/$U30_Q1, STACK/$U30_Q3, STACK/$U37_Q3, A, B, 
+    DEBOUNCE/DELAY1, EIN, STACK/$U37_Q0, STACK/U35/M23, ALU/MUXBLK5/U178/M23, 
+    ALU/MUXBLK5/U179/M01, ALU/MUXBLK5/U179/M23, ALU/MUXBLK5/U180/M01, C, 
+    STACK/$U30_Q0, STACK/$U30_Q2, STACK/$U31_Q1, STACK/$U36_Q0, STACK/$U36_Q2, 
+    STACK/$U37_Q2, ALU/U156/C1, CONTROL/UP_DN, WE, F, OSC_3K/NRESET, 
+    STACK/$U31_Q3, STACK/$U37_Q1, STACK/U33/M23, SW0, OSC_3K/U124/Q1, SW5, 
+    CONTROL/STATMACH/OP_CTL1, STACK/$U31_Q0, STACK/$U36_Q1, STACK/$U36_Q3, 
+    DEBOUNCE/DELAY2, OSC_3K/U124/Q0, SW4, ALU/DATA1, ALU/MUXBLK5/U178/M01, 
+    STACK/$U31_Q2, ALU/U156/C0, STACK/CEA, SW3, CONTROL/STATMACH/OTHER, 
+    OSC_3K/DIVQ, STACK/U34/M23, STACK/CEB, SW6, ALU/DATA2, E, STACK/CEC, 
+    STACK/CED, SW1, CTL2, STACK/U32/M23, ALU/U156/C2, SW2, CTL1, CTL3, 
+    ALU/DATA0, D, ADDR1, CTL0, EXC, ADDR0, ADD_SUB, STACK0, STACK3, ALU/DATA3, 
+    STACK1, STACK2, ALU0, ALU2, ALU1, OFL, ALU3
+
+
+Final Placement:
++------------------+------------+---------------------------------------------+
+|       Block Name |  Location  | Moved or Swapped Pins                       |
++------------------+------------+---------------------------------------------+
+|                A |         HF | A <-> B, D <-> E                            |
+|             ACLK |       ACLK |                                             |
+|          ADD_SUB |         EA | A -> D, B -> A, C -> B, D -> E              |
+|            ADDR0 |         GC |                                             |
+|        ALU/DATA0 |         GB | X <-> Y, A -> D, C -> A                     |
+|         ALU/ENOV |         BD | X <-> Y, A <-> C, B -> E, D -> B            |
+| ALU/MUXBLK5/U178 |         EC | X <-> Y, B -> E, D -> B, E -> D             |
+| ALU/MUXBLK5/U179 |         DD | X <-> Y, A -> B, B -> E, E -> A             |
+| ALU/MUXBLK5/U180 |         AE | A -> C, B <-> E, C -> D, D -> A             |
+|      ALU/U156/C0 |         ED | A -> E, B -> D, C -> A                      |
+|      ALU/U156/C1 |         DC | A -> E, C -> A, D -> C, E -> D              |
+|      ALU/U156/C2 |         DE | A <-> C                                     |
+|             ALU0 |         CD | B -> E, D -> B, E -> D                      |
+|             ALU1 |         CC | X <-> Y, B -> C, C -> E, E -> B             |
+|             ALU2 |         CE | X <-> Y, B -> E, C -> B, E -> C             |
+|             ALU3 |         BF | A -> E, B -> A, C -> D, D -> B, E -> C      |
+|                C |         HH | A <-> C                                     |
+|           CE_ALU |         FA | X <-> Y, A -> C, B -> A, C -> B, D <-> E    |
+|  CONTROL/CE_ADDR |         GA | X <-> Y, A -> C, B -> E, C -> B, D -> A,    |
+|                  |            | E -> D                                      |
+| CONTROL/STATMACH |         DB | X <-> Y, A <-> E                            |
+| CONTROL/STATMACH |         FB | X <-> Y, A -> E, D -> A, E -> D             |
+|             CTL0 |         EB | X <-> Y, A <-> D                            |
+|             CTL2 |         BC | A -> E                                      |
+|             CTL3 |         DA | X <-> Y, A <-> B, D <-> E                   |
+|  DEBOUNCE/DELAY1 |         BA | A -> E                                      |
+|  DEBOUNCE/DELAY3 |         CA |                                             |
+|                E |         CG | X <-> Y, A -> B, B -> C, C -> A, D <-> E    |
+|              EXC |         CB | B -> E, C -> B                              |
+|            EXC_P |        P11 |                                             |
+|                G |         CH | B -> E, C -> B                              |
+|             GCLK |       GCLK |                                             |
+|       LED/LED0_P |        P29 |                                             |
+|       LED/LED1_P |        P30 |                                             |
+|       LED/LED2_P |        P31 |                                             |
+|       LED/LED3_P |        P32 |                                             |
+|              OFL |         BE | X <-> Y, A -> D, B -> A, C -> B, D -> C     |
+|        OSC_3K/CQ |        P14 |                                             |
+|       OSC_3K/CQL |        P12 |                                             |
+|      OSC_3K/DIVQ |         AC | X <-> Y, B <-> D                            |
+|         OSC_3K/Q |         AA | A <-> B, C <-> E                            |
+|   OSC_3K/U124/Q0 |         BB |                                             |
+|   OSC_3K/U124/Q2 |         AB | B <-> D                                     |
+|    STACK/$U30_Q0 |         EG | X <-> Y, A <-> D, B <-> C                   |
+|    STACK/$U30_Q2 |         EE | X <-> Y, A -> D, B -> A, C -> B             |
+|    STACK/$U31_Q0 |         DG | X <-> Y, A -> E, B <-> C                    |
+|    STACK/$U31_Q2 |         DF | A <-> D, B <-> C                            |
+|    STACK/$U36_Q0 |         HG | X <-> Y, A -> E, B <-> C                    |
+|    STACK/$U36_Q2 |         HE | X <-> Y, A -> E, B -> A, C -> B             |
+|    STACK/$U37_Q0 |         FG | A <-> E, B <-> C                            |
+|    STACK/$U37_Q2 |         GD | X <-> Y, B <-> C                            |
+|        STACK/CEA |         FE | X <-> Y, A -> E, B -> C, C -> A             |
+|        STACK/CEC |         FD | A -> B, B -> D, C -> A                      |
+|    STACK/U32/M23 |         EF | X <-> Y, B -> D, C -> B                     |
+|    STACK/U33/M23 |         FF | X <-> Y, A <-> B, C <-> E                   |
+|    STACK/U34/M23 |         EH | B -> D, C -> B                              |
+|    STACK/U35/M23 |         FH | X <-> Y, A <-> B, C <-> E                   |
+|           STACK0 |         GH | X <-> Y, A -> D, D -> E, E -> A             |
+|           STACK1 |         GG | X <-> Y, A -> D, B -> A, D -> E, E -> B     |
+|           STACK2 |         GF | X <-> Y, A -> D, D -> E, E -> A             |
+|           STACK3 |         GE | A -> D, D -> E, E -> A                      |
+|        SW7/SW0_P |        P24 |                                             |
+|        SW7/SW1_P |        P23 |                                             |
+|        SW7/SW2_P |        P21 |                                             |
+|        SW7/SW3_P |        P19 |                                             |
+|        SW7/SW4_P |        P17 |                                             |
+|        SW7/SW5_P |        P15 |                                             |
+|        SW7/SW6_P |        P13 |                                             |
+|               WE |         FC | A <-> E                                     |
+|         7SEG/A_P |        P38 |                                             |
+|         7SEG/B_P |        P39 |                                             |
+|         7SEG/C_P |        P40 |                                             |
+|         7SEG/D_P |        P56 |                                             |
+|         7SEG/E_P |        P49 |                                             |
+|         7SEG/F_P |        P53 |                                             |
+|         7SEG/G_P |        P55 |                                             |
+|        7SEG/G_P2 |        P47 |                                             |
+|       7SEG/OFL_P |        P28 |                                             |
++------------------+------------+---------------------------------------------+
+
+
+Flagged Blocks:
++------------------+----------------------------------------------------------+
+|       Block Name | Flags                                                    |
++------------------+----------------------------------------------------------+
+|            EXC_P | Locked External                                          |
+|       LED/LED0_P | Locked External                                          |
+|       LED/LED1_P | Locked External                                          |
+|       LED/LED2_P | Locked External                                          |
+|       LED/LED3_P | Locked External                                          |
+|        OSC_3K/CQ | Locked External                                          |
+|       OSC_3K/CQL | Locked External                                          |
+|        SW7/SW0_P | Locked External                                          |
+|        SW7/SW1_P | Locked External                                          |
+|        SW7/SW2_P | Locked External                                          |
+|        SW7/SW3_P | Locked External                                          |
+|        SW7/SW4_P | Locked External                                          |
+|        SW7/SW5_P | Locked External                                          |
+|        SW7/SW6_P | Locked External                                          |
+|         7SEG/A_P | Locked External                                          |
+|         7SEG/B_P | Locked External                                          |
+|         7SEG/C_P | Locked External                                          |
+|         7SEG/D_P | Locked External                                          |
+|         7SEG/E_P | Locked External                                          |
+|         7SEG/F_P | Locked External                                          |
+|         7SEG/G_P | Locked External                                          |
+|        7SEG/G_P2 | Locked External                                          |
+|       7SEG/OFL_P | Locked External                                          |
++------------------+----------------------------------------------------------+
+
+
+Worst Case Net Delays: (using -70 Speed Grade)
+Speeds File: Version 3000.1 Revision 3020.2
+-------------------------------------------------------------------------------
+    Net Name         Source Pins        Delay Load Pins
+-------------------------------------------------------------------------------
+--- A . . . . . . .  HF.X (A) . . . . .   3.4 P38.O (7SEG/A_P)
+--- ADD_SUB . . . .  EA.X (ADD_SUB) . .  13.0 ED.E (ALU/U156/C0)
+                                         10.8 DE.C (ALU/U156/C2)
+                                         13.5 DC.E (ALU/U156/C1)
+                                          4.0 EB.D (CTL0)
+                                         13.5 BC.E (CTL2)
+                                         16.2 AE.E (ALU/MUXBLK5/U180/M01)
+                                         13.0 DD.E (ALU/MUXBLK5/U179/M01)
+                                         13.5 EC.E (ALU/MUXBLK5/U178/M01)
+                                         16.7 BE.D (OFL)
+--- ADDR0 . . . . .  GC.X (ADDR0) . . .   8.8 FH.A (STACK/U35/M23)
+                                         11.3 EH.D (STACK/U34/M23)
+                                          8.8 FF.A (STACK/U33/M23)
+                                         11.2 EF.D (STACK/U32/M23)
+                                          8.8 FD.A (STACK/CEC)
+                                          8.8 FE.A (STACK/CEA)
+                                         10.3 GH.C (STACK0)
+                                          7.8 GG.C (STACK1)
+                                          7.2 GF.C (STACK2)
+                                          6.2 GE.C (STACK3)
+--- ADDR1 . . . . .  GC.Y (ADDR0) . . .   3.4 FD.D (STACK/CEC)
+                                          4.0 FE.C (STACK/CEA)
+                                          7.5 GH.D (STACK0)
+                                          7.5 GG.D (STACK1)
+                                          7.5 GF.D (STACK2)
+                                          7.5 GE.D (STACK3)
+--- ALU/DATA0 . . .  GB.Y (ALU/DATA0) .   7.3 ED.D (ALU/U156/C0)
+                                          8.9 CD.D (ALU0)
+--- ALU/DATA1 . . .  EB.X (CTL0). . . .   6.5 DC.B (ALU/U156/C1)
+                                          6.5 EC.B (ALU/MUXBLK5/U178/M01)
+                                          6.5 CC.B (ALU1)
+--- ALU/DATA2 . . .  DB.X (CONTROL/STATMACH/OP_CTL1)
+                                          6.1 DE.B (ALU/U156/C2)
+                                          5.0 DD.D (ALU/MUXBLK5/U179/M01)
+                                          6.7 CE.C (ALU2)
+--- ALU/DATA3 . . .  EA.Y (ADD_SUB) . .  16.6 AE.A (ALU/MUXBLK5/U180/M01)
+                                         12.3 BE.A (OFL)
+                                         16.7 BF.C (ALU3)
+--- ALU/ENOV. . . .  BD.Y (ALU/ENOV). .   2.5 BE.EC (OFL)
+--- ALU/MUXBLK5/U178/M01
+                     EC.Y (ALU/MUXBLK5/U178/M01)
+                                          4.2 CC.C (ALU1)
+--- ALU/MUXBLK5/U178/M23
+                     DC.Y (ALU/U156/C1)   1.0 CC.D (ALU1)
+--- ALU/MUXBLK5/U179/M01
+                     DD.Y (ALU/MUXBLK5/U179/M01)
+                                          3.3 CE.E (ALU2)
+--- ALU/MUXBLK5/U179/M23
+                     DE.Y (ALU/U156/C2)   1.0 CE.D (ALU2)
+--- ALU/MUXBLK5/U180/M01
+                     AE.X (ALU/MUXBLK5/U180/M01)
+                                          2.3 BF.A (ALU3)
+--- ALU/MUXBLK5/U180/M23
+                     BE.X (OFL)           1.0 BF.B (ALU3)
+--- ALU/U156/C0 . .  ED.X (ALU/U156/C0)   4.3 DC.C (ALU/U156/C1)
+                                          1.3 EC.C (ALU/MUXBLK5/U178/M01)
+--- ALU/U156/C1 . .  DC.X (ALU/U156/C1)   3.4 DE.D (ALU/U156/C2)
+                                          2.9 DD.C (ALU/MUXBLK5/U179/M01)
+--- ALU/U156/C2 . .  DE.X (ALU/U156/C2)   7.3 AE.D (ALU/MUXBLK5/U180/M01)
+                                          6.4 BE.C (OFL)
+--- ALU0. . . . . .  CD.X (ALU0). . . .   8.6 ED.A (ALU/U156/C0)
+                                         10.0 CH.D (G)
+                                         14.5 CG.C (E)
+                                         17.0 HH.A (C)
+                                         19.7 HF.B (A)
+                                         14.5 FG.C (STACK/$U37_Q0)
+                                         14.5 HG.C (STACK/$U36_Q0)
+                                         14.5 DG.C (STACK/$U31_Q0)
+                                         14.5 EG.C (STACK/$U30_Q0)
+--- ALU1. . . . . .  CC.Y (ALU1). . . .   9.4 CH.A (G)
+                                          1.7 DC.A (ALU/U156/C1)
+                                         13.8 CG.B (E)
+                                         16.7 HH.C (C)
+                                         16.7 HF.C (A)
+                                         14.4 EC.D (ALU/MUXBLK5/U178/M01)
+                                         13.8 FG.B (STACK/$U37_Q0)
+                                         13.8 HG.B (STACK/$U36_Q0)
+                                         13.8 DG.B (STACK/$U31_Q0)
+                                         13.8 EG.B (STACK/$U30_Q0)
+--- ALU2. . . . . .  CE.Y (ALU2). . . .   6.2 CH.E (G)
+                                          2.2 DE.A (ALU/U156/C2)
+                                          5.7 CG.E (E)
+                                         16.0 HH.B (C)
+                                         11.4 HF.E (A)
+                                          8.6 DD.A (ALU/MUXBLK5/U179/M01)
+                                         15.9 GD.C (STACK/$U37_Q2)
+                                         15.3 HE.A (STACK/$U36_Q2)
+                                         11.4 DF.C (STACK/$U31_Q2)
+                                          7.5 EE.A (STACK/$U30_Q2)
+--- ALU3. . . . . .  BF.X (ALU3). . . .   7.4 CH.B (G)
+                                          3.5 CG.A (E)
+                                          9.4 HH.D (C)
+                                         15.4 HF.A (A)
+                                         11.2 AE.B (ALU/MUXBLK5/U180/M01)
+                                         11.2 BE.B (OFL)
+                                         14.4 GD.B (STACK/$U37_Q2)
+                                         11.2 HE.B (STACK/$U36_Q2)
+                                          7.9 DF.B (STACK/$U31_Q2)
+                                         11.2 EE.B (STACK/$U30_Q2)
+--- B . . . . . . .  HF.Y (A) . . . . .   1.0 P39.O (7SEG/B_P)
+--- C . . . . . . .  HH.X (C) . . . . .   4.6 P40.O (7SEG/C_P)
+--- CE_ALU. . . . .  FA.Y (CE_ALU). . .  14.0 BD.C (ALU/ENOV)
+                                         16.6 BF.EC (ALU3)
+                                         15.2 CE.EC (ALU2)
+                                          9.9 CC.EC (ALU1)
+                                         14.0 CD.EC (ALU0)
+--- CLK . . . . . .  GCLK.O . . . . . .   2.9 FC.K (WE)
+                                          2.8 FB.K (CONTROL/STATMACH/PUSH)
+                                          2.9 GC.K (ADDR0)
+                                          3.0 BE.K (OFL)
+                                          2.9 BF.K (ALU3)
+                                          3.0 CE.K (ALU2)
+                                          2.9 CC.K (ALU1)
+                                          2.9 CD.K (ALU0)
+                                          2.9 GD.K (STACK/$U37_Q2)
+                                          3.0 FG.K (STACK/$U37_Q0)
+                                          3.0 HE.K (STACK/$U36_Q2)
+                                          3.0 HG.K (STACK/$U36_Q0)
+                                          2.9 DF.K (STACK/$U31_Q2)
+                                          3.0 DG.K (STACK/$U31_Q0)
+                                          3.0 EE.K (STACK/$U30_Q2)
+                                          3.0 EG.K (STACK/$U30_Q0)
+                                          2.9 CA.K (DEBOUNCE/DELAY3)
+                                          2.9 BA.K (DEBOUNCE/DELAY1)
+                                          3.1 P13.IK (SW7/SW6_P)
+                                          3.1 P15.IK (SW7/SW5_P)
+                                          3.1 P17.IK (SW7/SW4_P)
+                                          3.1 P19.IK (SW7/SW3_P)
+                                          3.1 P21.IK (SW7/SW2_P)
+                                          3.1 P23.IK (SW7/SW1_P)
+                                          3.1 P24.IK (SW7/SW0_P)
+--- CONTROL/CE_ADDR  GA.Y (CONTROL/CE_ADDR)
+                                          3.3 GC.EC (ADDR0)
+--- CONTROL/STATMACH/OP_CTL1
+                     DB.Y (CONTROL/STATMACH/OP_CTL1)
+                                          4.5 BC.B (CTL2)
+--- CONTROL/STATMACH/OTHER
+                     FC.Y (WE)            6.3 FA.A (CE_ALU)
+--- CONTROL/STATMACH/PUSH
+                     FB.Y (CONTROL/STATMACH/PUSH)
+                                          2.5 FC.E (WE)
+--- CONTROL/UP_DN .  FB.X (CONTROL/STATMACH/PUSH)
+                                          1.1 FC.B (WE)
+                                          2.5 GC.A (ADDR0)
+--- CTL0. . . . . .  EB.Y (CTL0). . . .  11.4 BD.B (ALU/ENOV)
+                                         11.6 DE.E (ALU/U156/C2)
+                                          3.9 DC.D (ALU/U156/C1)
+                                         11.6 AE.C (ALU/MUXBLK5/U180/M01)
+                                         11.4 DD.B (ALU/MUXBLK5/U179/M01)
+                                          7.1 EC.A (ALU/MUXBLK5/U178/M01)
+                                         11.6 BE.E (OFL)
+                                         11.4 CD.B (ALU0)
+--- CTL1. . . . . .  BC.Y (CTL2). . . .   3.5 BD.A (ALU/ENOV)
+                                          8.3 BF.D (ALU3)
+                                          7.7 CE.B (ALU2)
+                                          8.7 CC.E (ALU1)
+                                          5.7 CD.E (ALU0)
+--- CTL2. . . . . .  BC.X (CTL2). . . .   3.1 BD.E (ALU/ENOV)
+                                          4.5 BF.E (ALU3)
+                                          9.3 CE.A (ALU2)
+                                          9.3 CC.A (ALU1)
+                                          9.3 CD.A (ALU0)
+--- CTL3. . . . . .  DA.Y (CTL3). . . .   8.8 GB.B (ALU/DATA0)
+                                          8.8 EB.B (CTL0)
+                                          8.8 DB.B (CONTROL/STATMACH/OP_CTL1)
+                                          1.8 EA.A (ADD_SUB)
+                                          9.7 GA.C (CONTROL/CE_ADDR)
+                                          9.1 FA.E (CE_ALU)
+                                          8.8 FB.B (CONTROL/STATMACH/PUSH)
+--- D . . . . . . .  HH.Y (C) . . . . .   1.2 P47.O (7SEG/G_P2)
+                                          8.9 P56.O (7SEG/D_P)
+--- DEBOUNCE/DELAY1  BA.X (DEBOUNCE/DELAY1)
+                                          2.5 CB.A (EXC)
+--- DEBOUNCE/DELAY2  BA.Y (DEBOUNCE/DELAY1)
+                                          3.1 CB.E (EXC)
+                                          1.2 CA.A (DEBOUNCE/DELAY3)
+--- DEBOUNCE/DELAY3  CA.X (DEBOUNCE/DELAY3)
+                                          1.0 CB.B (EXC)
+--- E . . . . . . .  CG.Y (E) . . . . .   7.6 P49.O (7SEG/E_P)
+--- EIN . . . . . .  P11.I (EXC_P). . .   3.1 BA.E (DEBOUNCE/DELAY1)
+--- EXC . . . . . .  CB.X (EXC) . . . .  10.9 DA.E (CTL3)
+                                         14.2 GA.E (CONTROL/CE_ADDR)
+                                         13.5 FA.C (CE_ALU)
+                                          7.5 FB.A (CONTROL/STATMACH/PUSH)
+--- F . . . . . . .  CG.X (E) . . . . .   3.3 P53.O (7SEG/F_P)
+--- G . . . . . . .  CH.X (G) . . . . .   1.0 P55.O (7SEG/G_P)
+--- OFL . . . . . .  BE.Y (OFL) . . . .  14.4 P28.O (7SEG/OFL_P)
+--- OSC_3K/DIVQ . .  AC.Y (OSC_3K/DIVQ)   7.0 GCLK.I
+--- OSC_3K/NRESET .  P14.I (OSC_3K/CQ).   4.7 AA.B (OSC_3K/Q)
+--- OSC_3K/NSET . .  P12.I (OSC_3K/CQL)   2.5 AA.E (OSC_3K/Q)
+--- OSC_3K/Q. . . .  AA.X (OSC_3K/Q). .   7.2 AA.A (OSC_3K/Q)
+                                          6.2 P12.O (OSC_3K/CQL)
+                                          6.2 P12.T (OSC_3K/CQL)
+                                          6.2 P14.O (OSC_3K/CQ)
+                                          6.2 P14.T (OSC_3K/CQ)
+                                         13.2 ACLK.I
+--- OSC_3K/QCLK . .  ACLK.O . . . . . .   2.8 AC.K (OSC_3K/DIVQ)
+                                          2.9 AB.K (OSC_3K/U124/Q2)
+                                          2.9 BB.K (OSC_3K/U124/Q0)
+--- OSC_3K/U124/Q0.  BB.X (OSC_3K/U124/Q0)
+                                          4.0 AC.A (OSC_3K/DIVQ)
+                                          4.5 AB.A (OSC_3K/U124/Q2)
+--- OSC_3K/U124/Q1.  BB.Y (OSC_3K/U124/Q0)
+                                          2.5 AC.D (OSC_3K/DIVQ)
+                                          1.1 AB.D (OSC_3K/U124/Q2)
+--- OSC_3K/U124/Q2.  AB.X (OSC_3K/U124/Q2)
+                                          1.0 AC.B (OSC_3K/DIVQ)
+--- RST . . . . . .  DA.X (CTL3). . . .  20.8 BE.RD (OFL)
+                                         20.8 BF.RD (ALU3)
+                                         11.5 CE.RD (ALU2)
+                                         11.5 CC.RD (ALU1)
+                                         11.5 CD.RD (ALU0)
+--- STACK/$U30_Q0 .  EG.Y (STACK/$U30_Q0)
+                                          3.3 FH.E (STACK/U35/M23)
+--- STACK/$U30_Q1 .  EG.X (STACK/$U30_Q0)
+                                          1.0 EH.B (STACK/U34/M23)
+--- STACK/$U30_Q2 .  EE.Y (STACK/$U30_Q2)
+                                          3.3 FF.E (STACK/U33/M23)
+--- STACK/$U30_Q3 .  EE.X (STACK/$U30_Q2)
+                                          1.0 EF.B (STACK/U32/M23)
+--- STACK/$U31_Q0 .  DG.Y (STACK/$U31_Q0)
+                                          4.2 FH.B (STACK/U35/M23)
+--- STACK/$U31_Q1 .  DG.X (STACK/$U31_Q0)
+                                          2.5 EH.A (STACK/U34/M23)
+--- STACK/$U31_Q2 .  DF.X (STACK/$U31_Q2)
+                                          4.7 FF.B (STACK/U33/M23)
+--- STACK/$U31_Q3 .  DF.Y (STACK/$U31_Q2)
+                                          1.0 EF.A (STACK/U32/M23)
+--- STACK/$U36_Q0 .  HG.Y (STACK/$U36_Q0)
+                                          3.3 GH.E (STACK0)
+--- STACK/$U36_Q1 .  HG.X (STACK/$U36_Q0)
+                                          3.4 GG.E (STACK1)
+--- STACK/$U36_Q2 .  HE.Y (STACK/$U36_Q2)
+                                          3.3 GF.E (STACK2)
+--- STACK/$U36_Q3 .  HE.X (STACK/$U36_Q2)
+                                          3.2 GE.E (STACK3)
+--- STACK/$U37_Q0 .  FG.X (STACK/$U37_Q0)
+                                          2.3 GH.B (STACK0)
+--- STACK/$U37_Q1 .  FG.Y (STACK/$U37_Q0)
+                                          1.0 GG.A (STACK1)
+--- STACK/$U37_Q2 .  GD.Y (STACK/$U37_Q2)
+                                          3.4 GF.B (STACK2)
+--- STACK/$U37_Q3 .  GD.X (STACK/$U37_Q2)
+                                          1.0 GE.B (STACK3)
+--- STACK/CEA . . .  FE.Y (STACK/CEA) .   1.2 EE.D (STACK/$U30_Q2)
+                                          3.4 EG.D (STACK/$U30_Q0)
+--- STACK/CEB . . .  FE.X (STACK/CEA) .   6.0 DF.D (STACK/$U31_Q2)
+                                          6.5 DG.E (STACK/$U31_Q0)
+--- STACK/CEC . . .  FD.X (STACK/CEC) .   7.2 HE.E (STACK/$U36_Q2)
+                                          8.9 HG.E (STACK/$U36_Q0)
+--- STACK/CED . . .  FD.Y (STACK/CEC) .   1.4 GD.A (STACK/$U37_Q2)
+                                          4.9 FG.E (STACK/$U37_Q0)
+--- STACK/U32/M23 .  EF.Y (STACK/U32/M23)
+                                          6.2 GE.A (STACK3)
+--- STACK/U33/M23 .  FF.Y (STACK/U33/M23)
+                                          1.0 GF.A (STACK2)
+--- STACK/U34/M23 .  EH.X (STACK/U34/M23)
+                                          6.3 GG.B (STACK1)
+--- STACK/U35/M23 .  FH.Y (STACK/U35/M23)
+                                          1.0 GH.A (STACK0)
+--- STACK0. . . . .  GH.Y (STACK0). . .   5.6 GB.A (ALU/DATA0)
+                                         10.5 P29.O (LED/LED0_P)
+--- STACK1. . . . .  GG.Y (STACK1). . .  12.4 EB.E (CTL0)
+                                          9.5 P30.O (LED/LED1_P)
+--- STACK2. . . . .  GF.Y (STACK2). . .  10.3 DB.D (CONTROL/STATMACH/OP_CTL1)
+                                         11.5 P31.O (LED/LED2_P)
+--- STACK3. . . . .  GE.X (STACK3). . .  10.9 EA.E (ADD_SUB)
+                                          7.4 P32.O (LED/LED3_P)
+--- SW0 . . . . . .  P24.Q (SW7/SW0_P).   4.6 GB.D (ALU/DATA0)
+--- SW1 . . . . . .  P23.Q (SW7/SW1_P).   7.6 EB.C (CTL0)
+                                          3.9 GA.D (CONTROL/CE_ADDR)
+                                          6.7 FA.D (CE_ALU)
+                                          7.0 FB.D (CONTROL/STATMACH/PUSH)
+--- SW2 . . . . . .  P21.Q (SW7/SW2_P).   6.4 DB.C (CONTROL/STATMACH/OP_CTL1)
+                                          3.6 GA.A (CONTROL/CE_ADDR)
+                                          5.1 FB.C (CONTROL/STATMACH/PUSH)
+--- SW3 . . . . . .  P19.Q (SW7/SW3_P).   6.4 EA.B (ADD_SUB)
+                                          6.4 GA.B (CONTROL/CE_ADDR)
+                                          6.4 FA.B (CE_ALU)
+                                          6.2 FB.E (CONTROL/STATMACH/PUSH)
+--- SW4 . . . . . .  P17.Q (SW7/SW4_P).   3.3 EB.A (CTL0)
+                                          2.8 DA.C (CTL3)
+--- SW5 . . . . . .  P15.Q (SW7/SW5_P).   3.5 DB.E (CONTROL/STATMACH/OP_CTL1)
+                                          3.1 DA.A (CTL3)
+--- SW6 . . . . . .  P13.Q (SW7/SW6_P).   7.0 EA.D (ADD_SUB)
+                                          6.4 DA.B (CTL3)
+--- WE. . . . . . .  FC.X (WE). . . . .   1.2 FD.B (STACK/CEC)
+                                          3.1 FE.E (STACK/CEA)
+-------------------------------------------------------------------------------

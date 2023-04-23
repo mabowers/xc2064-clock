@@ -1,0 +1,70 @@
+`F  1.00 ofdt8
+`B "1" "1" "B" "    March  5, 1993" "" "A" 
+"XC4000 Family OFDT8 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "T"
+`P I "C"
+`P O "O0"
+`P O "O1"
+`P O "O2"
+`P O "O3"
+`P O "O4"
+`P O "O5"
+`P O "O6"
+`P O "O7"
+`P I "D0"
+`P I "D1"
+`P I "D2"
+`P I "D3"
+`P I "D4"
+`P I "D5"
+`P I "D6"
+`P I "D7"
+`E XC4000.LIB
+`I R "OFDT" XC4000.LIB "OFDT" C8671D3F  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDT" XC4000.LIB "OFDT" C8671D54  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDT" XC4000.LIB "OFDT" C8671D73  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDT" XC4000.LIB "OFDT" C8671D86  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDT" XC4000.LIB "OFDT" C8671DC3  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDT" XC4000.LIB "OFDT" C8671DD8  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDT" XC4000.LIB "OFDT" C8671DEB  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDT" XC4000.LIB "OFDT" C8671E17  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`J ( R U1 "T" I ) ( R U2 "T" I ) ( R U3 "T" I ) ( R U4 "T" I ) 
+( R U5 "T" I ) ( R U6 "T" I ) ( R U7 "T" I ) ( R U8 "T" I ) ( P I "T" ) 
+`J ( P I "D0" ) ( R U1 "D" I ) 
+`J ( P O "O0" ) ( R U1 "O" T ) 
+`J ( R U1 "C" I ) ( R U2 "C" I ) ( R U3 "C" I ) ( R U4 "C" I ) 
+( R U5 "C" I ) ( R U6 "C" I ) ( R U7 "C" I ) ( R U8 "C" I ) ( P I "C" ) 
+`J ( P I "D1" ) ( R U2 "D" I ) 
+`J ( P O "O1" ) ( R U2 "O" T ) 
+`J ( P I "D2" ) ( R U3 "D" I ) 
+`J ( P O "O2" ) ( R U3 "O" T ) 
+`J ( P I "D3" ) ( R U4 "D" I ) 
+`J ( P O "O3" ) ( R U4 "O" T ) 
+`J ( P I "D4" ) ( R U5 "D" I ) 
+`J ( P O "O4" ) ( R U5 "O" T ) 
+`J ( P I "D5" ) ( R U6 "D" I ) 
+`J ( P O "O5" ) ( R U6 "O" T ) 
+`J ( P I "D6" ) ( R U7 "D" I ) 
+`J ( P O "O6" ) ( R U7 "O" T ) 
+`J ( P I "D7" ) ( R U8 "D" I ) 
+`J ( P O "O7" ) ( R U8 "O" T ) 

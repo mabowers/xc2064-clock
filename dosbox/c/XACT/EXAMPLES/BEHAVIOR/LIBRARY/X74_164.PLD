@@ -1,0 +1,54 @@
+TITLE           Shift Register: 8-bit, serial in, async-clear
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/4/93
+
+CHIP            X74_164  COMPONENT
+ 
+;Inputs
+a b ck /clr
+
+; a,b           parallel-load data
+; ck            clock (optional FastCLK)
+; clr           async clear
+ 
+;Outputs
+qa qb qc qd qe qf qg qh
+
+; qa..qh        counter output
+
+EQUATIONS 
+
+qh       := qg
+qh.clkf   = ck
+qh.rstf   = clr
+
+qg       := qf
+qg.clkf   = ck
+qg.rstf   = clr
+
+qf       := qe
+qf.clkf   = ck
+qf.rstf   = clr
+
+qe       := qd
+qe.clkf   = ck
+qe.rstf   = clr
+
+qd       := qc
+qd.clkf   = ck
+qd.rstf   = clr
+
+qc       := qb
+qc.clkf   = ck
+qc.rstf   = clr
+
+qb       := qa
+qb.clkf   = ck
+qb.rstf   = clr
+
+qa       := a*b
+qa.clkf   = ck
+qa.rstf   = clr

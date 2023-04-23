@@ -1,0 +1,49 @@
+`F  1.00 iopad8
+`B "1" "1" "A" "  January 28, 1994" "" "A" 
+"XC4000 Family IOPAD8 Macro" "Xilinx"
+""
+""
+""
+""
+`P B "IO0"
+`P B "IO1"
+`P B "IO2"
+`P B "IO3"
+`P B "IO4"
+`P B "IO5"
+`P B "IO6"
+`P B "IO7"
+`E XC4000.LIB
+`E XBLOX.LIB
+`I R "IOPAD" XC4000.LIB "IOPAD" C861369A  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC4000.LIB "IOPAD" C86136B6  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC4000.LIB "IOPAD" C86136B8  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC4000.LIB "IOPAD" C86136E2  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC4000.LIB "IOPAD" C8618090  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC4000.LIB "IOPAD" C8618090  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC4000.LIB "IOPAD" C8618090  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC4000.LIB "IOPAD" C8618090  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`J ( P B "IO0" ) ( R U1 "IO" B ) 
+`J ( P B "IO1" ) ( R U2 "IO" B ) 
+`J ( P B "IO2" ) ( R U3 "IO" B ) 
+`J ( P B "IO3" ) ( R U4 "IO" B ) 
+`J ( P B "IO4" ) ( R U5 "IO" B ) 
+`J ( P B "IO5" ) ( R U6 "IO" B ) 
+`J ( P B "IO6" ) ( R U7 "IO" B ) 
+`J ( P B "IO7" ) ( R U8 "IO" B ) 

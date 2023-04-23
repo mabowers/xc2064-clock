@@ -1,0 +1,60 @@
+GENERAL INFORMATION:
+
+Design:              UARTTOP
+Compatible software: OrCAD SDT 386+ and VST 386+ (OrCAD IV is not compatible)
+                     XEPLD fitter from XACT v5.0
+                     Xilinx OrCAD Interface v5.0
+
+Platform:            PC
+Target device:       XC7354-68 or larger (any speed)
+
+The UARTTOP tutorial demonstrates a purely schematic-based EPLD design flow.
+The logic of a UART receiver is expressed by a hierarchical OrCAD schematic. 
+The UARTTOP schematic contains a sheet symbol representing the control logic 
+defined in the RCVRSUB schematic. (The UARTTOP design contains the same logic 
+as the PAL-based UART design.)
+
+FUNCTIONAL SIMULATION FLOW:
+
+The UARTTOP tutorial directory contains OrCAD VST stimulus and trace files for 
+running functional simulation on the UARTTOP design before it is implemented. 
+A functional simulation netlist is generated from the UARTTOP and RCVRSUB 
+schematics using the XSIMMAKE command as follows:
+
+  1. In XDM, select Verify -> XSIMMAKE.
+  2. Select the "-F" option and select "Orcad_EPLD_Func"; then Done.
+  3. Select uarttop.sch from the list of design names.
+
+XSIMMAKE generates an OrCAD simulation netlist, uarttop.vst. You can now invoke 
+the OrCAD VST simulator and apply the uarttop.stm (stimulus) and uarttop.trc 
+(trace) files. Be sure to specify uarttop.vst as the name of the connectivity 
+database in your VST configuration. To view the simulation results:
+
+  1. In VST, select Trace -> Change View and enter 1100.
+  2. Select Run Simulation and enter 110000 as the simulation length.
+
+DESIGN IMPLEMENTATION FLOW:
+
+The UARTTOP schematic is converted into an xnf netlist and read into the 
+XEPLD software using the XEMAKE command as follows:
+
+  1. In XDM, select Translate -> XEMAKE.
+  2. Select Done when options are listed.
+  3. Select "uarttop.sch" from the list of design names.
+  4. Select "Make design database" as the target.
+
+XEMAKE automatically invokes the SDT interface, which generates the xnf 
+netlist file. It then invokes the EPLD fitter (FITNET) to implement the 
+design. The fitter generates a design database file (uarttop.vmh) representing 
+the implemented design. The fitter produces several report files, including 
+Resources (.res), Mapping (.map), Pinlist (.pin), and Partitioning (.par), all 
+provided in this directory as examples (uarttop.*). You can now proceed with 
+timing simulation of the implemented design using the same procedure as 
+described for the UART tutorial design.
+
+DOCUMENTATION REFERENCE:
+
+A complete description of the UARTTOP design tutorial is provided in Session 6 
+of the XEPLD OrCAD Tutorial chapter of the Xilinx OrCAD Interface User Guide.
+
+

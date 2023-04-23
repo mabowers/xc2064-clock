@@ -1,0 +1,130 @@
+# @(#)PPI.TXT	3.23 Copyright(C)1992 Xilinx Inc. 5/4/94 23:55:40
+# file: ppi.msg
+# date: 6/29/90; 8/09/90;
+# what: Xilinx EPLD database error messages - user file
+# Z. K.
+#
+0000:PPI information messages -------------------------------------
+0001: Net %s does not have a sink. Net is ignored.
+0002: Net %s does not have a source. Net is ignored.
+0003: Net %s is empty. Net is ignored.
+# 0004:instance: %s type:%s[cid=%d]
+0004:instance: %s type:%s
+0005:instance: %s type:%s: COMPONENT IS NOT FOUND IN A LIBRARY
+0006:Created an input port to connect %s...
+0007:Created an output port to connect %s...
+0008:Created a bi-directional port to connect %s...
+0009:Non-Xilinx EPLD port detected (name=%s type=%s)
+0010:Pin '%s:%s' is tristated and driving an OBUF(E). The tristate
+    will affect the pad.
+#
+1000:PPI warning messages -----------------------------------------
+# 1001:NULL component name parameter given to ppi_load_component!
+1001: [Internal Error - NULL parameter].
+1002:Created a bi-directional port to connect %s...
+1003:Created an input port to connect %s...
+1004:Created an output port to connect %s...
+1005:Pad buffer '%s' is unconnected. It is removed !
+1006:Property '%s' is unrecognized and will be ignored.
+Actual results may differ from your intended results. Check spelling
+or specify another XEPLD-supported schematic property after integration.
+1007:Property '%s' is unsupported for this chip and will be ignored.
+1008:Netlist file '%s' 
+   looks like a simulation netlist file !
+   Regenerate the netlist from the schematic if this is the case.
+#
+2000:PPI error messages -------------------------------------------
+2001:Invalid Parameter.
+2002:No INPUT Port Component.
+2003:No IO Port Component.
+2004:No OUTPUT Port Component.
+2005:No DESIGN found.
+2006:No INSTANCES found.
+2007:No COMPONENTS found.
+2008:No NETS found.
+     Your schematic capture tool probably generated an unsupported format.
+     This can happen:
+        a) if you have the wrong schematic capture tool selected
+        b) if you use strange characters within label names
+        c) if you use an unsupported version of a schematic capture tool
+2009:Invalid Port Direction.
+2010:Port Not Found.
+# 2011:USR Array Not Allocated
+2011: [Internal Error - may be out of memory].
+# 2012:PPI Not Enough Memory
+2012: Not Enough Memory.
+#
+2013:[Internal Error: No OUTPUT pin found on input port %s].
+2014:[Internal Error - Invalid INPUT port component].
+2015:[Internal Error: Cannot create INPUT port instance].
+2016:[Internal error: No INPUT pin found on output port %s]
+2018:[Internal Error: Cannot create OUTPUT port instance].
+2017:[Internal error: Invalid OUTPUT port component].
+2019:[Internal Error: No OUTPUT pin found on i/o port %s].
+2020:[Internal error: No INPUT pin found on i/o port %s].
+2021:[Internal Error: Invalid I/O port component].
+2022:[Internal error: Cannot create I/O port instance].
+#
+2023:Out Of Memory.
+2024:[Internal Error: Cannot OPEN COMPONENT DATABASE].
+2025:Cannot FLATTEN Component!
+# 2026:Cannot get current file handle!	
+2026: [Internal error in file processing].
+2027:[Internal Error - No FILENAME supplied].
+# 2028:No USER Environment space!
+2028: [Internal Error - may be out of memory].		
+2029:Cannot find PLD '%s'! Make sure the component is assembled!
+2030:No FAST CLOCK Port Component
+2031:Invalid netlist file! (syntax error or incomplete or nonexistent)
+     Your schematic capture tool generated some unsupported syntax.
+     This can happen:
+        a) for Workview if you have a library alias in your viewdraw.ini
+        b) if you use strange characters within label names
+        c) if you use an unsupported version of a schematic capture tool
+2032:This component %s is not supported for this chip!
+2033:There is a '%s' -component missing property PLD!
+2034:Xnf-reader: %s
+2035:Cannot open input netlist file '%s'!
+2036:Cannot find the BUF component in the component library !
+    Make sure that the component library is installed in the correct directory.
+2037:Current schematic design has no external pad connections !
+2038:Component '%s' is directly connected to an External Pad !
+    Only i/o buffer components may connect to External Pads.
+2039: Netlist file '%s'
+is not in a proper XNF format. It does not start with a LCANET version record !
+2040: The instance '%s' of component type '%s' is not supported or
+      the netlist was not generated with the XC7000 library.
+2041: There are multiple output buffers connected to net '%s'.
+      Only 1 output buffer is allowed.
+2042: There are multiple input buffers connected to net '%s'. 
+      There may only be at most 2 buffers: an IBUF used with an IFD,
+      IFDX1 or ILD component.
+2043: The input buffers connected to net '%s' can not be used together.
+      The only valid combination of input buffers is an IBUF used with an
+      IFD, IFDX1 or ILD component.
+2044: Illegal connection between VCC and output buffer '%s'. 
+      Insert a BUF component to generate a constant-driven output pin.
+2045: Illegal connection between GND and output buffer '%s'.
+      Insert a BUF component to generate a constant-driven output pin.
+2046: The pulldown instance '%s' is not allowed in the XC7000 family.
+      Use another component.
+2047: Input buffer '%s' directly connects to output buffer '%s'.
+      A BUF component must be inserted between these buffers
+      to form a direct pin-to-pin data path.
+2048: The external net '%s' is driving the output buffer '%s'.
+      This net is coming from an output pad. Either replace this output pad
+      with an input pad or replace this output buffer with an input buffer.
+2049: The input buffer '%s' is driving the external net '%s'.
+      This net is going to an input pad. Either replace this input pad
+      with an output pad or replace this input buffer with an output buffer.
+2050: Non-arithmetic-carry pin %s%s%s is connected to a carry net.
+2051: The net '%s' is driving multiple output buffers. Components may
+      drive one output buffer/output pad connection only. Eliminate all but
+      one of the output buffers from this net.
+2052: Pad buffer: %s type: %s MUST be connected to a pad symbol.
+#
+# end of file
+#
+
+
+

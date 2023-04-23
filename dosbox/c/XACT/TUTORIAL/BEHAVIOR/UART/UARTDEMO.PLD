@@ -1,0 +1,34 @@
+PATTERN uartdemo.pld  - file made by PALCNVT command
+
+; Behavioral design example for XC7354-xxPC68
+; Demo usage: fiteqn -e uartdemo -p 7354
+
+CHIP  uartdemo  XEPLD
+
+INCLUDE_EQN 'shifter.pld'
+INCLUDE_EQN 'rcvr.pld'
+INCLUDE_EQN 'datareg.pld'
+INCLUDE_EQN 'cntr6.pld'
+
+INPUTPIN SDIN X4CLK RD CS 
+OUTPUTPIN  DOUT7 DOUT6 DOUT5 DOUT4 DOUT3 DOUT2 DOUT1 DOUT0  
+
+NODE  D7 D6 D5 D4 D3 D2 D1 D0 C0 C1 C2 C3 C4 C5 PAR READ
+
+; declarations added after palconvt:
+
+outputpin start byteclk bitclk framing parity overun ready
+
+
+EQUATIONS
+
+; equations added after palconvt:
+
+START.PRLD   = GND;
+BITCLK.PRLD  = GND;
+READY.PRLD   = GND;
+BYTECLK.PRLD = GND;
+OVERUN.PRLD  = GND;
+PAR.PRLD     = GND;
+PARITY.PRLD  = GND;
+FRAMING.PRLD = GND;

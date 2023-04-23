@@ -1,0 +1,41 @@
+TITLE           Multiplexer: 8-input, complementary output
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung   
+COMPANY         Xilinx EPLD
+DATE            7/26/93
+
+CHIP            X74_151  COMPONENT
+ 
+;Inputs
+d0 d1 d2 d3 d4 d5 d6 d7 a b c /g
+
+; d[7:0]        source
+; a..c          selector
+; g             enable
+
+;Outputs
+y /w
+
+; y             output
+; w             complementary output
+
+EQUATIONS 
+
+y =  d0*/c*/b*/a*g
+  +  d1*/c*/b* a*g
+  +  d2*/c* b*/a*g
+  +  d3*/c* b* a*g
+  +  d4* c*/b*/a*g
+  +  d5* c*/b* a*g
+  +  d6* c* b*/a*g
+  +  d7* c* b* a*g
+
+w =  d0*/c*/b*/a*g
+  +  d1*/c*/b* a*g
+  +  d2*/c* b*/a*g
+  +  d3*/c* b* a*g
+  +  d4* c*/b*/a*g
+  +  d5* c*/b* a*g
+  +  d6* c* b*/a*g
+  +  d7* c* b* a*g

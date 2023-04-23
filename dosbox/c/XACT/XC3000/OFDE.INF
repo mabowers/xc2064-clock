@@ -1,0 +1,24 @@
+`F  1.00 ofde
+`B "1" "1" "A" "     July  2, 1993" "" "A" 
+"XC3000 Family OFDE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P I "D"
+`P O "O"
+`P I "C"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "OFDT" XC3000.LIB "OFDT" C8B25448  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "INV" XC3000.LIB "INV" C8B2552C  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "E" ) ( R U2 "I" I ) 
+`J ( R U2 "O" O ) ( R U1 "T" I ) 
+`J ( P I "D" ) ( R U1 "D" I ) 
+`J ( R U1 "O" T ) ( P O "O" ) 
+`J ( P I "C" ) ( R U1 "C" I ) 

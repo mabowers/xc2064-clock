@@ -1,0 +1,65 @@
+TITLE           Shift Register: 8-bit, left, sync-reset, loadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/30/93
+
+CHIP            SR8RLE  COMPONENT
+ 
+;Inputs
+d0 d1 d2 d3 d4 d5 d6 d7 sli l ce c r
+
+; d[7:0]        parallel-load data
+; sli           shift-left serial input
+; l             parallel-load enable
+; ce            shift clock enable
+; c             clock (optional FastCLK)
+; r             sync reset
+ 
+;Outputs
+q0 q1 q2 q3 q4 q5 q6 q7
+
+; q[7:0]        counter output
+
+EQUATIONS 
+
+q7      := ce*/l*/r*q6
+         + /ce*/l*/r*q7 
+         + l*/r*d7 
+q7.clkf  = c
+
+q6      := ce*/l*/r*q5
+         + /ce*/l*/r*q6 
+         + l*/r*d6 
+q6.clkf  = c
+
+q5      := ce*/l*/r*q4
+         + /ce*/l*/r*q5 
+         + l*/r*d5 
+q5.clkf  = c
+
+q4      := ce*/l*/r*q3
+         + /ce*/l*/r*q4 
+         + l*/r*d4 
+q4.clkf  = c
+
+q3      := ce*/l*/r*q2
+         + /ce*/l*/r*q3 
+         + l*/r*d3 
+q3.clkf  = c
+
+q2      := ce*/l*/r*q1
+         + /ce*/l*/r*q2 
+         + l*/r*d2 
+q2.clkf  = c
+
+q1      := ce*/l*/r*q0
+         + /ce*/l*/r*q1 
+         + l*/r*d1 
+q1.clkf  = c
+
+q0      := ce*/l*/r*sli
+         + /ce*/l*/r*q0 
+         + l*/r*d0 
+q0.clkf  = c

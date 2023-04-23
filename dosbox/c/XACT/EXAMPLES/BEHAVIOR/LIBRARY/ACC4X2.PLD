@@ -1,0 +1,64 @@
+TITLE           Accumulator: high-order 4-bit, reset, load, +/-, cascadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/3/93
+
+CHIP            ACC4X2  COMPONENT
+ 
+;Inputs
+b0 b1 b2 b3 d0 d1 d2 d3 l add ce c r
+
+; b[3:0]        accumulator B-operand
+; d[3:0]        parallel-load data
+; l             parallel-load enable
+; add           function select: 1=add, 0=subtract
+; ce            accumulator clock-enable
+; c             clock (optional FastCLK)
+; r             sync reset
+; ci            carry-in to q0 via MC carry chain
+;               (ci may only connect to co output of arith component or PLD)
+ 
+;Outputs
+q0 q1 q2 q3
+
+; q[3:0]        accumulator output
+; co            carry-out from q3 via MC carry chain 
+;               (co may only connect to ci input of arith component or PLD)
+
+PARTITION q3_0 q0 q1 q2 q3
+
+EQUATIONS 
+
+q0.D1   = b0*add*ce*/l*/r
+        + /b0*/add*ce*/l*/r
+        + d0*l*/r
+q0.fbk  = /l*/r
+q0     := q0.D1 xor q0.D2
+q0.add  = vcc
+q0.clkf = c
+
+q1.D1   = b1*add*ce*/l*/r
+        + /b1*/add*ce*/l*/r
+        + d1*l*/r
+q1.fbk  = /l*/r
+q1     := q1.D1 xor q1.D2
+q1.add  = vcc
+q1.clkf = c
+
+q2.D1   = b2*add*ce*/l*/r
+        + /b2*/add*ce*/l*/r
+        + d2*l*/r
+q2.fbk  = /l*/r
+q2     := q2.D1 xor q2.D2
+q2.add  = vcc
+q2.clkf = c
+
+q3.D1   = b3*add*ce*/l*/r
+        + /b3*/add*ce*/l*/r
+        + d3*l*/r
+q3.fbk  = /l*/r
+q3     := q3.D1 xor q3.D2
+q3.add  = vcc
+q3.clkf = c

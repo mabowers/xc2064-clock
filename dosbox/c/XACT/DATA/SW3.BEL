@@ -1,0 +1,31 @@
+# 
+#
+# 3000 Southwest corner odds and ends
+#
+_BELS
+LCA3_MD0   MD0,
+LCA3_MD1   MD1,
+IOB3_OBUFT      MD1OBUFT,
+IOB3_IBUF       MD0IBUF,
+;
+
+_NODES
+# Input pins
+MD1O,
+MD1T,
+# Output pins
+MD0,
+;
+
+_ARCS
+# Inputs to MD1 pad
+MD1O MD1OBUFT_I,
+MD1T MD1OBUFT_T,
+MD1OBUFT_O MD1_O,
+
+# Outputs from MD0 pads
+MD0_I MD0IBUF_I,
+MD0IBUF_O MD0,
+
+;
+

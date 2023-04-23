@@ -1,0 +1,37 @@
+# @(#)UN.TXT	3.1 Copyright(C)1992 Xilinx Inc. 5/4/94 23:56:00
+# file: un.err
+# date: 6/29/90
+# what: Xilinx EPLD PLD UNASM error messages -user file
+# Z.K.
+0001:Out of memory. Aborting.
+0002:Unable to open the input jedec file.
+0003:Aborting.
+# 0004:Internal Error: Procedure un_ltoa called with bad radix.
+0004: [Internal error: bad radix].
+0005:Error found at fuse number %u. Input-file is not a proper JEDEC file.
+0006:Device is not supported.
+0007:Special function not supported.
+0008:[Internal Error: Undefined error].
+0009:Expected %d fuses, but input file has %d.\
+        Is the correct PLD-type selected?
+0010:Fuse location %u is too large for current device.
+0011:
+0012:
+0013:
+0014:
+0015:
+0016:
+0017:
+0018:
+0019:
+0020:
+0021:
+0022:
+0023:
+0024:
+0025:
+0026:
+#
+# end of file
+#
+

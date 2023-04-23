@@ -1,0 +1,84 @@
+`F  1.00 x74_42
+`B "1" "1" "B" "    March 17, 1993" "" "A" 
+"XC4000 Family X74_42 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "Y0"
+`P O "Y1"
+`P O "Y2"
+`P O "Y3"
+`P O "Y4"
+`P O "Y5"
+`P O "Y6"
+`P O "Y7"
+`P O "Y8"
+`P I "A"
+`P O "Y9"
+`P I "B"
+`P I "C"
+`P I "D"
+`E XC2000.LIB
+`I R "OR4" XC2000.LIB "OR4" C9875553  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`I R "NAND4B3" XC2000.LIB "NAND4B3" C9875773  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "O" "O" O ) 
+`I R "NAND4B3" XC2000.LIB "NAND4B3" C98758D4  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "O" "O" O ) 
+`I R "NAND4B3" XC2000.LIB "NAND4B3" C9875AB0  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "O" "O" O ) 
+`I R "NAND4B2" XC2000.LIB "NAND4B2" C9875BC0  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "O" "O" O ) 
+`I R "NAND4B2" XC2000.LIB "NAND4B2" C9875BF0  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "O" "O" O ) 
+`I R "NAND4B2" XC2000.LIB "NAND4B2" C9875C6D  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "O" "O" O ) 
+`I R "NAND4B1" XC2000.LIB "NAND4B1" C9875DAC  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "O" "O" O ) 
+`I R "NAND4B2" XC2000.LIB "NAND4B2" C987602E  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "O" "O" O ) 
+`I R "NAND4B3" XC2000.LIB "NAND4B3" C987A2F7  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "O" "O" O ) 
+`J ( R U1 "I3" I ) ( R U2 "I3" I ) ( R U3 "I2" I ) ( R U5 "I3" I ) 
+( R U4 "I2" I ) ( R U6 "I3" I ) ( R U7 "I1" I ) ( R U8 "I3" I ) ( R U10 "I2" I ) 
+( P I "A" ) ( R U9 "I2" I ) 
+`J ( R U1 "I2" I ) ( R U2 "I2" I ) ( R U3 "I3" I ) ( R U5 "I2" I ) 
+( R U4 "I1" I ) ( R U6 "I1" I ) ( R U7 "I3" I ) ( R U8 "I2" I ) ( R U10 "I1" I ) 
+( P I "B" ) ( R U9 "I1" I ) 
+`J ( R U1 "O" O ) ( P O "Y0" ) 
+`J ( R U1 "I1" I ) ( R U2 "I1" I ) ( R U3 "I1" I ) ( R U5 "I1" I ) 
+( R U4 "I3" I ) ( R U6 "I2" I ) ( R U7 "I2" I ) ( R U8 "I1" I ) ( R U10 "I0" I ) 
+( P I "C" ) ( R U9 "I0" I ) 
+`J ( R U1 "I0" I ) ( R U2 "I0" I ) ( R U3 "I0" I ) ( R U5 "I0" I ) 
+( R U4 "I0" I ) ( R U6 "I0" I ) ( R U7 "I0" I ) ( R U8 "I0" I ) ( R U10 "I3" I ) 
+( R U9 "I3" I ) ( P I "D" ) 
+`J ( R U2 "O" O ) ( P O "Y1" ) 
+`J ( R U3 "O" O ) ( P O "Y2" ) 
+`J ( R U5 "O" O ) ( P O "Y3" ) 
+`J ( R U4 "O" O ) ( P O "Y4" ) 
+`J ( R U6 "O" O ) ( P O "Y5" ) 
+`J ( R U7 "O" O ) ( P O "Y6" ) 
+`J ( R U8 "O" O ) ( P O "Y7" ) 
+`J ( R U10 "O" O ) ( P O "Y8" ) 
+`J ( R U9 "O" O ) ( P O "Y9" ) 

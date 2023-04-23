@@ -1,0 +1,72 @@
+TITLE           Shift Register: 8-bit, right serial in, clock enable, loadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/4/93
+
+CHIP            X74_165S  COMPONENT
+ 
+;Inputs
+si a b c d e f g h s_l ce ck
+
+; si            serial in data
+; a..h          parallel-load data
+; s_l           shift/load enable
+; ce            clock enable
+; ck            clock (optional FastCLK)
+ 
+;Outputs
+qa qb qc qd qe qf qg qh
+
+; qa..qh        counter output
+
+EQUATIONS 
+
+qh.d1     = /s_l*h
+          + ce* s_l*qg
+qh.fbk    = /ce*s_l
+qh       := qh.d1 or qh.d2
+qh.clkf   = ck
+
+qg.d1     = /s_l*g
+          + ce* s_l*qf
+qg.fbk    = /ce*s_l
+qg       := qg.d1 or qg.d2
+qg.clkf   = ck
+
+qf.d1     = /s_l*f
+          + ce* s_l*qe
+qf.fbk    = /ce*s_l
+qf       := qf.d1 or qf.d2
+qf.clkf   = ck
+
+qe.d1     = /s_l*e
+          + ce* s_l*qd
+qe.fbk    = /ce*s_l
+qe       := qe.d1 or qe.d2
+qe.clkf   = ck
+
+qd.d1     = /s_l*d
+          + ce* s_l*qc
+qd.fbk    = /ce*s_l
+qd       := qd.d1 or qd.d2
+qd.clkf   = ck
+
+qc.d1     = /s_l*c
+          + ce* s_l*qb
+qc.fbk    = /ce*s_l
+qc       := qc.d1 or qc.d2
+qc.clkf   = ck
+
+qb.d1     = /s_l*b
+          + ce* s_l*qa
+qb.fbk    = /ce*s_l
+qb       := qb.d1 or qb.d2
+qb.clkf   = ck
+
+qa.d1     = /s_l*a
+          + ce* s_l*si
+qa.fbk    = /ce*s_l
+qa       := qa.d1 or qa.d2
+qa.clkf   = ck

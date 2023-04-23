@@ -1,0 +1,51 @@
+`F  1.00 FJKSRE
+`B "1" "1" "A" " November 23, 1993" "" "A" 
+"XC4000 Family FJKSRE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "J"
+`P I "K"
+`P I "R"
+`P I "S"
+`P O "Q"
+`P I "CE"
+`P I "C"
+`S "A0" 1 
+`S "A1" 1 
+`S "AD" 1 
+`S "A2" 1 
+`S "AD_R" 1 
+`E XC7000.LIB
+`I R "FDSE" XC7000.LIB "FDSE" e51bbb5f  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "S" "S" I ) 
+( "Q" "Q" O ) 
+`I R "AND2B1" XC7000.LIB "AND2B1" e51bbd5c  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "OR3" XC7000.LIB "OR3" e51bbe0f  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND3B2" XC7000.LIB "AND3B2" e51bbebf  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND3B1" XC7000.LIB "AND3B1" e51bbf61  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND2B1" XC7000.LIB "AND2B1" e51bc002  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`J ( R U4 "I2" I ) ( R U1 "Q" O ) ( R U5 "I0" I ) ( P O "Q" ) 
+`J ( R U4 "I1" I ) ( R U5 "I1" I ) ( P I "K" ) ( R U6 "I0" I ) 
+`J ( R U4 "O" O ) ( S "A0" 1  ) ( R U3 "I2" I ) 
+`J ( R U4 "I0" I ) ( R U5 "I2" I ) ( P I "J" ) ( R U6 "I1" I ) 
+`J ( R U5 "O" O ) ( S "A1" 1  ) ( R U3 "I1" I ) 
+`J ( R U3 "O" O ) ( S "AD" 1  ) ( R U2 "I1" I ) 
+`J ( S "A2" 1  ) ( R U3 "I0" I ) ( R U6 "O" O ) 
+`J ( R U2 "O" O ) ( S "AD_R" 1  ) ( R U1 "D" I ) 
+`J ( P I "R" ) ( R U2 "I0" I ) 
+`J ( P I "S" ) ( R U1 "S" I ) 
+`J ( P I "CE" ) ( R U1 "CE" I ) 
+`J ( P I "C" ) ( R U1 "C" I ) 

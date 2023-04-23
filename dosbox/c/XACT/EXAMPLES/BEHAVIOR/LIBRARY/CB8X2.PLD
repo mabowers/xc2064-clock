@@ -1,0 +1,110 @@
+TITLE           Counter: binary, 8-bit, sync-reset, loadable, up/down
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            8/24/93
+
+CHIP            CB8X2  COMPONENT
+ 
+;Inputs
+d0 d1 d2 d3 d4 d5 d6 d7 ceu ced l c r
+
+; d[7:0]        parallel-load data
+; ceu           count-up enable
+; ced           count-down enable
+; l             parallel-load enable
+; c             clock (optional FastCLK)
+; r             sync reset
+ 
+;Outputs
+q0 q1 q2 q3 q4 q5 q6 q7 tcu tcd ceou ceod
+
+; q[7:0]        counter output
+; tcu           terminal count-up (optimizable AND)
+; tcd           terminal count-down
+; ceou          chip enable output up (optimizable AND)
+; ceod          chip enable output down (optimizable AND)
+
+NODE (UIM) tcu ceou ceod
+
+EQUATIONS 
+
+tcu      = q0*q1*q2*q3*q4*q5*q6*q7
+
+tcd     := ceu*/l*q0*q1*q2*q3*q4*q5*q6*q7
+         + ced*/ceu*/l*q0*/q1*/q2*/q3*/q4*/q5*/q6*/q7
+         + l*/d0*/d1*/d2*/d3*/d4*/d5*/d6*/d7
+         + /ceu*/ced*/l*/q0*/q1*/q2*/q3*/q4*/q5*/q6*/q7
+         + r
+tcd.clkf = c
+
+ceou     = ceu*q0*q1*q2*q3*q4*q5*q6*q7
+
+ceod     = ced*tcd
+
+q7.d1    = ceu*/l*/r*q0*q1*q2*q3*q4*q5*q6
+         + ced*/ceu*/l*/r*/q0*/q1*/q2*/q3*/q4*/q5*/q6
+q7.d2    = l*/r*d7
+q7.fbk   = /l*/r
+q7      := q7.d1 xor q7.d2
+q7.clkf  = c
+
+q6.d1    = ceu*/l*/r*q0*q1*q2*q3*q4*q5
+         + ced*/ceu*/l*/r*/q0*/q1*/q2*/q3*/q4*/q5
+q6.d2    = l*/r*d6
+q6.fbk   = /l*/r
+q6      := q6.d1 xor q6.d2
+q6.clkf  = c
+
+q5.d1    = ceu*/l*/r*q0*q1*q2*q3*q4
+         + ced*/ceu*/l*/r*/q0*/q1*/q2*/q3*/q4
+q5.d2    = l*/r*d5
+q5.fbk   = /l*/r
+q5      := q5.d1 xor q5.d2
+q5.clkf  = c
+
+q4.d1    = ceu*/l*/r*q0*q1*q2*q3
+         + ced*/ceu*/l*/r*/q0*/q1*/q2*/q3
+q4.d2    = l*/r*d4
+q4.fbk   = /l*/r
+q4      := q4.d1 xor q4.d2
+q4.clkf  = c
+
+q3.d1    = ceu*/l*/r*q0*q1*q2
+         + ced*/ceu*/l*/r*/q0*/q1*/q2
+q3.d2    = l*/r*d3
+q3.fbk   = /l*/r
+q3      := q3.d1 xor q3.d2
+q3.clkf  = c
+
+q2.d1    = ceu*/l*/r*q0*q1
+         + ced*/ceu*/l*/r*/q0*/q1
+q2.d2    = l*/r*d2
+q2.fbk   = /l*/r
+q2      := q2.d1 xor q2.d2
+q2.clkf  = c
+
+q1.d1    = ceu*/l*/r*q0
+         + ced*/ceu*/l*/r*/q0
+q1.d2    = l*/r*d1
+q1.fbk   = /l*/r
+q1      := q1.d1 xor q1.d2
+q1.clkf  = c
+
+q0.d1    = ceu*/l*/r
+         + ced*/ceu*/l*/r
+q0.d2    = l*/r*d0
+q0.fbk   = /l*/r
+q0      := q0.d1 xor q0.d2
+q0.clkf  = c
+
+q0.prld  = gnd
+q1.prld  = gnd
+q2.prld  = gnd
+q3.prld  = gnd
+q4.prld  = gnd
+q5.prld  = gnd
+q6.prld  = gnd
+q7.prld  = gnd
+tcd.prld  = vcc

@@ -1,0 +1,38 @@
+`F  1.00 x74_139
+`B "1" "1" "A" "     June 28, 1993" "" "A" 
+"XC3000 Family X74_139 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "Y0"
+`P O "Y1"
+`P O "Y2"
+`P I "A"
+`P I "B"
+`P O "Y3"
+`P I "G"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "NAND3B2" XC3000.LIB "NAND3B2" C9872040  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "NAND3B2" XC3000.LIB "NAND3B2" C987205D  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "NAND3B3" XC3000.LIB "NAND3B3" C98721CE  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "NAND3B1" XC3000.LIB "NAND3B1" C9872264  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`J ( R U3 "I2" I ) ( R U1 "I2" I ) ( R U2 "I1" I ) ( P I "A" ) 
+( R U4 "I2" I ) 
+`J ( R U3 "I1" I ) ( R U1 "I1" I ) ( R U2 "I2" I ) ( P I "B" ) 
+( R U4 "I1" I ) 
+`J ( R U3 "O" O ) ( P O "Y0" ) 
+`J ( R U3 "I0" I ) ( R U1 "I0" I ) ( R U2 "I0" I ) ( P I "G" ) 
+( R U4 "I0" I ) 
+`J ( R U1 "O" O ) ( P O "Y1" ) 
+`J ( R U2 "O" O ) ( P O "Y2" ) 
+`J ( R U4 "O" O ) ( P O "Y3" ) 

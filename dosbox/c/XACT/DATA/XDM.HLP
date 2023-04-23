@@ -1,0 +1,4889 @@
+.--- (General help) -------------------------------------------------------
+
+.Helphelp
+
+Welcome to the Xilinx Design Manager (XDM).  This program leads you through
+the Xilinx Programmable Logic design flow from design entry to design
+verification.
+
+Extensive help files are provided with the Design Manager.  If you need
+help with a particular menu item, point to it with the cursor and press the
+F1 key; a help file will appear on the screen.  You can scroll up or down
+in this file with the Up arrow, Down arrow, PgUp, PgDn, Home, and End
+keys.  Try it.  For your convenience, a help file is provided for every
+main menu and submenu item.
+
+After installing new XDM-supported programs, be sure to issue the ScanDisk
+command, found under the Utilities menu.  ScanDisk will force XDM to scan
+the directories specified by the PATH environment variable to determine
+which XDM-supported programs are installed on your system.
+
+To quit XDM, type "quit" on the command line or use the mouse to select
+Quit on the menu bar at the top of the screen.  To select a menu or a menu
+item, point to it with the cursor (a box surrounds the item) and press the
+"select" mouse button.  The default profile (included with XDM) programs
+the left mouse button to perform the select function.  You can change the
+function of each mouse button with the Mouse command in the Profile menu.
+
+Before you begin a design with XDM, please read the release document
+included with the XACT software.  Also read the documentation provided with
+your XACT Development System.  Once you understand the basic design flow,
+you are ready to begin.
+
+.CANCEL
+
+The Cancel option cancels the current command.
+
+.DONE
+
+The Done option causes XDM to execute the current command.  Use Done only
+if you are selecting commands with the mouse.  If you type a command on the
+command line and then select Done, your command is ignored.  Enter a
+carriage return to invoke a command typed on the command line.
+
+.QUIT
+
+Select Quit to exit the Design Manager.  You can also exit the Design
+Manager by typing "quit" or "exit" on the command line.
+
+.--- (Programs under DesignEntry menu) ------------------------------------
+
+.DesignEntry
+
+Design entry is the first step in the design flow. The supported design
+entry tools consist of schematic capture programs, whose output can be
+converted to a netlist file.
+
+.NODEPGMS
+
+XDM did not find any DesignEntry programs on your system.  Check the PATH
+statement in your AUTOEXEC.BAT file.  You must specify (in the PATH) the
+directory that contains your design entry software (Viewdraw, XABEL, or
+OrCAD).
+
+If the path is correct and no programs are found, the PROGLIST.XDM file may
+be out of date.  To update the file, select ScanDisk command from the
+Utilities menu.  If this does not resolve the problem, please contact
+Xilinx Technical Support.
+
+.ORCAD
+
+This option invokes the OrCAD/ESP design environment. Once in ESP, you can
+access Draft-OrCAD schematic capture tool, SIMULATE-OrCAD Verification
+Simulation Tools (OrCAD/VST) and other Orcad Tools.
+
+.SYMGEN
+
+This tool translates an xsf file into a symbol file. It can
+generate a symbol in text, Orcad, or ViewLogic formats.
+
+.SYMGEN-nor
+
+Select this option if you don't want SYMGEN to generate graphical
+symbol in text format (.smr).
+
+.SYMGEN-o
+
+Select this option if you want SYMGEN to generate symbol for
+Orcad (.cmd).
+
+.SYMGEN-v
+
+Select this option if you want SYMGEN to generate symbol for
+Viewlogic (.1).
+
+.WORKVIEW
+
+This command invokes Viewlogic's Workview CAE software. From within
+Workview you can invoke Viewdraw and Viewsim. Before starting a design, new
+users should complete one of the Xilinx tutorials for Viewdraw/Viewsim
+described in the User Guide.  These tutorials  give an introduction to
+designing with Xilinx devices.
+
+.XABEL
+
+This option invokes Xilinx ABEL software.  The input to XABEL is a text
+file containing valid Xilinx Abel constructs. The name of this file must be
+<design_name>.ABL.
+
+XABEL has an editor with which you can enter designs using the ABEL
+Hardware Description Language (ABEL-HDL).  In ABEL-HDL, designs can be
+entered as state machines, Boolean equations, and truth tables.  After
+entering an FPGA design, use the Xilinx Netlist Optimize command in XABEL
+to optimize the logic and translate it into an XNF file that can be used as
+input to XMake.  For more information, please use the on-line help within
+XABEL and the "Xilinx ABEL User Guide" included with the Xilinx ABEL
+product.
+
+.--- (Programs under Translate menu) --------------------------------------
+
+.TRANSLATE
+
+Before making a configuration bitstream and configuring an LCA device, you
+must convert every schematic or Boolean equation file to an XNF file and
+then translate these into an LCA file. Translators, programs that convert a
+design into an XNF file, exist for many different design entry tools.
+Those tools supported by the Xilinx Design Manager include Viewlogic,
+OrCAD, and Xilinx ABEL on the PC.
+
+The XMAKE program found under the Translate menu automatically invokes all
+of the programs needed to generate a bitstream file from the design files,
+in the proper sequence.
+
+Below are the flowcharts that XMAKE follows when translating a design.  A
+block diagram of the typical design-to-bitstream translation process is
+shown below. Files that are created during the translation process are
+shown in (); the programs used to create these files are shown in boxes;
+and the comments are marked with #.
+
+If translating the design manually, run the appropriate tools in the
+correct sequence, using these flowcharts as a guide.
+
+To obtain more information about XMAKE and other tools, use the help
+facility within the Design Manager, or refer to the relevant chapters in
+the "XACT Reference Guide".
+
+XC2000/XC3000 DESIGN FLOW (Includes XC2000, XC2000L, XC3000, and XC3100
+family devices.)
+
+   (schematic)  (schematic) .. (schematic)
+        |            |              |
+        +------------+--------------+   
+                     |
+              +--------------+
+              | <translator> |
+              +--------------+
+                     |
+        +------------+--------------+
+        |            |              |
+      (xnf)        (xnf)   ..     (xnf)  # Individual XNF files, one
+        |            |              |    # for each module/symbol.
+        +------------+--------------+   
+                     |
+               +-----------+
+               | xnfmerge  |
+               +-----------+
+                     |
+                   (xff)     # Single XNF file for the complete design.
+                     |
+               +-----------+
+               |  xnfprep  |
+               +-----------+
+                     |
+                   (xtf)     # Complete XNF file, logic has been checked
+                     |       # and trimmed, if unused.
+                     |
+               +-----------+
+               |  xnfmap   |
+               +-----------+
+                     |
+                   (map)     # MAP file, logic has been partitioned
+                     |       # into CLBs and IOBs.
+                     |
+               +-----------+
+               |  map2lca  |
+               +-----------+
+                     |
+                   (lca (unrouted))  # Unrouted LCA file, CLBs and
+                     |               # IOBs have been assigned to the
+                     |               # device.
+               +-----------+
+               |    apr*   |
+               +-----------+
+                     |
+                   (lca (routed))    # Routed LCA file with net delay
+                     |               # information.
+               +-----------+
+               | makebits* |
+               +-----------+
+                     |
+                   (bit)     # BIT file ready to be downloaded.
+
+
+*The APR program is found under the PlaceRoute menu, and the MAKEBITS
+ program under the Verify menu.
+
+XC3000A/L DESIGN FLOW (Includes XC3000A, XC3000L, and XC3100A family
+devices.)
+
+
+   (schematic)  (schematic) .. (schematic)
+        |            |              |
+        +------------+--------------+   
+                     |
+               +------------+
+               | translator |
+               +------------+
+                     |
+        +------------+--------------+
+        |            |              |
+      (xnf)        (xnf)   ..     (xnf)  # Individual XNF files, one
+        |            |              |    # for each module/symbol.
+        +------------+--------------+   
+                     |
+               +-----------+
+               | xnfmerge  |
+               +-----------+
+                     |
+                   (xff)  # Single XNF file for the complete design.
+                     |
+               +-----------+
+               |  xnfprep  |---------+   # XBLOX design path.
+               +-----------+         |
+                     |             (xtg) # Complete XNF file, logic has 
+ # non-XBLOX design  |               |   # been checked and trimmed, if
+ # path.             |               |   # unused. XBLOX modes are left
+                     |               |   # in.
+                     |               |
+                     |          +---------+
+                     |          |  xblox  |
+                     |          +---------+
+                     |               |
+                     |             (xg)  # Complete XNF file, XBLOX
+                     |               |   # modules have been processed.
+                     |               |
+                     |          +---------+
+                     |          | xnfprep |
+                     |          +---------+
+                     |               |
+                   (xtf) <-----------+   # Complete XNF file, logic has
+                     |                   # been checked and trimmed, if
+                     |                   # unused.
+               +-----------+
+               |  xnfmap   |
+               +-----------+
+                     |
+                   (map)  # MAP file, logic has been partitioned
+                     |    # into CLBs and IOBs.
+                     |
+               +-----------+
+               |    ppr*   |
+               +-----------+
+                     |
+                   (lca)  # Routed LCA file, no net delay information
+                     |    # available.
+                     |
+               +-----------+
+               |  xdelay*  |
+               +-----------+
+                     |
+                   (lca)  # Routed LCA file with net delay information.
+                     |
+               +-----------+
+               | makebits* |
+               +-----------+
+                     |
+                   (bit) # BIT file ready to be downloaded.
+
+*The PPR program is found under the PlaceRoute menu, and the XDELAY and
+ MAKEBITS programs under the Verify menu.
+
+XC4000 DESIGN FLOW (Includes XC4000, XC4000A, and XC4000H family devices.)
+
+   (schematic)  (schematic) .. (schematic)
+        |            |              |
+        +------------+--------------+   
+                     |
+               +------------+
+               | translator |
+               +------------+
+                     |
+        +------------+--------------+
+        |            |              |
+      (xnf)        (xnf)   ..     (xnf)  # Individual XNF files, one
+        |            |              |    # for each module/symbol.
+        +------------+--------------+   
+                     |
+               +-----------+
+               | xnfmerge  |
+               +-----------+
+                     |
+                   (xff)  # Single XNF file for the complete design.
+                     |
+               +-----------+
+               |  xnfprep  |---------+   # XBLOX design path.
+               +-----------+         |
+                     |             (xtg) # Complete XNF file, logic has 
+ # non-XBLOX design  |               |   # been checked and trimmed, if
+ # path.             |               |   # unused. XBLOX modes are left
+                     |               |   # in.
+                     |               |
+                     |          +---------+
+                     |          |  xblox  |
+                     |          +---------+
+                     |               |
+                     |             (xg)  # Complete XNF file, XBLOX
+                     |               |   # modules have been processed.
+                     |               |
+                     |          +---------+
+                     |          | xnfprep |
+                     |          +---------+
+                     |               |
+                   (xtf) <-----------+   # Complete XNF file, logic has
+                     |                   # been checked and trimmed, if
+                     |                   # unused.
+               +-----------+
+               |    ppr*   |
+               +-----------+
+                     |
+                   (lca)  # Routed LCA file, no net delay information
+                     |    # available.
+                     |
+               +-----------+
+               |  xdelay*  |
+               +-----------+
+                     |
+                   (lca)  # Routed LCA file with net delay information.
+                     |
+               +-----------+
+               | makebits* |
+               +-----------+
+                     |
+                   (bit) # BIT file ready to be downloaded.
+
+*The PPR program is found under the PlaceRoute menu, and the XDELAY and
+ MAKEBITS programs under the Verify menu.
+
+.NOTRPGMS
+
+XDM did not find any Translate programs on your system.  Check the PATH
+statement in your AUTOEXEC.BAT file.  You must specify (in the PATH) the
+directories that contain translation software.
+
+If the path is correct and no programs are found, the PROGLIST.XDM file may
+be out of date.  To update the file, select ScanDisk from the Utilities
+menu.  If this does not resolve the problem, please contact Xilinx
+Technical Support.
+
+.ABL2PLD
+
+This program translates an Xabel text file (extention .abl) into a PLUSASM
+equation file for Xilinx EPLD.  
+
+All behavioral (non-schematic) design input is presented to the XEPLD
+fitter in the form of a PLUSASM equation file (.PLD). The ABL2PLD program
+generates this PLD file for either a completely behavioral design or for a
+PLD symbol in a schematic, depending on the selected target. PLD files for
+a schematic are then assembled using PLUSASM. For behavioral designs,
+ABL2PLD automatically invokes the XEPLD fitter (FITEQN).
+
+.ABL2XNF
+
+This program translates an Xabel text file (extention .abl) into a Xilinx
+netlist.  
+
+A Xilinx netlist (XNF file) is needed in order to properly reference an
+Xabel module within a schematic design. The ABL2XNF program generates this
+XNF file by calling the appropriate programs to optimize the Xabel logic
+equations for the Xilinx architecture according to the selected options.
+
+.ABL2XNF-area
+
+This option directs ABL2XNF to  optimize the Xabel equations for
+utilization (number of used CLBs), trading off performance (speed).  If
+neither speed nor area options are selected then ABL2XNF creates an
+intermediate solution.
+
+.ABL2XNF-encode
+
+This option is used to select the encoding scheme for state machine
+implementation. The default is STANDARD which incorporates features
+of both binary encoding and one_hot encoding. The valid choices are
+ONE-HOT, BINARY and STANDARD.
+
+.ABL2XNF-encode_one_hot
+
+This option instructs ABL2XNF to encode state machines using the ONE-HOT
+method.  
+
+The One-Hot method uses one Flip-Flop per state machine state. Usually,
+One-Hot-encoded state machines yield the best performance for FPGAs since
+there are many flip flops available in relationship to the available
+combinational logic. For small state machines, or state machines with few
+(less than four) input variables, encoded state machines may be more 
+efficient.
+
+.ABL2XNF-encode_binary
+
+This option instructs ABL2XNF to implement Binary-Encoded state machines.
+
+For small state machines, or state machines with few (less than four) input
+variables, binary encoded state machines may be more efficient.
+
+.ABL2XNF-encode_standard
+
+This option instructs ABL2XNF to incorporate features of both binary
+encoding and one_hot encoding.
+
+.ABL2XNF-listing
+
+This option controls how much information is printed out into the complier 
+report.
+
+.ABL2XNF-listing_none
+
+This option suppresses the generation of complier report.
+
+.ABL2XNF-listing_standard
+
+This option controls how much information is printed out into the complier 
+report.
+
+.ABL2XNF-listing_expanded
+
+This option controls how much information is printed out into the complier 
+report.
+
+.ABL2XNF-maxclbs
+
+This option should only be used in conjunction with the -speed option.  It
+specifies the maximum number of CLBs to be used when optimizing a design
+for speed.  See also the -area option and the -speed option.
+
+.ABL2XNF-memmiser
+
+This option tells the logic optimizer to use algorithms requiring less
+memory. Use this option if the optimizer fails in normal mode. This option
+may result in a higher CLB count.
+
+.ABL2XNF-nooptimize
+
+This option disables the logic optimizer ImproveX i.e. the Synthesised
+module is not run through combinational logic optimization. This option
+should be used only if the optimizer fails for some reason. Without the
+optimizer, ABL2XNF will still produce a legal unoptimized XNF file.
+
+.ABL2XNF-old_library
+
+Generate a Xilinx netlist (XNF file) which contains "old" libraries 
+(compatible with previous releases of the software).
+
+A new set of common libraries has been inserted in all the interface 
+software tools (the Unified libraries).  The place and route tools can
+process both, previous release libraries and Unified libraries, but not
+designs with mixed libraries.  Make sure that you use the same libraries
+for the whole design.
+
+.ABL2XNF-output_directory
+
+This parameter specifies the output directory for XNF file. By default the
+output directory is the one in which ABL2XNF is invoked.
+ 
+
+.ABL2XNF-output_xnf
+
+Select the name of ABL2XNF output file.  This will be the name of the
+Xilinx Netlist file (XNF file).  This name should be used to reference the
+logic within the Xabel module from the schematic.
+
+.ABL2XNF-paramfile
+
+This parameter allows the parameters for ABL2XNF to be specified in the
+named file. 
+
+.ABL2XNF-speed
+
+This option instructs ABL2XNF to optimize the design for performance
+(speed), trading off area (number of CLBs used). If neither speed nor area
+options are selected then ABL2XNF creates an intermediate solution.
+
+.ABL2XNF-unspecified_state
+
+This option is useful only if the ABEL design contains an incompletely
+specified state machine. It is used by XABEL to determine the behavior of
+the machine whenever input conditions arise for which the next state is not
+explicitly stated in ABEL. The valid options are CURRENT_STATE,
+INITIAL_STATE and DONT_CARE.
+
+.ABL2XNF-unspecified_state_initial_state
+
+This option causes incompletely specified state machines to default to the 
+initial state. 
+
+Incompletely specified state machines are those which do not have a state
+assignment for every possible input combination, thus, should one of these
+input combination occur, the state machine will return to the initial
+state.
+
+.ABL2XNF-unspecified_state_current_state
+
+This option causes incompletely specified state machines to default to the 
+current state.  
+ 
+Incompletely specified state machines are those which do not have a state 
+assignment for every possible input combination, thus, should one of these
+input combination occur, the state machine will remain in the current
+state.
+  
+.ABL2XNF-unspecified_state_dont_care
+ 
+This option causes no default for incompletely specified state machines.
+  
+If a state machine in your design has not been completely specified you may
+want to consider using the -unespecified_inputs_current_state or 
+initial_state option, unless you are sure that the input conditions for
+which the behavior is not specified will never arise. If this is the case
+then the "don't care" conditions can be exploited for minimizing logic.
+
+Incompletely specified state machines are those which do not have a state  
+assignment for every possible input combination, thus, should one of these
+input combination occur, the Xabel code will determine the next state.
+
+.ABL2XNF-sm_speed_opt
+
+State machine speed optimization
+
+This option implements symbolic state machine speed optimization at the
+expense of additional CLBs. With this option, ABL2XNF uses the state
+splitting technique to split the states with high fanins, meanwhile without
+changing the function of a symbolic state machine so that the number of CLB
+levels is minimized.
+
+.ABL2XNF-family
+
+Select the family of FPGAs for which the Xabel code should be optimized.
+The different FPGA architectures require different types of optimization to
+occur which effect factors like maximum width of functions, etc.
+
+ABL2XNF does not always check the parttype ageinst the family for 
+compatibility. Make sure to specify both these parameters appropriately.
+
+.ABL2XNF-parttype
+
+Select the specific parttype within the selected family.  ABL2XNF does not
+always check the parttype ageinst the family for compatibility. Make sure
+to specify both these parameters appropriately.
+
+.ANNOTATE
+
+ANNOTATE is an OrCAD utility that scans a hierarchy, flat file, or
+one-sheet file structure and automatically updates all reference
+designators of library parts that are placed in the worksheet. The result
+is directed back to the original worksheet.
+
+.ANNOTATE-H
+
+/H  Reset reference numbers to begin with 1 for each sheet of the 
+hierarchy.
+
+.ANNOTATE-L
+
+/L  Create a report listing the last reference designators assigned by
+ANNOTATE. If a destination file is not specified, the report is placed in a
+file (design_name.END).
+
+.ANNOTATE-O
+
+/O  Treat this file as a single sheet.
+
+.ANNOTATE-Q
+
+/Q  Run in "quiet" mode without echoing tracking information on the screen.
+
+.ANNOTATE-R
+
+/R  Remove all annotation on the schematic. All reference numbers are set
+to "?".
+
+.ANNOTATE-S
+
+/S  Do not change the sheet number.  If this switch is not set,  the sheet
+numbers are changed to reflect the current sheet in the design.
+
+.ANNOTATE-U
+
+/U  Change references unconditionally.  This should be used only if there
+are multiple components that contain the same reference on the same sheet.
+
+.ANNOTATE-Z
+
+/Z  Cause warning messages to be ignored.
+
+.CLEANUP
+
+CLEANUP is an OrCAD utility that scans a hierarchy, flat file, or one-sheet
+file structure and checks for wires, buses, junctions, labels, module
+ports, and other objects that are placed on top of each other.
+
+.CLEANUP-E
+
+/E  Removes error markers placed on the schematic by %rCHECK ELECTRICAL
+RULES%g (INET /W).
+
+.CLEANUP-G
+
+/G  Report items found to be off grid.
+
+.CLEANUP-O
+
+/O  Treat this file as a single sheet.
+
+.CLEANUP-Q
+
+/Q  Run in "quiet" mode without echoing tracking information on the screen.
+
+.CLEANUP-R
+
+/R  Repeat %rCLEANUP%g if it was too large to complete in one pass.
+
+.CLEANUP-Z
+
+/Z  Cause warnings to be ignored.
+
+.HM2RPM
+
+HM2RPM translates hard macros (*.hm files) to Relationally Placed Macros or
+RPMs (*.xnf files).
+
+.HM2RPM-dflt_logic
+
+dflt_logic=<TRUE/FALSE>
+
+The dflt_logic option determines how HM2RPM handles default values on hard 
+macro inputs. A hard macro created by the HMGEN program will contain a 
+default value of 0 or 1 (GND or VCC) on every HM input. If an input were 
+left unconnected, PPR would route GND or VCC to that input to ensure the 
+correct functionality.
+
+If any hard macro inputs in your design are left unconnected, you can set
+dflt_logic to TRUE. If you do so, HM2RPM will add additional logic to each
+RPM to ensure that unconnected HM inputs float to the correct level.  For
+HM inputs which are connected, the extra logic will be removed by the 
+XNFPREP program. If you choose dflt_logic=TRUE and encounter FMAP and/or 
+HMAP errors in XNFPREP or PPR, you may need to return to dflt_logic=FALSE 
+and modify your design to tie all HM inputs to known values.
+
+If all inputs to the hard macros in your design are fully connected (either
+to active signals or explicitly to VCC or GND), you should set the
+dflt_logic option to FALSE.
+
+.HM2RPM-r
+
+-r
+
+Select this option to make the RPM generated by HM2RPM compatible with
+designs from the new Xilinx unified schematic libraries.  If this option is
+not selected, the RPM generated by HM2RPM is compatible with designs from
+the schematic libraries that preceded the unified libraries.
+
+.INET
+
+INET is an OrCAD utility that scans a hierarchical, flat, or one-sheet file
+structure and generates individual netlist files for each level of the
+design. The output file from the INET program has the .INF extension.
+
+.INET-B
+  
+/B  Build the file stack from schematics rather than the .INX file.
+
+.INET-D
+
+/D  Descend into sheetpath parts.
+
+.INET-I
+
+/I  Assign a net name to all pins, even unconnected ones.
+
+.INET-O
+
+/O  Process one sheet only.
+
+.INET-X
+
+/X  Check module port connections.
+
+
+.INET-G
+
+/G  Check worksheet for parts, sheets, labels, module ports, and power
+objects placed off grid.  Report is placed in a .GRD file.
+
+.INET-L
+
+/L  Report all connected labels and module ports.  The report is placed in
+a .LAB file.
+
+.INET-N
+
+/N  Do not rebuild the .INF files.
+
+.INET-Q
+
+/Q  Run in "quiet" mode without echoing tracking information on the screen.
+
+.INET-T
+
+/T  Rebuild the entire database, recreate all connected databases, recreate
+all connecting database files.
+
+.INET-U
+
+/U  Report all unconnected wires and pins. The report is placed in a .NC
+file. This option also checks for pins, module ports, and power objects
+that might be overlapping and reports them.
+
+.INET-W
+
+/W  Run an electrical rules check on all files that are netlisted.  If a
+destination is supplied, then the output is placed in the indicated file,
+otherwise standard out is used.  Module ports are checked for correctness
+after all incremental netlisting and electrical rules checking is complete.
+
+.INET-Z
+
+/Z  Exit normally and ignore all warning messages.
+
+.JED2PLD
+ 
+JED2PLD translates the specified PAL JEDEC file, creating a PLUSASM
+equation file, and then assembles the equation file. This allows PAL-type
+components in a schematic to be functionally defined by a JEDEC file from a
+PLD compiler.
+ 
+.JED2PLD-PL20V8
+ 
+Use this option to import GAL20V8-compatible JEDEC files.
+
+.JED2PLD-PL22V10
+
+Use this option to import PAL22V10-compatible JEDEC files.
+ 
+.MAP2LCA
+
+Map2LCA translates a MAP file into a Logic Cell Array (LCA) file that
+describes how the design is partitioned into a particular LCA device.  In
+this format (LCA), you can place and route the design with the Automatic
+Place and Route (APR) program or load the design into the XACT Design
+Editor.  Map2LCA also produces a constraints file (SCP) that APR reads. 
+This file contains the placement and routing constraints specified in the
+schematic (for example, LOC= parameters, critical flags, etc.).  Map2LCA
+has an option to remove all placement constraints from the design before
+the constraints file is written.
+
+All signals and symbols in the MAP file have full hierarchical path names
+(for example, SYMBOL_1/AND).  The full path names must be maintained if the
+design is to be successfully back-annotated with timing information after
+implementation.  However, if you do not intend to back-annotate the design
+before performing timing simulation, you may use Map2LCA's option to
+shorten the path names.  This option directs Map2LCA to shorten the path
+names and create an AKA (Also Known As) file that lists each path name and
+its abbreviation (for example, $1-AND in place of SYMBOL_1/AND).  You can
+edit an existing AKA file for the design so that meaningful abbreviations
+are assigned to symbols and signals in the design. 
+
+Read the Map2LCA chapter in the "XACT Reference Guide" for more information
+about Map2LCA and its error messages.
+
+.MAP2LCA-I
+
+-I Ignore User Placement Constraints
+
+This option directs Map2LCA to ignore user placement constraints found in
+the input MAP file, and omit them from the output constraints file (SCP)
+for APR.
+
+.MAP2LCA-S
+
+-S Shorten signal and symbol names
+
+%rWARNING:%g This option should NOT be used if you intend to back-annotate
+the placed and routed design with timing information before doing timing
+simulation.  The timing back-annotation process depends upon maintaining
+full signal names throughout the design implementation process.
+
+This option directs Map2LCA to shorten the path names and create an AKA
+(Also Known As) file that lists each path name and its abbreviation.  For
+example, a symbol named "SYMBOL_1/AND" will be changed to "$1-AND" after
+Map2LCA creates an abbreviation of "$1" for the path name "SYMBOL_1".
+
+It is possible to edit an existing AKA file for the design so that
+meaningful abbreviations are assigned to symbols and signals.  If you rerun
+Map2LCA with the -S option after editing the AKA file, the existing AKA
+file is read by Map2LCA and the user-defined path name abbreviations are
+used in the output LCA file.
+
+.MAP2LCA-P
+
+-P Change package specification for the design part
+
+This option changes the part/package specification for the design.  It is
+recommended to only change the 'package' specification at this point in the
+design flow (ie. pc84, pg175).  If you must change the part type (ie. array
+size), you should change it in your original design file and re-process the
+design, or return to the file merging program (XNFMERGE) and specify the
+change in part type.  It is important to re-run the design preparation
+program (XNFPREP) with the correct part type specified for the design.
+
+%rWARNING:%g  Do not change the part type specification at this point in
+the design flow. Only change the package specification.
+
+.MEMGEN
+
+MemGen is the Xilinx RAM and ROM memory compiler for the XC4000
+family.  By specifying the type of memory, its width, its depth, and
+its contents, MemGen will generate an Xilinx Netlist Format (XNF) file
+that implements the specified memory configuration.  ROM contents are
+specified by editing the "DEFAULT" and "DATA" fields in the .MEM file
+generated by MEMGEN.  MemGen can also create a schematic symbol for
+your memory function.
+
+TO CREATE A NEW MEMORY COMPONENT
+
+   1.  Invoke MemGen.
+   2.  Select a new file and enter the file name.
+   3.  Enter the type of memory to build (RAM or ROM)
+   4.  Enter the width and the depth of the memory.
+   5.  Enter the schematic generator type, if any (-v or -o).
+   6.  Select the bus pins option (-b), if desired.
+
+       MemGen will do the rest, including creating a MEM file.
+
+TO RE-PROCESS AN EXISTING DESIGN
+
+   1.  Invoke MemGen.
+   2.  Select an existing .MEM file.
+   3.  Select the schematic editor (if any).
+
+THE MEMORY DEFINITION (.MEM) FILE FORMAT
+
+TYPE     RAM or ROM         The type of memory.  RAMs are writable.
+
+WIDTH    <decimal number>   The width (in bits) of each memory word.
+
+DEPTH    <decimal number>   The depth (in words) of the memory.
+
+; Comments                  All comments start with a semicolon (;).
+
+SYMBOL   <editor> <type>    The editor used to create the symbol and
+                            the type of symbol created (i.e., using pin
+                            or bus inputs).
+
+                            <editor>:
+                            VIEWLOGIC - Viewlogic's Viewdraw and
+                                        Viewdraw-LCA
+                            ORCAD     - OrCAD's SDT
+                            NONE      - No symbol created
+
+                            <type>:
+                            PINS      - Signals are individual pins
+                                        on the symbol.
+                            BUS       - Address and Data signals are
+                                        compressed into busses.
+
+For Read Only Memories:
+
+DEFAULT  <data value>       MemGen automatically sets the default to
+                            zero if not defined (for ROMs only).
+
+DATA     <data value1>, <data value2> ... <data valueN>
+                            Defines the value of each memory location.
+                            DATA must be the last entry in the .MEM
+                            file (for ROMs only).
+
+Note on Initial Contents in RAMs:
+
+RAMs do not support initial contents at power-on.  The
+contents must be written before the data is valid.
+
+
+DATA VALUE FORMATS (Initial data only supported by ROMs)
+
+The <data value> fields for ROMs can be in any one of the following
+formats.  Unless otherwise specified, data is assumed to be hexadecimal.
+
+The underscore character (_) can be used to format data.
+
+Format:
+
+   <base>#<data value>#
+
+   where <base> is
+       2 for BINARY
+       8 for OCTAL
+      10 for DECIMAL
+      16 for HEXADECIMAL (default, same as if no base specified)
+
+EXAMPLE:  The number eleven represented in various formats
+
+BINARY      2#0000_1011#  <-- Note the underscore for formatting
+OCTAL       8#13#
+DECIMAL     10#11#
+HEXADECIMAL 16#B#, or
+            B since hexadecimal is the default format.
+
+EXAMPLE MEMORY DEFINITION FILE
+
+The following memory definition file is for a 8-word-deep by 4-bit-wide
+ROM with initial contents.  The first five memory locations contain
+the values 1, 2, 3, 4, and 10.  All other locations default to all
+ones.
+
+; ==============================================================
+; example.mem:  An 8-word deep by 4-bit wide ROM 
+; ==============================================================
+;
+TYPE  ROM            ; The memory is a ROM
+DEPTH   8            ; The memory is 8 words deep
+WIDTH   4            ; Each memory word is four bits wide
+;
+SYMBOL VIEWLOGIC BUS ; Build a VIEWLOGIC symbol with bus inputs
+;
+DEFAULT F            ; Unless specified, all locations are ones
+DATA 1,              ; First location is one, shown in default hex
+     2#0010#,        ; Second location is two, shown in binary
+     8#3#,           ; Third location is three, shown in octal
+     10#4#,          ; Fourth location is four, shown in decimal
+     16#A#           ; Fifth location is ten, shown in hex
+; ==============================================================
+
+.MEMGEN-B
+
+-B  Compress Address and Data Signals Into Bus Notation on the Symbol
+
+This option compresses the address and data signals on the memory symbol
+into address and data buses.  For wide memories, symbols drawn with
+uncompressed address and data signals will be very large.  Compressing
+these signals into bus notation saves space on the schematic.
+
+NOTE:  Not available in conjunction with the OrCAD symbol
+       generator.
+
+.MEMGEN-O
+
+-O  Create an OrCAD Symbol for the Specified Memory
+
+This option creates an OrCAD LIBEDIT import file for your memory.
+
+              *** For OrCAD Release 386+ System ***
+              -----------------------------------
+ 
+To save your newly created memory in your library, type
+      * ORCAD
+      then invoke each of the following by clicking twice on the
+      displayed button
+      * [Schematic Design Tools] and then
+      * [Edit Library] (LIBEDIT)
+ 
+Once you are in LIBEDIT, run the following commands:
+      * Quit
+      * Initialize "MEMGEN.LIB" or your library
+      * Import "<file_name>.cmd"
+      * Library, Update
+      * Quit, Update, and then
+      * Abandon Edits
+ 
+Remember to add FILE=<file_name> to the symbol with OPTIONS_1
+or OPTIONS_2 commands when you use the symbol in your schematic
+drawing.
+ 
+NOTE:  You will need to add your memory library to your DRAFT
+----   configuration once by clicking on the
+       * [DRAFT] button and then once again on the
+       * [Configure Schematic Tools] button
+ 
+Use the mouse or the <PageDown> key to pan down to Library
+Options.  Add the newly created/updated library to the list of
+configured libraries by first selecting the library and clicking
+once on the Insert button.  When completed, save the configuration 
+by pressing the <Home> key once and then select the [OK] button.
+ 
+NOTE:  The OrCAD symbol generator does not currently support
+----   symbols with bus inputs.
+
+.MEMGEN-TYPE_RAM
+
+-RAM   Create RAM 
+
+This option specifies to MemGen to create a RAM (read/write memory)
+rather than ROM. Because it is a RAM, MemGen will create a symbol
+with write enable logic to allow you to write to the RAM.  RAMs do
+not support initial contents at power-on.  The contents must be 
+written before the data is valid.  Therefore it is also not possible
+to define any "DEFAULT" and "DATA" values in the MEM file for
+initial values for RAMs.
+
+.MEMGEN-TYPE_ROM
+
+-ROM   Create ROM 
+
+This option specifies to MemGen to create a ROM (read-only memory)
+rather than a RAM.  The contents of a ROM are specified by editing
+the "DEFAULT" and "DATA" fields in the .MEM file created by MEMGEN.
+
+When creating a ROM symbol, MEMGEN should be run twice.  The first
+invocation creates the .MEM template file.  Edit this file to define
+the "DEFAULT" and "DATA" fields for the ROM.  Then run MEMGEN again
+using the edited .MEM file, to create an XNF file with the correct
+INIT data values for the ROM. 
+
+
+.MEMGEN-V
+
+-V  Create a Viewlogic Viewdraw Symbol for the Specified Memory
+
+This option creates a Viewdraw schematic symbol file for your memory.
+The symbol can either have individual pin inputs for each of the
+address and data signals or the address and data signals can be
+compressed into bus notation using the -B option.
+
+The file for the symbol is automatically saved as <file name>.1
+in the /sym sub-directory of the current project directory. This 
+is the same file structure required by the Viewlogic system.
+
+
+.MEMGEN-OLD_LIBRARY
+
+-OLD_LIBRARY={"TRUE", "FALSE"}  Define the Schematic Library Version
+
+This option should be set to "TRUE" if the output XNF file is to
+be included in a design that was created from a schematic symbol
+library that existed prior to the new Xilinx Unified Library.  Xilinx
+requires all files which comprise a complete design be consistent with 
+either the Unified Library, or with a library that existed prior to
+the Unified Library ("old" library).  Therefore, the XNF output file
+from MEMGEN must be consistent with one library or the other.
+
+By default, MEMGEN will produce an XNF file that is consistent with
+the Unified Library (-OLD_LIBRARY="FALSE").  Designs from the Unified
+Library are distinguished by the presence of the LIBVER= parameter on
+the symbols.  If the -OLD_LIBRARY option is set to "TRUE", MEMGEN will
+create an XNF file that does not have LIBVER= parameters on the symbols.
+
+
+.MEMGEN-OUTPUT_DIRECTORY
+
+-OUTPUT_DIRECTORY=dir   Define Directory for Output XNF File
+
+This option defines the directory in which MEMGEN should output the XNF
+file.  By default, MEMGEN will put the XNF file in the current directory.
+This option does not affect the other output files.  The MEM, LOG, and 
+ORCAD CMD files will go in the current directory, and the Viewlogic 
+<symbol>.1 symbol file will go in the /sym sub-directory of the current
+project directory.
+
+.MEMGEN-LOGFILE
+
+-LOGFILE=<filename>  Define Logfile Name
+
+This option specifies the name of the MEMGEN logfile that stores the
+screen output of the program.  If an extension is not specified, MEMGEN
+will add the .LOG extension.  By default, the screen output is stored
+in a file called "memgen.log". The "memgen.log" file will be overwritten
+with each program invocation. 
+
+
+.MEMGEN-MEMORY_DEPTH
+
+-MEMORY_DEPTH=<number>  Define Number of Words in Memory
+
+This option specifies the number of words in the RAM or ROM memory.
+Each word will be "width" bits wide (see -WORD_WIDTH option).
+The depth number must be an integer value between 2 and 256, inclusive.
+There is no default value for this option - it must be defined.
+
+
+.MEMGEN-WORD_WIDTH
+
+-WORD_WIDTH=<number>  Define Number of Bits per Memory Word
+
+This option specifies the number of bits in each memory word.  The width
+number must be an integer value between 1 and 32, inclusive.  There is no
+default value for this option - it must be defined.
+
+.MEMGEN-PARTTYPE
+
+-PARTYPE=<part>   Sets part type in XNF File
+
+This option defines the part type that will be included in the output
+XNF file.   The part must be valid 4000 part name.  MEMGEN will default
+to use the "4005pg156" part.  If the XNF file is merged into the design
+with the XNFMerge program, then the part type in the top-level XNF file
+will define the part for the entire design regardless of the type
+in the sub-level files.
+
+.MEMGEN-TYPE
+
+-TYPE={"RAM", "ROM"}  Sets Type of Memory: RAM or ROM
+
+This option sets the type of memory to be generated as either a "RAM"
+or a "ROM". This option takes the character-string value of "RAM" or
+"ROM". RAMs are read-write memories, while ROMs are read-only memories.
+The contents of a ROM are specified by editing the "DEFAULT" and "DATA"
+fields in the .MEM file created by MEMGEN.
+
+When creating a ROM symbol, MEMGEN should be run twice.  The first
+invocation creates the .MEM template file.  Edit this file to define
+the "DEFAULT" and "DATA" fields for the ROM.  Then run MEMGEN again
+using the edited .MEM file, to create an XNF file with the correct
+INIT data values for the ROM. 
+
+It is not possible to define any "DEFAULT" and "DATA" values in the MEM
+file for RAMs since the XC4000 RAMs cannot have initial values.
+
+.PINSAVE
+ 
+PINSAVE saves the pinout of the specified design (after integration).  It
+creates a .VMF file listing all pin names and pin locations. You can use
+this pin-save file to control the pinout of subsequent integrations by
+enabling the "-F" option of the FITNET or FITEQN command.
+ 
+.PLUSASM
+ 
+PLUSASM assembles the specified PLD (or PDS) equation file for a PLD
+component or custom symbol in a schematic design. (The PLUSASM command is
+not used for behavioral designs.) PLUSASM produces a logical bit-map file
+in the clib sub-directory. If you have specified an XC7272 part type, it
+produces a .VMD file, otherwise it produces a .VMH file.
+
+All equation files used in a schematic design must be assembled by PLUSASM
+before running FITNET to integrate the schematic. XMAKE automatically runs
+PLUSASM for each equation file found in a schematic before integrating (see
+XMAKE).
+
+.SDT2XNF
+
+The SDT2XNF program converts an OrCAD INF file (native netlist) into an XNF
+(Xilinx Netlist Format) file.  Run SDT2XNF on your top-level INF file after
+creating INF files for each level of your design by running the INET 
+program.  SDT2XNF creates multiple xnf files for each Xilinx soft macro or 
+user defined macro encountered in your design. You must run XNFMERGE to 
+combine these xnf files.
+
+The XNF file that SDT2XNF produces contains a text description of all logic
+in your design.  When SDT2XNF encounters a functional block with a FILE=
+parameter, it does not search for an INF file.  XNFMerge merges the logic
+for this functional block into the design.
+
+Read the "Design Entry Interface" sections in the "Design Interface User
+Guide" for more information about SDT2XNF.
+
+.SDT2XNF-D
+
+-D Output directory for XNF files.  Specifies the directory where the XNF
+files are placed. If this argument isn't specified, it will be set to the
+current directory.
+
+.SDT2XNF-P
+
+-P Part type used. Specifies the Xilinx part type used in the translation.
+This argument must be specified if you havn't set or want to override the
+part type in inffile (i.e. in the schematic).
+
+.SDT2XNF-S
+
+-S Search path for Xilinx-defined INF files. Specifies the path SDT2XNF
+uses to search for Xilinx-defined INF files which include the Xilinx
+softmacros and smartmacros. If this argument isn't specified, it will be
+set to the appropriate Xilinx-library path.
+
+.SDT2XNF-U
+
+-U Search path for user-defined INF files.  Specifies the path SDT2XNF uses
+to search for user-defined INF files which include the child-sheets and
+link-sheets. If this argument isn't specified, it will be set to the
+current directory.  This parameter takes a character string value. The
+default value for this parameter is "". Specifies the path SDT2XNF program
+uses to search for User-defined INF files for translation.
+
+Read "Advanced Design Methodology" in the "User Guide and Tutorials" book
+for more information about mapping and merging.
+
+.WIR2XNF
+ 
+The WIR2XNF program converts a Viewdraw WIR file into a XILINX Netlist
+Format, (XNF) file(s). WIR2XNF is run on the top-level drawing. WIR2XNF
+will find all WIR files in the heirarchy. Be sure to use the schematic
+editor to save the schematic first before running WIR2XNF.
+ 
+WIR2XNF has the option of producing one XNF file representing the entire
+design, or several XNF files, each representing one level of the design,
+(the latter option is the default).
+ 
+For XACT 5.0, running XNFMERGE after WIR2XNF is no longer optional. You must
+run this program as well as the XNFPREP program before proceeding to any
+other step in the design flow.
+ 
+Read "Design Entry Interface" in the "XACT User Guide" for more information
+about WIR2XNF and its warning and error messages.
+
+.WIR2XNF-B
+
+When WIR2XNF is running, by default, it writes the status of the process
+repetitvely to the screen, overwriting the same line over and over. This
+can be a nuisance if the program output is being redirected to a file.  The
+-B option switches off this operation.
+
+.WIR2XNF-C
+
+By default, WIR2XNF will NOT check the validity of PIN to PIN and PIN to
+BLOCK connections. These checks will be performed later in the flow, by
+XNFPREP. The -C option causes WIR2XNF to do a preliminary check on the
+design, to catch any obvious errors.
+
+.WIR2XNF-F
+
+By default, WIR2XNF will create several XNF files, one for each level of
+the hierarchy. The -F option switches off this operation and causes WIR2XNF
+to create one large XNF file representing the entire design. Note that use
+of this option precludes the use, in your design, of RLOC, and other
+complex parameters that require special flattening. The necessary work to
+support these parameters is only performed by XNFMERGE.
+
+.WIR2XNF-P
+
+This allows you to specify the LCA part type for your design, if you did
+not specify one in your schematic. You may also use this option to overide
+it if you did specify one.
+
+.WIR2XNF-X
+
+This option is useless without the -F option, which indicates that you wish
+for your design to be flattened into one large XNF file.  When you invoke
+WIR2XNF with the -F AND the -X option, user created macros, (functional
+blocks), are not flattened. Usually a FILE= attribute, or changing the
+BLOCK TYPE of a particular macro from COMPOSITE to MODULE, prevents it from
+being flattened by WIR2XNF. With the -X option, however, NO user macros are
+flattened. XILINX macros, ie macros pulled from one of the standard
+libraries shipped with the product, and distinguished by the presence of a
+LEVEL=MXILINX attribute, are flattened regardless.
+
+.WIR2XNF-OD
+
+This option allows an output directory, in which to place the output XNF
+file(s), to be specified.
+
+.XBLOX
+
+The X-BLOX (Blox of Logic Optimized for Xilinx)
+logic-design/data path synthesis tool provides a library of
+module synthesizers that can be used to describe a system using
+high-level functions instead of gate primitives.  The X-BLOX
+module synthesizer custom tailors the logic implementation style
+and the most efficient use of chip resources to accomplish the
+defined task.
+
+The X-BLOX design system uses Xilinx-specific optimization
+techniques to boost the performance and density of the
+synthesized modules.  The X-BLOX software uses expert knowledge
+of the chip resources coupled with smart logic implementation
+techniques to produce fast and efficient circuit designs.  The
+X-BLOX module synthesizers save design time and produce optimum
+circuit implementations.
+
+.XBLOX-blxfile
+
+This parameter allows the user to specify the name of the file
+into which X-BLOX writes a report.  If provided, no file
+extension is added.  By default, this file is called
+<infile>.blx.
+
+.XBLOX-logfile
+ 
+This option specifies the name of the XBLOX logfile that stores the
+screen output of the program.  If an extension is not specified, XBLOX
+will add the .LOG extension.  By default, the screen output is stored
+in a file called "xblox.log". The "xblox.log" file will be overwritten
+with each program invocation.
+
+.XBLOX-noarchopt
+
+This option allows the architectural optimizations to occur. 
+Click on this option if you do not want X-BLOX to do any  
+architectural optimizations.
+
+.XBLOX-nomergeio
+
+This option disables the merging of flip-flops into the I/O
+Blocks (IOBs).  Without this option, X-BLOX will attempt to
+merge flip-flops into the IOBs if the part type supports it.
+This option does not affect DATA_REG modules whose STYLE has
+been set. 
+
+.XBLOX-nomodgen
+
+This option allows the module generation to occur.  Click on this 
+option to prevent any modules from being expanded or special
+symbols from being evaluated.  This should only be used if there
+are no X-BLOX symbols in the design.
+
+.XBLOX-noreg_rlocs
+
+Click on this option if you want to suppress the automatic generation of
+RPM RLOC sets for register modules.  By default, XBLOX will create RLOC
+sets to order the register logic.  This may over-constrain the design and
+result in placement problems in the place and route programs.
+
+This option will not affect your user-defined RLOC sets.  It will also not
+affect the XBLOX modules that use fast carry logic because RLOC or absolute
+LOC parameters are required for this logic.
+
+Alternate solutions to a placement problem are to attach the USE_RLOC=FALSE
+parameter to individual XBLOX modules to selectively disable automatic RLOC
+generation.  You may also attach an RLOC_ORIGIN parameter to selected XBLOX
+modules to place the logic in an absolute location.
+
+Check the XBLOX report file (design.blx) to determine how RLOCs were added
+to the design.
+
+.XBLOX-nosubscripts
+
+Disables generation of brackets around bus subscripts.  If this
+option is selected, X-BLOX will not use the subscripts when
+expanding an X-BLOX bus into its constituent nets.
+
+.XBLOX-paramfile
+
+This parameter specifies a file name that contains program parameters.
+Each program parameter should appear on a line by itself with its
+value separated by an equals sign.  For example, "logfile=mydesign.log".
+
+If a program parameter is specified on the command line as well in the
+parameter file, the value from the command line will be used.  If you 
+do not specify a parameter file, all of the program's options are 
+taken from the command line.
+
+.XBLOX-sim
+
+This parameter takes a character string value.  If used, it
+should be set to XNF.  When set, X-BLOX will produce an XGS
+functional simulation file.  No architectural optimizations will
+be performed, and no XG file will be written.  By default, no
+XGS file is produced.
+
+.XBLOX-simdir
+
+This parameter takes a character string value.  Used in
+combination with SIM=XNF only.  Many files are produced for
+functional simulation.  By default, these are placed into a
+subdirectory named <outfile>.bsm.  This can be changed by
+setting SIMDIR to another value.  For example `SIMDIR=.'  will
+place the functional simulation files in the current directory.
+
+.XDRAFT
+
+This program modifies your SDT.CFG (OrCAD SDT configuration file) and/or
+VST.CFG (OrCAD VST configuration file) in the current directory so that
+they are set up to run with the Xilinx OrCAD environment.
+
+.XDRAFT-L
+
+-L Old Library Option.  This option must be set if you are using the old
+SDT/VST library v4.20 instead of the new unified SDT/VST library from
+Xilinx.
+
+.XDRAFT-S
+
+-S SDT Configuration Only.  If this option is specified, XDRAFT configures
+the SDT.CFG file in the current directory only.
+
+.XDRAFT-V
+
+-V VST Configuration Only.  If this option is specified, XDRAFT configures
+the VST.CFG file in the current directory only.
+
+.XDRAFT-X
+
+-X XACT path.  Specifies the Xilinx XACT path. If this option isn't
+specified, it will be set to the value of the XACT environment variable.
+
+.XEMAKE
+
+XEMAKE allows you to produce an Intel HEX programming file or a design
+database file for an EPLD design in one step. XEMAKE executes the following
+commands automatically for EPLD:
+
+  1. WIR2XNF or SDT2XNF -- Translates all schematic files for the design
+     into a netlist.
+
+  2. XNFMERGE -- Merges the hierarchical .XNF files created by Step 1.
+
+  3. PLUSASM -- Translates any .PLD or .PDS files for PAL or custom
+     symbols.
+
+  4. FITNET -- Integrates the design and maps it to an EPLD device.
+
+  5. MAKEPRG -- Creates an Intel HEX programming file (.PRG) if you
+     selected this as the target.
+
+You are asked to select a target. You can select "Make Intelhex bitmap" and
+complete all five steps, or you can select "Make design database" and stop
+after Step 4. If you use the -X option, you can start at Step 2.
+
+.XEMAKE-G
+
+Creates a makefile (.MAK) and stops. You can later run this makefile to
+execute XEMAKE on your design.
+
+.XEMAKE-R
+
+Forces execution of all commands regardless of file dates.
+
+.XEMAKE-X
+
+Prompts for a .XNF file instead of a schematic file. Runs XNFMERGE, PLUSASM
+and FITNET, and may run MAKEPRG depending on the target you selected
+(design database or Intel HEX file).
+
+.XMAKE
+
+XMAKE is a program that automatically converts a design into a BIT file by
+invoking the appropriate design implementation tools in succession.  The
+design can be in the form of schematics or XNF files, or a combination of
+the two.
+
+XMAKE generates both a BIT file and a MAK (pronounced make) file for the
+input design.  The MAK file, similar to the UNIX "makefile," is a text file
+that contains an "entry" for each file that must be created or modified to
+produce a BIT file for your design.  An "entry" is a section of text that
+lists a target file, dependent files, and the program(s) used to create the
+target file.  An example MAK file for a Viewlogic design is described at
+the end of this help screen.
+
+XMAKE accepts either a top-level design file or a MAK file as input. When a
+design file is specified, XMAKE creates a new MAK file before translating
+the design; an existing MAK file will be overwritten.  If you are
+converting your design to a BIT file for the first time, or the steps
+needed to translate your design have changed since the existing MAK file
+was made, you should specify the top-level design file as the input to
+XMAKE.  For example, you must create a new MAK file if you've changed
+program options or modified your design's hierarchy by adding or deleting
+macros.
+
+When XMAKE is run on a MAK file, no new MAK file is generated. The design
+translation steps described in the input MAK file are followed exactly. If
+your design hierarchy has not changed since the last translation, the steps
+needed to convert your design to a BIT file have not changed; you can rerun
+XMAKE using the existing MAK file as input.
+
+Many of the programs that XMAKE invokes have options that you can select
+with the Options command in the Profile menu.  Be sure to set these options
+before invoking XMAKE.
+
+Below is an example MAK file that XMAKE created.  This MAK file describes
+the design translation process from a "top-down" perspective.  Those files
+that must be generated first are listed at the bottom of the MAK file. In
+this example, the last file to be generated, righton.bit, is listed first.
+
+ #
+ # Created by XMAKE Version 2.90 on Sun Sep  5 08:38:47 1993
+ #
+ # The following options were used: -G
+ #
+ # The following is the hierarchy of the design 'sch\righton.1'
+ #
+ # sch/righton.1
+ #     statmach.abl
+ #     sch/rightled.1
+ #     sch/leftled.1
+ #     sch/points_b.1
+ #         xnf/bus_if04.xnf
+ #         xnf/bus_if04.xnf
+ #     sch/sw5.1
+ #     sch/8m2-1.1
+ #         xnf/m2-1.xnf
+ #         xnf/m2-1.xnf
+ #         xnf/m2-1.xnf
+ #         xnf/m2-1.xnf
+ #         xnf/m2-1.xnf
+ #         xnf/m2-1.xnf
+ #         xnf/m2-1.xnf
+ #         xnf/m2-1.xnf
+ #     xnf/compm8.xnf
+ #     sch/ledbar.1
+ #     sch/lights.1
+ #         memory.mem
+ #         xnf/c16bcr.xnf
+ #
+ DEFAULT_TARGET righton.bit
+ 
+ righton.bit : righton.lca
+        makebits righton.lca
+ 
+ righton.lca : righton.xtf
+        ppr righton.xtf parttype=4003PC84-5
+        xdelay -D -W righton.lca
+ 
+ righton.xtf : righton.xg
+        xnfprep righton.xg righton.xtf parttype=4003PC84-5
+ 
+ righton.xg : righton.xtg
+        xblox righton.xtg righton.xg parttype=4003PC84-5
+ 
+ righton.xtg : righton.xff
+        xnfprep righton.xff righton.xtg parttype=4003PC84-5
+ 
+ righton.xff : xnf\c16bcr.xnf memory.xnf xnf\lights.xnf xnf\ledbar.xnf
+xnf\compm8.xnf xnf\m2-1.xnf xnf\8m2-1.xnf xnf\sw5.xnf xnf\bus_if04.xnf
+xnf\points_b.xnf xnf\leftled.xnf xnf\rightled.xnf xnf\statmach.xnf
+xnf\righton.xnf
+        xnfmerge -D xnf -D . -P4003PC84-5 xnf\righton.xnf righton.xff
+ 
+ xnf\righton.xnf : sch\lights.1 sch\ledbar.1 sch\8m2-1.1 sch\sw5.1
+sch\points_b.1 sch\leftled.1 sch\rightled.1 sch\righton.1
+        wir2xnf -OD xnf -B righton righton.xnf
+ 
+ xnf\statmach.xnf : statmach.abl
+        abl2xnf statmach.abl output_directory=xnf family=XC4000
+parttype=4003PC84-5
+ 
+ memory.xnf : memory.mem
+        memgen memory.mem
+
+.XMAKE-A
+ 
+-A  Use 'map-then-merge' strategy.
+
+When you use the -A option, XMAKE maps the logic in each user-created macro
+before merging it into the top-level design. Logic from unrelated macros is
+never combined into the same CLB when invoking XMAKE with -A.  Routing an
+LCA file created with the -A option of XMAKE should be easier than routing
+a design created with the -T (Use 'merge-then-map' strategy) option, but
+the design may require more CLBs since unrelated logic is separated.
+
+For more information about mapping and merging, refer to the "Advanced
+Design Methodology" chapter in the "User Guide and Tutorials" book.
+
+.XMAKE-B
+
+-B  Perform XBLOX optimization
+
+By selecting this option, XMAKE will run the XBLOX synthesizer on the
+flattened design in order to achieve the architectural optimizations that
+XBLOX can perform.  An example of the optimization that can be obtained is
+the allocation of large fan out clock nets to unused global clock buffers. 
+For a full description of the XBLOX architectural optimizations, refer to
+the XBLOX documentation. 
+
+%rNOTE%g: If your design contains XBLOX modules, XMAKE will detect this,
+and will run XBLOX automatically. Selecting the '-B' option, in this case,
+merely ensures that 'archopt=TRUE' setting is enforced, regardless of the
+current settings for XBLOX in the profile.
+
+.XMAKE-F
+ 
+-F  Use 'map-FILE=-then-merge' strategy
+ 
+When you use the -F option, XMAKE maps the logic in each macro with a FILE=
+parameter before merging it into the top-level design.  Use this option to
+prevent unrelated logic from being combined into the same CLB.
+ 
+For more information about mapping and merging, refer to the "Advanced
+Design Methodology" chapter in the "User Guide and Tutorials" book.
+
+.XMAKE-G
+
+-G  Generate MAK file only
+
+The -G option causes XMAKE to generate a MAK file without executing every
+program specified in this MAK file.  XMAKE will not generate an LCA file or
+a BIT file when you specify the -G option.
+
+The MAK file that XMAKE produces lists all of the steps needed to convert
+your design into a BIT file.  With the -G option, you can review these
+steps before attempting to translate your design.  You can also customize
+the translation process by editing the MAK file produced with the -G
+option; however, this is not recommended. XMAKE should make changes to the
+MAK file.  
+
+.XMAKE-I
+
+-I  Use APR/PPR Guide File
+ 
+The -i option causes XMake to automatically select the guide
+file option for APR(-g) and PPR(guide=). If APR -g or PPR guide=
+option is already selected in the profile, the guide file name
+specified on the XMake command line after the -i option overrides
+the currently selected guide file name.
+ 
+The guide file must have '.lca' extension. If it is specified without
+an extension on the XMake command line, XMake automatically appends
+'.lca' to the file name.
+ 
+For XC2000, XC2000L, XC3000, XC3100, XC3000A/L and X3100A designs, XMake
+also ensures that the mapping of CLBs is guided via the XNFMap -k option.
+XMake automatically runs LCA2XNF on the guide LCA file to generate a
+<design>.pgf file for use by XNFMap.
+
+.XMAKE-L
+
+-L  Use old library only
+
+The -L option causes XMAKE to automatically select the "Use-old-library-
+only" type option when invoking translators with such an option.  If this
+option is not selected, XMAKE assumes the design uses the Unified Library.
+
+.XMAKE-O
+
+-O  Don't Redirect Output into a file
+
+The -O option tells XMAKE not to redirect its output to the <filename>.out
+file.
+
+.XMAKE-R
+
+-R  Force re-execution of all programs
+
+The -R option forces XMAKE to re-execute every step necessary to generate
+the required output file. In the normal XMAKE flow, if the output file to a
+program XMAKE is to invoke is newer than the input file, XMAKE does not 
+invoke that program.
+
+.XMAKE-T
+
+-T  Use 'merge-then-map' strategy 
+
+When you use the -T option, the output LCA file can (and probably does)
+have unrelated logic grouped together into the same CLB.  This "mixed"
+grouping allows CLBs to be used efficiently but can make routing difficult,
+especially with large designs (3064 & 3090 designs).  Related logic should
+be grouped together to minimize the routing distance between blocks.  Use
+the -A (Use 'map-then-merge' strategy) option to ensure that unrelated
+logic is not mapped into the same CLB.
+
+.XMAKE-V
+
+-V  Verbose Message Mode
+
+With the -V option selected, XMAKE gives a more detailed description of the
+steps completed while compiling the design, and it explains why each
+command is being executed.
+
+.XMAKE-X
+
+-X  Use XNF files only
+
+The -X option causes XMAKE to start processing from the XNF files, instead
+of the schematic files. Select this option if you use third- party
+design-entry tools not directly supported by XMAKE. You must first
+translate your design into XNF files manually, using the interface
+program(s) for your design-entry program.
+
+.XMAKE-target
+
+As a default, XMAKE translates a design and generates a BIT file ready to
+be downloaded to an LCA.  To cause XMAKE to stop processing at a certain
+point of the flow, select an appropriate item from the target menu.
+
+Stop to review DRC
+  XMAKE generates <design>.map file for XC2000, XC3000, XC3000A/L,
+  and <design>.xtf file for XC4000 family devices, and stops. Select
+  this target if you wish to review various report files such as
+  <design>.mrg (output of the XNFMERGE program) and <design>.prp
+  (output of the XNFPREP program).
+
+Make placed & routed design
+  XMAKE generates <design>.lca file and stops. Select this target if
+  you wish to do a design simulation, using the tools found under the
+  Verify menu.
+
+Make bitstream
+  XMAKE generates <design>.bit file ready to be downloaded to an LCA.
+  This is the default target.
+
+.XNFMAP
+
+XNFMap partitions or "maps" the logic defined in an XTF (XNF) file into the
+architectural resources of the LCA (CLBs, IOBs, TBUFs).  The XTF file is a
+text file that contains a description of each logic gate in your design and
+its associated pins.  XNFMap reads this file and decides which gates will
+be combined together in a CLB.  Logic partitioned at the schematic level
+with CLBMAP symbols are mapped first.  The remaining logic is efficiently
+partitioned in CLBs and IOBs. 
+
+XNFMap should be used after the design has been processed through the
+XNFPrep program.  XNFMap relies upon XNFPrep to perform simple design rule
+checking and trim unused logic (for example, sourceless and loadless
+signals and unnecessary logic gates such as inverters and buffers).
+
+The output of XNFMap is a MAP file, which describes how the logic in your
+design is partitioned.  This file is the input to either the Map2LCA
+program (if the design is for a 2000, 3000, or 3100 part) or the PPR
+program (if the design is for a 3000A, 3100A, or 3000L part).  XNFMap also
+produces a report file (CRF) that contains the cross-reference between
+original logic elements and the resulting LCA design elements. 
+
+XNFMap also outputs a partitioning guide file (PGF).  This file contains
+information that XNFMap can use during a future iteration of the program to
+guide the mapping of design elements into CLBs.  The guide file can direct
+XNFMap to partition logic into CLBs in the same manner as it did in the
+previous iteration.  This feature is an important element in the
+"Incremental/Iterative" design flow for design implementation.
+
+For more information about XNFMap and a description of each error message,
+read the XNFMap chapter in the "XACT Reference Guide".
+
+
+Output Signal Naming Convention for Register Ordering
+
+To avoid register bit scrambling, XNFMap orders flip-flops in registers
+based upon their output signal names, pairing them in CLBs according to the
+alphabetic name order.  An example of register bit scrambling is when
+register bit 0 is placed in the same CLB as register bit 4.
+
+Adhere to the following naming convention so that XNFMap can recognize and
+order register bits properly.  First, give register names at least one
+alphabetic character, and do not use the underscore (_) character.  
+
+Second, name these signals in alphabetic order.  XNFMap will attempt to
+pair registers' flip-flops in CLBs according to this order, provided the
+names share all the same characters except for the final two or three
+characters if the last character is nonalphanumeric, such as < or >.
+
+You can examine the results of the register ordering function in the report
+file (CRF).  You can modify unsatisfactory results by changing the
+flip-flop signal names, using CLBMAP symbols, or the block name (BLKNM) and
+hierarchical block name (HBLKNM) attributes to group logic during schematic
+capture.  You can also suppress the register ordering function with the -O
+option.
+
+.XNFMAP-C
+
+-C Relax the requirements for combining logic in CLBs 
+
+This option relaxes the requirement for a high degree of signal-sharing
+between logic elements in a CLB.   This may lead to more densely packed
+CLBs.
+
+%rWARNING:%g Though this makes a design denser, this option may also
+adversely affect place and route performance, most likely resulting in
+higher delays and more unrouted nets.  Use -C only  if you are willing to
+trade performance for density.
+
+.XNFMAP-E
+
+-E  Keep Unused Logic Except for Disabled Logic and Signals
+    That Are Sourceless AND Loadless
+
+The -E option is intended only for estimating the number of CLBs required
+to implement a macro or a partially completed design.  When you have
+entered a portion of your schematic and want to know approximately how many
+CLBs the current amount of logic requires, use this option to prevent
+XNFMap from rejecting the design due to sections of logic with dangling
+inputs or outputs.
+
+.XNFMAP-F
+
+-F  Force Dense Packing
+
+The -F option forces XNFMap to partition logic more densely than in it's
+default operation. Normally, XNFMap partitions logic to maximize signal
+sharing within CLBs and to minimize routing congestion.  The -F option is
+equivalent to the combination of the -C, -S, and -I options.  Also see the
+options -C, -S, -I, -O and -R to create a denser design.
+
+.XNFMAP-G
+
+-G  Limit Number of Gates Combined in One Combinatorial
+    Function
+
+Use the -G option to limit the number of logic gates XNFMap combines into
+one CLB.  If XNFMap builds an equation that exceeds the allowed equation
+length, XNFMap issues an error message that instructs you to use the -G
+option.  If you specify -G without a number, XNFMap uses the default of 20
+gates per function generator.
+
+.XNFMAP-A
+
+-A Respect macro boundaries while mapping ("map-then-merge")
+
+This option directs XNFMap to partition only logic elements from the same
+level of hierarchy in a single CLB.  A level of hierarchy is usually
+defined as the logic contained within a single macro symbol. This option
+provides a simple replacement function for the former -A "map-then-merge"
+optional design flow in XMAKE.   
+
+This option is desired when you wish to preserve all of the original design
+hierarchy.  Without this option, it is possible for XNFMap to place logic
+elements from different levels of the design in the same CLB and thus lose
+the original hierarchy.
+
+%rWARNING:%g Because this option relies on the hierarchy information placed
+in the design file by XNFMERGE, it is necessary to NOT use the -F option in
+XNFMERGE that suppresses this information.
+
+%rWARNING:%g  Use of this option may lead to less efficient use of the LCA
+resources since it usually restricts XNFMap's ability to create more dense
+CLBs.
+
+.XNFMAP-I
+
+-I Allow use of DI pin on XC3000/3100 CLBs
+
+This option allows XNFMap to use the flipflop direct input pin (DI) on
+XC3000 and XC3100 CLBs.  This may lead to a more dense mapping of the
+design into blocks.
+
+%rWARNING:%g Since DI pins have less access to routing resources than other
+CLB inputs (A, B, C, D, and E pins), routing the design may be easier if
+you do not use the DI pins.
+
+Also see the options -F, -C, -O, -S and -R to create a denser design.
+
+.XNFMAP-J
+
+-J  Ignore and Remove IO Location Constraints in the XNF File
+
+This option causes XNFMap to ignore all LOC parameters on IO primitives. It
+prevents passing these constraints into the output file. Constraints on
+TBUF and CLB-type elements are not affected by this option.
+
+.XNFMAP-K
+
+-K Keep same logic mapping as in guide file
+
+This option will cause XNFMap to read a partitioning guide file and use
+that information to guide the mapping of a new design file.  Under this
+option, XNFMap's goal is to build the same CLBs as in a previous design
+iteration, and absorb any logic changes with as little disturbance as
+possible to the original mapping. It is necessary to re-create the same
+logic mapping if you wish to guide the placement and routing of the design
+with an LCA guide file in APR or PPR.
+
+The guide file must be the same base filename as the input design file,
+with a PGF extension.
+
+.XNFMAP-M
+
+-M Ignore CLBMAP symbols in design file
+
+This option directs XNFMap to ignore any partitioning guide symbols (CLBMAP
+symbols) in the input design file.  This option is useful when you want to
+allow the tools to have full flexibility in achieving a good result.  Poor
+placement and routing can often result when a design is too constrained
+through the use of CLBMAP symbols.
+
+This option may also be desired when you are using a partitioning guide
+file.  The default operation of XNFMap is to let the design file CLBMAP
+symbols override the information in the guide file.  Use this option if you
+wish to have the the data in the guide file override the CLBMAP symbols in
+the design file.  
+
+.XNFMAP-N
+
+-N  Ignore and Remove Interior Array Location Constraints
+
+The -N option causes XNFMap to ignore all LOC parameters on D-type
+flip-flops, CLBMAP symbols, CLB primitive symbols, and TBUF symbols.  It
+prevents passing these constraints into the output file.  Constraints on
+IOBs and TBUFs are not affected by this option.
+
+.XNFMAP-O
+
+-O Disable register-ordering of flipflop output signals
+
+The -O option suppresses registered signal ordering.  This option leaves
+the sorting of registered data bits to the standard signal-sharing
+algorithms.  Use of this option may cause routing congestion.
+
+%rWARNING:%g  Use of this option may lead to routing congestion.
+
+Also see the options -C, -S, -I, -F and -R to create a denser design.
+
+.XNFMAP-R
+
+-R  Reduce the Number of CLBs
+
+Use the -R option to reduce the number of CLBs in a design by increasing
+levels of logic.  When you run XNFMap with -R, 3-input functions are
+favored over 4-input functions in XC2000 family designs, and 4-input
+functions are favored over 5-input functions in XC3000 family designs. 
+Generally, XNFMap can pack functions with few inputs more tightly into CLBs
+than functions with many inputs, often combining them with a flip-flop.
+
+%rWARNING:%g This option may result in a more efficient use of CLB
+resources, but it may also increase the number of logic levels needed to
+implement wide functions, as well as increase the routing resources needed
+to implement the design in an LCA.  The -R option may even cause the number
+of CLBs to increase.  This might occur on small designs or on designs that
+use relatively few flip-flops.
+
+Also see the options -C, -S, -I, -F and -O to create a denser design.
+
+.XNFMAP-S
+
+-S Don't require minimal signal-sharing between CLB logic elements
+
+This option directs XNFMap to try to squeeze more logic into CLBs by
+relaxing the requirement of a minimal amount of signal-sharing between
+logic elements in a CLB.
+
+%rWARNING:%g Though this makes the design denser, this option also
+adversely affects the place and route performance, most likely resulting in
+higher delays and more unrouted nets.  Use only if you are willing to trade
+performance for density.
+
+Also see the options -C, -R, -I, -F and -O to create a denser design.
+
+.XNFMAP-Q
+
+-Q Respect only "FILE=" macro boundaries while mapping
+
+This option directs XNFMap to partition only logic elements from the same
+level of hierarchy in a single CLB, with each level of hierarchy defined by
+the presence of a "FILE=" attribute on the original macro symbol.  This
+option is different from the -A option which defines a single level of
+hierarchy for every macro symbol in the design.  The "FILE=" attribute
+usually distinguishes user-defined macros.  This option provides a simple
+replacement function for the former -F "map-then-merge" optional design
+flow in XMAKE.
+
+%rWARNING:%g Because this option relies on the hierarchy information placed
+in the design file by XNFMERGE, it is necessary to NOT use the -F option in
+XNFMERGE that suppresses this information.
+
+%rWARNING:%g  Use of this option may lead to less efficient use of the LCA
+resources since it usually restricts XNFMap's ability to create more dense
+CLBs.  However, it is usually not as restrictive as the -A option.
+
+.XNFMAP-U
+
+-U Respect guide file hierarchy while mapping
+
+This option directs XNFMap to partition only logic elements from the same
+level of hierarchy in a single CLB, with each level of hierarchy defined by
+the hierarchy in the guide file.  This option ignores the hierarchy in the
+design file. 
+
+Also see the -A and -Q options regarding "map-then-merge" options.
+
+.XNFMAP-P
+
+-P Change package specification for the design part
+
+This option changes the part/package specification for the design.  It is
+recommended to only change the 'package' specification at this point in the
+design flow (ie. pc84, pg175).  If you must change the part type (ie. array
+size), you should change it in your original design file and re-process the
+design, or return to the file merging program (XNFMERGE) and specify the
+change in part type.  It is important to re-run the design preparation
+program (XNFPREP) with the correct part type specified for the design.
+
+%rWARNING:%g  Do not change the part type specification at this point in
+the design flow. Only change the package specification.
+
+.XNFMERGE
+
+XNFMerge combines XNF files to form a single, flat (nonhierarchical) XFF
+file.  An input XNF file that contains FILE= references or non-primitive
+symbols (ie. macro symbols) is hierarchical and cannot be directly
+converted to an LCA file.
+
+XNFMerge also propagates some location attributes down the design
+hierarchy, resolves relative location (RLOC) constraint attributes, and
+performs some preprocessing functions for XACT Performance.  Therefore it
+is necessary for designs to be processed through XNFMerge, regardless of
+whether or not the design is already flattened.
+
+XNFMerge first reads an XNF file that describes the top-level of a
+hierarchical design.  When XNFMerge finds a symbol that represents
+non-primitive logic, it searches for and reads the file referenced by the
+non-primitive symbol.  A file is referenced by either the FILE= parameter
+or the symbol's type name.  When the file is found, XNFMerge merges the new
+information into the design.  During this process, XNFMerge also records
+information about the design hierarchy in the output file.  This
+information is used by other programs that need to understand the original
+design hierarchy.
+
+XNFMerge creates a merge report file (MRG) in addition to an output XFF
+file. This MRG file contains a list of the XNF files read, the signals that
+were bound together across hierarchical boundaries, and the number of
+signals, primitive symbols, and unresolved (unflattened) symbols in the
+output design.  The MRG file also contains information about the RPM (RLOC)
+sets of logic symbols.
+
+%rWARNING:%g XNFMERGE will report "Binding mismatch" errors when it cannot
+connect the signal on a macro pin to the logic underlying the macro.  This
+will lead to sourceless and loadless signals in the design and the removal
+of logic.  One method to ensure signal binding is to name the pin on the
+macro the same name as the associated signal name in the underlying logic. 
+Another method is to use the PIN= parameter on signals in the underlying
+macro logic.
+
+Read the XNFMerge chapter in the "XACT Reference Guide" for more
+information about the XNFMerge program.
+
+.XNFMERGE-A
+ 
+-A  Abbreviate File-Reading Report 
+
+When the -A option is used, XNFMerge will report each unique file name only
+once in the report file (.mrg) and on the screen.  Even if a file is read
+more than once for multiple instantiations in the design, its name will
+appear only once in the reports.
+  
+The default operation of XNFMerge will continue to include the reporting of
+every instantiation (reading) of a file.
+
+%rWARNING:%g This option is not recommended for general use since it
+suppresses useful information about file flattening.
+
+.XNFMERGE-D
+
+-D  Search for XNF Files in Specified Directory
+
+The -D option directs XNFMerge to add the specified directories to its
+search path.  When you select -D, you are prompted for a directory. 
+XNFMerge first searches for files specified with a FILE= attribute on the
+symbol, then in the current directory, and then in the -D specified
+directories.
+
+.XNFMERGE-F
+
+-F Don't Record Hierarchy in Output File
+
+By default, XNFMERGE will add information to the flattened output file to
+record the data about the design hierarchy.  This data is used by the
+Xilinx floorplanning program to organize the design elements.  It is also
+used by the XNFMAP program when the -A or -Q options are used to constrain
+mapping of logic into blocks based on hierarchical boundaries, which is a
+re-implementation of the former "map-then-merge" design flow.
+
+%rWARNING:%g This option directs XNFMERGE to not record the hierarchy data
+in the output file.  This option is not recommended for general use.
+
+.XNFMERGE-I
+
+-I  Ignore RPM information
+
+XNFMERGE is responsible for resolving all RPM (relationally placed macros)
+"sets" of design symbols that are associated by relative location (RLOC)
+attributes. XNFMERGE will also resolve all RLOC-related attributes
+(RLOC_ORIGIN, USE_RLOC etc.) in the design.  This option directs XNFMERGE
+to remove all RPM (RLOC) information from the design, with the exception of
+RLOC attributes on carry logic symbols.  The XACT Development system
+requires carry logic symbols to have RLOC or LOC attributes.
+
+.XNFMERGE-O
+
+-O  Change the Merge Report Filename
+
+The -O option changes the name of the merge report (MRG) file that XNFMerge
+creates.  Normally, the report file is called <output_design.mrg>, where
+<output_design> is the name of the output XNF file.
+
+XNFMerge enforces a .MRG file name extension.  If you specify a different
+extension, XNFMerge issues a warning and replaces that extension with the
+MRG extension.
+
+.XNFMERGE-P
+
+-P Change package specification for the design part
+
+This option changes the part/package specification for the design.
+
+.XNFMERGE-Q
+
+-Q  Allow Unresolved Hierarchy References
+
+If XNFMERGE cannot find the XNF file that contains the logic for a
+non-primitive symbol in the design, it will issue an error and not output
+an XFF file.  This option will prevent XNFMERGE from issuing the error
+message, and will force XNFMERGE to produce an output file with
+non-primitive (un-flattened) symbols.
+
+.XNFPREP
+
+Xnfprep prepares the flattened XNF file for accurate processing in the rest
+of the design flow.  Specifically, it performs a Design-Rule Check and
+removes any redundant and unused logic from the design.  It also checks the
+syntax of the XACT-Performance parameters found in the design and prepares
+delay information for PPR path analysis.
+
+When XBLOX is not involved in the design flow, the input to Xnfprep is a
+flattened XNF file with an .xff extension. When XBLOX is involved in the
+design flow, the input file is a flattened XNF file with an .xff extension
+before XBLOX processing and an XNF file with an .xg extension after XBLOX
+processing.
+
+Xnfprep produces a report file that lists warnings, errors, logic trimmed,
+and a clock fanout.  It also includes an XACT-Performance specification
+summary. The default name of the report file is <input-design>.prp for
+designs without XBLOX symbols and A<input-design>.prx for designs with
+XBLOX symbols; you can specify a different report file name with the
+report=<report-file> option.  (Note that the report file will be created in
+the current directory unless a different path is specified in the report=
+option.)
+ 
+If Xnfprep finds no errors, it produces a trimmed output XNF file with a
+default name <input_design>.xtf for designs without XBLOX symbols and
+<input-design>.xtg for designs with XBLOX symbols.  You can specify a
+different name for the trimmed output XNF file with the Outfile option.
+ 
+To invoke Xnfprep:
+    xnfprep <design> [<outfile>] {<options>}
+ 
+The options can be specified in the order
+       {<report> <savesig> <parttype>
+        <ignore_timespec> <cstfile> <ignore_xnf_locs> <ignore_rlocs>}
+ 
+or can be specified individually after the input filename by using the
+format
+   xnfprep <design> report=jack
+ 
+.XNFPREP-paramfile
+
+You can use this parameter to specify a file name which contains program
+parameters.  Each program parameter should appear on a line by itself with
+its value separated by an equals sign, E.g., "logfile=foobar.log".  If a
+program parameter is specified on the command line as well as in the
+parameter file, the value from the command line will be used.  If you do
+not specify a parameter file, all of the programs parameters are taken from
+the command line.  
+ 
+.XNFPREP-parttype
+
+This parameter takes a character string value. This option can be used to
+specify a parttype for the design.  If a different parttype is specified in
+the PART record of the XFF file, this parttype will override it. Note that
+a parttype MUST be specified somewhere (either in the PART record of the
+XFF file or using this option) in order to use XNFPREP.  If the parttype is
+specified in the XFF file, it does not need to be included here.  
+
+.XNFPREP-report
+
+This parameter takes a character string value. This optional field
+specifies a name for the report file generated by XNFPREP.  If no file name
+is specified here, the name of the report file will be the base name of the
+input design, with the extension ".prp" for designs without XBLOX symbols
+and the base name of the input design with the extension ".prx" for designs
+with XBLOX symbols.  
+
+.XNFPREP-savesig
+
+This parameter takes a boolean value {TRUE,FALSE}. The default value for
+this parameter is FALSE. This option can be used to direct XNFPREP to keep
+signals that are either sourceless or loadless.  When this option is TRUE,
+XNFPREP will not trim the sourceless or loadless signals, and will add the
+Savesig "S" parameter to these signals.  This option is useful when working
+with partial designs.  
+
+.XNFPREP-cstfile
+
+This parameter takes a character string value.  This option can be used to
+specify the path and name of the constraints file.  This option must be
+specified if a constraints file is to be used to specify Timespec data.
+
+.XNFPREP-ignore_xnf_locs
+
+This option can be used to direct XNFPREP to ignore all or only specific
+LOC parameters. The default value for this parameter is <none>.
+
+.XNFPREP-ignore_xnf_locs_all
+
+All LOC constraints will be ignored and will be removed from the output
+file.
+
+.XNFPREP-ignore_xnf_locs_interior
+
+Ignore non-I/O LOC constraints. This affects any LOC that is not on a pad
+or I/O symbol.
+
+.XNFPREP-ignore_xnf_locs_io
+
+Ignore I/O LOC constraints. This affects any LOC that is on a pad or I/O
+symbol.
+
+.XNFPREP-ignore_xnf_locs_none
+
+Do not ignore any LOC constraints. LOC constraints will not be ignored and
+will not be removed from the output file.
+
+.XNFPREP-ignore_rlocs
+
+This parameter takes a boolean value {TRUE,FALSE}.  The default value for
+this parameter is FALSE.  This option can be used to direct XNFPREP to
+ignore all RLOC parameters found in the design. If this option is TRUE,
+XNFPREP will ignore all RLOC parameters found in the design.
+
+.XNFPREP-ignore_timespec
+
+This option allow to ignore timing specifications in the XNF and/or the
+constraints file.
+
+.XNFPREP-ignore_timespec_all
+
+Ignore timespecs in the input design and the constraints file.
+
+.XNFPREP-ignore_timespec_cst
+
+Timespecs in the constraints file will be ignored.
+
+.XNFPREP-ignore_timespec_design
+
+Timespecs in the input design file will be ignored.
+
+.XNFPREP-ignore_timespec_none
+
+Timespecs in the input design and the constraints file will not be ignored.
+
+.--- (Programs under PlaceRoute menu) -------------------------------------
+
+.PLACEROUTE
+ 
+After a design has been mapped into the logical blocks of an LCA (IOBs,
+function generators in CLBs, etc.), the blocks must be physically placed so
+that their connecting signals may be routed with minimal timing delay.  You
+can manually route with the XACT Design Editor or automatically with either
+the APR program (XC2000, XC3000, XC3100 designs) or the PPR program
+(XC3000A/L, XC4000 designs). You can invoke these programs from within the
+Xilinx Design Manager.
+ 
+For more information about placement and routing, read the APR and PPR
+chapters in the "XACT Reference Guide."
+ 
+.NOPRPGMS
+
+XDM did not find any PlaceRoute/Fitter programs on your system. Check the
+PATH statement in your AUTOEXEC.BAT file.  You must specify (in the PATH)
+the directories that contain placement and routing software.
+
+If the path is correct and no programs are found, the PROGLIST.XDM file may
+be out of date.  To update the file, select ScanDisk from the Utilities
+menu.  If this does not resolve the problem, please contact Xilinx
+Technical Support.
+
+.APR
+
+The Automatic Place and Route program (APR) automatically places all of a
+design's CLBs and IOBs and routes the interconnecting signals.
+
+APR reads an LCA design file and the corresponding constraint file (if it
+exists in the current directory), places the CLBs and and IOBs in the
+design, routes the signals, and then writes the result to another LCA
+design file.  It also writes a report file that describes the final LCA
+design, including the routing delays associated with each signal.
+
+Read the "Automatic Place and Route Program" chapter in the  "XACT
+Reference Guide" for more information about APR.
+
+.APR-A
+
+-A  Specify the Number of Routing Attempts
+
+Using the -A option, you can specify the number of routing attempts APR
+makes.  After selecting -A, APR prompts you for a number.  The default
+number of routing attempts is 3.
+
+.APR-C
+
+-C  Direct APR to Read Constraints from Specified File
+
+The -C option directs APR to read the constraints specified in a
+user-created constraints file.  After selecting this option, APR prompts
+you for a file name.  APR enforces a .CST file name extension.  If you
+specify a different extension, APR issues a warning.  APR searches for the
+constraints file in two places: the current directory and the directory
+that contains the input design file.  
+
+Note that APR will automatically read an .SCP constraints file with the
+same base file name as the input design.  This constraint file is created
+by MAP2LCA and contains the constraint information that was present in the
+original XNF design file.  Any conflict between the .SCP and .CST
+constraints file will be considered an error.
+
+.APR-G
+
+-G  Use Specified LCA File as a Guide File
+
+The -G option directs APR to use the specified LCA file as a guide for
+placement and routing.  When you select -G, APR prompts you for an LCA
+file.
+
+To understand the -G option, assume you have a completely routed design
+that requires some slight modifications.  When you make the design changes
+and regenerate the new LCA file, the former placement and routing
+information has been lost.  However, you can use -G to guide APR to
+reproduce the original design's placement and routing.
+
+The extent to which the design can be guided to reproduce the original
+placement and routing depends upon the design changes, how the design was
+created (XACT, schematic capture, synthesis, etc.) and how the design was
+implemented.  It is important to use the -K guide option for XNFMAP to
+achieve the same CLB partitioning as in the original design.
+
+The information that APR extracts from the guide file includes block names
+and locations, signal names and their pin locations on blocks, and signal
+routing information.  APR compares the input LCA file and the guide file
+and then does the following:
+
+1.  If block names match, APR moves the block in the input design
+    to the location specified in the guide file.
+
+2.  If pin names in the same block match, APR swaps the pins to
+    match the guide design.
+
+3.  If signal names match and have the same sources and
+    destinations, APR uses routing from the guide file.
+
+.APR-J
+
+-J  Place Only
+
+The -J option directs APR to place blocks only; no routing is done.
+
+This option is useful if you want to manually route a high- performance
+design or a time-critical portion of a design and you need a starting
+placement.
+
+.APR-L
+
+-L  Lock All Blocks
+
+The -L option directs APR to lock all blocks in place, effectively skipping
+the placement portion of the program.  The block placement described in the
+input LCA file is maintained.  This option is useful when routing a design
+after minor changes have been made to it in the XACT Design Editor or when
+you have preplaced all the blocks in the design.
+
+You can use -L with other options to produce special output files.  These
+files are described below.
+
+1.  -LP  Routing Completion When part of a design has been manually routed
+in XACT, you can quickly evaluate the effectiveness of this routing by
+combining the -L and -P options.  APR does not change the design's block
+placement (-L) and it preserves the manual routing (-P).  If the number of
+unrouted pins and signals decreases and the performance is satisfactory,
+the manual routing is probably successful.
+
+2.  -LPJ  Create Report File When you combine the -L, -P, and -J options,
+APR generates a report file for the input design.  The input LCA file is
+unchanged.
+
+3.  -LJG  Addition of Logic to Existing LCA Design When you combine the -L,
+-J, and -G options, APR mimics the guide file and reads and executes the
+constraints (SCP) file.  If conflicts exist in the guide LCA file and the
+SCP file, APR terminates and writes error messages in the report file.  No
+new placement and routing occurs, as blocks in the input file that are not
+in the guide design are locked.
+
+.APR-O
+
+-O  Redirect Message to File
+
+The -O option redirects all APR output messages to a file.  When you select
+-O, APR prompts you for the output file name.  APR enforces an .OUT file
+name extension.  If you give a different extension, APR issues a warning
+message.
+
+.APR-P
+
+-P  Preserve All Routing Information
+
+When you use the -P option, APR preserves all routing information contained
+in the input LCA file.  APR locks all routed pins and the blocks to which
+they are attached.  For example, use this option if you have partially
+routed your design in XACT and want APR to route the remainder of the
+design.
+
+.APR-Q
+
+-Q  Skip Annealing Portion of Placement Algorithm
+
+When you specify the -Q option, APR skips the annealing portion of the APR
+placement algorithm.  Using this option severely restricts block movement;
+only use -Q on sparse designs or designs whose initial block placement is
+good.  APR runs much faster if you use -Q because the amount of block
+movement is limited.
+
+.APR-R
+
+-R Router
+
+This option sets router type (1, 2, 3, or 4).  The default is -R4.  APR has
+four routers.  Use -R4, the delay-driven router; though the most efficient
+router in terms of lower delays and fewer unroutes, it is the slowest of
+the three.  However, it often finds the best routing solution in one
+iteration, thus expending less time overall.  
+
+.APR-S
+
+-S  Specify a Seed for APR
+
+Use the -S option to reproduce a previous APR run.  With the same input LCA
+file, constraint file, and seed, APR will produce identical results.  When
+you specify -S, APR prompts you for a number greater than 1 and less than
+32767.  To find the seed used to generate an LCA file, look at the -s field
+in the "Options:" section at the top of the associated APR report file.
+
+.APR-T
+
+-T Improve Timing (route only, stand-alone option)
+
+This option will take a routed LCA design and try to reduce the overall
+average of the signal delays to give you better timing.
+
+%rWARNING:%g This option can be time-consuming.  It is recommended for use
+when the design has only a few unrouted pins, or when you want to improve
+the timing for a completed design. 
+
+.APR-W
+
+-W  Suppress Overwrite Warning
+
+If you use the -W option, APR does not warn you when the specified output
+design file already exists.  Use -W with caution.
+
+.APR-Y
+
+-Y Use a Deterministic Placer
+
+This option will use a placer that has been optimized to speed up the
+placement for larger XC3000 parts.  This placer may trade optimal  
+placement for a faster placement phase.
+
+.APR-X
+
+-X Show More Options
+
+This will show all available options that allow you more control over APR.
+
+.APRLOOP
+
+The APRLOOP program executes APR multiple times.  The output LCA files, all
+generated from the same input LCA design, have different block placements
+and different net routing delays.  Running APRLOOP allows you to evaluate
+several LCA files and select the best solution.  Once you choose APRLOOP,
+it prompts you for the desired number of APR iterations.
+
+.PPR
+
+The Partition, Place, and Route program (PPR) automatically maps a
+design into logic blocks, finds the optimal block placement, and routes
+the interconnect between the blocks.
+
+The PPR program reads in an XTF file (<design.xtf> for XC4000/A/H/D
+parts) or MAP file (<design.map> for XC3000A/L, XC3100A parts) and its
+optional constraint file (design.cst). When finished, PPR generates a
+routed design file (design.lca) and a corresponding report file
+(design.rpt).  All information that was output to the screen during
+PPR execution is saved to PPR.LOG.
+
+HELP can be used on the individual options for information
+on how they affect PPR run time and results.
+
+For more information about PPR, refer to the PPR chapter in the
+"XACT Reference Guide."
+
+.PPR-estimate
+
+-estimate   Evaluates the Resource Use of a Design (Do Not Place and Route) 
+
+Click on this option for PPR to evaluate the resource use of a design.  
+
+If you select a part type, PPR evaluates how well the design fits in
+the given part and generates a report (without doing place and route).
+Otherwise, it suggests and evaluates a part for the design.
+
+If the design is incomplete and has loadless or sourceless signals,
+then the design file should be prepared for PPR by using the -savesig
+option in XNFPREP.  This option directs XNFPREP to keep all the unused
+logic in the design, and annotate the design with parameters to save
+the loadless and sourceless signals.
+
+
+.PPR-seed
+
+-seed   Random Number Seed Used During Placement Improvement 
+
+The -seed=<value> option assigns a specific value to the seed that
+PPR uses during placement improvement.  This option takes a positive
+integer  value.  By default, PPR generates a random seed.
+
+.PPR-nopath_timing
+
+-nopath_timing   Do Not Use Path Timing Analysis to Guide 
+                 Implementation
+
+By default, PPR uses path analysis routines to produce a  
+high-performance implementation of the design.  Click on this  
+option if you do not want PPR to use path analysis routines. 
+
+.PPR-stop_on_miss
+
+-stop_on_miss   Specifies Whether PPR Should Stop if a Timespec
+                Requirement is Missed
+
+By default, if PPR finds that it cannot honor a TIMESPEC requirement, 
+it will continue to process the design, doing the best it can.  In
+these cases, you may prefer not to wait for PPR to finish.  Click on
+this option for PPR to immediately give up when it determines that a 
+requirement cannot be satisfied.  PPR will also write details to  
+the log file about all path endpoints that are certain to miss their
+TIMESPEC requirements.
+
+.PPR-ignore_timespec
+
+-ignore_timespec    Ignore Timing Specifications in Design File
+
+The -ignore_timespec=<value> option allows you to direct PPR to ignore
+or use the timing specifications in the input design file during
+place and route.  The option may may be assigned one of the following
+values:
+
+all   Use all the timing specifications in design file.
+none  Ignore all the timing specification in design file.
+
+The default setting is ignore_timespec=none.
+
+.PPR-ignore_timespec_all
+
+-ignore_timespec_all   Ignore Timing Specifications from Input File
+
+Click on this option if you want PPR to ignore timing specifications
+in the input design file.  These specifications occur on "TIMESPEC"
+symbols.  
+
+This option allows you to try PPR without the timing specifications,
+without having to delete them from the schematic.
+
+.PPR-ignore_timespec_none
+
+-ignore_timespec_none   Use Timing Specifications 
+
+Click on this option if you want PPR to use the timing specifications
+in the input design file.  These specifications occur on "TIMESPEC"
+symbols.  This is the default setting for PPR.
+
+See also the -ignore_timespec option.
+
+.PPR-dc2s
+
+-dc2s   Specify Default Clock-to-Setup Time
+
+The -dc2s=<value> option requires a character string value;
+there is no default value.
+
+You may specify the value of the default clock-to-setup path delay
+target to be in the range of 0.1 to 3000.0 ns.  This value will
+override any corresponding TIMESPEC requirements in the input design 
+file (which normally come from the schematics).
+
+You may also use the special string "AUTO" in place of a time 
+value.  The "AUTO" value instructs PPR to optimize paths of this 
+type, without requiring that a fixed delay be met.
+
+If the "IGNORE" value is given for a particular path type, PPR will
+only consider paths of the specified type if they are explicitly
+specified using schematic timing constraints.
+
+.PPR-dp2s
+
+-dp2s   Specify Default Pad-to-Setup Time
+
+The -dp2s=<value> option requires a character string value;
+there is no  default value.
+
+You may specify the value of the default pad-to-setup path delay
+target to be in the range of 0.1 to 3000.0 ns.  This value will
+override any corresponding TIMESPEC requirements in the input design
+file (which normally come from the schematics).
+
+You may also use the special string "AUTO" in place of a time 
+value.  The "AUTO" value instructs PPR to optimize paths of this 
+type, without requiring that a fixed delay be met.
+
+If the "IGNORE" value is given for a particular path type, PPR will
+only consider paths of the specified type if they are explicitly 
+specified using schematic timing constraints.
+
+.PPR-dc2p
+
+-dc2p   Specify Default Clock-to-Pad Time
+
+The -dc2p=<value> option requires a character string value;
+there is no default value.
+
+You may specify the value of the default clock-to-pad path delay
+target to be in the range of 0.1 to 3000.0 ns.  This value will
+override any corresponding TIMESPEC requirements in the input design
+file (which normally come from the schematics).
+
+You may also use the special string "AUTO" in place of a time 
+value.  The "AUTO" value instructs PPR to optimize paths of this 
+type, without requiring that a fixed delay be met.
+
+If the "IGNORE" value is given for a particular path type, PPR will
+only consider paths of the specified type if they are explicitly 
+specified using schematic timing constraints.
+
+.PPR-dp2p
+
+-dp2p   Specify Default Pad-to-Pad Time
+
+The -dp2p=<value> option requires a character string value;
+there is no default value.
+
+You may specify the value of the default pad-to-pad path delay
+target to be in the range of 0.1 to 3000.0 ns.  This value will
+override any corresponding TIMESPEC requirements in the input design
+file (which normally come from the schematics).
+
+You may also use the special string "AUTO" in place of a time 
+value.  The "AUTO" value instructs PPR to optimize paths of this 
+type, without requiring that a fixed delay be met.
+
+If the "IGNORE" value is given for a particular path type, PPR will
+only consider paths of the specified type if they are explicitly 
+specified using schematic timing constraints.
+
+.PPR-timing
+
+-timing   Specify Timing Information for the Router
+
+This -timing=<value> option may be assigned one of the following values:
+
+when_routable   If this setting is used, PPR routes the
+       design twice. The first routing pass
+       ignores timing delay information in order
+       to achieve a quick result.  If the first pass
+       completely routes the design, the results are
+       saved in an LCA file, and a second routing 
+       pass is initiated to use the timing delay
+       information.  If the first pass leaves unrouted
+       connections, the second pass is not tried.
+
+forced_on       This setting optimizes routing delays.
+       The first routing pass that ignores timing
+       delay information is skipped.
+
+ignored          This setting directs the router to ignore
+       routing delay. Although this can reduce
+       execution time, it usually causes
+       performance degradation in the resulting
+       design. It is recommended that delay
+       information be used.
+
+The default value for this option is when_routable.
+
+.PPR-timing_forced_on
+
+-timing_forced_on  Route for Timing Specifications (Skip First Pass)
+
+By default, PPR will route the design twice.  The first pass will
+disregard timing delays to minimize the amount of routing resources
+that are used.  If the first pass is successful, PPR will do a
+second routing pass based on the timing information.  When this
+option is selected, PPR will skip the first pass and only do the
+routing pass based on timing information.
+
+See also the -timing option.
+
+.PPR-timing_ignored
+
+-timing_ignored   Ignore Timing Specifications When Routing
+
+Select this option if you want PPR to route the design without
+considering timing information.   This can reduce run time but
+usually yields a lower-performance design.
+
+%rWARNING:%g This option turns off XACT-Performance completely.
+
+See also the -timing option.
+
+.PPR-timing_when_routable
+
+-timing_when_routable   Do Two Routing Passes
+
+This is the default option setting for PPR.  The first routing
+pass will disregard timing delays to minimize the amount of routing
+resources that are used.  If the first pass is successful, PPR will
+do a second routing pass based on the timing information.
+
+See also the -timing option.
+
+.PPR-paramfile
+
+-paramfile   Specify the Parameter File Name
+
+This parameter specifies a file name that contains program parameters.
+Each program parameter should appear on a line by itself with its
+value separated by an equals sign.  For example, "logfile=mydesign.log".
+
+If a program parameter is specified on the command line as well in the
+parameter file, the value from the command line will be used.  If you 
+do not specify a parameter file, all of the program's options are 
+taken from the command line.
+
+.PPR-helpall
+
+-helpall   Show More Options
+
+This will show all options available for PPR.
+
+.PPR-nocomplete
+
+-nocomplete      Design is Not Complete (Incremental Design)
+
+This option directs PPR to preserve some FPGA resources for additional
+logic in a future design iteration.
+
+By default, PPR assumes the input design file is complete and will
+use all the FPGA resources it needs to implement the design efficiently.
+It will use global buffers and CLB blocks to complete the routing.  If
+you expect to add more logic to the design (incremental design), then 
+you may want to use this option to direct PPR to preserve some resources
+for future use.  When this option is selected, PPR will not route
+through partially used CLBs or global buffers to achieve optimum
+routing so that these resources are preserved for additional logic.
+
+If the incomplete design has loadless or sourceless signals, then
+the design file should be prepared for PPR by using the -savesig
+option in XNFPREP.  This option directs XNFPREP to keep all the unused
+logic in the design, and annotate the design with parameters to save
+the loadless and sourceless signals.
+
+.PPR-outfile
+
+-outfile   Filename for Output LCA File
+
+The -outfile=<filename> option allows you to specify a different base
+name for the output LCA and report files.  By default, PPR will name
+the output files using the base name of the input design file.  
+
+.PPR-cstfile
+
+-cstfile   Use Named Constraint File 
+
+The -cstfile=<filename> option directs PPR to read the specified
+constraints file. By default, PPR will search for a constraint file
+that uses the same base name as the input design file, with a .cst
+file extension.  This option allows you to specify a different
+file name.  PPR will append the .cst extension if it is not specified
+in the option filename.
+
+.PPR-ignore_xnf_locs
+
+-ignore_xnf_locs   Ignore Location Parameters in Input File
+
+The -ignore_xnf_locs=<value> option allows you to direct PPR to ignore
+certain location constraint (LOC) parameters in the input design file, 
+without having to delete them from the schematic.  The option may
+may be assigned one of the following values:
+
+all        Ignore all location parameters in the input design.
+interior   Respect only the IO location parameters and pin assignments.
+io         Ignore only the IO location parameters and pin assignments.
+
+When the value of "all" or "interior" is selected, PPR will remove
+any location (LOC) parameters on carry logic if the symbols also
+have relative location (RLOC) parameters.  This condition occurs when
+you use relative location (RLOC) parameters and the RLOC_ORIGIN
+parameter to provide placement information for the carry logic. 
+If you used only absolute location (LOC) parameters on the carry logic
+symbols, then PPR will not remove them even if the value for the for
+this option is "all" or "interior".
+
+This option can be used in conjunction with the PPR -guide option
+to allow the guide file placement information to override the design
+file constraints. By default, the constraints in the design file 
+override the guide file information.
+
+
+.PPR-ignore_xnf_locs_all
+
+-ignore_xnf_locs_all   Ignore All Location Parameters in Input File
+
+Click on this option if you want PPR to ignore all the location (LOC)
+constraints in the input design file.  This option allows you to 
+examine the results of PPR when it is not constrained by any design
+file location parameters, without having to remove them from the
+schematics.  Some designs may achieve better results when PPR is
+allowed to determine the placement of the logic without constraints. 
+
+This option can be used in conjunction with the PPR -guide option
+to allow the guide file placement information to override the design
+file constraints. By default, the constraints in the design file 
+override the guide file information.
+
+When this option is selected, PPR will remove any location (LOC)
+parameters on carry logic if the symbols also have relative location
+(RLOC) parameters.  This condition occurs when you use relative
+location (RLOC) parameters and the RLOC_ORIGIN parameter to provide
+placement information for the carry logic. If you used only absolute
+location (LOC) parameters on the carry logic symbols, then PPR will
+not remove them even if this option is selected.
+
+See also the -ignore_xnf_locs option.
+
+.PPR-ignore_xnf_locs_interior
+
+-ignore_xnf_locs_interior   Ignore Interior (non-IO) Location Constraints
+
+Click on this option if you want PPR to respect only the IO location
+(LOC) parameters in the input design file, and ignore all other
+design file location constraints.  This option directs PPR to keep the
+IO and pin assignments for the IO blocks, while allowing PPR to determine
+the best placement of the interior logic (flipflops, BUFTs).
+
+This option can be used in conjunction with the PPR -guide option
+to allow the guide file placement information to override the design
+file constraints. By default, the constraints in the design file 
+override the guide file information.
+
+When this option is selected, PPR will remove any location (LOC)
+parameters on carry logic if the symbols also have relative location
+(RLOC) parameters.  This condition occurs when you use relative
+location (RLOC) parameters and the RLOC_ORIGIN parameter to provide
+placement information for the carry logic. If you used only absolute
+location (LOC) parameters on the carry logic symbols, then PPR will
+not remove them even if this option is selected.
+
+See also the -ignore_xnf_locs option.
+
+.PPR-ignore_xnf_locs_io
+
+Ignore IO Location Constraints
+
+Click on this option if you want PPR to ignore all the location (LOC)
+constraints on IO logic and pins in the input design.  This option
+directs PPR to respect the location constraints on the interior logic
+(flipflops, BUFTs), while allowing PPR to determine to best placement
+of the IO logic.
+
+This option can be used in conjunction with the PPR -guide option
+to allow the guide file placement information to override the design
+file constraints. By default, the constraints in the design file 
+override the guide file information.
+
+See also the -ignore_xnf_locs option.
+
+.PPR-ignore_xnf_locs_none
+
+Respect All Design File Location Constraints
+
+Click on this option if you want PPR to respect all the location (LOC)
+constraints in the input design.  This is the default operation for PPR.
+
+.PPR-ignore_maps
+
+-ignore_maps   Ignore all FMAP and HMAP Symbols in Design File
+
+Click on this option if you want PPR to ignore all the FMAP and HMAP
+symbols in the input design file for XC4000/A/H/D designs.  This option
+allows you to experiment with removing these mapping constraints without
+deleting the symbols from the schematics.  Some designs may achieve
+better results when PPR is allowed to determine the mapping of logic
+into function generators.
+
+.PPR-ignore_rlocs
+
+-ignore_rlocs   Ignore Relative Location (RLOC) Constraints
+
+Click on this option if you want PPR to ignore relative location
+(RLOC) constraints in the input design file.  This option does not
+affect RLOC constraints on carry logic since these symbols are
+required to have absolute location (LOC) or relative location (RLOC)
+constraints.
+
+This option can be used in conjunction with the PPR -guide option
+to allow the guide file placement information to override the design
+file RLOC constraints. By default, the constraints in the design file 
+override the guide file information.
+
+.PPR-noroute
+
+-noroute   Perform Placement Only, Do Not Route Design
+
+Click on this option if you want PPR to stop and produce an LCA file
+after only placing the design.  This option is useful if you want to
+use the XACT Design Editor to view the design, change the initial
+placement, or specify the pre-routing of certain signals.  In this
+case, you would:
+    1). use this option to obtain the placed, but unrouted LCA file.
+    2). use the XACT Design Editor to view the design, change the
+        placement of blocks, and/or pre-route certain signals.
+    3). use the modified LCA file from the Editor to guide the
+        original design in PPR.
+
+.PPR-place_with_timing
+
+-place_with_timing    Use Path Analysis During Placement
+
+By default, PPR does not use path analysis for XC3000A/L designs during
+placement.  Click on this option if you want PPR to use path analysis
+during placement for XC3000A/L designs.  If you want PPR not to use path
+analysis at all during placement and routing, then use the -nopath_timing
+option to turn off path analysis for all phases of PPR.
+
+.PPR-noplace_with_timing
+
+-noplace_with_timing  Do Not Use Path Analysis During Placement
+
+By default, PPR uses path analysis during placement for XC4000/A/H/D 
+designs.  Click on this option if you do not want PPR to use path analysis
+during placement for these designs.  If you do not want PPR to use path 
+analysis at all during mapping, placement, and routing, then use the
+-nopath_timing option to turn off path analysis for all phases of PPR.
+
+.PPR-placer_effort
+
+-placer_effort   Set the Placer Effort Level
+
+The -placer_effort=<value> option lets you control the tradeoff between 
+PPR execution time and placement quality.  The effort value can be set
+from 1 to 5, with the default value set to 2.  A lower value produces
+a quick result that may be of lower quality, while a higher value 
+directs PPR to take more time to produce a better placement.
+
+.PPR-route_thru_blks
+
+-route_thru_blks   Allow Routing Signals Through Blocks
+
+The -route_thru_blks=<value> option allows you to specify which kind
+of through-block routing you want PPR use.   The PPR router will
+route signals through blocks (CLBs, IO, global buffers) if it
+will improve the routing completion rate, improve circuit performance
+or meet timing constraints.  For some situations, it may be desirable
+to limit PPR's use of through-block routing.  The option may be
+assigned one of the following values:
+
+ok      Use any through-block routing that will improve results
+limit   Only route through blocks that are already partially used
+never   Never route through blocks
+
+PPR will automatically set the default value dependent upon the
+setting of the -nocomplete option.  If the design is defined to
+be complete, the default setting for -route_thru_blks is 'ok'.
+If you define the design to be -nocomplete, then PPR will set
+the value of route_thru_blks to 'limit'.  When a design is
+not complete and you expect to be adding more logic, then the
+'limit' option will prevent PPR from routing through unused blocks
+that may be needed for additional logic.  The 'never' value is
+only allowed on XC3000A/L and XC3100A designs.
+
+See also the -nocomplete option.
+
+.PPR-route_thru_blks_limit
+
+-route_thru_blks_limit   Allow Routing Through Partially Used Blocks
+
+PPR will automatically set this option if the design is specified
+as not complete by using the -nocomplete option.  When a design
+is not complete and you expect to be adding more logic, then this
+option will prevent PPR from routing through unused blocks
+that may be needed for additional logic.  
+
+You may also select this option to limit through-block routing
+regardless of the value of the -nocomplete option.
+
+See also the -route_thru_blks and -nocomplete options.
+
+.PPR-route_thru_blks_never
+
+-route_thru_blks_never     Never Allow Routing Through Blocks
+
+Click on this option if you want PPR to never route signals through
+blocks (ie. CLBs, global buffers, IO).  This option is only available
+for XC3000A/L and XC3100A designs.
+
+%rWARNING:%g This option may severely limit PPR's ability to route
+your design successfully, or meet timing requirements.
+
+See also the -route_thru_blks and -nocomplete options.
+
+.PPR-route_thru_blks_ok
+
+-route_thru_blks_ok   Allow Routing Through All Available Blocks
+
+This is the default option for PPR if the -nocomplete option has not
+been selected.  By default, PPR considers a design to be complete
+will route signals through blocks (CLBs, IO, global buffers) if it
+will improve the routing completion rate, improve circuit performance
+or meet timing constraints.  
+
+See also the -route_thru_blks, -route_thru_blks_limit, 
+-route_thru_blks_never, and -nocomplete options.
+
+.PPR-route_thru_bufg
+
+-route_thru_bufg   Allow PPR to route through unused global buffers
+
+If the route_thru_bufg option is set to true, PPR will route signals 
+through otherwise unused global buffers -- BUFGS in XC4000 or GCLK and 
+ACLK in XC3000 -- if doing so seems more efficient than using general 
+interconnect. This option is false by default, so that global buffers 
+needed for later design iterations are not used by PPR.
+
+.PPR-router_effort
+
+-router_effort   Set the Router Effort Level
+
+The -router_effort=<value> option lets you control the tradeoff between 
+PPR execution time and routing quality.  The effort value can be set
+from 1 to 4, with the default value set to 2.  A lower value produces
+a quick result that may be of lower routing quality, while a higher
+value directs PPR to take more time to produce better results. 
+
+.PPR-dflt_sig_dly
+
+-dflt_sig_dly   Set Default Delay for Signals
+
+The -dflt_sig_delay=<value> option lets you define a maximum delay
+target for PPR to use when routing signals along paths that are
+not yet complete in a partial design.  XACT-Performance specifications
+cannot be used on incomplete paths.  This option accepts a value of
+5 to 80 nanoseconds, inclusive.  The default value is 80 nanoseconds.
+
+If XACT-Performance cannot determine a target routing delay for a 
+given signal because the path that includes that signal is not
+complete, the value of the dflt_sig_dly option is used as a target
+delay.  This delay target is used only for the individual signal -
+it is not used for the target path delay.  This option does not
+affect the mapping or placement of an incomplete path.
+
+.PPR-use_faster_c2s
+
+-use_faster_c2s   Use Faster Clock-to_Setup Delay Target
+
+Select the -use_faster_c2s option if you want PPR to apply the faster
+of two different clock-to-setup specifications for a path between two
+flip-flops.  By default, the path between two flip-flops that have
+different C2S specifications is not controlled by XACT-Performance;
+that is, no target delay is assigned to the path. If this option is
+selected, then the path between two such flip-flops is assigned a
+target delay equivalent to the faster of the two C2S specifications.
+
+The default for PPR is to not set a target delay for such a path.
+
+.PPR-guide
+
+-guide   Use Specified Guide File
+
+The -guide=<filename> option allows you to specify an LCA file for
+PPR to read to guide the mapping, placement, and routing of the input
+design file for XC4000/A/H/D designs.  For XC3000A/L and XC3100A
+designs, the LCA guide file will only guide the placement and routing. 
+To guide the mapping of XC3000A/L and XC3100A designs, use the PGF
+guide file with XNFMAP.  See the chapter on Incremental Design
+in the PPR Chapter of the XACT Reference Guide for more information
+on guided design.  
+
+PPR will append a .cst extension on the filename specified with the
+-guide option if the specified name has no extension.
+
+See also the -guide_blks, -guide_only, -guide_routing, 
+-guide_thru_routes, and -lock_routing options.
+
+.PPR-guide_blks
+
+-guide_blks   Set Type of Blocks to be Guided
+
+The -guide_blks=<value> option allows you to specify which types of
+blocks should be guided for placement and routing.  The option may
+be assigned one of the following values:
+
+all           Guide all blocks that can be matched by
+      associated signal names.
+
+routed_only   Guide only the blocks that can be matched
+      by associated signal names, and have some
+      routing connected to them in the guide file.
+
+By default, PPR will set the -guide_blks option value to 'all'.
+You may want to set the option to 'routed_only' if you want to
+guide only the blocks that are routed in the LCA file.  This setting
+would allow PPR to re-place the blocks that have no associated 
+routing.
+
+This option can only be selected if the -guide option is also used.
+
+See also the -guide, -guide_only, -guide_routing, -guide_thru_routes,
+and -lock_routing options.
+
+.PPR-guide_blks_all
+
+-guide_blks_all   Guide All Blocks That Match
+
+Select this option if you want PPR to guide the placement and
+routing of all blocks that match between the design file and
+the guide LCA file, based on the signals attached to the blocks.
+This option does not require that routing also be connected to
+the matched blocks before guiding their placement.
+
+This option can only be selected if the -guide option is also used.
+
+See also the -guide_blks, -guide, -guide_only, -guide_routing, 
+-guide_thru_routes, and -lock_routing options.
+
+.PPR-guide_blks_routed_only
+
+-guide_blks_routed_only   Guide Only Matching Blocks with Routing
+
+Select this option if you want PPR to guide the placement and
+routing of all blocks that have routing connected, and that match
+between the design file and the guide LCA file (based on the signals
+attached to the blocks).  The -guide_blks_all option should be
+used instead if you want the matching criteria to NOT include
+the routing requirement.
+
+This option can only be selected if the -guide option is also used.
+
+See also the -guide_blks, -guide, -guide_only, -guide_routing, 
+-guide_thru_routes, and -lock_routing options.
+
+.PPR-guide_only
+
+-guide_only   Guide Placement and Routing, Don't Complete Routing
+
+Select this option if you want PPR to not complete the routing of
+any un-guided signals, after it has finished guiding the placement
+and routing and completed the placement of logic that was not guided.
+This may be desirable if you want to complete the placement and
+restore the guide file routing, but stop to do some more pre-routing
+in the XACT Design Editor.
+
+This option can only be selected if the -guide option is also used.
+
+See also the -guide, -guide_blks, -guide_routing, -guide_thru_routes,
+and -lock_routing options.
+
+.PPR-guide_routing
+
+-guide_routing   Set Type of Routing to Guide from LCA File
+
+The -guide_routing=<value> option allows you to specify what type of
+routing should be guided from the LCA guide file.  The option may
+be assigned one of the following values:
+
+all         Guide all routing for signals on blocks that were
+      matched.
+
+whole_sigs  Guide the routing only for signals that have all
+      their pins completely matched in the guide file.
+
+By default, PPR will set the -guide_routing option value to 'all'.
+so that all matched pins on a signal are guide-routed.  If you
+want to let PPR re-route any signal that did not have all its
+pins completely matched, set the value of the option to 'whole_sigs'.
+The 'whole_sigs' setting gives PPR the ability to re-route signals
+in the context of the new input design, in order to achieve improved
+results.
+
+This option can only be selected if the -guide option is also used.
+
+See also the -guide, -guide_blks, -guide_only, -guide_thru_routes, and
+-lock_routing options.
+
+.PPR-guide_routing_all
+
+-guide_routing_all   Guide All Routing on Matched Pins
+
+When the -guide option is used, PPR set this option by default so that
+it will guide all the routing of matched pins on signals.  This
+option does not require that all the pins on the signal match before
+it guides the routing for the pins that do match.  Use the
+-guide_routing_whole_sigs option if want to guide the routing only
+for a signal that has all its pins matched.
+
+This option can only be selected if the -guide option is also used.
+
+See also the -guide_routing, -guide, -guide_blks, -guide_only,
+-guide_thru_routes, and -lock_routing options.
+
+.PPR-guide_routing_whole_sigs
+
+-guide_routing_whole_sigs
+
+Select this option if you want to direct PPR to guide the routing of
+signals only if all the pins on the signal are matched in the guide
+file.  Use the -guide_routing_all option if want to guide the routing
+for any pins that match on a signal, even if all the pins don't match.
+
+This option can only be selected if the -guide option is also used.
+
+See also the -guide_routing, -guide, -guide_blks, -guide_only,
+-guide_thru_routes, and -lock_routing options.
+
+.PPR-guide_thru_routes
+
+-guide_thru_routes   Set Type of Through-Block Routing to Guide
+
+The -guide_thru_routes=<value> option allows you to specify what type
+of through-block routing should be guided from the LCA guide file.
+The option may be assigned one of the following values:
+
+all          Lock the through-block routing for all guided signals.
+whole_sigs   Lock the through-block routing on signals with completely
+      matched pins.
+none         Don't lock any through-block routing
+
+When the -guide option is used, PPR automatically sets the 
+-guide_thru_routes=<value> option to 'whole_sigs'.  This setting allows
+PPR to use the block resources that were used for incompletely matched
+signals to implement additional user logic instead.  The 'all' value
+directs PPR to lock all the through-block routing for any matched
+pins on signals, preventing PPR from using those blocks for additional
+user logic.  The 'none' setting prevents PPR from locking any restored 
+through-block routing, so that the blocks may be used for additional
+logic.
+
+This option can only be selected if the -guide option is also used.
+
+See also the -guide, -guide_routing, -guide_blks, -guide_only,
+-guide_routing, and -lock_routing options.
+
+.PPR-guide_thru_routes_all
+
+-guide_thru_routes_all   Lock All Guided Through-Block Routing
+
+Select this option if you want PPR to lock the through-block routing
+for any matched pins on a guided signal.  This prevents PPR from using
+those block resources for placing additional user logic.
+
+This option can only be selected if the -guide option is also used.
+
+See also the -guide_thru_routes, -guide, -guide_blks, -guide_only, 
+-guide_routing, and -lock_routing options.
+
+.PPR-guide_thru_routes_none
+
+-guide_thru_routes_none   Don't Lock Any Guided Through-Block Routing
+
+Select this option if you want PPR to not lock any through-block routing
+for a guided signal.  This allows PPR to use those block resources for
+placing additional user logic.
+
+This option can only be selected if the -guide option is also used.
+
+See also the -guide_thru_routes, -guide, -guide_blks, -guide_only, 
+-guide_routing, and -lock_routing options.
+
+.PPR-guide_thru_routes_whole_sigs
+
+-guide_thru_routes_whole_sigs  Lock Through-Block Routing for Complete Signals
+
+Select this option if you want PPR to only lock the through-block routing
+for signals that have all their pins completely matched in the design.
+This allows PPR to use the block resources that were used for routing
+incomplete signals for placing additional user logic.  This is the 
+default setting when the -guide option is used.
+
+This option can only be selected if the -guide option is also used.
+
+See also the -guide_thru_routes, -guide, -guide_blks, -guide_only, 
+-guide_routing, and -lock_routing options.
+
+.PPR-lock_routing
+
+-lock_routing   Set Type of Guided Routing to Lock
+
+The -lock_routing=<value> option allows you to specify what type
+of guided routing should be locked and not allowed to be re-routed.
+The option may be assigned one of the following values:
+
+all         Lock the routing for all guided signals.
+whole_sigs  Lock the routing on signals with completely matched pins.
+none        Don't lock any guided routing.
+
+When the -guide option is used, PPR automatically sets the 
+-lock_routing=<value> option to 'whole_sigs'.  This setting allows
+PPR to re-route the signals that did not have completely matched pins
+in the design.  The 'all' value directs PPR to lock all the guided 
+routing for any matched pins on signals, preventing PPR from re-routing
+those signals to achieve better results.  The 'none' setting prevents
+PPR from locking any guided routing, allowing it to re-route any
+signals.
+
+This option can only be selected if the -guide option is also used.
+
+See also the -guide, -guide_blks, -guide_only, -guide_routing,
+and -guide_thru_routes options.
+
+.PPR-lock_routing_all
+
+-lock_routing_all   Lock Guided Routing on All Matched Pins
+
+Select this option if you want PPR to lock the routing on all pins
+that match in the design file.  This prevents PPR from re-routing
+the pins to try to achieve better results.
+
+This option can only be selected if the -guide option is also used.
+
+See also the lock_routing, -guide, -guide_blks, -guide_only,
+-guide_routing, and -guide_thru_routes options.
+
+.PPR-lock_routing_none
+
+-lock_routing_none   Don't Lock Routing on Any Guided Signals
+
+Select this option if you want to allow PPR to re-route any pins
+that have guided routing, in order to improve the results.  This
+option allows PPR to improve the routing in a guided design. 
+
+This option can only be selected if the -guide option is also used.
+
+See also the lock_routing, -guide, -guide_blks, -guide_only,
+-guide_routing, and -guide_thru_routes options.
+
+.PPR-lock_routing_whole_sigs
+
+-lock_routing_whole_sigs  Lock Guided Routing for Complete Signals
+
+Select this option if you want PPR to lock the guided routing only
+for signals with completely matched pins.  This option is automatically
+set by PPR when the -guide option is used.  It prevents PPR from
+re-routing any completely matched signals in the attempt to improve
+the results.
+
+This option can only be selected if the -guide option is also used.
+
+See also the lock_routing, -guide, -guide_blks, -guide_only,
+-guide_routing, and -guide_thru_routes options.
+
+.XDE
+
+The XACT Design Editor (XDE) is a graphic program that displays and
+manipulates an image of the functional layout of an LCA (Logic Cell
+Array).  By configuring blocks (CLBs and IOBs) and adding and routing nets,
+you can complete an LCA design using XDE.  You can also use XDE to place
+and route portions of a design.  
+
+In addition to design editing, you can use XDE to generate a configuration
+bitstream for a design and download this bitstream to a device via the
+download cable.  Once MakeBits has generated a bitstream, you can use 
+MakePROM to create a PROM file.  A design rule checker and the XDELAY
+timing calculation software are also built into XDE.
+
+For more information about the XACT Design Editor, read the XACT Design
+Editor chapter in the "XACT Reference Guide."  For more information about
+MakeBits and MakePROM, read the MakeBits and MakePROM chapters in the "XACT
+Reference Guide."
+
+.XDE-R
+
+-R Display Two Letter Style Block Names
+
+The -R option allows you to specify how CLB names will be displayed.  The
+default is to display names based on an alphabetical array.  The first
+letter is the row name, the second is the column name.  The upper left CLB
+in an XC3020 device is therefore displayed as AA.  
+
+For all XC4000 LCAs names are displayed by default using a numeric
+coordinates.  For these devices the default name displayed for the upper
+left CLB would be CLB_R1C1.  The -R option will cause the 'AA' style names
+to be displayed if the device can be completely named using the alphabet,
+or to simply remove the CLB_ prefix if the device cannot be completely
+named with the alphabet.
+
+.XDE-G
+
+-G  Set GRMODE (graphics mode)
+
+The -G option lets you assign the graphics mode that XDE will use.  When 
+this option is used, it overrides the GRMODE environment variable setting
+found in your AUTOEXEC.BAT file.  This mode defines the height and width in
+pixels of the display as well as the number of colors that are to be
+available.  Use 'xde -help' to see what graphics modes are available.
+
+.XDE-P
+
+ -P  Screen Size for Panning Buffer
+
+The -P option causes XDE to draw only one screen's worth of the LCA.  This
+means that XDE will use less memory and come up faster (it has less to draw
+initially), but it will have to redraw every time you move the mouse.  Each
+redraw will also be fast since only a single screen of information is being
+drawn.
+
+.XDE-PD
+
+-PD  Die Size for Panning Buffer
+
+The -PD option causes XDE to keep a fixed graphics buffer size. In SHOW
+-LARGE mode, the entire screen will be drawn.  However, when you zoom in,  
+only one quadrant of the LCA will be drawn (since it fills the graphics  
+buffer).  This will depend on the memory that you have installed. If you
+then move to a currently undrawn part of the screen, XDE will have to draw
+it.  The -P option causes XDE to use less memory and to redraw faster when
+zoomed in. 
+
+.XDE-PC
+
+-PC Set Graphics Panning Buffer Size in Terms of CLBs
+
+The -PC option is used to set the graphics panning buffer size in terms of
+the number of CLBs. The syntax for the option is:
+
+              xde -pc <n>:<m>
+
+where n and m are positive integers; n signifies the number of CLB columns
+and m is the number of CLB rows.
+
+The larger the buffer the more memory will be used; fewer redraws will be
+required. The redraw time will also increase as the size of the buffer
+increases. 
+
+.XDE-PX
+
+-PX Set Graphics Panning Buffer Size in Terms of Pixels
+
+The -PX option is used to set the graphics panning buffer size in terms of
+the number of pixels. The syntax for the option is:
+
+              xde -px <x>:<y>
+
+where x and y are positive integers; x is a pixel width and y is a pixel
+height.
+
+The larger the buffer, the more memory will be used, but fewer redraws will
+be required.  The redraw time will also increase as the buffer size
+increases.
+
+.FITEQN
+  
+FITEQN maps the specified behavioral design file (.PLD) onto the specified
+EPLD part type. It produces a mapped database file (.VMD or .VMH), a log
+file (.LOG), and resource, pin-list, mapping, logic optimzer, and
+partitioner report files (.RES, .PIN, .MAP, .LGC, and .PAR).
+ 
+.FITEQN-F
+ 
+This option forces the software to use the pinout from the pin-save file
+(.VMF) which was saved by the PINSAVE command after a prior mapping.
+
+.FITEQN-I
+
+This option causes the software to ignore all pin assignments in the
+equation (.PLD) file.
+
+.FITEQN-U
+
+This option tells the software to enable the output drivers on all unused
+I/O pins to avoid floating inputs.
+
+.FITNET
+ 
+FITNET maps the specified schematic design (XNF file) onto the specified
+EPLD part type. It produces a mapped database file (.VMD or .VMH), a log
+file (.LOG), and resource, pin-list, mapping, logic optimizer, and
+partitioner report files (.RES, .PIN, .MAP, .LGC and .PAR).
+  
+You must assemble any PLD equations used in a schematic design before 
+integrating the netlist.
+ 
+.FITNET-F
+ 
+This option forces the software to use the pinout from the pin-save file
+(.VMF) which was saved by the PINSAVE command after a prior mapping.
+
+.FITNET-I
+
+This option causes the software to ignore the pin assignments in the
+schematic.
+
+.FITNET-U
+
+This option tells the software to enable the output drivers on all unused
+I/O pins to avoid floating inputs.
+
+.PALCONVT
+ 
+PALCONVT prepares an existing PAL-based design in the form of .PLD or .PDS
+files for integration into an EPLD. PALCONVT creates a top-level PLUSASM 
+(.PLD) file that links the PAL files together and defines the EPLD I/O
+pins.
+
+First select the name of the EPLD design to be prepared. Then select the
+names of all PAL equation files to be integrated, followed by Done.
+
+You can stop after creating the top-level .PLD file by choosing "Create new
+PLD and PAL interconnect report", or you can create the .PLD file and
+integrate your design in one step by choosing "Integrate new PLD using
+FITEQN". Stopping after creating the top-level file allows you to edit
+the .PLD file and change pin types or pin assignments.
+
+PALCONVT produces a PAL Interconnect report (.INT), which summarizes all
+signal interconnections between the PALs. If you integrate the design, this
+command also produces the same files as FITEQN: the database file (.VMD
+or .VMH), the log file (.LOG), and the resource, mapping, pinlist, logic
+optimizer, and partitioner reports (.RES, .MAP, .PIN, .LGC, and .PAR).
+ 
+.--- (Programs under Verify menu) -----------------------------------------
+
+.VERIFY
+
+A design that has been converted to an XNF file or completely routed is
+ready for verification.  You can accomplish design verification by
+simulating the design or by configuring a device and evaluating its
+performance in a prototype circuit (routed designs only).  From within the
+Design Manager you can simulate your design with either the ViewSim or
+OrCAD VST simulators, and you can configure a device with the XChecker
+Cable.
+
+.NOVERPGMS
+
+XDM did not find any Verify programs on your system.  Check the PATH
+statement in your AUTOEXEC.BAT file.  You must specify (in the PATH) the
+directories that contain verification software.
+
+If the path is correct and no programs are found, the PROGLIST.XDM file may
+be out of date.  To update the file, select ScanDisk from the Utilities
+menu.  If this does not resolve the problem, please contact Xilinx
+Technical Support.
+
+.ASCTOVST
+
+This is an OrCAD utility that converts the Stimulus or Trace file in ASCII
+format to a binary format, and vice-versa.
+   .ATR  -> .TRC
+   .TRC  -> .ATR
+   .AST  -> .STM
+   .STM  -> .AST
+
+.ASCTOVST-E
+
+/E  Causes informational message to stop on the screen until a key is
+pressed. The source is a stimulus (.STM) file, a trace (.TRC) file or a
+breakpoint (.BRK) file.
+ 
+.LCA2XNF
+
+LCA2XNF translates an LCA file into an XNF file.  Before you can simulate a
+design with the actual routing delays in the device (timing simulation),
+you must translate it into an XNF file and then convert it to simulator
+input files.
+
+For more information about LCA2XNF, read the LCA2XNF chapter in the "XACT
+Reference Guide" and the "Advanced Design Methodology" chapter in the "User
+Guide and Tutorials" book.
+
+.LCA2XNF-B
+
+-B  Block Only
+
+When you select the -B option, the XNF file that LCA2XNF produces describes
+only CLBs, IOBs, TBUFs, and the special clocks (GCLK and ACLK).
+
+No gate (AND, OR, etc.) modeling information is included. Use this option
+to analyze a design's partitioning.
+
+.LCA2XNF-C
+
+-C Don't Collapse Split Nets (XC3000A, XC3000L and XC4000 Only)
+
+Use this option if you do not want LCA2XNF to collapse split nets into 
+their original net.
+
+.LCA2XNF-D
+
+-D Suppress default logic generation for RPMs
+
+If the -q or -r option is used to translate a hard macro LCA file into an
+RPM XNF file, LCA2XNF will add additional logic to ensure that the default
+values of unconnected hard macro inputs are handled properly. 
+
+For hard macro inputs which are connected, this additional logic will be
+completely removed by XNFPREP. For hard macro inputs which are unconnected,
+this additional logic will be removed when XNFPREP trims the unused logic 
+in the RPM.
+
+If the -d option is specified to LCA2XNF, the additional logic will not
+be generated. In this case, all hard macro inputs should be tied to either
+active signals or VCC or ground.
+
+.LCA2XNF-E
+
+-E Generate EQNs for CLBs
+
+This option generates function generators as EQNs.  Each function generator
+is translated into one EQN. In addition, if the -V option is specified, each
+carry logic equation is translated into one EQN.  Use this option only if
+the program for which the XNF output file was created can interpret EQNs.
+
+.LCA2XNF-F
+
+-F  Force Use of Actual Delays
+
+Use the -F option if your design is only partially routed and you want to
+simulate with real block (CLB and IOB) delays and the actual delays of
+routed nets.  Unrouted nets are assumed to have 0 ns delays.  If you do not
+use the -F option, the output XNF file will not contain timing information.
+
+Use the -F option if you are simulating a TIED design.  When you select
+MakeBits' TIE option, "dummy" nets are created to tie down unused
+interconnect in the LCA.  These nets may not be completely routed and may
+cause LCA2XNF to generate a unit delay model which is interpreted by most
+simulators as 1 ns block delays and 0 ns net delays unless you use the -F
+option. Refer to the MakeBits chapter in the "XACT Reference Guide" for
+more information about MakeBits and the TIE option.
+
+.LCA2XNF-G
+
+-G  Gate Only
+
+When you select the -G option, the XNF file produced by LCA2XNF contains
+only gate (DFF, TBUF, GCLK, BUFGP, AND, OR, etc.) modeling information.  No
+CLBs or IOBs are described.  This option is the default. It can be
+overwritten by the -B or -M option.
+
+.LCA2XNF-M
+
+-M  Both Gates and Blocks
+
+When you select the -M option, the XNF file produced by LCA2XNF contains
+both gates (DFF, TBUF, GCLK, BUFGP, AND, OR, etc.) modeling information and
+CLBs and IOBs.
+
+.LCA2XNF-Q
+
+-Q  Generate XC4000 RPM, Ver 4 XNF format, compatible with non-U.L.
+
+When you select the -Q option, the XNF file produced by LCA2XNF contains
+information to preserve the relative placement of the LCA design. The file 
+is compatible with non-Unified Library.
+
+.LCA2XNF-R
+
+-R  Generate XC4000 RPM, Ver 5 XNF format, compatible with U.L.
+
+When you select the -R option, the XNF file produced by LCA2XNF contains
+information to preserve the relative placement of the LCA design. The file 
+is compatible with Unified Library.
+
+.LCA2XNF-S
+
+-S  Print Timing Data Sheets for the Part Type and Speed Grade
+    Used by the Routed Design
+
+This option prints timing data sheets for the part type and speed grade
+used by the routed design.  These timing data sheets replace the LCA
+Switching Characteristic Guidelines published in "The Programmable Gate
+Array Data Book."  Data book numbers may not reflect the numbers in the XNF
+file that LCA2XNF generates.
+
+.LCA2XNF-T
+
+-T Trim Unused CLBs and IOBs
+
+Use this option when you are translating the tied design for simulation.
+The TIE switch in MakeBits uses unused CLBs and IOBs to tie unconnected
+metal segments. This results in a large XNF file, which makes the
+simulation slow. (Some simulators may give errors on the illegal use of
+CLBs.)
+
+Any changes to the user's nets will be translated correctly.
+
+.LCA2XNF-U
+
+-U Generate Unit Delay Model
+
+Use the -U option to generate an XNF file without block and routing delay
+information.  You may want to verify the functionality of your design
+before simulating with the actual block and routing delays (timing
+simulation).
+
+.LCA2XNF-V
+
+-V  Output file in Version 4 XNF format
+
+When you select the -V option, LCA2XNF outputs a file in Version 4 XNF
+format instead of the default Version 5. In Version 4, carry logic is 
+represented by combinatorial gates whereas in Version 5, carry logic is
+represented by carry symbols. The output file generated with the -V option
+should not be used as input to PPR.
+
+.LCA2XNF-W
+
+-W  Suppress Overwrite Warning
+
+If you specify the -W option, LCA2XNF does not warn you when the specified
+output design file already exists.  Use this option with caution.
+
+.MAKEBITS
+
+MakeBits is a stand-alone bitstream generation program. It converts a
+routed LCA file to a BIT file.
+
+HELP can be used on the individual options in the MakeBits menu for
+information on how they affect the configuration and performance of the
+LCA.
+
+.MAKEBITS-B
+
+-B   Create a Rawbits File
+
+The -B option directs the bitstream to an ASCII text file (.RBT) rather
+than to a binary file (.BIT).
+
+This is useful when using a microprocessor for configuration because the
+text Rawbits file can be easily manipulated for use by or inclusion in the
+microprocessor software.
+
+.MAKEBITS-C
+
+ -C   CMOS Inputs
+
+The -C option specifies that the inputs should be configured to have CMOS
+threshold levels. If -C is not specified, the inputs will have TTL
+threshold levels.  This option is valid only for XC2000 and XC3000 devices.
+
+.MAKEBITS-D
+
+ -D   DRC Only
+
+If -D is selected, only the Design Rules Checker (DRC) program will be
+run.  A bitstream will not be generated.
+
+.MAKEBITS-F
+
+ -F  Set XC4000 Configuration Option
+
+This option can be used in several ways.  If it is not specified, the
+default configuration options are:
+
+           CRC = Disable
+    ConfigRate = Slow
+       DonePin = NoPullup
+        TdoPin = Neither
+         M1Pin = Neither
+   ReadCapture = Disable
+     ReadAbort = Disable
+       ReadClk = Cclk
+    StartupClk = Cclk
+    SyncToDone = No
+    DoneActive = C2
+ OutputsActive = C3
+   GSRInactive = C4
+
+Each Tag (left hand side of equals sign above) can be specified
+individually using the format in the following example:
+
+       -f CRC:Enable -f TdoPin:Pulldown ......
+
+The post-initialization start-up options only can be defined using the
+keys:
+  
+       -f cclk_nosync
+       -f cclk_sync
+       -f uclk_nosync
+ or    -f uclk_sync
+
+For details of the defaults and their options, refer to "XC2000/XC3000 LCA
+Configuration and Debugging Hints" in the "User Guide and   Tutorials"
+book.  This chapter's information is also valid for the XC4000 family.
+
+.MAKEBITS-I
+ 
+-I    Ignore Critical Net Flags on Nets
+ 
+  This option allows %yMakebits%g to %yTIE%g using critical nets.
+ 
+  %yMAKEBITS -I%g allows %yMakebits%g to %yTIE%g using critical nets.
+  It differs from %yMAKEBITS -U%g in that critical nets are used in the
+  "normal" tie order.  Use of this flag directs TIE to ignore critical
+  flags and use any nets flagged as such if it is necessary to do so.
+  Note that they are not used as resources of last resort, but are used
+  in the normal TIE order.
+ 
+  See the help for %yMAKEBITS -U%g for more information.
+ 
+.MAKEBITS-J
+ 
+-J    Suppress the generation of a .bit file.
+ 
+.MAKEBITS-L
+
+This option will generate an ".LL" file, which contains the readback data
+used to identify the register values of a readback file.
+
+.MAKEBITS-M
+
+-M   Create a MASK File
+
+-M specifies that a MASKED bitstream (.MSK) should be generated. For
+information on how to use MASKED bitstreams in Readback, refer to the
+"Verification by Readback and Signature Analysis for XC2000/XC3000 LCAs"
+chapter in the "User Guide and Tutorials" book.
+
+.MAKEBITS-MBO
+ 
+-MBO=<filename>
+ 
+  %yMAKEBITS -MBO=<filename>%g directs %yMakebits%g to read the named
+  .mbo file before generating a bitstream.  A .mbo file is created by
+  MAKEBITS each time it is run.  These files are named for the LCA file
+  on which MAKEBITS was run, and contain a record of the configuration
+  options that were in effect at the time.  Using these files makes it
+  easy to recreate bitstreams using the same options.
+ 
+  If this option is used, the .mbo file is read and processed before
+  any -f MAKEBITS options are applied.
+ 
+.MAKEBITS-N
+
+-N   Save TIED Design
+
+The -N option can only be used in conjunction with the -T option (TIE
+unused interconnect).
+
+When -T is used to TIE a design, the -N option can be used to create an LCA
+file that contains the TIED design.
+
+If MAKEBITS -T -N is run on a file called "TEST.LCA", the TIED design will
+be written to a file called "_TEST.LCA".
+
+Since TIE can change net delays, -N allows you to get a copy of the TIED
+design, which can then be viewed and/or simulated.
+
+.MAKEBITS-O
+
+-O <file_name>   Output Filename
+
+The -O option allows you to explicitly name the file that the bitstream
+will be written to.
+
+If the -O option is not selected, the name of the LCA file will be used as
+the name of the .BIT file.
+
+.MAKEBITS-P
+
+-P   No Pullup on DONE
+
+The -P option causes the bitstream to be generated without a pullup on the
+DONE pin.  The default is to have such a pullup.
+
+.MAKEBITS-R0
+
+-R0  Disable LCA Readback
+
+The -R0 option causes the bitstream to be generated such that the LCA
+cannot be read back.  The default is to allow unlimited readback.
+
+This option is valid only for XC3000 LCAs.
+
+.MAKEBITS-R1
+
+-R1  Enable One-time LCA Readback
+
+The -R1 option causes the bitstream to be generated such that the LCA can
+be read back once.  The default is to allow unlimited readback.
+
+This option is valid only for XC3000 LCAs.
+
+.MAKEBITS-R2
+
+-R2  Enable Multiple-time LCA Readback
+
+The -R2 option causes the bitstream to be generated such that the LCA can
+be read back.  This is the default.
+
+This option is valid only for XC3000 LCAs.
+
+.MAKEBITS-S0
+
+-S0  Disable LCA Oscillator
+
+The -S0 option causes the bitstream to be generated such that the LCA
+oscillator is disabled.  This is the default.
+
+This option is valid only for XC3000 LCAs.
+
+.MAKEBITS-S1
+
+-S1  Enable LCA Oscillator
+
+The -S1 option causes the bitstream to be generated such that the LCA
+oscillator is enabled.  The default is to disable the LCA oscillator.
+
+This option is valid only for XC3000 LCAs.
+
+.MAKEBITS-S2
+
+-S2  Enable LCA Oscillator, div 2
+
+The -S2 option causes the bitstream to be generated such that the LCA
+oscillator is enabled in divide by 2 mode.  The default is to disable the
+LCA oscillator.
+
+This option is valid only for XC3000 LCAs.
+
+.MAKEBITS-T
+
+-T   Tiedown Unused Interconnect
+
+-T (TIE) is used to minimize noise and reduce power consumption by
+assigning a level to all unused interconnects.
+
+As much interconnect as possible is tied to unused CLB outputs. Next, the
+remaining interconnect is tied to existing nets that are not marked
+critical.
+
+TIE should be used when the design is going into production, but it can be
+skipped to expedite bitstream generation for prototyping.
+
+.MAKEBITS-U
+
+-U   Use Critical Nets
+ 
+  This option allows %yMakebits%g to %yTIE%g using critical nets.
+ 
+  By default, TIE cannot use nets which are marked critical, and may
+  fail because of this.  If this happens, one of the following things
+  should be done.
+ 
+  1)  Use the %yFlagNet Noncritical%g command found in the XDE %yEditLCA%g
+      screen to flag some nets as non-critical.
+ 
+  2)  Use this option to tell Makebits it can TIE using critical nets.
+      Use of this option will tell TIE to build a list of critical nets
+      and use them as sources of last resort.
+ 
+  3)  Use the %yMAKEBITS -I%g option to tell Makebits to ignore critical
+      net flags during the TIE operation.  If this is done, the
+      critical flags are removed from all critical nets, and they are
+      used in the "normal" sequence to TIE interconnect if it becomes
+      necessary to do so.  Note that they are not used last as they are
+      if %yMAKEBITS -U%g is specified.  The critical net flags are restored
+      after TIE.
+ 
+.MAKEBITS-V
+
+-V   Verbose Mode
+
+The -V option is most useful when used in conjunction with the -T (TIE
+unused interconnect) option.
+
+The -V option causes MakeBits to output a more detailed listing of the
+steps it goes through when it TIEs a design.
+
+.MAKEBITS-XA
+
+-XA   Done Time After IOB's Active.
+ 
+This option is valid only for XC3000 LCAs.  If this option
+is not used the default is for Done to be active before the
+IOBs are active.
+ 
+.MAKEBITS-XB
+ 
+-XB   Done Time Before IOB's Active.
+ 
+This option is valid only for XC3000 LCAs.  This is the default.
+ 
+.MAKEBITS-YA
+ 
+-YA   Reset Time After IOB's Active.
+ 
+This option is valid only for XC3000 LCAs.  This is the default.
+ 
+.MAKEBITS-YB
+ 
+-YB   Reset Time Before IOB's Active.
+ 
+This option is valid only for XC3000 LCAs.  If this option
+is not used the default is for Reset to be active after the
+IOBs are active.
+
+.MAKEJED
+ 
+MAKEJED creates a programming file (.JED) in JEDEC format for the specified
+EPLD design.
+
+.MAKEPRG
+ 
+MAKEPRG creates a programming file (.PRG) in Intel HEX format for the
+specified EPLD design.
+
+.MAKEPROM
+
+The MakePROM program formats a configuration bitstream (BIT) file, which
+contains configuration information for the Logic Cell Array as a PROM
+file.  The BIT file is created using the MakeBits program after the design
+has been placed and routed. The Xilinx XACT Design Manager only supports
+version 4.07 or higher.
+
+After creating a BIT file, the user may want to store the configuration
+information in a PROM.  The MakePROM program provides a simple way to
+convert a BIT file into one of three commonly used PROM formats: MCS-86
+(Intel), EXORMAX (Motorola), or TEKHEX (Tektronix).
+
+If the destination PROM is one of the Xilinx Serial PROMs (such as the
+XC1765), the user has a Xilinx PROM programmer, and the LCAs are not being
+daisy-chained, then it is not necessary to make a PROM file.
+
+NOTE: There are two functional equivalent versions of MakePROM.  One is
+accessed from the XACT Design Editor, and the other is the stand-alone
+version accessed from inside XDM or from the operating system prompt.
+
+The standalone MakePROM may be invoked with command line arguments to
+assemble and write a PROM file.  Used in this mode MakeProm may be included
+in command files and run without any user interaction.  To find out about
+these MakePROM command line options use 'makeprom -help'.
+
+.PROLINK
+
+PROLINK invokes the Xilinx EPLD programmer control software (PROLINK) for
+downloading a .PRG file and programming a Xilinx EPLD device.
+
+.VMH2XNF
+
+This command creates a .XNF file with timing information for use in timing 
+simulation. You must integrate your design first. VMH2XNF supports both 
+schematic and behavioral designs.
+
+After running VMH2XNF, you must run XNF2WIR followed by VSM for Viewlogic
+simulation, or XNF2VST for OrCAD simulation; XSIMMAKE automates this
+process (see XSIMMAKE).
+
+.VMH2XNF-L
+
+The option -L 4 causes the output XNF file to use simulation components
+from the old XEPLD v4.x library. This option is used automatically if you
+are processing an existing schematic consisting of old library components.
+The option -L 5 causes current (Unified library) simulation components to
+be used; this is the default unless processing an old-library schematic.
+
+.VMH2XNF-O
+
+This option allows you to change the name of the output .XNF file so it
+will not overwrite the input .XNF file created during design capture.
+
+.VSM
+
+VSM is the Viewsim Wirelister program.  This program creates the Viewsim
+wirelist (.VSM) file that is needed to perform simulation using Viewsim. 
+The input to this program is a WIR subdirectory file.  For a Functional
+simulation, use the Export Wirelist Viewsim command from within Workview.
+For Timing simulation you will need to run VSM on the WIR file produced by
+XNF2WIR before invoking Viewsim from within Workview. If you use Viewgen,
+then the process is similar to that of the Functional simulation.
+
+.VSM-D
+
+The -D option will include a delay back-annotation table file.  Xilinx
+users do not need to use this option because all the delay information is
+embedded in the back-annotated XNF file produced from running LCA2XNF on a
+routed LCA file.
+
+.VSM-F
+
+This option directs the wirelist output into the file name specified
+instead of to the default Project.VSM. The format is:
+       VSM <Project> [-f <file>]
+
+.VSM-H
+
+This option generates full hierarchical net name equivalences in the
+wirelist that allows you to observe simulation values of logically
+equivalent nets at any level in the design hierarchy. This is the default.
+
+.VSM-S
+
+This option performs the function complementary to the -h option; all the
+nets are referred using the netname of the top level net as it appears in
+the design.  This reduces the size of the wirelist file by a factor of 2.
+The option halves the memory requirements of Viewsim (effectively doubling
+the capacity of the simulator). However, all nets must be referenced by
+their top level names. It is not recommended that you use this option.
+
+.VSM-W
+
+This option generates a flattened connectivity (WIR file format)
+description of the design.  This option is useful for ASIC types of design,
+where the post-layout delay information is back-annotated to the chip (the
+design).  The design can then be instantiated on a larger circuit for a
+system level simulation run.  The user is responsible for moving the output
+file (PROJECT.1) to the appropriate WIR subdirectory so that is visible to
+the ensuing wirelist execution.
+
+.VSMUPD
+
+VSMUPD is an aid to the simulation of designs with hierarchy.  Because nets
+that pass between hierarchy are flattened to their top level equivilences,
+and are not saved in the XNF file, aliases for these nets will not appear
+in the VSM file after LCA2XNF, XNF2WIR and VSM have been run.  VSMUPD
+re-establishes these nets by pulling them from the pre-routed VSM file,
+(the one used for functional simulation), and mixxing them with the post
+routed VSM file to obtain a complete file.
+
+.VSMUPD-B
+
+When VSMUPD is running, by default, it writes the status of the process
+repetitvely to the screen, overwriting the same line over and over. This
+can be a nuisance if the program output is being redirected to a file.  The
+-B option switches off this operation.
+
+.VSMUPD-O
+
+The -O options allow you to specify the output filename.  By default VSMUPD
+overwrites the <routed_project_name> VSM file.
+
+.VSMUPD-X
+
+The -X allows you to specify the name of the routed XNF file.  This will be
+the file obtained by running LCA2XNF after PPR or APR. VSMUPD will use this
+file to check for nets that have been optimised away during the routing
+process. By default VSMUPD looks for <routed_project_name>.xnf.
+
+.XCHECKER
+
+XChecker is a software to download a data file into the target LCAs. 
+XChecker supports all Xilinx download cables: the parallel download cable,
+the serial download cable, and the XChecker cable. The data file can be
+in .BIT, .MCS, .TEK, .EXO or .RBT format.  XChecker cable can support
+advanced debuuging features like:
+
+   a/ Readback and verify the downloaded configuration data.
+
+   b/ Single step the target LCA and readback the internal logic
+      states of the device.
+
+For more information on the Download and Readback capabilities, please
+refer to the XChecker chapter in the "XACT Reference Guide." 
+
+.XCHECKER-batch
+
+Use the -batch option to specify the batch file name which contains XCHECKER
+commands to be executed in sequence.
+
+.XCHECKER-diag
+
+The -diag option is used to execute a self-test program to verify if the 
+XChecker cable is functional properly. The diagnostic test header must be
+connected to the XChecker cable before entering the dianostic mode.
+
+.XCHECKER-port
+
+The -port option is used for specifying the name of the communication port.
+Under normal condition, the software will scan all serial/parallel ports to
+search for the cable. This option is used to bypass the scanning operation.
+
+.XCHECKER-part
+
+The -part option is used for specifying the part type of the target LCA.
+This option is required if the data file is not in .BIT format. 
+
+.XCHECKER-verify
+
+With the -verify option set, the configuration data in the user's LCA is
+readback after downloaded to verify it with the current design.
+
+.XCHECKER-npause
+
+The -npause option is used to suppress user's confirmation before
+downloading the design. 
+
+.XDELAY
+
+The XDelay program allows you to analyze a design's timing information.
+
+Extensive help files are provided with XDelay.  The HELP command calls up
+the list of topics for which help is available.  Put the cursor on top of
+the desired item and press <Enter> to get help on that topic.  If you need
+help with a particular menu item, you can point to it with the cursor and
+press the F1 key; a help file will appear on the screen.  You can scroll up
+or down in this file with the Up arrow, Down arrow, PgUp, PgDn, Home, and
+End keys. Try it.  For your convenience, a help file is provided for every
+main menu and submenu item.
+
+To quit the XDelay Program, type "exit" on the command line or use the
+mouse to select Exit from the Misc menu at the top of the screen.  To
+select a menu or a menu item, point to it with the cursor (a box surrounds
+the item) and press the "select" mouse button.  The default profile
+(included with XDM) programs the left mouse button to perform the "select"
+function.  You can change the function of each mouse button with the Mouse
+command in the Profile menu.
+
+.XDELAY-D
+
+This option is meant to be used in conjunction with %r-W%g option to add
+the delay information to the LCA file without spending time analyzing the
+delays. With %r-D%g option XDelay will not trace delay paths or display the
+delay information.
+
+.XDELAY-O
+
+This option will let you specify an output file to where the reports are
+written.
+
+.XDELAY-R
+
+This option will tell XDelay to use the two letter style block name for the
+CLB in the generated report.
+
+.XDELAY-S
+
+This option will generate a path analysis summary for each path. For a
+combinational delay path, it only lists path source, path load, number of
+logic levels and delay for each path. For a clock related path, it also
+lists the clock polarity of the source or destination flip-flop.
+
+.XDELAY-T
+
+This option will allow you to read a predefined XDelay template.  See the
+help in the XDelay program. 
+
+.XDELAY-TIMESPEC
+
+-TIMESPEC
+
+TimeSpec compares the implementation of the design with the original
+XACT-Performance TimeSpec constraints that were defined by the user.  The
+report generated by this command summarizes the paths for each selected
+TimeSpec and indicates whether the paths passed or failed the timing
+specification limit.
+
+.XDELAY-U
+
+%r-U%g option will analyze a design using a different speed grade. The
+usage is as follows:
+
+ xdelay -u <speed_grade> <design>
+
+%r-U%g option may be used in conjunction with %r-W% option to annotate the
+LCA file with the new speed grade information.
+
+.XDELAY-W
+
+This option will cause XDelay to annotate the LCA file with timing
+information. %r-W%g can be used in conjunction with %r-U% option to use
+different speed grade in the LCA file.
+
+.XDELAY-X
+
+This option will generate a detailed path analysis report for each path.
+For a combinational delay path, it lists the timing delay of each block
+and interconnection network between them. For a clock related path, it
+also lists the clock polarity and delay of the clock network of the source
+or destination flip-flop.
+
+.XNF2VST
+
+The XNF2VST program generates an OrCAD VST Netlist (VST), a Name Reference
+File (NRF) and a Delay Back Annotation (DBA) file. If the input XNF file
+has any trace or stimulus record carried from the schematic capture, then
+the ASC Trace (ATR) and Stimulus (AST) files are also produced, if there
+are no existing ones. By default, XNF2VST will always create NRF and DBA
+files.
+
+.XNF2VST-R
+
+-R Read existing NRF (Name Reference File) file.  If this option is
+specified, XNF2VST will read the existing NRF file. XNF2VST always
+generates a new NRF file regardless of this option.
+
+.XNF2VST-U
+
+-U  Unit-delay Translation Only.  Use the -U option to generate a unit
+delay simulation netlist. Any timing information in the input XNF file is
+ignored, all elements are assigned 1 ns delay (10 VST units), and all nets
+are assigned 0 ns delay.
+
+.XNF2VST-W
+
+-W Overwrite the existing AST and ATR files.  If this option is specified,
+XNF2VST will force to overwrite the existing AST and ATR files by writing
+out the stimulus and trace information in the XNF file, otherwise XNF2VST
+generates new AST and ATR files if any stimulus and trace information
+exists in the XNF file.
+
+.XNF2VST-X
+
+-X XACT path.  Specifies the Xilinx XACT path. If this option isn't
+specified, it will be set to the value of the XACT environment variable.
+
+.XNF2WIR
+
+The XNF2WIR program converts an XNF, (XILINX Netlist Format), file into a
+Workview WIR file. The program is most commonly used for back-annotating
+the delay information from a routed XNF file, (usually produced by
+LCA2XNF), to a wir file, in order to eventually produce a VSM file, (using
+the VSM program), and thus simulate the design.
+
+The WIR file produced can also be used as an input to Viewgen, a program
+that creates a schematic from a WIR file.
+
+Read "Design Entry Interface" in the "XACT User Guide" for more information
+about XNF2WIR and its warning and error messages.
+
+.XNF2WIR-A
+
+The option allows the user to specify the name of the AKA from which to
+read alias names. Note that this option is only valid for 3000 and 2000
+designs.
+
+.XNF2WIR-B
+
+When XNF2WIR is running, by default, it writes the status of the process
+repetitvely to the screen, overwriting the same line over and over. This
+can be a nuisance if the program output is being redirected to a file.  The
+-B option switches off this operation.
+
+.XNF2WIR-C
+
+The option allows the user to spefify the name of the CRS (Cross reference
+file), from which to read alias names.
+
+.XNF2WIR-L
+
+This option causes the alias names of the libraries each symbol was pulled
+from which are specified in the viewdraw.ini file, to be written to the
+output wir file.
+
+.XNF2WIR-M
+
+This option allows the user to specify how many symbols to write to the
+output wir file. If this number is less than the number of symbols in the
+XNF file, remaining symbols are written out to files with subsequent
+numerical suffixes, (the first wir file is <output name>.1, subsequent
+files are <output name>.2, <output name>.3....).
+
+.XNF2WIR-R
+
+This option tells xnf2wir to produce an xmm file, if your design contains
+ROMS. The xmm file will contain the approproate LOADM statements needed to
+load your ROMs in the Viewsim simulator. When this option is used, XNF2WIR
+will ONLY evaluate the ROMS and create the xmm file. It will NOT create a
+wir file.
+
+.XNF2WIR-S
+
+The option tells the program to use the Viewdraw cross reference file, (the
+CRS file),  to retrieve the OSC pulse information. This information is
+specified in Viewdraw as parameterized attributes and was placed in the CRS
+file during the translation process of WIR2XNF.  This option is only needed
+if the OSC symbol was used in the design, and the user wishes to simulate
+it with the values specified in Viewdraw.
+
+.XNF2WIR-X
+
+This option tells the program to use the Viewdraw CRS refence file, (the
+CRS file), to retrieve both the OSC pulse information and also re-establish
+hierarchical names. The .CRS file was created to preserve the OSC
+parameterized attributes and hierarchical net names that were changed in
+the process of of translating the WIR file to an XNF file, (WIR2XNF). This
+option is the same as the -S option, except that it also returns the
+hierarchical net names to their original format.
+
+.XNFBA
+
+XNFBA combines the pre-route xg/xff/xnf file and the post-route xnf file
+into a new file that has the original symbol and signal names with post-
+route delays. This program works with XC2000, XC3000, and XC4000 families.
+
+The pre-route XNF file is required and must be flat prior to APR or PPR. If
+you have hierarchical XNF files, you may run XNFMERGE to flatten them. 
+XNFMERGE produces an output file with the extension .xff. The .xg file 
+produced by XBLOX is also acceptable. If the input file name has no 
+extension, XNFBA will try .xg, .xff and .xnf in order.
+
+The post-route XNF file is required and must be generated by LCA2XNF with 
+the option -g.  The design should have been completely routed with no DRC 
+errors. 
+
+The input to LCA2XNF is a routed LCA file.  For XC2000 and XC3000 designs, 
+the LCA file is produced by APR. For XC3000A, XC3000L and XC4000 designs,
+the LCA file is produced by PPR and the routing delays are added by running
+XDELAY -d -w.
+
+For all families, keep all design files consistent.  If you change anything
+in the schematic, rerun APR/PPR before using XNFBA. If you use XDE on the 
+design routed by APR or PPR, XNFBA may not work properly.
+
+For all families, if you use the MAKEBITS program with the -t option to 
+save tied nets in your LCA file, you must use the -t option with the LCA2XNF
+program to remove the tied nets from the XNF file.
+
+For all families, don't use CLB or IOB symbols in schematic because they 
+are not back-annotatible.
+
+For XC2000 and XC3000 families, make sure the MAP2LCA program does not 
+generate the AKA file because the AKA file can cause undesirable back-
+annotation results.
+
+For XC3000A, XC3000L and XC4000 families, there may be some difference in 
+timing delays between the XNF file generated by the LCA2XNF program and the
+output file of XNFBA. The reason has to do with the logic replication 
+performed by the PPR program. For efficient partitioning, the PPR program 
+may replicate a combinatorial gate into a few gates. XNFBA combines the 
+replicated gates back into the original gate. However, the replicated gates
+may not have identical routing delays on their input pins. XNFBA chooses the
+longest delay.
+
+.XNFBA-O
+
+-O  Specify the output XNF file name
+
+You can specify the output XNF file name and extension with the -O option.
+If the -O option is not specified, the output file name is xnfba.xnf.
+
+.XNFBA-R
+
+-R  Specify the report file name
+
+You can specify the report file name and extension with the -R option.  If
+the -R option is not specified, the report file name is xnfba.rpt.
+
+.XNFCVT
+
+The XNFCVT program converts an XNF file from a higher to a lower version of
+the netlist. The version of an XNF file is the number after the LCANET
+record. For instance, LCANET 4.  XNFCVT will change this number to the
+target number, strip away attributes that are illegal for this lower
+version and convert the pin names on some symbols to their correct values. 
+
+.XNFCVT-A
+
+When XNFCVT is making the transition to any LCANET version lower than 4, by
+default it looks for an AKA file containing the net aliases.  The -A option
+swtiches this off.
+
+.XNFCVT-V
+
+The -V option allows you to to specify the target LCANET version.  Please
+note that since there are only 4 legal LCANET versions, (1, 2, 4 and 5)
+there are only 3 legal values for this option, namely 1, 2 and 4.
+
+.XPP
+
+XPP is the software used with the Xilinx DS112 Enhanced Configuration PROM
+programmer to program and verify Xilinx Serial Configuration PROMs.  XPP
+accepts a binary BIT file created with the MakeBits program or a HEX format
+ASCII file created with the MakePROM program.  Before invoking the XPP, the
+programming unit should be connected to a PC serial port and powered on
+properly. 
+
+.XPP-A
+
+-A ANSI Mode
+
+Use the -A option to inform XPP that the system can only handle ANSI
+video interface (ansi.sys must be configured).
+
+.XPP-B
+
+-B Execute Batch
+
+Use the -B option to specify the batch file name which is created using
+option 9 on XPP menu.
+
+.XPP-D
+
+-D Setup Device Type
+
+Use the -D option to specify the device type to be used. Currently
+supported devices are:
+
+        1736amd 1765amd
+        xc1718 xc1718d xc1718l
+        xc1736 xc1736a xc1736d xc1736l
+        xc1765 xc1765d xc1765l
+        xc17128 xc17128d xc17256d
+
+.XPP-S
+
+-S Setup Profile
+
+Use the -S option to change the profile settings for the XPP programmer. 
+The profile settings include baud rate, device type, serial port number,
+default repetition count, and the state of the audible alarm (on or off).
+
+.XSIMMAKE
+
+The XSIMMAKE utility is used to create simulation files for different
+simulators. Some schematic entry methods, like XBLOX for example, require
+that further processing be done on the design, outside of the schematic
+entry environment, before simulation can take place. Several programs must
+be run in a specific order to accomplish this. This process can be done by
+XSIMMAKE.
+
+XSIMMAKE is capable of running several diffent 'FLOWS'. Each flow is
+tailored towards creating simulation files for a specifc simulator.  The
+process is further divided depending on whether the user is running
+function, (pre routing), or timing, (post route) simulation.
+
+.XSIMMAKE-H
+
+This option prints out general help on xsimmake, or help on any specific
+flow that you have the option of running.
+
+.XSIMMAKE-L
+
+This option prints out a list of the different flows XSIMMAKE can run, as
+well as the alias names they can be accessed by.
+
+.XSIMMAKE-F
+
+This option allows the user to select a specific flow. 
+
+.XSIMMAKE-O
+
+The user has the option of using either UNIFIED libraries or the old
+libraries symbols in their design. (Please note that it is illegal to mix
+symbols from both of these libraries within one design).  Programs like
+ABL2XNF and MEMGEN have the option of producing XNF files for either
+library and will have to be told which one to target towards. The default
+in XSIMMAKE is to assume that you are using the unified library. XSIMMAKE
+will attempt to determine which library you are using but, if it is unable
+to to determine from the schematic, use this option to specify that you are
+using the old libraries if that is case.
+
+.XSIMMAKE-P
+
+Use this option to specify a parttype for the flow you are running.
+
+.XSIMMAKE-R
+
+This option forces XSIMMAKE to re-execute every step necessary to generate
+the required output file.
+
+.XSIMMAKE-V
+
+When XSIMMAKE is running, it redirects the output of the several programs
+it runs to the file xsimmake.log. This option will switch off this
+operation and cause the screen output of the programs to be written to the
+screen.
+
+.--- (Commands under Utilities menu) --------------------------------------
+
+.UTILITIES
+
+Several utility commands are provided with the Xilinx Design Manager,
+including the commands that allow you to change directories, determine
+which versions of Xilinx software you have installed, shell out to DOS,
+execute a command file, invoke the Design Manager HELP system etc.
+
+.BROWSE
+
+The Browse command allows you to view a file from within the Xilinx Design
+Manager. After selecting Browse, you are prompted for a file name.
+
+Browsing a file within the Design Manager is slow; only use it if you do
+not have a text editor on your system. To invoke your favorite text editor
+with the push of a button, program one of the function keys.  For example,
+if you like VI, type KEYDEF F2 DOS VI\ on the command line. F2 is now
+programmed to invoke the VI editor.
+
+.DIRCLEAN
+
+The DirClean command lets you delete files from inside the Design Manager.
+Select as many files as you wish to delete, then select Done.
+
+.DIRECTORY
+
+The Directory command sets the current directory.  The Design Manager
+searches for and writes files in the directory you specify with this
+command.
+
+If you want to change drives, invoke the DIR command from the command
+line.  For example, to change from the C drive to the D drive, type DIR D:\
+on the XDM command line.
+
+.DOS
+
+The Dos command puts you in a DOS shell, so you can execute other programs
+and commands you would normally issue at the DOS prompt, without quitting
+the Design Manager. To return to the Design Manager, type 'exit' at the DOS
+prompt.
+
+If you wish, such programs and commands can be executed by typing 'dos
+<program/command-name>' at the Cmd: line. When the program/command is
+completed, the message 'Press any key to continue.' appears. When you
+respond, you will be taken back to the Design Manager's main screen.
+
+.EDIT
+
+The Edit command allows you to view or edit files using whichever text
+editor you specify.
+
+To tell XDM which text editor to use, add this line to your AUTOEXEC.BAT
+file:
+       SET EDITOR=<name>
+
+where <name> is the name of the desired text editor.
+
+.EXECUTE
+
+The Execute command executes the specified command file.  A command file is
+a text file that contains valid Design Manager commands.
+
+.HELP
+
+The HELP command invokes the Xilinx Design Manager HELP system. After
+selecting HELP, XDM prompts you for a topic.  The topic must be contained
+in one of the Design Manager menus.  If you need help with a program
+option, type the program name followed by the option.  For example, to
+display the help file for APR's -J option, type APR-J.  Do not include a
+space between APR and -J.
+
+.REPORT
+
+Use the Report option to store a Version Report to 'version.rpt' file
+instead of displaying the information on the screen.  The Version command
+provides a list of the Xilinx programs currently installed on your system,
+including the version and location of each program.
+
+You are encouraged to have a copy of this list before calling for technical
+support.
+
+.SCANDISK
+
+The ScanDisk command will force XDM to scan the directories specified by
+the PATH environment variable to determine which XDM-supported programs are
+installed on your system.
+
+The result will be written to PROGLIST.XDM in the appropriate directory for
+the subsequent invocations of XDM.
+
+%rWARNING:%g It is essential that you issue this command after installing
+new XDM-supported programs on your system.  These programs will not appear
+in the XDM menus until the ScanDisk command is issued.
+
+See the "Xilinx Design Manager" chapter in the "XACT Reference Guide" for
+more details, including the location of the PROGLIST.XDM file.
+
+.VERSION
+
+The Version command displays a list of the Xilinx programs currently
+installed on your system.  You are encouraged to have a copy of this list
+before calling for technical support. (Use 'Report' command to print the
+information to a file, instead of the screen.) This list includes the
+version and location of each program.  If a program's version cannot be
+found, as in a Xilinx supported third-party program, its version number is
+left blank in the version report. 
+
+.--- (Commands under Profile menu) ----------------------------------------
+
+.PROFILE
+
+The Profile menu contains commands that define the XACT Design Manager
+environment.  The profile settings are stored in a file called XDM.PRO,
+which is typically located in the XACT\DATA directory.  If you want
+different versions of the profile in different directories, use the
+Saveprofile command to save profile settings in the current working
+directory.
+
+.CURSOR
+
+The Cursor command allows you to change the shape of the cursor. The
+available cursor types are arrow, bug, cross, and gunsight.
+
+.FAMILY
+
+The Family command tells XDM which family of Xilinx devices you are using.
+Currently supported families are:
+
+  XC2000,  XC2000L,
+  XC3000,  XC3100,
+  XC3000A, XC3000L, XC3100A,
+  XC4000,  XC4000A, XC4000H,
+  XC7200,  XC7300
+
+In response, XDM will only display menu items and command options that are
+valid for the selected family.
+
+.KEYCURSOR
+
+With this option off, commands must be entered via the keyboard or selected
+from pull-down menus with the mouse.  With this option on, the arrow keys
+move the cursor through pull-down menus, and pressing <Enter> executes the
+selected option.
+
+.KEYDEF
+
+Use the Keydef option to program the function keys on your PC.  When you
+select this command, XDM prompts you for a key name (F2, F3, etc.) and then
+a function.  The function can be any Design Manager command (for example,
+Done, DOS, Edit, XMake, etc.).  For example, to program F2 to return to
+DOS, type KEYDEF F2 DOS on the command line. The F1 key is reserved for
+HELP; do not attempt to program F1 with the Keydef command.
+
+.MENUCOLORS
+
+Menucolors allows you to change the colors of items displayed in menus.
+
+HELP can be used on the individual commands in this menu for more
+information on their functionality and usage.
+
+.Menucolors-Reset
+
+Reset resets all of the menucolor options to their default values.
+
+.Menucolors-Boxtitlecolor
+
+Boxtitlecolor is the color of the box that appears when the cursor is
+placed on any of the menu titles.
+
+.Menucolors-Menubordercolor1
+
+Menubordercolor1 is the color of the outside ring of the pull-down menu
+border.
+
+.Menucolors-Menubordercolor2
+
+Menubordercolor2 is the color of the middle ring of the pull-down menu
+border.
+
+.Menucolors-Menubordercolor3
+
+Menubordercolor3 is the color of the inside ring of the pull-down menu
+border.
+
+.Menucolors-Boxmenucolor
+
+Boxmenucolor is the color of the box that appears when the cursor is placed
+on any pull-down menu item.
+
+.Menucolors-Menuhilightcolor
+
+Menuhilightcolor is the color of selected items in the Show sub-menu.
+
+.Menucolors-Menuitemcolor
+
+Menuitemcolor is the color of the second part of menu items.
+
+.Menucolors-Menuitemabbrevcolor
+
+Menuitemabbrevcolor is the color of the first part of menu items.
+
+.Menucolors-Displayonlytitlecolor
+
+Displayonlytitlecolor is the color of commands that do not have pull-down
+menus.
+
+.Menucolors-Selectabletitlecolor
+
+Selectabletitlecolor is the color of commands that have pull-down menus.
+
+.Menucolors-Helpbordercolor1
+
+Helpbordercolor1 is the color of the outside ring of the help window.
+
+.Menucolors-Helpbordercolor2
+
+Helpbordercolor2 is the color of the middle ring of the help window.
+
+.Menucolors-Helpbordercolor3
+
+Helpbordercolor is the color of the inside ring of the help window.
+
+.Menucolors-Helphelptextcolor
+
+Helphelptextcolor is the color of the text that appears in the bottom of
+the HELP window.
+
+.Menucolors-Helptextcolor
+
+Helptextcolor is the color of the help text.
+
+.Menucolors-Cmdcursorinsertcolor
+
+CmdCursorinsertcolor is the color of the command cursor.
+
+.Menucolors-Cmdtextcolor
+
+Cmdtextcolor is the color of the text that is entered in on the command
+line.
+
+.Menucolors-Cursorcolor
+
+Cursorcolor is the color of the cursor.
+
+.MOUSE
+
+The Mouse option sets the functions of each mouse button.  It may also be
+used to specify the mouse connection port in some cases, as described
+below.
+
+If a Microsoft-compatible mouse driver is loaded, the connection port is
+automatically determined by XDM.  This is indicated by "Mouse: MS Mouse"
+being displayed on the screen.
+
+If no such driver is loaded, you must select the connection port through
+this option.  In this case, the selected port name will be displayed on the
+screen (for example, "Mouse: COM1").
+
+.MOUSE-COM1
+
+The COM1 option sets the mouse connection port to COM1.
+
+.MOUSE-COM2
+
+The COM2 option sets the mouse connection port to COM2.
+
+.MOUSE-B1
+
+The B1 option defines the function of the left mouse button. The available
+functions are Select, Menu, and Done.
+
+.MOUSE-B2
+
+The B2 option defines the function of the middle mouse button.  The
+available functions are Select, Menu, and Done.
+
+.MOUSE-B3
+
+The B3 option defines the function of the right mouse button. The available
+functions are Select, Menu, and Done.
+
+.MOUSE-SELECT
+
+This option programs the mouse button to select the item that the cursor is
+positioned on.
+
+.MOUSE-MENU
+
+Pressing a mouse button programmed with the Menu option causes the most
+recently displayed menu to appear and moves the mouse to the most recently
+selected item.
+
+.MOUSE-DONE
+
+This option programs the mouse button to enter the Done command.  Pressing
+this mouse button is equivalent to choosing the Done menu item for any
+command.
+
+.OPTIONS
+
+The Options command allows you to customize the default options for each
+Xilinx program supported by the Design Manager.  When you select this
+command, XDM displays a list of Xilinx programs.  Select a program,
+activate the desired options (active options are highlighted), and select
+Done.
+
+.PALETTE
+
+Use the Palette command to select a color palette for the Xilinx Design
+Manager.  You can add new color palettes to the Palette menu by editing the
+PALETTES.XCT file in the XACT\DATA directory.  For more information, read
+the explanation in PALETTES.XCT.
+
+.PART
+
+Use the Part option to specify a Xilinx part type.  Once you select this
+option, XDM displays a list of the valid part types.  If you select a part
+type with the Part option, any part type information in your design file is
+ignored.  If you select the InDesign part type, you must specify a part
+type in your design file.  Refer to your schematic interface documentation
+for instruction on specifying a part type on the schematic.
+
+.READPROFILE
+
+When you select the Readprofile option, XDM reads the XDM.PRO file in the
+current directory and overwrites the current settings. If XDM.PRO file does
+not exist in the current directory, XDM begins searching for it.  XDM first
+scans the XACT\DATA directory. If XDM.PRO file is not found, XDM searches
+all the directories pointed to by the XACT environment variable.  If still
+not found, XDM will search all the directories in your search path.
+
+.SAVEPROFILE
+
+The Saveprofile command saves the current profile settings in the XDM.PRO
+file.  If an XDM.PRO file exists in your current directory, the Saveprofile
+command overwrites it.  If this file does not exist, XDM asks if you want
+the profile saved in the current directory.  Answering "no" causes the
+XDM.PRO file to be saved in the XACT\DATA directory.
+
+.SETTINGS
+
+The Settings command displays the current profile settings.
+
+.SPEED
+
+Use the Speed option to specify a device speed grade. Once you select this
+option, XDM displays a list of the valid speed grades.  If you select a
+speed grade with the Speed option, any speed grade information in your
+design file is ignored.  If you select the InDesign part type, you must
+specify a speed grade in your design file.  Refer to your schematic
+interface documentation for instructions on specifying a speed grade on the
+schematic.

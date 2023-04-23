@@ -1,0 +1,48 @@
+`F  1.00 x74_280
+`B "1" "1" "A" "    March 18, 1993" "" "A" 
+"XC4000 Family X74_280 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "A"
+`P I "B"
+`P I "C"
+`P I "D"
+`P I "E"
+`P O "ODD"
+`P I "F"
+`P I "G"
+`P I "H"
+`P I "I"
+`P O "EVEN"
+`S "X5" 1 
+`S "X4" 1 
+`E XC4000.LIB
+`I R "XOR5" XC4000.LIB "XOR5" CA5703A2  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I4" "I4" I ) ( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) 
+( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XOR4" XC4000.LIB "XOR4" CA570481  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`I R "XOR2" XC4000.LIB "XOR2" CA5705E6  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC4000.LIB "XNOR2" CA570704  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`J ( P I "A" ) ( R U1 "I4" I ) 
+`J ( P I "B" ) ( R U1 "I3" I ) 
+`J ( P I "C" ) ( R U1 "I2" I ) 
+`J ( R U1 "O" O ) ( S "X5" 1  ) ( R U3 "I1" I ) ( R U4 "I1" I ) 
+`J ( P I "D" ) ( R U1 "I1" I ) 
+`J ( P I "E" ) ( R U1 "I0" I ) 
+`J ( R U3 "O" O ) ( P O "ODD" ) 
+`J ( R U2 "O" O ) ( S "X4" 1  ) ( R U3 "I0" I ) ( R U4 "I0" I ) 
+`J ( P I "F" ) ( R U2 "I3" I ) 
+`J ( P I "G" ) ( R U2 "I2" I ) 
+`J ( P I "H" ) ( R U2 "I1" I ) 
+`J ( P I "I" ) ( R U2 "I0" I ) 
+`J ( R U4 "O" O ) ( P O "EVEN" ) 

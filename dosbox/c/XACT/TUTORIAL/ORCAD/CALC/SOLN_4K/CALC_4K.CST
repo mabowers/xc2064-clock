@@ -1,0 +1,30 @@
+# This is a schematic constraints file for use with the 
+#   Calc Tutorial Design.  It maps the I/O to the correct 
+#   pins for 4K family parts on the Xilinx demo boards.  
+# When using this contraints file, you must tell XNFPrep 
+#   to ignore pad locations on the schematic, as the 
+#   locations on the schematic are for 3K family parts.
+# Set the ignore_xnf_locs option for XNFPrep to a value 
+#   of "IO."
+
+place instance   EXC_P:       P19;
+place instance   7SEG/OFL_P:  P41;
+place instance   7SEG/A_P:    P49;
+place instance   7SEG/B_P:    P48;
+place instance   7SEG/C_P:    P47;
+place instance   7SEG/D_P:    P46;
+place instance   7SEG/E_P:    P45;
+place instance   7SEG/F_P:    P50;
+place instance   7SEG/G_P:    P51;
+place instance   SW7/SW6_P:   P20;
+place instance   SW7/SW5_P:   P23;
+place instance   SW7/SW4_P:   P24;
+place instance   SW7/SW3_P:   P25;
+place instance   SW7/SW2_P:   P26;
+place instance   SW7/SW1_P:   P27;
+place instance   SW7/SW0_P:   P28;
+place instance   LED/LED3_P:  P57;
+place instance   LED/LED2_P:  P58;
+place instance   LED/LED1_P:  P59;
+place instance   LED/LED0_P:  P60;
+

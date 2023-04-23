@@ -1,0 +1,39 @@
+`F  1.00 OBUFE4X1
+`B "1" "1" "A" "September  1, 1993" "" "A" 
+"XC7000 Family OBUFE4X1 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P I "I0"
+`P O "O0"
+`P I "I1"
+`P O "O1"
+`P I "I2"
+`P O "O2"
+`P I "I3"
+`P O "O3"
+`E XC7000.LIB
+`I R "OBUFEX1" XC7000.LIB "OBUFEX1" d9e55632  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFEX1" XC7000.LIB "OBUFEX1" d9e55676  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFEX1" XC7000.LIB "OBUFEX1" d9e55696  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFEX1" XC7000.LIB "OBUFEX1" d9e556cc  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( P I "E" ) ( R U2 "E" I ) ( R U1 "E" I ) ( R U3 "E" I ) 
+( R U4 "E" I ) 
+`J ( P I "I0" ) ( R U1 "I" I ) 
+`J ( R U1 "O" T ) ( P O "O0" ) 
+`J ( P I "I1" ) ( R U2 "I" I ) 
+`J ( R U2 "O" T ) ( P O "O1" ) 
+`J ( P I "I2" ) ( R U3 "I" I ) 
+`J ( R U3 "O" T ) ( P O "O2" ) 
+`J ( P I "I3" ) ( R U4 "I" I ) 
+`J ( R U4 "O" T ) ( P O "O3" ) 

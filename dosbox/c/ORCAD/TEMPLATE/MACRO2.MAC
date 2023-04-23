@@ -1,0 +1,55 @@
+F1: Get Part          {F1}=G{ENTER}{}
+F2: Place Wire        {F2}=PWB{}
+F3: Copy Object       {F3}=BSBEBG{}
+F4: Delete Object     {F4}=DBBE{}
+F5: Drag Object       {F5}=BDBE{}
+F6: Place Bus         {F6}=PBB{}
+F7: Place Label       {F7}=PL{}
+F8: Place Module Port {F8}=PM{}
+F9: Place Sheet       {F9}=PS{MACROBREAK}{ENTER}B{MACROBREAK}E{}
+F10:Redraw Screen     {F10}=ZC{}
+                                  
+^F1: List Library          {^F1}=LD{MACROBREAK}{ENTER}{}
+^F2: Place Junction        {^F2}=PJP{ESC}{}
+^F3: Copy Block            {^F3}=BS{MACROBREAK}{ENTER}{MACROBREAK}{MACROBREAK}
+BG{}
+^F4: Delete Block          {^F4}=DB{MACROBREAK}{ENTER}{}
+^F5: Move Block            {^F5}=BM{MACROBREAK}{ENTER}{}
+^F6: Edit Reference        {^F6}=EERN{MACROBREAK}{ESC}{ESC}{}
+^F7: Edit Title BLock      {^F7}=JX1638{ENTER}JY1638{ENTER}EE{}
+^F8: Change Worksheet Size {^F8}=ZS{D}{D}{D}{ENTER}{ESC}SW{MACROBREAK}ZS{ENTER}
+{ESC}{}
+^F9: Place Text            {^F9}=PT{MACROBREAK}{ENTER}{ESC}{}
+^F10:Show Conditions       {^F10}=C{}
+
+\F1: Auto Pan Off        {\F1}=SAN{}
+\F2: Auto Pan On         {\F2}=SAY{}
+\F3: Reference Window    {\F3}=ZS{D}{D}{D}{ENTER}{MACROBREAK}P{ENTER}ZS1{ESC}{}
+\F4: Undo Delete         {\F4}=DU{}
+\F5: Zoom In             {\F5}=ZI{}
+\F6: Zoom Out            {\F6}=ZO{}
+\F7: Enter Sheet         {\F7}=QUEE{ESC}{}
+\F8: Leave Sheet         {\F8}=QUL{ESC}{}
+\F9: Grid Dots Invisible {\F9}=SGVN{ESC}{}
+\F10:Grid Dots Visible   {\F10}=SGVY{ESC}{}
+
+|F1: Abandon all Edits  {SHIFT-F1}=QAY{}
+|F2: Clear Worksheet    {SHIFT-F2}=DBJX1638{ENTER}JY1638{ENTER}BJX0{ENTER}
+JY0{ENTER}E{ESC}{}
+|F3: Block Import       {SHIFT-F3}=BI{MACROBREAK}{}
+|F4: Block Export       {SHIFT-F4}=BE{MACROBREAK}{ENTER}{}
+|F5: Load File          {SHIFT-F5}=QI{MACROBREAK}{ESC}{}
+|F6: Update File        {SHIFT-F6}=QU{ESC}{}
+|F7: Write File         {SHIFT-F7}=QW{MACROBREAK}{ESC}{}
+|F9: Suspend to System  {SHIFT-F9}=QS{}
+|F10:Save File and Exit {SHIFT-F10}=QUA{}
+
+\P:  Place VCC Power Object  {\P}=PPV{RUBOUT}{RUBOUT}{RUBOUT}{RUBOUT}{RUBOUT}
+{RUBOUT}{RUBOUT}{RUBOUT}{RUBOUT}{RUBOUT}VCC{ENTER}TCOT{}
+\G:  Place GND Power Object  {\G}=PPV{RUBOUT}{RUBOUT}{RUBOUT}{RUBOUT}{RUBOUT}
+{RUBOUT}{RUBOUT}{RUBOUT}{RUBOUT}{RUBOUT}GND{ENTER}TAOB{}
+\X:  Place No-Connect Object {\X}=PNP{ESC}{}
+
+MMB: Place Wire {MMB}=PWB{}
+
+

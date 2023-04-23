@@ -1,0 +1,132 @@
+module stat_abl
+
+title 'State machine for Calc design'
+"This state machine has 3 states which control the functions 
+"of the ALU and the stack.  The states are as follows:
+"      SPUSH  -- increment stack pointer
+"      SWE    -- write value into stack
+"      SOTHER -- do neither (initial state)
+
+"This is a one-hot state machine, which means that only 
+" one of the states is active at any given time.  This method 
+"is particularly suited for use with Xilinx ABEL and Xilinx 
+"FPGAs, which are rich in flip-flop resources.
+"This file also generates control signals from equations.
+"For an equivalent schematic, see statmach.1.
+
+declarations
+
+"inputs
+          OP5, OP4, OP3, OP2, OP1, OP0, EXC        pin;
+
+"clock
+          CLK                                      pin;
+
+"outputs
+          CTL3, CTL2, CTL1, CTL0                   pin;
+          UP_DN, WE, RST, ADD_SUB, CE_ALU, CE_ADDR pin;
+
+"state diagram declarations and assignments
+          XABELSM        state_register istype 'reg_d';
+          SPUSH, SWE, SOTHER                     state;
+
+"vector definitions
+          OP  = [OP5,OP4,OP3,OP2,OP1,OP0];
+          HOP = [OP5,OP4,OP3];
+          CTL = [CTL3,CTL2,CTL1,CTL0];
+
+"declare internal nodes
+          SEL_OP, OP_CTL2, OP_CTL1, OP_CTL0       node;
+
+"node declarations for simulation only, can't use state names 
+"in simulation vectors
+          PUSH, OTHER                             node;
+
+"define clock & don't-care values for test vectors
+          C, X = .C., .X.;
+
+Xilinx property 'initialstate SOTHER';
+
+equations
+          XABELSM.CLK  = CLK;
+          RST          = (HOP == ^b101) & EXC;
+          ADD_SUB      = !OP_CTL2; 
+          SEL_OP       = (HOP == ^b111);
+          CE_ALU       = !(SEL_OP & OP2 & OP0) & SOTHER & EXC;
+          CE_ADDR      = !(OP2 & OP1 & OP0) & SEL_OP & EXC;
+          OP_CTL2      = (OP5 & !SEL_OP) # (OP2 & SEL_OP);
+          OP_CTL1      = (OP4 & !SEL_OP) # (OP1 & SEL_OP);
+          OP_CTL0      = (OP3 & !SEL_OP) # (OP0 & SEL_OP);
+          CTL3         = SEL_OP;
+          CTL2         = OP_CTL2 & OP_CTL1;
+          CTL1         = OP_CTL1 & !OP_CTL2;
+          CTL0         = !OP_CTL2 & OP_CTL0;
+          UP_DN        = OP2 & !OP1 & OP0 & SEL_OP & EXC;
+          PUSH         = SPUSH;
+          WE           = SWE;
+          OTHER        = SOTHER;
+
+"always optimize out don't-cares
+@DCSET
+
+state_diagram XABELSM
+          state SPUSH:  goto                               SWE;
+          state SWE:    goto                            SOTHER;
+          state SOTHER: if                   (UP_DN) then SPUSH
+                        else                            SOTHER;
+
+test_vectors
+"begin in initial state, each line is one clock cycle
+
+([CLK,EXC,OP]->[PUSH,WE,OTHER,ADD_SUB,RST,CE_ALU,CE_ADDR,CTL])
+
+"quick check to test the state machine
+[ C, 0,   X ]->[  0,  0,  1,    X,     X,    X,     X,    X  ];
+[ C, 1, ^h3F]->[  0,  0,  1,    X,     X,    X,     X,    X  ];
+[ C, 0,   X ]->[  0,  0,  1,    X,     X,    X,     X,    X  ];
+[ C, 1, ^h3D]->[  1,  0,  0,    X,     X,    X,     X,    X  ];
+[ C, 0,   X ]->[  0,  1,  0,    X,     X,    X,     X,    X  ];
+[ C, 0,   X ]->[  0,  0,  1,    X,     X,    X,     X,    X  ];
+[ C, 1, ^h38]->[  0,  0,  1,    X,     X,    X,     X,    X  ];
+
+"test the control logic, EXC low
+[ C, 0, ^h0 ]->[  0,  0,  1,    1,     0,    0,     0,   ^h0 ];
+[ C, 0, ^h8 ]->[  0,  0,  1,    1,     0,    0,     0,   ^h1 ];
+[ C, 0, ^h10]->[  0,  0,  1,    1,     0,    0,     0,   ^h2 ];
+[ C, 0, ^h18]->[  0,  0,  1,    1,     0,    0,     0,   ^h3 ];
+[ C, 0, ^h20]->[  0,  0,  1,    0,     0,    0,     0,   ^h0 ];
+[ C, 0, ^h28]->[  0,  0,  1,    0,     0,    0,     0,   ^h0 ];
+[ C, 0, ^h30]->[  0,  0,  1,    0,     0,    0,     0,   ^h4 ];
+"extended instruction set
+[ C, 0, ^h38]->[  0,  0,  1,    1,     0,    0,     0,   ^h8 ];
+[ C, 0, ^h39]->[  0,  0,  1,    1,     0,    0,     0,   ^h9 ];
+[ C, 0, ^h3A]->[  0,  0,  1,    1,     0,    0,     0,   ^hA ];
+[ C, 0, ^h3B]->[  0,  0,  1,    1,     0,    0,     0,   ^hB ];
+[ C, 0, ^h3C]->[  0,  0,  1,    0,     0,    0,     0,   ^h8 ];
+[ C, 0, ^h3D]->[  0,  0,  1,    0,     0,    0,     0,   ^h8 ];
+[ C, 0, ^h3E]->[  0,  0,  1,    0,     0,    0,     0,   ^hC ];
+[ C, 0, ^h3F]->[  0,  0,  1,    0,     0,    0,     0,   ^hC ];
+
+"test the control logic, EXC high
+[ C, 1, ^h0 ]->[  0,  0,  1,    1,     0,    1,     0,   ^h0 ];
+[ C, 1, ^h8 ]->[  0,  0,  1,    1,     0,    1,     0,   ^h1 ];
+[ C, 1, ^h10]->[  0,  0,  1,    1,     0,    1,     0,   ^h2 ];
+[ C, 1, ^h18]->[  0,  0,  1,    1,     0,    1,     0,   ^h3 ];
+[ C, 1, ^h20]->[  0,  0,  1,    0,     0,    1,     0,   ^h0 ];
+[ C, 1, ^h28]->[  0,  0,  1,    0,     1,    1,     0,   ^h0 ];
+[ C, 1, ^h30]->[  0,  0,  1,    0,     0,    1,     0,   ^h4 ];
+"extended instruction set
+[ C, 1, ^h38]->[  0,  0, 1,    1,      0,    1,     1,   ^h8 ];
+[ C, 1, ^h39]->[  0,  0, 1,    1,      0,    1,     1,   ^h9 ];
+[ C, 1, ^h3A]->[  0,  0, 1,    1,      0,    1,     1,   ^hA ];
+[ C, 1, ^h3B]->[  0,  0, 1,    1,      0,    1,     1,   ^hB ];
+[ C, 1, ^h3C]->[  0,  0, 1,    0,      0,    1,     1,   ^h8 ];
+[ C, 1, ^h3D]->[  1,  0, 0,    0,      0,    0,     1,   ^h8 ];
+
+"insert two clocks to return to initial state
+[ C, 0, ^h3D]->[  0,  1, 0,    0,      0,    0,     0,   ^h8 ];
+[ C, 0, ^h3D]->[  0,  0, 1,    0,      0,    0,     0,   ^h8 ];
+[ C, 1, ^h3E]->[  0,  0, 1,    0,      0,    1,     1,   ^hC ];
+[ C, 1, ^h3F]->[  0,  0, 1,    0,      0,    0,     0,   ^hC ];
+
+end stat_abl

@@ -1,0 +1,23 @@
+`F  1.00 fdr
+`B "1" "1" "A" " February 24, 1993" "" "A" 
+"XC4000 Family FDR Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D"
+`P I "R"
+`P O "Q"
+`P I "C"
+`E XC2000.LIB
+`I R "FD" XC2000.LIB "FD" C880E669  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "AND2B1" XC2000.LIB "AND2B1" C880E805  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`J ( P I "D" ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( R U1 "D" I ) 
+`J ( P I "R" ) ( R U2 "I0" I ) 
+`J ( R U1 "Q" O ) ( P O "Q" ) 
+`J ( P I "C" ) ( R U1 "C" I ) 

@@ -1,0 +1,33 @@
+TITLE    Quad-Ported Memory Controller
+AUTHOR   Jeffrey Goldberg
+COMPANY  Xilinx
+DATE     02/26/93
+
+;        Behavioral design example for XC7354-xxPC68
+;        Demo usage: FITEQN -e port_4 -p 7354
+
+INCLUDE_EQN 'DRC.PLD'
+INCLUDE_EQN 'ARBITER.PLD'
+INCLUDE_EQN 'REFRESH.PLD'
+
+CHIP PORT_4 XEPLD
+
+INPUTPIN (RCLK=CLK) RESET
+                    PORT_A_REQ PORT_B_REQ PORT_C_REQ PORT_D_REQ
+                    PORT_A_LOCK PORT_B_LOCK PORT_C_LOCK PORT_D_LOCK
+                    WRITE BYTE0 BYTE1 BYTE2 BYTE3 BURST 
+                    
+OUTPUTPIN           CAS0 CAS1 CAS2 CAS3 CLR_RFRQ COLUMN_ADDRESS
+                    GRANT_A GRANT_B GRANT_C GRANT_D
+                    RAS READY RFRQ WE
+
+NODE                ACCESS_REQ DONE DRAM0 DRAM1 DRAM2 DRAM3 ARB0 ARB1 ARB2
+                    QA QB QC QD QE QF QG QH QI QJ
+
+NODE (UIM)          RESTART
+
+FASTCLOCK           CLK
+
+EQUATIONS
+
+; (all equations defined in included equation files)

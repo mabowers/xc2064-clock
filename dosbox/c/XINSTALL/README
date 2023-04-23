@@ -1,0 +1,89 @@
+
+===============================================
+ WELCOME TO THE XILINX INSTALL V5.0.0 MAY 1994  
+===============================================
+
+This README file gives a brief explanation of the
+temporary directory \xinstall created by the Xilinx
+Installation Program. 
+
+The directory \xinstall has been created to hold
+temporary files used by the Xilinx installation 
+program.  This directory also stores other files
+that may be helpful to the user. 
+
+Description of the files left behind by the installation program: 
+
+============
+AUTOEXEC.XLX
+============
+
+This text file contains a log of the Xilinx products installed
+during an installation session.  New information is always
+appended to this file so the latest information can be found
+at the end of the file.  Please be aware that this file can
+become large in size.  This file is left in the root directory.
+
+This file can be removed if the user no longer needs the 
+given information.
+
+=========
+/AUTOSAVE
+=========
+
+This directory is created to store the backup AUTOEXEC.BAT files which are 
+numbered auto1.bat, auto2.bat, etc.  This directory is a subdirectory of
+the /xinstall directory. 
+
+This directory and its files can be removed if the user no longer needs the
+given information.
+
+==========
+SERIAL.NOS
+==========
+
+This text file contains the serial number information stored 
+by the installation program, but it will not be created if the 
+installation was not successful.  This file can be used to reference
+the serial numbers for your Xilinx products.  This file is left
+in the /xinstall directory. 
+
+This file should not be removed.
+
+==========
+SERIAL.BAT
+==========
+
+This batch file will display the information stored in serial.nos.
+This file is left in the /xinstall directory.
+
+This file should not be removed.
+
+========
+/REPORTS
+========
+
+This directory is created to store installation status information of
+a product.  This directory is only created if the user chose to have
+this information saved during the installation or if an error occurred
+when reading media (no other error messages will be stored here). 
+A subdirectory is created for each installed product and is given
+the name of the installed product.  This directory is a subdirectory
+of the /xinstall directory.
+
+This directory and its subdirectories can be removed if the user no
+longer needs the given information.
+
+
+===========
+UP2DATE.LST
+===========
+
+This text file is created by the install program only if it was detected
+that newer files exist on your destination path than those found on your
+installation media.  The file contains the list of those newer files. This
+file is left in the /xinstall directory.
+
+This file can be removed if the user no longer needs the given information.
+
+

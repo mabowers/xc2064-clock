@@ -1,0 +1,74 @@
+# "@(#)clb1nw.bel	6.2 10/5/93""
+#
+# CLB1 Northwest corner logic
+#
+_BELS
+LCA4_BSCAN BSCAN,
+LCA4_BUFGP GP,
+LCA4_BUFGS GS,
+LCA4_PU    HPU0 (is_pullup_src),
+LCA4_PU    HPU1 (is_pullup_src),
+LCA4_PU    VPU0 (is_pullup_src),
+LCA4_PU    VPU1 (is_pullup_src),
+;
+
+_NODES
+#
+# Input pins
+#
+TDI,
+TMS,
+TCK,
+TDO1,
+TDO2,
+GPI,
+GSI,
+#
+# Output pins
+#
+TDO,
+SEL1,
+SEL2,
+IDLE,
+DRCK,
+GPO,
+GSO,
+HPU0O,
+HPU1O,
+VPU0O,
+VPU1O,
+
+;
+
+_ARCS
+# Inputs to BSCAN
+TDI  BSCAN_TDI,
+TMS  BSCAN_TMS,
+TCK  BSCAN_TCK,
+TDO1 BSCAN_TDO1,
+TDO2 BSCAN_TDO2,
+# Outputs from BSCAN
+BSCAN_TDO TDO,
+BSCAN_SEL1 SEL1,
+BSCAN_SEL2 SEL2,
+BSCAN_IDLE IDLE,
+BSCAN_DRCK DRCK,
+
+# Connections to primary buffer GP
+GPI GP_I,
+GP_O GPO,
+
+# Connections to secondary buffer GP
+GSI GS_I,
+GS_O GSO,
+
+# Feedthru buffer 
+GP_I GP_O (is_gbuf_feedthru), 
+GS_I GS_O (is_gbuf_feedthru), 
+
+# Connections to pullups
+HPU0_O HPU0O,
+HPU1_O HPU1O,
+VPU0_O VPU0O,
+VPU1_O VPU1O,
+;

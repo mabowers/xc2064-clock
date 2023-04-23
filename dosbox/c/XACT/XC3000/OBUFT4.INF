@@ -1,0 +1,40 @@
+`F  1.00 obuft4
+`B "1" "1" "A" "     June 23, 1993" "" "A" 
+"XC3000 Family OBUFT4 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "T"
+`P I "I0"
+`P O "O0"
+`P I "I1"
+`P O "O1"
+`P I "I2"
+`P O "O2"
+`P I "I3"
+`P O "O3"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "OBUFT" XC3000.LIB "OBUFT" C8600699  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFT" XC3000.LIB "OBUFT" C86006C3  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFT" XC3000.LIB "OBUFT" C86006DD  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFT" XC3000.LIB "OBUFT" C86006ED  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( P I "T" ) ( R U2 "T" I ) ( R U1 "T" I ) ( R U3 "T" I ) 
+( R U4 "T" I ) 
+`J ( P I "I0" ) ( R U1 "I" I ) 
+`J ( R U1 "O" T ) ( P O "O0" ) 
+`J ( P I "I1" ) ( R U2 "I" I ) 
+`J ( R U2 "O" T ) ( P O "O1" ) 
+`J ( P I "I2" ) ( R U3 "I" I ) 
+`J ( R U3 "O" T ) ( P O "O2" ) 
+`J ( P I "I3" ) ( R U4 "I" I ) 
+`J ( R U4 "O" T ) ( P O "O3" ) 

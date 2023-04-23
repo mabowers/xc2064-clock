@@ -1,0 +1,35 @@
+TITLE           Multiplexer: 2-input, active low enable
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/27/93
+
+CHIP            X74_157  COMPONENT
+ 
+;Inputs
+a1 b1 a2 b2 a3 b3 a4 b4 s /g
+
+; a[4:1]        source
+; b[4:1]        source
+; s             select
+; g             enable
+
+;Outputs
+y1 y2 y3 y4
+
+; y[4:1]        output
+
+EQUATIONS 
+
+y1 = a1*/s*g
+   + b1* s*g
+
+y2 = a2*/s*g
+   + b2* s*g
+
+y3 = a3*/s*g
+   + b3* s*g
+
+y4 = a4*/s*g
+   + b4* s*g

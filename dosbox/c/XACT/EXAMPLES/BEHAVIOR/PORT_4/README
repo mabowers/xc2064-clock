@@ -1,0 +1,33 @@
+GENERAL INFORMATION:
+
+Design:         PORT_4
+Req'd software: XEPLD v5.0
+                XABEL v5.0 (optional)
+Platforms:      PC-DOS, Sun, HP700
+Target device:  XC7354-68 or larger (any speed)
+
+The PORT_4 example demonstrates a typical XEPLD behavioral design flow. The 
+logic of a 4-port DRAM controller is expressed using 3 generic ABEL-language 
+equation files: arbiter.abl, drc.abl and refresh.abl. PALASM versions of the 3 
+equation files are also provided (*.pld) if you are not using the XABEL 
+compiler. A PLUSASM top-level design file, port_4.pld, is used to define the 
+EPLD's I/O signals and some EPLD-specific resources.
+
+The 3 ABEL files are first translated to PLUSASM using the XABEL compiler. You 
+can compile the files under the XABEL interface, which can be invoked by 
+selecting DesignEntry -> XABEL in the XDM menu. You can also invoke the 
+ABEL-to-PLUSASM translator by entering the following commands:
+
+  abl2pld -p 7354 arbiter
+  abl2pld -p 7354 drc
+  abl2pld -p 7354 refresh
+
+After converting the 3 ABEL files into PLUSASM, you can run the port_4.pld 
+top-level design file through the EPLD fitter. The port_4.pld design file 
+names the 3 equation files to be included in the design. To run the fitter, 
+select Fitter -> FITEQN in the XDM menu, or enter the following command:
+
+  fiteqn -e port_4 -p 7354-10pc68
+
+The fitter produces several report files, including Resources (port_4.res), 
+Mapping (port_4.map), Pinlist (port_4.pin) and Partitioning (port_4.par).

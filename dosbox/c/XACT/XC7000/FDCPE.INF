@@ -1,0 +1,29 @@
+`F  1.00 FDCPE
+`B "1" "1" "A" "     June 29, 1993" "" "A" 
+"XC2000 Family FDCPE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D"
+`P I "CE"
+`P I "PRE"
+`P O "Q"
+`P I "C"
+`P I "CLR"
+`S "OQ_D" 1 
+`E XC7000.LIB
+`I R "M2_1" XC7000.LIB "M2_1" d5c35c7a  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "FDCP" XC7000.LIB "FDCP" d5c45abb  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "PRE" "PRE" I ) ( "Q" "Q" O ) 
+( "CLR" "CLR" I ) 
+`J ( R U1 "D0" I ) ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( R U1 "O" O ) ( S "OQ_D" 1  ) ( R U2 "D" I ) 
+`J ( P I "D" ) ( R U1 "D1" I ) 
+`J ( P I "CE" ) ( R U1 "S0" I ) 
+`J ( P I "PRE" ) ( R U2 "PRE" I ) 
+`J ( P I "C" ) ( R U2 "C" I ) 
+`J ( P I "CLR" ) ( R U2 "CLR" I ) 

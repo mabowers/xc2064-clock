@@ -1,0 +1,43 @@
+`F  1.00 SR4RE
+`B "1" "1" "A" "    March  9, 1993" "" "A" 
+"XC4000 Family SR4RE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "SLI"
+`P O "Q0"
+`P I "CE"
+`P O "Q1"
+`P O "Q2"
+`P O "Q3"
+`P I "C"
+`P I "R"
+`E XC7000.LIB
+`I R "FDRE" XC7000.LIB "FDRE" c7c11362  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC7000.LIB "FDRE" c7c11387  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC7000.LIB "FDRE" c7c113a3  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC7000.LIB "FDRE" c7c113c8  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`J ( P I "SLI" ) ( R U1 "D" I ) 
+`J ( R U1 "Q" O ) ( R U2 "D" I ) ( P O "Q0" ) 
+`J ( P I "CE" ) ( R U2 "CE" I ) ( R U1 "CE" I ) ( R U3 "CE" I ) 
+( R U4 "CE" I ) 
+`J ( R U1 "C" I ) ( R U2 "C" I ) ( R U3 "C" I ) ( R U4 "C" I ) 
+( P I "C" ) 
+`J ( R U1 "R" I ) ( R U2 "R" I ) ( R U3 "R" I ) ( R U4 "R" I ) 
+( P I "R" ) 
+`J ( R U2 "Q" O ) ( R U3 "D" I ) ( P O "Q1" ) 
+`J ( R U3 "Q" O ) ( R U4 "D" I ) ( P O "Q2" ) 
+`J ( R U4 "Q" O ) ( P O "Q3" ) 

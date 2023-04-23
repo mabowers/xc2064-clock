@@ -1,0 +1,67 @@
+`F  1.00 obufe8
+`B "1" "1" "A" "    March  5, 1993" "" "A" 
+"XC4000 Family OBUFE8 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P O "O0"
+`P O "O1"
+`P O "O2"
+`P O "O3"
+`P O "O4"
+`P O "O5"
+`P O "O6"
+`P O "O7"
+`P I "I0"
+`P I "I1"
+`P I "I2"
+`P I "I3"
+`P I "I4"
+`P I "I5"
+`P I "I6"
+`P I "I7"
+`E XC4000.LIB
+`I R "OBUFE" XC4000.LIB "OBUFE" C85F0226  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFE" XC4000.LIB "OBUFE" C85F0280  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFE" XC4000.LIB "OBUFE" C85F02A1  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFE" XC4000.LIB "OBUFE" C85F02C5  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFE" XC4000.LIB "OBUFE" C85F1AF3  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFE" XC4000.LIB "OBUFE" C85F1AF3  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFE" XC4000.LIB "OBUFE" C85F1AF3  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFE" XC4000.LIB "OBUFE" C85F1AF3  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( R U5 "E" I ) ( R U6 "E" I ) ( R U7 "E" I ) ( R U8 "E" I ) 
+( R U1 "E" I ) ( R U2 "E" I ) ( R U3 "E" I ) ( R U4 "E" I ) ( P I "E" ) 
+`J ( R U5 "I" I ) ( P I "I0" ) 
+`J ( R U5 "O" T ) ( P O "O0" ) 
+`J ( R U6 "I" I ) ( P I "I1" ) 
+`J ( R U6 "O" T ) ( P O "O1" ) 
+`J ( R U7 "I" I ) ( P I "I2" ) 
+`J ( R U7 "O" T ) ( P O "O2" ) 
+`J ( R U8 "I" I ) ( P I "I3" ) 
+`J ( R U8 "O" T ) ( P O "O3" ) 
+`J ( R U1 "I" I ) ( P I "I4" ) 
+`J ( R U1 "O" T ) ( P O "O4" ) 
+`J ( R U2 "I" I ) ( P I "I5" ) 
+`J ( R U2 "O" T ) ( P O "O5" ) 
+`J ( R U3 "I" I ) ( P I "I6" ) 
+`J ( R U3 "O" T ) ( P O "O6" ) 
+`J ( R U4 "I" I ) ( P I "I7" ) 
+`J ( R U4 "O" T ) ( P O "O7" ) 

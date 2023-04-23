@@ -1,0 +1,97 @@
+
+TITLE ARBITER
+
+CHIP   ARBITER   COMPONENT;
+
+;Pins (not in pin number order)
+      Clk reset done port_a_req port_b_req port_c_req port_d_req 
+      port_a_lock port_b_lock port_c_lock port_d_lock arb0 arb1 arb2 access_req 
+      grant_a grant_b grant_c grant_d 
+;Nodes
+      
+
+;Quad Port Arbiter  
+;        Equation file included in port_4.abl design example
+;        Jeffrey Goldberg  
+;        Xilinx
+
+
+
+EQUATIONS
+
+/access_req := (reset
+     + /arb2 * /arb1 * /arb0 * port_a_lock * /port_a_req
+     + /arb2 * /port_a_req * /port_b_req * /port_c_req * /port_d_req
+     + /arb2 * /arb1 * arb0 * /port_b_req * port_b_lock
+     + /arb2 * arb1 * /arb0 * /port_c_req * port_c_lock
+     + /arb2 * arb1 * arb0 * /port_d_req * port_d_lock
+     + arb2 * done);
+
+/grant_d := (/arb2 * arb1 * /arb0 * /reset * port_d_req * /port_c_lock
+     + arb1 * arb0 * /reset * port_d_lock
+     + arb2 * arb1 * arb0 * /reset
+     + arb1 * arb0 * /reset * /port_a_req * /port_b_req * /port_c_req
+     + /arb2 * /arb1 * /arb0 * /reset * /port_a_lock * /port_b_req * 
+      /port_c_req * port_d_req
+     + /arb2 * /arb1 * arb0 * /reset * /port_c_req * port_d_req * 
+      /port_b_lock);
+
+/grant_c := (/arb2 * /arb1 * /arb0 * /reset * /port_a_lock * /port_b_req * 
+      port_c_req
+     + /arb2 * /arb1 * arb0 * /reset * port_c_req * /port_b_lock
+     + arb1 * /arb0 * /reset * port_c_lock
+     + arb2 * arb1 * /arb0 * /reset
+     + arb1 * /arb0 * /reset * /port_a_req * /port_b_req * /port_d_req
+     + /arb2 * arb1 * arb0 * /reset * /port_a_req * /port_b_req * 
+      port_c_req * /port_d_lock);
+
+/grant_b := (/arb2 * /arb1 * /arb0 * /reset * /port_a_lock * port_b_req
+     + /arb1 * arb0 * /reset * port_b_lock
+     + arb2 * /arb1 * arb0 * /reset
+     + /arb1 * arb0 * /reset * /port_a_req * /port_c_req * /port_d_req
+     + /arb2 * arb1 * /arb0 * /reset * /port_a_req * port_b_req * 
+      /port_d_req * /port_c_lock
+     + /arb2 * arb1 * arb0 * /reset * /port_a_req * port_b_req * 
+      /port_d_lock);
+
+/grant_a := (arb2 * /arb1 * /arb0
+     + reset
+     + /arb1 * /arb0 * port_a_lock
+     + /arb1 * /arb0 * /port_b_req * /port_c_req * /port_d_req
+     + /arb2 * /arb1 * arb0 * port_a_req * /port_c_req * /port_d_req * 
+      /port_b_lock
+     + /arb2 * arb1 * /arb0 * port_a_req * /port_d_req * /port_c_lock
+     + /arb2 * arb1 * arb0 * port_a_req * /port_d_lock);
+
+arb0 := (arb2 * arb0 * /reset
+     + /arb2 * /arb1 * /arb0 * /reset * /port_a_lock * port_b_req
+     + arb1 * arb0 * /reset * /port_a_req * port_b_req
+     + arb0 * /reset * /port_a_req * /port_c_req
+     + /arb1 * arb0 * /reset * /port_c_req * port_d_req
+     + /arb2 * /arb1 * /reset * /port_a_lock * /port_c_req * port_d_req
+     + /arb1 * arb0 * /reset * port_b_lock
+     + /arb2 * arb1 * /reset * /port_a_req * port_b_req * /port_c_lock
+     + /arb2 * arb1 * /arb0 * /reset * port_d_req * /port_c_lock
+     + arb1 * arb0 * /reset * port_d_lock);
+
+arb1 := (arb2 * arb1 * /reset
+     + arb1 * /reset * /port_a_req * /port_b_req
+     + /arb2 * /arb1 * /arb0 * /reset * /port_a_lock * /port_b_req * 
+      port_c_req
+     + arb1 * /arb0 * /reset * port_d_req
+     + /arb2 * /arb0 * /reset * /port_a_lock * /port_b_req * port_d_req
+     + /arb2 * /arb1 * arb0 * /reset * port_c_req * /port_b_lock
+     + /arb2 * /arb1 * arb0 * /reset * port_d_req * /port_b_lock
+     + arb1 * /arb0 * /reset * port_c_lock
+     + arb1 * arb0 * /reset * port_d_lock);
+
+/arb2 := (reset
+     + /arb2 * /arb1 * /arb0 * port_a_lock * /port_a_req
+     + /arb2 * /arb1 * /port_a_req * /port_b_req * /port_c_req * 
+      /port_d_req
+     + /arb2 * /arb0 * /port_a_req * /port_b_req * /port_c_req * 
+      /port_d_req
+     + /arb2 * /arb1 * arb0 * /port_b_req * port_b_lock
+     + /arb2 * arb1 * /arb0 * /port_c_req * port_c_lock
+     + /arb2 * arb1 * arb0 * /port_d_req * port_d_lock
+     + arb2 * done);

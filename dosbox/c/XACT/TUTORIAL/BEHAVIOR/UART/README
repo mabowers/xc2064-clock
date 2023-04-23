@@ -1,0 +1,59 @@
+GENERAL INFORMATION:
+
+Design:         UART
+Req'd software: XEPLD v5.0
+                XABEL v5.0 (optional)
+Platforms:      PC-DOS, Sun, HP700
+Target device:  XC7354-68 or larger (any speed)
+
+The UART tutorial demonstrates the conversion of an existing PAL-based design 
+into a single EPLD device. The original design of a UART receiver consists of 
+4 PAL devices (three 22V10's and one GAL20V8). The PAL logic is defined using 
+4 ABEL equation files: cntr6.abl, datareg.abl, rcvr.abl and shifter.abl. PALASM 
+versions of the 4 PAL files are also provided (*.pld) if you are not using the 
+XABEL compiler.
+
+The 4 ABEL files are first translated to PLUSASM using the XABEL compiler. You 
+can compile the files under the XABEL interface, which can be invoked by 
+selecting DesignEntry -> XABEL in the XDM menu. You can also invoke the 
+ABEL-to-PLUSASM translator by entering the following commands:
+
+  abl2pld -p 7354 cntr6
+  abl2pld -p 7354 datareg
+  abl2pld -p 7354 rcvr
+  abl2pld -p 7354 shifter
+
+After converting the 4 ABEL files into PLUSASM, they are read into the XEPLD 
+software using the PALCONVT command as follows:
+
+  1. In XDM, select Fitter -> PALCONVT.
+  2. Type "uart" as the new design name.
+  3. Select cntr6.pld, datareg.pld, rcvr.pld and shifter.pld from the list of 
+     PAL files.
+  4. Select "Done"
+  5. Select "Create new PLD and PAL Interconnect Report".
+
+The PALCONVT command creates an Interconnect report, uart.int, listing all the 
+signals used by each of the PALs and how they were interpreted. PALCONVT also 
+generates a top-level PLUSASM design file, uart.pld, representing the 
+integrated EPLD design. The uart.pld file names the 4 equation files to be 
+included in the design and lists the names of all the signals used in the 
+design. You would normally edit the uart.pld file to supply information about 
+which signals you want to appear on pins of the EPLD device (this information 
+is not conveyed by the original PAL equation files). A completed version of the 
+top-level design file is provided, named uartdemo.pld. 
+
+To run the completed design contained in uartdemo.pld through the EPLD fitter, 
+select Fitter -> FITEQN in the XDM menu, or enter the following command:
+
+  fiteqn -e uartdemo -p 7354-10pc68
+
+The fitter produces several report files, including Resources (.res), Mapping 
+(.map), Pinlist (.pin) and Partitioning (.par), all provided in this directory 
+as examples (uart.*).
+
+DOCUMENTATION REFERENCE:
+
+A complete description of the UART behavioral design tutorial is provided in 
+Appendix C, "Equation Entry Application Note", of the XEPLD Reference Guide.
+

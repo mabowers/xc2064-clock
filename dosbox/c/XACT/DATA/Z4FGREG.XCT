@@ -1,0 +1,12 @@
+800 600
+dbregion 524 0 0 799
+ctregion 524 134 60 216
+clregion 524 134 0 60
+feregion 50 0 0 799
+nbregion 440 134 276 436
+pbregion 440 134 216 276
+sdregion 524 134 436 799
+ttregion 134 50 400 799 H
+kmregion 134 50 0 400 H
+osregion 524 440 216 436
+10 10

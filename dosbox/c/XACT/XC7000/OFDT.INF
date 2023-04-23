@@ -1,0 +1,23 @@
+`F  1.00 OFDT
+`B "1" "1" "A" " November  9, 1993" "" "A" 
+"XC7000 Family OFDT Macro" "Xilinx"
+""
+""
+""
+""
+`P I "T"
+`P I "D"
+`P O "O"
+`P I "C"
+`E XC7000.LIB
+`I R "FD" XC7000.LIB "FD" d9e5ec7d  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "OBUFT" XC7000.LIB "OBUFT" dc77c11e  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( P I "T" ) ( R U2 "T" I ) 
+`J ( P I "D" ) ( R U1 "D" I ) 
+`J ( R U1 "Q" O ) ( R U2 "I" I ) 
+`J ( R U2 "O" T ) ( P O "O" ) 
+`J ( P I "C" ) ( R U1 "C" I ) 

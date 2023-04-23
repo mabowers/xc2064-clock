@@ -1,0 +1,66 @@
+TITLE           Buffer: 3-state, 16-bit, active low enable
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/28/93
+
+CHIP            BUFT16  COMPONENT
+ 
+;Inputs
+i0 i1 i2 i3 i4 i5 i6 i7 i8 i9 i10 i11 i12 i13 i14 i15 /t
+
+;Outputs
+o0 o1 o2 o3 o4 o5 o6 o7 o8 o9 o10 o11 o12 o13 o14 o15
+
+NODE (NODETRST) o0 o1 o2 o3 o4 o5 o6 o7 o8 o9 o10 o11 o12 o13 o14 o15
+
+EQUATIONS 
+
+o0 = i0
+o0.trst = t  
+
+o1 = i1
+o1.trst = t  
+
+o2 = i2
+o2.trst = t  
+
+o3 = i3
+o3.trst = t  
+
+o4 = i4
+o4.trst = t  
+
+o5 = i5
+o5.trst = t  
+
+o6 = i6
+o6.trst = t  
+
+o7 = i7
+o7.trst = t  
+
+o8 = i8
+o8.trst = t  
+
+o9 = i9
+o9.trst = t  
+
+o10 = i10
+o10.trst = t  
+
+o11 = i11
+o11.trst = t  
+
+o12 = i12
+o12.trst = t  
+
+o13 = i13
+o13.trst = t  
+
+o14 = i14
+o14.trst = t  
+
+o15 = i15
+o15.trst = t  

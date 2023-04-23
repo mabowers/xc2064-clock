@@ -1,0 +1,37 @@
+`F  1.00 FJKP
+`B "1" "1" "A" "     July  2, 1993" "" "A" 
+"XC4000 Family FJKP Macro" "Xilinx"
+""
+""
+""
+""
+`P I "J"
+`P I "K"
+`P I "PRE"
+`P O "Q"
+`P I "C"
+`E XC7000.LIB
+`I R "AND3B2" XC7000.LIB "AND3B2" c87fc612  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "OR3" XC7000.LIB "OR3" c87fc721  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND3B1" XC7000.LIB "AND3B1" c87fc9e6  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND2B1" XC7000.LIB "AND2B1" c87fcb25  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "FDP" XC7000.LIB "FDP" c9bad343  U5  []
+"RLOC=R0C0" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "PRE" "PRE" I ) ( "Q" "Q" O ) 
+`J ( R U1 "I2" I ) ( R U5 "Q" O ) ( R U3 "I0" I ) ( P O "Q" ) 
+`J ( R U1 "I1" I ) ( R U3 "I1" I ) ( P I "K" ) ( R U4 "I0" I ) 
+`J ( R U1 "O" O ) ( R U2 "I2" I ) 
+`J ( R U1 "I0" I ) ( R U3 "I2" I ) ( P I "J" ) ( R U4 "I1" I ) 
+`J ( R U3 "O" O ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( R U5 "D" I ) 
+`J ( R U2 "I0" I ) ( R U4 "O" O ) 
+`J ( P I "PRE" ) ( R U5 "PRE" I ) 
+`J ( P I "C" ) ( R U5 "C" I ) 

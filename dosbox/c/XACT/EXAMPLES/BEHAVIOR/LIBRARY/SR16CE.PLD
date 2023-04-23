@@ -1,0 +1,103 @@
+TITLE           Shift Register: 16-bit, left, async-clear
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/30/93
+
+CHIP            SR16CE  COMPONENT
+ 
+;Inputs
+SLI CE C CLR
+
+; SLI           shift-left serial input
+; CE            shift clock enable
+; C             clock (optional FastCLK)
+; CLR           async clear
+ 
+;Outputs
+Q0 Q1 Q2 Q3 Q4 Q5 Q6 Q7 Q8 Q9 Q10 Q11 Q12 Q13 Q14 Q15
+
+; Q[15:0]       counter output
+
+EQUATIONS 
+
+Q15     := CE*Q14
+         + /CE*Q15
+Q15.clkf = C
+Q15.rstf = CLR
+
+Q14     := CE*Q13
+         + /CE*Q14
+Q14.clkf = C
+Q14.rstf = CLR
+
+Q13     := CE*Q12
+         + /CE*Q13
+Q13.clkf = C
+Q13.rstf = CLR
+
+Q12     := CE*Q11
+         + /CE*Q12
+Q12.clkf = C
+Q12.rstf = CLR
+
+Q11     := CE*Q10
+         + /CE*Q11
+Q11.clkf = C
+Q11.rstf = CLR
+
+Q10     := CE*Q9
+         + /CE*Q10
+Q10.clkf = C
+Q10.rstf = CLR
+
+Q9      := CE*Q8
+         + /CE*Q9 
+Q9.clkf  = C
+Q9.rstf  = CLR
+
+Q8      := CE*Q7
+         + /CE*Q8 
+Q8.clkf  = C
+Q8.rstf  = CLR
+
+Q7      := CE*Q6
+         + /CE*Q7 
+Q7.clkf  = C
+Q7.rstf  = CLR
+
+Q6      := CE*Q5
+         + /CE*Q6 
+Q6.clkf  = C
+Q6.rstf  = CLR
+
+Q5      := CE*Q4
+         + /CE*Q5 
+Q5.clkf  = C
+Q5.rstf  = CLR
+
+Q4      := CE*Q3
+         + /CE*Q4 
+Q4.clkf  = C
+Q4.rstf  = CLR
+
+Q3      := CE*Q2
+         + /CE*Q3 
+Q3.clkf  = C
+Q3.rstf  = CLR
+
+Q2      := CE*Q1
+         + /CE*Q2 
+Q2.clkf  = C
+Q2.rstf  = CLR
+
+Q1      := CE*Q0
+         + /CE*Q1 
+Q1.clkf  = C
+Q1.rstf  = CLR
+
+Q0      := CE*SLI
+         + /CE*Q0 
+Q0.clkf  = C
+Q0.rstf  = CLR

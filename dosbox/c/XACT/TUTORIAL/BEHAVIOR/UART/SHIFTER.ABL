@@ -1,0 +1,29 @@
+module shifter 
+title '8-Bit Shift Register for UART Receiver Design
+       Xilinx EPLD Applications, Feb. 93'
+
+        shifter  device  'p22v10';
+
+" Inputs
+  bitclk     pin 1;  " Bit clock (from rcvr)
+  sdin       pin 10; " Serial data input (external)
+
+
+" Outputs
+  d0,d1,d2,d3,d4,d5,d6,d7 pin 22,21,20,19,18,17,16,15 istype 'reg';
+    " Shifter outputs
+
+Equations
+
+d0 := sdin;
+d1 := d0;
+d2 := d1;
+d3 := d2;
+d4 := d3;
+d5 := d4;
+d6 := d5;
+d7 := d6;
+
+[d0..d7].clk = bitclk;
+
+end 

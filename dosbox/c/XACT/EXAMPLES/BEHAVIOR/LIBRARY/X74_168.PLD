@@ -1,0 +1,71 @@
+TITLE           4-BIT BCD UP/DOWN COUNTER, LOAD
+REVISION        vmh
+AUTHOR          Patrick Phung 
+COMPANY         XILINX
+DATE            9/21/93
+CHIP            X74_168  COMPONENT
+  
+;INPUTS
+ck /load /ent /enp u_d a b c d
+  
+; ck:           CLOCK SOURCE  
+; /load:        PARALLEL-load CONTROL (ACTIVE-LOW)  
+; ent:          CARRY-IN FROM RCO OF PRIOR STAGE  
+; enp:          COUNT-ENABLE (PARALLEL TO ALL STAGES)  
+; u_d:          COUNT-DIRECTION UP/DOWN
+; /clr:         ASYNCHRONOUS CLEAR (ACTIVE-LOW)  
+; a - d:        PARALLEL-LOAD DATA (d = MSB)  
+  
+;NODES
+ce
+
+;OUTPUTS  
+qa qb qc qd /rco
+  
+; qa-qd:        COUNTER DATA OUTPUT (qd = MSB)  
+; rco:          SYNCHRONOUS CARRY-OUT
+  
+NODE (UIM) ce
+
+EQUATIONS  
+  
+ce      = enp*ent
+
+qa.d1   = /qa*/qd*ce*/load
+        + /qa*/qb*/qc*ce*/load
+qa.d2   = a*load  
+qa.fbk  = /ce*/load  
+qa     := qa.d1 OR qa.d2  
+qa.clkf = ck 
+  
+qb.d1   = qa*/qb*/qd*ce*/load*u_d  
+        + /qa*qb*/qd*ce*/load*u_d
+        + qa*qb*/qd*ce*/load*/u_d
+        + /qa*/qb*/qc*qd*ce*/load*/u_d
+        + /qa*/qb*qc*/qd*ce*/load*/u_d
+qb.d2   = b*load  
+qb.fbk  = /ce*/load
+qb     := qb.d1 OR qb.d2  
+qb.clkf = ck 
+  
+qc.d1   = qa*qb*/qc*/qd*ce*/load*u_d  
+        + /qa*qc*/qd*ce*/load*u_d
+        + /qb*qc*/qd*ce*/load*u_d
+        + /qa*/qb*/qc*qd*ce*/load*/u_d
+        + qa*qc*/qd*ce*/load*/u_d
+        + qb*qc*/qd*ce*/load*/u_d
+qc.d2   = c*load  
+qc.fbk  = /ce*/load
+qc     := qc.d1 OR qc.d2  
+qc.clkf = ck 
+  
+qd.d1   = qa*qb*qc*/qd*ce*/load*u_d  
+        + /qa*/qb*/qc*qd*ce*/load*u_d
+        + /qa*/qb*/qc*/qd*ce*/load*/u_d
+        + qa*/qb*/qc*qd*ce*/load*/u_d
+qd.d2   = d*load  
+qd.fbk  = /ce*/load
+qd     := qd.d1 OR qd.d2  
+qd.clkf = ck 
+
+rco = qa*/qb*/qc*qd*ent

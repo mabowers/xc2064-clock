@@ -1,0 +1,49 @@
+TITLE           Magnitude comparator: 4-bit
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/4/93
+
+CHIP            COMPM4  COMPONENT
+ 
+;Inputs
+a0 a1 a2 a3 b0 b1 b2 b3
+
+; a[3:0]        comparator A-operand
+; b[3:0]        comparator B-operand
+ 
+;Nodes
+le2_0
+
+; le[2:0]       intermediate A<=B terms
+
+;Outputs
+gt lt
+
+; gt            A>B output
+; lt            A<B output
+
+PARTITION compm4 le2_0 gt lt
+
+EQUATIONS 
+
+/le2_0    =  a2*/b2
+          + /a2*/b2* a1*/b1
+          +  a2* b2* a1*/b1
+          + /a2*/b2*/a1*/b1*a0*/b0
+          + /a2*/b2* a1* b1*a0*/b0
+          +  a2* b2*/a1*/b1*a0*/b0
+          +  a2* b2* a1* b1*a0*/b0
+
+gt.D1     = /a3 + b3
+gt.D2     = /a3*b3
+gt.shift  = vcc
+gt        = gt.D1 nand gt.D2
+
+lt.D1     = /a0*b0
+          + /a1*b1
+          + /a2*b2
+          + /a3*b3
+lt.shift  = vcc
+lt        = lt.D1 D1_AND_NOTD2 lt.D2

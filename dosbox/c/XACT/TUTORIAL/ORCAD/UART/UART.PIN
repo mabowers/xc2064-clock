@@ -1,0 +1,93 @@
+ 
+XEPLD, Version 5.0                                          Xilinx Inc.
+                                Pin-List Report
+ Circuit name: UART
+Target Device: XC7354-12PC68                  Integrated:  1-12-94,  1:51PM
+
+Pkg  Pin   Pin    Pin             
+Pin  Type  Use    Name            
+---  ----  ---    ----            
+1    MR                           
+2     I    tie    (unused)        
+3     I    tie    (unused)        
+4    I/O   tie    (unused)        
+5     I    tie    (unused)        
+6    I/O    O     DOUT2           
+7    VSS                          
+8    CLK    I     X4CLK           
+9    CLK    O     DOUT4           
+10   CLK    O     DOUT3           
+11    I    tie    (unused)        
+12   I/O   tie    (unused)        
+13   I/O   tie    (unused)        
+14   VSS                          
+15   I/O   tie    (unused)        
+16   I/O   tie    (unused)        
+17   I/O   tie    (unused)        
+18   I/O   tie    (unused)        
+19   I/O   tie    (unused)        
+20   VCC                          
+21   I/O   tie    (unused)        
+22   I/O   tie    (unused)        
+23   I/O   tie    (unused)        
+24   I/O    O     DOUT1           
+25   I/O   tie    (unused)        
+26   I/O    O     DOUT0           
+27   I/O    O     BITCLK          
+28   I/O   tie    (unused)        
+29   I/O   tie    (unused)        
+30   VCC                          
+31   I/O   tie    (unused)        
+32   I/O   tie    (unused)        
+33   I/O   tie    (unused)        
+34   VSS                          
+35   I/O   tie    (unused)        
+36   I/O   tie    (unused)        
+37   I/O   tie    (unused)        
+38   I/O    O     START           
+39   I/O    O     OVERUN          
+40   I/O    O     FRAMING         
+41   VSS                          
+42   I/O    O     BYTECLK         
+43    I     I     SDIN            
+44   I/O   tie    (unused)        
+45   I/O   tie    (unused)        
+46   I/O   tie    (unused)        
+47   I/O   tie    (unused)        
+48   I/O   tie    (unused)        
+49   VSS                          
+50   VCC                          
+51   I/O   tie    (unused)        
+52   I/O   tie    (unused)        
+53   I/O    O     READY           
+54   I/O    O     PARITY          
+55   I/O   tie    (unused)        
+56   I/O   tie    (unused)        
+57   I/O   tie    (unused)        
+58   I/O   tie    (unused)        
+59   VCC                          
+60   CEN    O     DOUT7           
+61   CEN    O     DOUT6           
+62   FOE   I/O    DOE             
+63   VCC                          
+64   FOE    O     DOUT5           
+65    I     I     RD              
+66   I/O   tie    (unused)        
+67    I     I     CS              
+68    I    tie    (unused)        
+
+Pin Use Legend:
+
+I     - input
+O     - output
+I/O   - input/output
+I-L   - input uses latch
+I-R   - input uses register
+I/O-L - input/output uses latch
+I/O-R - input/output uses register
+NC    - not connected/not available
+tie   - unused pin must be tied to VCC or GND
+(O)   - unused pin attached to used macrocell
+
+ End of Pin-List Report
+

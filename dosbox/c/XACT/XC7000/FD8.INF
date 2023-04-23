@@ -1,0 +1,67 @@
+`F  1.00 FD8
+`B "1" "1" "A" "  October  5, 1993" "" "A" 
+"XC7000 Family FD8 Model" "Xilinx"
+""
+""
+""
+""
+`P I "C"
+`P O "Q0"
+`P O "Q1"
+`P O "Q2"
+`P O "Q3"
+`P O "Q4"
+`P O "Q5"
+`P O "Q6"
+`P O "Q7"
+`P I "D0"
+`P I "D1"
+`P I "D2"
+`P I "D3"
+`P I "D4"
+`P I "D5"
+`P I "D6"
+`P I "D7"
+`E XC7000.LIB
+`I R "FD" XC7000.LIB "FD" e012c6e8  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "FD" XC7000.LIB "FD" e012c6f1  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "FD" XC7000.LIB "FD" e012c70a  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "FD" XC7000.LIB "FD" e012c73e  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "FD" XC7000.LIB "FD" e012c757  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "FD" XC7000.LIB "FD" e012c774  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "FD" XC7000.LIB "FD" e012c799  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "FD" XC7000.LIB "FD" e012c7c5  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`J ( R U1 "D" I ) ( P I "D0" ) 
+`J ( P O "Q0" ) ( R U1 "Q" O ) 
+`J ( R U5 "D" I ) ( P I "D4" ) 
+`J ( P O "Q4" ) ( R U5 "Q" O ) 
+`J ( R U1 "C" I ) ( R U2 "C" I ) ( R U3 "C" I ) ( R U4 "C" I ) 
+( P I "C" ) ( R U5 "C" I ) ( R U6 "C" I ) ( R U7 "C" I ) ( R U8 "C" I ) 
+`J ( R U2 "D" I ) ( P I "D1" ) 
+`J ( P O "Q1" ) ( R U2 "Q" O ) 
+`J ( R U6 "D" I ) ( P I "D5" ) 
+`J ( P O "Q5" ) ( R U6 "Q" O ) 
+`J ( R U3 "D" I ) ( P I "D2" ) 
+`J ( P O "Q2" ) ( R U3 "Q" O ) 
+`J ( R U7 "D" I ) ( P I "D6" ) 
+`J ( P O "Q6" ) ( R U7 "Q" O ) 
+`J ( R U4 "D" I ) ( P I "D3" ) 
+`J ( P O "Q3" ) ( R U4 "Q" O ) 
+`J ( R U8 "D" I ) ( P I "D7" ) 
+`J ( P O "Q7" ) ( R U8 "Q" O ) 

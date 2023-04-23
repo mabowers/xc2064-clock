@@ -1,0 +1,27 @@
+TITLE           Flip-flop: T-type, sync set/reset, loadable, toggle-enable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            7/22/93
+
+CHIP            FTSRLE  COMPONENT
+ 
+;Inputs
+c t s r l d ce
+
+;Outputs
+q
+
+EQUATIONS 
+
+q.d1   = /t*/q*/l*/s
+       + r*/s
+       + l*/d*/s
+q.d2   = /ce*/q*/l*/s
+q.fbk  = t*ce*/l*/s
+q     := q.d1 nor q.d2
+q.clkf = c
+
+; q output logic defined active-low to allow t*ce term onto q.fbk p-term
+; allowing divide-by-2 to toggle higher than fMAX while t,ce,l,r,s constant.

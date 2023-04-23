@@ -1,0 +1,67 @@
+TITLE           Adder: high-order 8-bit, cascadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/23/93
+
+CHIP            ADD8X2  COMPONENT
+ 
+;Inputs
+a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7
+
+; a[7:0]        adder A-operand
+; b[7:0]        adder B-operand
+; ci            carry-in to s0 via MC carry chain 
+;               (ci may only connect to co output of arith component or PLD)
+ 
+;Outputs
+s0 s1 s2 s3 s4 s5 s6 s7
+
+; s[7:0]        adder output
+; co            carry-out from s7 via MC carry chain 
+;               (co may only connect to ci input of arith component or PLD)
+
+PARTITION s7_0 s0 s1 s2 s3 s4 s5 s6 s7
+
+EQUATIONS 
+
+s0.D1   = b0
+s0.D2   = a0
+s0      = s0.D1 xor s0.D2
+s0.add  = vcc
+
+s1.D1   = b1
+s1.D2   = a1
+s1      = s1.D1 xor s1.D2
+s1.add  = vcc
+
+s2.D1   = b2
+s2.D2   = a2
+s2      = s2.D1 xor s2.D2
+s2.add  = vcc
+
+s3.D1   = b3
+s3.D2   = a3
+s3      = s3.D1 xor s3.D2
+s3.add  = vcc
+
+s4.D1   = b4
+s4.D2   = a4
+s4      = s4.D1 xor s4.D2
+s4.add  = vcc
+
+s5.D1   = b5
+s5.D2   = a5
+s5      = s5.D1 xor s5.D2
+s5.add  = vcc
+
+s6.D1   = b6
+s6.D2   = a6
+s6      = s6.D1 xor s6.D2
+s6.add  = vcc
+
+s7.D1   = b7
+s7.D2   = a7
+s7      = s7.D1 xor s7.D2
+s7.add  = vcc

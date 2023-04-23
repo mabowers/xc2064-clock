@@ -1,0 +1,31 @@
+`F  1.00 decode4
+`B "1" "1" "A" "     June  5, 1993" "" "A" 
+"XC4000 Family DECODE4 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "A0"
+`P O "O"
+`P I "A1"
+`P I "A2"
+`P I "A3"
+`E XC4000.LIB
+`I R "WAND1" XC4000.LIB "WAND1" CC6B2D2E  U1  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B2D44  U2  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B2D6E  U3  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B2D7F  U4  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`J ( P I "A0" ) ( R U1 "I" I ) 
+`J ( R U1 "O" C ) ( R U2 "O" C ) ( P O "O" ) ( R U3 "O" C ) 
+( R U4 "O" C ) 
+`J ( P I "A1" ) ( R U2 "I" I ) 
+`J ( P I "A2" ) ( R U3 "I" I ) 
+`J ( P I "A3" ) ( R U4 "I" I ) 

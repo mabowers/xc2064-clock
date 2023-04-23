@@ -1,0 +1,48 @@
+`F  1.00 OPAD8
+`B "1" "1" "A" "   August  6, 1993" "" "A" 
+"XC4000 Family OPAD8 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "O0"
+`P I "O1"
+`P I "O2"
+`P I "O3"
+`P I "O4"
+`P I "O5"
+`P I "O6"
+`P I "O7"
+`E XC7000.LIB
+`I R "OPAD" XC7000.LIB "OPAD" c984297e  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC7000.LIB "OPAD" c98429c0  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC7000.LIB "OPAD" c98429e7  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC7000.LIB "OPAD" c98429ef  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC7000.LIB "OPAD" c9842a02  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC7000.LIB "OPAD" c9842a26  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC7000.LIB "OPAD" c9842a38  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC7000.LIB "OPAD" c9842a4e  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`J ( R U1 "O" I ) ( P I "O0" ) 
+`J ( R U2 "O" I ) ( P I "O1" ) 
+`J ( R U3 "O" I ) ( P I "O2" ) 
+`J ( R U4 "O" I ) ( P I "O3" ) 
+`J ( R U5 "O" I ) ( P I "O4" ) 
+`J ( R U6 "O" I ) ( P I "O5" ) 
+`J ( R U7 "O" I ) ( P I "O6" ) 
+`J ( R U8 "O" I ) ( P I "O7" ) 

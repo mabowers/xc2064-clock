@@ -1,0 +1,88 @@
+package 3030vq64 2 0 1 0
+pin PAD1 P16
+pin PAD2 P15
+pin PAD3 P14
+pin PAD4 P13
+pin PAD5
+pin PAD6
+pin PAD7 P12
+pin PAD8 P11
+pin PAD9 P10
+pin PAD10 P9
+
+pin PAD11 P7
+pin PAD12 P6
+pin PAD13 P5
+pin PAD14 
+pin PAD15
+pin PAD16
+pin PAD17 P4
+pin PAD18 P3
+pin PAD19 P2
+pin PAD20 P1
+
+pin PAD21 P63
+pin PAD22 P62
+pin PAD23 P61
+pin PAD24 P60
+pin PAD25
+pin PAD26
+pin PAD27
+pin PAD28 P59
+pin PAD29 P58
+pin PAD30 P57
+
+pin PAD31
+pin PAD32 P55
+pin PAD33 P54
+pin PAD34 P53
+pin PAD35
+pin PAD36
+pin PAD37
+pin PAD38 P52
+pin PAD39 P51
+pin PAD40 P50
+
+pin PAD41 P47
+pin PAD42 
+pin PAD43 P46
+pin PAD44 P45
+pin PAD45
+pin PAD46
+pin PAD47 P44
+pin PAD48 P43
+pin PAD49 P42
+pin PAD50 
+
+pin PAD51 P40
+pin PAD52 P39
+pin PAD53 P38
+pin PAD54 P37
+pin PAD55
+pin PAD56
+pin PAD57 P36
+pin PAD58 P35
+pin PAD59 P34
+pin PAD60 P33
+
+pin PAD61 P30
+pin PAD62 P29
+pin PAD63
+pin PAD64 P28
+pin PAD65
+pin PAD66 P27
+pin PAD67
+pin PAD68 P26
+pin PAD69
+pin PAD70 P25
+
+pin PAD71 P23
+pin PAD72
+pin PAD73 P22
+pin PAD74 P21
+pin PAD75
+pin PAD76 P20
+pin PAD77
+pin PAD78 P19
+pin PAD79 
+pin PAD80 P18

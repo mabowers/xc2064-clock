@@ -1,0 +1,326 @@
+`F  1.00 adsu8
+`B "1" "1" "E" "     July 21, 1993" "" "A" 
+"XC4000 Family ADSU8 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "OFL"
+`P O "CO"
+`P I "ADD"
+`P I "CI"
+`P O "S0"
+`P O "S1"
+`P O "S2"
+`P O "S3"
+`P O "S4"
+`P O "S5"
+`P O "S6"
+`P O "S7"
+`P I "A0"
+`P I "A1"
+`P I "A2"
+`P I "A3"
+`P I "A4"
+`P I "A5"
+`P I "A6"
+`P I "A7"
+`P I "B0"
+`P I "B1"
+`P I "B2"
+`P I "B3"
+`P I "B4"
+`P I "B5"
+`P I "B6"
+`P I "B7"
+`S "OOR1" 1 
+`S "B7_M1" 1 
+`S "C7_M" 1 
+`S "OOR2" 1 
+`S "OOR3" 1 
+`S "B7_M2" 1 
+`S "COR1" 1 
+`S "COR2" 1 
+`S "COR3" 1 
+`S "C7" 1 
+`S "C6" 1 
+`S "C5" 1 
+`S "C4" 1 
+`S "C3" 1 
+`S "C2" 1 
+`S "C1" 1 
+`S "C0" 1 
+`S "C_IN" 1 
+`E XC4000.LIB
+`I R "XNOR4" XC4000.LIB "XNOR4" D1BDA9FD  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`I R "XNOR4" XC4000.LIB "XNOR4" D1BDAA18  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`I R "XNOR4" XC4000.LIB "XNOR4" D1BDAA6B  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`I R "XNOR4" XC4000.LIB "XNOR4" D1BDAAAA  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`I R "CY4_13" XC4000.LIB "CY4_13" D1C13194  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "C7" "C7" O ) ( "C6" "C6" O ) ( "C5" "C5" O ) ( "C4" "C4" O ) 
+( "C3" "C3" O ) ( "C2" "C2" O ) ( "C1" "C1" O ) ( "C0" "C0" O ) 
+`I R "CY4_42" XC4000.LIB "CY4_42" D1C1327A  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "C7" "C7" O ) ( "C6" "C6" O ) ( "C5" "C5" O ) ( "C4" "C4" O ) 
+( "C3" "C3" O ) ( "C2" "C2" O ) ( "C1" "C1" O ) ( "C0" "C0" O ) 
+`I R "XNOR4" XC4000.LIB "XNOR4" D1C16F9A  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`I R "XNOR4" XC4000.LIB "XNOR4" D1C16F9A  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`I R "XNOR4" XC4000.LIB "XNOR4" D1C16F9A  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`I R "CY4_39" XC4000.LIB "CY4_39" D1C16F9A  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "C7" "C7" O ) ( "C6" "C6" O ) ( "C5" "C5" O ) ( "C4" "C4" O ) 
+( "C3" "C3" O ) ( "C2" "C2" O ) ( "C1" "C1" O ) ( "C0" "C0" O ) 
+`I R "CY4_13" XC4000.LIB "CY4_13" D1C16F9A  U11  []
+"" "" "" "" "" "" "" ""  ""
+( "C7" "C7" O ) ( "C6" "C6" O ) ( "C5" "C5" O ) ( "C4" "C4" O ) 
+( "C3" "C3" O ) ( "C2" "C2" O ) ( "C1" "C1" O ) ( "C0" "C0" O ) 
+`I R "XNOR4" XC4000.LIB "XNOR4" D1C18FDD  U12  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`I R "CY4_13" XC4000.LIB "CY4_13" D20DEA59  U13  []
+"" "" "" "" "" "" "" ""  ""
+( "C7" "C7" O ) ( "C6" "C6" O ) ( "C5" "C5" O ) ( "C4" "C4" O ) 
+( "C3" "C3" O ) ( "C2" "C2" O ) ( "C1" "C1" O ) ( "C0" "C0" O ) 
+`I R "CY4" XC4000.LIB "CY4" D1BDA43F  U14  []
+"RLOC=R0C0" "" "" "" "" "" "" ""  ""
+( "A0" "A0" I ) ( "B0" "B0" I ) ( "A1" "A1" I ) ( "B1" "B1" I ) 
+( "ADD" "ADD" I ) ( "C7" "C7" I ) ( "C6" "C6" I ) ( "C5" "C5" I ) ( "C4" "C4" I ) 
+( "C3" "C3" I ) ( "C2" "C2" I ) ( "C1" "C1" I ) ( "C0" "C0" I ) ( "CIN" "CIN" I ) 
+( "COUT0" "COUT0" O ) ( "COUT" "COUT" O ) 
+`I R "CY4" XC4000.LIB "CY4" D1BDA482  U15  []
+"RLOC=R1C0" "" "" "" "" "" "" ""  ""
+( "A0" "A0" I ) ( "B0" "B0" I ) ( "A1" "A1" I ) ( "B1" "B1" I ) 
+( "ADD" "ADD" I ) ( "C7" "C7" I ) ( "C6" "C6" I ) ( "C5" "C5" I ) ( "C4" "C4" I ) 
+( "C3" "C3" I ) ( "C2" "C2" I ) ( "C1" "C1" I ) ( "C0" "C0" I ) ( "CIN" "CIN" I ) 
+( "COUT0" "COUT0" O ) ( "COUT" "COUT" O ) 
+`I R "CY4" XC4000.LIB "CY4" D1BDA4A0  U16  []
+"RLOC=R2C0" "" "" "" "" "" "" ""  ""
+( "A0" "A0" I ) ( "B0" "B0" I ) ( "A1" "A1" I ) ( "B1" "B1" I ) 
+( "ADD" "ADD" I ) ( "C7" "C7" I ) ( "C6" "C6" I ) ( "C5" "C5" I ) ( "C4" "C4" I ) 
+( "C3" "C3" I ) ( "C2" "C2" I ) ( "C1" "C1" I ) ( "C0" "C0" I ) ( "CIN" "CIN" I ) 
+( "COUT0" "COUT0" O ) ( "COUT" "COUT" O ) 
+`I R "CY4" XC4000.LIB "CY4" D1BDA4D1  U17  []
+"RLOC=R3C0" "" "" "" "" "" "" ""  ""
+( "A0" "A0" I ) ( "B0" "B0" I ) ( "A1" "A1" I ) ( "B1" "B1" I ) 
+( "ADD" "ADD" I ) ( "C7" "C7" I ) ( "C6" "C6" I ) ( "C5" "C5" I ) ( "C4" "C4" I ) 
+( "C3" "C3" I ) ( "C2" "C2" I ) ( "C1" "C1" I ) ( "C0" "C0" I ) ( "CIN" "CIN" I ) 
+( "COUT0" "COUT0" O ) ( "COUT" "COUT" O ) 
+`I R "CY4" XC4000.LIB "CY4" D1C16F99  U18  []
+"RLOC=R4C0" "" "" "" "" "" "" ""  ""
+( "A0" "A0" I ) ( "B0" "B0" I ) ( "A1" "A1" I ) ( "B1" "B1" I ) 
+( "ADD" "ADD" I ) ( "C7" "C7" I ) ( "C6" "C6" I ) ( "C5" "C5" I ) ( "C4" "C4" I ) 
+( "C3" "C3" I ) ( "C2" "C2" I ) ( "C1" "C1" I ) ( "C0" "C0" I ) ( "CIN" "CIN" I ) 
+( "COUT0" "COUT0" O ) ( "COUT" "COUT" O ) 
+`I R "CY4" XC4000.LIB "CY4" D1C16F9A  U19  []
+"RLOC=R5C0" "" "" "" "" "" "" ""  ""
+( "A0" "A0" I ) ( "B0" "B0" I ) ( "A1" "A1" I ) ( "B1" "B1" I ) 
+( "ADD" "ADD" I ) ( "C7" "C7" I ) ( "C6" "C6" I ) ( "C5" "C5" I ) ( "C4" "C4" I ) 
+( "C3" "C3" I ) ( "C2" "C2" I ) ( "C1" "C1" I ) ( "C0" "C0" I ) ( "CIN" "CIN" I ) 
+( "COUT0" "COUT0" O ) ( "COUT" "COUT" O ) 
+`I R "FMAP" XC4000.LIB "FMAP" D1BDA62F  U20  []
+"RLOC=R1C0.G" "" "" "" "" "" "" ""  ""
+( "I4" "I4" I ) ( "I3" "I3" I ) ( "I2" "I2" I ) ( "O" "O" I ) 
+( "I1" "I1" I ) 
+`I R "FMAP" XC4000.LIB "FMAP" D1BDA64D  U21  []
+"RLOC=R1C0.F" "" "" "" "" "" "" ""  ""
+( "I4" "I4" I ) ( "I3" "I3" I ) ( "I2" "I2" I ) ( "O" "O" I ) 
+( "I1" "I1" I ) 
+`I R "FMAP" XC4000.LIB "FMAP" D1BDA662  U22  []
+"RLOC=R2C0.G" "" "" "" "" "" "" ""  ""
+( "I4" "I4" I ) ( "I3" "I3" I ) ( "I2" "I2" I ) ( "O" "O" I ) 
+( "I1" "I1" I ) 
+`I R "FMAP" XC4000.LIB "FMAP" D1BDA674  U23  []
+"RLOC=R2C0.F" "" "" "" "" "" "" ""  ""
+( "I4" "I4" I ) ( "I3" "I3" I ) ( "I2" "I2" I ) ( "O" "O" I ) 
+( "I1" "I1" I ) 
+`I R "FMAP" XC4000.LIB "FMAP" D1C16F9A  U24  []
+"RLOC=R3C0.G" "" "" "" "" "" "" ""  ""
+( "I4" "I4" I ) ( "I3" "I3" I ) ( "I2" "I2" I ) ( "O" "O" I ) 
+( "I1" "I1" I ) 
+`I R "FMAP" XC4000.LIB "FMAP" D1C16F9A  U25  []
+"RLOC=R3C0.F" "" "" "" "" "" "" ""  ""
+( "I4" "I4" I ) ( "I3" "I3" I ) ( "I2" "I2" I ) ( "O" "O" I ) 
+( "I1" "I1" I ) 
+`I R "FMAP" XC4000.LIB "FMAP" D1C16F9A  U26  []
+"RLOC=R4C0.G" "" "" "" "" "" "" ""  ""
+( "I4" "I4" I ) ( "I3" "I3" I ) ( "I2" "I2" I ) ( "O" "O" I ) 
+( "I1" "I1" I ) 
+`I R "FMAP" XC4000.LIB "FMAP" D1C16F9A  U27  []
+"RLOC=R4C0.F" "" "" "" "" "" "" ""  ""
+( "I4" "I4" I ) ( "I3" "I3" I ) ( "I2" "I2" I ) ( "O" "O" I ) 
+( "I1" "I1" I ) 
+`I R "XNOR2" XC4000.LIB "XNOR2" D4BF15DD  U28  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC4000.LIB "XNOR2" D4BF15E1  U29  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND2" XC4000.LIB "AND2" D4BF15E3  U30  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC4000.LIB "AND2" D4BF15E3  U31  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC4000.LIB "AND2" D4BF15E3  U32  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC4000.LIB "AND2" D4BF15E3  U33  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC4000.LIB "AND2" D4BF15E3  U34  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "OR3" XC4000.LIB "OR3" D4BF15E3  U35  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "OR3" XC4000.LIB "OR3" D4BF15F9  U36  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "FMAP" XC4000.LIB "FMAP" D4BF15F9  U37  []
+"" "" "" "" "" "" "" ""  ""
+( "I4" "I4" I ) ( "I3" "I3" I ) ( "I2" "I2" I ) ( "O" "O" I ) 
+( "I1" "I1" I ) 
+`I R "FMAP" XC4000.LIB "FMAP" D4BF15F9  U38  []
+"" "" "" "" "" "" "" ""  ""
+( "I4" "I4" I ) ( "I3" "I3" I ) ( "I2" "I2" I ) ( "O" "O" I ) 
+( "I1" "I1" I ) 
+`I R "AND2" XC4000.LIB "AND2" D4BF1C12  U39  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "CY4_12" XC4000.LIB "CY4_12" D4BF477D  U40  []
+"" "" "" "" "" "" "" ""  ""
+( "C7" "C7" O ) ( "C6" "C6" O ) ( "C5" "C5" O ) ( "C4" "C4" O ) 
+( "C3" "C3" O ) ( "C2" "C2" O ) ( "C1" "C1" O ) ( "C0" "C0" O ) 
+`I R "XOR2" XC4000.LIB "XOR2" D4C09C78  U41  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`J ( R U29 "O" O ) ( S "B7_M1" 1  ) ( R U34 "I1" I ) ( R U33 "I1" I ) 
+`J ( R U34 "O" O ) ( S "OOR1" 1  ) ( R U35 "I2" I ) 
+`J ( P I "A7" ) ( R U20 "I2" I ) ( R U1 "I2" I ) ( R U38 "I2" I ) 
+( R U37 "I2" I ) ( R U32 "I0" I ) ( R U34 "I0" I ) ( R U31 "I0" I ) ( R U39 "I0" I ) 
+`J ( R U29 "I0" I ) ( R U28 "I0" I ) ( R U1 "I1" I ) ( R U15 "ADD" I ) 
+( R U2 "I1" I ) ( R U3 "I1" I ) ( R U16 "ADD" I ) ( R U12 "I1" I ) ( R U4 "I1" I ) 
+( R U17 "ADD" I ) ( R U7 "I1" I ) ( R U8 "I1" I ) ( R U18 "ADD" I ) ( R U9 "I1" I ) 
+( P I "ADD" ) ( R U27 "I4" I ) ( R U26 "I4" I ) ( R U25 "I4" I ) ( R U24 "I4" I ) 
+( R U23 "I4" I ) ( R U22 "I4" I ) ( R U21 "I4" I ) ( R U20 "I4" I ) ( R U38 "I4" I ) 
+( R U37 "I4" I ) 
+`J ( R U41 "O" O ) ( P O "OFL" ) ( R U37 "O" I ) 
+`J ( R U20 "I3" I ) ( R U1 "I3" I ) ( R U38 "I3" I ) ( R U28 "I1" I ) 
+( R U29 "I1" I ) ( R U37 "I3" I ) ( P I "B7" ) 
+`J ( R U33 "I0" I ) ( R U32 "I1" I ) ( R U41 "I0" I ) ( R U30 "I0" I ) 
+( R U14 "COUT0" O ) ( R U39 "I1" I ) ( R U38 "I1" I ) ( S "C7_M" 1  ) ( R U37 "I1" I ) 
+`J ( R U33 "O" O ) ( S "OOR2" 1  ) ( R U35 "I1" I ) 
+`J ( R U35 "O" O ) ( R U41 "I1" I ) 
+`J ( R U35 "I0" I ) ( R U32 "O" O ) ( S "OOR3" 1  ) 
+`J ( R U36 "O" O ) ( P O "CO" ) ( R U38 "O" I ) 
+`J ( R U28 "O" O ) ( S "B7_M2" 1  ) ( R U30 "I1" I ) ( R U31 "I1" I ) 
+`J ( S "COR1" 1  ) ( R U31 "O" O ) ( R U36 "I2" I ) 
+`J ( R U30 "O" O ) ( S "COR2" 1  ) ( R U36 "I1" I ) 
+`J ( R U36 "I0" I ) ( S "COR3" 1  ) ( R U39 "O" O ) 
+`J ( R U6 "C7" O ) ( R U14 "C7" I ) 
+`J ( R U6 "C6" O ) ( R U14 "C6" I ) 
+`J ( R U14 "C5" I ) ( R U6 "C5" O ) 
+`J ( R U14 "C4" I ) ( R U6 "C4" O ) 
+`J ( R U14 "C3" I ) ( R U6 "C3" O ) 
+`J ( R U14 "C2" I ) ( R U6 "C2" O ) 
+`J ( R U6 "C1" O ) ( R U14 "C1" I ) 
+`J ( R U14 "C0" I ) ( R U6 "C0" O ) 
+`J ( R U14 "CIN" I ) ( S "C7" 1  ) ( R U15 "COUT" O ) 
+`J ( P O "S7" ) ( R U20 "O" I ) ( R U1 "O" O ) 
+`J ( R U20 "I1" I ) ( R U1 "I0" I ) ( S "C6" 1  ) ( R U15 "COUT0" O ) 
+`J ( R U21 "I3" I ) ( R U2 "I2" I ) ( R U15 "B0" I ) ( P I "B6" ) 
+`J ( P I "A6" ) ( R U21 "I2" I ) ( R U2 "I3" I ) ( R U15 "A0" I ) 
+`J ( R U15 "C7" I ) ( R U40 "C7" O ) 
+`J ( R U15 "C6" I ) ( R U40 "C6" O ) 
+`J ( R U40 "C5" O ) ( R U15 "C5" I ) 
+`J ( R U15 "C4" I ) ( R U40 "C4" O ) 
+`J ( R U15 "C3" I ) ( R U40 "C3" O ) 
+`J ( R U40 "C2" O ) ( R U15 "C2" I ) 
+`J ( R U40 "C1" O ) ( R U15 "C1" I ) 
+`J ( R U40 "C0" O ) ( R U15 "C0" I ) 
+`J ( R U15 "CIN" I ) ( R U2 "I0" I ) ( R U16 "COUT" O ) ( S "C5" 1  ) 
+( R U21 "I1" I ) 
+`J ( P O "S6" ) ( R U2 "O" O ) ( R U21 "O" I ) 
+`J ( P I "A5" ) ( R U3 "I3" I ) ( R U16 "A1" I ) ( R U22 "I2" I ) 
+`J ( R U3 "I2" I ) ( R U16 "B1" I ) ( R U22 "I3" I ) ( P I "B5" ) 
+`J ( P O "S5" ) ( R U22 "O" I ) ( R U3 "O" O ) 
+`J ( R U22 "I1" I ) ( R U3 "I0" I ) ( R U16 "COUT0" O ) ( S "C4" 1  ) 
+`J ( R U23 "I3" I ) ( R U12 "I2" I ) ( R U16 "B0" I ) ( P I "B4" ) 
+`J ( P I "A4" ) ( R U23 "I2" I ) ( R U12 "I3" I ) ( R U16 "A0" I ) 
+`J ( R U5 "C7" O ) ( R U16 "C7" I ) 
+`J ( R U5 "C6" O ) ( R U16 "C6" I ) 
+`J ( R U16 "C5" I ) ( R U5 "C5" O ) 
+`J ( R U5 "C4" O ) ( R U16 "C4" I ) 
+`J ( R U16 "C3" I ) ( R U5 "C3" O ) 
+`J ( R U5 "C2" O ) ( R U16 "C2" I ) 
+`J ( R U5 "C1" O ) ( R U16 "C1" I ) 
+`J ( R U5 "C0" O ) ( R U16 "C0" I ) 
+`J ( R U16 "CIN" I ) ( R U12 "I0" I ) ( R U17 "COUT" O ) ( S "C3" 1  ) 
+( R U23 "I1" I ) 
+`J ( P O "S4" ) ( R U12 "O" O ) ( R U23 "O" I ) 
+`J ( P I "A3" ) ( R U4 "I3" I ) ( R U17 "A1" I ) ( R U24 "I2" I ) 
+`J ( R U4 "I2" I ) ( R U17 "B1" I ) ( R U24 "I3" I ) ( P I "B3" ) 
+`J ( P O "S3" ) ( R U24 "O" I ) ( R U4 "O" O ) 
+`J ( R U24 "I1" I ) ( R U4 "I0" I ) ( S "C2" 1  ) ( R U17 "COUT0" O ) 
+`J ( R U25 "I3" I ) ( R U7 "I2" I ) ( R U17 "B0" I ) ( P I "B2" ) 
+`J ( P I "A2" ) ( R U25 "I2" I ) ( R U7 "I3" I ) ( R U17 "A0" I ) 
+`J ( R U17 "C7" I ) ( R U13 "C7" O ) 
+`J ( R U17 "C6" I ) ( R U13 "C6" O ) 
+`J ( R U17 "C5" I ) ( R U13 "C5" O ) 
+`J ( R U13 "C4" O ) ( R U17 "C4" I ) 
+`J ( R U17 "C3" I ) ( R U13 "C3" O ) 
+`J ( R U17 "C2" I ) ( R U13 "C2" O ) 
+`J ( R U17 "C1" I ) ( R U13 "C1" O ) 
+`J ( R U13 "C0" O ) ( R U17 "C0" I ) 
+`J ( R U17 "CIN" I ) ( R U7 "I0" I ) ( R U18 "COUT" O ) ( S "C1" 1  ) 
+( R U25 "I1" I ) 
+`J ( P O "S2" ) ( R U7 "O" O ) ( R U25 "O" I ) 
+`J ( P I "A1" ) ( R U8 "I3" I ) ( R U18 "A1" I ) ( R U26 "I2" I ) 
+`J ( R U8 "I2" I ) ( R U18 "B1" I ) ( R U26 "I3" I ) ( P I "B1" ) 
+`J ( P O "S1" ) ( R U26 "O" I ) ( R U8 "O" O ) 
+`J ( R U8 "I0" I ) ( R U18 "COUT0" O ) ( S "C0" 1  ) ( R U26 "I1" I ) 
+`J ( R U27 "I3" I ) ( R U9 "I2" I ) ( R U18 "B0" I ) ( P I "B0" ) 
+`J ( P I "A0" ) ( R U27 "I2" I ) ( R U9 "I3" I ) ( R U18 "A0" I ) 
+`J ( R U18 "C7" I ) ( R U11 "C7" O ) 
+`J ( R U18 "C6" I ) ( R U11 "C6" O ) 
+`J ( R U11 "C5" O ) ( R U18 "C5" I ) 
+`J ( R U18 "C4" I ) ( R U11 "C4" O ) 
+`J ( R U11 "C3" O ) ( R U18 "C3" I ) 
+`J ( R U11 "C2" O ) ( R U18 "C2" I ) 
+`J ( R U18 "C1" I ) ( R U11 "C1" O ) 
+`J ( R U18 "C0" I ) ( R U11 "C0" O ) 
+`J ( R U18 "CIN" I ) ( R U9 "I0" I ) ( R U19 "COUT" O ) ( S "C_IN" 1  ) 
+( R U27 "I1" I ) 
+`J ( P O "S0" ) ( R U9 "O" O ) ( R U27 "O" I ) 
+`J ( P I "CI" ) ( R U19 "A0" I ) 
+`J ( R U10 "C7" O ) ( R U19 "C7" I ) 
+`J ( R U19 "C6" I ) ( R U10 "C6" O ) 
+`J ( R U10 "C5" O ) ( R U19 "C5" I ) 
+`J ( R U10 "C4" O ) ( R U19 "C4" I ) 
+`J ( R U10 "C3" O ) ( R U19 "C3" I ) 
+`J ( R U19 "C2" I ) ( R U10 "C2" O ) 
+`J ( R U10 "C1" O ) ( R U19 "C1" I ) 
+`J ( R U10 "C0" O ) ( R U19 "C0" I ) 

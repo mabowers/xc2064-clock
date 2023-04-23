@@ -1,0 +1,57 @@
+TITLE           Adder: high-order 4-bit, cascadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            /4/93
+
+CHIP            X74_283  COMPONENT
+ 
+;Inputs
+c0 a1 a2 a3 a4 b1 b2 b3 b4
+
+; a[4:1]        adder A-operand
+; b[4:1]        adder B-operand
+; ci            carry-in
+ 
+;Nodes
+cin
+
+;Outputs
+s1 s2 s3 s4 c4
+
+; s[4:1]        adder output
+; c4            carry-out
+
+PARTITION s1_4 cin s1 s2 s3 s4 c4
+
+EQUATIONS 
+
+cin.d1   = c0
+cin.d2   = vcc
+cin      = cin.d1 gnd cin.d2
+
+s1.D1   = b1
+s1.D2   = a1
+s1      = s1.D1 xor s1.D2
+s1.add  = vcc
+
+s2.D1   = b2
+s2.D2   = a2
+s2      = s2.D1 xor s2.D2
+s2.add  = vcc
+
+s3.D1   = b3
+s3.D2   = a3
+s3      = s3.D1 xor s3.D2
+s3.add  = vcc
+
+s4.D1   = b4
+s4.D2   = a4
+s4      = s4.D1 xor s4.D2
+s4.add  = vcc
+
+c4.D1   = gnd
+c4.D2   = gnd
+c4      = c4.D1 xor c4.D2
+c4.add  = vcc

@@ -1,0 +1,33 @@
+TITLE           Multiplexer: dual 4-input, active low enables, active low outputs
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/27/93
+
+CHIP            X74_352  COMPONENT
+ 
+;Inputs
+i1c0 i1c1 i1c2 i1c3 i2c0 i2c1 i2c2 i2c3 a b /g1 /g2
+
+; i1c0..i1c3    source 1
+; i2c0..i2c3    source 2
+; a,b           common select
+; g1,g2         enable
+
+;Outputs
+/y1 /y2
+
+; y1..y2        output
+
+EQUATIONS 
+
+y1 = i1c0* /b*/a*g1
+   + i1c1* /b* a*g1
+   + i1c2*  b*/a*g1
+   + i1c3*  b* a*g1
+
+y2 = i2c0* /b*/a*g2
+   + i2c1* /b* a*g2
+   + i2c2*  b*/a*g2
+   + i2c3*  b* a*g2

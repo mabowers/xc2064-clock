@@ -1,0 +1,114 @@
+
+    GENERAL INFORMATION:
+
+    Design: Calc
+    Compatible software: OrCAD SDT 386+ and VST 386+, OrCAD IV is not compatible
+			 XACT Development System v5.0 or later
+			 Xilinx/Viewlogic Interface v5.0 or later
+    Platform: PC
+    Associated hardware (optional): XChecker cable or Download cable
+				    FPGA, XC3000, or XC4000 Demonstration Board
+		
+    The Calc tutorial design is used to demonstrate the entire design process
+    for a Xilinx FPGA, including creating a design in SDT 386+, performing a
+    functional simulation with VST 386+, translating to Xilinx format, 
+    implementing the design to create LCA and BIT files, performing a 
+    timing simulation with VST 386+, and downloading to a demonstration board.
+
+    Files are also provided for replacing portions of the design with 
+    equivalent Xilinx ABEL and/or X-BLOX versions.  Simulation command files
+    are included (calcsim.stm and calcsim.trc).  XACT-Performance specifications
+    are not included in the provided designs, but are added as part of the 
+    XACT-Performance and XDelay tutorial.
+
+    The design can be targeted to any of four devices: 3020APC68, 3020PC68,
+    4003APC84, or 4003PC84 (no longer available but present in many existing
+    Xilinx demonstration boards).  Resulting bitstreams can be downloaded to
+    either the FPGA demo board, the XC3000 demo board, or the XC4000 demo 
+    board.
+
+    Complete solutions, including bitstreams, are provided for the following
+    four designs:
+
+    Subdirectory:	Device:		Demo Board:
+    -------------       -------	 	-----------
+    soln_3ka		3020APC68-7	FPGA Demo Board
+    soln_3k		3020PC68-70	XC3000 Demo Board
+    soln_4ka		4003APC84-6	FPGA or XC4000 Demo Board
+    soln_4k		4003PC84-6	FPGA or XC4000 Demo Board
+
+    DOCUMENTATION REFERENCE:
+
+    Several extensive tutorials based on this design can be found in the 
+    "OrCAD Interface User Guide" dated April 1994 or later.  The tutorials
+    cover OrCAD SDT, OrCAD VST, X-BLOX, Xilinx ABEL, and XACT-Performance and 
+    XDelay.
+
+    DESIGN DESCRIPTION:
+
+    The Calc design consists of a 4-bit processor with a stack.  The processor
+    performs functions between an internal register and either the top of the
+    stack or data input from external switches.  The results of the various
+    operations are stored in the register and displayed in hexadecimal on a
+    7-segment display.  The top value in the stack is displayed in binary on
+    a bar LED.
+
+    The design consists of nine basic functional blocks:
+
+	ALU:	  The arithmetic functions of the processor are performed in 
+		  this block.  It can be replaced by BLOXSOLN (X-BLOX version).
+
+	CONTROL:  The opcodes are decoded into control lines for the stack and
+	          ALU in this module.  It contains a schematic block, STATMACH,
+		  which can be replaced by STAT_ABL, a Xilinx ABEL block.
+
+	STACK:    The stack is a 4-nibble storage device.  It is implemented 
+		  using flip-flops.  This block can be replaced by STACK_4K, 
+		  which uses on-chip RAM, for XC4000 and XC4000A designs.
+
+	OSC_3K, OSC_4K:  These blocks implement oscillator circuits for XC3000 
+		  and XC4000 designs, respectively.  The XC3000 version uses 
+		  an RC circuit built into the demo boards.  The XC4000 version 
+		  uses the on-chip oscillator.
+
+	DEBOUNCE: This circuit debounces the "execute" switch, providing a
+		  one-shot output.
+
+	SW7:	  The switch connections for opcode and data input are 
+		  implemented within this module.
+
+	7SEGDEC:  This block decodes the output of the ALU for display on the 
+		  7-segment decoder.
+
+	7SEG_INV, 7SEG_TRU:  These modules implement the connections to the 
+		  7-segment display on the FPGA/XC4000 demo boards and the
+		  XC3000 demo board, respectively.
+
+	LED_INV, LED_TRU:  These modules implement the connections to the 
+		  LED display on the FPGA/XC4000 demo boards and the
+		  XC3000 demo board, respectively.
+
+     TABLE OF COMMANDS:
+
+	Switches: *
+	2   3   4   5   6   7   8		Operation
+	------------------------------------------------------------------
+	0   0   0   -----DATA----       ADD between switches and register
+	0   0   1   -----DATA----       AND between switches and register
+	0   1   0   -----DATA----       OR between switches and register
+	0   1   1   -----DATA----       XOR between switches and register
+	1   0   0   -----DATA----       SUB switch value from register
+	1   0   1   X   X   X   X       CLEAR register
+	1   1   0   -----DATA----       LOAD register
+	1   1   1   0   0   0   X       ADD between stack and register
+	1   1   1   0   0   1   X       AND between stack and register
+	1   1   1   0   1   0   X       OR between stack and register
+	1   1   1   0   1   1   X       XOR between stack and register
+	1   1   1   1   0   0   X       SUB stack value from register
+	1   1   1   1   0   1   X       PUSH register value to stack
+	1   1   1   1   1   0   X       POP stack value to register
+	1   1   1   1   1   1   X       NOP
+
+      * The leftmost switch (1) is the Execute command.  Toggle it twice
+	to execute the currently selected command.
+

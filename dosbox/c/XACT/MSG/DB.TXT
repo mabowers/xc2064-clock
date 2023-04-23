@@ -1,0 +1,238 @@
+# @(#)DB.TXT	3.1 Copyright(C)1992 Xilinx Inc. 5/4/94 23:55:22
+# file: db.txt
+# date: 6/28/90
+# Zinovy Krasnovsky
+# what: Xilinx EPLD database error messages
+#
+#
+# 0001:Cannot allocate space for component!
+# 0002:Cannot allocate space for component pin information!
+# 0003:Cannot allocate space for component pin data!
+# 0004:Cannot allocate space for component BITMAP!
+# 0005:Cannot allocate space for component BITS!
+# 0006:Invalid component name!
+# 0007:Cannot allocate space DESIGN!
+# 0008:Cannot allocate space for component name!
+# 0009:Cannot allocate space for component alternate name!
+#
+0001: [Internal Error - out of memory]
+0002: [Internal Error - out of memory]
+0003: [Internal Error - out of memory]
+0004: [Internal Error - out of memory]
+0005: [Internal Error - out of memory]
+0006: [Internal Error - Call Xilinx]
+0007: [Internal Error - out of memory]
+0008: [Internal Error - out of memory]
+0009: [Internal Error - out of memory]
+#
+# 0010:Invalid component reference for instance!
+# 0011:Cannot allocate space for instance!
+# 0012:Cannot allocate space for instance name!
+# 0013:Cannot allocate space for instance pins!
+# 0014:No DESIGN loaded! (Environ.design_ptr == NULL)
+#
+0010: [Internal Error - Call Xilinx]
+0011: [Internal Error - out of memory]
+0012: [Internal Error - out of memory]
+0013: [Internal Error - out of memory]
+0014: No Design loaded - possible memory size problem.  
+#
+0015: Component list is empty!
+0016: Cannot find component named %s! 
+#
+# 0017:Cannot allocate space for signal!
+# 0018:Cannot allocate space for signal name!
+# 0019:Cannot allocate space for signal source pins!
+# 0020:Cannot allocate space for signal sink pins!
+#
+# 0021:Invalid parameter!?
+# 0022:Cannot allocate space for bitmap header!
+# 0023:Cannot allocate space for bitmap data!
+#
+0017: [Internal Error - out of memory]
+0018: [Internal Error - out of memory]
+0019: [Internal Error - out of memory]
+0020: [Internal Error - out of memory]
+# 
+0021: [Internal Error - Call Xilinx]
+0022: [Internal Error - out of memory]
+0023: [Internal Error - out of memory]
+#
+# 0024:Cannot GET a bit (Invalid Bitmap pointer)!
+# 0025:Cannot GET a bit (input index specified is out of range)!
+# 0026:Cannot GET a bit (output index specified is out of range)!
+# 0027:Cannot SET a bit (Invalid Bitmap pointer)!
+# 0028:Cannot SET a bit (input index specified is out of range)!
+# 0029:Cannot SET a bit (output index specified is out of range)!
+#
+# 0030:Get_Array was called with a NULL pointer!
+# 0031:Cannot GET an array because there are no arrays!
+# 0032:An array type was requested that does not exist!
+#
+0024: [Internal Error - Call Xilinx]
+0025: [Internal Error - Call Xilinx]
+0026: [Internal Error - Call Xilinx]
+0027: [Internal Error - Call Xilinx]
+0028: [Internal Error - Call Xilinx]
+0029: [Internal Error - Call Xilinx]
+#
+0030: [Internal Error - Call Xilinx]
+0031: [Internal Error - Call Xilinx]
+0032: [Internal Error - Call Xilinx]
+#
+# 0033:DB_ERR_BAD_INST_ID               33
+# 0034:DB_ERR_BAD_NET_ID                34
+#
+# 0035:Invalid device type.
+# 0036:Invalid device id.
+# 0037:Invalid pin type.
+# 0038:Invalid pin id.
+#
+# 0039:DB_ERR_OPEN_EDIF                 39
+#
+# 0040:DB_ERR_NO_PORT_SPACE             40
+#
+# 0041:DB_ERR_BAD_INST_PIN_NAME         41
+#
+0033: [Internal Error - Invalid instance ID]
+0034: [Internal Error - Invalid net ID]
+#
+0035: [Internal Error - Invalid device type]
+0036: [Internal Error - Invalid device ID]
+0037: [Internal Error - Invalid pin type]
+0038: [Internal Error - Invalid pin ID]
+#
+0039: [Internal Error - Cannot open file]
+#
+0040: [Internal Error - may be out of memory]
+#
+0041: [Internal Error - Invalid pin name]
+#
+0042: Did not find any instances in the design.
+#
+# 0043:DB_ERR_INST_NOT_FOUND            43
+
+0043: Cannot find expected component
+0044: Did not find any ports in the design.
+# 0045:DB_ERR_PORT_NOT_FOUND            45
+# 0046:DB_ERR_OPEN_EDIF_LOG             46
+# 0047:DB_ERR_OPEN_DB                   47
+# 0048:DB_ERR_BAD_PID_PTR
+# 0049:DB_ERR_MALLOC_TOKEN              49
+# 0050:Invalid PORT ID found in netlist during database verification!
+#
+0045: [Internal Error - Cannot find port]
+0046: [Internal Error - Cannot open log file]
+0047: [Internal Error - Cannot open file]
+0048: [Internal Error - Invalid pointer]
+0049: [Internal Error - Cannot allocate memory]
+0050: [Internal Error - Invalid port ID]
+#
+0051: Out of memory. Cannot continue.
+#
+0052:Pin '%s:%s' has a net connected but no definition in the equation file!\
+     Check your symbol pin names against the equation file pin names.
+#
+0053:Sourceless net encountered
+0054:Dangling net encountered
+#
+# 0055:NO USR ARRAY
+# 0056:CANT CREATE FRAME
+# 0057:CANT GET FRAME PTR
+# 0058:CANT RESIZE FRAME
+# 0059:BAD PIN INFO FID
+# 0060:BAD PIN ARRAY FID
+
+
+#
+0055: [Internal Error - Array not found]
+0056: [Internal Error - may be out of memory]
+0057: [Internal Error - Cannot get pointer]
+0058: [Internal Error - may be out of memory]
+#
+0059: [Internal Error - Invalid pin ID]
+0060: [Internal Error - Invalid pin ID]
+
+# 0061:BAD BITMAP FID
+# 0062:The frame size for the bits field the component bitmap is too small
+# 0063:BAD NAME PTR IN
+# 0064:BAD ID PTR IN
+# 0065:BAD PIN FID
+# 0066:BAD SOURCE FID NA
+# 0067:BAD SINK FID NA
+# 0068:realloc array, the address of the array header is equal to PT_NULL
+# 0069:realloc array, VM_MALLOC returned PT_NULL_ID
+# 0070:realloc array, the fid in the array header is equal to PT_NULL_ID!
+
+0061: [Internal Error - Invalid ID]
+0062: [Internal Error - may be out of memory]
+#
+0063: [Internal Error - Invalid pointer]
+0064: [Internal Error - Invalid pointer]
+0065: [Internal Error - Invalid pin ID]
+0066: [Internal Error - Invalid ID]
+0067: [Internal Error - Invalid ID]
+#
+0068: [Internal Error - may be out of memory]
+0069: [Internal Error - Invalid ID]
+0070: [Internal Error - may be out of memory]
+
+# 0071:realloc array, VM_REALLOC returned PT_NULL
+# 0072:The frame size for the bits field the component bitmap is too big
+# 0073:NULL pointer to fid passed to subroutine. (internal error!)
+# 0075:Cannot allocate space for ROUTE data in a component.
+# 0076:No space for an array of route's.
+# 0077:Count in array header greater then size. (internal error)!
+# 0078:Cannot get file handle of the current data base. (internal error)!
+0071: [Internal Error - may be out of memory]
+#
+0072: [Internal Error - Invalid field]
+0073: [Internal Error - Invalid  pointer]
+# 
+0075: [Internal Error - may be out of memory]
+0076: [Internal Error - may be out of memory]
+0077: [Internal Error - may be out of memory]
+0078: [Internal Error - cannot open file]
+# 
+0079:Creating implied port to connect to %s pin %s.
+0080:Ignoring net %s
+#
+# 0081:Port id in net pin is out of range.
+# 0082:Inst id in net pin is out of range.
+# 0083:No memory for the new property list.
+#
+0081: [Internal Error - Invalid port ID]
+0082: [Internal Error - Invalid instance ID]
+0083: [Internal Error - out of memory]
+#
+# 0084:INST PIN ALLOC       (internal error-db_file_instance_copy)
+# 0085:PIN NAME ALLOC       (internal error-db_file_instance_copy)
+# 0086:BUDDY NAME ALLOC     (internal error-db_file_instance_copy)
+# 0087:BUDDY FID ALLOC      (internal error-db_file_instance_copy)
+# 0088:PROPERTY ALLOC       (internal error-db_file_instance_copy)
+#
+# 0089:NET PIN ALLOC        (internal error-db_file_instance_copy)
+# 0090:PROPERTY NAME ALLOC  (internal error-db_file_instance_copy)
+# 0091:PROPERTY VALUE ALLOC (internal error-db_file_instance_copy)
+#
+0084: [Internal Error in pin allocation]
+0085: [Internal error in pin name allocation]
+0086: [Internal error - may be out of memory]
+0087: [Internal error - may be out of memory]
+0088: [Internal error - may be out of memory]
+0089: [Internal error - may be out of memory]
+0090: [Internal error - may be out of memory]
+0091: [Internal error - may be out of memory]
+# 0092:No memory for array of booleans.(internal error)
+0092: [Internal error - out of memory]
+0093:Invalid physical pin name '%s'.
+0094:Physical pin not found.
+#
+# new for 3.0
+0095:Array size is different from expected size (internal error!).
+0096:Physical pin id is out of range (internal error!).
+#
+# end of file
+#
+
+

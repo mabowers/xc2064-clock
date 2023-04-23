@@ -1,0 +1,226 @@
+#
+# XACT Printcap file
+#
+NEC
+	init	\Ec1		Initialize printer
+	ep	\EA\EC0\f	At termination issue FORMFEED
+	eg	\r\n\ET12	Set line spacing to 16/160"
+	sl	\EI%04d		On each line issue command <ESC>I<nnnn>
+	nl	\n		At end of line issue NEWLINE
+	cr	\r		  and CR
+	pins	16		Printer has 16 pins in print head
+	width	2176		Printer is 2176 dots wide
+	lsb			First row of dots in print head is the LSB
+	color1	\EC4		First color is GREEN
+	color2	\EC2		Second color is RED
+	color3	\EC0		Third color is YELLOW
+
+NECBIG
+	init	\Ec1		Initialize printer
+	ep	\EA\EC0\f	At termination issue FORMFEED
+	eg	\r\n\ET12	Set line spacing to 16/160"
+	sl	\ES%04d		On each line issue command <ESC>S<nnnn>
+	nl	\n		At end of line issue NEWLINE
+	cr	\r		  and CR
+	pins	8		Printer has 8 pins in print head
+	width	2176		Printer is 2176 dots wide
+	lsb			First row of dots in print head is the LSB
+	color1	\EC4		First color is GREEN
+	color2	\EC2		Second color is RED
+	color3	\EC0		Third color is YELLOW
+
+IBMGRAPH
+MX80
+FX80
+	init	\E@		Initialize printer
+	ep	\f		At termination issue FORMFEED
+	eg	\E3\030		Set line spacing to 24/216"
+	sl	\EK%i		On each line issue command <ESC>K<n1><n0>
+	nl	\n		At end of line issue NEWLINE
+	cr	\r		  and CR
+	pins	8		Printer has 8 pins in print head
+	width	480		Printer is 480 dots wide
+	msb			First row of dots in print head is the MSB
+	end	\E@		Re-initialize printer
+
+MX100
+FX100
+	init	\E@		Initialize printer
+	ep	\f		At termination issue FORMFEED
+	eg	\E3\030		Set line spacing to 24/216"
+	sl	\EK%i		On each line issue command <ESC>K<n1><n0>
+	nl	\n		At end of line issue NEWLINE
+	cr	\r		  and CR
+	pins	8		Printer has 8 pins in print head
+	width	816		Printer is 816 dots wide
+	msb			First row of dots in print head is the MSB
+	end	\E@		Re-initialize printer
+
+RX80
+	init	\E@		Initialize printer
+	ep	\f		At termination issue FORMFEED
+	eg	\E3\030		Set line spacing to 24/216"
+	sl	\E*\004%i	On each line issue command <ESC>*<4><n1><n0>
+	nl	\n		At end of line issue NEWLINE
+	cr	\r		  and CR
+	pins	8		Printer has 8 pins in print head
+	width	640		Printer is 640 dots wide
+	msb			First row of dots in print head is the MSB
+	end	\E@		Re-initialize printer
+
+FX85
+FX86
+	init	\E@		Initialize printer
+	ep	\f		At termination issue FORMFEED
+	eg	\E3\030		Set line spacing to 24/216"
+	sl	\E*\005%i	On each line issue command <ESC>*<5><n1><n0>
+	nl	\n		At end of line issue NEWLINE
+	cr	\r		  and CR
+	pins	8		Printer has 8 pins in print head
+	width	576		Printer is 576 dots wide
+	msb			First row of dots in print head is the MSB
+	end	\E@		Re-initialize printer
+
+FX185
+FX286
+	init	\E@		Initialize printer
+	ep	\f		At termination issue FORMFEED
+	eg	\E3\030		Set line spacing to 24/216"
+	sl	\E*\005%i	On each line issue command <ESC>*<5><n1><n0>
+	nl	\n		At end of line issue NEWLINE
+	cr	\r		  and CR
+	pins	8		Printer has 8 pins in print head
+	width	979		Printer is 979 dots wide
+	msb			First row of dots in print head is the MSB
+	end	\E@		Re-initialize printer
+
+OKI92
+	ep	\003\002\f	At termination  exit graphics and issue FORMFEED
+	eg	\034\003	Enter graphics at 72 DPI
+	nl	\003\016	Issue graphics LINEFEED with CR
+	pins	7		Printer has 7 pins in print head
+	width	576		Printer is 576 dots wide
+	lsb			First row of dots in print head is the LSB
+	oki92			Do special handling for oki92 type printers
+
+OKI93
+	ep	\003\002\f	At termination  exit graphics and issue FORMFEED
+	eg	\034\003	Enter graphics at 72 DPI
+	nl	\003\016	Issue graphics LINEFEED with CR
+	pins	7		Printer has 7 pins in print head
+	width	979		Printer is 979 dots wide
+	lsb			First row of dots in print head is the LSB
+	oki92			Do special handling for oki92 type printers
+
+OKI292
+	ep	\f		At termination issue FORMFEED
+	eg	\E3\030		Set line spacing to 24/216"
+	sl	\EK%i		On each line issue command <ESC>K<n1><n0>
+	nl	\n		At end of line issue NEWLINE
+	cr	\r		  and CR
+	pins	8		Printer has 8 pins in print head
+	width	480		Printer is 480 dots wide
+	color1	\Er\006		First color is GREEN
+	color2	\Er\001		Second color is RED
+	color3	\Er\004		Third color is YELLOW
+	msb			First row of dots in print head is the MSB
+
+OKI293
+	ep	\f		At termination issue FORMFEED
+	eg	\E3\030		Set line spacing to 24/216"
+	sl	\EK%i		On each line
+	nl	\n		At end of line issue NEWLINE
+	cr	\r		  and CR
+	pins	8		Printer has 8 pins in print head
+	width	816		Printer is 816 dots wide
+	color1	\Er\006		First color is GREEN
+	color2	\Er\001		Second color is RED
+	color3	\Er\004		Third color is YELLOW
+	msb			First row of dots in print head is the MSB
+
+HPLASER
+	laser			Printer is a laser type, i.e. one pin
+	init	\EE\E&l2E\E&a0V Initialize printer
+        eg	\E*t75R\E*r0A	Enter graphics in 75 DPI resolution
+	width	600		Printer is 8*75 dots wide
+	height	710		Printer is 9.47*75 dots high
+	ep	\E*rB\f		Exit graphics and FORMFEED at end of page
+	sl	\E*b%dW		On each line
+	end	\E*rB\EE
+
+HPLPLUS
+	laser			Printer is a laser type, i.e. one pin
+	init	\EE\E&l2E\E&a0V Initialize printer
+        eg	\E*t150R\E*r0A	Enter graphics in 150 DPI resolution
+	width	1200		Printer is 8*150 dots wide
+	height	1537		Printer is 10.25*150 dots high
+	ep	\E*rB\f		Exit graphics and FORMFEED at end of page
+	sl	\E*b%dW		On each line
+	end	\E*rB\EE
+
+HPL300
+	laser			Printer is a laser type, i.e. one pin
+	init	\EE\E&l2E\E&a0V Initialize printer
+        eg	\E*t300R\E*r0A	Enter graphics in 300 DPI resolution
+	width	2400		Printer is 8*300 dots wide
+	height	3074		Printer is 10.25*300 dots high
+	ep	\E*rB\f		Exit graphics and FORMFEED at end of page
+	sl	\E*b%dW		On each line
+	end	\E*rB\EE
+
+HPLPLUSLEGAL
+	laser			Printer is a laser type, i.e. one pin
+	init	\EE\E&l84P\E&l2E\E&a0V Initialize printer
+        eg	\E*t150R\E*r0A	Enter graphics in 150 DPI resolution
+	width	1200		Printer is 8*150 dots wide
+	height	1987		Printer is 13.25*150 dots high
+	ep	\E*rB\f		Exit graphics and FORMFEED at end of page
+	sl	\E*b%dW		On each line
+	end	\E*rB\EE
+
+HPLASER-A4
+        laser                   Printer is a laser type, i.e. one pin
+        init    \EE\E&l2E\E&a0V Initialize printer
+        eg      \E*t75R\E*r0A   Enter graphics in 75 DPI resolution
+        width   575             Printer is 7.66*75 dots wide
+        height  710             Printer is 9.47*75 dots high
+        ep      \E*rB\f         Exit graphics and FORMFEED at end of page
+        sl      \E*b%dW         On each line
+        end     \E*rB\EE
+
+HPLPLUS-A4
+        laser                   Printer is a laser type, i.e. one pin
+        init    \EE\E&l2E\E&a0V Initialize printer
+        eg      \E*t150R\E*r0A  Enter graphics in 150 DPI resolution
+        width   1150            Printer is 7.66*150 dots wide
+        height  1537            Printer is 10.25*150 dots high
+        ep      \E*rB\f         Exit graphics and FORMFEED at end of page
+        sl      \E*b%dW         On each line
+        end     \E*rB\EE
+
+HPL300-A4
+        laser                   Printer is a laser type, i.e. one pin
+        init    \EE\E&l2E\E&a0V Initialize printer
+        eg      \E*t300R\E*r0A  Enter graphics in 300 DPI resolution
+        width   2300            Printer is 7.66*300 dots wide
+        height  3074            Printer is 10.25*300 dots high
+        ep      \E*rB\f         Exit graphics and FORMFEED at end of page
+        sl      \E*b%dW         On each line
+        end     \E*rB\EE
+
+POSTSCRIPT
+	postscript
+	top_margin		1.0
+	left_margin		1.0
+	right_margin		1.0
+	bottom_margin		1.0
+	printer_resolution	300
+	title_font		Helvetica
+	print_titles
+	top_overlap		0
+	right_overlap		0
+	fit_to_page
+	page_height		11.00
+	page_width		8.500
+	scale_factor		3
+

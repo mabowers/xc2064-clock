@@ -1,0 +1,88 @@
+`F  1.00 IPAD16
+`B "1" "1" "B" "September  1, 1993" "" "A" 
+"XC4000 Family IPAD16 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "I0"
+`P O "I1"
+`P O "I2"
+`P O "I3"
+`P O "I4"
+`P O "I5"
+`P O "I6"
+`P O "I7"
+`P O "I8"
+`P O "I9"
+`P O "I10"
+`P O "I11"
+`P O "I12"
+`P O "I13"
+`P O "I14"
+`P O "I15"
+`E XC7000.LIB
+`I R "IPAD" XC7000.LIB "IPAD" c861c280  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861c295  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861c2a4  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861c2c9  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861d3cc  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861d3cc  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861d3cc  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861d3cc  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861e7ea  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861e7ea  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861e7ea  U11  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861e7ea  U12  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861e7ea  U13  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861e7ea  U14  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861e7ea  U15  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC7000.LIB "IPAD" c861e7ea  U16  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`J ( P O "I0" ) ( R U1 "I" O ) 
+`J ( P O "I1" ) ( R U2 "I" O ) 
+`J ( P O "I2" ) ( R U3 "I" O ) 
+`J ( P O "I3" ) ( R U4 "I" O ) 
+`J ( P O "I4" ) ( R U5 "I" O ) 
+`J ( P O "I5" ) ( R U6 "I" O ) 
+`J ( P O "I6" ) ( R U7 "I" O ) 
+`J ( P O "I7" ) ( R U8 "I" O ) 
+`J ( P O "I8" ) ( R U9 "I" O ) 
+`J ( P O "I9" ) ( R U10 "I" O ) 
+`J ( P O "I10" ) ( R U11 "I" O ) 
+`J ( P O "I11" ) ( R U12 "I" O ) 
+`J ( P O "I12" ) ( R U13 "I" O ) 
+`J ( P O "I13" ) ( R U14 "I" O ) 
+`J ( P O "I14" ) ( R U15 "I" O ) 
+`J ( P O "I15" ) ( R U16 "I" O ) 

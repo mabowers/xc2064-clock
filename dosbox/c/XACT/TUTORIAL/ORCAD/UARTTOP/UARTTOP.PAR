@@ -1,0 +1,161 @@
+Assigning equation 'DOE' to Foe pin at FB3-5!
+The following node(s) will be placed using the 'UIM-AND' capability; 
+     they will no longer require a macrocell:
+     CONTROLLER/U77:O  
+ 
+XEPLD, Version 5.0                                          Xilinx Inc.
+                            Partitioning Report
+ Circuit name: UARTTOP
+Target Device: XC7354-12PC68                  Integrated:  1- 6-94, 11: 9AM
+
+Part        #  of    # of Input  Signal   # of        O/IO    O/IO   Size
+Name        Outputs  Lines Used  Inputs   Shared Pt   Req     Avail  Factor
+FB1           0          0          0        0         0/0     0/9     0
+FB2           0          0          0        0         0/0     0/9     0
+FB3           9         19         19        1         4/0     4/3     9
+FB4           9         20         20        1         5/0     0/6     9
+FB5           4          5          5        1         0/0     0/9     4
+FB6           9         10         10        1         5/0     2/6     9
+             ---                                       ---     ---    ---
+             31                                       14/0     6/42   31
+
+Part                            Inputs Used by Each Partition
+Name
+                              |----+----1----+----2----+----3
+FB1                            .............................
+FB2                            .............................
+FB3                            ..XXXXX..XXXX.....XXXXXXX.XXX
+FB4                            ..X..XXXXXXX.XX....XXXXXXXXXX
+FB5                            ..X..X...............XX.X....
+FB6                            .....X....X..XXXXX...XX.X....
+                              |----+----1----+----2----+----3
+
++++++++++++++++++++++++++++++++++  FB3  +++++++++++++++++++++++++++++++++
+                           Signals Used:
+  3: SDIN              12: DESERIALIZER1:QA  23: `FREQ_DIVIDER[CB8RE]:Q1
+  4: RD                13: DESERIALIZER1:QB  24: CONTROLLER/U44:Q 
+  5: CS                19: DESERIALIZER1:QH  25: CONTROLLER/U25:Q 
+  6: START             20: `FREQ_DIVIDER[CB8RE]:Q5 27: DOE.Q            
+  7: READY             21: `FREQ_DIVIDER[CB8RE]:Q3 28: `FREQ_DIVIDER[CB8RE]:Q4
+ 10: FRAMING           22: `FREQ_DIVIDER[CB8RE]:Q0 29: `FREQ_DIVIDER[CB8RE]:Q2
+ 11: CONTROLLER/U26:Q 
+
+MC Output         Pin  Pin  Sh
+No Name           Req  Avl  Pt
+                              |----+----1----+----2----+----3
+1  CONTROLLER/U26:Q -    -    0  ......X............XXXX....XX
+2  CONTROLLER/U44:Q -    -    0  ..X..X.................XX....
+3  DOUT7          O    CKEN 0  ..........X.......X..........
+4  DOUT1          O    CKEN 0  ..........X.X................
+5  DOE            O    FOE  0  ...XX........................
+6  FRAMING        O    FOE  0  ..X......X.X.......XXXX...XXX
+7  DESERIALIZER1:QB -    I/O  0  .....X.....X............X....
+8  DESERIALIZER1:QC -    I/O  0  .....X......X...........X....
+9  `FREQ_DIVIDER[CB8RE]:Q5 -    I/O  1  .....X..............XXX....XX
+                              |----+----1----+----2----+----3
+
++++++++++++++++++++++++++++++++++  FB4  +++++++++++++++++++++++++++++++++
+                           Signals Used:
+  3: SDIN              12: DESERIALIZER1:QA  24: CONTROLLER/U44:Q 
+  6: START             14: DESERIALIZER1:QC  25: CONTROLLER/U25:Q 
+  7: READY             15: DESERIALIZER1:QD  26: CONTROLLER/U77:O 
+  8: PARITY            20: `FREQ_DIVIDER[CB8RE]:Q5 27: DOE.Q            
+  9: OVERUN            21: `FREQ_DIVIDER[CB8RE]:Q3 28: `FREQ_DIVIDER[CB8RE]:Q4
+ 10: FRAMING           22: `FREQ_DIVIDER[CB8RE]:Q0 29: `FREQ_DIVIDER[CB8RE]:Q2
+ 11: CONTROLLER/U26:Q  23: `FREQ_DIVIDER[CB8RE]:Q1
+
+MC Output         Pin  Pin  Sh
+No Name           Req  Avl  Pt
+                              |----+----1----+----2----+----3
+1  DOUT0          O    I/O  0  ..........XX.................
+2  START          O    I/O  0  ..X..X.............XXXX....XX
+3  READY          O    I/O  0  .......XXX.........XXXX..X.XX
+4  DESERIALIZER1:QD -    -    0  .....X.......X..........X....
+5  DESERIALIZER1:QE -    -    0  .....X........X.........X....
+6  `FREQ_DIVIDER[CB8RE]:Q3 -    -    1  .....X...............XX.....X
+7  PARITY         O    I/O  0  .......X...........XXXXX..XXX
+8  OVERUN         O    I/O  0  ......X.X..........XXXX...XXX
+9  `FREQ_DIVIDER[CB8RE]:Q4 -    I/O  1  .....X..............XXX.....X
+                              |----+----1----+----2----+----3
+
++++++++++++++++++++++++++++++++++  FB5  +++++++++++++++++++++++++++++++++
+                           Signals Used:
+  3: SDIN              22: `FREQ_DIVIDER[CB8RE]:Q0 25: CONTROLLER/U25:Q 
+  6: START             23: `FREQ_DIVIDER[CB8RE]:Q1
+
+MC Output         Pin  Pin  Sh
+No Name           Req  Avl  Pt
+                              |----+----1----+----2----+----3
+1  CONTROLLER/U25:Q -    I/O  0  .....X...............XX......
+2  DESERIALIZER1:QA -    I/O  0  ..X..X..................X....
+3  `FREQ_DIVIDER[CB8RE]:Q0 -    I/O  1  .....X.......................
+4  `FREQ_DIVIDER[CB8RE]:Q1 -    I/O  1  .....X...............X.......
+5  Unused              I/O     .............................
+6  Unused              I/O     .............................
+7  Unused              I/O     .............................
+8  Unused              I/O     .............................
+9  Unused              I/O     .............................
+                              |----+----1----+----2----+----3
+
++++++++++++++++++++++++++++++++++  FB6  +++++++++++++++++++++++++++++++++
+                           Signals Used:
+  6: START             16: DESERIALIZER1:QE  22: `FREQ_DIVIDER[CB8RE]:Q0
+ 11: CONTROLLER/U26:Q  17: DESERIALIZER1:QF  23: `FREQ_DIVIDER[CB8RE]:Q1
+ 14: DESERIALIZER1:QC  18: DESERIALIZER1:QG  25: CONTROLLER/U25:Q 
+ 15: DESERIALIZER1:QD 
+
+MC Output         Pin  Pin  Sh
+No Name           Req  Avl  Pt
+                              |----+----1----+----2----+----3
+1  DESERIALIZER1:QF -    I/O  0  .....X.........X........X....
+2  DESERIALIZER1:QG -    I/O  0  .....X..........X.......X....
+3  DESERIALIZER1:QH -    FCLK 0  .....X...........X......X....
+4  DOUT6          O    FCLK 0  ..........X......X...........
+5  DOUT5          O    FCLK 0  ..........X.....X............
+6  `FREQ_DIVIDER[CB8RE]:Q2 -    I/O  1  .....X...............XX......
+7  DOUT4          O    I/O  0  ..........X....X.............
+8  DOUT3          O    I/O  0  ..........X...X..............
+9  DOUT2          O    I/O  0  ..........X..X...............
+                              |----+----1----+----2----+----3
+
+
+All outputs placed in a partition.
+
+
+In   Input Name
+No 
+
+  1   X4CLK               
+  2   DOE                 
+  3   SDIN                
+  4   RD                  
+  5   CS                  
+  6   START               
+  7   READY               
+  8   PARITY              
+  9   OVERUN              
+ 10   FRAMING             
+ 11   CONTROLLER/U26:Q    
+ 12   DESERIALIZER1:QA    
+ 13   DESERIALIZER1:QB    
+ 14   DESERIALIZER1:QC    
+ 15   DESERIALIZER1:QD    
+ 16   DESERIALIZER1:QE    
+ 17   DESERIALIZER1:QF    
+ 18   DESERIALIZER1:QG    
+ 19   DESERIALIZER1:QH    
+ 20   `FREQ_DIVIDER[CB8RE]:Q5
+ 21   `FREQ_DIVIDER[CB8RE]:Q3
+ 22   `FREQ_DIVIDER[CB8RE]:Q0
+ 23   `FREQ_DIVIDER[CB8RE]:Q1
+ 24   CONTROLLER/U44:Q    
+ 25   CONTROLLER/U25:Q    
+ 26   CONTROLLER/U77:O    
+ 27   DOE.Q               
+ 28   `FREQ_DIVIDER[CB8RE]:Q4
+ 29   `FREQ_DIVIDER[CB8RE]:Q2
+
+
+
+ End of Partitioning Report
+

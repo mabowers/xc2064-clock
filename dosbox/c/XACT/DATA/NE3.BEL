@@ -1,0 +1,90 @@
+# "@(#)ne.bel	2.3  3/4/91"
+#
+# Northeast corner odds and ends
+#
+_BELS
+LCA4_OSC    OSC,
+LCA4_TDO    TDO,
+LCA4_BSCANT BSCANT,
+LCA4_BUFGP  GP,
+LCA4_BUFGS  GS,
+LCA4_PU    HPU0,
+LCA4_PU    HPU1,
+LCA4_PU    HPU2,
+LCA4_PU    HPU3,
+LCA4_PU    VPU0,
+LCA4_PU    VPU1,
+LCA4_PU    VPU2,
+LCA4_PU    VPU3,
+;
+
+_NODES
+# Input pins
+TDOO,
+TDOT,
+GPI,
+GSI,
+
+# Output pins
+F8M,
+F500K,
+F16K,
+F490,
+F15,
+UPD,
+GPO,
+GSO,
+HPU0O,
+HPU1O,
+HPU2O,
+HPU3O,
+VPU0O,
+VPU1O,
+VPU2O,
+VPU3O,
+;
+
+_ARCS
+# Outputs from OSC
+OSC_F8M   F8M,
+OSC_F500K F500K,
+OSC_F16K  F16K,
+OSC_F490  F490,
+OSC_F15   F15,
+
+# Inputs to TDO
+TDOO TDO_O,
+TDOT TDO_T,
+
+# Inputs to BSCANT
+TDOO BSCANT_CAP1,
+TDOT BSCANT_CAP2,
+
+# Output from BSCANT
+BSCANT_UPD UPD,
+
+# Connections to primary buffer GP
+GPI GP_I,
+GP_O GPO,
+
+# Feedthru buffer
+GP_I GP_O (is_gbuf_feedthru),
+  
+# Connections to secondary buffer GS
+GSI GS_I,
+GS_O GSO,
+
+# Feedthru buffer 
+GS_I GS_O (is_gbuf_feedthru),
+
+# Connections to pullups
+HPU0_O HPU0O,
+HPU1_O HPU1O,
+HPU2_O HPU2O,
+HPU3_O HPU3O,
+VPU0_O VPU0O,
+VPU1_O VPU1O,
+VPU2_O VPU2O,
+VPU3_O VPU3O,
+;
+

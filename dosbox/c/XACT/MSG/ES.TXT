@@ -1,0 +1,224 @@
+# @(#)ES.TXT	3.50 5/4/94 23:55:28
+# file: es.txt
+# what: MINIMIZER messages
+#
+0001: [Internal error - null pointer].
+0002:ES Aborting!
+0004: [Internal error in minimization].
+0005:Equation '%s' uses .ADD or .SHIFT or .EXPORT  but is NOT in a PARTITION statement!
+     PARTITION statements required because arithmetic,shift and export functions
+     must be mapped into adjacent macrocells.
+0006:Too many shared D1 product terms needed for equation '%s'!
+     %d product terms needed but only %d available.
+     You have either explicitly specified a D1 signal or an XOR or .T
+     function resolves to a function containing D1.
+0007:Too many shared D2 product terms needed for equation '%s'!
+     %d product terms needed but only %d available.
+     You have either explicitly specified a D2 signal or an XOR or .T
+     function resolves to a function containing D2.
+0008:Too many non-minimizable product terms for equation '%s'!
+0009:Cannot split the equation for tri-stated equation '%s'!
+0010:Too many inputs in one product term for equation '%s'! Create a 
+     node using some of the inputs, then use the node in this equation.
+0011:Could not fit equation '%s' into its specified partition!
+     %s
+0012: [Internal error in minimizer].
+0013: [Internal error - in pin assignment].
+0014:Too many shared D1 product terms. '%s' required!
+0015:Too many shared D2 product terms. '%s' required!
+0016: [Internal error - data base corrupted].
+0017:File name '%s' is too long.  Generated file names may not be unique!
+0018:Cannot split the equation for output '%s'!
+0019:Invalid value '%s' for config variable, max_shared_before_splitting!
+0020:Invalid value '%s' for config variable, max_shared_after_splitting!
+0021:Physical partition '%s' cannot be mixed with logical partitions!
+     Ignoring the logical partitions.
+0022:Logical partition '%s' cannot be mixed with physical partitions!
+     Ignoring the logical partitions.
+0023:Unknown model name '%s' given on the command line!
+0024:FFB equation '%s' must appear in a PARTITION statement!
+0025:Equation '%s' has too many inputs (> 24) to fit in 
+     a fast function block!
+0026:Equation '%s' has too many product terms (> 4) to fit in
+     a fast function block!
+0027:Cannot assemble a behavioral design with physical PARTITION statements!
+0028:Cannot invert FFB equation for '%s' without creating too many 
+     pterms.  This equation has an export signal and therefore has 
+     only one active low pterm available.
+0029:Cannot fit split FFB equations for '%s'.
+     Cannot find sufficient free adjacent macrocells. Consider
+     removing pin assignment or modifying partition statements.
+0030:Chip model not loaded. 
+0031:Could not fit equation '%s' into %s-%d!
+     Associated chip pin %s supports only %s.
+0032:There are not enough consecutive macrocells in %s which support
+     the pin types of the equations you specified to be mapped into 
+     this functional block.
+0033:Cannot find adjacent function block of same type for '%s'!
+0034:Equations '%s' and '%s' both assigned to '%s_%d'! 
+     There is a conflict between pin assignments and/or partition statements
+     and/or control signal assignments that is assigning two equations
+     to the same macrocell.
+0035:Equation '%s' assigned to both '%s_%d' and '%s_%d'!
+     There is a conflict between pin assignments and/or partition statements
+     and/or control signal assignments that is assigning the same equation
+     to different macrocells.
+0036:Export equation '%s' at '%s_%d' cannot export pterms
+     because the last macrocell in an FB does NOT allow this!
+0037:Split FFB equation '%s' assigned to %s-%d does not have enough
+     preceding free macrocells for pterm exporting!
+0038:Equations '%s','%s' of '%s' assigned to '%s' and '%s'!
+     Partitioning continues by ignoring the last partition statement.
+0039:Physical partition '%s' has more than 9 equations!
+     You must specify the starting macrocell when using Physical PARTITION
+     statements to partition more than 9 arithmetic or shift functions.
+0040:Function block '%s' has more than 9 equations assigned to it!
+     There is a conflict between pin assignments and/or partition statements
+     and/or control signal assignments.
+0041:Logical partition '%s' has more than 9 equations assigned to it!
+     You may only specify up to 9 equations in a logical PARTITION statement
+     unless the equation use the arithmetic or shift paths.  
+0042:Global I/O Signal '%s' assigned to incompatible cell at '%s_%d'!
+0043:Cannot find free pin for %s %s '%s'!
+     Partitioning continues by trying to place it elsewhere.
+0044:Cannot map partition '%s' containing arithmetic or shift functions
+     because this device has no arithmetic or shift paths!  
+     Please target a device with High Density FBs.
+0045:Cannot find a location to assign arithmetic partition '%s'!
+     The partitioner cannot find a set of adjacent macrocells with
+     the right pin types that haven't already got an assignment.
+     Consider removing other pin-assignments and partition statements.
+0046:This design requires %d more function blocks than are 
+     available on the device.  Consider using the same device in a 
+     package with more I/O (if available), a larger device, or 
+     multiple devices; or remove design constraints and try again. 
+0048:The design requires too many pin resources for this device!
+     It requires %s. 
+     See the resource report for more details.
+0049:Schematic PAL partition '%s' has more than 9 equations!
+     Please create separate partitions with 9 or less equations in each.
+0050:This design has no inputs, only constant outputs.  You must
+     specify at least one input or feedback signal.
+0051:There were not enough fast function block resources to place 
+     '%s' in a fast function block.  See partitioner report for details.
+0053:This equation contains too many pterms to split into a reasonable 
+     amount of sub-equations. 
+0054:Could not fit equation '%s' into its specified partition!
+     Too many %s required to add the equation into its partition.
+     %s
+0055:Too many UIM inputs needed for equation '%s'!
+     %d needed but only %d available.  Try creating another node using 
+     some of the inputs.
+0056:Too many shared pterms needed for equation '%s'!
+     %d shared product terms needed (after using %d private) 
+     but only %d available.
+0057:Too many product terms needed for equation '%s' when mapped into a fast
+     function block! %d product terms needed but only 36 available using
+     all 9 macrocells in one fast function block.   Consider assigning
+     this function to a high density function block.
+0058:Cannot open file %s for writing! Check your file access permission!
+0059:Unable to place all design signals requiring pins.  
+     See the resource report for more details.
+0060:The partition %s arithmetic equations require too many uim inputs!
+     Starting at macrocell %d gives best results but requires %d inputs.
+     Try inserting low-input carry-propagation buffers between functions.
+0061:This FFB9 component requires %d fast function blocks of the  
+     %s device. FFB9 components must fit within a single function block.
+     Either hand partition the equations or use a GENERIC PAL component
+     and 'F' attributes.
+0062:Unable to split on-chip generated FCLK/FOE/CEN signal '%s'!
+     %d UIM inputs needed but only %d available.  Change this signal
+     to a node (which can be split) and let the node drive the macrocell
+     that drives the FCLK/FOE/CEN pin.
+0063:Unable to split on-chip generated FCLK/FOE/CEN signal '%s'!
+     %d shared pterms needed (after using %d private) but only %d available.
+     Change this signal to a node (which can be split) and let the node 
+     drive the macrocell that drives the FCLK/FOE/CEN pin.
+0064:FFB output '%s' cannot be placed in a fast function block because
+     the macrocell cannot be preloaded to '%s'.  Consider changing 
+     or removing the preload value for this output. 
+0065:Physical partition '%s' has more than 9 equations!
+     You may only specify up to 9 equations in a Physical PARTITION
+     statement unless the equations are using the arithmetic or shift
+     paths and you specify the starting macrocell.
+0066:FFB equation '%s' assigned to %s-%d requires splitting and
+     needs the already-assigned, previous macrocell for pterm exporting.
+0067:Equation %s designated as %s conflicts with assignment to %s.
+0068:Toggle flops are available only on the 7336. The partitioner cannot 
+     convert equation %s which uses toggle and export into a 
+     sum-of-products equation.  Construct equations without using both 
+     toggle and export.  
+0069:Equation '%s' must be inverted since this device supports only
+       active-low polarity for fast outputs.  This equation uses export
+       from previous macrocell; logic specified cannot be preserved.
+
+0100:Splitting equation '%s' with too many product terms for one cell!
+     %d shared pterms needed (after using %d private) but only %d available.
+0101:Splitting equation '%s' with too many inputs for one functional block!
+     %d needed but only %d available.
+0102:Assigning arithmetic partition '%s' of %d equations to start at %s-%d
+     making optimum use of pin resources!
+0103:Assigning equation '%s' to %s pin at %s-%d!
+0104:Assigning ordered partition '%s' to start at %s-%d because
+     equation '%s' assigned to %s-%d!
+0105:Splitting FFB equation '%s' with too many product terms for one cell!
+     %d total pterms requires using %d macrocells with up to 4 pterms each.
+0108:Minimizing %d individual equations.
+0109:Partitioning into a minimum of %d partitions.
+0110:Using '%s' as the maximum number of shared pterms before 
+     splitting an internal output!
+0114:The following node(s) will be placed using the 'UIM-AND' capability; 
+     they will no longer require a macrocell:
+     %s
+0115:The following node(s) were assigned to partitions, but are no longer
+     placed there because they are converted to uim nodes:
+     %s 
+0116:Equation '%s' is being formed using the hardware T Flip-Flop.
+0117:Equation '%s' converted to sum-of-products format.
+     Fast function blocks cannot support .D1/.D2 equations directly.      
+0118:The following node(s) were inverted to give them the capability to be 
+     placed in fast function blocks; the logic appearing on external pins is
+     unaffected. The names of the inverted nodes have been 
+     appended with '%s': 
+     %s
+
+0119:The following node(s) were inverted because they were assigned to 
+     fast function blocks and required fewer pterms when inverted. The
+     logic appearing on external pins in unaffected.  The names of the 
+     inverted nodes have been appended with '%s': 
+     %s
+
+0200:1:Additional time delay introduced by splitting external output '%s'!
+0202:1:Equation '%s' starts a partition & uses .ADD!
+     It will accept a carry-in from whatever gets mapped before it.
+     To specify multi-fb arithmetic use a partition statement of more
+     than 9 equations.
+0203:1:Partition name '%s' starts with 'FB' but not recognized as a
+     physical assignment name.  Treating it as a logical partition.
+     To avoid this warning, use a different name!
+0204:Attempting to implement '%s.T' using the XOR of the alu function. 
+     Currently, only the XC7336 supports toggle-flops directly.
+0205:1:The partitioner cannot place node '%s' in the uim
+     because of polarity restrictions on the following input(s):
+     %s 
+     Node '%s' will be placed in a macrocell instead. 
+     Additional time delay introduced.
+0206:1:Unable to split node '%s'. It contains too many inputs 
+     for one product term.  Attempting to form the node using the 
+     'UIM &' capability. 
+0207:1:Equation '%s' has NOT been placed in a fast function block; 
+     it can not utilize the fast input path. This equation will use the UIM
+     version of all fast inputs fanning into it.  Place this equation in a fast 
+     function block if you want it to use the fast inputs version of its fanins.
+0208:1:Additional time delay introduced by splitting tristated equation '%s'!
+0209:1:Equation '%s' assigned to both '%s' and '%s'!
+     There is a conflict between pin assignments and/or partition statements
+     and/or control signal assignments that is assigning the same equation
+     to different function blocks.
+
+# end of file
+#
+
+
+
+

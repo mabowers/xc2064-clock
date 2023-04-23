@@ -1,0 +1,139 @@
+TITLE           Shift Register: 16-bit, left/right, async-clear, loadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            7/29/93
+
+CHIP            SR16CLED  COMPONENT
+ 
+;Inputs
+d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 d12 d13 d14 d15 sli sri l left ce c clr
+
+; d[15:0]       parallel-load data
+; sli           shift-left serial input
+; sri           shift-right serial input
+; l             parallel-load enable
+; left          shift direction: 1=left, 0=right
+; ce            shift clock enable
+; c             clock (optional FastCLK)
+; clr           async clear
+ 
+;Outputs
+q0 q1 q2 q3 q4 q5 q6 q7 q8 q9 q10 q11 q12 q13 q14 q15
+
+; q[15:0]       counter output
+
+EQUATIONS 
+
+q15     := left*ce*/l*q14
+         + /left*ce*/l*sri
+         + /ce*/l*q15
+         + l*d15
+q15.clkf = c
+q15.rstf = clr
+
+q14     := left*ce*/l*q13
+         + /left*ce*/l*q15
+         + /ce*/l*q14
+         + l*d14
+q14.clkf = c
+q14.rstf = clr
+
+q13     := left*ce*/l*q12
+         + /left*ce*/l*q14
+         + /ce*/l*q13
+         + l*d13
+q13.clkf = c
+q13.rstf = clr
+
+q12     := left*ce*/l*q11
+         + /left*ce*/l*q13
+         + /ce*/l*q12
+         + l*d12
+q12.clkf = c
+q12.rstf = clr
+
+q11     := left*ce*/l*q10
+         + /left*ce*/l*q12
+         + /ce*/l*q11
+         + l*d11
+q11.clkf = c
+q11.rstf = clr
+
+q10     := left*ce*/l*q9
+         + /left*ce*/l*q11
+         + /ce*/l*q10
+         + l*d10
+q10.clkf = c
+q10.rstf = clr
+
+q9      := left*ce*/l*q8
+         + /left*ce*/l*q10
+         + /ce*/l*q9 
+         + l*d9 
+q9.clkf  = c
+q9.rstf  = clr
+
+q8      := left*ce*/l*q7
+         + /left*ce*/l*q9
+         + /ce*/l*q8 
+         + l*d8 
+q8.clkf  = c
+q8.rstf  = clr
+
+q7      := left*ce*/l*q6
+         + /left*ce*/l*q8
+         + /ce*/l*q7 
+         + l*d7 
+q7.clkf  = c
+q7.rstf  = clr
+
+q6      := left*ce*/l*q5
+         + /left*ce*/l*q7
+         + /ce*/l*q6 
+         + l*d6 
+q6.clkf  = c
+q6.rstf  = clr
+
+q5      := left*ce*/l*q4
+         + /left*ce*/l*q6
+         + /ce*/l*q5 
+         + l*d5 
+q5.clkf  = c
+q5.rstf  = clr
+
+q4      := left*ce*/l*q3
+         + /left*ce*/l*q5
+         + /ce*/l*q4 
+         + l*d4 
+q4.clkf  = c
+q4.rstf  = clr
+
+q3      := left*ce*/l*q2
+         + /left*ce*/l*q4
+         + /ce*/l*q3 
+         + l*d3 
+q3.clkf  = c
+q3.rstf  = clr
+
+q2      := left*ce*/l*q1
+         + /left*ce*/l*q3
+         + /ce*/l*q2 
+         + l*d2 
+q2.clkf  = c
+q2.rstf  = clr
+
+q1      := left*ce*/l*q0
+         + /left*ce*/l*q2
+         + /ce*/l*q1 
+         + l*d1 
+q1.clkf  = c
+q1.rstf  = clr
+
+q0      := left*ce*/l*sli
+         + /left*ce*/l*q1
+         + /ce*/l*q0 
+         + l*d0 
+q0.clkf  = c
+q0.rstf  = clr

@@ -1,0 +1,32 @@
+TITLE           Adder: 1-bit
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            9/16/93
+
+CHIP            ADD1  COMPONENT
+ 
+;Inputs
+a0 b0 ci
+
+; a0            adder A-operand
+; b0            adder B-operand
+; ci            carry-in (from UIM)
+ 
+;Outputs
+s0 co
+
+; s0            adder output
+; co            carry-out from s0 (ordinary macrocell output)
+
+EQUATIONS 
+
+s0      =  a0* b0* ci
+        + /a0*/b0* ci
+        +  a0*/b0*/ci
+        + /a0* b0*/ci
+
+co      = a0*b0
+        + b0*ci
+        + a0*ci

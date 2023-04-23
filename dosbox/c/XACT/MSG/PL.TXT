@@ -1,0 +1,250 @@
+# @(#)PL.TXT	3.6.1.2 Copyright(C)1992 Xilinx Inc. 5/4/94 23:55:37
+# file: pl.err
+# date: 6/29/90
+# what: Xilinx EPLD placer system error messages - user messages
+#
+# Z. K.
+#
+0001: Internal Error. Component '%s' has not been mapped.
+0002: [Internal Error in removed component].
+0003: [Internal Error in removed component].
+0004: [Internal error. Fast Clock Input %d  cannot be inverted].
+0005: [Internal error. Fast Clock output %d cannot be inverted].
+0006: [Internal error - pin ID is out of range].
+0007: Out of memory.
+0008: [Internal error - invalid vector type].
+0009:Port '%s' cannot be mapped until all logic is mapped. 
+0010: [Internal error - invalid pin type].
+0011:Pin <%s> in fast clock <%s> is inverted.
+0012: [Internal Error - cannot find pin].
+0014: [Internal Error - cannot find pin].
+0015: [Internal Error - invalid block type].
+0016: [Internal Error - invalid port type].
+0017: [Internal Error - cannot map pin].
+0018: [Internal Error - invalid pin type].
+0019: [Internal Error - NULL signal ID].
+0020: [Internal Error  in product term mapping].
+0021: [Internal Error - cannot find pin].
+0022: [Internal Error - cannot find array].
+0023: [Internal Error - ID is out of range].
+0024:Cannot map port in an IO block.
+0025:Internal Error. Port '%s' has not been mapped.
+0026: [Internal Error - cannot set bit].
+0027: [Internal Error - cannot get array].
+0028:Failed to break instance in smaller pieces.
+0029: [Internal Error - component bitmap not found].
+0030: [Internal error in component '%s'].
+#
+0031:Non clock pin (%s:%s) is connected to clock net.
+0032: [Internal Error - cannot find port].
+0033: [Internal Error - cannot get bit].
+0034:Pin '%s' in component '%s' has not been mapped.
+0035: [Internal Error - ID out of range].
+0036: [Internal Error - invalid term type]. 
+0037: [Internal Error - cannot find pin].
+0038: [Internal Error - invalid index].
+0039: [Internal Error - cannot find array].
+0040: [Internal Error - pin ID out of range].
+#
+0041:1:Input '%s' of port '%s' became grounded (may be as the result of optimization).
+0042:Input '%s' of port '%s' became powered (may be as the result of optimization).
+0043:Input '%s' on Fast Clock '%s' became grounded (may be as the result of optimization).
+0044:Input '%s' on Fast Clock '%s' became powered (may be as the result of optimization).
+0045:No dividing done.
+0046:Schematic is not loaded.
+0047:Chip not loaded.
+0048:No mapping done.
+0049:No optimization done.
+0050: [Internal  Error - cannot find vector].
+0051: [Internal Error - cannot find vector].
+0052:
+0053: [Internal Error  in pin mapping].
+0054: [Internal Error in environment: may be  out of memory].
+0055: [Internal Error in environment: may be  out of memory].
+0056:
+0057: [Internal Error - bad parameter].
+0058: [Internal Error - cannot find header].
+0059: [Internal Error - cannot find pin in instance %s for pin %s in component %s].
+0060: [Internal Error - pin %s in port %s is inverted].
+0061: [Internal Error - cannot find pin %s in component %s].
+0062: [Internal Error - pin name %s is misspelled].
+0063: [Internal Error - cannot invert pin].
+0064:Component pin '%s' has not been mapped.
+0065:Bitmap is not placed in functional unit.
+0066: [Internal Error - in component %s input pin %s is unused].
+0067: [Internal Error - wrong number of pins in component %s].
+0068: [Internal Error - no invertor components in a library].
+0069: [Internal Error - no AND components in a library].
+0070: [Internal Error - no buffer components in a library].
+0071: [Internal Error - no output in component %s].
+0072:
+0073:Optimizer failed.
+0074: [Internal Error - in component %s, parameter %s].
+0075: [Internal Error  in invertor %s. Component not optimized].
+0076: [Internal Error  in invertor %s. Component not optimized].
+0077: [Internal Error  in invertor %s. Component not optimized].
+0078: [Internal Error  - cannot invert input %d of Fast Comparator].
+0079: [Internal Error  - cannot invert input %d of I/O port].
+0080: [Internal Error  - cannot invert output %d of I/O port].
+0081: [Internal Error  - cannot invert input %s of Fast Comparator %s].
+0082: [Internal Error  - cannot invert input %s of I/O port %s].
+0083: [Internal Error  - cannot invert output].
+0085: [Internal Error  - cannot invert input %s of Fast Clock %s].
+0086: [Internal Error  - invalid marker].
+#
+# new 3.0 messages
+0087:Attempt to invert output '%s'of fast comparator component '%s'. (internal error)!
+0088:Given term id %d and term type %d are inconsistent. (internal error!)
+0089:Unknown instance type %d. (internal error!)
+0090:Attempt to invert output of fast comparator %s. 
+0091:In component '%s' non-clock pin '%s' routed to fast clock driver.
+0092:%d fast clocks in a schematic. Only %d are allowed.
+0093:Invalid fast clock distribution. 
+0094:Can't find bitmap. (internal error)!
+0095:Attempt to place fast clock driver '%s' in fast clock 2. 
+0096:Fast clock is not placed.
+0097:Cannot map fastclock because only one of pins 10 and 11 can drive a pad
+0098:Run out of id's for fast clock signals. Increase the range. (internal error!)
+0099:Run out of id's for common signals. Increase the range. (internal error!)
+0100:More  macrocells in FB then bits in int field. (internal error)!
+0101:Cannot find functional unit. (internal error)!
+0102:Cannot place product term in functional unit '%s'. (internal error)!
+0103:Cannot find signal in functional unit. (internal error)!
+0104:Cannot overlap inputs with the same signal. (internal error)!
+0105:Invalid signal type. (internal error)!
+0106:Attempt to access wrong OR bit. (internal error)!
+0107:Invalid clock state is asked. (internal error)!
+0108:Invalid shift state is asked. (internal error)!
+0109:Output '%s' of instance '%s' has a permanent LOW.
+0110:Output '%s' of instance '%s' has a permanent HIGH.
+0111:Component '%s' does not drive anything and it is removed.
+0112:Port '%s' removed because it has no logic connection!
+0113:Port '%s' moved from assigned pin '%s' to pin '%s'.
+0114:Fast compare component '%s' has not been mapped
+     Please check the following:
+       a) you have not used more than 2 fastcompare units
+       b) if you used manual pin assignment (in a schematic)
+          i) you specified the dedicated input data pins (79-84,2-7)
+          ii) you specified the dedicated output pins (76,77)
+          iii) you assigned the data input pins in ascending pin order
+               (i.e., I0 to PIN79 and I11 to PIN7)
+       c) if you used a pin-save file
+          i) you specified the dedicated input data pins (79-84,2-7)
+          ii) you specified the dedicated output pins (76,77)
+
+0115:Cannot divide component '%s' because it uses arithmetic carry (or shift)
+     To understand why the mapper could not map it, check the following:
+       a) you need an empty FB with enough macrocells to hold the component
+       b) the FB needs enough chip output & I/O pins attached to match the
+          component's external output & I/O requirements
+       c) if you used manual pin assignment (in a schematic) or
+	  used a pin-save file
+          i) you assigned the data output & I/O pins in descending pin order
+               (e.g., comp-pin 22 to chip-pin 63,comp-pin 23 to chip-pin 62)
+          ii) you assigned the external output and I/O pins to chip-pins
+              that correspond to the FB's chip pins
+
+0116:Cannot remove unconnected output '%s' of '%s' because it uses Add/shift.
+   If you don't need this output to propagate carry/shift to another component
+   & you wish remove it: tie it and other high-order outputs to power or ground.
+0117:Instance pin (%s:%s) has a UIM feedback path (instead of 
+    fast feedback) because it's feedback drives an AND operation in the UIM.
+0118:Default power setting of '%s' on instance '%s' contradicts
+    previous default. Using this new default value.
+0119:Invalid value, '%s' for the POWERDEFAULT property on instance '%s'.
+    Use HIGH or LOW!
+0120:Invalid value, '%s' for the POWER property on instance '%s'.
+    Use HIGH or LOW!
+0121:Schematic power control value of '%s' on instance '%s'
+    over-rides the power settings in the equations!
+0122:Power control for instance '%s' ignored because instance was optimized. 
+0123:Cannot place physical partition '%s' with outputs in
+     the specified order.  Trying to place them with re-ordering.
+0124:No carry-out connection into component '%s' using carry-in!
+0125:Incorrect carry from '%s'(FB%d-%d) to '%s'(FB%d-%d)!
+    You must control the mapping so that hardware-carry components map
+    in carry-chain order (e.g., FB4-1 ... FB4-9 to FB3-1 ... FB3-9).
+0126:Internal Error. Cannot place %s %s at mc-%d! 
+#
+# 	Info messages, like headers, dash-lines, etc.
+#
+0500:*
+*      O P T I M I Z E R    S T A R T .
+*
+0501:*
+*      O P T I M I Z E R    E N D .
+*
+0502:*
+*    Decomposing NAND's in INV's and AND's
+*
+0503:Munched instance %s(id=%d) and created new instance %s(id=%d).
+0504:New net '%s' going around the optimized '%s' created.
+0505:Optimizing NAND instance '%s'.
+0506:New instance '%s' created.
+0507:New net '%s' connecting output of new NOP/INV created.
+0508:NAND '%s' removed.
+0509:Inverter '%s' is merged with the component it drives.
+0510:Inverter '%s' is merged with the driving component.
+#
+0511:Inverter '%s' has been eliminated.
+0513:Optimizing AND instance '%s'.
+0514:Pin %s in fast comparator %s is connected to ground. Input disabled.
+0515:Pin %s in fast comparator %s is connected to power.  Input disabled.
+0517:Pin <%s> in port component <%s> is pulled low.
+0518:Pin <%s> in port component <%s> is pulled high.
+0519:Mapping already has been done.
+0520:Dividing has already been done.
+#
+0521:Optimization already has been done.
+0527:*
+*      M U N C H E R    S T A R T .
+*
+0528:*
+*      M U N C H E R    E N D .
+*
+0529:*
+*      M A P P E R    S T A R T .
+*
+0530:*
+*      M A P P E R    E N D .
+*
+0531:*      D I V I D E R    S T A R T .
+0532:*      D I V I D E R    E N D .
+0533:*
+0534:Instance '%s'(component '%s') mapped in Function Block '%s'.
+0535:Instance '%s'is divided in:
+0536:		   %s
+0537:Instance '%s' is removed: fixed input '%s' causes fixed High output.
+0538:Instance '%s' is removed: fixed input '%s' causes fixed Low output.
+0539:*
+*    Removing  AND's
+*
+0540:*
+*    Removing  INV's
+*
+0541:*
+*    Propagating POWER and GROUND
+*
+0542:*
+*    Inserting NOP's
+*
+0543:Pad '%s' deregistered in device '%s'.
+0544:Output '%s' of instance '%s' deregistered in functional block '%s'.
+0545:Function block carry enabled into '%s'(note: FU8->FU7, FU7->FU6, ...FU1->FU8).
+0546:Removed output '%s' of instance '%s' because it connected to ground.
+0547:Removed output '%s' of instance '%s' because it connected to power.
+0548:Removed output '%s' of instance '%s' because it was unconnected.
+0549:Fast feedback path enabled for instance pin (%s:%s).
+0550:Fast input path enabled for instance pin (%s:%s).
+0551:Removed unused input '%s' of the following munched instance.
+0552:Using power default value, '%s' from instance '%s'.
+0553:Using power value, '%s' for all macrocells of instance '%s'.
+0554:Successful carry-out to carry-in mapping '%s' to '%s'.
+#
+# end of file
+#
+
+
+
+
+

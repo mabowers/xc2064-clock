@@ -1,0 +1,9 @@
+# DO NOT DELETE THIS FILE
+# This file is used by the Xilinx Install program to create the README
+#   file in the xact/tutorial or xact/examples directory.  
+# The README file describes all tutorial or example designs available
+#   and shows what device families and software products are demonstrated
+#   for each design.
+
+3,3a,4,4a,abl,blx,prf
+

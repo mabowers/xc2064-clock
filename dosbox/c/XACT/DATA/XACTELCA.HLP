@@ -1,0 +1,2836 @@
+.Helphelp
+
+  If you need help with a particular menu item, point to it with the
+  cursor and press the %yF1%g key; a HELP file will appear on the
+  screen.  You can scroll up or down in this file with the UP
+  arrow, DOWN arrow, PgUp, PgDn, HOME and END keys. Try it.  For
+  your convenience, a HELP file is provided for every main menu and
+  submenu item.
+ 
+  To return to the Executive Screen, type %yEXIT%g on the command
+  line or use the mouse to select %yEXIT%g from the %yMISC%g menu at
+  the top of the screen.  To "select" a menu or a menu item, point
+  to it with the cursor (a box surrounds the item) and press the
+  "SELECT" mouse button.  The default profile (included with XDE)
+  programs the left mouse button to perform the "SELECT" function.
+  You can change the function of each mouse button with the %yMOUSE%g
+  command in the %yPROFILE%g menu.
+ 
+:Net
+
+  The %yNet%g menu contains the group of commands that perform functions  
+  on nets, such as routing or coloring them.
+
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:AddNet
+
+  The %yAddNet%g command creates a new net and prompts for the pins that  
+  should be added to the net. Pins can be added by selecting them with  
+  the mouse, or by typing the pin name using the keyboard.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:NameNet
+
+  The %yNameNet%g command changes the name of an existing net to  
+  a new name which you specify.
+
+:EditNet
+
+  The %yEditNet%g command allows you to manually route nets by specifying  
+  the individual PIPs and switch matrix pins that the net should use.
+
+  EditNet will not allow nets to be shorted together, you can only
+  alter the routing for the net you are currently editing. And, if  
+  the AutoDRC option is enabled, you will be warned about illegal
+  choices as you make them.
+
+  Remember that the majority of PIPs are directional, i.e., the
+  source can only drive from a vertical to a horizontal wire (V->H),
+  or from a horizontal to a vertical wire (H->V). For novice users
+  it may be helpful to type "%yShow directional%g".  This changes the 
+  PIPs from squares into arrows which denote directionality. The
+  ">" arrows represents PIPs which drive from vertical to horizontal,  
+  (either right OR left), and the "^" arrow represents PIPs which
+  drive from horizontal to vertical (either up OR down). PIPs which
+  remain square are non-directional (ND).
+
+  Refer to the XACT Design Editor chapter in the Reference Guide or
+  the XACT Design Editor Tutorial for a more detailed description
+  of EditNet.
+
+:Route
+
+  The %yRoute%g command automatically routes all the loads on a chosen  
+  net.
+  
+:Unroute
+
+  The %yUnroute%g command removes all routing associated with the chosen net.  
+
+:DelNet
+
+  The %yDelNet%g command deletes a net and its associated routing. The  
+  functionality of your design changes, since the pins that were on  
+  the net are no longer connected.
+
+  If you want to remove routing, use %yUnroute%g, if you want to remove  
+  routing and de-configure the pins on the net, use DelNet. 
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:JoinNet
+
+  %yJoinNet%g combines two or more separate nets into one signal.  
+  The new net retains the name of the primary net.
+
+  JoinNet does not check for errors in the new net. If this  
+  net has more than one source pin, use the %yDelPin%g command 
+  to remove the extra source pins from the net.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:SplitNet
+
+  %ySplitNet%g takes pins from an existing net, and puts them on a new net.  
+
+  After using SplitNet, you must use the %yAddPin%g command to add a source
+  pin to the new net.  
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:Hilight
+  %yHilight%g lets you temporarily change the color of a net. 
+
+  Hilight has subtle differences from the %yColorNet%g command. In Hilight,  
+  the color change is temporary. If a hilighted net is changed in any
+  way, the changed portion will appear in the original net color. Also,
+  Hilight colors net stubs in addition to coloring the routing. In
+  ColorNet, the color change is permanent, and only the net routing gets  
+  colored, not the stubs.
+:Unhilight
+
+  %yUnhilight%g undoes the effects of the %yHilight%g command.  
+ 
+:FlagNet
+ %yFlagNet%g assigns special attributes to nets.  
+
+ The flags that can be assigned are as follows:
+
+        %yCritical%g - TIE cannot use this net.
+     %yNoncritical%g - TIE can use this net (default).
+       %yIgnoreSBC%g - ShowBlockConnections will not show this net.  
+     %yNoIgnoreSBC%g - ShowBlockConnections will show this net.
+
+:FlagNet-Critical
+
+  Flagging a net %yCritical%g prevents MAKEBITS -TIE from using  
+  this net.
+
+  NOTE: This Critical attribute is not related to the Automatic  
+        Placement and Routing Programs critical net flags (which  
+        dictate net routing order). To Flag a net critical for
+        APR, use the APRCST %yMarkNet -Critical%g command.
+
+:FlagNet-Noncritical
+
+  Flagging a net %yNoncritical%g specifies that MAKEBITS -TIE can  
+  use this net. This is the default value for all nets.  Only this
+  command changes a previously flagged "Critical" net to "Noncritical".
+
+:FlagNet-IgnoreSBC
+
+  The %yIgnoreSBC%g flag prevents a net from appearing in the  
+  world-view when the %yShowBlockConn%g command would normally  
+  display this net.
+
+  This is very useful when you don't want a high fan-out net
+  (a clock net or a reset signal) to appear because it would
+  clutter up the world-view.
+
+:FlagNet-NoIgnoreSBC
+
+  The %yNoIgnoreSBC%g flag undoes the effects of the  
+  IgnoreSBC command.
+
+:ColorNet
+  %yColorNet%g assigns a permanent color to a net.
+
+  ColorNet has subtle differences from the %yHilight%g command. In Hilight,  
+  the color change is temporary. If a hilighted net is changed in any
+  way, the changed portion will appear in the original net color. Also,
+  Hilight colors net stubs in addition to coloring the routing. In
+  ColorNet, the color change is permanent, and only the net routing gets  
+  colored, not the stubs.
+
+:ShowNetConn
+
+  %yShowNetConn%g draws lines from a net's source pin to all of its' load  
+  pins in the world-view.
+ 
+:UnShowNetConn
+
+  %yUnShowNetConn%g undoes the effects of %yShowNetConn%g.  
+
+:Pin
+
+  The %yPin%g menu contains the group of commands the perform functions  
+  on the individual pins of a block.
+
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:AddPin
+
+  The %yAddPin%g command can be used to add a new pin to an existing net.  
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:RoutePin
+
+  %yRoutePin%g routes selected pins.  
+
+  Choosing a load pin will cause only that load pin to be routed.  
+  Choosing the source pin will cause the entire net to be routed.
+
+:Routepoint
+
+  %yRoutepoint%g uses the autorouter to make connections between  
+  points selected with the mouse.
+
+  The points which can be selected are PIPs, switch matrices,
+  or block pins.  
+
+
+:UnroutePin
+
+  %yUnroutePin%g unroutes individual pins.
+
+  Choosing a load pin will cause only that pin to be unrouted.
+  Choosing a source pin will cause the source pin to be unrouted,  
+  but it will leave the routing between load pins.
+
+:SwapPin
+
+  %ySwapPin%g switches the nets that go to two pins, but it does NOT  
+  update the information that is inside the block.
+
+  SwapPin should be used with care since it changes the functionality   
+  of your design. This command should only be used when you are 
+  entering a design in XACT. Most people mean to use the %ySwapSig%g
+  command instead of SwapPin because SwapSig updates equations when
+  exchanging pins to make sure that the functionality stays the same.
+
+  For example,
+
+  If a CLB is configured with F=A+(B*C), and the pin assignments
+  are A:net0, B:net1, and C:net2, the equation can be stated as  
+
+                 either F=A+(B*C)
+                     or F=net0+(net1*net2).
+
+  If a %ySwapPin%g command is now performed on pins A and B, the
+  nets on pins A and B would be swapped and the equation would
+  now read
+                        F=A+(B*C)
+                     or F=net1+(net0*net2)
+
+  Use the %ySwapSig%g command instead of SwapPin to swap signals
+  between pins without changing the functionality of the design.   
+  Performing a SwapSig on pins A and B would result in
+
+                        F=B+(A*C) 
+                     or F=net0+(net1*net2).
+:MovePin
+
+  %yMovePin%g moves a net from the pin it was originally located on
+  to an unused pin. MovePin does not change equations to reflect  
+  this change. This will affect the functionality of the design.  
+
+  %yMovePin%g should only be used when you are entering a new design  
+  using XACT.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:DelPin
+
+  %yDelPin%g deletes a net from any selected pin.  
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:SwapSig
+
+  %ySwapSig%g interchanges the locations of two nets on a CLB. 
+  Although the pins are moved on the outside, the equations
+  and functionality inside the CLB stay the same.
+
+:ALignSig
+
+  %yALignSig%g performs multiple %ySwapSig%g commands for a selected net.  
+
+  For example, 
+
+         10 blocks in column D all have a net called NET1 going
+         to them. However, some of these blocks have NET1 on
+         pin A, some have it on pin B, etc. Rather than having
+         to do ten SwapSigs to line NET1 up on pin C, type:  
+
+               "alignsig NET1 <RETURN>"
+
+         XACT says "Select pin:"
+         type: "c <ENTER>"
+         XACT prompts "select blocks:"
+         type: "*D" <ENTER>" 
+
+  XACT will now swap NET1 onto pin c for every block in column D.  
+:Blk
+
+  The %yBlk%g menu contains the group of commands that perform functions  
+  on blocks, such as moving or coloring them.
+
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:NameBlk
+
+  %yNameBlk%g allows you to assign a name to an unnamed block, or  
+  change the name of an already named block. 
+
+:MoveBlk
+
+  %yMoveBlk%g moves an existing block to an empty location.  
+
+:CopyBlk
+
+  %yCopyBlk%g copies the internal configuration information from an  
+  existing block to one which is empty.  Nets are NOT copied and  
+  must be added to the new block.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:SwapBlk
+
+  %ySwapBlk%g swaps the locations of any two blocks. Blocks can be
+  chosen by typing either the block name or the block location,
+  or by using the mouse to select the block. 
+
+:SwapBlkGroup
+
+  %ySwapBlkGroup%g swaps groups of blocks. Rather than doing individual  
+  %ySwapBlks%g on each of the blocks, SwapBlkGroup allows you to select
+  all of the blocks in the first group, then all of blocks in the
+  second group. It then swaps the first block from group one with the
+  first block in group two, then the second block from group one with  
+  the second block in group two, etc.
+
+  To swap CLBs in row A with CLBs in row D (I.E AA <-> DA, AB <-> DB,
+  AC <-> DC, ...), rather than typing:
+ 
+  SwapBlk AA DA
+  SwapBlk AB DB
+  SwapBlk AC DC
+        .
+        .
+        .
+ 
+  type: SwapBlkGroup  AA AB AC ...<ENTER>
+        Swap to block:DA DB DC ...<ENTER>
+
+  And since the wildcard character (*) can be used with this command,  
+  swapping rows or columns of blocks becomes very easy. If you want to  
+  swap all of the CLBs in column C with all of the CLBs in column D,
+  type:
+
+       SwapBlkGroup *C *D <ENTER>
+ 
+:EditBlk
+  The %yEditBlk%g command takes you into the Block Editor Screen.  
+  Here blocks can be edited by choosing tags using the mouse,  
+  or by using the %yConfig%g menu.
+
+  The %ySwitch%g command will switch between the EditLCA and Block   
+  Editor screens.
+
+  Afer a switch is done, the block you see hilighted is  the 
+  current block.  It's the block you were just editing and the 
+  block you'll go back into if you do another switch.
+
+  NOTE: When in "SAFE MODE", blocks can be entered but can %ynot%g
+  be edited.
+
+:Endblk
+
+  %yEndBlk%g ends the %yEditBlk%g sequence by turning off the current
+  block.  If a %ySwitch%g is done after EndBlk, nothing will happen  
+  since there is no longer a current block to switch into.
+
+:DelBlk
+
+  %yDelBlk%g deletes the configuration and net connections of a  
+  chosen block.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:RouteBlk
+
+  %yRouteBlk%g routes all of the used pins on a block.  
+
+:UnrouteBlk
+
+  %yUnRouteBlk%g unroutes all of the routed pins on a block.
+
+:CLearBlk
+
+  %yClearBlk%g deletes configuration information from a block,  
+  but it leaves net connections.  
+  
+  Note that for the XC4000, an unused IOB is automatically
+  configured with a pullup resistor.  For the XC3000, an
+  unused IOB is configured as an input with a pullup resistor.
+  For the XC2000, an unused IOB is not configured.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:Saveblk
+
+  %ySaveblk%g saves a block's functionality and connectivity in a  
+  file. The block is then de-configured.
+
+  Blocks can be retrieved using the %yRestoreBlk%g command.   
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:Restoreblk
+
+  %yRestoreBlk%g moves the contents of a block saved with %ySaveblk%g  
+  into an empty block.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:QuerySavedBlk
+
+  %yQuerySavedBlk%g reports on all blocks that were saved using  
+  the %ySaveblk%g command.
+
+:Cmtblk
+
+ %yCmtBlk%g allows you to add comments to a block. This information  
+ appears in the comment window in the Block Editor Screen.
+
+:EditBlkCmt
+
+ %yEditBlkCmt%g allows you to edit comments already added to a block.  
+
+:COlorBlk
+
+  %yCOlorBlk%g allows you to assign a color to a block.
+
+  This is useful for distinguishing between different registers  
+  or counters, and determining where %yAPR%g placed certain sections  
+  of your logic.
+
+:ShowBlkConn
+
+  %yShowBlkConn%g draws a line from a net's source pin to all of it's  
+  load pins in the world-view.
+
+:UnShowBlkConn
+
+  %yUnShowBlkConn%g undoes the effects of %yShowBlkConn%g.  
+
+:Config
+
+  The %yConfig%g menu contains the group of commands that are used to  
+  define or edit CLBs and IOBs. 
+
+  HELP can be used on the individual commands in this menu for more  
+  information on their functionality and usage.
+
+  NOTE: The commands in this menu can %ynot%g be used when the
+        Design Editor is in "SAFE MODE".
+
+:Base
+
+  %yBase%g sets the function generator base for the chosen CLB.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:Base-F
+
+  %yF%g sets the base to one function generator of five inputs.  
+
+:Base-FG
+
+  %yFG%g sets the base to two function generators of four inputs.  
+
+:Base-FGM
+
+  %yFG%g sets the base to two function generators of four inputs,  
+  with the E pin acting as a multiplexer select to choose between  
+  the function generators.
+
+:Config-Config
+
+  %yConfig%g is used to set configuration options for tags.  
+
+  If you are in Editblk, you don't have to use the Config  
+  command, just use the mouse to click on the options you  
+  want enabled.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:Equate
+
+  %yEquate%g allows you to define an equation for a function  
+  generator.
+
+  If you are in Editblk, you don't have to use the Equate  
+  command, just type the equation and press <Enter>.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:EditEq
+
+  %yEditeq%g allows you to edit an equation for a function  
+  generator.
+
+  If you are in Editblk, you don't have to use the Editeq  
+  command: using the mouse to click on the equation will  
+  call it up on the command line where it can be edited.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:Clear
+
+  %yClear%g disables all of the options for the selected tag.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:Order
+
+  %yOrder%g changes the oder in which variables appear in  
+  Karnaugh maps.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:Cdata
+
+  %yCdata%g displays the configuration for the block currently  
+  being edited.
+
+:ConfigCarry
+
+  The %yConfigCarry%g command is used to configure the carry logic in
+  an XC4000 CLB.  If ConfigCarry is selected, all possible carry logic
+  configurations are displayed, each identified by its ConfigCarry
+  mnemonic code.  Each mnemonic represents a unique CLB function.
+
+  To determine the exact function of a ConfigCarry mnemonic, use Help
+  for the mnemonic on the ConfigCarry menu.  For each mnemonic, the
+  following information is provided:
+
+  - a brief description of the overall CLB function
+  - the default equation for the F function generator
+  - the COUT0 function performed by the F Carry Logic
+  - the default equation for the G function generator
+  - the COUT1 function performed by the G Carry Logic
+  - the default source of the F4 input (CIN or F4I)
+  - the default source of the G2 input (COUT0 or G2I)
+  - the default source of the G3 input (CIN or G3I)
+
+:Usercarry-Unused
+
+  The %yUnused%g option indicates that the CLB carry logic is
+  not used.
+
+:Usercarry-ADD-F-CI
+
+  The %yADD-F-CI%g configuration performs a 1-bit addition of A+B in the 
+  F Function Generator, with the A and B inputs on the F1 and F2 
+  pins.  The carry signal enters on the CIN pin, propagates through 
+  the F Carry Logic, and exits on the COUT pin.  This configuration 
+  can be used as the MSB of an adder, with the G Function Generator 
+  used to access the carry-out signal or calculate a twos complement 
+  overflow.
+  
+  F=(F1@F2)@F4
+  COUT0=(F1*F2) + CIN*(F1+F2)
+  G=
+  COUT1=COUT0
+  F4=CIN
+  G2=G2I (COUT0 for overflow, OFL=G2@G3, or for carry-out, CO=G2)
+  G3=G3I (CIN for overflow, OFL=G2@G3) 
+  
+:Usercarry-ADD-FG-CI
+
+  The %yADD-FG-CI%g configuration performs a 2-bit addition of A+B in 
+  both the F  and G Function Generators, with the lower-order A and 
+  B inputs on the F1 and F2 pins, and the higher-order A and B 
+  inputs on the G1 and G4 pins.  The carry signal enters on the CIN 
+  pin, propagates through the F and G Carry Logic, and exits on the 
+  COUT pin.  This configuration comprises the middle bits of an 
+  adder.
+  
+  F=(F1@F2)@F4
+  COUT0=(F1*F2) + CIN*(F1+F2)
+  G=(G4@G1)@G2
+  COUT1=(G4*G1) + COUT0*(G4+G1)
+  F4=CIN
+  G2=COUT0
+  G3=G3I
+  
+:Usercarry-ADD-G-F1
+
+  The %yADD-G-F1%g configuration performs a 1-bit addition of A+B in the 
+  G Function Generator, with the A and B inputs on the G1 and G4 
+  pins.  The carry signal enters on the F1 pin, propagates through 
+  the G Carry Logic, and exits on the COUT pin.  This configuration 
+  comprises the LSB of an adder where the carry-in signal is routed 
+  to F1.  The F Function Generator is not used.
+  
+  F=
+  COUT0=F1
+  G=(G4@G1)@G2
+  COUT1=(G4*G1) + COUT0*(G4+G1)
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-ADD-G-CI
+
+  The %yADD-G-CI%g configuration performs a 1-bit addition of A+B in the 
+  G Function Generator, with the A and B inputs on the G1 and G4 
+  pins.  The carry signal enters on the CIN pin, propagates through 
+  the G Carry Logic, and exits on the COUT pin.  This configuration 
+  is for the middle bit of an adder where the F Function Generator 
+  is reserved for another purpose. 
+  
+  F=
+  COUT0=CIN
+  G=(G4@G1)@G2
+  COUT1=(G4*G1) + COUT0*(G4+G1)
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-ADD-G-F3-
+
+  The %yADD-G-F3-%g configuration performs a 1-bit addition of A+B in 
+  the G Function Generator, with the A and B inputs on the G1 and G4 
+  pins.  The carry signal enters on the F3 pin, gets inverted by the 
+  F Carry Logic, propagates through the G Carry Logic, and exits on 
+  the COUT pin.  This configuration comprises the LSB of an adder 
+  where the inverted carry-in signal is routed to F3.  The F 
+  Function Generator is not used.
+  
+  F=
+  COUT0=~F3
+  G=(G4@G1)@G2
+  COUT1=(G4*G1) + COUT0*(G4+G1)
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-SUB-F-CI
+
+  The %ySUB-F-CI%g configuration performs a 1-bit twos complement 
+  subtraction of A-B in the F Function Generator, with the A input 
+  on F1 and the B input on F2.  The carry signal enters on the CIN 
+  pin, propagates through the F Carry Logic, and exits on the COUT 
+  pin.  This configuration can be used as the MSB of a subtractor, 
+  with the G Function Generator used to access the carry-out signal 
+  or calculate a twos complement overflow.
+  
+  F=(F1@F2)@~F4=~(F1@F2@F4)
+  COUT0=(F1*~F2) + CIN*(F1+~F2) 
+  G=
+  COUT1=COUT0
+  F4=CIN
+  G2=G2I (COUT0 for overflow, OFL=G2@G3, or for carry-out, CO=G2)
+  G3=G3I (CIN for overflow, OFL=G2@G3) 
+  
+:Usercarry-SUB-FG-CI
+
+  The %ySUB-FG-CI%g configuration performs a 2-bit twos complement 
+  subtraction of A-B in both the F and G Function Generators.  For 
+  the lower bit, the A input is on F1 and the B input is on F2.  For 
+  the upper bit, the A input is on G4 and the B input is on G1.  The 
+  carry signal enters on the CIN pin, propagates through the F and G 
+  Carry Logic, and exits on the COUT pin.  This configuration 
+  comprises the middle bits of a subtractor.
+  
+  F=(F1@F2)@~F4=~(F1@F2@F4)
+  COUT0=(F1*~F2) + CIN*(F1+~F2)
+  G=(G4@G1)@~G2=~(G4@G1@G2)
+  COUT1=(G4*~G1) +COUT0*(G4+~G1)
+  F4=CIN
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-SUB-G-1
+
+  The %ySUB-G-1%g configuration performs a 1-bit twos complement 
+  subtraction of A-B in the G Function Generator, with the A input 
+  on G4 and the B input on G1.  The carry-in is tied High (no 
+  borrow).  The carry signal propagates through the G Carry Logic, 
+  and exits on the COUT pin.  This configuration comprises the LSB 
+  of a subtractor with no carry-in.  The F Function Generator is not 
+  used.
+  
+  F=
+  COUT0=1
+  G=(G4@G1)
+  COUT1=(G4+~G1)
+  F4=F4I
+  G2=G2I 
+  G3=G3I 
+  
+:Usercarry-SUB-G-F1
+
+  The %ySUB-G-F1%g configuration performs a 1-bit twos complement 
+  subtraction of A-B in the G Function Generator, with the A input 
+  on G4 and the B input on G1.  The carry signal enters on the F1 
+  pin, propagates through the G Carry Logic, and exits on the COUT 
+  pin.  This configuration comprises the LSB of a subtractor where 
+  the carry-in signal is routed to F1.  The F Function Generator is 
+  not used.
+  
+  F=
+  COUT0=F1
+  G=(G4@G1)@~G2=~(G4@G1@G2)
+  COUT1=(G4*~G1) + COUT0*(G4+~G1)
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-SUB-G-CI
+
+  The %ySUB-G-CI%g configuration performs a 1-bit twos complement 
+  subtraction of A-B in the G Function Generator, with the A input 
+  on G4 and the B input on G1.  The carry signal enters on the CIN 
+  pin, propagates through the G Carry Logic, and exits on the COUT 
+  pin.  This configuration is for the middle bit of a subtractor 
+  where the F Function Generator is reserved for another purpose. 
+  
+  F=
+  COUT0=CIN
+  G=(G4@G1)@~G2=~(G4@G1@G2)
+  COUT1=(G4*~G1) + COUT0*(G4+~G1)
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-SUB-G-F3-
+
+  The %ySUB-G-F3-%g configuration performs a 1-bit twos complement 
+  subtraction of A-B in the G Function Generator, with the A input 
+  on G4 and the B input on G1.  The carry signal enters on the F3 
+  pin, gets inverted by the F Carry Logic, propagates through the G 
+  Carry Logic, and exits on the COUT pin.  This configuration 
+  comprises the LSB of a subtractor where the inverted carry-in 
+  signal is routed to F3.  The F Function Generator is not used.
+  
+  F=
+  COUT0=~F3
+  G=(G4@G1)@~G2=~(G4@G1@G2)
+  COUT1=(G4*~G1) + COUT0*(G4+~G1)
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-ADDSUB-F-CI
+
+  The %yADDSUB-F-CI%g configuration performs a 1-bit twos complement 
+  add/subtract of AqB in the F Function Generator, with the A input 
+  on F1 and the B input on F2.  The carry signal enters on the CIN 
+  pin, propagates through the F Carry Logic, and exits on the COUT 
+  pin.  The F3 input indicates Add (F3=1) or Subtract (F3=0).  This 
+  configuration can be used as the MSB of an adder/subtractor, with 
+  the G Function Generator used to access the carry-out signal or 
+  calculate a twos complement overflow.
+  
+  F=(F1@F2)@F4@~F3=~(F1@F2@F4@F3)
+  COUT0=F3*((F1*F2) + CIN*(F1+F2)) + ~F3*((F1*~F2) + CIN*(F1+~F2))
+  G=
+  COUT1=COUT0
+  F4=CIN
+  G2=G2I (COUT0 for overflow, OFL=G2@G3, or for carry-out, CO=G2)
+  G3=G3I (CIN for overflow, OFL=G2@G3) 
+  
+:Usercarry-ADDSUB-FG-CI
+
+  The %yADDSUB-FG-CI%g configuration performs a 2-bit twos complement 
+  add/subtract of AqB in both the F and G Function Generators.  For 
+  the lower bit, the A input is on F1 and the B input is on F2.  For 
+  the upper bit, the A input is on G4 and the B input is on G1.  The 
+  carry signal enters on the CIN pin, propagates through the F and G 
+  Carry Logic, and exits on the COUT pin.  The F3 and G3 inputs 
+  indicate Add (F3=G3=1) or Subtract (F3=G3=0):  the Add/Subtract 
+  control signal must be routed to both the F3 and G3 pins.  This 
+  configuration comprises the middle bits of an adder/subtractor.
+  
+  F=(F1@F2)@F4@~F3=~(F1@F2@F4@F3)
+  COUT0=F3*((F1*F2)+CIN*(F1+F2))+~F3*((F1*~F2)+CIN*(F1+~F2))
+  G=(G4@G1)@G2@~G3=~(G4@G1@G2@G3)
+  COUT1=F3*((G4*G1)+COUT0*(G4+G1))+~F3*((G4*~G1)+COUT0*(G4+~G1))
+  F4=CIN
+  G2=COUT0
+  G3=G3I
+  
+:Usercarry-ADDSUB-G-F1
+
+  The %yADDSUB-G-F1%g configuration performs a 1-bit twos complement 
+  add/subtract of AqB in the G Function Generator, with the A input 
+  on G4 and the B input on G1.  The carry signal enters on the F1 
+  pin, propagates through the G Carry Logic, and exits on the COUT 
+  pin.  The F3 and G3 inputs indicate Add (F3=G3=1) or Subtract 
+  (F3=G3=0):  the Add/Subtract control signal must be routed to both 
+  the F3 and G3 pins.  This configuration comprises the LSB of an 
+  adder/subtractor where the carry-in signal is routed to F1.  The F 
+  Function Generator is not used.
+  
+  F=
+  COUT0=F1
+  G=(G4@G1)@G2@~G3=~(G4@G1@G2@G3)
+  COUT1=F3*((G4*G1)+COUT0*(G4+G1))+~F3*((G4*~G1)+COUT0*(G4+~G1))
+  F4=F4I 
+  G2=COUT0
+  G3=G3I
+  
+:Usercarry-ADDSUB-G-CI
+
+  The %yADDSUB-G-CI%g configuration performs a 1-bit twos complement 
+  add/subtract of AqB in the G Function Generator, with the A input 
+  on G4 and the B input on G1.  The carry signal enters on the CIN 
+  pin, propagates through the G Carry Logic, and exits on the COUT 
+  pin.  The F3 and G3 inputs indicate Add (F3=G3=1) or Subtract 
+  (F3=G3=0):  the Add/Subtract control signal must be routed to both 
+  the F3 and G3 pins.  This configuration is for the middle bit of 
+  an adder/subtractor where the F Function Generator is reserved for 
+  another purpose. 
+  
+  F=
+  COUT0=CIN
+  G=(G4@G1)@G2@~G3=~(G4@G1@G2@G3)
+  COUT1=F3*((G4*G1)+COUT0*(G4+G1))+~F3*((G4*~G1)+COUT0*(G4+~G1))
+  F4=F4I 
+  G2=COUT0
+  G3=G3I
+  
+:Usercarry-ADDSUB-G-F3-
+
+  The %yADDSUB-G-F3-%g configuration performs a 1-bit twos complement 
+  add/subtract of AqB in the G Function Generator, with the A input 
+  on G4 and the B input on G1.  The carry signal enters on the F3 
+  pin, gets inverted by the F Carry Logic, propagates through the G 
+  Carry Logic, and exits on the COUT pin.  Because the F3 input also 
+  indicates Add (F3=1) or Subtract (F3=0), the carry-in is always 
+  null (0 for add, 1 for subtract).  This configuration comprises 
+  the LSB of an adder/subtractor with no carry-in.  The F Function 
+  Generator is not used.
+  
+  F=
+  COUT0=~F3
+  G=(G4@G1)
+  COUT1=F3*G4*G1 + ~F3(G4+~G1) 
+  F4=F4I 
+  G2=COUT0
+  G3=G3I
+  
+:Usercarry-INC-F-CI
+
+  The %yINC-F-CI%g configuration performs a 1-bit increment in the F 
+  Function Generator, with the input on the F1 pin.  The carry 
+  signal enters on the CIN pin, propagates through the F Carry 
+  Logic, and exits on the COUT pin.  The G Function Generator may be 
+  used to output the Terminal Count of  a counter.
+  
+  F=(F1@F4)
+  COUT0=CIN*F1
+  G=
+  COUT1=COUT0
+  F4=CIN
+  G2=G2I (COUT0 for terminal count, TC=G2)
+  G3=G31
+  
+:Usercarry-INC-FG-CI
+
+  The %yINC-FG-CI%g configuration performs a 2-bit increment in both the 
+  F and G Function Generators, with the lower-order input on the F1 
+  pin, and the higher-order input on the G4 pin.  The carry signal 
+  enters on the CIN pin, propagates through the F and G Carry Logic, 
+  and exits on the COUT pin.  This configuration comprises the 
+  middle bits of an incrementer.
+  
+  F=(F1@F4)
+  COUT0=CIN*F1
+  G=(G4@G2)
+  COUT1=COUT0*G4
+  F4=CIN
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-INC-G-1
+
+  The %yINC-G-1%g configuration performs a 1-bit increment in the G 
+  Function Generator, with the input on the G4 pin.  The carry-in is 
+  tied High.  The carry signal propagates through the G Carry Logic, 
+  and exits on the COUT pin.  This configuration comprises the LSB 
+  of an incrementer that is always enabled.  The F Function 
+  Generator is not used.  This configuration is identical to DEC-G-0 
+  since the LSB of an incrementer is identical to the LSB of a 
+  decrementer. 
+  
+  F=
+  COUT0=0
+  G=~(G4)
+  COUT1=G4
+  F4=F4I 
+  G2=G2I 
+  G3=G3I 
+  
+:Usercarry-INC-G-F1
+
+  The %yINC-G-F1%g configuration performs a 1-bit increment in the G 
+  Function Generator, with the input on the G4 pin.  The carry 
+  signal enters on the F1 pin, propagates through the G Carry Logic, 
+  and exits on the COUT pin.  This configuration comprises the LSB 
+  of an incrementer where F1 is an active High enable.  The F 
+  Function Generator is not used.  
+  
+  F=
+  COUT0=F1
+  G=(G4@G2)
+  COUT1=COUT0*G4
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-INC-G-CI
+
+  The %yINC-G-CI%g configuration performs a 1-bit increment in the G 
+  Function Generator, with the input on the G4 pin.  The carry 
+  signal enters on the CIN pin, propagates through the G Carry 
+  Logic, and exits on the COUT pin.  This configuration is for the 
+  middle bit of an incrementer where the F Function Generator is 
+  reserved for another purpose. 
+  
+  F=
+  COUT0=CIN
+  G=(G4@G2)
+  COUT1=COUT0*G4
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-INC-G-F3-
+
+  The %yINC-G-F3-%g configuration performs a 1-bit increment in the G 
+  Function Generator, with the input on the G4 pin.  The carry 
+  signal enters on the F3 pin, gets inverted in the F Carry Logic, 
+  propagates through the G Carry Logic, and exits on the COUT pin.  
+  This configuration comprises the LSB of an incrementer where F3 is 
+  an active Low enable.  The F Function Generator is not used.  
+  
+  F=
+  COUT0=~F3
+  G=(G4@G2)
+  COUT1=COUT0*G4=~F3*G4
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-INC-FG-1
+
+  The %yINC-FG-1%g configuration performs a 2-bit increment in both the 
+  F and G Function Generator, with the lower-order A input on the F1 
+  pin, and the higher-order A input on the G4 pin.  The carry-in is 
+  tied High.  The carry signal propagates through the F and G Carry 
+  Logic, and exits on the COUT pin.  This configuration comprises 
+  the two least significant bits of an incrementer which is always 
+  enabled.
+  
+  F=~(F1)
+  COUT0=F1
+  G=G2@G4
+  COUT1=COUT0*G4
+  F4=F4I or CIN
+  G2=COUT0
+  G3=G3I or CIN
+  
+:Usercarry-DEC-F-CI
+
+  The %yDEC-F-CI%g configuration performs a 1-bit decrement in the F 
+  Function Generator, with the input on the F1 pin.  The carry 
+  signal enters on the CIN pin, propagates through the F Carry 
+  Logic, and exits on the COUT pin.  The G Function Generator may be 
+  used to output the Terminal Count of  a counter.
+  
+  F=~(F1@F4)
+  COUT0=F1+CIN*~F1
+  G=
+  COUT1=COUT0
+  F4=CIN
+  G2=G2I (COUT0 for terminal count, TC=G2)
+  G3=G31
+  
+:Usercarry-DEC-FG-CI
+
+  The %yDEC-FG-CI%g configuration performs a 2-bit decrement in both the 
+  F and G Function Generators, with the lower-order input on the F1 
+  pin, and the higher-order input on the G4 pin.  The carry signal 
+  enters on the CIN pin, propagates through the F and G Carry Logic, 
+  and exits on the COUT pin.  This configuration comprises the 
+  middle bits of a decrementer.
+  
+  F=~(F1@F4)
+  COUT0=F1+CIN*~F1
+  G=~(G4@G2)
+  COUT1=G4+COUT0*~G4
+  F4=CIN
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-DEC-G-0
+
+  The %yDEC-G-0%g configuration performs a 1-bit decrement in the G 
+  Function Generator, with the input on the G4 pin.  The carry-in is 
+  tied High (no borrow).  The carry signal propagates through the G 
+  Carry Logic, and exits on the COUT pin.  This configuration 
+  comprises the LSB of a decrementer that is always enabled.  The F 
+  Function Generator is not used.  This configuration is identical 
+  to INC-G-1 since the LSB of an incrementer is identical to the LSB 
+  of a decrementer. 
+  
+  F=
+  COUT0=0
+  G=~(G4)
+  COUT1=G4
+  F4=F4I 
+  G2=G2I 
+  G3=G3I 
+  
+:Usercarry-DEC-G-F1
+
+  The %yDEC-G-F1%g configuration performs a 1-bit decrement in the G 
+  Function Generator, with the input on the G4 pin.  The carry 
+  signal enters on the F1 pin, propagates through the G Carry Logic, 
+  and exits on the COUT pin.  This configuration comprises the LSB 
+  of a decrementer where F1 is an active Low enable.  The F 
+  Function Generator is not used.
+  
+  F=
+  COUT0=F1
+  G=~(G4@G2)
+  COUT1=COUT0 + G4 
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-DEC-G-CI
+
+  The %yDEC-G-CI%g configuration performs a 1-bit decrement in the G 
+  Function Generator, with the input on the G4 pin.  The carry 
+  signal enters on the CIN pin, propagates through the G Carry 
+  Logic, and exits on the COUT pin.  This configuration is for the 
+  middle bit of a decrementer where the F Function Generator is 
+  reserved for another purpose. 
+  
+  F=
+  COUT0=CIN
+  G=~(G4@G2)
+  COUT1=G4+COUT0*~G4
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-DEC-G-F3-
+
+  The %yDEC-G-F3-%g configuration performs a 1-bit decrement in the G 
+  Function Generator, with the input on the G4 pin.  The carry 
+  signal enters on the F3 pin, gets inverted in the F Carry Logic, 
+  propagates through the G Carry Logic, and exits on the COUT pin.  
+  This configuration comprises the LSB of a decrementer where F3 is 
+  an active High enable.  The F Function Generator is not used. 
+  
+  F=
+  COUT0=~F3
+  G=~(G4@G2)
+  COUT1=COUT0 + G4
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-DEC-FG-0
+
+  The %yDEC-FG-0%g configuration performs a 2-bit decrement in both the 
+  F and G Function Generator, with the lower-order input on the F1 
+  pin and the higher order input on the G4 pin.  The carry-in is 
+  tied Low.  The carry signal propagates through the F and G Carry 
+  Logic, and exits on the COUT pin.  This configuration comprises 
+  the two least significant bits of a decrementer which is always 
+  enabled.
+
+  F=~(F1)
+  COUT0=F1
+  G=~(G4@G2)
+  COUT=COUT1=(COUT0*~G4) + G4
+  F4=F4I
+  G2=COUT0
+  G3=G3I
+
+:Usercarry-INCDEC-F-CI
+
+  The %yINCDEC-F-CI%g configuration performs a 1-bit increment/decrement 
+  in the F Function Generator, with the input on the F1 pin.  The 
+  carry signal enters on the CIN pin, propagates through the F Carry 
+  Logic, and exits on the COUT pin.  The F3 input indicates 
+  Increment (F3=1) or Decrement (F3=0).  The G Function Generator 
+  may be used to output the Terminal Count of  a counter.
+  
+  F=(F1@F4)@~F3
+  COUT0=~F3*(F1+ CIN) + F3*F1*CIN
+  G=
+  COUT1=COUT0
+  F4=CIN
+  G2=G2I (COUT0 for terminal count, TC=G2)
+  G3=G31
+  
+:Usercarry-INCDEC-FG-CI
+
+  The %yINCDEC-FG-CI%g configuration performs a 2-bit 
+  increment/decrement in both the F and G Function Generators, with 
+  the lower-order input on the F1 pin, and the higher-order input on 
+  the G4 pin.  The carry signal enters on the CIN pin, propagates 
+  through the F and G Carry Logic, and exits on the COUT pin.  The 
+  F3 and G3 inputs indicate Increment (F3=G3=1) or Decrement 
+  (F3=G3=0):  the Increment/Decrement control signal must be routed 
+  to both the F3 and G3 pins.  This configuration comprises the 
+  middle bits of an incrementer/decrementer.
+  
+  F=(F1@F4)@~F3
+  COUT0=~F3*(F1+ CIN) + F3*F1*CIN
+  G=(G4@G2)@~G3
+  COUT1=~F3*(G4+ COUT0) + F3*G4*COUT0 
+  F4=CIN
+  G2=COUT0
+  G3=G3I
+  
+:Usercarry-INCDEC-G-0
+
+  The %yINCDEC-G-0%g configuration performs a 1-bit increment/decrement 
+  in the G Function Generator, with the input on the G4 pin.  The 
+  carry-in is tied High.  The carry signal propagates through the G 
+  Carry Logic, and exits on the COUT pin.  This configuration 
+  comprises the LSB of an incrementer/decrementer that is always 
+  enabled.  The F Function Generator is not used.  F3 is not 
+  required for Increment/Decrement control, since the LSB of an 
+  incrementer is identical to the LSB of a decrementer:  this 
+  configuration is identical to INC-G-1 and DEC-G-0. 
+  
+  F=
+  COUT0=0
+  G=~(G4)
+  COUT1=G4
+  F4=F4I 
+  G2=G2I 
+  G3=G3I 
+  
+:Usercarry-INCDEC-G-F1
+
+  The %yINCDEC-G-F1%g configuration performs a 1-bit increment/decrement 
+  in the G Function Generator, with the input on the G4 pin.  The 
+  carry signal enters on the F1 pin, propagates through the G Carry 
+  Logic, and exits on the COUT pin.  This configuration comprises 
+  the LSB of an incrementer/decrementer where the carry-in signal is 
+  routed to F1.  The carry-in is active High for an increment 
+  operation and active Low for a decrement operation.  The F 
+  Function Generator is not used.  The F3 and G3 inputs indicate 
+  Increment (F3=G3=1) or Decrement (F3=G3=0):  the 
+  Increment/Decrement control signal must be routed to both the F3 
+  and G3 pins.   
+  
+  F=
+  COUT0=F1
+  G=(G4@G2)@~G3
+  COUT1=F3*(G4*COUT0) + ~F3*(G4+COUT0)
+  F4=F4I 
+  G2=COUT0
+  G3=G3I 
+  
+:Usercarry-INCDEC-G-CI
+
+  The %yINCDEC-G-CI%g configuration performs a 1-bit increment/decrement 
+  in the G Function Generator, with the input on the G4 pin.  The 
+  carry signal enters on the CIN pin, propagates through the G Carry 
+  Logic, and exits on the COUT pin.  The F3 and G3 inputs indicate 
+  Increment (F3=G3=1) or Decrement (F3=G3=0):  the 
+  Increment/Decrement control signal must be routed to both the F3 
+  and G3 pins.  This configuration is for the middle bit of an 
+  incrementer/decrementer where the F Function Generator is reserved 
+  for another purpose (although the F3 pin is used by the carry 
+  logic). 
+  
+  F=
+  COUT0=CIN
+  G=(G4@G2)@~G3
+  COUT1=~F3*(G4+ COUT0) + F3*G4*COUT0 
+  F4=F4I 
+  G2=COUT0
+  G3=G3I
+  
+:Usercarry-INCDEC-FG-1
+
+  The %yINCDEC-FG-1%g configuration performs a 2-bit increment/decrement 
+  in both the F and G Function Generator, with the lower order input 
+  on the F1 pin and the higher order input on the G4 pin.  The F3 
+  and G3 inputs indicate Increment (F3=G3=1) or Decrement (F3=G3=0):  
+  the Increment/Decrement control signal must be routed to both the 
+  F3 and G3 pins.  The carry-in is always active (High in Increment 
+  mode and Low in Decrement mode).  The carry signal propagates 
+  through the F and G Carry Logic, and exits on the COUT pin.  This 
+  configuration comprises the two least significant bits of an 
+  incrementer/decrementer which is always enabled.
+
+  F=~(F1)
+  COUT0=F1
+  G=(G2@G4)@~G3
+  COUT=COUT1=~F3*((COUT0*~G4)+G4) + F3*(G4*COUT0)
+  F4=F4I
+  G2=COUT0
+  G3=G3I
+  
+:Usercarry-FORCE-0
+
+  The %yFORCE-0%g configuration forces the carry-out signal on the COUT 
+  pin to be 0.
+  
+  COUT0=0
+  COUT1=0
+  
+:Usercarry-FORCE-1
+
+  The %yFORCE-1%g configuration forces the carry-out signal on the COUT 
+  pin to be 1.
+  
+  COUT0=1
+  COUT1=1
+  
+:Usercarry-FORCE-F1
+
+  The %yFORCE-F1%g configuration forces the signal on the F1 pin to pass 
+  through to the COUT pin.
+  
+  COUT0=F1
+  COUT1=COUT0=F1
+  
+:Usercarry-FORCE-CI
+
+  The %yFORCE-CI%g configuration forces the signal on the CIN pin to 
+  pass through to the COUT pin.
+  
+  COUT0=CIN
+  COUT1=COUT0=CIN
+  
+:Usercarry-FORCE-F3-
+
+  The %yFORCE-F3-%g configuration forces the signal on the F3 pin to 
+  pass inverted to the COUT pin.
+  
+  COUT0=~F3
+  COUT1=COUT0=~F3
+  
+:Usercarry-EXAMINE-CI
+
+  The %yEXAMINE-CI%g configuration allows the carry signal on the CIN 
+  pin to be used in the F or G function generators.  This 
+  configuration forces the signal on the CIN pin to pass through to 
+  the COUT pin, and is equivalent to the FORCE-CI configuration.  
+  EXAMINE-CI is provided for CLBs in which the Carry Logic is 
+  unused, but the CIN signal is required.
+  
+  COUT0=CIN
+  COUT1=COUT0=CIN
+  
+:SetMemory
+
+  The %ySetMemory%g command is used to set initial values in ROMs.  
+
+:Screen
+
+  The %yScreen%g menu contains the group of commands that affect how  
+  information is displayed on the screen.
+
+  HELP can be used on the individual commands in this menu for more  
+  information on their functionality and usage.
+
+:Show
+
+  The %yShow%g command allows you to change the display options.  
+
+  Items in the Show menu that are a solid color are the items that
+  are currently being displayed.
+   
+  HELP can be used on the individual commands in this menu for more  
+  information on their functionality and usage.
+
+:Show-Pips
+
+  Selecting %yPips%g will display the Programmable Interconnection  
+  Points (PIPs), the switch matrices, and the fixed wire segments
+  that connect to CLB and IOB pins.
+
+  %yRouted%g or %yRoutedUsed%g must be enabled for this command to  
+  have any effect.
+
+:Show-NoPips
+
+  Selecting %yNoPips%g will display only blocks (CLBs, IOBs, and TBUFs)  
+  and routed nets.
+
+  %yRouted%g or %yRoutedUsed%g must be enabled for this command to  
+  have any effect.
+
+:Show-World
+
+  Selecting %yWorld%g will always display the world-view in the   
+  lower right corner of the screen.
+
+:Show-NoWorld
+
+  Selecting %yNoWorld%g will display the world-view only when the mouse  
+  is used to pan around. 
+
+:Show-NeverWorld
+
+  Selecting %yNeverWorld%g will cause the world-view to never be displayed.  
+
+:Show-Routed
+
+  Selecting %yRouted%g will display only routed nets.  
+
+:Show-RoutedUsed
+
+  Selecting %yRoutedUsed%g will display routed nets and all of the  
+  interconnect segments that they use.
+
+:Show-Available
+
+  Selecting %yAvailable%g will display only the unused interconnect.  
+
+:Show-Bidis
+
+  Selecting %yBidis%g will highlight the bi-directional buffers.  
+
+  The highlight color can be changed by using the %yBidicolor%g option  
+  of the %yPieColors%g command.
+ 
+  The %yBidis%g option will have no effect unless the %yPips%g option  
+  is also selected.
+
+:Show-NoBidis
+
+  Selecting %yNoBidis%g will display the bi-directional buffers  
+  in the same color as the Pips.
+
+:Show-Splitters
+
+  Selecting %ySplitters%g will highlight the longline splitter pips.  
+
+  The highlight color can be changed by using the %ySplittercolor%g
+  option of the %yPieColors%g command.
+ 
+  The %ySplitters%g option will have no effect unless the %yPips%g option  
+  is also selected.
+
+:Show-NoSplitters
+
+  Selecting %yNoSplitters%g will display the longline splitters  
+  in the same color as the Pips.
+
+:Show-Matrix
+
+  Selecting %yMatrix%g will highlight switch matrix pins. When a
+  switch matrix pin is selected (in EditNet), the valid connections  
+  will be highlighted.
+
+  The matrix color can be changed by using the %yMatrixcolor%g option  
+  of the %yPieColors%g command.
+
+  The %yMatrix%g option will have no effect unless the %yPips%g option  
+  is also selected.
+
+:Show-NoMatrix
+
+  If %yNoMatrix%g is selected, the matrix pins will not be highlighted.  
+   
+:Show-Pipconnections
+
+  Selecting %yPipconnections%g will highlight certain pips. When the
+  cursor is placed on top of a pip (in EditNet), the valid connections
+  will be highlighted.
+  
+:Show-NoPipconnections
+
+  If %yNoPipconnections%g is selected, pips will not be highlighted.  
+
+:Show-Directional
+
+  Selecting %yDirectional%g changes the Pips from squares to arrows  
+  which denote directionality. The ">" arrows represents PIPs which  
+  drive from vertical to horizontal, (either right OR left),
+  and the "^" arrow represents PIPs which drive from horizontal to
+  vertical (either up OR down). PIPs which remain square are
+  non-directional (ND), and can drive from any direction.
+
+  The Directional option will have no effect unless the %yPips%g  
+  option is also selected.
+
+:Show-NoDirectional
+
+  Selecting %yNoDirectional%g displays all Pips as square, regardless  
+  of their directionality.
+
+  The %yNoDirectional%g option will have no effect unless the %yPips%g  
+  option is also selected.
+
+:Show-Buffers
+:Show-NoBuffers
+:Show-Ratsnest
+
+  Selecting %yRatsnest%g enables the ratsnest feature of %yEditNet%g.  
+  While editing a net, a red line will be drawn from the last PIP  
+  selected to every unrouted load pin on the net.
+
+:Show-NoRatsnest
+
+  Selecting %yNoRatsnest%g disable the ratsnest option of %yEditNet%g.  
+
+:Show-Locked
+
+  Selecting %yLocked%g will draw a thick border around any block that  
+  was locked in a constraint file.
+
+  A constraint file can be read into XACT by using the %yReadSCP%g or
+  the %yReadCST%g command. 
+
+:Show-NoLocked
+
+  If %yNoLocked%g is selected, locked blocks will not be displayed.  
+
+:Show-Prohibited
+
+  Selecting %yProhibited%g will draw an "X" through any block that was  
+  prohibited in a constraint file.
+
+  A constraint file can be read into XACT by using the %yReadSCP%g or
+  the %yReadCST%g command.
+
+:Show-NoProhibited
+
+  If %yNoProhibited%g is selected, prohibited blocks will not be displayed.  
+
+:Show-XSmall
+
+  Selecting %yXSmall%g will change the viewing scale to the extra-small  
+  magnification level.
+
+:Show-Small
+
+  Selecting %ySmall%g will change the viewing scale to the small  
+  magnification level.
+
+:Show-Medium
+
+  Selecting %yMedium%g will change the viewing scale to the medium  
+  magnification level.
+
+:Show-Large
+
+  Selecting %yLarge%g will change the viewing scale to the large  
+  magnification level.
+
+:Show-XLarge
+
+  Selecting %yXLarge%g will change the viewing scale to the extra large  
+  magnification level.
+
+:Show-In
+
+  Selecting %yIn%g will zoom in one level of magnification.  
+
+:Show-Out
+
+  Selecting %yOut%g will zoom out one level of magnification.  
+
+:Snap
+
+  %ySnap%g makes the cursor jump to the closest pin or PIP.  
+
+  Just put the cursor near the point to be selected, and it will 
+  automatically snap onto it.
+
+  This command is useful when working at a low magnification level.     
+
+:Snap-Off
+
+  Choosing %yOff%g disables the %ySnap%g command.
+
+:Snap-Pip
+
+  Choosing %yPip%g causes the cursor to jump to the closest PIP  
+  after you've stopped moving the mouse.
+
+:Snap-Pin
+
+  Choosing %yPin%g causes the cursor to jump to the closest pin  
+  after you've stopped moving the mouse.
+
+:Snap-Pinorpip
+
+  Choosing %yPinorpip%g causes the cursor to jump to the closest  
+  pin or PIP after you've stopped moving the mouse.
+ 
+:Snap-Grid
+
+  Choosing %yGrid%g causes the cursor to jump to the closest  
+  LCA grid point after you've stopped moving the mouse.
+ 
+:Cursor
+
+  The %yCursor%g command allows you to change the shape of the cursor.  
+
+  The available cursor types are %yarrow%g, %ybug%g, %ycross%g and %ygunsight%g.
+
+:Cursor-Arrow
+
+  Selecting %yArrow%g sets the cursor to a small pointy arrow.
+
+:Cursor-Bug
+
+  Selecting %yBug%g sets the cursor to a thing that looks like
+  an "+" superimposed on a "o", but bigger.  
+  
+  %rA Warning from the Surgeon General:%g
+  
+  %rWriting help for long periods can turn your brain into glop.%g  
+
+:Cursor-Cross
+
+  Selecting %yCross%g sets the cursor to a small crosshair
+
+:Cursor-Gunsight
+
+  Selecting %yGunsight%g sets the cursor to a large crosshair
+
+:Print
+
+  The %yPrint%g command allows you to print all or part of the EditLca  
+  display screen. Before using this command you must use the %yPrinter%g  
+  command to select the correct printer. If your printer doesn't 
+  appear, refer to the XACT Design Editor chapter in the Reference Guide,
+  which describes how to add a printer to the PRINTCAP.XCT file.
+
+  The options for the print command are:
+
+        %yDisplay%g - Print the displayed portion of the LCA. 
+        %yScreen%g  - Print the entire screen, including menus.
+        %yWorld%g   - Print the entire LCA.
+        %yDesign%g  - Print the display into a metafile format.
+                      This is for use with plotters. If you have 
+                      a Hewlett-Packard plotter or support
+                      PostScript, use the %yDraw%g command.
+        %yBlock%g   - Print the Block Editor display for a block.  
+:Print-Display
+
+  %yDisplay%g prints the part of the LCA screen that currently  
+  appears on the monitor. Menus are NOT printed.
+
+:Print-Screen
+
+  %yScreen%g prints exactly what is shown on the monitor,  
+  including menus and the status lines.
+
+:Print-World
+
+  %yWorld%g prints the entire LCA.
+
+:Print-Design
+
+  %yDesign%g prints the display into the XILINX Metafile format.  
+  This is mainly for use with plotters. Consult the XACT Design
+  Editor chapter in the Reference Guide for information on plotter
+  drivers.
+
+  If you have a Hewlett-Packard plotter or support PostScript,
+  use the %yDraw%g command.
+
+:Draw
+
+  The %yDraw%g command is used to output the %yWorld%g (entire LCA)  
+  or the %yBlock Editor Display%g in formats not supported by the  
+  %yPrint%g command.
+
+:Draw-PostScript
+
+  Choosing %yPostScript%g creates a PostScript-format file.
+
+:Draw-HPPlot_BW
+
+  Choosing %yHPPlot_BW%g creates a file suitable for a Hewlett-  
+  Packard single-color plotter.
+
+:Draw-HPPlot_Color
+
+  Choosing %yHPPlot_Color%g creates a file suitable for a
+  Hewlett-Packard multi-color plotter.
+
+:Draw-PMF
+
+  Choosing %yPMF%g creates a file that uses the XILINX metafile  
+  format. For information on the metafile format, refer to the
+  XACT Design Editor chapter in the Reference Guide.
+
+:Print-Block
+
+  %yBlock%g prints out the Block Editor display for a chosen block.  
+
+:Redraw
+
+  %yRedraw%g redraws the entire screen.  
+ 
+:Find
+
+  %yFind%g moves the cursor to the specified location.  
+
+  You can search for logical names or physical locations.
+  For instance, if a signal called INPUT4 comes in on
+  pin P14, typing "FIND INPUT4" or "FIND P14" would put
+  the cursor on the same spot.
+
+:Findnet
+
+  %yFindnet%g allows you to use wildcards when looking for a net.
+
+  If you have a net called %ymux1%g on your schematic, it will most  
+  likely get aliased by the translation software and end up 
+  being called something like %y$23-mux1%g inside of XDE. Rather 
+  than having to dig through report files to find the exact name
+  of the net, type
+
+                 %yFindnet *mux1%g
+
+  and the cursor will jump to the net.
+
+:Findblk
+
+  %yFindblk%g allows you to use wildcards when looking for a block.
+
+:Findpin
+
+  %yFindpin%g allows you to use wildcards when looking for a pin.
+
+:QueryGrid
+
+  %yQueryGrid%g displays the coordinates of the cursor.
+
+:StatusLine
+
+  The %yStatusline%g command has two options, Long and Short.  
+ 
+  %yShort%g displays information about the interconnect when the 
+  cursor is parked on a magic box, block pin, or pip.
+
+  %yLong%g adds the name of the net over which the cursor is
+  parked, if there is one.
+
+  The Short option is the default, and permits faster cursor motion.
+
+:StatusLine-Long
+
+  StatusLine %yLong%g displays cursor status information when  
+  the cursor is placed on a pin or a PIP.
+
+:StatusLine-Short
+
+  StatusLine %yShort%g displays information only when the cursor  
+  is put on a pin.
+
+:PieColors
+
+  The %yPieColors%g command allows you to assign different colors
+  to any item you see in the EditLca Screen.  The names of the
+  menu items are displayed in the color which has been assigned
+  to each item.
+
+  HELP can be used on the individual commands in this menu for more  
+  information on their functionality and usage.
+
+:PieColors-Reset
+
+  %yReset%g resets the colors in the EditLca Screen back to their  
+  default values.
+
+:PieColors-Availablecolor
+
+  %yAvailablecolor%g is the color of the unused interconnect for  
+  the %yShow Available%g command.
+
+:PieColors-Routedusedcolor
+
+  %yRoutedusedcolor%g is the color of the used stubs for the
+  %yShow Routedused%g command.
+
+:PieColors-Fixedcolor
+
+  %yFixedcolor%g is the color of the fixed interconnect, the  
+  non-programmable interconnect attached to block pins.  
+
+:PieColors-Ppipcolor
+
+  %yPpipcolor%g is the color of programmed (used) PIPs.  
+
+:PieColors-Bidicolor
+
+  %yBidicolor%g is the color of the bi-directional buffers.  
+
+:PieColors-Splittercolor
+
+  %ySplittercolor%g is the color of the "splitter" pips which 
+  divide certain of the long line segments in half.
+
+:PieColors-Defaultnetcolor
+
+  %yDefaultnetcolor%g is the color of any new net created with  
+  the addnet command. If a net already exists, Defaultnetcolor  
+  won't change its color. Use the %yColorNet%g command to change  
+  the color of an existing net.
+
+:PieColors-Uppipcolor
+
+  %yUppipcolor%g is the color of the unprogrammed (unused) PIPs.  
+
+:PieColors-Unusedblockcolor
+
+  %yUnusedblockcolor%g is the color of unused blocks.  
+
+:PieColors-Usedblockcolor
+
+  %yUsedblockcolor%g is the color of used blocks.  
+
+:PieColors-Matrixcolor
+
+  %yMatrixcolor%g is the color of the matrix hilighting that  
+  appears when %yShow matrix%g is chosen.
+
+:PieColors-Pipconnectionscolor
+
+  %yPipconnectionscolor%g is the color of the pip highlighting which  
+  appears when %yShow Pipconnections%g is chosen.
+
+:PieColors-Magicboxcolor
+
+  %yMagicboxcolor%g is the color of the switch matrices.  
+
+:PieColors-Worldboxcolor
+
+  %yWorldboxcolor%g is the color of the box which encases the area  
+  of the chip (in the world-view) that is currently shown on the screen.   
+
+:PieColors-Currentblockcolor
+
+  %yCurrentblockcolor%g is the color of the configurable block which is
+  being edited (if there is one).  This block is highlighted in the 
+  %yCurrentblockcolor%g color in the PIE display if a SWITCH command 
+  is executed while in the block editor.
+
+:BlkColors
+
+  The %yBlkColors%g command allows you to assign different colors  
+  to any item you see in the EditBlk Screen.
+
+  HELP can be used on the individual commands in this menu for more  
+  information on their functionality and usage.
+
+:BlkColors-Reset
+
+  %yReset%g resets the colors in the EditBlk Screen back to their  
+  default values.
+
+:BlkColors-Kmap0color
+
+  %yKmap0color%g is the color of a "0" in the Karnaugh Map display.  
+
+:BlkColors-Kmap1color
+
+  %yKmap1color%g is the color of a "1" in the Karnaugh Map display.  
+
+:BlkColors-Kmaplabel
+
+  %yKmaplabel%g is the color of the label names on the Karnaugh map.  
+
+:BlkColors-Kmapborder
+
+  %yKmapborder%g is the color of the border of the Karnaugh map.
+
+:BlkColors-Bordercolor
+
+  %yBordercolor%g is the color of the EditBlk display border.  
+
+:BlkColors-Equationcolor
+
+  %yEquationcolor%g is the color of the equations in the EditBlk display.  
+
+:BlkColors-SDblockcolor
+
+  %ySDblockcolor%g is the color of the function generators and flip-flops  
+  in the schematic diagram portion of the EditBlk display.
+
+:BlkColors-SDnetcolor
+
+  %ySDnetcolor%g is the color of the nets in the schematic diagram  
+  portion of the EditBlk display.
+
+:BlkColors-SDpincolor
+
+  %ySDpincolor%g is the color of the pin names used in the schematic  
+  diagram portion of the EditBlk display.
+
+:BlkColors-SDlabelcolor
+
+  %ySDlabelcolor%g is the color of the function generator and flip-flop  
+  labels in the schematic diagram portion of the EditBlk display.
+
+:BlkColors-Tagcolor
+
+  %yTagcolor%g is the color of the labels in the tag area of the  
+  EditBlk display.
+
+:BlkColors-Ontagcolor
+
+  %yOntagcolor%g is the color of tags that are enabled.  
+
+:BlkColors-Offtagcolor
+
+  %yOtfftagcolor%g is the color of tags that are not enabled.  
+
+:BlkColors-NBpincolor
+
+  %yNBpincolor%g is the color of the pins in the net binding  
+  portion of the EditBlk display.
+
+:BlkColors-NBnetcolor
+
+  %yNBnetcolor%g is the color of the net names in the net binding  
+  portion of the EditBlk display.
+
+:BlkColors-NBtagcolor
+
+  %yNBtagcolor%g is the color of the enabled tags in the net binding  
+  portion of the EditBlk display.
+
+:BlkColors-TTlabel
+
+  %yTTlabel%g is the color of the pin labels in the truth table portion  
+  of the EditBlk display.
+
+:BlkColors-TTcube
+
+  %yTTcube%g is the color of the inputs in the truth table portion  
+  of the EditBlk screen.
+
+:BlkColors-TTvalue
+
+  %yTTvalue%g is the color of the outputs in the truth table portion  
+  of the EditBlk screen.
+
+:Switch
+
+  %ySwitch%g switches between the EditBlk Screen and the EditLca screen.  
+
+:Misc
+
+  The %yMisc%g menu contains commands that don't fit into any other menu.  
+  
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:Exit
+
+  %yExit%g leaves the design editor and takes you back to the  
+  Executive screen.
+
+:Help
+  If you need help with a particular menu item, point to it with the
+  cursor and press the %yF1%g key; a HELP file will appear on the
+  screen.  You can scroll up or down in this file with the UP
+  arrow, DOWN arrow, PgUp, PgDn, HOME and END keys. Try it.  For
+  your convenience, a HELP file is provided for every main menu and
+  submenu item.
+
+  To return to the Executive Screen, type %yEXIT%g on the command
+  line or use the mouse to select %yEXIT%g from the %yMISC%g menu at
+  the top of the screen.  To "select" a menu or a menu item, point
+  to it with the cursor (a box surrounds the item) and press the
+  "SELECT" mouse button.  The default profile (included with XDE)
+  programs the left mouse button to perform the "SELECT" function.
+  You can change the function of each mouse button with the %yMOUSE%g
+  command in the %yPROFILE%g menu.
+
+:Speed
+
+  %ySpeed%g changes the speed grade that net and block delays  
+  are calculated for.
+
+:File
+
+  %yFile%g saves the design and exits back the the Executive screen.     
+
+:Save
+
+  %ySave%g writes an LCA file which contains all the changes up to  
+  this point.
+
+:Report
+
+  %yReport%g redirects the output of certain commands to a file  
+  instead of displaying the information on the screen.
+
+:Report-QueryNet
+
+  %yQueryNet%g displays information about one or more nets.  
+  The QueryNet output uses the following format:
+
+          net         source   block           delay  load   block
+          name          pin    name             (ns)  pin    name
+   ----------------------------------------------------------------  
+   ----  $1-abc . . . . CC.X  (ASEL) . . . . . . 6.4  BC.C  (REG1)
+   --C-  $2-xyz . . . . FB.Y  (MUX)  . . . . . . 2.3  DE.E  (BA0)
+                                                 ***  AC.C  (BA1)
+                                               ~12.1  BC.E  (AOUT)
+
+  The first four spaces describe characteristics of the net.
+
+  Character 1:     S - Net has no source
+                   M - Net has multiple sources
+  Character 2:     L - Net has no loads
+  Character 3:     C - Net is marked critical
+  Character 4:     T - Net was modified by TIE.
+ 
+  In the Delay section, the symbol "***" means that the corresponding pin
+  is not routed. A tilde (~) means that the rise time to this pin can take  
+  up to 20 percent longer, and the fall time can be 20 percent faster.
+  To remove the tilde, re-route the net so that it passes through more
+  bi-directional buffers (BIDIs).
+ 
+:Report-QueryBlk
+
+  %yQueryBlk%g gives information on block configuration and placement.
+
+  For a detailed description of the options available for QueryBlk
+  refer to the XACT chapter in the Reference Guide.
+ 
+:Report-QuerySavedBlk
+ 
+  %yQuerySavedBlk%g reports on all blocks that were saved using
+ the %ySaveblk%g command.
+ 
+:Report-Delay
+
+  The %yDelay%g command displays the delay through a logic path. 
+
+  To report all of the worst case delay paths in your design, type 
+  Delay * <RETURN> <RETURN>. 
+ 
+:Report-DRC
+
+  %yDRC%g is the Design Rules Checker.
+ 
+  It check for errors which would cause your design to not function 
+  correctly. 
+
+  Fatal errors must be fixed for your design to function properly. 
+  Warnings should be fixed, but a bitstream can still be generated 
+  for a design that has warnings.
+ 
+:Report-XDelay
+
+  The %yXDelay%g command allows you to obtain detailed timing 
+  information about your design.  The report contains the 
+  worst-case path delays for the selected of path sources 
+  and loads.  Sources and loads can be specified individually, 
+  or by clock nets.  There are also filters used to limit 
+  which types of paths are reported.  For example, have %yXDelay%g 
+  report only Clock to Setup paths, or only paths that use a 
+  specified net).  This command will not analyze your design
+  with respect to any TimeSpec information that may have been 
+  created for the design.  Use the %yXDelay-TimeSpec%g command 
+  to do this.
+
+:Report-XDelay-TimeSpec
+
+  The %yXDelay-TimeSpec%g command allows you to obtain detailed 
+  timing information about your design.  It is very much like the
+  %yXDelay%g command, except that your design will be analyzed 
+  with reference to the TimeSpec information.
+
+:Report-Analyze
+
+  %yAnalyze%g will produce a perfomance analysis of a design.
+  The %yAnalyze%g command calculates the maximum clock frequency  
+  for each clock net in the design, and shows the limiting
+  delay paths for each clock net.
+
+:DOS
+
+  %yDOS%g suspends XACT and enters the operating system.  
+  If "DOS <command>" is entered, the command executes immediately.
+
+  When in DOS, type %yEXIT%g to return to XACT.
+
+:Execute
+
+  %yExecute%g allows you to execute a file of commands.  
+  
+:Cut
+
+  %yCut%g stores the configuration of a selected group of blocks.  
+
+  Use Cut in conjunction with %yPaste%g to move a group of blocks.  
+
+  Note: Cut does not store routing paths. If you cut out a group  
+  of blocks and paste them somewhere else, you will have to  
+  re-route them.
+:Paste
+
+  %yPaste%g is used to insert a group of blocks that were removed  
+  by the %yCut%g command.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:CutMacro
+
+  %yCutMacro%g cuts out a group of blocks and stores them as macro.  
+
+:Macro
+
+  The %yMacro%g command is used to load a macro from the MACROS or  
+  MACROS3 directory into your design.
+
+  NOTE: This command can %ynot%g be used in "SAFE MODE".
+
+:Drc
+
+  %yDRC%g is the Design Rules Checker.
+
+  It check for errors which would cause your design to not function
+  correctly.
+
+  Fatal errors must be fixed for your design to function properly.
+  Warnings should be fixed, but a bitstream can still be generated
+  for a design that has warnings.
+  
+:DRC-Net
+
+  Selecting %yNet%g enables net DRC checks.
+
+:DRC-Nonet
+
+  Selecting %yNet%g disables net DRC checks.
+  
+:DRC-Block
+
+  Selecting %yBlock%g enables CLB and IOB DRC checks.
+  
+:DRC-Noblock
+
+  Selecting %yNoBlock%g disables CLB and IOB DRC checks.
+  
+:DRC-Noroute
+
+  Selecting %yNoRoute%g disables routing DRC checks.
+  
+:DRC-Verbose
+
+  Selecting %yVerbose%g provides a running comment about the
+  DRC as it proceeds.
+  
+:DRC-Informational
+
+  Selecting %yInformational%g provides more details about which 
+  part of the LCA is being checked as the DRC proceeds.
+  
+:Delay
+
+  The %yDelay%g command displays the delay through a logic path.  
+
+  To report all of the worst case delay paths in your design, type  
+
+  Delay * <RETURN> <RETURN>.
+
+:Delay-Delayless
+
+  Selecting %yDelayLess%g imposes a filter on the Delay program
+  output which only reports path delays which are less than the
+  specified delay.
+
+:Delay-Delaygreater
+
+  Selecting %yDelayGreater%g imposes a filter on the Delay program
+  output which only reports path delays exceed the specified delay.
+
+:Delay-Widereport
+
+  %yWidereport%g outputs data on lines that are 132 characters long.  
+  This option can be used to avoid chopping off the ends of long
+  names.
+
+:Profile
+
+  The %yProfile%g menu contains the group of commands that can be used to  
+  customize XACT to your personal tastes. 
+
+  These commands allow you to define things such as which design XACT
+  should load as default, what information should be displayed when
+  the screen is first drawn, as well as many other default options.
+  
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:Settings
+
+  %ySettings%g lists the current values for all of the user definable  
+  options.
+
+:Saveprofile
+
+  %ySaveprofile%g saves the current settings into the editlca.pro file.
+  This file contains the default settings for the EditLca screen display.  
+
+:Readprofile
+
+  %yReadprofile%g reads the Editlca.pro file and resets all user  
+  definable options to these values.  
+
+  This command is useful if you change some settings but want to  
+  go back to the way XACT was set up when you entered it.
+
+:Autoroute
+
+  %yAutoroute%g enables or disables the automatic router.
+
+  You should turn the autorouter off if you use %yEditNet%g often,  
+  or if you're just using XACT to place blocks.
+
+:Autotime
+
+  %yAutotime%g enables or disables the automatic generation of  
+  net delays.
+
+  Since this doesn't noticeably affect performance and it gives
+  very useful information, you should always leave autotime enabled.  
+
+:Eqnetnames
+
+  %yEqnetnames%g replaces pin names with net names in the Boolean  
+  equations. These equations may then be easier to read.
+
+  With Eqnetnames off, an equation may look like this:
+
+                    F=(A*C)+(~A*E)
+
+  With Eqnetnames on, the same equation would look like this:
+
+                    F=(ENABLE*SIG1)+(~ENABLE*SIG2)
+
+  The usefulness of this command depends on how well your nets
+  are named.
+
+:Autodrc
+  %yAutodrc%g is the automatic design rules checker for the EditNet  
+  command. It gives a message whenever PIP directionality is
+  violated or whenever a PIP not connected to the net's source is  
+  enabled.
+
+  If you are a beginner, it's best to leave this on. More experienced  
+  users will want to turn this off and run %yDRC%g before making
+  their bitstream.
+:Hilightwide
+
+  %yHilightwide%g draws thick highlight lines.
+
+  This is very useful if you are using a monochrome screen or if  
+  you want to make a net stand out on a print-out.
+
+:Updatehilight
+
+  %yUpdatehilight%g updates highlighted nets as they are moved.  
+
+  The benefit of this is that the screen does not get cluttered  
+  up. The cost is that XACT runs slower since it has to re-hilight  
+  a net every time it is moved. 
+
+:Keydef
+
+  %yKeydef%g allows you to define the function keys.  
+
+  Rather than having to repeatedly type command names or search through  
+  menus, define the function keys to perform your most frequently used
+  commands.
+
+:Mouse
+
+  The %yMouse%g command allows you to define what functions  
+  your mouse buttons should perform. 
+
+  The options are:
+
+     %ySelect%g - Select the item which the cursor is currently on.
+     %yDone%g   - Finish a command.
+     %yMenu%g   - Return to the last selected menu item.
+     %ySwitch%g - Switch between the Editlca and Editblk screens.  
+                  
+:Mouse-B1
+
+  Selecting %yB1%g selects the left button of the mouse.
+
+:Mouse-B2
+
+  Selecting %yB2%g selects the middle button of a 3-button mouse.
+  
+  On some 2-button mice this is equivalent to pressing both buttons.
+
+:Mouse-B3
+
+  Selecting %yB3%g selects the right button of the mouse.
+
+:Mouse-Select
+
+  Programming a mouse button to perform %ySelect%g will make a press
+  on that particular mouse button select the item which the cursor 
+  is currently on.
+
+:Mouse-Switch
+
+  Programming a mouse button to perform %ySwitch%g will make a press
+  on that particular mouse button switch between the Editlca and 
+  Editblk screens.
+
+:Mouse-Done
+
+  Programming a mouse button to perform %yDone%g will make a press
+  on that particular mouse button finish a command.
+
+
+:Mouse-Menu
+
+  Programming a mouse button to perform %yMenu%g will make a press
+  on that particular mouse button return to the last selected menu 
+  item.
+
+:Printer
+
+  Use the %yPrinter%g command to tell XACT what type of printer you  
+  have. If your printer does not appear in the list of options,
+  refer to the XACT chapter in the Reference Guide.  This will show
+  you how to add your printer to the list.
+
+:NetMenus
+
+  The %yNetMenus%g option allows you to choose whether or
+  not you wish to be presented with a menu of the nets in
+  the design whenever you execute a command which requires
+  you to specify a net name (or net names).  This allows
+  you to select a net name from the menu instead of typing
+  a name at the command line or selecting a net on the
+  design window.
+
+:BlkMenus
+
+  The %yBlkMenus%g option allows you to choose whether or
+  not you wish to be presented with a menu of the blocks in
+  the design whenever you execute a command which requires
+  you to specify a block name (or block names).  This allows
+  you to select a net name from the menu instead of typing
+  a name at the command line or selecting a net on the
+  design window.
+
+:Router
+
+  The %yRouter%g option allows you to change the costs associated  
+  with the Autorouter.
+
+  Refer to the XACT Design Editor chapter in the Reference Guide
+  for information on the router options.
+
+:Router-Reset
+
+  Set the router options to their default values.
+
+:Router-Query
+
+  Display the current settings for the router options.
+
+:Router-Fsadd
+
+  Refer to the XACT Design Editor chapter in the Reference Guide
+  for information on this router option.
+
+:Router-Eccadjust
+
+  Refer to the XACT Design Editor chapter in the Reference Guide
+  for information on this router option.
+
+:Router-Llcost
+
+  Refer to the XACT Design Editor chapter in the Reference Guide
+  for information on this router option.
+
+:Router-Llpipcount
+
+  Refer to the XACT Design Editor chapter in the Reference Guide
+  for information on this router option.
+
+:Router-Bidicost
+
+  Refer to the XACT Design Editor chapter in the Reference Guide
+  for information on this router option.
+
+:Router-Firstbidi
+
+  Refer to the XACT Design Editor chapter in the Reference Guide
+  for information on this router option.
+
+:Router-MBlaneswitch
+
+  Refer to the XACT Design Editor chapter in the Reference Guide
+  for information on this router option.
+
+:AprCon
+
+  The %yAprCon%g menu contains the group of commands that set constraints  
+  for the Automatic Place and Route (APR) program.
+
+  Constraints set in XACT are saved by using the %yWritecst%g command.  
+  
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:MarkNet
+
+  %yMarkNet%g allows you to assign APR constraints to nets.  
+
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:MarkNet-Critical
+
+  %yCritical%g assigns a weight of 10 to the selected net.  
+
+:MarkNet-Uncritical
+
+  %yUncritical%g assigns a weight of 1 to the selected net.  
+
+:MarkNet-Longline
+
+  %yLongline%g assigns a longline flag to the selected net.  
+
+:MarkNet-Nolongline
+
+  %yNolongline%g removes longline flags that were set with the
+  %yMarkNet -Longline%g command.
+
+:MarkNet-Normal
+
+  %yNormal%g assigns the default weight of 3 to the selected net.  
+
+:MarkNet-Locked
+
+  %yLocked%g locks the routing of the selected net.  
+
+:MarkNet-Unlocked
+
+  %yUnlocked%g removes locknet flags that were set with the  
+  %yMarkNet -Locked%g command.
+
+:MarkPin
+
+  %yMarkPin%g allows you to assign APR constraints to pins.  
+
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:MarkPin-Locked
+
+  %yLocked%g assigns a pinlock flag to the selected pin.  
+
+:MarkPin-Unlocked
+
+  %yUnlocked%g removes pinlock flags from selected nets.
+
+:MarkBlock
+
+  %yMarkBlock%g allows you to assign APR constraints to blocks.  
+
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:MarkBlock-Locked
+
+  %yLocked%g allows you to lock used blocks in place.  
+
+  If %yShow -Locked%g is enabled, locked blocks are drawn with  
+  a thick border.
+
+:MarkBlock-Unlocked
+
+  %yUnlocked%g unlocks blocks that were locked using %Markblock -Locked%g.  
+
+:MarkBlock-Prohibited
+
+  %yProhibited%g marks empty blocks as being unusable.
+
+  If %yShow -Prohibited%g is enabled, an "X" is drawn through  
+  any block that is marked Prohibited.
+
+:MarkBlock-NotProhibited
+
+  %yNotProhibited%g removes the prohibit statements that were  
+  assigned by %yMarkblock -Prohibited%g.  
+
+:FlagIOB
+
+  Using %yFlagIOB%g, IOBs can be flagged %yExternal%g or %yInternal%g.
+
+  Internal IOBs can use unbonded pads.
+
+:FlagIOB-External
+
+  Selecting %yExternal%g allows you to flag an IOB as only being able 
+  to be placed on an bonded (Externally connected) IOB location.
+
+:FlagIOB-Internal
+
+  Selecting %yInternal%g allows you to flag an IOB as only being able 
+  to be placed on an unbonded (Internal) IOB location.
+
+:WeightNet
+
+  %yWeightNet%g allows you to assign a net weight from 1 to 99  
+  to a net.
+
+:Readcst
+
+  %yReadcst%g reads constraint information from a .CST file.  
+
+:Readscp
+
+  %yReadscp%g reads constraint information from a .SCP file.  
+
+:Writecst
+
+  %yWritecst%g writes constraint information to a .CST file.  
+
+  The only way constraint information can get from the Design  
+  Editor to APR is to write it to a constraint file using this  
+  command.  
+
+:Probe
+
+  The %yProbe%g menu contains the commands which allow you to
+  assign probe points for use with oscilloscopes or logic analyzers.  
+
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:Defineprobe
+
+  The %yDefineprobe%g command is used to set up unused IO blocks  
+  as probe points.  The number of probes which can be defined is  
+  limited only by the number of unused IO blocks on the chip: all  
+  unused IOBs can be defined as probe points.
+
+  When Defineprobe is selected, it first asks for a name.  Remember  
+  that once you connect your logic anaylzer or oscilloscope to this  
+  pin, you can monitor any number of different internal nets using
+  this probe without having to move your external hardware, so the
+  name you give to the probe should have some logical significance
+  external to the LCA, such as an oscilloscope channel number.
+
+  Use the %yAssignprobe%g command to attach a probe to a specific net.  
+
+:Undefineprobe
+
+  %yUndefineprobe%g removes selected probe points from the design.
+
+:Assignprobe
+
+  %yAssignProbe%g attaches a probe to a net. When you're done
+  monitoring a net, use the %yUnassignprobe%g command to remove
+  the probe from the net.  You can then use the Assignprobe
+  command again to monitor a different net without having to  
+  adjust your external connections to the probe pin. 
+
+:Unassignprobe
+
+  %yUnassignprobe%g removes a probe from the net it's attached to.  
+  The probe is then free to be connected to another net by using  
+  the %yAssignprobe%g command, or it can be removed from the design  
+  by using the %yUndefineprobe%g command.
+
+:Queryprobe
+
+  %yQueryprobe%g lists all of the probes which are currently
+  defined, and the nets to which they are attached.  It also
+  lists the delay from the net source to the probe package pin.  
+
+:Saveprobe
+
+  %ySaveprobe%g saves all existing probes in a file.
+
+  Designs cannot be saved with probe information in them.
+  This would make changes to your design file which are not
+  accurately reflected on your schematics.  But rather than
+  having to redo all of your probe assignments manually 
+  if you have to quit and restart the Design Editor, all of  
+  your probes can be saved with the Saveprobe command, and
+  automatically reconnected after the design is reloaded by  
+  using the %yReadprobe%g command.
+
+:Readprobe
+
+  %yReadprobe%g re-connects a set of probes which were  
+  previously saved by the %ySaveprobe%g command.
+
+:Configure
+
+  %yConfigure%g can be used to set the options for %yMakebits%g.
+  Alternately, the desired settings can be chosen by selecting  
+  them from the box in the lower left corner of the screen using
+  the select button of the mouse.
+
+  HELP can be used on the individual options in the %yConfigure%g
+  pull-down menu for more information on how they affect LCA
+  configuration and performance.
+ 
+:cfg2-Input
+
+  %yInputs%g thresholds can be configured to have either %yTTL%g
+  or %yCMOS%g levels.
+
+:cfg2-Donepad
+
+  The %yDone Pin%g can be configured with or without an internal 
+  pull-up. This pull-up has a value of 2-8 kOhms.  
+
+:cfg2-Read
+
+  %yRead%g refers to how many times Readback can be performed  
+  on the LCA.
+
+      0 - 0 times.    Readback can never be performed.
+      1 - 1 time.     Readback can be performed only once.
+     md - on command. Readback can be performed on command.
+
+:cfg3-Input
+
+  %yInputs%g thresholds can be configured to have either %yTTL%g  
+  or %yCMOS%g levels.
+
+:cfg3-Donepad
+
+  The %yDone Pin%g can be configured with or without an internal 
+  pull-up. This pull-up has a value of 2-8 kOhms.  
+
+:cfg3-Read
+
+  %yRead%g refers to how many times Readback can be performed  
+  on the LCA.
+
+      0 - 0 times.    Readback can never be performed.
+      1 - 1 time.     Readback can be performed only once.
+     md - on command. Readback can be performed on command.
+
+:cfg3-Xtalosc
+
+  %yXtalosc%g allows the crystal oscillator to be disabled, 
+  enabled, or be enabled with a divide-by-two. 
+  
+:cfg3-Donetime
+
+  %yDonetime%g makes the Done pin go high either one clock  
+  cycle %yBefore%g or one clock cycle %yAfter%g the IO pins    
+  are enabled.
+
+:cfg3-Resettime
+
+  %yResettime%g removes the internal global reset either one  
+  clock cycle %yBefore%g or one clock cycle %yAfter%g the IO
+  pins are enabled. 
+
+:cfg4-CRC
+
+  %yCRC%g can be %yEnable%gd or %yDisable%gd.  The default is for
+  the CRC checking to be disabled.  Even when the %yCRC%g is 
+  disabled there is some checking of the framing carried out
+  using a dummy code instead of the CRC.  If errors are
+  detected the %rINIT%g signal will be activated.
+
+:cfg4-ConfigRate
+
+  The %yConfigRate%g option selects the clock speed used for
+  the configuration clock.  This clock is generated inside
+  the LCA, and the default is %ySlow%g to maintain compatibility
+  with other LCA families.  For the actual specification of
+  the %ySlow%g and %yFast%g frequencies you should refer to the
+  %rXC4000 Family Technical Data%g.
+
+:cfg4-DonePin
+
+  The %yDone Pin%g can be configured with or without an internal 
+  pull-up. This pull-up has a value of .4 to 1 kOhms.  
+
+:cfg4-TdoPin
+
+  The %yTdo Pin%g can be configured with or without an internal 
+  pull-up or pull-down resistor. These resistors value is 40 to
+  150kOhms.  
+  
+
+:cfg4-M1Pin
+
+  The %yM1 Pin%g can be configured with or without an internal 
+  pull-up or pull-down resistor. These resistors value is 40 to
+  150 kOhms.  
+
+:cfg4-ReadCapture
+
+  If %yEnable%gd the %yReadCapture%g option allows the capture
+  of certain internal nodes in the LCA prior to %yReadback%g.
+  The nodes which are captured are the CLB outputs X, Y, XQ 
+  and YQ, and the IOB signals I1, I2 and OQ.
+
+  If %yReadCapture%g is %yDisable%gd the CLB and IOB state bits
+  read back will be the same value as they were set to when the
+  bitsream was initially loaded into the LCA.
+
+  The default is %yDisable%g.
+
+  If the position of the CLB and IOB state bits in the bitstream
+  is required, the %yMakeLL%g option in the %yConfig-Makebits%g
+  sub-menu should be selected when generating the bitstream.
+
+:cfg4-ReadAbort
+
+  If the %yReadAbort%g option is %yEnable%gd the readback sequence
+  can be aborted at any time during the readback sequence.  If
+  %yDisable%g is selected the %yReadback%g sequence in progress 
+  must be completed before another %yReadback%g can be initiated.
+
+  The default is %yDisable%g.
+
+:cfg4-ReadClk
+
+  The source of the clock used during the %yReadback%g sequence
+  can be selected to be %yCclk%g pin or an user net inside the
+  LCA connected to the %yi%g pin of the %yrdclk%g block.
+
+  The default is %yCclk%g.
+
+:cfg4-StartupClk
+
+  The post-configuration %yStartup%g phase of the LCA initialisation
+  can be controlled by the Configuration Clock (%yCclk%g) or a user
+  clock (%yUserClk%g) connected to the %yCLK%g input of the %ySTARTUP%g
+  block of the LCA.
+
+  The default for the %yStartupClk%g option is %yCclk%g.
+
+  The selection made for %yStartupClk%g will affect the default values
+  for %yDoneActive%g, %yOutputsActive%g and %yGSRInactive%g.
+
+:cfg4-SyncToDone
+
+  The post-configuration %yStartup%g phase of the LCA initialisation
+  can be synchronised to the %yDone%g signal by selecting %yYes%g for the
+  %ySyncToDone%g option.   This is useful in situations where there
+  are multiple 4000 family devices in a daisy chain which should all
+  start operation synchronously.  For more details on this refer to
+  the %rXC4000 LCA Configuration and Debugging Hints%g Application Note%g,
+  found in the %rUser's Guide%g.
+
+  The default for the %ySyncToDone%g option is %yNo%g.
+
+  The selection made for %ySyncToDone%g will affect the default values
+  for %yDoneActive%g, %yOutputsActive%g and %yGSRInactive%g.
+
+
+:cfg4-DoneActive
+
+  The selection made for %yDoneActive%g defines the clock edge which is
+  used to activate the %yDone%g signal at the end of the %yStartup%g phase.
+
+  The default value and options depend on the selections made for
+  %ySyncToDone%g and %yStartupClk%g.  For details on the meaning of the
+  options you should refer to the %rXC4000 Family Technical Data%g or
+  the %rXC4000 LCA Configuration and Debugging Hints%g Application Note%g,
+  found in the %rUser's Guide%g.
+
+:cfg4-OutputsActive
+
+  The selection made for %yOutputsActive%g defines the clock edge which is
+  used to activate the IOB %yOutputs%g at the end of the %yStartup%g phase.
+
+  The default value and options depend on the selections made for
+  %ySyncToDone%g and %yStartupClk%g.  For details on the meaning of the
+  options you should refer to the %rXC4000 Family Technical Data%g or
+  the %rXC4000 LCA Configuration and Debugging Hints%g Application Note%g,
+  found in the %rUser's Guide%g.
+
+:cfg4-GSRInactive
+
+  The selection made for %yGSRInactive%g defines the clock edge which is
+  used to de-activate the internal %yGlobal Set/Reset%g signal at the end
+  of the %yStartup%g phase.
+
+  The default values and options depend on the selections made for
+  %ySyncToDone%g and %yStartupClk%g.  For details on the meaning of the
+  options you should refer to the %rXC4000 Family Technical Data%g or
+  the %rXC4000 LCA Configuration and Debugging Hints%g Application Note,
+  found in the %rUser's Guide%g.
+
+:Defaults
+
+  %yDefaults%g can be used to set the default values for the following
+  initialisation scenarios:
+
+   - %yCClk%g driven start-up, not synchronised to %yDONE%g
+   - %yCClk%g driven start-up, synchronised to %yDONE%g
+   - %yUser Clock%g driven start-up, not synchronised to %yDONE%g
+   - %yUser Clock%g driven start-up, synchronised to %yDONE%g
+
+  HELP can be used on the individual options in the %yDefaults%g
+  menu for information on how they affect the configuration  
+  of the LCA.
+
+:Cclk_Nosync
+
+  The %yCclk_Nosync%g default defines the settings for %yCclk%g driven
+  start-up, not synchronised to %yDone%g.  The default settings are:
+
+      %yStartupClk%g = %yCclk%g
+      %ySyncToDone%g = %yNo%g
+      %yDoneActive%g = %yC2%g
+   %yOutputsActive%g = %yC3%g
+     %yGSRInactive%g = %yC4%g
+
+  For a description of these settings you should refer to the %rXC4000 LCA%g
+  %rConfiguration and Debugging Hints%g Application Note, found in the
+  %rUser's Guide%g.
+
+:Cclk_Sync
+
+  The %yCclk_Sync%g default defines the settings for %yCclk%g driven
+  start-up, synchronised to %yDone%g.  The default settings are:
+
+      %yStartupClk%g = %yCclk%g
+      %ySyncToDone%g = %yYes%g
+      %yDoneActive%g = %yC3%g
+   %yOutputsActive%g = %yDI%g
+     %yGSRInactive%g = %yDI_PLUS_1%g
+
+  For a description of these settings you should refer to the %rXC4000 LCA%g
+  %rConfiguration and Debugging Hints%g Application Note, found in the
+  %rUser's Guide%g.
+
+:Uclk_Nosync
+
+  The %yUclk_Nosync%g default defines the settings for %yUser clock%g driven
+  start-up, not synchronised to %yDone%g.  The default settings are:
+
+      %yStartupClk%g = %yUserClk%g
+      %ySyncToDone%g = %yNo%g
+      %yDoneActive%g = %yU2%g
+   %yOutputsActive%g = %yU3%g
+     %yGSRInactive%g = %yU4%g
+
+  For a description of these settings you should refer to the %rXC4000 LCA%g
+  %rConfiguration and Debugging Hints%g Application Note, found in the
+  %rUser's Guide%g.
+
+:Uclk_Sync
+
+  The %yUclk_Sync%g default defines the settings for %yUser clock%g driven
+  start-up, synchronised to %yDone%g.  The default settings are:
+
+      %yStartupClk%g = %yUserClk%g
+      %ySyncToDone%g = %yYes%g
+      %yDoneActive%g = %yU2%g
+   %yOutputsActive%g = %yDI%g
+     %yGSRInactive%g = %yDI_PLUS_1%g
+
+  For a description of these settings you should refer to the %rXC4000 LCA%g
+  %rConfiguration and Debugging Hints%g Application Note, found in the
+  %rUser's Guide%g.
+
+:Makebits
+ 
+  %yMakebits%g generates a bitstream for the design that is  
+  currently loaded in memory.  This includes probe points.  
+  Options for Makebits can be set through the %yConfigure%g
+  command.
+
+:Download
+
+  %yDownload%g sends the bitstream created with the %yMakebits%g  
+  command to an LCA connected to the download cable.
+
+:DebugLoad
+
+  %yDebugLoad%g is a one-step process which generates a bitstream  
+  and sends to to the download cable.  This command is the
+  equivalent of running %yMakebits%g and %yDownload%g.
+
+:Port
+
+  %yPort%g selects where the bitstream should be sent when a
+  %yDownload%g or %yDebugLoad%g command is executed.
+
+  %yCOM1%g, %yCOM2%g, %yCOM3%g, and %yCOM4%g are serial ports, and are
+  used by the Xchecker serial cable.
+
+  Before using the Port command to initialize a serial cable you 
+  should make sure you specify the correct COM port.  Initializing
+  a COM port that is used by the mouse or other pointing device can
+  confuse or even hang the mouse (or other) device driver.
+
+  %yLPT1%g, %yLPT2%g, and %yLPT3%g are PC parallel ports.  These ports
+  are used by the parallel download cable.
+
+  %yUSER%g is an open-ended user definable action.  You can assign any
+  command you want to the USER port.  If, for example, you have written
+  your own program called MYDOWNLOAD which downloads a bitstream to a
+  card in your computer, the USER port can be defined to execute
+  MYDOWNLOAD.  This saves you from having to go out to DOS and manually
+  execute your program, and then come back into the Design Editor.
+
+:Writebits
+
+  The %yWritebits%g command writes a bitstream created with  
+  %yMakebits%g to a .BIT file. 
+
+:Readbits
+
+  The %yReadbits%g command loads a .BIT file from your disk drive.
+
+:Timing
+
+  The %yTiming%g menu contains the group of commands that
+  can be used to get worst-case net and path timing for
+  the currently loaded design.
+  
+#include xdfb
+#include qbqn
+

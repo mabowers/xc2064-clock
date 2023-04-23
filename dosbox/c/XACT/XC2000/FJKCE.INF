@@ -1,0 +1,44 @@
+`F  1.00 fjkce
+`B "1" "1" "A" " February 17, 1993" "" "A" 
+"CX4000 Family FJKCE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "J"
+`P I "K"
+`P O "Q"
+`P I "CE"
+`P I "C"
+`P I "CLR"
+`S "A0" 1 
+`S "A1" 1 
+`S "AD" 1 
+`S "A2" 1 
+`E XC2000.LIB
+`I R "FDCE" XC2000.LIB "FDCE" C7C6C622  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "CLR" "CLR" I ) 
+( "Q" "Q" O ) 
+`I R "AND3B2" XC2000.LIB "AND3B2" C7C6C7C6  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND3B1" XC2000.LIB "AND3B1" C7C6C8B4  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND2B1" XC2000.LIB "AND2B1" C7C6C999  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "OR3" XC2000.LIB "OR3" C7C6CB55  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`J ( R U2 "I2" I ) ( R U1 "Q" O ) ( R U3 "I0" I ) ( P O "Q" ) 
+`J ( R U2 "I1" I ) ( R U3 "I1" I ) ( P I "K" ) ( R U4 "I0" I ) 
+`J ( R U2 "O" O ) ( S "A0" 1  ) ( R U5 "I2" I ) 
+`J ( R U2 "I0" I ) ( R U3 "I2" I ) ( P I "J" ) ( R U4 "I1" I ) 
+`J ( R U3 "O" O ) ( S "A1" 1  ) ( R U5 "I1" I ) 
+`J ( R U5 "O" O ) ( S "AD" 1  ) ( R U1 "D" I ) 
+`J ( R U4 "O" O ) ( S "A2" 1  ) ( R U5 "I0" I ) 
+`J ( P I "CE" ) ( R U1 "CE" I ) 
+`J ( P I "C" ) ( R U1 "C" I ) 
+`J ( P I "CLR" ) ( R U1 "CLR" I ) 

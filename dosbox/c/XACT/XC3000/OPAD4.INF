@@ -1,0 +1,29 @@
+`F  1.00 opad4
+`B "1" "1" "A" "     June 28, 1993" "" "A" 
+"XC3000 Family OPAD4 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "O0"
+`P I "O1"
+`P I "O2"
+`P I "O3"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "OPAD" XC3000.LIB "OPAD" C984297E  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC3000.LIB "OPAD" C98429C0  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC3000.LIB "OPAD" C98429E7  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC3000.LIB "OPAD" C98429EF  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`J ( P I "O0" ) ( R U1 "O" I ) 
+`J ( P I "O1" ) ( R U2 "O" I ) 
+`J ( P I "O2" ) ( R U3 "O" I ) 
+`J ( P I "O3" ) ( R U4 "O" I ) 

@@ -1,0 +1,67 @@
+`F  1.00 OBUFT8
+`B "1" "1" "A" "September  1, 1993" "" "A" 
+"XC4000 Family OBUFE8 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "T"
+`P O "O0"
+`P O "O1"
+`P O "O2"
+`P O "O3"
+`P O "O4"
+`P O "O5"
+`P O "O6"
+`P O "O7"
+`P I "I0"
+`P I "I1"
+`P I "I2"
+`P I "I3"
+`P I "I4"
+`P I "I5"
+`P I "I6"
+`P I "I7"
+`E XC7000.LIB
+`I R "OBUFT" XC7000.LIB "OBUFT" dc7774a8  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFT" XC7000.LIB "OBUFT" dc7774e3  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFT" XC7000.LIB "OBUFT" dc77750e  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFT" XC7000.LIB "OBUFT" dc77753e  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFT" XC7000.LIB "OBUFT" dc777542  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFT" XC7000.LIB "OBUFT" dc77756e  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFT" XC7000.LIB "OBUFT" dc7775b7  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFT" XC7000.LIB "OBUFT" dc777963  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( R U1 "T" I ) ( R U2 "T" I ) ( R U3 "T" I ) ( R U4 "T" I ) 
+( R U5 "T" I ) ( R U6 "T" I ) ( R U7 "T" I ) ( R U8 "T" I ) ( P I "T" ) 
+`J ( R U1 "I" I ) ( P I "I0" ) 
+`J ( P O "O0" ) ( R U1 "O" T ) 
+`J ( R U2 "I" I ) ( P I "I1" ) 
+`J ( P O "O1" ) ( R U2 "O" T ) 
+`J ( R U3 "I" I ) ( P I "I2" ) 
+`J ( P O "O2" ) ( R U3 "O" T ) 
+`J ( R U4 "I" I ) ( P I "I3" ) 
+`J ( P O "O3" ) ( R U4 "O" T ) 
+`J ( R U5 "I" I ) ( P I "I4" ) 
+`J ( P O "O4" ) ( R U5 "O" T ) 
+`J ( R U6 "I" I ) ( P I "I5" ) 
+`J ( P O "O5" ) ( R U6 "O" T ) 
+`J ( R U7 "I" I ) ( P I "I6" ) 
+`J ( P O "O6" ) ( R U7 "O" T ) 
+`J ( R U8 "I" I ) ( P I "I7" ) 
+`J ( P O "O7" ) ( R U8 "O" T ) 

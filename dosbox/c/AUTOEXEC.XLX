@@ -1,0 +1,17 @@
+Installed Date is Sun Apr 23 11:58:19 2023
+
+The Product(s) Installed for this Session:
+--- ---------- --------- --- ---- --------
+DS35
+DS380
+DS502
+DS550
+
+The following changes need to be added to your autoexec.bat
+--- --------- ------- ---- -- -- ----- -- ---- -------------
+
+SET PATH = C:\XACT
+SET XACT=C:\XACT
+
+--------------------------------------------------------------
+

@@ -1,0 +1,46 @@
+`F  1.00 cj4re
+`B "1" "1" "A" " February 26, 1993" "" "A" 
+"XC4000 Family CJ4RE Macro" "Xilinx"
+""
+""
+""
+""
+`P O "Q0"
+`P O "Q1"
+`P O "Q2"
+`P O "Q3"
+`P I "CE"
+`P I "C"
+`P I "R"
+`S "Q3B" 1 
+`E XC2000.LIB
+`I R "INV" XC2000.LIB "INV" C8B5F5B8  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "FDRE" XC2000.LIB "FDRE" C8B6368E  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC2000.LIB "FDRE" C8B636A0  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC2000.LIB "FDRE" C8B636B5  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`I R "FDRE" XC2000.LIB "FDRE" C8B636DE  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) 
+( "Q" "Q" O ) 
+`J ( R U5 "Q" O ) ( R U1 "I" I ) ( P O "Q3" ) 
+`J ( R U1 "O" O ) ( S "Q3B" 1  ) ( R U2 "D" I ) 
+`J ( R U2 "Q" O ) ( R U3 "D" I ) ( P O "Q0" ) 
+`J ( R U2 "CE" I ) ( R U3 "CE" I ) ( R U4 "CE" I ) ( P I "CE" ) 
+( R U5 "CE" I ) 
+`J ( R U2 "C" I ) ( R U3 "C" I ) ( R U4 "C" I ) ( P I "C" ) 
+( R U5 "C" I ) 
+`J ( R U2 "R" I ) ( R U3 "R" I ) ( R U4 "R" I ) ( P I "R" ) 
+( R U5 "R" I ) 
+`J ( R U3 "Q" O ) ( R U4 "D" I ) ( P O "Q1" ) 
+`J ( R U4 "Q" O ) ( R U5 "D" I ) ( P O "Q2" ) 

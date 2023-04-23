@@ -1,0 +1,203 @@
+`# @(#)TL.TXT	3.48.1.2 5/4/94 23:55:55 
+# file: tl.txt
+# date: 3/29/93
+# what: TOP LEVEL CONTROL programs error messages
+# Edited: joey marquez
+#
+# 0xxx : info messages
+#
+0000: <not used>
+0001:XEMAKE: Missing or modified design files. 
+0002:XEMAKE: %s
+0003:XEMAKE: Rebuilding '%s'.
+0004:Errors found by %s! Please examine the '%s.%s' file
+for details. Retry after fixing errors.
+0005:Errors found! Please examine the '%s.%s' file
+for details. Retry after fixing errors.
+0006:Deleting database '%s' because of mapping errors
+0007:Design successfully mapped. Examine the following report files:
+'%s.%s'  - Summary of resources used
+'%s.%s'  - Device pinout
+'%s.%s'  - Implemented design described in equations
+0008:Circuit database '%s' has been created
+0009:Written component file to '%s'
+0010:Importing successful
+0011:Backing up reports and log
+0012:Reading netlist '%s.%s'
+0013:Writing log to '%s.%s'
+0014:Reading design '%s.%s'
+0015:Assembling '%s.%s'
+0016:Saving the pinlist to '%s.%s'
+0017:Importing '%s' to produce '%s.%s'
+0018:Writing intelhex programming file to '%s.%s'
+0019:Writing jedec programming file to '%s.%s'
+0020:Processing PALS to produce new PLD file '%s.%s'
+0021:Deleting any simulation models '%s%s%s.%s'
+0022:Creating XNF simulation file for circuit '%s'
+0023:Converting '%s' from '.%s' file to '.%s' file
+0024:XEMAKE: Finished executing the necessary commands to perform integration.
+        If all commands finished properly, all design files are now up-to-date.
+0025:The %s file was successfully created.
+0026:Design successfully mapped. Examine the following report files:
+'%s.%s'  - Summary of resources used
+'%s.%s'  - Warnings
+'%s.%s'  - Device pinout
+'%s.%s'  - Implemented design described in equations
+0027:%s Version %s  %s
+Dated: %s
+%s
+%s
+#
+# 1xxx : warning messages
+#
+1000:<not used>
+1001:CAUTION: Less than %d bytes remain on disk. 
+     Program requires at least %d bytes to run successfully. 
+     Type 'Ctrl-C' to abort integration.
+1002:The file '%s' specifies a non-XC7000 device '%s'.
+     This is ignored and the '%s' device will be used instead. 
+#
+# 2xxx : fatal error messages
+#
+2000: <not used>
+2001: Pin freezing is ON but a pinlist '%s' has not been saved. 
+      Check your design name and directory or create pinlist using PINSAVE.
+2002: The chip table '%s' is missing or can not be read. Verify
+      that XEPLD was installed properly and that files have read access.
+2003: <not used>
+2004: No XACT variable setting. Please set XACT according to the
+      XEPLD installation instructions.
+2005: Missing or invalid device name '%s'. Use either one of:
+      XC73108-ssBG225, XC73108-ssPQ160,
+      XC73108-ssPG144, XC73108-ssPC84,           (ss = 10, 12, 15 or 20)
+      XC7372-ssPC84,   XC7372-ssPC68             (ss = 10, 12, 15 or 20)
+      XC7354-ssPC68,   XC7354-ssPC44,            (ss = 10, 12, 15 or 20)
+      XC7336-ssPC44,   XC7336-ssPQ44,            (ss = 5, 7, 10, 12 or 15)
+      XC7318-ssPC44,   XC7318-ssPQ44,            (ss = 5 or 7)
+      XC7236A-ssPC44                             (ss = 16 or 20) 
+      XC7236-ssPC44                              (ss = 25 or 30) 
+      XC7272A-ssPC84                             (ss = 16, 20 or 25)
+      XC7272-ssPC84,   XC7272-ssPG84,
+      XC7272-ssPC68                              (ss = 25 or 30)
+2006: Invalid JEDEC PAL type option '%s'. 
+      Use '-t PL20V8' or '-t PL22V10'.
+2007: <not used>
+2008: <not used>
+2009: Bad parameter option '%s'. Supply the correct option and retry.
+2010: Required option '%s' missing.
+2011: <not used>
+2012: <not used>
+2013: The netlist '%s' is missing or can not be read. Check that  
+      you have run WIR2XNF/SDT2XNF (or similar program) and XNFMERGE. Verify
+      also that you have read access. Otherwise, use another netlist.
+2014: Memory allocation failed. Attempt to free up at least
+      %d bytes of memory.
+2015: Can not use JEDEC format for XC7272 designs. Use MAKEPRG instead
+      to create Intelhex format or integrate design with another XC7000 device.
+2016: <not used>
+2017: Missing design name. Please supply the proper design name
+      and retry.
+2018: No JEDEC filename specified! Specify a JEDEC filename.
+2019: <not used> 
+2020: JEDEC file '%s' does not exist or does not have read access.
+      Verify that this file exists and has read access, or supply
+      a new jedec file name.
+2021: No PAL type specified! Use 'PL20V8' or 'PL22V10'.
+2022: The Xilinx EPLD system must make a directory '%s%s%s' to
+      store the component database. But, a file of the same name already
+      exists. Please rename this file and try again.
+2023: XEMAKE: The xnf translator programs were specified with the option to
+      place their output in directory '%s%s%s'. But, a file of
+      the same name already exists. Please rename this file and try again.
+2024: Can not read design database '%s'. Make sure you have
+      run XEMAKE, FITEQN or FITNET. Also, verify that this file has
+      read access. Otherwise, use another design database.
+2025: <not used>
+2026: File write error on '%s'. Check if there is enough disk space,
+      if there is write access to files and subdirectories, 
+      or if there is some other hardware failure.
+2027: File read error on '%s'. Check if there is enough disk space,
+      if there is read access to files and subdirectories, 
+      or if there is some other hardware failure.
+2028: Component was not created.
+2029: The schematic '%s' is missing or can not be read.
+      Verify that the file exists and has read access.
+2030: The behavioral file '%s' can not be read.
+      Verify that the file exists and has read access. Then, retry.
+2031: The options supplied are incomplete or can not be used together.
+      Supply the proper option(s) according to the following usage:
+2032: The netlist '%s' can not be read.
+      Verify that the file exists and has read access. 
+2033: The makefile '%s' can not be created by XEMAKE.
+      Verify that there is sufficient disk space and that your files 
+      have write access.
+2034: The makefile '%s' is missing or can not be read by XEMAKE. 
+      Verify that the makefile exists and has read access, supply a new
+      makefile, or create another makefile by running XEMAKE with 
+      the -g option.
+2035: The file '%s', which is needed to build '%s', is missing
+      or can not be read by XEMAKE. Verify that this file exists and has
+      read access. 
+2036: Orcad designs (*.sch) are meant for integration 
+      on DOS only. Specify another schematic or run XEPLD on a PC.
+2037: The behavioral file '%s' is missing or can not be read.
+      Verify that this file exists and has read access. If this was originally
+      a JEDEC file, run JED2PLD. If originally an XABEL file, run ABL2PLD.
+      Otherwise, use another behavioral file and retry.
+2038: The target file '%s' is not in the current 
+      makefile '%s'. Select the proper target file.
+2039: %s 
+      Makefile syntax error: missing colon. The correct syntax is:
+      <target> : <dependent_file1> <dependent_file2> ...
+      Run XEMAKE -g to create the proper makefile.
+2040: The -p and -f options for pin assignment and pin freezing
+      can not be used together. Choose either one only.
+2041: The makefile '%s' is empty or only has comments (ignored).
+      Run XEMAKE with the -g option to create a correct makefile. 
+2042: %s
+      Makefile syntax error: The makefile can not have a target file as 
+      a dependent file also. Run XEMAKE -g to create the proper makefile.
+2043: %s
+      Makefile syntax error: This line must specify at least one
+      dependent file according to the following syntax: 
+      <target> : <dependent_file1> <dependent_file2> ...
+      Run XEMAKE -g to create the proper makefile.
+2044: %s
+      Makefile syntax error: Only alphanumeric characters are allowed
+      for this line. The correct syntax is: 
+      <target> : <dependent_file1> <dependent_file2> ...
+      Run XEMAKE -g to create the proper makefile.
+2045: Makefile syntax error: no command after a dependency statement.
+      The correct syntax is:
+      <target> : <dependent_file1> <dependent_file2> ...
+                 <command1>
+                 <commandn>
+      Run XEMAKE -g to create the proper makefile.
+2046: The FITNET or FITEQN commands are not in the makefile '%s'. 
+      Run XEMAKE -g to create a correct makefile.
+2047: PAL component list '%s' does not exist. Verify that this
+      file is in your directory and has read access before executing PALCONVT.
+2048: Bad library option '%d'. The valid values are: '-l 4' to use 
+      the old XEPLD 4.x library or '-l 5' to use the new unified library. 
+2049: The xnf file '%s.xnf' is missing or can not be read by XEMAKE.
+      Verify that this file exists and has read access.
+2050: The output simulation xnf filename '%s.%s' can not be 
+      the same as the schematic xnf file. 
+2051: You must append a filename to '@' (i.e., @palfiles.txt). This 
+      filename should contain a list of all PAL files for PALCONVT to process. 
+2052: The new PLD file has not been specified.
+2053: No PAL files were specified. Specify these individual PAL files.
+2054: The '%s' netlist was not created because of errors. 
+      Examine '%s.%s' for details.
+#
+# end of file
+# 
+
+
+
+
+
+
+
+
+

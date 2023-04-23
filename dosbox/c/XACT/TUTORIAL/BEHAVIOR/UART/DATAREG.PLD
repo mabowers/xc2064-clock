@@ -1,0 +1,63 @@
+
+TITLE DATAREG
+
+CHIP   DATAREG   P20V8R;
+
+;PINLIST (Highest pin number = 24)
+      byteclk d0 d1 d2 d3 d4 d5 d6 d7 NC NC NC read NC dout7 dout6 dout5 
+      dout4 dout3 dout2 dout1 dout0 NC NC 
+
+;8-Bit 3-state Output Data Register for UART Receiver Design
+;       Xilinx EPLD Applications, Feb. 93
+
+
+
+EQUATIONS
+
+dout0 := (d0);
+
+dout0.CLKF = (byteclk);
+
+dout0.TRST = (read);
+
+dout1 := (d1);
+
+dout1.CLKF = (byteclk);
+
+dout1.TRST = (read);
+
+dout2 := (d2);
+
+dout2.CLKF = (byteclk);
+
+dout2.TRST = (read);
+
+dout3 := (d3);
+
+dout3.CLKF = (byteclk);
+
+dout3.TRST = (read);
+
+dout4 := (d4);
+
+dout4.CLKF = (byteclk);
+
+dout4.TRST = (read);
+
+dout5 := (d5);
+
+dout5.CLKF = (byteclk);
+
+dout5.TRST = (read);
+
+dout6 := (d6);
+
+dout6.CLKF = (byteclk);
+
+dout6.TRST = (read);
+
+dout7 := (d7);
+
+dout7.CLKF = (byteclk);
+
+dout7.TRST = (read);

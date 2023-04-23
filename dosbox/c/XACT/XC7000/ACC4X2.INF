@@ -1,0 +1,74 @@
+`F  1.00 ACC4X2
+`B "1" "1" "A" "September 30, 1993" "" "" 
+"XC7000 ACC4X2 Model" ""
+""
+""
+""
+""
+`P I "CI"
+`P I "B0"
+`P O "Q0"
+`P I "D0"
+`P I "B1"
+`P O "Q1"
+`P I "D1"
+`P I "B2"
+`P O "Q2"
+`P I "D2"
+`P I "B3"
+`P O "Q3"
+`P I "D3"
+`P O "CO"
+`P I "L"
+`P I "R"
+`P I "ADD"
+`P I "CE"
+`P I "C"
+`E XC7000.LIB
+`I R "ACC1X2" XC7000.LIB "ACC1X2" df7713cb  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "CI" "CI" I ) ( "B0" "B0" I ) ( "D0" "D0" I ) ( "L" "L" I ) 
+( "ADD" "ADD" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) ( "Q0" "Q0" O ) 
+( "CO" "CO" O ) 
+`I R "ACC1X2" XC7000.LIB "ACC1X2" df771408  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "CI" "CI" I ) ( "B0" "B0" I ) ( "D0" "D0" I ) ( "L" "L" I ) 
+( "ADD" "ADD" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) ( "Q0" "Q0" O ) 
+( "CO" "CO" O ) 
+`I R "ACC1X2" XC7000.LIB "ACC1X2" df771467  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "CI" "CI" I ) ( "B0" "B0" I ) ( "D0" "D0" I ) ( "L" "L" I ) 
+( "ADD" "ADD" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) ( "Q0" "Q0" O ) 
+( "CO" "CO" O ) 
+`I R "ACC1X2" XC7000.LIB "ACC1X2" df7714c0  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "CI" "CI" I ) ( "B0" "B0" I ) ( "D0" "D0" I ) ( "L" "L" I ) 
+( "ADD" "ADD" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "R" "R" I ) ( "Q0" "Q0" O ) 
+( "CO" "CO" O ) 
+`J ( P I "CI" ) ( R U1 "CI" I ) 
+`J ( P I "B0" ) ( R U1 "B0" I ) 
+`J ( R U1 "Q0" O ) ( P O "Q0" ) 
+`J ( P I "D0" ) ( R U1 "D0" I ) 
+`J ( R U1 "CO" O ) ( R U2 "CI" I ) 
+`J ( R U1 "L" I ) ( R U2 "L" I ) ( R U3 "L" I ) ( P I "L" ) 
+( R U4 "L" I ) 
+`J ( R U1 "R" I ) ( R U2 "R" I ) ( R U3 "R" I ) ( P I "R" ) 
+( R U4 "R" I ) 
+`J ( R U1 "ADD" I ) ( R U2 "ADD" I ) ( R U3 "ADD" I ) ( P I "ADD" ) 
+( R U4 "ADD" I ) 
+`J ( R U1 "CE" I ) ( R U2 "CE" I ) ( R U3 "CE" I ) ( P I "CE" ) 
+( R U4 "CE" I ) 
+`J ( R U1 "C" I ) ( R U2 "C" I ) ( R U3 "C" I ) ( P I "C" ) 
+( R U4 "C" I ) 
+`J ( P I "B1" ) ( R U2 "B0" I ) 
+`J ( R U2 "Q0" O ) ( P O "Q1" ) 
+`J ( P I "D1" ) ( R U2 "D0" I ) 
+`J ( R U2 "CO" O ) ( R U3 "CI" I ) 
+`J ( P I "B2" ) ( R U3 "B0" I ) 
+`J ( R U3 "Q0" O ) ( P O "Q2" ) 
+`J ( P I "D2" ) ( R U3 "D0" I ) 
+`J ( R U3 "CO" O ) ( R U4 "CI" I ) 
+`J ( P I "B3" ) ( R U4 "B0" I ) 
+`J ( R U4 "Q0" O ) ( P O "Q3" ) 
+`J ( P I "D3" ) ( R U4 "D0" I ) 
+`J ( R U4 "CO" O ) ( P O "CO" ) 

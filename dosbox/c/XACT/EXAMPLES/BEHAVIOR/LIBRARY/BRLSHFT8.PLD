@@ -1,0 +1,93 @@
+TITLE           Barrel Shifter: 8-bit
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/30/93
+
+CHIP            BRLSHFT8  COMPONENT
+ 
+;Inputs
+i0 i1 i2 i3 i4 i5 i6 i7 s0 s1 s2
+
+; i[7:0]        shifter input
+; s[2:0]        number of shift positions
+ 
+;Outputs
+o0 o1 o2 o3 o4 o5 o6 o7
+
+; o[7:0]        shifter output
+
+EQUATIONS 
+
+o7       = i7*/s2*/s1*/s0
+         + i0*/s2*/s1* s0
+         + i1*/s2* s1*/s0
+         + i2*/s2* s1* s0
+         + i3* s2*/s1*/s0
+         + i4* s2*/s1* s0
+         + i5* s2* s1*/s0
+         + i6* s2* s1* s0
+
+o6       = i6*/s2*/s1*/s0
+         + i7*/s2*/s1* s0
+         + i0*/s2* s1*/s0
+         + i1*/s2* s1* s0
+         + i2* s2*/s1*/s0
+         + i3* s2*/s1* s0
+         + i4* s2* s1*/s0
+         + i5* s2* s1* s0
+
+o5       = i5*/s2*/s1*/s0
+         + i6*/s2*/s1* s0
+         + i7*/s2* s1*/s0
+         + i0*/s2* s1* s0
+         + i1* s2*/s1*/s0
+         + i2* s2*/s1* s0
+         + i3* s2* s1*/s0
+         + i4* s2* s1* s0
+
+o4       = i4*/s2*/s1*/s0
+         + i5*/s2*/s1* s0
+         + i6*/s2* s1*/s0
+         + i7*/s2* s1* s0
+         + i0* s2*/s1*/s0
+         + i1* s2*/s1* s0
+         + i2* s2* s1*/s0
+         + i3* s2* s1* s0
+
+o3       = i3*/s2*/s1*/s0
+         + i4*/s2*/s1* s0
+         + i5*/s2* s1*/s0
+         + i6*/s2* s1* s0
+         + i7* s2*/s1*/s0
+         + i0* s2*/s1* s0
+         + i1* s2* s1*/s0
+         + i2* s2* s1* s0
+
+o2       = i2*/s2*/s1*/s0
+         + i3*/s2*/s1* s0
+         + i4*/s2* s1*/s0
+         + i5*/s2* s1* s0
+         + i6* s2*/s1*/s0
+         + i7* s2*/s1* s0
+         + i0* s2* s1*/s0
+         + i1* s2* s1* s0
+
+o1       = i1*/s2*/s1*/s0
+         + i2*/s2*/s1* s0
+         + i3*/s2* s1*/s0
+         + i4*/s2* s1* s0
+         + i5* s2*/s1*/s0
+         + i6* s2*/s1* s0
+         + i7* s2* s1*/s0
+         + i0* s2* s1* s0
+
+o0       = i0*/s2*/s1*/s0
+         + i1*/s2*/s1* s0
+         + i2*/s2* s1*/s0
+         + i3*/s2* s1* s0
+         + i4* s2*/s1*/s0
+         + i5* s2*/s1* s0
+         + i6* s2* s1*/s0
+         + i7* s2* s1* s0

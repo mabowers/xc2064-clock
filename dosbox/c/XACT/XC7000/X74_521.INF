@@ -1,0 +1,113 @@
+`F  1.00 X74_521
+`B "1" "1" "B" "    March 18, 1993" "" "A" 
+"XC4000 Family X74_521 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "P0"
+`P I "Q0"
+`P I "P1"
+`P I "Q1"
+`P I "P2"
+`P I "Q2"
+`P I "P3"
+`P I "Q3"
+`P I "G"
+`P O "PEQ"
+`P I "P4"
+`P I "Q4"
+`P I "P5"
+`P I "Q5"
+`P I "P6"
+`P I "Q6"
+`P I "P7"
+`P I "Q7"
+`S "X0" 1 
+`S "E0_1" 1 
+`S "X1" 1 
+`S "X2" 1 
+`S "E2_3" 1 
+`S "X3" 1 
+`S "GB" 1 
+`S "X4" 1 
+`S "E4_5" 1 
+`S "X5" 1 
+`S "X6" 1 
+`S "E6_7" 1 
+`S "X7" 1 
+`E XC7000.LIB
+`I R "XNOR2" XC7000.LIB "XNOR2" ca3deb64  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC7000.LIB "XNOR2" ca3debd0  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC7000.LIB "XNOR2" ca3debfa  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC7000.LIB "XNOR2" ca3dec03  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC7000.LIB "XNOR2" ca3dec3a  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC7000.LIB "XNOR2" ca3dec57  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC7000.LIB "XNOR2" ca3dec80  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC7000.LIB "XNOR2" ca3deca5  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND2" XC7000.LIB "AND2" ca3df51c  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC7000.LIB "AND2" ca3df5e0  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC7000.LIB "AND2" ca3df6c8  U11  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC7000.LIB "AND2" ca3df70c  U12  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "NAND5" XC7000.LIB "NAND5" ca3dfac0  U13  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "I4" "I4" I ) ( "O" "O" O ) 
+`I R "INV" XC7000.LIB "INV" ca3e0921  U14  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "P0" ) ( R U1 "I1" I ) 
+`J ( R U1 "O" O ) ( S "X0" 1  ) ( R U9 "I1" I ) 
+`J ( P I "Q0" ) ( R U1 "I0" I ) 
+`J ( R U9 "O" O ) ( S "E0_1" 1  ) ( R U13 "I4" I ) 
+`J ( R U2 "O" O ) ( S "X1" 1  ) ( R U9 "I0" I ) 
+`J ( P I "P1" ) ( R U2 "I1" I ) 
+`J ( P I "Q1" ) ( R U2 "I0" I ) 
+`J ( P I "P2" ) ( R U3 "I1" I ) 
+`J ( R U3 "O" O ) ( S "X2" 1  ) ( R U10 "I1" I ) 
+`J ( P I "Q2" ) ( R U3 "I0" I ) 
+`J ( R U10 "O" O ) ( S "E2_3" 1  ) ( R U13 "I3" I ) 
+`J ( R U4 "O" O ) ( S "X3" 1  ) ( R U10 "I0" I ) 
+`J ( P I "P3" ) ( R U4 "I1" I ) 
+`J ( P I "Q3" ) ( R U4 "I0" I ) 
+`J ( P I "G" ) ( R U14 "I" I ) 
+`J ( R U14 "O" O ) ( S "GB" 1  ) ( R U13 "I2" I ) 
+`J ( R U13 "O" O ) ( P O "PEQ" ) 
+`J ( R U11 "O" O ) ( S "E4_5" 1  ) ( R U13 "I1" I ) 
+`J ( R U12 "O" O ) ( S "E6_7" 1  ) ( R U13 "I0" I ) 
+`J ( P I "P4" ) ( R U5 "I1" I ) 
+`J ( R U5 "O" O ) ( S "X4" 1  ) ( R U11 "I1" I ) 
+`J ( P I "Q4" ) ( R U5 "I0" I ) 
+`J ( R U6 "O" O ) ( S "X5" 1  ) ( R U11 "I0" I ) 
+`J ( P I "P5" ) ( R U6 "I1" I ) 
+`J ( P I "Q5" ) ( R U6 "I0" I ) 
+`J ( P I "P6" ) ( R U7 "I1" I ) 
+`J ( R U7 "O" O ) ( S "X6" 1  ) ( R U12 "I1" I ) 
+`J ( P I "Q6" ) ( R U7 "I0" I ) 
+`J ( R U8 "O" O ) ( S "X7" 1  ) ( R U12 "I0" I ) 
+`J ( P I "P7" ) ( R U8 "I1" I ) 
+`J ( P I "Q7" ) ( R U8 "I0" I ) 

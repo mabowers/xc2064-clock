@@ -1,0 +1,27 @@
+# xactinit.dat
+# @(#)xactinit.dat	6.3  9/30/93
+#
+# THE FULL PATH NAME TO THIS FILE IS $XACT/data/xactinit.dat
+#
+# EDIT THIS FILE WITH CARE.  IT CONTAINS VARIABLE SETTINGS WHICH WILL APPLY
+# TO MOST ALL DS502 PROGRAMS FOR ALL USERS.
+#
+# If you want to adjust the values for yourself for all programs and designs, 
+# you can create an xactinit.dat file in your home directory (On the PC, the 
+# home directory is controlled by the HOME environmental variable; if there 
+# is no such variable, it will default to the C:\ directory). 
+#
+# You can also create an xactinit.dat file in a design directory; the values
+# assigned in that file will be effective only for programs run in that directory.
+
+# -----------------------------------------------------------------------
+# USER_SEARCH_PATH
+# This variable helps control where the data manager looks for files.
+# It is appended to the standard search path.  The directory names you add 
+# should be fully qualified directory names that end in a slash.  Dos 
+# directory specifications should include the drive letter.  For example:
+# DOS:   user_search_path = d:\the\full\path\to\the\dir\
+# UNIX:  user_search_path = /the/full/path/to/the/directory/
+# -----------------------------------------------------------------------
+# To define this variable, remove the "#" at the start of the next line
+# user_search_path = 

@@ -1,0 +1,53 @@
+
+TITLE REFRESH
+
+CHIP   REFRESH   COMPONENT;
+
+;Pins (not in pin number order)
+      Clk clr_rfrq qj qi qh qg qf qe qd qc qb qa restart rfrq 
+;Nodes
+      
+
+;Refresh timer for DRAM controller  
+;        Equation file included in port_4.abl design example
+;        Jeffrey Goldberg  
+;        Xilinx
+
+
+
+EQUATIONS
+
+restart = (qj * qi * qh * /qg * qf * /qe * qd * /qc * /qb * qa);
+
+qj := (/restart * qi * qh * qg * qf * qe * qd * qc * qb * qa)
+ :+: (qj * /restart);
+
+qi := (/restart * qh * qg * qf * qe * qd * qc * qb * qa)
+ :+: (/restart * qi);
+
+qh := (/restart * qg * qf * qe * qd * qc * qb * qa)
+ :+: (/restart * qh);
+
+qg := (/restart * qf * qe * qd * qc * qb * qa)
+ :+: (/restart * qg);
+
+qf := (/restart * qe * qd * qc * qb * qa)
+ :+: (/restart * qf);
+
+qe := (/restart * qd * qc * qb * qa)
+ :+: (/restart * qe);
+
+qd := (/restart * qc * qb * qa)
+ :+: (/restart * qd);
+
+qc := (/restart * qb * qa)
+ :+: (/restart * qc);
+
+qb := (/restart * qa)
+ :+: (/restart * qb);
+
+qa := (/restart)
+ :+: (/restart * qa);
+
+rfrq := (restart
+     + rfrq * clr_rfrq);

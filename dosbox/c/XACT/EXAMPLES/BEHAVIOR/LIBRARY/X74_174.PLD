@@ -1,0 +1,47 @@
+TITLE           Register: 6-bit, active low async clear
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/27/93
+
+CHIP            X74_174  COMPONENT
+ 
+;Inputs
+ck d1 d2 d3 d4 d5 d6 /clr
+
+; ck            clock
+; d[6:1]        data input
+; clr           async clear
+
+;Outputs
+q1 q2 q3 q4 q5 q6
+
+; q[6:1]        data output
+
+EQUATIONS 
+
+q1     := d1
+q1.clkf = ck
+q1.rstf = clr
+
+q2     := d2
+q2.clkf = ck
+q2.rstf = clr
+
+q3     := d3
+q3.clkf = ck
+q3.rstf = clr
+
+q4     := d4
+q4.clkf = ck
+q4.rstf = clr
+
+q5     := d5
+q5.clkf = ck
+q5.rstf = clr
+
+q6     := d6
+q6.clkf = ck
+q6.rstf = clr
+

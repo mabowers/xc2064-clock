@@ -1,0 +1,24 @@
+`F  1.00 ftc
+`B "1" "1" "A" "   August 12, 1993" "" "A" 
+"XC3000 Family FTC Macro" "Xilinx"
+""
+""
+""
+""
+`P I "T"
+`P O "Q"
+`P I "C"
+`P I "CLR"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "XOR2" XC3000.LIB "XOR2" C8805024  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "FDC" XC3000.LIB "FDC" CFC7FA35  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "CLR" "CLR" I ) ( "Q" "Q" O ) 
+`J ( R U1 "I1" I ) ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( R U1 "O" O ) ( R U2 "D" I ) 
+`J ( P I "T" ) ( R U1 "I0" I ) 
+`J ( P I "C" ) ( R U2 "C" I ) 
+`J ( P I "CLR" ) ( R U2 "CLR" I ) 

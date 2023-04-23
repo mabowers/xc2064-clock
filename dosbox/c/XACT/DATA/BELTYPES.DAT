@@ -1,0 +1,196 @@
+# @(#)beltypes.dat	6.10 4/8/94
+# Bel types available in 4000 Family LCA
+# The _BEL statements list the available beltypes and their belpintypes.
+# The _MAP statements indicate the mapping from MXN primitives to beltypes.
+
+# CLB bels
+_BEL CLB4_REG	D C CE CLR PRE Q			; # AQ,BQ register
+_BEL CLB4_RAM4W	1 2 3 4 WE DIN O		; # AF,BF function generator
+_BEL CLB4_RAM3	1 2 3 O	         		; # CF Function generator
+_BEL CLB4_CY4	A0 B0 A1 B1 CIN ADD COUT0 COUT	; # Carry logic
+_BEL CLB4_MEMWC D0 D1 WE WEF DF WEG DG		; # Memory write control
+_BEL CLB4_TBUF	I O T				; # TBUF
+
+# IOB-pair bels
+_BEL IOB4_IREG	D C Q QL 			; # input register
+_BEL IOB4_OREG	D C Q				; # output register
+_BEL IOB4_TBUF	I T O				; # TBUF
+_BEL IOB4_PAD	I O 	   		        ; # PAD
+_BEL IOB4_DEC	I O1  O2  O3  O4         	; # Decoder
+_BEL IOB4_DEC_CLB1 I O1  O2                	; # Decoder for CLB1
+_BEL IOB4_PU    O                               ; # pullup 
+
+_BEL IOB4_IBUF          I O                     ; # IBUF
+_BEL IOB4_OBUFT         I T O                   ; # OBUFT
+
+# Corner bels
+_BEL LCA4_BUFGP	I O				; # Primary global buffer
+_BEL LCA4_BUFGS	I O				; # Secondary global buffer
+_BEL LCA4_PU    O                               ;
+
+# Northwest corner only
+_BEL LCA4_BSCAN   TDI TMS TCK TDO1 TDO2
+		    TDO IDLE SEL1 SEL2 DRCK     ;
+# Northeast corner only
+_BEL LCA4_OSC4	  F8M F500K F16K F490 F15 	; # Oscillator
+_BEL LCA4_TDO	  O 				; # TDO pad
+_BEL LCA4_BSCANT  CAP1 CAP2 UPD			; # Boundary scan test
+# Southeast corner only
+_BEL LCA4_STARTUP GSR GTS CLK Q2 Q3 Q14 DONEIN	; # Startup logic
+_BEL LCA4_RDCLK	I				; # Readback clock
+# Southwest corner only
+_BEL LCA4_RDBK	TRIG DATA RIP			; # Readback logic
+_BEL LCA4_MD0	I				; # MD0 pad
+_BEL LCA4_MD1	  O 				; # MD1 pad
+_BEL LCA4_MD2	I				; # MD2 pad
+
+# Bel types available in 3000 Family LCA
+# The _BEL statements list the available beltypes and their belpintypes.
+# The _MAP statements indicate the mapping from MXN primitives to beltypes.
+
+# CLB bels
+_BEL CLB3_REG   D C CE CLR Q                    ; # AQ,BQ register
+_BEL CLB3_FUNC  1 2 3 4 O                       ; # AF,BF function generator
+_BEL CLB3_FG5   1 2 3 4 5 O                     ; # FG function generator
+_BEL CLB3_TBUF  I O T                           ; # TBUF
+_BEL CLB3_MUX   F G SEL O                       ; # MUX
+
+# IOB-pair bels
+_BEL IOB3_IREG  D C Q QL                        ; # input register
+_BEL IOB3_OREG  D C Q                           ; # output register
+_BEL IOB3_TBUF  I T O                           ; # TBUF
+_BEL IOB3_PAD   I O                             ; # PAD
+_BEL IOB3_PU    O                               ; # pullup
+_BEL IOB3_IBUF          I O                     ; # IBUF
+_BEL IOB3_OBUFT         I T O                   ; # OBUFT
+
+
+# Corner bels
+_BEL LCA3_ACLK  I O                             ; # Primary global buffer
+_BEL LCA3_GCLK  I O                             ; # Secondary global buffer
+_BEL LCA3_PU    O                               ;
+
+# southeast corner only
+_BEL LCA3_OSC     O                             ; # Oscillator
+# Southeast corner only
+_BEL LCA3_RDCLK I                               ; # Readback clock
+# Southwest corner only
+_BEL LCA3_RDBK  TRIG DATA RIP                   ; # Readback logic
+_BEL LCA3_MD0   I                               ; # MD0 pad
+_BEL LCA3_MD1   O                               ; # MD1 pad
+
+
+# Function generators
+_MAP FG4        CLB4_RAM4W	I0=1 I1=2 I2=3 I3=4 O=O;
+_MAP FG3	CLB4_RAM3	I0=1 I1=2 I2=3 O=O;
+
+# Flip flops
+_MAP DFF	CLB4_REG	D=D C=C Q=Q CE=CE PRE=PRE CLR=CLR;
+# _MAP DFF	IOB4_IREG	D=D C=C Q=Q;	# Questionable mapping
+# _MAP DFF	IOB4_OREG	D=D C=C Q=Q;	# Questionable mapping
+_MAP INFF	IOB4_IREG	D=D C=C Q=Q;
+_MAP INLAT	IOB4_IREG	D=D G=C Q=QL;
+_MAP INREG	IOB4_IREG	D=D C=C Q=Q QM=QL;
+_MAP OUTFF	IOB4_OREG	D=D C=C Q=Q;
+
+
+_MAP IBUF       IOB4_IBUF       I=I O=O;
+_MAP OBUFT      IOB4_OBUFT      I=I O=O T=T;
+
+# TBUFs
+_MAP TBUF	CLB4_TBUF	I=I O=O T=T;
+_MAP TBUF	IOB4_TBUF	I=I O=O T=T;
+
+# Pads
+_MAP PAD	IOB4_PAD	O=O I=I ;
+_MAP TDO	LCA4_TDO	O=O ;
+_MAP MD0	LCA4_MD0	I=I ;
+_MAP MD1	LCA4_MD1	O=O ;
+_MAP MD2	LCA4_MD2	I=I ;
+
+# Global buffers
+_MAP BUFGP LCA4_BUFGP I=I O=O ;
+_MAP BUFGS LCA4_BUFGS I=I O=O ;
+
+# Readback
+_MAP RDBK LCA4_RDBK TRIG=TRIG DATA=DATA RIP=RIP ;
+_MAP RDCLK LCA4_RDCLK I=I ;
+
+# Boundary scan
+_MAP BSCAN LCA4_BSCAN
+    TDI=TDI TMS=TMS TCK=TCK TDO1=TDO1 TDO2=TDO2
+    TDO=TDO IDLE=IDLE SEL1=SEL1 SEL2=SEL2 DRCK=DRCK ;
+_MAP BSCANT LCA4_BSCANT
+    CAP1=CAP1 CAP2=CAP2 UPD=UPD ;
+
+# decoder
+_MAP DEC IOB4_DEC
+    I=I O1=O1 O2=O2 O3=O3 O4=O4 ;
+
+# decoder for CLB1
+_MAP DEC_CLB1 IOB4_DEC_CLB1
+    I=I O1=O1 O2=O2 ;
+
+# Carry logic
+_MAP CY4 CLB4_CY4
+     A0=A0 B0=B0 A1=A1 B1=B1 ADD=ADD CIN=CIN COUT0=COUT0 COUT=COUT ;
+
+# Miscellaneous
+_MAP STARTUP LCA4_STARTUP
+    GSR=GSR GTS=GTS CLK=CLK Q2=Q2 Q3=Q3 Q1Q4=Q14 DONEIN=DONEIN ;
+_MAP OSC4 LCA4_OSC4
+    F8M=F8M F500K=F500K F16K=F16K F490=F490 F15=F15 ;
+
+# Rams
+_MAP MFG4	CLB4_RAM4W	I0=1  I1=2  I2=3  I3=4 O=O WE=WE DIN=DIN ;
+_MAP MFGWC      CLB4_MEMWC      D0=D0 D1=D1 WE=WE WEF=WEF DF=DF WEG=WEG DG=DG ;
+
+# Pullup
+_MAP PULLUP     IOB4_PU         O=O ;
+_MAP PULLUP     LCA4_PU         O=O ;
+
+# 3000 family bel mapping 
+
+# Function generators
+_MAP FG         CLB3_FG5        I0=1 I1=2 I2=3 I3=4 I4=5 O=O;
+_MAP FG4        CLB3_FUNC       I0=1 I1=2 I2=3 I3=4 O=O;
+
+# Flip flops
+_MAP DFF  
+      CLB3_REG        D=D C=C Q=Q CE=CE CLR=CLR;
+_MAP INFF       IOB3_IREG       D=D C=C Q=Q;
+_MAP INLAT      IOB3_IREG       D=D G=C Q=QL;
+_MAP OUTFF      IOB3_OREG       D=D C=C Q=Q;
+
+# Mux
+_MAP CLB_MUX        CLB3_MUX        F=F G=G SEL=SEL O=O;
+
+# TBUFs
+_MAP TBUF       CLB3_TBUF       I=I O=O T=T;
+_MAP IBUF       IOB3_IBUF       I=I O=O;
+_MAP OBUFT      IOB3_OBUFT      I=I O=O T=T;
+_MAP TBUF       IOB3_TBUF       I=I O=O T=T;
+# Pads
+_MAP PAD        IOB3_PAD        O=O I=I ;
+_MAP MD0        LCA3_MD0        I=I ;
+_MAP MD1        LCA3_MD1        O=O ;
+
+# Global buffers
+_MAP ACLK LCA3_ACLK I=I O=O ;
+_MAP GCLK LCA3_GCLK I=I O=O ;
+
+# Readback
+_MAP RDBK LCA3_RDBK TRIG=TRIG DATA=DATA RIP=RIP ;
+_MAP RDCLK LCA3_RDCLK I=I ;
+
+# Pullup
+_MAP PULLUP     IOB3_PU         O=O ;
+_MAP PULLUP     LCA3_PU         O=O ;
+
+# OSC
+_MAP OSC LCA3_OSC  O=O ;
+
+
+
+
+

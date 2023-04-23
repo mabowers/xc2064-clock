@@ -1,0 +1,39 @@
+TITLE           Multiplexer: 16-input, output-enable, active low output
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung   
+COMPANY         Xilinx EPLD
+DATE            7/26/93
+
+CHIP            X74_150  COMPONENT
+ 
+;Inputs
+e0 e1 e2 e3 e4 e5 e6 e7 e8 e9 e10 e11 e12 e13 e14 e15 a b c d /g
+
+; e[15:0]       source
+; a..d          selector
+; g             enable
+
+;Outputs
+/w
+
+; w             output
+
+EQUATIONS 
+
+w =  e0*/d*/c*/b*/a*g
+  +  e1*/d*/c*/b* a*g
+  +  e2*/d*/c* b*/a*g
+  +  e3*/d*/c* b* a*g
+  +  e4*/d* c*/b*/a*g
+  +  e5*/d* c*/b* a*g
+  +  e6*/d* c* b*/a*g
+  +  e7*/d* c* b* a*g
+  +  e8* d*/c*/b*/a*g
+  +  e9* d*/c*/b* a*g
+  + e10* d*/c* b*/a*g
+  + e11* d*/c* b* a*g
+  + e12* d* c*/b*/a*g
+  + e13* d* c*/b* a*g
+  + e14* d* c* b*/a*g
+  + e15* d* c* b* a*g

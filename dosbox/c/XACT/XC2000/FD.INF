@@ -1,0 +1,22 @@
+`F  1.00 fd
+`B "1" "1" "A" "     June 29, 1993" "" "A" 
+"XC2000 Family FD Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D"
+`P O "Q"
+`P I "C"
+`E XC2000.LIB
+`I R "FDCP" XC2000.LIB "FDCP" D5C33A26  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "PRE" "PRE" I ) ( "Q" "Q" O ) 
+( "CLR" "CLR" I ) 
+`I R "GND" XC2000.LIB "GND" D5C33F9F  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "G" "G" O ) 
+`J ( R U1 "PRE" I ) ( R U1 "CLR" I ) ( R U2 "G" O ) 
+`J ( P I "D" ) ( R U1 "D" I ) 
+`J ( R U1 "Q" O ) ( P O "Q" ) 
+`J ( P I "C" ) ( R U1 "C" I ) 

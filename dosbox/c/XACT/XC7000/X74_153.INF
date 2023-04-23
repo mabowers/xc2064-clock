@@ -1,0 +1,75 @@
+`F  1.00 X74_153
+`B "1" "1" "A" "     June  7, 1993" "" "A" 
+"XC4000 Family X74_153 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "I1C0"
+`P I "I1C1"
+`P O "Y1"
+`P I "I1C2"
+`P I "I1C3"
+`P I "G1"
+`P I "I2C0"
+`P I "I2C1"
+`P O "Y2"
+`P I "I2C2"
+`P I "I2C3"
+`P I "A"
+`P I "B"
+`P I "G2"
+`S "M1_01" 1 
+`S "M1_23" 1 
+`S "E1" 1 
+`S "M2_01" 1 
+`S "M2_23" 1 
+`S "E2" 1 
+`E XC7000.LIB
+`I R "M2_1" XC7000.LIB "M2_1" ca23b54b  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "M2_1" XC7000.LIB "M2_1" ca23b5a9  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "M2_1" XC7000.LIB "M2_1" ca23b7df  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "M2_1" XC7000.LIB "M2_1" ca23b84b  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "M2_1E" XC7000.LIB "M2_1E" ca23bc07  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+( "E" "E" I ) 
+`I R "M2_1E" XC7000.LIB "M2_1E" ca23bee2  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+( "E" "E" I ) 
+`I R "INV" XC7000.LIB "INV" ca23cabe  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" ca23ceb0  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "I1C0" ) ( R U1 "D0" I ) 
+`J ( R U1 "O" O ) ( R U5 "D0" I ) ( S "M1_01" 1  ) 
+`J ( P I "I1C1" ) ( R U1 "D1" I ) 
+`J ( R U1 "S0" I ) ( R U2 "S0" I ) ( R U3 "S0" I ) ( P I "A" ) 
+( R U4 "S0" I ) 
+`J ( R U5 "O" O ) ( P O "Y1" ) 
+`J ( S "M1_23" 1  ) ( R U5 "D1" I ) ( R U2 "O" O ) 
+`J ( R U5 "S0" I ) ( R U6 "S0" I ) ( P I "B" ) 
+`J ( R U7 "O" O ) ( S "E1" 1  ) ( R U5 "E" I ) 
+`J ( P I "I1C2" ) ( R U2 "D0" I ) 
+`J ( P I "I1C3" ) ( R U2 "D1" I ) 
+`J ( P I "G1" ) ( R U7 "I" I ) 
+`J ( P I "I2C0" ) ( R U3 "D0" I ) 
+`J ( R U3 "O" O ) ( R U6 "D0" I ) ( S "M2_01" 1  ) 
+`J ( P I "I2C1" ) ( R U3 "D1" I ) 
+`J ( R U6 "O" O ) ( P O "Y2" ) 
+`J ( S "M2_23" 1  ) ( R U6 "D1" I ) ( R U4 "O" O ) 
+`J ( R U8 "O" O ) ( S "E2" 1  ) ( R U6 "E" I ) 
+`J ( P I "I2C2" ) ( R U4 "D0" I ) 
+`J ( P I "I2C3" ) ( R U4 "D1" I ) 
+`J ( P I "G2" ) ( R U8 "I" I ) 

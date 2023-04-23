@@ -1,0 +1,23 @@
+`F  1.00 bufe
+`B "1" "1" "A" "     June 25, 1993" "" "A" 
+"XC3000 Family BUFE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P I "I"
+`P O "O"
+`S "T" 1 
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "BUFT" XC3000.LIB "BUFT" CA246D3F  XU1  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "INV" XC3000.LIB "INV" CA246EB6  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "E" ) ( R U1 "I" I ) 
+`J ( R U1 "O" O ) ( S "T" 1  ) ( R XU1 "T" I ) 
+`J ( P I "I" ) ( R XU1 "I" I ) 
+`J ( R XU1 "O" T ) ( P O "O" ) 

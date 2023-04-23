@@ -1,0 +1,74 @@
+# @(#)VM.TXT	3.1 Copyright(C)1992 Xilinx Inc. 5/4/94 23:56:03
+# file: vm.txt
+# date: 6/29/90
+# what: Xilinx EPLD virtual memory messages
+#
+# Z.K.
+# 0001:VM FAILURE			
+#    
+# 2002:Allocate FRAME		
+# 2003:Allocate FRAME Directory          
+# 2004:Allocate FRAME SPACE        
+# 2005:ALL Directories FULL            
+# 2006:Invalid  FRAME ID             
+# 2007:EMPTY FRAME              
+# 2008:FRAME Pointer                
+# 2009:NULL FILENAME            
+# 2010:OPEN FILE                
+0001: [Internal Error - vm failure. Check custom library (CLIB) for incompatible components].
+2002: Out of memory - Please try to simplify your design.
+2003: Out of memory - Please try to simplify your design.
+2004: Out of memory - Please try to simplify your design.
+2005: Out of memory - Please try to simplify your design.
+2006: [Internal Error - invalid ID].
+2007: [Internal Error - empty frame].
+2008: [Internal Error - bad pointer].
+2009: [Internal Error - bad file name].
+2010: [Internal Error - open file].
+#
+# 2011:Read FILE Header              
+# 2012:Read FRAME DATA            
+# 2013:Read FRAME Header             
+# 2014:REAllocate Directory              
+# 2015:RESIZE FRAME             
+# 2016:Write FILE Header              
+# 2017:Write FRAME DATA            
+# 2018:Allocate Directory                
+# 2019:FILE VERSION		
+# 2020:FILE RELEASE		
+2011: [Internal Error  in file header].
+2012: [Internal Error - bad data].
+2013: [Internal Error in frame header].
+2014: Out of memory - Please try to simplify your design.
+2015: Out of memory - Please try to simplify your design.
+2016: [Internal Error  in file header].
+2017: [Internal Error - bad data].
+2018: Out of memory - Please try to simplify your design.
+2019: File Version
+2020: File Release
+#
+# 2021:Write FRAME HEADER		
+2021: [Internal Error in frame header].
+# 2022:NO FILE SPACE
+2022: Out of memory - Please try to simplify your design.		
+# 2023:FRAME ZERO SIZE		
+2023: Out of memory - Please try to simplify your design.		
+# 2024:FRAME IN SWAP FILE
+2024: Out of memory - Please try to simplify your design.			
+# 2025:RESIZE NAILED FRAME	
+2025: Out of memory - Please try to simplify your design.		
+# 2026:Allocate SWAP FRAME SPACE	
+2026: Out of memory - Please try to simplify your design.		
+# 2027:SEEK IN SWAP		
+2027: Out of memory - Please try to simplify your design.		
+# 2028:Read SWAP DATA
+2028: Out of memory - Please try to simplify your design.				
+# 2029:Write SWAP DATA
+2029: Out of memory - Please try to simplify your design.				
+# 2030:Internal Error: Corrupt segment. Fid = %u. Offset = %u. Pointer = %p.!
+2030: [Internal Error  in segment Fid = %u, Offset = %u, Pointer = %p].		
+2031: [Internal Error: Requested segment size %u is too large for frame].
+# end of file
+#
+
+

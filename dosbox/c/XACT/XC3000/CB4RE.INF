@@ -1,0 +1,74 @@
+`F  1.00 cb4re
+`B "1" "1" "A" "   August 25, 1993" "" "A" 
+"XC3000 Family CB4RE Macro" "Xilinx"
+""
+""
+""
+""
+`P O "Q0"
+`P O "Q1"
+`P O "Q2"
+`P O "Q3"
+`P I "CE"
+`P I "C"
+`P I "R"
+`P O "TC"
+`P O "CEO"
+`S "T2" 1 
+`S "T3" 1 
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "VCC" XC3000.LIB "VCC" CA0AA86D  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "P" "P" O ) 
+`I R "AND2" XC3000.LIB "AND2" CA0AFC76  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND3" XC3000.LIB "AND3" CA0AFD0B  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND4" XC3000.LIB "AND4" CA0AFDC7  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "O" "O" O ) 
+`I R "FTRSE" XC3000.LIB "FTRSE" CADC209D  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "S" "S" I ) 
+( "Q" "Q" O ) ( "R" "R" I ) 
+`I R "FTRSE" XC3000.LIB "FTRSE" CADC20D9  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "S" "S" I ) 
+( "Q" "Q" O ) ( "R" "R" I ) 
+`I R "FTRSE" XC3000.LIB "FTRSE" CADC2159  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "S" "S" I ) 
+( "Q" "Q" O ) ( "R" "R" I ) 
+`I R "FTRSE" XC3000.LIB "FTRSE" CADC2185  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "S" "S" I ) 
+( "Q" "Q" O ) ( "R" "R" I ) 
+`I R "GND" XC3000.LIB "GND" CADC255E  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "G" "G" O ) 
+`I R "AND2" XC3000.LIB "AND2" DBBD5649  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`J ( R U1 "P" O ) ( R U5 "T" I ) 
+`J ( R U5 "S" I ) ( R U6 "S" I ) ( R U7 "S" I ) ( R U8 "S" I ) 
+( R U9 "G" O ) 
+`J ( R U5 "Q" O ) ( R U6 "T" I ) ( P O "Q0" ) ( R U2 "I1" I ) 
+( R U3 "I2" I ) ( R U4 "I3" I ) 
+`J ( R U5 "CE" I ) ( R U6 "CE" I ) ( R U7 "CE" I ) ( P I "CE" ) 
+( R U8 "CE" I ) ( R U10 "I0" I ) 
+`J ( R U5 "C" I ) ( R U6 "C" I ) ( R U7 "C" I ) ( P I "C" ) 
+( R U8 "C" I ) 
+`J ( R U5 "R" I ) ( R U6 "R" I ) ( R U7 "R" I ) ( P I "R" ) 
+( R U8 "R" I ) 
+`J ( R U6 "Q" O ) ( R U2 "I0" I ) ( P O "Q1" ) ( R U3 "I1" I ) 
+( R U4 "I2" I ) 
+`J ( S "T2" 1  ) ( R U2 "O" O ) ( R U7 "T" I ) 
+`J ( R U7 "Q" O ) ( R U3 "I0" I ) ( P O "Q2" ) ( R U4 "I1" I ) 
+`J ( R U3 "O" O ) ( S "T3" 1  ) ( R U8 "T" I ) 
+`J ( R U8 "Q" O ) ( R U4 "I0" I ) ( P O "Q3" ) 
+`J ( R U4 "O" O ) ( R U10 "I1" I ) ( P O "TC" ) 
+`J ( R U10 "O" O ) ( P O "CEO" ) 

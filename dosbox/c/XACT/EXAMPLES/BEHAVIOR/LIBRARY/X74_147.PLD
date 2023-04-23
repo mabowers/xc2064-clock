@@ -1,0 +1,28 @@
+TITLE           Encoder: 10 - 4, active low inputs and outputs
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung   
+COMPANY         Xilinx EPLD
+DATE            7/27/93
+
+CHIP            X74_147  COMPONENT
+ 
+;Inputs
+/i1 /i2 /i3 /i4 /i5 /i6 /i7 /i8 /i9
+
+; i[9:0]        BCD input
+
+;Outputs
+/a /b /c /d
+
+; a..d          binary output
+
+EQUATIONS 
+
+a = i9 + /i8*i7 + /i8*/i6*i5 + /i8*/i6*/i4*i3 + /i8*/i6*/i4*/i2*i1
+
+b = /i9*/i8*i7 + /i9*/i8*i6 + /i9*/i8*/i5*/i4*i3 + /i9*/i8*/i5*/i4*i2
+
+c = /i9*/i8*i7 + /i9*/i8*i6 + /i9*/i8*i5 + /i9*/i8*i4
+
+d = i9 + i8

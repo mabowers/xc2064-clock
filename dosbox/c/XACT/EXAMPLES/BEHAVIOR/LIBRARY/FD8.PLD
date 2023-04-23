@@ -1,0 +1,40 @@
+TITLE           Flip-flop: D-type, 8-bit
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/24/93
+
+CHIP            FD8  COMPONENT
+ 
+;Inputs
+c d0 d1 d2 d3 d4 d5 d6 d7
+
+;Outputs
+q0 q1 q2 q3 q4 q5 q6 q7
+
+EQUATIONS 
+
+q0 := d0
+q0.clkf = c
+
+q1 := d1
+q1.clkf = c
+
+q2 := d2
+q2.clkf = c
+
+q3 := d3
+q3.clkf = c
+
+q4 := d4
+q4.clkf = c
+
+q5 := d5
+q5.clkf = c
+
+q6 := d6
+q6.clkf = c
+
+q7 := d7
+q7.clkf = c

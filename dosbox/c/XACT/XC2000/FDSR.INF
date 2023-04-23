@@ -1,0 +1,25 @@
+`F  1.00 fdsr
+`B "1" "1" "A" " February 24, 1993" "" "A" 
+"XC4000 Family FDSR Macro" "Xilinx"
+""
+""
+""
+""
+`P I "S"
+`P I "D"
+`P O "Q"
+`P I "R"
+`P I "C"
+`E XC2000.LIB
+`I R "FDS" XC2000.LIB "FDS" C881684A  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "S" "S" I ) ( "Q" "Q" O ) 
+`I R "AND2B1" XC2000.LIB "AND2B1" C881697A  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`J ( P I "S" ) ( R U1 "S" I ) 
+`J ( P I "D" ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( R U1 "D" I ) 
+`J ( R U1 "Q" O ) ( P O "Q" ) 
+`J ( P I "R" ) ( R U2 "I0" I ) 
+`J ( P I "C" ) ( R U1 "C" I ) 

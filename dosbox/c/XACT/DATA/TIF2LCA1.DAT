@@ -1,0 +1,545 @@
+# @(#)tif2lca1.dat	6.4 4/30/93
+BELS
+AD      DEC
+BD      DEC
+CD      DEC
+APAD    PAD
+BPAD    PAD
+AIQ     IQ
+BIQ     IQ
+AOQ     OQ
+BOQ     OQ
+AT      TBUF
+BT      TBUF
+F       F
+G       G
+H       H
+FFX     FFX
+FFY     FFY
+CY4     CARRY
+BSCAN   BSCAN
+GP      BUFGP
+GS      BUFGS
+OSC     OSC
+BSCANT  UPDATE
+TDO     TDO
+RDBK    RDBK
+MD1     MD1
+MD0     MD0
+MD2     MD2
+RDCLK   RDCLK
+STARTUP STARTUP
+APU     PULLUP
+BPU     PULLUP
+PULLDOWN   PULLDOWN
+VPU1    PULLUP
+VPU0    PULLUP
+HPU1    PULLUP
+HPU0    PULLUP
+*
+PINS
+acout   CARRY   COUT    COUT
+bcout   CARRY   COUT    COUT
+AT      PADA    .T      .T
+AO      PADA    .O      .O
+AOK     PADA    .OK     .OK
+AIK     PADA    .IK     .IK
+AI1     PADA    .I1     .I1
+AI2     PADA    .I2     .I2
+BT      PADB    .T      .T
+BO      PADB    .O      .O
+BOK     PADB    .OK     .OK
+BIK     PADB    .IK     .IK
+BI1     PADB    .I1     .I1
+BI2     PADB    .I2     .I2
+ADI     DEC     .1.I    .3.I    .1.I    .3.I
+ADO1    DEC     .1.O1   .3.O1   .1.O2   .3.O2
+ADO2    DEC     .1.O2   .3.O2   .1.O1   .3.O1
+CDI     DEC     .2.I    .2.I    .2.I    .2.I
+CDO1    DEC     .2.O1   .2.O1   .2.O2   .2.O2
+CDO2    DEC     .2.O2   .2.O2   .2.O1   .2.O1
+BDI     DEC     .3.I    .1.I    .3.I    .1.I
+BDO1    DEC     .3.O1   .1.O1   .3.O2   .1.O2
+BDO2    DEC     .3.O2   .1.O2   .3.O1   .1.O1
+ATI     TBUF    .2.I    .2.I
+ATT     TBUF    .2.T    .2.T
+ATO     TBUF    .2.O    .2.O
+BTI     TBUF    .1.I    .1.I
+BTT     TBUF    .1.T    .1.T
+BTO     TBUF    .1.O    .1.O
+APUO    PULLUP  2       2       0       0
+BPUO    PULLUP  1       1       0       0
+HPU0O   PULLUP  0       0       1       1
+HPU1O   PULLUP  1       1       0       0
+VPU0O   PULLUP  2       3       2       3
+VPU1O   PULLUP  3       2       3       2
+
+ 
+ne_pullup PULLUP_NAME   local.6 local.15
+nw_pullup PULLUP_NAME   local.6 local.6
+se_pullup PULLUP_NAME   local.14 local.16
+sw_pullup PULLUP_NAME   local.14 local.7
+ 
+nwgpo   LOGIC   bufgp_tl.O bufgp_tl.O
+negpo   LOGIC   bufgp_tr.O bufgp_tr.O
+swgpo   LOGIC   bufgp_bl.O bufgp_bl.O
+segpo   LOGIC   bufgp_br.O bufgp_br.O
+nwgso   LOGIC   bufgs_tl.O bufgs_tl.O
+negso   LOGIC   bufgs_tr.O bufgs_tr.O
+swgso   LOGIC   bufgs_bl.O bufgs_bl.O
+segso   LOGIC   bufgs_br.O bufgs_br.O
+GPIP    BUFG    bufgp    bufgp
+GPI     BUFG    bufgp    bufgp
+GPO     BUFG    bufgp    bufgp
+GSIP    BUFG    bufgs    bufgs
+GSI     BUFG    bufgs    bufgs
+GSO     BUFG    bufgs    bufgs
+ 
+OSC1    OSC     long.6 local.15
+OSC2    OSC     long.5 long.5
+F8M     LOGIC   osc.F8M osc.F8M
+F500K   LOGIC   osc.F500K osc.F500K
+F16K    LOGIC   osc.F16K osc.F16K
+F490    LOGIC   osc.F490 osc.F490
+F15     LOGIC   osc.F15 osc.F15
+TDOO    LOGIC   tdo.O tdo.O
+TDOT    LOGIC   tdo.T tdo.T
+UPD     LOGIC   update.O update.O
+ 
+TDI     LOGIC   NO_PIN NO_PIN
+TMS     LOGIC   NO_PIN NO_PIN
+TCK     LOGIC   NO_PIN NO_PIN
+TDO1    LOGIC   bscan.TDO1 bscan.TDO1
+TDO2    LOGIC   bscan.TDO2 bscan.TDO2
+TDO     LOGIC   NO_PIN NO_PIN
+IDLE    LOGIC   bscan.IDLE bscan.IDLE
+SEL1    LOGIC   bscan.SEL1 bscan.SEL1
+SEL2    LOGIC   bscan.SEL2 bscan.SEL2
+DRCK    LOGIC   bscan.DRCK bscan.DRCK
+ 
+RDCLK   LOGIC   rdclk.I rdclk.I
+GSR     LOGIC   startup.GSR startup.GSR
+GTS     LOGIC   startup.GTS startup.GTS
+CLK     LOGIC   startup.CLK startup.CLK
+Q2      LOGIC   startup.Q2 startup.Q2
+Q3      LOGIC   startup.Q3 startup.Q3
+Q14     LOGIC   startup.Q1Q4 startup.Q1Q4
+DONEIN  LOGIC   startup.DONEIN startup.DONEIN
+
+TRIG    LOGIC   rdbk.TRIG rdbk.TRIG
+DATA    LOGIC   rdbk.DATA rdbk.DATA
+RIP     LOGIC   rdbk.RIP rdbk.RIP
+MD1O    LOGIC   md1.O md1.O
+MD1T    LOGIC   md1.T md1.T
+MD0     LOGIC   md0.I md0.I
+MD2     LOGIC   md2.I md2.I
+*
+
+EW-SEGS
+X   
+0 2     
+1 3
+2 4
+3 5
+*
+EW-SEGS
+D
+0 0
+1 1
+2 6
+3 7
+*
+EW-SEGS
+L
+0 0
+1 1
+2 2
+3 3
+*
+EW-SEGS
+G
+0 4
+1 5
+2 6
+3 7        
+*
+EW-SEGS
+M
+0 1
+1 2
+2 3
+3 4
+*
+
+NS-SEGS
+X
+0 5     
+1 4
+2 3
+3 2
+*
+NS-SEGS
+D
+0 7
+1 6
+2 1
+3 0
+13 1
+*
+NS-SEGS
+L
+0 1
+1 0
+2 3
+3 2
+12 9
+13 8
+*
+NS-SEGS
+M
+0 3
+1 4
+2 1
+3 2
+* 
+  
+MAGIC/EAST/SOUTH
+T
+0 8
+1 9
+*
+MAGIC/EAST/SOUTH
+L
+0 10
+1 11
+*
+MAGIC/EAST/SOUTH
+D
+0 8
+1 10
+2 11
+3 13
+*
+MAGIC/EAST/SOUTH
+R
+0 8 
+1 0
+20 1
+*
+MAGIC/EAST/NORTH
+T
+0 8
+1 9
+*
+MAGIC/EAST/NORTH
+L
+0 10
+1 11
+*
+MAGIC/EAST/NORTH
+D
+0 10
+1 9
+2 13
+3 12
+12 11
+13 13
+*
+MAGIC/EAST/NORTH
+R
+0 11
+1 0
+20 17
+* 
+MAGIC/EAST/WEST
+L
+0 1
+1 0
+2 3
+3 2 
+32 9
+33 8  
+*
+MAGIC/EAST/WEST
+D
+0 7
+1 6
+2 1
+3 10
+23 16
+*
+MAGIC/EAST/WEST
+X
+0 5     
+1 4
+2 3
+3 2
+*
+MAGIC/EAST/DBL_DBL
+D
+0 -1
+1 9
+2 -1
+3 9
+21 15
+23 15
+*
+
+MAGIC/NORTH/WEST
+L
+0 1
+1 0
+*
+MAGIC/NORTH/WEST
+T
+0 3
+1 2
+*
+MAGIC/NORTH/WEST
+G
+0 4
+1 5
+2 6
+3 7
+*
+MAGIC/NORTH/WEST
+D
+0 3
+1 4
+2 0
+3 1
+*
+MAGIC/NORTH/WEST
+R
+0 0
+1 1
+*
+MAGIC/NORTH/EAST
+L
+0 1
+1 0
+*
+MAGIC/NORTH/EAST
+T
+0 3
+1 2
+*
+MAGIC/NORTH/EAST
+D
+0 5
+1 3
+2 2
+3 0
+*
+MAGIC/NORTH/EAST
+R
+0 3
+1 2
+*
+
+MAGIC/NORTH/SOUTH
+L
+0 0
+1 1
+2 2
+3 3
+*
+MAGIC/NORTH/SOUTH
+D
+0 0
+1 1
+2 6
+3 7
+*
+MAGIC/NORTH/SOUTH
+X
+0 2
+1 3
+2 4
+3 5
+*
+MAGIC/NORTH/DBL_DBL
+D
+0 -1
+1 8
+2 -1
+3 8   
+21 14 
+23 14   
+*
+ 
+MAGIC/WEST/NORTH
+L
+0 0
+1 1
+*
+MAGIC/WEST/NORTH
+T
+0 2
+1 3
+*
+MAGIC/WEST/NORTH
+D
+0 2
+1 1
+2 5
+3 4
+12 3
+13 5
+*
+MAGIC/WEST/NORTH
+R
+0 11 
+1 0 
+20 17
+*
+MAGIC/WEST/SOUTH
+L
+0 0
+1 1
+*
+MAGIC/WEST/SOUTH
+T
+0 2
+1 3
+*
+MAGIC/WEST/SOUTH
+D
+0 0
+1 2
+2 3
+3 5
+*
+MAGIC/WEST/SOUTH
+R
+0 8 
+1 0
+20 1
+*
+
+MAGIC/WEST/EAST
+L
+0 1
+1 0
+2 3
+3 2
+32 9
+33 8
+*
+MAGIC/WEST/EAST
+G
+0 4
+1 5
+2 6
+3 7
+*
+MAGIC/WEST/EAST
+D
+0 7
+1 6
+2 1
+3 10
+23 16
+*
+MAGIC/WEST/EAST
+X
+0 5
+1 4
+2 3
+3 2
+*
+MAGIC/WEST/DBL_DBL
+D
+0 -1
+1 9
+2 -1
+3 9
+4 -1
+5 9
+6 -1
+7 9
+21 15
+23 15
+*
+
+MAGIC/SOUTH/WEST
+L
+0 9
+1 8
+*
+MAGIC/SOUTH/WEST
+T
+0 7
+1 6
+*
+MAGIC/SOUTH/WEST
+G
+0 5
+1 4
+2 3
+3 2
+*
+MAGIC/SOUTH/WEST
+D
+0 11
+1 12
+2 8
+3 9
+*
+MAGIC/SOUTH/WEST
+R
+0 0
+1 1
+*
+MAGIC/SOUTH/EAST
+L
+0 9
+1 8
+*
+MAGIC/SOUTH/EAST
+T
+0 7
+1 6
+*
+MAGIC/SOUTH/EAST
+D
+0 13
+1 11
+2 10
+3 8
+*
+MAGIC/SOUTH/EAST
+R
+0 3
+1 2
+*
+MAGIC/SOUTH/NORTH
+L
+0 0
+1 1
+2 2
+3 3
+*
+MAGIC/SOUTH/NORTH
+D
+0 0
+1 1
+2 6
+3 7
+*
+MAGIC/SOUTH/NORTH
+X
+0 2
+1 3
+2 4
+3 5
+*
+MAGIC/SOUTH/DBL_DBL
+D
+0 -1
+1 8
+2 -1
+3 8
+21 14
+23 14
+

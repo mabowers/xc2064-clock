@@ -1,0 +1,54 @@
+TITLE           Shift Register: 4-bit, right serial in, async-clear, loadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/4/93
+
+CHIP            X74_195  COMPONENT
+ 
+;Inputs
+a b c d j /k s_l ck /clr
+
+; a..d          parallel-load data
+; j, k          shift-right serial input
+; s_l           shift/load
+; ck            clock (optional FastCLK)
+; clr           async clear
+ 
+;Outputs
+qa qb qc qd /qdb
+
+; qa..qd        counter output
+; qdb           qd complement
+
+EQUATIONS 
+
+/qdb     := /s_l*/d
+          +  s_l*/qc
+qdb.clkf  = ck
+qdb.setf  = clr
+qdb.prld  = vcc
+
+
+qd       := /s_l* d
+          +  s_l* qc
+qd.clkf   = ck
+qd.rstf   = clr
+
+qc       := /s_l* c
+          +  s_l* qb
+qc.clkf   = ck
+qc.rstf   = clr
+
+qb       := /s_l* b
+          +  s_l* qa
+qb.clkf   = ck
+qb.rstf   = clr
+
+qa       := /s_l* a
+          +  s_l* j*/k
+          +  s_l*/j*/k* qa
+          +  s_l* j* k*/qa
+qa.clkf   = ck
+qa.rstf   = clr

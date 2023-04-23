@@ -1,0 +1,40 @@
+TITLE           Accumulator: high-order 1-bit, reset, load, +/-, cascadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/3/93
+
+CHIP            ACC1X2  COMPONENT
+ 
+;Inputs
+b0 d0 l add ce c r
+
+; b0            accumulator B-operand
+; d0            parallel-load data
+; l             parallel-load enable
+; add           function select: 1=add, 0=subtract
+; ce            accumulator clock-enable
+; c             clock (optional FastCLK)
+; r             sync reset
+; ci            carry-in to q0 via MC carry chain
+;               (ci may only connect to co output of arith component or PLD)
+ 
+;Outputs
+q0
+
+; q0            accumulator output
+; co            carry-out from q0 via MC carry chain 
+;               (co may only connect to ci input of arith component or PLD)
+
+PARTITION q0_0 q0
+
+EQUATIONS 
+
+q0.D1   = b0*add*ce*/l*/r
+        + /b0*/add*ce*/l*/r
+        + d0*l*/r
+q0.fbk  = /l*/r
+q0     := q0.D1 xor q0.D2
+q0.add  = vcc
+q0.clkf = c

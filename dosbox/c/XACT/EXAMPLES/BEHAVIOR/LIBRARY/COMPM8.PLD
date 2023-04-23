@@ -1,0 +1,73 @@
+TITLE           Magnitude comparator: 8-bit
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            8/3/93
+
+CHIP            COMPM8  COMPONENT
+ 
+;Inputs
+a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7
+
+; a[7:0]        comparator A-operand
+; b[7:0]        comparator B-operand
+ 
+;Nodes
+le2_0 le3 le4 le5 le6
+
+; le[6:0]       intermediate A<=B terms
+
+;Outputs
+gt lt
+
+; gt            A>B output
+; lt            A<B output
+
+PARTITION compm8 le2_0 le3 le4 le5 le6 gt lt
+
+EQUATIONS 
+
+/le2_0    = a2*/b2
+          + /a2*/b2*a1*/b1
+          + a2*b2*a1*/b1
+          + /a2*/b2*/a1*/b1*a0*/b0
+          + /a2*/b2*a1*b1*a0*/b0
+          + a2*b2*/a1*/b1*a0*/b0
+          + a2*b2*a1*b1*a0*/b0
+
+le3.D1    = /a3 + b3
+le3.D2    = /a3*b3
+le3.shift = vcc
+le3       = le3.D1 and le3.D2
+
+le4.D1    = /a4 + b4
+le4.D2    = /a4*b4
+le4.shift = vcc
+le4       = le4.D1 and le4.D2
+
+le5.D1    = /a5 + b5
+le5.D2    = /a5*b5
+le5.shift = vcc
+le5       = le5.D1 and le5.D2
+
+le6.D1    = /a6 + b6
+le6.D2    = /a6*b6
+le6.shift = vcc
+le6       = le6.D1 and le6.D2
+
+gt.D1     = /a7 + b7
+gt.D2     = /a7*b7
+gt.shift  = vcc
+gt        = gt.D1 nand gt.D2
+
+lt.D1     = /a0*b0
+          + /a1*b1
+          + /a2*b2
+          + /a3*b3
+          + /a4*b4
+          + /a5*b5
+          + /a6*b6
+          + /a7*b7
+lt.shift  = vcc
+lt        = lt.D1 D1_AND_NOTD2 lt.D2

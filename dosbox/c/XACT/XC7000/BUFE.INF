@@ -1,0 +1,22 @@
+`F  1.00 BUFE
+`B "1" "1" "A" "    March  9, 1993" "" "A" 
+"XC4000 Family BUFE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P I "I"
+`P O "O"
+`S "T" 1 
+`E XC7000.LIB
+`I R "BUFT" XC7000.LIB "BUFT" ca246d3f  XU1  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "INV" XC7000.LIB "INV" ca246eb6  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "E" ) ( R U1 "I" I ) 
+`J ( R U1 "O" O ) ( S "T" 1  ) ( R XU1 "T" I ) 
+`J ( P I "I" ) ( R XU1 "I" I ) 
+`J ( R XU1 "O" T ) ( P O "O" ) 

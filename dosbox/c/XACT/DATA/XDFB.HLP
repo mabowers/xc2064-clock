@@ -1,0 +1,641 @@
+:XDelay
+
+  The %yXDelay%g command allows you to obtain detailed timing 
+  information about your design.  The report contains the 
+  worst-case path delays for the selected of path sources 
+  and loads.  Sources and loads can be specified individually, 
+  or by clock nets.  There are also filters used to limit 
+  which types of paths are reported.  For example, have %yXDelay%g 
+  report only Clock to Setup paths, or only paths that use a 
+  specified net).  This command will not analyze your design
+  with respect to any TimeSpec information that may have been 
+  created for the design.  Use the %yXDelay-TimeSpec%g command 
+  to do this.
+
+  %yXDelay%g remembers which options were selected over multiple 
+  invocations of the command.
+
+:XDelay-TimeSpec
+
+  The %yXDelay-TimeSpec%g command allows you to obtain detailed 
+  timing information about your design.  It is very much like the
+  %yXDelay%g command, except that your design will be analyzed 
+  with reference to the TimeSpec information.
+
+  %yXDelay-TimeSpec%g remembers which options were selected over 
+  multiple invocations of the command.
+
+:Analyze
+
+  %yAnalyze%g will produce a perfomance analysis of a design.
+  The %yAnalyze%g command calculates the maximum clock frequency  
+  for each clock net in the design, and shows the limiting
+  delay paths for each clock net.
+
+:XDelay--From
+
+  %yFrom%g allows you to select sources for delay paths.
+  These can be nets, blocks, or pins, and can be specified 
+  with the "*" wild card.
+
+:XDelay--FromIOB
+
+  %yFromIOB%g allows Input IOBs to be selected as sources
+  for delay paths.  A menu of valid IOBs will be displayed 
+  if %yBlkMenus%g are enabled.  IOBs can be selected from the 
+  menu with the mouse, or by typing their names.  When typing, 
+  the "*" wild card can be used to help select the IOBs.
+
+:XDelay--FromFF
+
+  %yFromFF%g specifies the outputs of the selected Flip-Flops as  
+  path sources.  Flip-Flops are specified by their output net
+  names.  A menu of valid Nets will be displayed, if %yNetMenus%g 
+  are enabled. The Nets can be selected from the menu with the
+  mouse, or by typing their names.  When typing, the "*" wild
+  card can be used to help select the Nets.
+ 
+:XDelay--FromAll
+
+  %yFromAll%g clears any previously defined delay path sources, 
+  and then enables tracing from all valid delay path sources. 
+  This is the default setting.
+
+:XDelay--To
+
+  %yTo%g allows delay path loads to be selected. 
+  These can be nets, blocks, or pins, and can be 
+  specified with the "*" wild card.
+
+:XDelay--ToIOB
+
+  %yToIOB%g allows Output IOBs to be selected as delay path
+  loads.  A menu of valid Output IOBs will be displayed if
+  %yBlkMenus%g are enabled.  IOBs can be selected from the
+  menu with the mouse, or by typing their names.  When typing, 
+  the "*" wild card can be used to help select the IOBs.
+
+:XDelay--ToFF
+
+  %yToFF%g specifies all the inputs to the specified Flip-Flops
+  as path loads.  The Flip-Flops are specified by their output
+  nets.  A menu of valid Flip-Flop output nets will be displayed,  
+  if %yNetMenus%g are enabled.  Nets can be selected from the menu 
+  with the mouse, or by typing their names.  When typing, the
+  "*" wild card can be used to help select the Nets.
+ 
+:XDelay--ToAll
+
+  %yToAll%g clears any previously defined delay path loads, 
+  and then enables tracing to all valid delay path loads.
+  This is the default setting.
+
+:XDelay--SelectSpec
+
+  %y-SelectSpec%g allows user-defined TimeSpecs to be used
+  to control XDelay "from" and "to" settings.  The XDelay
+  report will contain a summary of the paths found matching
+  each selected timespec, and will announce whether the
+  paths passed or failed the TimeSpec limit.
+
+:XDelay--FailedSpec
+
+  %y-FailedSpec%g limits the XDelay report to only those
+  paths that caused any of the selected TimeSpecs to fail.
+
+  By selecting %y-FailedSpec%g, only the "problem" paths
+  will be listed in the XDelay report.
+
+:XDelay--Unspecified
+
+  %y-Unspecified%g will include paths that are not specified  
+  by any TimeSpecs in the XDelay report.
+
+  If the TimeSpecs are complete over all timing paths in  
+  the design, this will have no effect.  If there are
+  any timing-critical paths in this report section, a
+  new TimeSpec may need to be created for these paths.
+
+:XDelay--SourceClock
+
+  %ySourceClock%g specifies which Clock Nets will be used as 
+  delay path sources.  All nets driven by Flip-Flops that are 
+  clocked by the specified Clock Nets are chosen as delay path 
+  sources. 
+
+  This can be very useful if you have multiple Clock Nets,
+  and want to examine the timing for each Clock Net separately. 
+  
+  Each SourceClock can be further limited by selecting which
+  edge of the clock to examine (Rising edge, Falling edge, or
+  Any edge).
+
+:XDelay--NoSourceClock
+
+  %yNoSourceClock%g clears any previously defined SourceClocks.
+
+:XDelay--DestClock
+
+  %yDestClock%g specifies which Clock Nets will be used as delay
+  path loads.  All nets that drive Flip-Flop that are clocked
+  by the specified Clock Nets are chosen as delay path loads.
+
+  This can be very useful if you have multiple Clock Nets,
+  and want to examine the timing for each Clock Net separately. 
+
+  Each DestClock can be further limited by selecting which
+  edge of the clock to examine (Rising edge, Falling edge, or
+  Any edge).
+
+:XDelay--NoDestClock
+
+  %yNoDestClock%g clears any previously defined DestClocks.
+
+:XDelay--Ignorenet
+
+  %yIgnorenet%g is used to ignore all paths that use the 
+  selected nets.  A menu of Nets is displayed, if %yNetMenus%g
+  are enabled.  Nets can be selected from the menu, or by
+  typing their names.  The "*" wild card can be used to help 
+  select the nets.
+
+:XDelay--NoIgnorenet
+
+  %yNoIgnorenet%g allows all delay paths to be reported, 
+  by not ignoring any nets.  This clears the effects of
+  any previous %yIgnorenet%y commands.
+
+:XDelay--Netfilter
+
+  %yNetfilter%g causes %yXDelay%g to only produce delay paths
+  that use any of the selected Filter Nets.  A menu of Nets 
+  is displayed, if %yNetMenus%g are enabled.  Nets can be
+  selected from the menu, or by typing their names.  The
+  "*" wild card can be used to help select the nets.
+
+:XDelay--NoNetfilter
+
+  %yNoNetfilter%g allows all paths to be reported, by not 
+  using any Net Filters.  This clears the effects of any 
+  previous %yNetfilter%g commands.
+
+:XDelay--BreakLoop
+
+  %yBreakLoop%g lets nets be marked as "synchronous" to
+  XDelay.  XDelay will trace paths leading to a BreakLoop
+  net, and trace paths started at BreakLoop nets, but will 
+  not trace through the source pin on the BreakLoop net.
+
+  This allows combinational logic latches to be marked
+  as BreakLoop, so that XDelay will treat them as
+  synchronous elements.
+
+:XDelay--NoBreakLoop
+
+  %yNoBreakLoop%g clears all existing BreakLoops, so  
+  that no nets are marked BreakLoop.
+
+:XDelay--PadtoPad
+
+  The %yPadToPad%g option reports only paths that begin 
+  and end at IOB Pads.  This will not report any paths 
+  that begin or end at clocked elements.
+
+:XDelay--PadtoSetup
+
+  The %yPadToSetup%g option reports only paths that are 
+  sourced from IOB input pads and end at clocked elements, 
+  like flip-flop data inputs.
+
+:XDelay--ClockToPad
+
+  The %yClockToPad%g option reports only paths that start 
+  at clocked outputs, like flip-flop Q outputs, and end 
+  at IOB output pads. 
+
+:XDelay--ClockToSetup
+
+  The %yClockToSetup%g option reports only paths that start  
+  at clocked outputs, like flip-flop Q outputs, and end at  
+  clocked inputs, like flip-flop data inputs.
+
+:XDelay--ClockInput
+
+  The %yClockInput%g option reports only paths that 
+  end at clock pins.  These paths can start at IOB Pads, 
+  or Flip-Flop or latch clocked outputs. 
+
+:XDelay--Delayless
+
+  %yDelayless%g is used to set the Maximum delay time for the 
+  reported delay paths.  Only path delays smaller than or 
+  equal to this number will be reported.
+  
+  The %yDelayless%g value is specified in Nanoseconds (ns).
+
+:XDelay--Delaygreater
+
+  %yDelaygreater%g is used to set the Minimum delay time for 
+  reported delay paths.  Only path delays larger than or 
+  equal to this number will be reported.
+  
+  The %yDelaygreater%g value is specified in Nanoseconds (ns).
+
+:XDelay--Maxpaths
+
+  %yMaxpaths%g specifies the maximum number of paths that are 
+  to be reported.  This is useful if the delays are sorted in
+  descending order, and the only useful information is at the 
+  top of the report.
+
+  Note: If %yMaxpaths%g is used while using TimeSpecs, the
+  Maxpaths limit affects the total number of paths in the
+  system, and not the total number for each TimeSpec.  Use
+  %yTSMaxpaths%g to limit the number of paths report for
+  each TimeSpec.
+
+:XDelay--TSMaxpaths
+
+  %yTSMaxpaths%g will limit the number of paths reported for
+  each TimeSpec in the XDelay report to a specified number.
+
+:XDelay--Widereport
+
+  %yWidereport%g outputs data on lines that are 132 characters 
+  long.  This option can be used to avoid truncating the ends 
+  of long names.
+
+:XDelay--Shortreport
+
+  %yShortreport%g prints short summaries of each delay path. 
+  
+  Rather than enumerating all individual block and net delays, 
+  the Short Report gives the total path delay, plus notes of 
+  any interesting LCA features encountered along the path.
+
+:XDelay--WorstCase
+
+  %yWorstCase%g only traces the longest path between each 
+  source pin and load pin.  If there is more than one 
+  path between the source and load, only the longest 
+  is displayed. 
+
+:XDelay--ClearOptions
+
+  The %yClearOptions%g option clears all previously 
+  defined %yXDelay%g options, and restores them to 
+  their defaults. 
+
+:XDelay--Sort
+
+  %ySort%g changes the order in which path delays are reported.   
+
+  The default is to list delay paths in order from slowest to 
+  fastest.
+
+  HELP can be also used on the individual sorting options, 
+  for more detailed explanations.
+
+:XDelay-Sort-Unsorted
+
+  There is no %yUnsorted%g option.
+
+:XDelay-Sort-DelayLong
+
+  %yDelayLong%g sorts the delay paths with the Slowest 
+  paths first, and the Fastest paths last. 
+  
+  This is the default sorting option.
+
+:XDelay-Sort-DelayShort
+
+  %yDelayShort%g sorts the delay paths with the Fastest 
+  paths first, and the Slowest paths last. 
+
+:XDelay-Sort-DestBlock
+
+  %yDestBlock%g sorts the delay paths by the names of their 
+  Destination Blocks.  For paths that all end at the same
+  load block, the delays are sorted Slowest to Fastest.
+
+:XDelay-Sort-SrcBlock
+
+  %ySrcBlock%g sorts the delay paths by the names of their 
+  Source Blocks.  For paths that all start from the same
+  source block, the delays are sorted Slowest to Fastest.
+
+:XDelay-Sort-SrcClockNet
+
+  %ySrcClockNet%g sorts the delay paths by the name
+  of the source Clock Net.  For each Source Clock, the
+  delay paths are sorted Slowest to Fastest.
+
+:XDelay-Sort-DestClockNet
+
+  %yDestClockNet%g sorts the delay paths by the name of
+  the destination Clock Net.  For each Dest Clock,
+  the delay paths are sorted Slowest to Fastest.
+
+:QueryTemplate
+
+  The %yQueryTemplate%g command prints a list of the
+  currently defined %yXDelay%g options.
+
+:ClearTemplate
+
+  The %yClearTemplate%g command clears any previously
+  defined %yXDelay%g options, and restores them to their
+  defaults.
+
+:SaveTemplate
+
+  The %ySaveTemplate%g command saves the currently 
+  defined list of %yXDelay%g options to a file.
+
+  The template file will include XDelay settings,
+  TimeGroups, TimeSpecs, Margins, and Flagblk
+  settings.
+
+:ReadTemplate
+
+  The %yReadTemplate%g command reads a file into memory
+  which contains a list of %yXDelay%g options.
+
+:SetMargins
+
+  The %ySetMargins%g command lets you add a specified  
+  amount of delay to any path which starts or ends  
+  off-chip. 
+
+  This is useful if you need to determine the delay
+  for a path involving off-chip delays, and you know
+  how much time it takes for the signal to propagate
+  outside the LCA. This command lets you add that
+  number to the calculated on-chip delay, and gives  
+  you a "total" path delay time.
+ 
+:SetMargins-PadToSetup
+
+  The %yPadToSetup%g option allows you to add a certain  
+  amount of delay to the paths which "start" at input 
+  pads to account for the off-chip delay accumulated
+  in getting to the input pad from the off-chip source.  
+ 
+:SetMargins-ClockToPad
+
+  The %yClockToPad%g option allows you to add a
+  certain amount of delay to the paths which "end"
+  at output pads to account for the off-chip delay  
+  accumulated in getting from the output pad to
+  the off-chip destination.
+
+:QueryMargins
+
+  %yQueryMargins%g lists the amount of off-chip delay,  
+  set by the %ySetMargins%g command, which gets added to  
+  the calculated on-chip delays.
+
+:ClearMargins
+
+  %yClearMargins%g resets the amount of off-chip delay,
+  set by the %ySetMargins%g command, back to zero.
+
+:Savemargins
+
+  %ySaveMargins%g has been superceded by %ySaveTemplate%g.
+
+  Margins are now saved along with the other XDelay
+  settings in the .xtm template file.
+
+:Readmargins
+
+  %yReadMargins%g reads margin timing from a file  
+  created with the %ySaveMargins%g command.
+
+:Flagblk
+
+  %yFlagblk%g allows the user to flag certain blocks,
+  which are then given special consideration by the path
+  delay calculator.  
+
+:Flagblk-Synchronous
+
+  The %ySynchronous%g option marks outputs from function
+  generators on the specified blocks as synchronous
+  outputs. %yXDelay%g starts and ends paths at these
+  outputs, but will not trace through them. By marking
+  combinational logic latches as %ySynchronous%g, %yXDelay%g
+  should better handle these asynchronous designs.
+
+:Flagblk-Not_Synchronous
+
+  The %yNot_Synchronous%g option marks outputs from function
+  generators on the specified blocks as asynchronous outputs.
+  This is the default way %yXDelay%g treats block outputs.
+
+:Flagblk-IOB_Enable_O_I
+
+  The %yIOB_Enable_O_I%g option allows a particular block
+  to be traced through if it contains a path that goes off
+  chip through an IOB O pin and back into the chip through
+  an IOB I pin.  A menu is displayed with a list of valid
+  blocks to choose from.
+  
+  This option only affects Bidirectional IOBs with
+  Three-state outputs!  IOBs with active output drivers
+  are not affected!
+
+:Flagblk-IOB_Disable_O_I
+
+  The %yIOB_Disable_O_I%g option disallows a particular block
+  from being traced through if it contains a path that goes
+  off chip through an IOB O pin and back into the chip through
+  an IOB I pin.  This is the default.
+  
+  This option only affects Bidirectional IOBs with
+  Three-state outputs!  IOBs with active output drivers
+  are not affected!
+
+:Flagblk-IOB_Enable_T_I
+
+  The %yIOB_Enable_T_I%g option allows a particular block
+  to be traced through if it contains a path that goes off
+  chip through an IOB T pin and back into the chip through
+  an IOB I pin.  A menu is displayed with a list of valid
+  blocks to choose from.
+
+:Flagblk-IOB_Disable_T_I
+
+  The %yIOB_Disable_T_I%g option disallows a particular block
+  from being traced through if it contains a path that goes off
+  chip through an IOB T pin and back into the chip through
+  an IOB I pin.  This is the default.
+
+:Flagblk-TBUF_Enable_I_O
+
+  The %yFlagblk-TBUF_Enable_I_O%g option allows %yXDelay%g to
+  trace paths which go through a TBUF I pin to the TBUF O pin.
+  A menu is displayed with a list of valid TBUFs to choose from.
+  This is the default.
+
+:Flagblk-TBUF_Disable_I_O
+
+  The %yFlagblk-TBUF_Disable_I_O%g option disallows %yXDelay%g 
+  from tracing paths which go through a TBUF I pin to the TBUF
+  O pin.  A menu is displayed with a list of valid TBUFs to
+  choose from.
+
+:Flagblk-TBUF_Enable_T_O
+
+  The %yFlagblk-TBUF_Enable_T_O%g option allows %yXDelay%g to
+  trace paths which go through a TBUF T pin to the TBUF O pin.
+  A menu is displayed with a list of valid TBUFs to choose from.
+  This is the default.
+
+:Flagblk-TBUF_Disable_T_O
+
+  The %yFlagblk-TBUF_Disable_T_O%g option disallows %yXDelay%g 
+  from tracing paths which go through a TBUF T pin to the TBUF
+  O pin.  A menu is displayed with a list of valid TBUFs to
+  choose from.
+
+:Flagblk-CLB_Enable_SR_Q
+
+  The %yCLB_Enable_SR_Q%g option allows a particular block to
+  be traced through if it contains a path that goes through a
+  CLB Asynchronous Set/Reset pin to the Q output of the
+  Flip-Flop.  A menu is displayed with a list of valid blocks 
+  to choose from.  The default is to allow all such path delays.
+
+:Flagblk-CLB_Disable_SR_Q
+
+  The %yCLB_Disable_SR_Q%g option disallows a particular block
+  from being traced through if it contains a path that goes
+  through a CLB Asynchronous Set/Reset pin to the Q output of
+  the Flip-Flop.
+
+:Flagblk-CLB_Enable_WE
+
+  The %yCLB_Enable_WE%g option enables paths through the
+  CLB RAM Write-Enable path for XDelay.  A menu is displayed
+  with a list of valid blocks to choose from.  The default
+  is to trace through CLB RAM WE inputs.
+
+:Flagblk-CLB_Disable_WE
+
+  The %yCLB_Disble_WE%g option disables paths through the
+  CLB RAM Write-Enable path for XDelay.  This can be useful
+  if you are not both reading and writing the CLB RAM at the
+  same time, and are not interested in the WE to RAM output
+  path. A menu is displayed with a list of valid blocks to
+  choose from.
+
+:Flagblk-CLB_Enable_DIN
+
+  The %yCLB_Enable_DIN%g option enables paths through the
+  CLB RAM Data-in path for XDelay.  A menu is displayed
+  with a list of valid blocks to choose from.  The default
+  is to trace through CLB RAM Data-in inputs.
+
+:Flagblk-CLB_Disable_DIN
+
+  The %yCLB_Disble_DIN%g option disables paths through the
+  CLB RAM Data-in path for XDelay.  This can be useful if
+  you are not both reading and writing the CLB RAM at the
+  same time, and are not interested in the DIN to RAM
+  output path. A menu is displayed with a list of valid
+  blocks to choose from.
+
+:TimeGroup
+
+  The %yTimeGroup%g command allows a group of Flip Flops,
+  CLB RAM elements, IOBs, Pins, or other TimeGroups to
+  be created.  These groups can then be used to specify
+  timing requirements using the %yTimeSpec%g command,
+  which can be used in the %yXDelay%g timing report.
+
+:TimeGroup--FF
+
+  The %y-FF%g option allows a group of Flip Flops to be
+  specified, by their %youtput%g net names.
+
+:TimeGroup--OutFF
+
+  The %y-OutFF%g option allows a group of output Flip Flops 
+  to be specified, by their %youtput%g net names.
+
+:TimeGroup--Net
+
+  The %y-Net%g option allows a group of Flip Flops to be
+  specified, by their %yinput%g net names.  This allows
+  Flip Flops to be grouped by Clock or Clock-Enable nets,
+  instead of having to specify each Flip Flop individually  
+  by name.
+
+:TimeGroup--RAM_WE
+
+  The %y-RAM_WE%g option allows a group of CLB RAM  
+  to be specified by their Write-Enable net names.  
+
+:TimeGroup--RAM
+
+  The %y-RAM%g option allows a group of CLB RAM  
+  to be specified by their Internal Net names.  
+
+  Note: Internal nets are only created by PPR,
+  and cannot be created manually.
+
+:TimeGroup--IOB
+
+  The %y-IOB%g option allows a group of IOBs to be
+  specified, either by selecting with the mouse, or  
+  by specifying their names.
+
+:TimeGroup--Pin
+
+  The %y-Pin%g option allows a group of block pins
+  (e.g.: IOB pins, or CLB pins) to be specified,
+  either by selecting with the mouse, or by specifying  
+  their names.
+
+:TimeGroup--Group
+
+  The %y-Group%g option allows a group of other
+  TimeGroups to be specified, by name.  This allows
+  groups of non-identical objects to be selected,
+  and then used by a single TimeSpec command.
+
+:DeleteGroup
+
+  The %yDeleteGroup%g command allows existing
+  TimeGroups to be deleted.
+
+:QueryGroup
+
+  The %yQueryGroup%g command displays information
+  about existing TimeGroups.
+
+:TimeSpec
+
+  The %yTimeSpec%g command allows a Timing Specification
+  to be entered between a pair of TimeGroups.  this spec
+  can then be used in XDelay to determine of the design
+  passes or fails the timing specifications.
+
+  A TimeSpec consists of a "from" group, a "to" group,
+  and a timing limit for paths between the two groups.
+
+  To add a new %yTimeSpec%g, type a new name at the
+  TimeSpec prompt.  If an existing %yTimeSpec%g, is
+  selected, the timing limit may be changed.
+
+:DeleteSpec
+
+  The %yDeleteSpec%g command allows existing  
+  TimeSpecs to be deleted.
+
+:QuerySpec
+
+  The %yQuerySpec%g command displays information
+  about existing TimeSpecs.
+

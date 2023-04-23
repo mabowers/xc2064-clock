@@ -1,0 +1,37 @@
+TITLE           Parity Generator/Checker: 9 bits, odd/even
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/4/93
+
+CHIP            X74_280  COMPONENT
+ 
+;Inputs
+a b c d e f g h i
+
+; a..i          data input
+
+;Nodes
+xor6
+
+;Outputs
+odd even
+
+; even          even parity
+; odd           odd parity
+
+PARTITION odd_even xor6 odd even
+EQUATIONS 
+
+xor6.d1    = a*/b*/c + /a*b*/c + /a*/b*c + a*b*c
+xor6.d2    = d*/e*/f + /d*e*/f + /d*/e*f + d*e*f
+xor6       = xor6.d1 xor xor6.d2
+
+odd.d1     = g*/h*/i + /g*h*/i + /g*/h*i + g*h*i
+odd.shift  = vcc
+odd        = odd.d1 xor odd.d2
+
+even.d1    = vcc
+even.shift = vcc
+even       = even.d1 xor even.d2

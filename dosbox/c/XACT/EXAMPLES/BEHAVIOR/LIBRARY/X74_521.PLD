@@ -1,0 +1,30 @@
+TITLE           Equality comparator: 8-bit, active low enable, active low output
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/4/93
+
+CHIP            X74_521  COMPONENT
+ 
+;Inputs
+p0 p1 p2 p3 p4 p5 p6 p7 q0 q1 q2 q3 q4 q5 q6 q7 /g
+
+; p[7:0]        comparator A-operand
+; q[7:0]        comparator B-operand
+; g             enable
+ 
+;Outputs
+/peq            ;p=q output 
+
+EQUATIONS 
+
+/peq    = p0*/q0 + /p0*q0
+        + p1*/q1 + /p1*q1
+        + p2*/q2 + /p2*q2
+        + p3*/q3 + /p3*q3
+        + p4*/q4 + /p4*q4
+        + p5*/q5 + /p5*q5
+        + p6*/q6 + /p6*q6
+        + p7*/q7 + /p7*q7
+        + /g

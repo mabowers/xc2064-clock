@@ -1,0 +1,129 @@
+;File: GENDRIVE.DAT - OrCAD external specification of parameters needed
+;           to customize GENDRIVE.DRV for different video adapters.
+; GENDRIVE process should support most cards up to 800x600 that store
+;   8 pixels/byte in 1-4 bit planes.  800x600 = 100x600 bytes < 64K
+; Updated: 25OCT89 for SDT Version 3.22.
+;   Reordered: 1st two choices so VGA 640x480 is #1.
+;   Adjusted Columns and reworded some lines for readability in GENDRIVE
+;   Added: AST, EVEREX ViewPoint, HP VGA, Renaissance, Tatung
+;   Deleted: EGA 320x200 16(Don't Use), EGA 640x350 4.(Use EGA4E.DRV)
+; Updated: 29DEC89 with information from INFOWORLD Dec 11, 1989 article.
+; Updated: 28APR90 for Cardinal VGA600.
+; Updated: 05MAY92 for OAK800 - JH.
+;
+;                                                      # Pixel     Int 10H
+;Driver Name                                           Cols Rows    AX     BX
+;----------------------------------------------------  ---- ----  -----  -----
+;
+'IBM VGA or Compatible 640x480 16 color',               640, 480,   12H,    0H
+; This should handle most adapters that claim to be VGA compatible.
+;
+'IBM EGA or Compatible 640x350 16 color',               640, 350,   10H,    0H
+; This should handle most adapters that claim to be EGA compatible.
+;
+'VESA      Super VGA 800x600 16 color',                 800, 600,   6AH,    0H
+; This should handle most adapters conforming to VESA Super VGA "standard"
+;
+'Ahead     VGA Wizard+VGA Wizard Deluxe',               800, 600,   6AH,    0H
+;
+'AST       VGA Plus 800x600 16 color',                  800, 600,   58H,    0H
+;
+'ATI       EGA Wonder 640x350 16 color',                640, 350,   10H,    0H
+'ATI       EGA Wonder 800x560 16 color',                800, 560,   53H,    0H
+;
+'ATI       VGA Wonder 640x350 16 color',                640, 350,   10H,    0H
+'ATI       VGA Wonder 640x480 16 color',                640, 480,   12H,    0H
+'ATI       VGA Wonder 800x600 16 color',                800, 600,   54H,    0H
+;
+'BOCA      Super VGA 800x600 16 color',                 800, 600,   6AH,    0H
+;
+'Cardinal  VGA600 800x600 16 color',                    800, 600,   70H,    0H
+;
+'Chips and Technologies   Super VGA 800x600 16 color',  800, 600,   6AH,    0H
+;
+'Colorgraphics EGA-Squared 640x480 16 color',           640, 480,   33H,    0H
+;
+'EIZO      MD-B07 VGA 640x350 16 color',                640, 350,   10H,    0H
+'EIZO      MD-B07 VGA 640x480 16 color',                640, 480,   12H,    0H
+;
+'EIZO      MD-B10 VGA 640x350 16 color',                640, 350,   10H,    0H
+'EIZO      MD-B10 VGA 640x480 16 color',                640, 480,   12H,    0H
+'EIZO      MD-B10 VGA 800x600 16 color',                800, 600,   29H,    0H
+;
+'EIZO      VA30/31 VGA 640x480 16 color',               800, 600,   12H,    0H
+'EIZO      VA30/31 VGA 800x600 16 color',               800, 600,   29H,    0H
+'EIZO      VA41/42 VGA 640x480 16 color',               800, 600,   12H,    0H
+'EIZO      VA41/42 VGA 800x600 16 color',               800, 600,   29H,    0H
+;
+'EVEREX    Micro Enhancer EGA 640x480 16 color',        640, 480,   70H,    0H
+'EVEREX    Micro Enhancer EGA 752x410 16 color',        752, 410,   70H,    1H
+'EVEREX    Micro Enhancer EGA 800x600 16 color',        800, 600,   70H,    2H
+'EVEREX    ViewPoint 256 or 512 800x600 16 color',      800, 600,   70H,    2H
+;
+'GENOA     SuperEGA  640x480 16 color',                 640, 480,   73H,    0H
+'GENOA     SuperEGA  640x528 16 color',                 640, 528,   75H,    0H
+'GENOA     SuperEGA  HiRes+ 752x410 16 color',          752, 410,   77H,    0H
+'GENOA     SuperEGA  HiRes+ 800x600 16 color',          800, 600,   79H,    0H
+'GENOA     SuperEGA  HiRes+ 912x480 16 color',          912, 480,   7BH,    0H
+;
+'GENOA     SuperVGA  640x350 16 color',                 640, 350,   10H,    0H
+'GENOA     SuperVGA  640x480 16 color',                 640, 480,   12H,    0H
+'GENOA     SuperVGA  800x600 16 color',                 800, 600,   29H,    0H
+;
+'Hewlett-Packard VGA 800x600 16 color',                 800, 600,   58H,    0H
+;
+'NEC       GB1 640x480 16 color',                       640, 480,   25H,    0H
+;
+'OAK Technology OTI-067   800x600 16 color',            800, 600,   52H,    0H
+;
+'Orchid    (Pro)Designer VGA 800x600 16 color',         800, 600,   29H,    0H
+;
+'Paradise  Autoswitch 480  EGA 640x480 16 color',       640, 480,   50H,    0H
+'Paradise  EGA or VGA 800x600 16 color',                800, 600,   58H,    0H
+;
+'PCG       PHOTON MEGA PLUS VGA 640x480 16 color',      640, 480,   72H,    0H
+'PCG       PHOTON MEGA PLUS VGA 800x600 16 color',      800, 600,   71H,    0H
+;
+'QUAD      EGA ProSync 640x480 16 color',               640, 480, 6F05H,   12H
+'QUAD      EGA ProSync 752x410 16 color',               752, 410, 6F05H,   60H
+'QUAD      GTI SuperVGA  640x350 16 color',             640, 350,   10H,    0H
+'QUAD      GTI SuperVGA  640x480 16 color',             640, 480,   12H,    0H
+'QUAD      GTI SuperVGA  800x600 16 color',             800, 600,   29H,    0H
+;
+'Renaissance RVGA I/II 800x600 16 color',               800, 600,   64H, 6F05H
+;
+'Samsung   SVGA16 800x600 16 color',                    800, 600,   29H     0H
+;
+'Sigma     VGA/H  640x350 16 color',                    640, 350,   10H,    0H
+'Sigma     VGA/H  640x480 16 color',                    640, 480,   12H,    0H
+'Sigma     VGA/H  800x560 16 color',                    800, 560,   2BH,    0H
+; May fly on multisynch monitors that cannot quite handle 800x600.
+'Sigma     VGA/H  800x600 16 color',                    800, 600,   29H,    0H
+;
+'SOTA      VGA/16 640x350 16 color',                    640, 350,   10H,    0H
+'SOTA      VGA/16 640x480 16 color',                    640, 480,   12H,    0H
+'SOTA      VGA/16 800x600 16 color',                    800, 600,   29H,    0H
+;
+'STB       VGA  800x600 16 color',                      800, 600,   29H,    0H
+;
+'Tatung    VGA  800x600 16 color',                      800, 600, 6F05H,   62H
+'Tatung    TVGA-16 800x600 16 color',                   800, 600,   58H,    0H
+;
+'Tecmar    VGA/AD 640x350 16 color',                    640, 350,   10H,    0H
+'Tecmar    VGA/AD 640x480 16 color',                    640, 480,   12H,    0H
+'Tecmar    VGA/AD 800x600 16 color',                    800, 600,   16H,    0H
+;
+'Trident   TVGA VGA 800x600 16 color',                  800, 600,   5BH,    0H
+;
+'Tseng Labs EVA 480 640x480 16 color',                  640, 480,   25H,    0H
+;
+'Video 7   VEGA Deluxe or VGA 640x350 16 color',        640, 350, 6F05H,   10H
+'Video 7   VEGA Deluxe or VGA 640x480 16 color',        640, 480, 6F05H,   12H
+'Video 7   VEGA Deluxe or VGA 752x410 16 color',        752, 410, 6F05H,   60H
+'Video 7   VGA 720x540 16 color',                       720, 540, 6F05H,   61H
+'Video 7   VGA 800x600 16 color',                       800, 600, 6F05H,   62H
+;
+'Wizard    Deluxe EGA 800x600 16 color',                800, 600,   71H,    0H
+;
+'ZyMOS     POACH 51 VGA 800x600 16 color'               800, 600,   5BH,    0H
+

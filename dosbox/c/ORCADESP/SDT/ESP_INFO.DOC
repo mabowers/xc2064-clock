@@ -1,0 +1,21 @@
+
+                        ESP ADDITIONAL TECHNICAL INFORMATION 
+
+
+   1. In order to run OrCAD executables from outside of the ESP design 
+      environment, you must first add a statement to your AUTOEXEC.BAT file. 
+      This statement tells the OrCAD executables which driver to load. If 
+      you used a VGA driver, you would add the following statement:
+
+      SET ORCADDD=C:\ORCADESP\DRV\VGA640.DRV
+
+      This assumes that you had installed the default directories onto 
+      your C: drive.
+
+  _______________________________________________________________________________
+
+   2.  If special video drivers are created using the GENDRIVE utility,
+       these drivers will not be displayed in the configuration scroll 
+       boxes.  To select your custom driver, delete the existing 
+       driver selected and enter the custom driver name.
+

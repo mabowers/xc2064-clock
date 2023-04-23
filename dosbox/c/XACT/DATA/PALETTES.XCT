@@ -1,0 +1,362 @@
+;
+; Palettes for the IBM PC EGA and VGA adapters.
+;
+; The first palette with a given number of colors is the
+; default palette for that graphics mode.
+;
+;
+;  This file contains the color palette definitions for
+;  the Xilinx Design Manager and XACT Design Editor.
+;  Sample palettes are already defined; if you want more,
+;  you can add them to this file.  
+;  
+;  A palette is a collection of 4, 8, or 16 colors, each
+;  of which may be any of the 64 colors available in EGA 
+;  or VGA mode.
+;
+;  The number of lines in a palette is equal to the number 
+;  of colors plus one.  A four color palette is defined by
+;  5 lines, as shown in the example below.  
+;
+;        palette palette_name 4
+;                color_# color_name
+;                color_# color_name
+;                color_# color_name
+;                color_# color_name
+; 
+;   The first line defines the palette name which will
+;   appear in the PALETTE menu.   
+;
+; --->> A PALETTE NAME CANNOT BE MORE THAN ONE WORD. <<---
+;
+;   The word "palette" (or "necpalette" if you have a NEC
+;   machine) must appear in column 1 and the number 4 (since
+;   this is a four color palette) must be included after the
+;   1-word palette name.  The next four lines in the palette 
+;   definition describe the default screen colors.
+;   The color order is:
+;
+;                first color -  background
+;                second color - help text and highlight 
+;                third color  - cursor
+;                fourth color - menus and command line
+;
+;   For 8 or 16 color palettes, the fifth through last colors
+;   are not used in drawing the default screen, and can appear
+;   in any order in the palette.  Each available color has a
+;   color number and name (1-word).  The most common colors
+;   and their corresponding numbers are listed below:
+;
+;    PC COLORS:
+;                x00  Black           x05  Magenta
+;                x3a  LightGreen      x06  Brown
+;                x3c  LightRed        x07  Grey 
+;                x3e  Yellow          x38  Charcoal
+;                x01  Blue            x39  LightBlue 
+;                x02  Green           x3b  LightCyan
+;                x03  Cyan            x3d  LightMagenta
+;                x24  Red             x3f  BrightWhite
+;
+;    NEC COLORS:
+;
+;                x0 Black
+;                x4 Green
+;                x2 Red
+;                x6 Yellow
+;                x1 Blue
+;                x5 Cyan
+;                x3 Magenta
+;                x7 White
+;
+;  The color number must be placed in column 1, followed by a
+;  blank space (or tab) and a 1-word color name.  
+;
+;      --->> A COLOR NAME MUST BE A SINGLE WORD. <<---
+; 
+;  When XDM or XDE is invoked, this PALETTES.XCT file is read
+;  and all the palettes which are defined for the chosen palette
+;  size appear in the PALETTE menu.
+;
+;
+;-------------------- Four Color Palettes for PCs --------------------
+;
+;
+; Four color primary palette for XDM.
+;
+palette default 4
+	x00 Black
+	x1b Cyan
+	x0c Maroon
+	x3f White
+;
+; Four color primary palette for XDE.
+;
+palette xactdefault 4
+	x00 Black
+	x07 Grey
+	x24 Red
+	x37 Buff
+;
+; Alternate 4 color palettes.
+;
+palette monochrome 4
+        x00 Black
+        x01 Blue
+        x3c LightRed
+        x3f BrightWhite
+;
+palette Gray 4
+	x38 Charcoal
+	x00 Black
+	x24 Red
+	x37 Buff
+;
+palette Green 4
+	x00 Black
+	x07 Grey
+	x3f White
+	x13 GreenBlue
+;
+palette old_xactdefault 4
+        x00 Black
+        x3a LightGreen
+        x3c LightRed
+        x3e Yellow
+;
+palette old_default 4
+        x01 Blue
+        x3a LightGreen
+        x3c LightRed
+        x3f BrightWhite
+;
+palette colorblind 4
+        x00 Black
+        x3b LightCyan
+        x3d LightMagenta
+        x3f BrightWhite
+;
+;
+;-------------------- Eight Color Palettes for PCs --------------------
+;
+;
+; Eight color primary palette for XDM.
+;
+palette default 8
+	x00 Black
+	x1b Cyan
+	x0c Maroon
+	x3f White
+	x24 Red
+	x26 Orange  
+	x36 Yellow
+	x29 NeonBlue
+;
+; Eight color primary palette for XDE.
+;
+palette xactdefault 8
+	x00 Black
+	x07 Grey
+	x24 Red
+	x37 Buff
+	x3f White
+	x25 HotPink
+	x2c Watermelon
+	x36 Yellow
+;
+; Eight color alternate palettes.
+;
+palette Gray 8
+	x38 Charcoal
+	x00 Black
+	x24 Red
+	x37 Buff
+	x36 Yellow
+	x2b Blue
+	x3a Green
+	x3f White
+;
+palette Green 8
+	x00 Black
+	x07 Grey
+	x3f White
+	x13 GreenBlue
+	x09 Blue
+	x0f Periwinkle
+	x36 Yellow
+	x2c Watermelon
+;
+palette colorblind 8
+        x00 Black
+        x3b LightCyan
+        x3d LightMagenta
+        x3f BrightWhite
+        x01 Blue
+        x02 Green
+        x03 Cyan
+        x04 Red
+;
+palette oldxactdefault 8
+        x00 Black
+        x3a LightGreen
+        x3c LightRed
+        x3e Yellow
+        x01 Blue
+        x3f White
+        x25 Pink
+        x07 Gray
+;
+;
+;-------------------- Sixteen Color Palettes for PCs --------------------
+;
+;
+; Sixteen color primary palette for XDM.
+;
+palette default 16
+        x00 Black
+        x1b Cyan
+        x0c Maroon
+        x3f White
+        x27 LightPink
+        x25 HotPink
+        x2c Watermelon
+        x24 Red
+        x26 Orange
+        x36 Yellow
+        x32 LimeGreen
+        x02 Green
+        x0f Periwinkle
+        x29 NeonBlue
+        x21 CobaltBlue
+        x05 Purple
+;
+; Sixteen color primary palette for XDE.
+;
+palette xactdefault 16
+        x00 Black
+        x07 Grey
+        x24 Red
+        x37 Buff
+        x3f White
+        x27 LightPink
+        x25 HotPink
+        x2c Watermelon
+        x26 Orange
+        x36 Yellow
+        x32 LimeGreen
+        x02 Green
+        x0f Periwinkle
+        x29 NeonBlue
+        x21 CobaltBlue
+        x05 Purple
+;
+; Sixteen color alternate palettes.
+;
+palette Gray 16
+        x38 Charcoal
+        x00 Black
+        x3c LightRed
+        x37 Buff
+        x27 LightPink
+        x25 HotPink
+        x24 Red
+        x2c Watermelon
+        x26 Orange
+        x36 Yellow
+        x32 LimeGreen
+        x02 Green
+        x07 Periwinkle
+        x29 NeonBlue
+        x21 CobaltBlue
+        x05 Purple
+;
+palette Green 16
+        x00 Black
+        x07 Grey
+        x3f White
+        x13 GreenBlue
+        x27 LightPink
+        x25 HotPink
+        x2c Watermelon
+        x24 Red
+        x26 Orange
+        x36 Yellow
+        x32 LimeGreen
+        x02 Green
+        x0f Periwinkle
+        x29 NeonBlue
+        x21 CobaltBlue
+        x05 Purple
+;
+palette oldxactdefault 16
+        x00 Black
+        x3a LightGreen
+        x3c LightRed
+        x36 Yellow
+        x2b Blue
+        x22 DarkGreen
+        x25 Pink
+        x07 Gray
+        x2e Brown
+        x23 PaleBlue
+        x26 Orange
+        x3f White
+        x34 BrightRed
+        x29 BrightBlue
+        x1c DarkBrown
+        x1b LightBlue
+;
+;
+;-------------------- Four Color Palettes for NEC 9801 --------------------
+;
+; Four color primary palette for XDM.
+;
+necpalette Default 4
+        x0 Black
+        x5 Cyan
+        x2 Red
+        x7 White
+;
+; Four color primary palette for XDE.
+;
+necpalette xactdefault 4
+        x0 Black
+        x4 Green
+        x2 Red
+        x6 Yellow
+;
+; Four color alternate palette.
+;
+necpalette colorblind 4
+        x0 Black
+        x5 Cyan
+        x3 Magenta
+        x7 White
+;
+;
+;-------------------- Eight Color Palettes for NEC 9801 --------------------
+;
+; Eight color primary palette for XDE.
+;
+necpalette xactdefault 8
+        x0 Black
+        x4 Green
+        x2 Red
+        x6 Yellow
+        x1 Blue
+        x5 Cyan
+        x3 Magenta
+        x7 White
+
+;
+; Eight color primary alternate palette.
+;
+necpalette colorblind 8
+        x0 Black
+        x5 Cyan
+        x3 Magenta
+        x7 White
+        x1 Blue
+        x4 Green
+        x2 Red
+        x6 Yellow
+

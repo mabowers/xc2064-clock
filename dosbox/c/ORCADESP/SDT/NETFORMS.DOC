@@ -1,0 +1,530 @@
+
+                           Netlist Format Files                          OrCAD
+                         Requirements and Switches
+------------------------------------------------------------------------------
+This note describes the files used by IFORM and HFORM to create formatted
+netlists.  It is provided for your convenience.
+
+The header at the beginning of each uncompiled file contains specific
+information about history and correct usage for that particular file.
+IFORM and HFORM use netlist format files with the following name conventions:
+
+           --------------------------------------------------------
+          | Tool    | Extension  | Description                     |
+           ---------+------------+---------------------------------
+          | IFORM   |Fxxxxxxx.EXE| Compiled flat                   |
+           ---------+------------+---------------------------------
+          | HFORM   |Hxxxxxxx.EXE| Compiled hierarchical           |
+           --------------------------------------------------------
+            Netlist format file description.
+
+See chapters 9 through 11 in the "Schematic Design Tools Reference Guide" for
+more information about netlists. See "Appendix B: Netlist formats" for
+information about specific netlist formats.
+
+The remainder of this note describes the netlist format files.                 
+                                                                               
+                                                                        Page 2
+==============================================================================
+FALGOREX.EXE|Switch:
+            |  /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FALLEGRO.EXE|Switch:
+            |  /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FALTERAA.EXE|Switches:
+            |  /I Include unconnected pins
+  1.10      |  /L Do not append sheet number to labels
+            |  /N Suppress comments
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FAPPLBRA.EXE|Switch: 
+            |   /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------------------------------------------------------------------------
+                                                                               
+                                                                        Page 3
+------------------------------------------------------------------------------
+FAPPLLEA.EXE|Switch:
+            |  /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FCADNETI.EXE|Switch:
+            |  /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names can contain up to 17 characters
+            |  - Module Names can contain up to 15 characters
+            |  - Reference Strings plus Pin Numbers can contain up to 12
+            |     characters
+            |  - Node Names can contain up to 16 characters
+            |  - Node Numbers are not checked for length
+            |  - Pin Numbers can contain up to 3 digits
+------------+-----------------------------------------------------------------
+FCALAY.EXE  |Switches:
+ and        |  /2 Create two output files
+FCALAY90.EXE|  /L Do not append sheet number to labels
+            |Capacities:
+  1.10      |  - Part Names can contain up to 19 characters
+            |  - Module Names can contain up to 19 characters
+            |  - Reference Strings can contain up to 19 characters
+            |  - Node Names can contain up to 8 characters (see legal 
+            |     characters below)
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All characters are legal for Part Names, Module Names, and
+            |     Reference 
+            |  - Legal characters for Node Names are { '+-', '0..9', 'a..z',
+            |     'A..Z' }
+------------+-----------------------------------------------------------------
+FCASE.EXE   |Switches:
+            |  /I Include unconnected pins
+  1.10      |  /L Do not append sheet number to labels
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'X')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------------------------------------------------------------------------
+                                                                               
+                                                                        Page 4
+------------------------------------------------------------------------------
+FCBDS.EXE   |Switch:
+            |  /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names can contain up to 20 characters (see legal 
+            |     characters below)
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All characters are legal for Part Names, Module Names, and
+            |     Reference 
+            |  - Legal characters for Node Names are {'/-', '0..9', 'a..z',
+            |     'A..Z' }
+------------+-----------------------------------------------------------------
+FCOMPVIS.EXE|Switch:
+            |  /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are limited to 19 characters
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+   FDUMP.EXE|NO SPECIAL REQUIREMENTS
+------------+-----------------------------------------------------------------
+FEDIF.EXE   |Switches:
+ and        |  /E Do not create the 'external' library declaration
+HEDIF.EXE   |  /L Do not append sheet number to labels
+            |  /N Do not output additional properties
+  1.10c     |  /P Output pin names (instead of pin numbers)
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - Legal characters are { '_', '0-9', 'a-z', 'A-Z' }
+            |  - Remember that case is not significant in EDIF
+            |
+            |  - Names with illegal characters will be handled as follows:
+            |      1  A WARNING will be issued
+            |      2  '-' will be changed to 'MINUS',
+            |         '+' will be changed to 'PLUS',
+            |         '\' will be changed to  'BAR', and  
+            |         all others will be changed to '_'
+            |      3  The original name will be RENAMEd to the new one
+------------------------------------------------------------------------------
+                                                                               
+                                                                        Page 5
+------------------------------------------------------------------------------
+FEEDESIG.EXE|Capacities:
+            |  - Part Names are not checked for length
+  1.10a     |  - Module Names are not checked for length
+            |  - Reference Strings are limited to 8 characters
+            |  - Node Names are NOT supported
+            |  - Node Numbers are limited to 3 digits (plus the leading 'UN')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FFUTURE.EXE |Switches:
+            |  /K Create CON* symbols for module ports
+  1.10      |  /L Do not append sheet number to label names
+            |  /M Assign SIG* attributes to module ports
+            |  /N Create a netlist (instead of a pinlist)
+            |  /P Output pin numbers (instead of pin names)
+            |  /V Assign FutureNet power attributes to power objects
+            |Capacities:
+            |  - Part Names are limited to 16 characters
+            |  - Module Names are not checked for length
+            |  - Reference Strings are limited to 6 characters
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 6 digits (plus the leading '***')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - Legal characters are not checked
+------------+-----------------------------------------------------------------
+   HDUMP.EXE|NO SPECIAL REQUIREMENTS
+------------+-----------------------------------------------------------------
+FHILO.EXE   |Switches:
+            |  /I Include unconnected pins
+  1.10      |  /L Do not append sheet number to labels
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are limited to 14 characters
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FINTELAD.EXE|Switches:
+            |  /I Include unconnected pins
+  1.10      |  /L Do not append sheet number to labels
+            |  /N Suppress comments
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------------------------------------------------------------------------
+                                                                               
+                                                                        Page 6
+------------------------------------------------------------------------------
+FINTERGR.EXE|Switch:
+            |  /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FMENTOR.EXE |Switches:
+            |  /2 Create two output files
+  1.10      |  /L Do not append sheet number to labels
+            |Capacities:
+            |  - Part Names are limited to 19 characters
+            |  - Module Names are limited to 19 characters
+            |  - Reference Strings are limited to 19 characters
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FMULTIWI.EXE|Switch:
+            |  /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings plus the Pin Number are limited to
+            |     32 characters
+            |  - Node Names are limited to 16 characters
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |Characters:
+            |    - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FPADSASC.EXE|Switches:
+            |  /2 Create two output files
+  1.10b     |  /L Do not append sheet number to labels
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names not checked for length
+            |  - Reference Strings are limited to 6 characters
+            |  - Node Names are limited to 6 characters
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - Node names can only use these characters
+            |     { '~!#$%_-=+|/.:;<>', 'A-Z', 'a-z', '0-9' }
+            |  - References can only use these characters
+            |     { 'A-Z', 'a-z', '0-9' }
+------------------------------------------------------------------------------
+                                                                               
+                                                                        Page 7
+------------------------------------------------------------------------------
+FPADSASC0.EXE|Switches:
+            |  /2 Create two output files
+  1.10b     |  /L Do not append sheet number to labels
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names not checked for length
+            |  - Reference Strings are limited to 6 characters
+            |  - Node Names are limited to 12 characters
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - Node names can only use these characters
+            |     { '~!#$%_-=+|/.:;<>', 'A-Z', 'a-z', '0-9' }
+            |  - References can only use these characters
+            |     { 'A-Z', 'a-z', '0-9' }
+------------+-----------------------------------------------------------------
+FPCAD.EXE   |Switches:
+            |  /I Include unconnected pins
+  1.10      |  /L Do not append sheet number to labels
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are limited 8 characters
+            |  - Node Numbers are limited to 5 digits 
+            |     (plus the leading 'NET')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - Legal characters are { '+-_$' '0-9' 'a-z' 'A-Z'}
+------------+-----------------------------------------------------------------
+FPCADNLT.EXE|Switch:
+            |  /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All characters are legal for Part Names, Module Names, and 
+            |     Reference 
+            |  - Legal characters for Node Names are {'+-_$', '0..9', 'a..z',
+            |     'A..Z'}
+------------------------------------------------------------------------------
+                                                                               
+                                                                        Page 8
+------------------------------------------------------------------------------
+FPCBII.EXE  |Switch:
+            |  /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names are limited to 8 characters
+            |  - Module Names are limited to 8 characters
+            |  - Reference Strings are limited to 8 characters
+            |  - Node Names are limited to 8 characters
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Names are limited to 4 characters
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal except { '(){} ' }
+------------+-----------------------------------------------------------------
+  FPDUMP.EXE|NO SPECIAL REQUIREMENTS
+------------+-----------------------------------------------------------------
+FPLDNET.EXE |Switches:
+            |  /L Do not append sheet number to labels
+  1.20      |  /P Only use 'pins' and 'nodes' keywords
+            |     (do not use in, out, and io)
+            |  /U Include unspecified module ports as "nodes"
+            |     (this option is forced when /P is present)
+            |  /W Create a complete PLD source file
+            |     (pin assignments and signal names are taken from the
+            |      module ports)
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FRACALRE.EXE|Switches:
+            |  /2 Create two output files
+  1.10b     |  /L Do not append sheet number to labels
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FSCICARD.EXE|Switches:
+            |  /L Do not append sheet number to labels
+  1.10a     |Capacities:
+            |  - Part Names can contain up to 17 characters
+            |  - Module Names can contain up to 15 characters
+            |  - Reference Strings plus Pin Numbers can contain up to 12
+            |     characters
+            |  - Node Names can contain up to 8 characters
+            |  - Node Numbers are not checked for length
+            |  - Pin Numbers can contain up to 3 digits
+------------+------------------------------------------------------------------
+                                                                               
+                                                                        Page 9
+------------------------------------------------------------------------------
+FSPICE.EXE  |Switches:
+ and        |  /2 Create two output files
+HSPICE.EXE  |  /I Include unconnected pins
+            |  /L Do not append sheet number to labels
+  1.10      |  /N Use node names
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - Node names are limited to { '_', '$', '0-9' , 'a-z', 'A-Z' }
+            |     if /N is present
+            |
+            |  Even if your version of SPICE does not allow alphabetic node
+            |  names, you can still give nodes names if they represent
+            |  numerical values (such as '14').  These node 'numbers' will
+            |  not overlap with the system defined ones since system node
+            |  numbers begin at 10000 (except GND, which is always 0).
+            |
+            |  Unconnected pins will generate a warning and a space, " ",
+            |  will be output instead of a number.  If /I is present, then
+            |  unconnected pins will not generate a warning and will be given
+            |  a net number starting at 32767 and decreasing with each
+            |  additional unconnected pin.
+            |
+            |  The .MAP file that is generated is only valid if the /N
+            |  switch is not used (since labels will be output to the netlist
+            |  instead of system created net numbers if /N is present).
+------------+-----------------------------------------------------------------
+FTANGO.EXE  |Switch:
+            |  /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names can be up to 16 characters in length
+            |  - Module Names can be up to 16 characters in length
+            |  - Reference Strings can be up to 16 characters in length
+            |  - Node Names can be up to 16 characters in length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - Note that the Reference and ModuleName must be uppercase
+            |     only
+            |  - All ASCII keyboard characters are legal except { '()[],- ' }
+------------------------------------------------------------------------------
+                                                                               
+                                                                       Page 10
+------------------------------------------------------------------------------
+FTELESI.EXE |Switch:
+            |  /L Do not append sheet number to labels
+  1.10      |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FVECTRON.EXE|Switches:
+            |  /2 Create two output files
+  1.10      |  /L Do not append sheet number to labels
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings can contain up to 8 characters
+            |  - Node Names can contain up to 12 characters
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All characters are legal
+------------+-----------------------------------------------------------------
+FVSTMODE.EXE|Switch:
+            |  /N Suppress comments
+  1.10a     |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names are not checked for length
+            |  - Reference Strings are not checked for length
+            |  - Node Names are not checked for length
+            |  - Pin Numbers are not checked for length
+            |Characters:
+            |  - All ASCII keyboard characters are legal
+------------+-----------------------------------------------------------------
+FWIRELIS.EXE|Switches:
+            |  /A Abbreviate label descriptions
+  1.10a     |  /L Do not append sheet number to labels
+            |  /P Do not output pin numbers for Grid Array parts
+            |Capacities:
+            |  - Part Names are not checked for length
+            |  - Module Names can contain up to 29 characters
+            |  - Reference Strings can contain up to 9 characters
+            |  - Node Names are not checked for length
+            |  - Node Numbers are limited to 5 digits (plus the leading 'N')
+            |  - Pin Numbers are limited to 7 characters
+            |  - Pin Names are limited to 15 characters.
+            |Characters:
+            |  - All characters are legal for Part Names, Module Names, and 
+            |     Reference 
+            |  - Legal characters for Node Numbers are { '0..9' }
+            |  - Legal characters for Pin Numbers are { '0..9' } except if
+            |     /P switch is set, which will allow all characters
+------------------------------------------------------------------------------
+                                                                               
+                                                                       Page 11
+==============================================================================
+Although every effort has been made to ensure the accuracy of this note, OrCAD
+supplied netlist format files may change without notification. Those changes
+may not be reflected in this listing.
+
+All other brand and product names mentioned herein are used for identification
+purposes only, and are trademarks or registered trademarks of their respective
+holders.
+------------------------------------------------------------------------------

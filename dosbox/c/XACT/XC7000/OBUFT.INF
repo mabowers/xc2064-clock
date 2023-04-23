@@ -1,0 +1,25 @@
+`F  1.00 OBUFT
+`B "1" "1" "A" " December 23, 1993" "" "A" 
+"XC7000 Family OBUFT Macro" "Xilinx"
+""
+""
+""
+""
+`P I "T"
+`P I "I"
+`P O "O"
+`E XC7000.LIB
+`I R "BUFT" XC7000.LIB "BUFT" e33254d8  XU1  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "ZOBUF" XC7000.LIB "ZOBUF" e8526d9b  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "INV" XC7000.LIB "INV" e8527504  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "T" ) ( R XU1 "T" I ) ( R U2 "I" I ) 
+`J ( R U2 "O" O ) ( R U1 "E" I ) 
+`J ( P I "I" ) ( R XU1 "I" I ) 
+`J ( R XU1 "O" T ) ( R U1 "I" I ) 
+`J ( R U1 "O" T ) ( P O "O" ) 

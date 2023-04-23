@@ -1,0 +1,137 @@
+# "@(#)clb1io4v.bel	6.8  1/30/94" 
+# Belgraph definition for 4000 IOB Pair, east and west edge 
+# This is identical to iob4h.bel except for presence of TBUFs.
+#
+
+# Bel pins imply nodes
+_BELS
+IOB4_IBUF       AIBUF,
+IOB4_OREG	AOQ,
+IOB4_PAD        APAD,
+IOB4_OBUFT      AOBUFT(is_direct_gnd),
+IOB4_IREG	AIQ,
+IOB4_TBUF	AT (is_direct_gnd),
+IOB4_PU     APU (is_pullup_src),
+IOB4_DEC_CLB1	AD,
+IOB4_DEC_CLB1	CD,
+IOB4_IBUF       BIBUF,
+IOB4_OREG	BOQ,
+IOB4_PAD        BPAD,
+IOB4_OBUFT      BOBUFT(is_direct_gnd),
+IOB4_IREG	BIQ,
+IOB4_TBUF	BT (is_direct_gnd),
+IOB4_DEC_CLB1	BD,
+IOB4_PU         BPU (is_pullup_src)
+;
+
+
+# Additional node definitions
+_NODES
+AI1, AI2, AO, AT, AIK, AOK,
+BI1, BI2, BO, BT, BIK, BOK,
+AIU, BIU,	# For far connections only
+ATI, ATO, ATT,
+BTI, BTO, BTT,
+ADO1, ADI,
+ADO2,
+BDO1, BDI,
+BDO2,
+CDO1, CDI,
+CDO2,
+APUO, BPUO,
+;
+
+# From-to connections
+_ARCS
+# Clock connections
+AOK AOQ_C,
+AIK AIQ_C,
+BOK BOQ_C,
+BIK BIQ_C,
+
+# AI1, AI2, BI1, BI2 pin connections
+AIQ_Q   AI1,	AIQ_Q   AI2,
+AIQ_QL  AI1,	AIQ_QL  AI2,
+AIBUF_O  AI1,	AIBUF_O  AI2,
+BIQ_Q   BI1,	BIQ_Q   BI2,
+BIQ_QL  BI1,	BIQ_QL  BI2,
+BIBUF_O  BI1,	BIBUF_O  BI2,
+
+# Unbuffered and buffered inputs from pad
+APAD_I AIU,
+BPAD_I BIU,
+
+# AO, BO pin connections
+AO AOQ_D,	AO AOBUFT_I,
+BO BOQ_D,	BO BOBUFT_I,
+
+# AT, BT pin connections
+AT AOBUFT_T,
+BT BOBUFT_T,
+
+# AO, BO pin connections
+AO AOQ_D,       AO AOBUFT_I,
+BO BOQ_D,       BO BOBUFT_I,
+
+# AT, BT pin connections
+AT AOBUFT_T,
+BT BOBUFT_T,
+
+# Register output connections
+AOQ_Q AOBUFT_I,
+BOQ_Q BOBUFT_I,
+
+# Register input connections
+APAD_I AIQ_D,
+BPAD_I BIQ_D,
+
+# IBUF connections
+APAD_I AIBUF_I,
+BPAD_I BIBUF_I,
+
+# OBUFT connections
+AOBUFT_O APAD_O,
+BOBUFT_O BPAD_O,
+
+
+# Decoder connections
+####AI2 AD_I,
+####BI2 BD_I,
+ADI AD_I,
+BDI BD_I,
+CDI CD_I,
+AD_O1 ADO1,
+AD_O2 ADO2,
+BD_O1 BDO1,
+BD_O2 BDO2,
+CD_O1 CDO1,
+CD_O2 CDO2,
+
+# TBUF connections
+ATI AT_I,
+BTI BT_I,
+####AI1 AT_I,	AI1 BT_I,
+####BI1 BT_I,	BI1 AT_I,
+ATT AT_T,
+BTT BT_T,
+AT_O ATO,
+BT_O BTO,
+
+# Feedthru arcs thru pad
+APAD_O APAD_I ( is_iopad_feedthru), 
+BPAD_O BPAD_I ( is_iopad_feedthru),
+AT_I AT_O( is_tbuf_feedthru is_tbuf_delay),
+BT_I BT_O( is_tbuf_feedthru is_tbuf_delay),
+AOBUFT_I AOBUFT_O (is_iobuf_feedthru is_iopadtoo_delay),
+BOBUFT_I BOBUFT_O (is_iobuf_feedthru is_iopadtoo_delay),
+AIBUF_I AIBUF_O (is_iobuf_feedthru is_iopadtoi_delay),
+BIBUF_I BIBUF_O (is_iobuf_feedthru is_iopadtoi_delay),
+
+# PULLUP connections
+APU_O APUO,
+BPU_O BPUO,
+
+# Special underpass to BUFGP_I only
+APAD_O AIU (is_bufgp_underpass),
+BPAD_O BIU (is_bufgp_underpass),
+;

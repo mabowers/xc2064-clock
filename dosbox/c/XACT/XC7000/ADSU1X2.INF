@@ -1,0 +1,69 @@
+`F  1.00 ADSU1X2
+`B "1" "1" "A" "September 30, 1993" "" "A" 
+"XC7000 Family ADSU1X2 Model" "Xilinx"
+""
+""
+""
+""
+`P I "CI"
+`P O "S0"
+`P I "ADD"
+`P I "A0"
+`P I "B0"
+`P O "CO"
+`S "A0_O" 1 
+`S "A1_O" 1 
+`S "SUB_CO" 1 
+`S "A1CI" 1 
+`S "A2_O" 1 
+`S "A2CI" 1 
+`S "ADD_CO" 1 
+`S "A3_O" 1 
+`E XC7000.LIB
+`I R "AND2B1" XC7000.LIB "AND2B1" d5ab1b40  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "OR2B1" XC7000.LIB "OR2B1" d5ab1be9  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "OR2" XC7000.LIB "OR2" d5ab1cc9  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND2" XC7000.LIB "AND2" d5ab1d51  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC7000.LIB "AND2" d5ab31cc  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC7000.LIB "AND2" d5ab329f  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "OR2" XC7000.LIB "OR2" d5ab3395  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "OR2" XC7000.LIB "OR2" d5ab3405  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "M2_1" XC7000.LIB "M2_1" d5ab38a9  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "XNOR4" XC7000.LIB "XNOR4" d5ab3ae0  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`J ( P I "CI" ) ( R U6 "I0" I ) ( R U10 "I3" I ) ( R U5 "I0" I ) 
+`J ( P I "B0" ) ( R U10 "I2" I ) ( R U1 "I0" I ) ( R U2 "I0" I ) 
+( R U3 "I0" I ) ( R U4 "I0" I ) 
+`J ( R U10 "O" O ) ( P O "S0" ) 
+`J ( P I "A0" ) ( R U10 "I1" I ) ( R U1 "I1" I ) ( R U2 "I1" I ) 
+( R U3 "I1" I ) ( R U4 "I1" I ) 
+`J ( P I "ADD" ) ( R U9 "S0" I ) ( R U10 "I0" I ) 
+`J ( R U1 "O" O ) ( S "A0_O" 1  ) ( R U7 "I1" I ) 
+`J ( R U2 "O" O ) ( S "A1_O" 1  ) ( R U6 "I1" I ) 
+`J ( R U7 "O" O ) ( S "SUB_CO" 1  ) ( R U9 "D0" I ) 
+`J ( R U9 "O" O ) ( P O "CO" ) 
+`J ( R U6 "O" O ) ( S "A1CI" 1  ) ( R U7 "I0" I ) 
+`J ( R U8 "O" O ) ( S "ADD_CO" 1  ) ( R U9 "D1" I ) 
+`J ( R U3 "O" O ) ( S "A2_O" 1  ) ( R U5 "I1" I ) 
+`J ( R U5 "O" O ) ( S "A2CI" 1  ) ( R U8 "I1" I ) 
+`J ( R U4 "O" O ) ( S "A3_O" 1  ) ( R U8 "I0" I ) 

@@ -1,0 +1,89 @@
+`F  1.00 opad16
+`B "1" "1" "A" " February 13, 1994" "" "A" 
+"XC4000 Family OPAD16 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "O0"
+`P I "O1"
+`P I "O2"
+`P I "O3"
+`P I "O4"
+`P I "O5"
+`P I "O6"
+`P I "O7"
+`P I "O8"
+`P I "O9"
+`P I "O10"
+`P I "O11"
+`P I "O12"
+`P I "O13"
+`P I "O14"
+`P I "O15"
+`E XC4000.LIB
+`E XBLOX.LIB
+`I R "OPAD" XC4000.LIB "OPAD" EC04DC6A  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DC7C  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DCAB  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DCAD  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DD79  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DD7A  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DD7C  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DD7D  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DDA3  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DDA4  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DDA5  U11  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DDA7  U12  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DF17  U13  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DF18  U14  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DF1A  U15  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DF1B  U16  []
+"" "" "" "" "" "" "" ""  ""
+( "OPAD" "OPAD" I ) 
+`J ( P I "O0" ) ( R U1 "OPAD" I ) 
+`J ( P I "O1" ) ( R U2 "OPAD" I ) 
+`J ( P I "O2" ) ( R U3 "OPAD" I ) 
+`J ( P I "O3" ) ( R U4 "OPAD" I ) 
+`J ( P I "O4" ) ( R U5 "OPAD" I ) 
+`J ( P I "O5" ) ( R U6 "OPAD" I ) 
+`J ( P I "O6" ) ( R U7 "OPAD" I ) 
+`J ( P I "O7" ) ( R U8 "OPAD" I ) 
+`J ( P I "O8" ) ( R U9 "OPAD" I ) 
+`J ( P I "O9" ) ( R U10 "OPAD" I ) 
+`J ( P I "O10" ) ( R U11 "OPAD" I ) 
+`J ( P I "O11" ) ( R U12 "OPAD" I ) 
+`J ( P I "O12" ) ( R U13 "OPAD" I ) 
+`J ( P I "O13" ) ( R U14 "OPAD" I ) 
+`J ( P I "O14" ) ( R U15 "OPAD" I ) 
+`J ( P I "O15" ) ( R U16 "OPAD" I ) 

@@ -1,0 +1,34 @@
+TITLE           Decoder: 4-to-16, output-enable
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            7/22/93
+
+CHIP            D4_16E  COMPONENT
+ 
+;Inputs
+a0 a1 a2 a3 e
+
+;Outputs
+d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 d12 d13 d14 d15
+
+EQUATIONS 
+
+d0  = /a3*/a2*/a1*/a0*e
+d1  = /a3*/a2*/a1* a0*e
+d2  = /a3*/a2* a1*/a0*e
+d3  = /a3*/a2* a1* a0*e
+d4  = /a3* a2*/a1*/a0*e
+d5  = /a3* a2*/a1* a0*e
+d6  = /a3* a2* a1*/a0*e
+d7  = /a3* a2* a1* a0*e
+d8  =  a3*/a2*/a1*/a0*e
+d9  =  a3*/a2*/a1* a0*e
+d10 =  a3*/a2* a1*/a0*e
+d11 =  a3*/a2* a1* a0*e
+d12 =  a3* a2*/a1*/a0*e
+d13 =  a3* a2*/a1* a0*e
+d14 =  a3* a2* a1*/a0*e
+d15 =  a3* a2* a1* a0*e
+

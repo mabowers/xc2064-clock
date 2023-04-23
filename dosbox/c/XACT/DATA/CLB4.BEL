@@ -1,0 +1,123 @@
+# @(#)clb4.bel	6.9  2/18/94
+#
+# Belgraph definition for 4000 CLB
+#
+
+# Bel pins imply nodes with name <belname>_<pinname>
+# eg, F_1
+_BELS
+CLB4_RAM4W	F (is_gnd_src is_vcc_src),
+CLB4_RAM4W	G (is_gnd_src is_vcc_src),
+CLB4_RAM3 	H (is_gnd_src is_vcc_src),
+CLB4_REG 	FFX,
+CLB4_REG 	FFY,
+CLB4_TBUF	AT (is_direct_gnd),
+CLB4_TBUF	BT (is_direct_gnd),
+CLB4_CY4	CY4,
+CLB4_MEMWC	MEMWC,
+;
+
+
+# Additional node definitions
+_NODES
+F1, F2, F3, F4,
+G1, G2, G3, G4,
+C1, C2, C3, C4,
+X, XQ,
+Y, YQ,
+ATI, ATT, ATO,
+BTI, BTT, BTO,
+H1, DIN, SR, EC,
+K,
+CIN, COUT,
+;
+
+# From-to connections
+_ARCS
+# Inputs to F
+F1 F_1, F2 F_2, F3 F_3, F4 F_4,
+
+# Inputs to G
+G1 G_1, G2 G_2, G3 G_3, G4 G_4,
+
+# Inputs to H
+H1 H_1, F_O H_2, G_O H_3,
+
+# Inputs to control nodes
+C1 H1,		C1 DIN,		C1 SR,		C1 EC,
+C2 H1,		C2 DIN,		C2 SR,		C2 EC,
+C3 H1,		C3 DIN,		C3 SR,		C3 EC,
+C4 H1,		C4 DIN,		C4 SR,		C4 EC,
+
+# Inputs to registers
+DIN FFX_D (is_dinffd_delay),	DIN FFY_D (is_dinffd_delay),
+F_O FFX_D (is_fgtoffd_delay),	F_O FFY_D (is_fgtoffd_delay),
+G_O FFX_D (is_fgtoffd_delay),	G_O FFY_D (is_fgtoffd_delay),
+H_O FFX_D,	H_O FFY_D,
+K   FFX_C,	K   FFY_C,
+EC  FFX_CE,	EC  FFY_CE,
+SR  FFX_CLR,	SR  FFY_CLR,
+SR  FFX_PRE,	SR  FFY_PRE,
+
+# Inputs to X, Y output pins
+F_O X (is_fgox_delay), H_O X,
+G_O Y (is_fgox_delay), H_O Y,
+F_O Y (is_fgox_delay is_fake_belarc),
+G_O X (is_fgox_delay is_fake_belarc),
+
+# Inputs to XQ, YQ output pins
+FFX_Q XQ,
+FFY_Q YQ,
+FFX_Q YQ (is_fake_belarc),
+FFY_Q XQ (is_fake_belarc),
+
+# Feed thrus
+DIN  XQ (is_fast_feedthru is_fast_delay), 
+EC   YQ (is_fast_feedthru is_fast_delay), 
+F_1 F_O (is_fgfunc_feedthru is_fgfunc_delay),	
+F_2 F_O (is_fgfunc_feedthru is_fgfunc_delay),	
+F_3 F_O (is_fgfunc_feedthru is_fgfunc_delay),	
+F_4 F_O (is_fgfunc_feedthru is_fgfunc_delay),	
+G_1 G_O (is_fgfunc_feedthru is_fgfunc_delay),
+G_2 G_O (is_fgfunc_feedthru is_fgfunc_delay),
+G_3 G_O (is_fgfunc_feedthru is_fgfunc_delay),
+G_4 G_O (is_fgfunc_feedthru is_fgfunc_delay),
+H_1 H_O (is_hfunc_feedthru is_hfunc_delay),
+H_2 H_O (is_hfunc_feedthru is_hfunc_delay),
+H_3 H_O (is_hfunc_feedthru is_hfunc_delay),
+
+# TBUF connections
+####X AT_I, Y AT_I, XQ AT_I, YQ AT_I,
+####X BT_I, Y BT_I, XQ BT_I, YQ BT_I,
+ATI AT_I,
+BTI BT_I,
+ATT AT_T,
+BTT BT_T,
+AT_O ATO,
+BT_O BTO,
+AT_I AT_O (is_tbuf_feedthru is_tbuf_delay),
+BT_I BT_O (is_tbuf_feedthru is_tbuf_delay),
+
+# Arithmetic logic connections
+CIN F_4 (is_cintofg_delay),	CIN G_3 (is_cintofg_delay),	
+CIN CY4_CIN ,
+F1 CY4_A0 ,
+F2 CY4_B0 ,
+G1 CY4_B1 ,
+G4 CY4_A1 ,
+F3 CY4_ADD ,
+CY4_COUT0 G_2,
+CY4_COUT  COUT,
+
+# Memory write control connections
+SR  MEMWC_WE,
+DIN MEMWC_D0,
+H1  MEMWC_D1,
+MEMWC_WEF F_WE ,
+MEMWC_WEG G_WE ,
+MEMWC_DF F_DIN ,
+MEMWC_DG G_DIN ,
+;
+
+
+

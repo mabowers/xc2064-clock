@@ -1,0 +1,59 @@
+package 2064pc44 1 0 1 0
+pin PAD1 P7
+pin PAD2 P6
+pin PAD3 P5
+pin PAD4 P4
+pin PAD5 P3
+pin PAD6
+pin PAD7 P2
+pin PAD8
+pin PAD9 P44
+pin PAD10
+pin PAD11 P43
+pin PAD12  
+pin PAD13 P42
+pin PAD14 P41
+pin PAD15 P40
+pin PAD16 P39
+pin PAD17 P37
+pin PAD18 P36
+pin PAD19 
+pin PAD20 P35
+pin PAD21 
+pin PAD22 P34
+pin PAD23 
+pin PAD24 P32
+pin PAD25 P31
+pin PAD26 
+pin PAD27 P30
+pin PAD28 
+pin PAD29 P29
+pin PAD30 P26
+pin PAD31 P25
+pin PAD32 P24
+pin PAD33 
+pin PAD34 
+pin PAD35 
+pin PAD36 
+pin PAD37 
+pin PAD38 P22
+pin PAD39 
+pin PAD40 P21
+pin PAD41 
+pin PAD42 P20
+pin PAD43    
+pin PAD44 P19
+pin PAD45 P18
+pin PAD46 
+pin PAD47 P15
+pin PAD48 
+pin PAD49 P14
+pin PAD50 P13
+pin PAD51 
+pin PAD52 
+pin PAD53 
+pin PAD54 P11
+pin PAD55 
+pin PAD56 P10
+pin PAD57 
+pin PAD58 P9

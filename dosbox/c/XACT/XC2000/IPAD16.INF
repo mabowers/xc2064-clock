@@ -1,0 +1,88 @@
+`F  1.00 ipad16
+`B "1" "1" "B" " February 14, 1994" "" "A" 
+"XC4000 Family IPAD16 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "I0"
+`P O "I1"
+`P O "I2"
+`P O "I3"
+`P O "I4"
+`P O "I5"
+`P O "I6"
+`P O "I7"
+`P O "I8"
+`P O "I9"
+`P O "I10"
+`P O "I11"
+`P O "I12"
+`P O "I13"
+`P O "I14"
+`P O "I15"
+`E XC2000.LIB
+`I R "IPAD" XC2000.LIB "IPAD" C861C280  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861C295  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861C2A4  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861C2C9  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861D3CC  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861D3CC  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861D3CC  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861D3CC  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861E7EA  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861E7EA  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861E7EA  U11  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861E7EA  U12  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861E7EA  U13  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861E7EA  U14  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861E7EA  U15  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`I R "IPAD" XC2000.LIB "IPAD" C861E7EA  U16  []
+"" "" "" "" "" "" "" ""  ""
+( "IPAD" "IPAD" O ) 
+`J ( P O "I0" ) ( R U1 "IPAD" O ) 
+`J ( P O "I1" ) ( R U2 "IPAD" O ) 
+`J ( P O "I2" ) ( R U3 "IPAD" O ) 
+`J ( P O "I3" ) ( R U4 "IPAD" O ) 
+`J ( P O "I4" ) ( R U5 "IPAD" O ) 
+`J ( P O "I5" ) ( R U6 "IPAD" O ) 
+`J ( P O "I6" ) ( R U7 "IPAD" O ) 
+`J ( P O "I7" ) ( R U8 "IPAD" O ) 
+`J ( P O "I8" ) ( R U9 "IPAD" O ) 
+`J ( P O "I9" ) ( R U10 "IPAD" O ) 
+`J ( P O "I10" ) ( R U11 "IPAD" O ) 
+`J ( P O "I11" ) ( R U12 "IPAD" O ) 
+`J ( P O "I12" ) ( R U13 "IPAD" O ) 
+`J ( P O "I13" ) ( R U14 "IPAD" O ) 
+`J ( P O "I14" ) ( R U15 "IPAD" O ) 
+`J ( P O "I15" ) ( R U16 "IPAD" O ) 

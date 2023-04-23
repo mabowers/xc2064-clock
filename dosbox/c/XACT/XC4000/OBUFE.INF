@@ -1,0 +1,21 @@
+`F  1.00 obufe
+`B "1" "1" "A" "     June  7, 1993" "" "A" 
+"XC4000 Family OBUFE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P I "I"
+`P O "O"
+`E XC4000.LIB
+`I R "INV" XC4000.LIB "INV" C8B2690B  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "OBUFT" XC4000.LIB "OBUFT" D37CC2D1  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( P I "E" ) ( R U1 "I" I ) 
+`J ( R U1 "O" O ) ( R U2 "T" I ) 
+`J ( P I "I" ) ( R U2 "I" I ) 
+`J ( R U2 "O" T ) ( P O "O" ) 

@@ -1,0 +1,28 @@
+`F  1.00 nor5b1
+`B "1" "1" "A" "     June 29, 1993" "" "A" 
+"XC2000 Family NOR5B1 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "I4"
+`P I "I3"
+`P I "I2"
+`P I "I1"
+`P O "O"
+`P I "I0"
+`S "I24" 1 
+`E XC2000.LIB
+`I R "OR3" XC2000.LIB "OR3" D5C76EE6  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "NOR3B1" XC2000.LIB "NOR3B1" D5C77319  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`J ( P I "I4" ) ( R U1 "I2" I ) 
+`J ( P I "I3" ) ( R U1 "I1" I ) 
+`J ( R U1 "O" O ) ( S "I24" 1  ) ( R U2 "I2" I ) 
+`J ( P I "I2" ) ( R U1 "I0" I ) 
+`J ( P I "I1" ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( P O "O" ) 
+`J ( P I "I0" ) ( R U2 "I0" I ) 

@@ -1,0 +1,124 @@
+module drc
+ 
+ title 'DRAM Controller with burst access mode. 
+        Equation file included in port_4.abl design example
+        Jeffrey Goldberg 
+        Xilinx';
+
+
+
+   drc device;
+
+" Inputs
+        Clk,reset                               pin;
+        access_req                              pin;
+        rfrq                                    pin;
+        write                                   pin;
+        byte0                                   pin;
+        byte1                                   pin;
+        byte2                                   pin;
+        byte3                                   pin;
+        burst                                   pin;
+       
+" Outputs
+
+        ras,column_address,cas0,cas1,cas2,cas3,we  pin istype 'reg';
+        done,ready,clr_rfrq                         pin istype 'reg';
+        dram0,dram1,dram2,dram3                     pin istype 'reg';
+
+        drc_state     = [dram3,dram2,dram1,dram0];
+
+
+     
+    output = [ras,column_address,we,cas0,cas1,cas2,cas3,ready,done,clr_rfrq];
+
+"State Definition
+        idle=0;
+        access0=1;
+        access1=3;
+        access2=4;
+        access3=5;
+        burst0=7;
+        precharge0=15;
+        precharge1=14;
+        precharge2=8;
+        refresh0=2;
+        refresh1=9;
+        refresh2=11;
+        refresh3=12;
+        refresh4=13;
+        illegal0=6;
+        illegal1=10;
+
+@alternate
+
+state_diagram drc_state;
+
+state idle:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1];
+ else if rfrq then refresh0 with output :=[1,1,1,0,0,0,0,0,0,0];
+ else if access_req then access0 with output :=[0,1,1,1,1,1,1,0,0,1];
+ else idle with output :=[1,1,1,1,1,1,1,0,0,1];
+
+state access0:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1];
+ else access1 with output :=[0,0,write,1,1,1,1,0,0,1];
+
+state access1:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1];
+ else access2 with output :=[0,0,write,byte0,byte1,byte2,byte3,0,0,1];
+
+state access2:
+ if reset then idle with output :=[1,1,1,1,1,1,1,1,0,1];
+ else access3 with output := [0,0,write,byte0,byte1,byte2,byte3,1,0,1];
+
+state access3:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1];
+ else if burst then burst0 with output :=[0,0,write,1,1,1,1,0,0,1];
+ else precharge0 with output :=[1,1,1,1,1,1,1,0,1,1];
+
+state burst0:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1];
+ else access2 with output :=[0,0,write,byte0,byte1,byte2,byte3,0,0,1]
+
+state precharge0:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1];
+ else precharge1 with output :=[1,1,1,1,1,1,1,0,0,1];
+
+state precharge1:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1];
+ else precharge2 with output :=[1,1,1,1,1,1,1,0,0,1];
+
+state precharge2:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1];
+ else if rfrq then refresh0 with output :=[1,1,1,0,0,0,0,0,0,0];
+ else if access_req then access0 with output :=[0,1,1,1,1,1,1,0,0,1];
+ else idle with output :=[1,1,1,1,1,1,1,0,0,1];
+
+state refresh0:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1];
+ else refresh1 with output :=[0,1,1,0,0,0,0,0,0,1];
+
+state refresh1:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1];
+ else refresh2 with output :=[0,1,1,0,0,0,0,0,0,1];
+
+state refresh2:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1]; 
+ else refresh3 with output :=[0,1,1,0,0,0,0,0,0,1];
+
+state refresh3:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1];
+ else refresh4 with output :=[0,1,1,0,0,0,0,0,0,1];
+
+state refresh4:
+ if reset then idle with output :=[1,1,1,1,1,1,1,0,0,1];
+ else precharge0 with output :=[1,1,1,1,1,1,1,0,0,1];
+
+state illegal0:
+ goto idle with output :=[1,1,1,1,1,1,1,0,0,1];
+
+state illegal1:
+ goto idle with output :=[1,1,1,1,1,1,1,0,0,1];
+
+end

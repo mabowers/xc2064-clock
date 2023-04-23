@@ -1,0 +1,53 @@
+
+                        SCHEMATIC DESIGN TOOLS 386+      
+
+                             IMPORTANT NOTES
+
+1) Be sure to limit your use of the TEMPLATE design to the configuration 
+menus. This design is used as a template for the creation of new designs. 
+Any files that exist in TEMPLATE are copied to the new design when you select 
+Create Design in Design Management tools. Also, any settings in the 
+configuration menus are also duplicated in the new design. Keep TEMPLATE free 
+of any extra files such as schematics. When you are ready to begin using the 
+ESP design environment for the first time, create a new design or use the 
+TUTOR design.
+_______________________________________________________________________________
+
+2)  In order to run OrCAD executables from outside of the ESP design 
+environment, you must first add a statement to your AUTOEXEC.BAT file. This 
+statement tells the OrCAD executables which driver to load. For example, if 
+you used a VGA driver, you would add the following statement: 
+
+                SET ORCADDD=C:\ORCADESP\DRV\VGA640.DRV
+
+The example above assumes that you had installed the default directories 
+onto your C: drive.
+_______________________________________________________________________________
+
+3) The different ground symbols in DEVICE.LIB all use the same 
+pin name:"GND." This means that if you wish to use the different symbols in 
+a design, you will need to make custom copies of the ground symbols that have 
+different pin names. See OrCAD's "Schematic Design Tools Reference Guide," 
+Chapter 17: Edit Library, for more information. If you do not customize these 
+generic parts, you will find that they short together in a netlist.
+_______________________________________________________________________________
+
+4)  If you wish M2EDIT (the default text editor) to place the cursor at the
+location of warnings and errors in the output file, add a /E in the Text
+Editor option in the Configure ESP menu. Example: 
+
+                C:\ORCADEXE\M2EDIT.EXE /E
+_______________________________________________________________________________
+
+5)  If you should encounter any problems, be sure to check your disks for 
+information files. Read the sections in your manuals that pertain to the
+particular problem. In addition, check the View Reference area in the 
+ESP design environment for additional helpful files. The OrCAD Bulletin Board 
+System is another good source of help.
+
+    The current OrCAD bulletin board phone number is (503) 690-9791. After
+24 September 1993, the OrCAD bulletin board phone number will be 
+(503) 671-9401. For a period of one year, users calling (503) 690-9791 will 
+be automatically forwarded to the new bulletin board phone number.
+
+                   Thank you for purchasing OrCAD SDT 386+.

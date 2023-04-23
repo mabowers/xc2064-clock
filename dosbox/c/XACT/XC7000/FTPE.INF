@@ -1,0 +1,27 @@
+`F  1.00 FTPE
+`B "1" "1" "A" "     July  2, 1993" "" "A" 
+"XC4000 Family FTPE Macro " "Xilinx"
+""
+""
+""
+""
+`P I "PRE"
+`P O "Q"
+`P I "T"
+`P I "CE"
+`P I "C"
+`S "TQ" 1 
+`E XC7000.LIB
+`I R "XOR2" XC7000.LIB "XOR2" cfccd94d  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "FDPE" XC7000.LIB "FDPE" cfccd59a  U2  []
+"RLOC=R0C0" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "PRE" "PRE" I ) 
+( "Q" "Q" O ) 
+`J ( P I "PRE" ) ( R U2 "PRE" I ) 
+`J ( R U1 "O" O ) ( S "TQ" 1  ) ( R U2 "D" I ) 
+`J ( R U1 "I1" I ) ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( P I "CE" ) ( R U2 "CE" I ) 
+`J ( P I "C" ) ( R U2 "C" I ) 
+`J ( P I "T" ) ( R U1 "I0" I ) 

@@ -1,0 +1,49 @@
+`F  1.00 ftsrle
+`B "1" "1" "A" "   August 12, 1993" "" "A" 
+"XC3000 Family FTSRLE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "T"
+`P I "D"
+`P I "L"
+`P I "R"
+`P I "S"
+`P O "Q"
+`P I "CE"
+`P I "C"
+`S "TQ" 1 
+`S "MD" 1 
+`S "MD_S" 1 
+`S "CE-R_L" 1 
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "M2_1" XC3000.LIB "M2_1" CAE02E87  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "XOR2" XC3000.LIB "XOR2" CAE03166  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "OR3" XC3000.LIB "OR3" CAF19D30  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND2B1" XC3000.LIB "AND2B1" CAF1E286  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "FDSE" XC3000.LIB "FDSE" CAF1E153  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "S" "S" I ) 
+( "Q" "Q" O ) 
+`J ( R U2 "I1" I ) ( R U5 "Q" O ) ( P O "Q" ) 
+`J ( R U2 "O" O ) ( S "TQ" 1  ) ( R U1 "D0" I ) 
+`J ( P I "T" ) ( R U2 "I0" I ) 
+`J ( R U1 "O" O ) ( S "MD" 1  ) ( R U4 "I1" I ) 
+`J ( P I "D" ) ( R U1 "D1" I ) 
+`J ( R U4 "O" O ) ( R U5 "D" I ) ( S "MD_S" 1  ) 
+`J ( P I "L" ) ( R U3 "I1" I ) ( R U1 "S0" I ) 
+`J ( P I "R" ) ( R U3 "I2" I ) ( R U4 "I0" I ) 
+`J ( P I "S" ) ( R U5 "S" I ) 
+`J ( R U3 "O" O ) ( S "CE-R_L" 1  ) ( R U5 "CE" I ) 
+`J ( P I "CE" ) ( R U3 "I0" I ) 
+`J ( P I "C" ) ( R U5 "C" I ) 

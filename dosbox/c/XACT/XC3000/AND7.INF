@@ -1,0 +1,34 @@
+`F  1.00 and7
+`B "1" "1" "A" "     June 25, 1993" "" "" 
+"XC3000 FAMILY AND7 MACRO" ""
+""
+""
+""
+""
+`P I "I6"
+`P I "I5"
+`P I "I4"
+`P I "I3"
+`P I "I2"
+`P O "O"
+`P I "I1"
+`P I "I0"
+`S "I46" 1 
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "AND3" XC3000.LIB "AND3" D5613226  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND5" XC3000.LIB "AND5" D5613288  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "I4" "I4" I ) ( "O" "O" O ) 
+`J ( P I "I6" ) ( R U1 "I2" I ) 
+`J ( P I "I5" ) ( R U1 "I1" I ) 
+`J ( R U1 "O" O ) ( S "I46" 1  ) ( R U2 "I4" I ) 
+`J ( P I "I4" ) ( R U1 "I0" I ) 
+`J ( P I "I3" ) ( R U2 "I3" I ) 
+`J ( P I "I2" ) ( R U2 "I2" I ) 
+`J ( R U2 "O" O ) ( P O "O" ) 
+`J ( P I "I1" ) ( R U2 "I1" I ) 
+`J ( P I "I0" ) ( R U2 "I0" I ) 

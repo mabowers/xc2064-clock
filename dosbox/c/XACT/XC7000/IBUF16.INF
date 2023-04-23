@@ -1,0 +1,120 @@
+`F  1.00 IBUF16
+`B "1" "1" "B" "  October 22, 1993" "" "A" 
+"XC4000 Family IBUF16 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "O0"
+`P O "O1"
+`P O "O2"
+`P O "O3"
+`P O "O4"
+`P O "O5"
+`P O "O6"
+`P O "O7"
+`P O "O8"
+`P O "O9"
+`P O "O10"
+`P O "O11"
+`P O "O12"
+`P O "O13"
+`P O "O14"
+`P O "O15"
+`P I "I0"
+`P I "I1"
+`P I "I2"
+`P I "I3"
+`P I "I4"
+`P I "I5"
+`P I "I6"
+`P I "I7"
+`P I "I8"
+`P I "I9"
+`P I "I10"
+`P I "I11"
+`P I "I12"
+`P I "I13"
+`P I "I14"
+`P I "I15"
+`E XC7000.LIB
+`I R "IBUF" XC7000.LIB "IBUF" c7c78eb5  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c78ed9  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c78eed  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c78eff  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c78f0b  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c78f21  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c78f33  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c78f42  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c7a145  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c7a145  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c7a145  U11  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c7a145  U12  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c7a145  U13  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c7a145  U14  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c7a145  U15  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC7000.LIB "IBUF" c7c7a145  U16  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( R U16 "I" I ) ( P I "I0" ) 
+`J ( P O "O0" ) ( R U16 "O" O ) 
+`J ( R U15 "I" I ) ( P I "I1" ) 
+`J ( P O "O1" ) ( R U15 "O" O ) 
+`J ( R U14 "I" I ) ( P I "I2" ) 
+`J ( P O "O2" ) ( R U14 "O" O ) 
+`J ( R U13 "I" I ) ( P I "I3" ) 
+`J ( P O "O3" ) ( R U13 "O" O ) 
+`J ( R U12 "I" I ) ( P I "I4" ) 
+`J ( P O "O4" ) ( R U12 "O" O ) 
+`J ( R U11 "I" I ) ( P I "I5" ) 
+`J ( P O "O5" ) ( R U11 "O" O ) 
+`J ( R U10 "I" I ) ( P I "I6" ) 
+`J ( P O "O6" ) ( R U10 "O" O ) 
+`J ( R U9 "I" I ) ( P I "I7" ) 
+`J ( P O "O7" ) ( R U9 "O" O ) 
+`J ( R U8 "I" I ) ( P I "I8" ) 
+`J ( P O "O8" ) ( R U8 "O" O ) 
+`J ( R U7 "I" I ) ( P I "I9" ) 
+`J ( P O "O9" ) ( R U7 "O" O ) 
+`J ( R U6 "I" I ) ( P I "I10" ) 
+`J ( P O "O10" ) ( R U6 "O" O ) 
+`J ( R U5 "I" I ) ( P I "I11" ) 
+`J ( P O "O11" ) ( R U5 "O" O ) 
+`J ( R U4 "I" I ) ( P I "I12" ) 
+`J ( P O "O12" ) ( R U4 "O" O ) 
+`J ( R U3 "I" I ) ( P I "I13" ) 
+`J ( P O "O13" ) ( R U3 "O" O ) 
+`J ( R U2 "I" I ) ( P I "I14" ) 
+`J ( P O "O14" ) ( R U2 "O" O ) 
+`J ( R U1 "I" I ) ( P I "I15" ) 
+`J ( P O "O15" ) ( R U1 "O" O ) 

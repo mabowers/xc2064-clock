@@ -1,0 +1,24 @@
+`F  1.00 FTP
+`B "1" "1" "A" "     July  2, 1993" "" "A" 
+"XC4000 Family FTP Macro" "Xilinx"
+""
+""
+""
+""
+`P I "PRE"
+`P O "Q"
+`P I "T"
+`P I "C"
+`S "TQ" 1 
+`E XC7000.LIB
+`I R "XOR2" XC7000.LIB "XOR2" cadfd3d4  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "FDP" XC7000.LIB "FDP" cfc80236  U2  []
+"RLOC=R0C0" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "PRE" "PRE" I ) ( "Q" "Q" O ) 
+`J ( P I "PRE" ) ( R U2 "PRE" I ) 
+`J ( R U1 "I1" I ) ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( R U1 "O" O ) ( S "TQ" 1  ) ( R U2 "D" I ) 
+`J ( P I "T" ) ( R U1 "I0" I ) 
+`J ( P I "C" ) ( R U2 "C" I ) 

@@ -1,0 +1,22 @@
+TITLE           XOR Gate: 8 inputs
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung 
+COMPANY         Xilinx EPLD
+DATE            7/23/93
+
+CHIP            XOR8  COMPONENT
+ 
+;Inputs
+i0 i1 i2 i3 i4 i5 i6 i7
+
+;Outputs
+o
+
+EQUATIONS 
+
+o.d1 = i0*/i1*/i2*/i3 + /i0*i1*/i2*/i3 + /i0*/i1*i2*/i3 + /i0*/i1*/i2*i3
+     + /i0*i1*i2*i3   + i0*/i1*i2*i3   + i0*i1*/i2*i3   + i0*i1*i2*/i3
+o.d2 = i4*/i5*/i6*/i7 + /i4*i5*/i6*/i7 + /i4*/i5*i6*/i7 + /i4*/i5*/i6*i7
+     + /i4*i5*i6*i7   + i4*/i5*i6*i7   + i4*i5*/i6*i7   + i4*i5*i6*/i7
+o    = o.d1 xor o.d2

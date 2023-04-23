@@ -1,0 +1,67 @@
+`F  1.00 BUFE8
+`B "1" "1" "A" "     July 28, 1993" "" "A" 
+"XC4000 Family BUFE8 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P O "O0"
+`P O "O1"
+`P O "O2"
+`P O "O3"
+`P O "O4"
+`P O "O5"
+`P O "O6"
+`P O "O7"
+`P I "I0"
+`P I "I1"
+`P I "I2"
+`P I "I3"
+`P I "I4"
+`P I "I5"
+`P I "I6"
+`P I "I7"
+`E XC7000.LIB
+`I R "BUFE" XC7000.LIB "BUFE" c8658692  XU1  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFE" XC7000.LIB "BUFE" c86586ab  XU2  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFE" XC7000.LIB "BUFE" c86586b7  XU3  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFE" XC7000.LIB "BUFE" c86586e3  XU4  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFE" XC7000.LIB "BUFE" c8659895  XU5  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFE" XC7000.LIB "BUFE" c8659895  XU6  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFE" XC7000.LIB "BUFE" c8659895  XU7  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFE" XC7000.LIB "BUFE" c8659895  XU8  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( R XU4 "E" I ) ( R XU3 "E" I ) ( R XU2 "E" I ) ( R XU1 "E" I ) 
+( R XU8 "E" I ) ( R XU7 "E" I ) ( R XU6 "E" I ) ( R XU5 "E" I ) ( P I "E" ) 
+`J ( P I "I0" ) ( R XU4 "I" I ) 
+`J ( P O "O0" ) ( R XU4 "O" T ) 
+`J ( P I "I1" ) ( R XU3 "I" I ) 
+`J ( P O "O1" ) ( R XU3 "O" T ) 
+`J ( P I "I2" ) ( R XU2 "I" I ) 
+`J ( P O "O2" ) ( R XU2 "O" T ) 
+`J ( P I "I3" ) ( R XU1 "I" I ) 
+`J ( P O "O3" ) ( R XU1 "O" T ) 
+`J ( P I "I4" ) ( R XU8 "I" I ) 
+`J ( P O "O4" ) ( R XU8 "O" T ) 
+`J ( P I "I5" ) ( R XU7 "I" I ) 
+`J ( P O "O5" ) ( R XU7 "O" T ) 
+`J ( P I "I6" ) ( R XU6 "I" I ) 
+`J ( P O "O6" ) ( R XU6 "O" T ) 
+`J ( P I "I7" ) ( R XU5 "I" I ) 
+`J ( P O "O7" ) ( R XU5 "O" T ) 

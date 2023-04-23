@@ -1,0 +1,29 @@
+`F  1.00 ofdei_1
+`B "1" "1" "A" "     June 23, 1993" "" "A" 
+"XC4000 Family OFDEI_1 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P I "D"
+`P O "O"
+`P I "C"
+`S "T" 1 
+`S "CB" 1 
+`E XC4000.LIB
+`I R "INV" XC4000.LIB "INV" C8B2552C  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "OFDTI" XC4000.LIB "OFDTI" D5241E9D  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "INV" XC4000.LIB "INV" D5241F94  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "E" ) ( R U1 "I" I ) 
+`J ( R U1 "O" O ) ( S "T" 1  ) ( R U2 "T" I ) 
+`J ( P I "D" ) ( R U2 "D" I ) 
+`J ( R U2 "O" T ) ( P O "O" ) 
+`J ( P I "C" ) ( R U3 "I" I ) 
+`J ( R U3 "O" O ) ( S "CB" 1  ) ( R U2 "C" I ) 

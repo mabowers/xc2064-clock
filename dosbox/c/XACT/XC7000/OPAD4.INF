@@ -1,0 +1,28 @@
+`F  1.00 OPAD4
+`B "1" "1" "A" "    March 15, 1993" "" "A" 
+"XC4000 Family OPAD4 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "O0"
+`P I "O1"
+`P I "O2"
+`P I "O3"
+`E XC7000.LIB
+`I R "OPAD" XC7000.LIB "OPAD" c984297e  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC7000.LIB "OPAD" c98429c0  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC7000.LIB "OPAD" c98429e7  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC7000.LIB "OPAD" c98429ef  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`J ( P I "O0" ) ( R U1 "O" I ) 
+`J ( P I "O1" ) ( R U2 "O" I ) 
+`J ( P I "O2" ) ( R U3 "O" I ) 
+`J ( P I "O3" ) ( R U4 "O" I ) 

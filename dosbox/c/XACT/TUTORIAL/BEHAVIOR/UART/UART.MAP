@@ -1,0 +1,113 @@
+ 
+XEPLD, Version 5.0                                          Xilinx Inc.
+                                 Mapping Report
+ Circuit name: UART
+Target Device: XC7354-10PC68                  Integrated:  2- 7-94,  8:39PM
+
+                                                                          
+Function Block 1              Fast inputs  -  0/12    Shared pterms -  0/0 
+                              Total inputs -  4/24    Macrocells    -  1/9 
+                                                                          
+Function                                       Macrocell     Pkg      Pin 
+Name                                           Location      Pin      Use 
+--------                                       ---------     ---      --- 
+C5_INV                                         FB1-1         4         .  
+.                                              FB1-2         12        .  
+.                                              FB1-3         13        .  
+.                                              FB1-4         15        .  
+.                                              FB1-5         17        .  
+.                                              FB1-6         19        .  
+.                                              FB1-7         21        .  
+.                                              FB1-8         22        .  
+.                                              FB1-9         23        .  
+                                                                          
+Function Block 2              Fast inputs  -  0/12    Shared pterms -  0/0 
+                              Total inputs -  8/24    Macrocells    -  5/9 
+                                                                          
+Function                                       Macrocell     Pkg      Pin 
+Name                                           Location      Pin      Use 
+--------                                       ---------     ---      --- 
+C0                                             FB2-1         66        .  
+C1                                             FB2-2         58        .  
+C2                                             FB2-3         57        .  
+C3_INV                                         FB2-4         56        .  
+PAR_INV                                        FB2-5         55        .  
+.                                              FB2-6         52        .  
+.                                              FB2-7         51        .  
+.                                              FB2-8         48        .  
+.                                              FB2-9         46        .  
+                                                                          
+Function Block 3              Fast inputs  -  0/3     Shared pterms -  0/12
+                              UIM inputs   - 20/21    Macrocells    -  9/9 
+                                                                          
+Function                                       Macrocell     Pkg      Pin 
+Name                                           Location      Pin      Use 
+--------                                       ---------     ---      --- 
+D7                                             FB3-1         .         .  
+C4_INV                                         FB3-2         .         .  
+DOUT7                                          FB3-3         60        O  
+START                                          FB3-4         61        O  
+BYTECLK                                        FB3-5         62        O  
+FRAMING                                        FB3-6         64        O  
+PARITY                                         FB3-7         44        O  
+OVERUN                                         FB3-8         45        O  
+READY                                          FB3-9         47        O  
+                                                                          
+Function Block 4              Fast inputs  -  0/3     Shared pterms -  0/12
+                              UIM inputs   - 11/21    Macrocells    -  9/9 
+                                                                          
+Function                                       Macrocell     Pkg      Pin 
+Name                                           Location      Pin      Use 
+--------                                       ---------     ---      --- 
+DOUT6                                          FB4-1         38        O  
+DOUT5                                          FB4-2         53        O  
+DOUT4                                          FB4-3         54        O  
+D6                                             FB4-4         .         .  
+D2                                             FB4-5         .         .  
+D1                                             FB4-6         .         .  
+DOUT3                                          FB4-7         39        O  
+DOUT2                                          FB4-8         40        O  
+DOUT1                                          FB4-9         42        O  
+                                                                          
+Function Block 5              Fast inputs  -  0/3     Shared pterms -  0/12
+                              UIM inputs   -  0/21    Macrocells    -  0/9 
+                                                                          
+Function                                       Macrocell     Pkg      Pin 
+Name                                           Location      Pin      Use 
+--------                                       ---------     ---      --- 
+.                                              FB5-1         32        .  
+.                                              FB5-2         33        .  
+.                                              FB5-3         35        .  
+.                                              FB5-4         37        .  
+.                                              FB5-5         16        .  
+.                                              FB5-6         18        .  
+.                                              FB5-7         25        .  
+.                                              FB5-8         31        .  
+.                                              FB5-9         36        .  
+                                                                          
+Function Block 6              Fast inputs  -  0/3     Shared pterms -  0/12
+                              UIM inputs   - 12/21    Macrocells    -  6/9 
+                                                                          
+Function                                       Macrocell     Pkg      Pin 
+Name                                           Location      Pin      Use 
+--------                                       ---------     ---      --- 
+D5                                             FB6-1         27        .  
+D4                                             FB6-2         28        .  
+D3                                             FB6-3         8         I  
+DOUT0                                          FB6-4         9         O  
+BITCLK                                         FB6-5         10        O  
+D0                                             FB6-6         29        .  
+.                                              FB6-7         6         .  
+.                                              FB6-8         24        .  
+.                                              FB6-9         26        .  
+                                                                          
+
+Power estimation parameters: MCLP =  15, MCHP =  30.
+MCLP represents macrocells in low power mode and
+MCHP represents macrocells in high power mode.
+Macrocells in unused function blocks are not considered.
+MCLP and MCHP are used to estimate chip power consumption.
+Consult the proper data sheets for this calculation.
+
+ End of Mapping Report
+

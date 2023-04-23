@@ -1,0 +1,91 @@
+# @(#)clb3.bel	6.11 3/4/94
+# Belgraph definition for 3000 CLB
+#
+# Bel pins imply nodes with name <belname>_<pinname>
+# eg, F_A
+
+_BELS
+CLB3_FG5	F5 ,
+CLB3_FUNC	F  (is_gnd_src is_vcc_src),
+CLB3_FUNC	G  (is_gnd_src is_vcc_src),
+CLB3_REG 	FFX,
+CLB3_REG 	FFY,
+CLB3_MUX        MUX,
+CLB3_TBUF	AT,
+CLB3_TBUF	BT,
+;
+
+
+# Additional node definitions
+_NODES
+A, B, C, D, E,
+X, Y, 
+ATI, ATT, ATO,
+BTI, BTT, BTO,
+RD, DIN, EC,
+K, 
+;
+
+# From-to connections
+_ARCS
+# Inputs to FG
+A F5_1, B F5_2, C F5_3, D F5_4, E F5_5,
+FFX_Q F5_2(is_fftofunc_delay), FFY_Q F5_2(is_fftofunc_delay),
+FFX_Q F5_3(is_fftofunc_delay), FFY_Q F5_3(is_fftofunc_delay),
+
+# Inputs to F
+A F_1, B F_2, C F_3, D F_4, E F_4,
+FFX_Q F_2(is_fftofunc_delay), FFY_Q F_2(is_fftofunc_delay),
+FFX_Q F_3(is_fftofunc_delay), FFY_Q F_3(is_fftofunc_delay),
+
+# Inputs to G
+A G_1, B G_2, C G_3, D G_4, E G_4,
+FFX_Q G_2 (is_fftofunc_delay), FFY_Q G_2 (is_fftofunc_delay), 
+FFX_Q G_3 (is_fftofunc_delay), FFY_Q G_3 (is_fftofunc_delay),
+
+# MUX connections
+F_O MUX_F, G_O MUX_G,
+MUX_O FFX_D (is_muxtoffd_delay), MUX_O FFY_D (is_muxtoffd_delay),
+MUX_O X (is_muxtox_delay), MUX_O Y(is_muxtox_delay),
+E MUX_SEL,
+
+# Inputs to registers
+DIN FFX_D,	DIN FFY_D,
+F5_O FFX_D (is_muxtoffd_delay),      F5_O FFY_D (is_muxtoffd_delay),
+F_O FFX_D (is_fgtoffd_delay),      F_O FFY_D (is_fgtoffd_delay),
+G_O FFX_D (is_fgtoffd_delay),      G_O FFY_D (is_fgtoffd_delay),
+K   FFX_C,	K   FFY_C,
+EC  FFX_CE,	EC  FFY_CE,
+RD  FFX_CLR,	RD  FFY_CLR,
+
+# Inputs to X, Y output pins
+F5_O X(is_muxtox_delay), F_O X(is_fgox_delay),
+F5_O Y(is_muxtox_delay), G_O Y(is_fgox_delay),
+FFX_Q X(is_fftox_delay),
+FFY_Q Y(is_fftox_delay),
+F_O Y (is_fake_belarc is_fgox_delay),
+G_O X (is_fake_belarc is_fgox_delay),
+FFX_Q Y (is_fake_belarc is_fftox_delay ),
+FFY_Q X (is_fake_belarc is_fftox_delay ),
+
+
+# TBUF connections
+ATI AT_I,
+BTI BT_I,
+ATT AT_T,
+BTT BT_T,
+AT_O ATO,
+BT_O BTO,
+AT_I AT_O (is_tbuf_feedthru is_tbuf_delay),
+BT_I BT_O (is_tbuf_feedthru is_tbuf_delay),
+
+# F,G feedthru
+F_1 F_O (is_fgfunc_feedthru ),
+F_2 F_O (is_fgfunc_feedthru ),
+F_3 F_O (is_fgfunc_feedthru ),
+F_4 F_O (is_fgfunc_feedthru ),
+G_1 G_O (is_fgfunc_feedthru ),
+G_2 G_O (is_fgfunc_feedthru ),
+G_3 G_O (is_fgfunc_feedthru ),
+G_4 G_O (is_fgfunc_feedthru ),
+;

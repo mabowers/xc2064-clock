@@ -1,0 +1,42 @@
+TITLE           Buffer: 3-state, 8-bit, active low enable
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/28/93
+
+CHIP            BUFT8  COMPONENT
+ 
+;Inputs
+i0 i1 i2 i3 i4 i5 i6 i7 /t
+
+;Outputs
+o0 o1 o2 o3 o4 o5 o6 o7
+
+NODE (NODETRST) o0 o1 o2 o3 o4 o5 o6 o7
+
+EQUATIONS 
+
+o0 = i0
+o0.trst = t  
+
+o1 = i1
+o1.trst = t  
+
+o2 = i2
+o2.trst = t  
+
+o3 = i3
+o3.trst = t  
+
+o4 = i4
+o4.trst = t  
+
+o5 = i5
+o5.trst = t  
+
+o6 = i6
+o6.trst = t  
+
+o7 = i7
+o7.trst = t  

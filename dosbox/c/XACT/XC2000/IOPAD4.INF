@@ -1,0 +1,28 @@
+`F  1.00 iopad4
+`B "1" "1" "A" "  January 28, 1994" "" "A" 
+"XC4000 Family IOPAD4 Macro" "Xilinx"
+""
+""
+""
+""
+`P B "IO0"
+`P B "IO1"
+`P B "IO2"
+`P B "IO3"
+`E XC2000.LIB
+`I R "IOPAD" XC2000.LIB "IOPAD" C861369A  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC2000.LIB "IOPAD" C86136B6  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC2000.LIB "IOPAD" C86136B8  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC2000.LIB "IOPAD" C86136E2  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`J ( R U1 "IO" B ) ( P B "IO0" ) 
+`J ( R U2 "IO" B ) ( P B "IO1" ) 
+`J ( R U3 "IO" B ) ( P B "IO2" ) 
+`J ( R U4 "IO" B ) ( P B "IO3" ) 

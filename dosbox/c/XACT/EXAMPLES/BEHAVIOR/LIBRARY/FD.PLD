@@ -1,0 +1,20 @@
+TITLE           Flip-flop: D-type
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            7/22/93
+
+CHIP            FD  COMPONENT
+ 
+;Inputs
+c d
+
+;Outputs
+q
+
+EQUATIONS 
+
+q := d
+q.clkf = c
+q.prld = gnd

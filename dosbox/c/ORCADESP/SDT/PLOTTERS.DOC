@@ -1,0 +1,78 @@
+
+			  Schematic Design Tools                         OrCAD
+			Plotter Driver Documentation
+------------------------------------------------------------------------------
+This note lists most of the known devices compatible with the OrCAD plotter
+drivers. It is provided for your convenience.
+
+If you do not find your device listed here, check the device manual. It may
+list compatible devices that are mentioned in this note. 
+
+NOTES:
+
+- Drivers marked with an astrisk (*) in the DESCRIPTION column are not 
+  distributed on the Install Disk. These and new drivers not listed in 
+  this note may be found on the OrCAD Bulletin Board System (503) 690-9791.
+  
+  After 24 September 1993, the OrCAD bulletin board phone number will be
+  (503) 671-9401. For a period of one year, users calling (503) 690-9791
+  will be automatically forwarded to the new bulletin board phone number.
+
+- Additional information may be found in PRNTINFO.DOC and PLOTINFO.DOC.
+  Use the View Reference tool to access these files.
+
+See the OrCAD "Installation and Technical Support User's Guide" for 
+information about selected OrCAD drivers.
+
+The remainder of this note lists the drivers.
+									       
+==============================================================================
+									Page 2
+	       DESCRIPTION                                        OrCAD DRIVER
+------------------------------------------------------------------------------
+American Graphtec                                                 GRAPHTEC.DRV 
+* Apple 410                                                       APPLE410.DRV
+Calcomp (Intelligent)                                             CALCOMP1.DRV
+Calcomp (Non-Intelligent)                                         CALCOMP2.DRV
+DXF (interface to AutoCad, Generic CAD, etc.)                     DXF.DRV
+Encapsulated PostScript Letter size Landscape mode                EPS1.DRV
+Encapsulated PostScript Letter size Portrait mode                 EPS2.DRV
+Encapsulated PostScript Legal size Landscape mode                 EPS3.DRV
+Encapsulated PostScript Legal size Portrait mode                  EPS4.DRV
+Frame Technology  FrameMaker                                      MIF.DRV
+Fujitsu FPG 315                                                   HP2.DRV
+GERBER PhotoPlotter (2.3 format)                                  GERBER.DRV
+GERBER PhotoPlotter (2.3 format OLD MODEL PLOTTERS)               GERBER2X.DRV
+GERBER PhotoPlotter (3.4 format)                                  GERBER34.DRV
+Houston Instrument DMP 40/41/42/51/52/56/etc. (DM/PL)             HI.DRV
+Houston Instrument DMP 29 (DM/PL  Etx is _)                       HI29.DRV
+HP 7475/7550/7580/7585/7586/etc (.00098"/unit) (HP-GL)            HP.DRV
+HP different units (HP-GL) (1016 units/inch)                      HP2.DRV
+HP different units (HP-GL) (1016 units/inch) uses IN command      HP2I.DRV
+HP HP-GL that uses the IN (initialize) command instead of DF      HPI.DRV
+HP compatibles (not correct HP-GL emulation)                      HPX.DRV
+HPGL Emulation using Brother HL8E with 1 Meg RAM                  HPBRO1.DRV
+HPGL Emulation using Brother HL8E with 2 Meg RAM                  HPBRO2.DRV
+HPGL Emulation using Brother HL8E 90 degree 2 Meg RAM             HPBRO2_9.DRV
+HPGL Emulation using Canon Laser w/GL emulation                   HPCAN.DRV
+HPGL Emulation using Canon Laser 90 deg w/GL emulation            HPCAN90.DRV
+HP-GL/2                                                           HPGL-2.DRV
+IOLINE                                                            HI.DRV
+Post Script (Letter Paper   8.5" x 11" )                          PSCRIPT.DRV
+Post Script (Ledger Paper    11" x 17" )                          PSCRIPT2.DRV
+* Post script for MSWord                                          PWORD.DRV
+* Roland DXY-101                                                  DXY101.DRV
+* Roland DXY-800                                                  DXY800.DRV
+* Western Graphtec MP2000/FP5301                                  WG.DRV
+generic vector command output (ASCII)                             GENERIC.DRV
+Zericon PC3600                                                    ZERICON.DRV
+==============================================================================
+Although every effort has been made to ensure the accuracy of this note, OrCAD
+drivers may change without notification. Those changes may not be reflected in
+this listing. The information in this note was derived from a variety of
+sources.
+
+All other brand and product names mentioned herein are used for identification
+purposes only, and are trademarks or registered trademarks of their respective
+holders.
+------------------------------------------------------------------------------

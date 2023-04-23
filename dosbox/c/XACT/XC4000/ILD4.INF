@@ -1,0 +1,39 @@
+`F  1.00 ild4
+`B "1" "1" "A" "      May  1, 1993" "" "A" 
+"XC4000 Family ILD4 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D0"
+`P O "Q0"
+`P I "D1"
+`P O "Q1"
+`P I "D2"
+`P O "Q2"
+`P I "D3"
+`P O "Q3"
+`P I "G"
+`E XC4000.LIB
+`I R "ILD" XC4000.LIB "ILD" C7C5D2C4  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "G" "G" I ) ( "Q" "Q" O ) 
+`I R "ILD" XC4000.LIB "ILD" C7C5D2E5  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "G" "G" I ) ( "Q" "Q" O ) 
+`I R "ILD" XC4000.LIB "ILD" C7C5D45D  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "G" "G" I ) ( "Q" "Q" O ) 
+`I R "ILD" XC4000.LIB "ILD" C7C5D4C9  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "G" "G" I ) ( "Q" "Q" O ) 
+`J ( P I "D0" ) ( R U1 "D" I ) 
+`J ( R U1 "Q" O ) ( P O "Q0" ) 
+`J ( R U1 "G" I ) ( R U2 "G" I ) ( R U3 "G" I ) ( R U4 "G" I ) 
+( P I "G" ) 
+`J ( P I "D1" ) ( R U2 "D" I ) 
+`J ( R U2 "Q" O ) ( P O "Q1" ) 
+`J ( P I "D2" ) ( R U3 "D" I ) 
+`J ( R U3 "Q" O ) ( P O "Q2" ) 
+`J ( P I "D3" ) ( R U4 "D" I ) 
+`J ( R U4 "Q" O ) ( P O "Q3" ) 

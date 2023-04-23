@@ -1,0 +1,12 @@
+Echo OFF
+Cls
+C:
+CD \ORCADEXE
+For %%p in (INSTALL.DAT ORINSTAL.EXE) Do If NOT EXIST %%p Goto ERROR
+ORINSTAL.EXE
+If EXIST C:\902101TP.BAT Del C:\902101TP.BAT
+Goto END
+:ERROR
+For %%p in (INSTALL.DAT ORINSTAL.EXE) Do If NOT EXIST %%p Echo %%p Not Found!... exiting.
+Goto END
+:END

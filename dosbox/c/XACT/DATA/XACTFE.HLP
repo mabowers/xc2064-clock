@@ -1,0 +1,449 @@
+.Helphelp
+  Welcome to the Xilinx Design Editor.  This program allows you
+  to make changes to an existing design or to create a new one.
+  Several utilities can be run from XDE, the primary ones being:
+
+     - EditLCA   a device level graphical editor for LCA designs
+     - DRC       a device level DRC for LCA designs
+     - MakeBits  a program which generates a bitstream from an 
+                 LCA design for downloading to a device
+     - MakePROM  a program which reformats bitstream data for 
+                 programming into PROMs.
+
+
+  Extensive help files are provided with the Design Editor.  
+  The %yHELP%g command calls up the list of topics for which help
+  is available. Put the cursor on top of the desired item and
+  press <ENTER> to get help on that topic.  If you need help with 
+  a particular menu item, you can point to it with the cursor and 
+  press the %yF1%g key; a HELP file will appear on the screen.  
+  You can scroll up or down in this file with the UP arrow, DOWN 
+  arrow, PgUp, PgDn, HOME and END keys. Try it.  For your convenience, 
+  a HELP file is provided for every main menu and submenu item.
+
+  To quit the Xilinx Design Editor (XDE), type %yQUIT%g on the
+  command line or use the mouse to select %yQUIT%g from the %yPrograms%g
+  menu at the top of the screen.  To "select" a menu or a menu item,
+  point to it with the cursor (a box surrounds the item) and press
+  the "SELECT" mouse button.  The default profile (included with XDM)
+  programs the left mouse button to perform the "SELECT" function.
+  You can change the function of each mouse button with the %yMOUSE%g
+  command in the %yPROFILE%g menu.
+
+  Note: Before you begin using XDE, it is recommended that you read
+  through the %yXACT Design Editor Tutorial%g. It serves as a good
+  introduction to XDE and will help you quickly master the Design Editor.
+
+:Programs
+
+  The %yPrograms%g menu consists of the programs and utilities that  
+  can be run from the Executive screen. 
+
+:FE-Editlca
+
+  Choosing %yEditlca%g loads the design that has been specified on  
+  the Design line, and takes you to the graphical design editor.
+
+  The Lca Editor screen contains the commands which allow you to
+  make changes to your design.
+
+:FE-DRC
+
+  %yDRC%g is the Design Rules Checker.   
+
+  It check for errors which would cause your design to not function  
+  correctly.
+
+  Fatal errors must be fixed for your design to function properly.  
+  Warnings should be fixed, but a bitstream can still be generated  
+  for a design that has warnings.
+
+:FE-MakeBits
+
+  Choosing %yMakeBits%g takes you to the MakeBits screen.  
+
+  Before a design can be downloaded, the LCA file must
+  be converted into a BIT file. This screen contains the 
+  programs which do this translation. Also found in the
+  MakeBits screen is the %yDownload%g command which lets 
+  you download your bitstream directly to an LCA via the
+  download cable. 
+
+:FE-MakeProm
+
+  Choosing %yMakeProm%g takes you to the MakeProm screen.  
+
+  If you are using PROMs to store the LCA bitstream, the BIT
+  files must be converted to the PROM format before the PROMs
+  can be programmed.  MakeProm translates BIT files into any
+  of three PROM formats: MCS86, TEKHEX, or EXORMAX.
+
+  Note: You must have a bitstream before you can make a prom file.  
+
+:FE-Convert
+
+  The %yConvert%g program moves a design from one part and package  
+  type to another.
+
+  Designs cannot be converted from a larger to a smaller part  
+  type, and designs cannot be converted across families, i.e.
+  2000 family designs can't be converted to 3000 family designs,  
+  and 3000 family designs can't be converted to 4000 family
+  designs.
+
+:FE-Printpic
+
+  The %yPrintpic%g command prints a .PIC file generated with the  
+  %yPrint%g command in the LCA Editor.
+
+:FE-Dos
+  %yDos%g suspends XDE and enters the operating system.  
+  If "DOS <command>" is entered, the command executes immediately.  
+
+  When in DOS, type %yEXIT%g to return to the Design Editor.
+
+:FE-Quit
+
+  %yQuit%g causes you to exit XDE.  
+
+:Designs
+
+  The %yDesigns%g menu consists of the group of commands which are 
+  related to loading and saving designs.  
+
+  The first three items in this menu (%yDirectory%g, %yDesign%g, and %yPart%g)  
+  can be selected either by choosing them from the menu or by
+  clicking on the desired label at the bottom left part of the screen.
+
+:FE-Directory
+
+  The %yDirectory%g command allows you to change directories without  
+  having to exit XDE.
+
+  Disk drives can be changed by typing "directory <drive>:" 
+
+:FE-Design
+
+  The %yDesign%g command is used to select the design which  
+  you will be working on.
+
+:FE-Part
+
+  The %yPart%g command is used to specify a part type for new designs.  
+
+:FE-Speed
+
+  The %ySpeed%g command is used to specify a speed grade for new designs,  
+  or to change the speed grade for an existing design. XDE will
+  automatically calculate all the delay information for the new speed
+  grade.
+
+:FE-Read
+
+  The %yRead%g command loads the design that has been specified  
+  on the Design line.
+
+:FE-File
+
+  The %yFile%g command saves the design in its current state and
+  exits the Design Editor.
+
+:FE-Save
+
+  The %ySave%g command saves the file in its current state.
+
+  Save prompts you for the name that the design should be saved under.
+  Pressing <ENTER> uses the default name, entering any other name
+  causes the design to be saved under the new name.
+
+:Profile
+
+  The %yProfile%g menu contains the set of commands which affect  
+  how information is displayed on the screen.
+
+:FE-Help
+
+  Welcome to the Xilinx Design Editor.  This program allows you
+  to make changes to an existing design or to create a new one.
+
+  Extensive help files are provided with the Design Editor.  
+  The %yHELP%g command calls up the list of topics for which help
+  is available. Put the cursor on top of the desired item and
+  press <ENTER> to get help on that topic.  If you need help with 
+  a particular menu item, you can point to it with the cursor and 
+  press the %yF1%g key; a HELP file will appear on the screen.  
+  You can scroll up or down in this file with the UP arrow, DOWN 
+  arrow, PgUp, PgDn, HOME and END keys. Try it.  For your convenience, 
+  a HELP file is provided for every main menu and submenu item.
+
+  To quit the Xilinx Design Editor (XDE), type %yQUIT%g on the
+  command line or use the mouse to select %yQUIT%g from the %yPrograms%g
+  menu at the top of the screen.  To "select" a menu or a menu item,
+  point to it with the cursor (a box surrounds the item) and press
+  the "SELECT" mouse button.  The default profile (included with XDM)
+  programs the left mouse button to perform the "SELECT" function.
+  You can change the function of each mouse button with the %yMOUSE%g
+  command in the %yPROFILE%g menu.
+
+  Note: Before you begin using XDE, it is recommended that you read
+  through the %yXACT Design Editor Tutorial%g. It serves as a good
+  introduction to XDE and will help you quickly master the Design Editor.
+
+:FE-Settings
+
+  %ySettings%g lists the current values for all user definable options.  
+
+:FE-Saveprofile
+
+  %ySaveprofile%g saves the current settings into the xact.pro file.
+  This file contains default settings for the Executive screen  
+  display: which design to load, which speed grade to use, etc.
+
+:FE-Readprofile
+
+  %yReadprofile%g reads the xde.pro file and resets all user  
+  definable options to these values.
+
+  This command is useful if you change some settings but want
+  to go back to the way the Design Editor was set up when you  
+  started it.
+ 
+:FE-Menucolors
+
+  %yMenucolors%g allows you to change the colors of items displayed  
+  in menus.
+
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:Menucolors-Reset
+
+  %yReset%g resets all of the menucolor options to their default  
+  values.
+
+:Menucolors-Boxtitlecolor
+
+  %yBoxtitlecolor%g is the color of the box that appears when the   
+  cursor is placed on any of the menu titles.
+
+:Menucolors-Menubordercolor1
+
+  %yMenubordercolor1%g is the color of the outside ring of the  
+  pull-down menu border.  
+  
+:Menucolors-Menubordercolor2
+
+  %yMenubordercolor2%g is the color of the middle ring of the  
+  pull-down menu border.  
+  
+:Menucolors-Menubordercolor3
+
+  %yMenubordercolor3%g is the color of the inside ring of the  
+  pull-down menu border.  
+  
+:Menucolors-Boxmenucolor
+
+  %yBoxmenucolor%g is the color of the box that appears when  
+  the cursor is placed on any pull-down menu item.
+
+:Menucolors-Menuhilightcolor
+
+  %yMenuhilightcolor%g is the color of selected items in the %yShow%g  
+  sub-menu.
+
+:Menucolors-Menuitemcolor
+
+  %yMenuitemcolor%g is the color of the second part of menu items.  
+
+:Menucolors-Menuitemabbrevcolor
+
+  %yMenuitemabbrevcolor%g is the color of the first part of menu items.  
+
+:Menucolors-Displayonlytitlecolor
+
+  %yDisplayonlytitlecolor%g is the color of commands that don't have  
+  pull-down menus.
+
+:Menucolors-Selectabletitlecolor
+
+  %ySelectabletitlecolor%g is the color of commands that have  
+  pull-down menus.
+
+:Menucolors-Helpbordercolor1
+
+  %yHelpbordercolor1%g is the color of the outside ring of the  
+  help window.
+
+:Menucolors-Helpbordercolor2
+
+  %yHelpbordercolor2%g is the color of the middle ring of the  
+  help window.
+
+:Menucolors-Helpbordercolor3
+
+  %yHelpbordercolor%g is the color of the inside ring of the  
+  help window.
+
+:Menucolors-Helphelptextcolor
+
+  %yHelphelptextcolor%g is the color of the text that appears in  
+  the bottom of the HELP window.
+
+:Menucolors-Helptextcolor
+
+  %yHelptextcolor%g is the color of the help text.  
+
+:Menucolors-Cmdcursorinsertcolor
+
+  %yCmdCursorinsertcolor%g is the color of the command cursor.  
+ 
+:Menucolors-Cmdcursorcolor
+
+:Menucolors-Messagetextcolor
+
+  %yMessagetextcolor%g is the color of the text that appears on the   
+  message line.
+
+:Menucolors-Statustagcolor
+
+  %yStatustagcolor%g is the color of the tags on the status line.  
+
+:Menucolors-Statusvaluecolor
+
+  %yStatusvaluecolor%g is the color of the tag values on the status line.  
+
+:Menucolors-Cmdtextcolor
+
+  %yCmdtextcolor%g is the color of the text that is entered in on the  
+  command line.
+
+:Menucolors-Cursorcolor
+
+  %yCursorcolor%g is the color of the cursor.  
+
+:FE-Palette
+
+  %yPalette%g allows you to select the set of four, eight, or  
+  sixteen colors that XDE should use. 
+
+:FE-Readpalette
+
+  %yReadpalette%g lets you re-read the palettes.xct file without  
+  having to exit the Design Editor and re-start it.
+
+  If you use the %yDOS%g command to exit out and edit the palettes.xct  
+  file, you can read in the changed file by using this command.
+
+:FE-Cursor
+
+  The %yCursor%g command allows you to change the shape of the cursor.  
+  The available cursor types are %yarrow%g, %ybug%g, %ycross%g and
+  %ygunsight%g.
+
+:FE-Mouse
+
+  The %yMouse%g command allows you to define what functions  
+  your mouse buttons should perform.
+
+  The options are:
+
+     %ySelect%g - Select the item which the cursor is currently on.  
+     %yDone%g   - Finish a command.
+     %yMenu%g   - Return to the last selected menu item.
+     %ySwitch%g - Switch between the Editlca and Editblk screens. 
+
+:Mouse
+
+  The %yMouse%g command allows you to define what functions  
+  your mouse buttons should perform.
+
+:Mouse-Select
+
+  %ySelect%g programs the mouse button to select the item which  
+  the cursor is currently on.  
+
+:Mouse-Done
+
+  %yDone%g programs the mouse button to enter the DONE command.
+
+  Pressing this mouse button is the equivalent of choosing the
+  "DONE" menu item for any command.
+
+:Mouse-Menu
+
+  Pressing a mouse button programmed with the %yMenu%g command  
+  causes the most recently displayed menu to appear, and moves
+  the mouse to the most recently selected item.
+
+:Mouse-Switch
+
+  %ySwitch%g programs the mouse button to perform the SWITCH  
+  command. The display will switch between the Editlca and
+  Editblk screens. 
+
+:FE-Mode
+  The %yMode%g command sets the mode which XDE will run in.  
+  The two choices are %ySafe%g and %yExpert%g.  In Safe
+  mode, the commands which can be used to change the
+  functionality of your design are not available.  This
+  mode can be used to guard against accidentally changing
+  the logic in your design at the LCA level.  In Expert
+  mode, XDE includes the commands which can be used to
+  modify logic.
+:FE-Mode-Safe
+
+  In %ySafe%g mode, the EditLCA screen does not contain
+  the commands which can be used to change the 
+  functionality of a design.
+
+  XDE should be run in Safe mode unless you want to
+  make logic changes at the LCA level.
+
+:FE-Mode-Expert
+
+  In %yExpert%g mode, the EditLCA screen contains the  
+  commands which can be used to change the functionality  
+  of a design.  
+
+:FE-Keydef
+
+  %yKeydef%g allows you to define the function keys.
+
+  Rather than having to repeatedly type command names or search through  
+  menus, define the function keys to perform your most frequently used
+  commands.
+
+:FE-Fastsave
+
+  %yFastsave%g saves the LCA file in a graphic format (XGR and 
+  XCD files). Subsequent reloads of this design are significantly  
+  quicker. However, files saved using Fastsave take up much more
+  disk space than LCA files.  
+
+:FE-Namechange
+
+  If %yNamechange%g is ON and you save the design under another name,  
+  that name will become the default. Future saves will have this new
+  name as the default choice. If Namechange is OFF and you save the
+  design under another name, the original name will still be the
+  default for all future saves.
+
+:FE-Keycursor
+
+  If %yKeycursor%g is ON, the arrow keys will move the cursor
+  through pull-down menus and pressing <ENTER> will execute the  
+  selected option. If Keycursor is OFF, commands must be entered  
+  via the keyboard or selected from pull-down menus using the 
+  mouse. 
+
+:FE-Printer
+
+  Use the %yPrinter%g command to tell XDE what type of printer you  
+  have. If your printer does not appear in the list of options,
+  refer to the Design Implementation Reference Guide. It contains
+  information which  will show you how to add your printer to the list.
+
+:FE-Execute
+
+  Execute allows you to execute a file of commands.  
+

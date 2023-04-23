@@ -1,0 +1,56 @@
+
+TITLE CNTR6
+
+CHIP   CNTR6   P22V10;
+
+;PINLIST (Highest pin number = 24)
+      x4clk start NC rd cs NC NC NC NC NC NC NC NC NC NC read c5 c4 c3 c2 
+      c1 c0 NC NC 
+
+;6_Bit Binary State Counter For UART Receiver Design
+;       Xilinx EPLD Applications, Feb. 93
+
+
+
+EQUATIONS
+
+read = (/rd * /cs);
+
+c5 := (c5 * /c4 * start
+     + c5 * /c3 * start
+     + c5 * /c2 * start
+     + c5 * /c1 * start
+     + /c5 * c4 * c3 * c2 * c1 * c0 * start
+     + c5 * /c0 * start);
+
+c5.CLKF = (x4clk);
+
+c4 := (c4 * /c3 * start
+     + c4 * /c2 * start
+     + c4 * /c1 * start
+     + /c4 * c3 * c2 * c1 * c0 * start
+     + c4 * /c0 * start);
+
+c4.CLKF = (x4clk);
+
+c3 := (c3 * /c2 * start
+     + c3 * /c1 * start
+     + /c3 * c2 * c1 * c0 * start
+     + c3 * /c0 * start);
+
+c3.CLKF = (x4clk);
+
+c2 := (c2 * /c1 * start
+     + /c2 * c1 * c0 * start
+     + c2 * /c0 * start);
+
+c2.CLKF = (x4clk);
+
+c1 := (/c1 * c0 * start
+     + c1 * /c0 * start);
+
+c1.CLKF = (x4clk);
+
+c0 := (/c0 * start);
+
+c0.CLKF = (x4clk);

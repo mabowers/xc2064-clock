@@ -1,0 +1,29 @@
+`F  1.00 ldcpe
+`B "1" "1" "A" "     June 29, 1993" "" "A" 
+"XC2000 Family LDCPE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D"
+`P I "CE"
+`P I "PRE"
+`P O "Q"
+`P I "G"
+`P I "CLR"
+`S "OQ_D" 1 
+`E XC2000.LIB
+`I R "M2_1" XC2000.LIB "M2_1" D5C35C7A  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "LDCP" XC2000.LIB "LDCP" D5C70C97  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "G" "G" I ) ( "PRE" "PRE" I ) ( "Q" "Q" O ) 
+( "CLR" "CLR" I ) 
+`J ( R U1 "D0" I ) ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( R U1 "O" O ) ( S "OQ_D" 1  ) ( R U2 "D" I ) 
+`J ( P I "D" ) ( R U1 "D1" I ) 
+`J ( P I "CE" ) ( R U1 "S0" I ) 
+`J ( P I "PRE" ) ( R U2 "PRE" I ) 
+`J ( P I "G" ) ( R U2 "G" I ) 
+`J ( P I "CLR" ) ( R U2 "CLR" I ) 

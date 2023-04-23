@@ -1,0 +1,28 @@
+`F  1.00 m2_1
+`B "1" "1" "A" "     June 28, 1993" "" "A" 
+"XC3000 Family M2_1 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D0"
+`P O "O"
+`P I "S0"
+`P I "D1"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "OR2" XC3000.LIB "OR2" C7A64729  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND2B1" XC3000.LIB "AND2B1" C7A648B1  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND2" XC3000.LIB "AND2" C7A649B2  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`J ( P I "D0" ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( R U1 "I1" I ) 
+`J ( P I "S0" ) ( R U2 "I0" I ) ( R U3 "I1" I ) 
+`J ( R U1 "O" O ) ( P O "O" ) 
+`J ( R U1 "I0" I ) ( R U3 "O" O ) 
+`J ( P I "D1" ) ( R U3 "I0" I ) 

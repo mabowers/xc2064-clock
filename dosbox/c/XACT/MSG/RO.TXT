@@ -1,0 +1,31 @@
+# @(#)RO.TXT	3.1 Copyright(C)1992 Xilinx Inc. 5/4/94 23:55:49
+# file: ro.err
+# date: 04/19/90
+# what: Xilinx EPLD Register Optimizer error messages
+# Modified for user 7/20- Z.K.
+#
+0000:INFORMATION! (Never Used)
+0001:* REGISTER OPTIMIZER START
+0002:* REGISTER OPTIMIZER END
+0003:Optimized instance '%s' with '%s'. New instance '%s'.
+0004:*
+#
+1000:WARNING! (Never Used)
+1001:Power control for instance '%s' ignored because instance was optimized.
+#
+2000:ERROR! (Never Used)
+#2001:NULL SOURCE PIN PTR GDI (Internal Error)
+2001:[Internal error - no source pin found]
+#2002:NULL SINK PIN PTR GDI (Internal Error)
+2002:[Internal error - no sink pin found]
+#2003:NULL INST ID GDI (Internal Error)
+2003:[Internal error in instance ID]
+#2004:NULL PIN ID GDI (Internal Error)
+2004:[Internal error in pin ID]
+#2005:NO DESIGN LOADED
+2005:No design loaded - may be out of memory
+#2006:NULL CLOCK PIN (Internal Error)
+2006:[Internal error in clock pin]
+#
+# end of file
+#

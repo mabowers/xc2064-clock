@@ -1,0 +1,10 @@
+; ===========================================
+; Memory file for PROM symbol called 'DP_2/INDEX_TABLE' driving 'DP_2/INDEX_DEL'
+; ===========================================
+TYPE     ROM
+WIDTH    8
+DEPTH    16
+RADIX	 10
+DATA     16#ff#, 16#ff#, 16#ff#, 16#ff#, 2, 4, 6, 8,
+    	 16#ff#, 16#ff#, 16#ff#, 16#ff#, 2, 4, 6, 8
+

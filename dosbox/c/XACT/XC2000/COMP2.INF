@@ -1,0 +1,31 @@
+`F  1.00 comp2
+`B "1" "1" "A" "      May  1, 1993" "" "A" 
+"XC4000 Family COMP2 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "A0"
+`P I "B0"
+`P O "EQ"
+`P I "A1"
+`P I "B1"
+`S "AB0" 1 
+`S "AB1" 1 
+`E XC2000.LIB
+`I R "XNOR2" XC2000.LIB "XNOR2" C7AA004D  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC2000.LIB "XNOR2" C7AA009C  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND2" XC2000.LIB "AND2" CFAF64CC  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`J ( P I "A0" ) ( R U1 "I1" I ) 
+`J ( R U1 "O" O ) ( S "AB0" 1  ) ( R U3 "I1" I ) 
+`J ( P I "B0" ) ( R U1 "I0" I ) 
+`J ( R U3 "O" O ) ( P O "EQ" ) 
+`J ( R U2 "O" O ) ( S "AB1" 1  ) ( R U3 "I0" I ) 
+`J ( P I "A1" ) ( R U2 "I1" I ) 
+`J ( P I "B1" ) ( R U2 "I0" I ) 

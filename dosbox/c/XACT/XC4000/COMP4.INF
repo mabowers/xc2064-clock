@@ -1,0 +1,50 @@
+`F  1.00 comp4
+`B "1" "1" "A" "      May  1, 1993" "" "A" 
+"XC4000 Family COMP4 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "A0"
+`P I "B0"
+`P I "A1"
+`P I "B1"
+`P O "EQ"
+`P I "A2"
+`P I "B2"
+`P I "A3"
+`P I "B3"
+`S "AB0" 1 
+`S "AB1" 1 
+`S "AB2" 1 
+`S "AB3" 1 
+`E XC4000.LIB
+`I R "AND4" XC4000.LIB "AND4" C7AA1C01  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "O" "O" O ) 
+`I R "XNOR2" XC4000.LIB "XNOR2" C7AA1F61  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC4000.LIB "XNOR2" C7AA2057  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC4000.LIB "XNOR2" C7AA2195  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XNOR2" XC4000.LIB "XNOR2" C7AA2223  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`J ( P I "A0" ) ( R U5 "I1" I ) 
+`J ( R U5 "O" O ) ( S "AB0" 1  ) ( R U1 "I3" I ) 
+`J ( P I "B0" ) ( R U5 "I0" I ) 
+`J ( P I "A1" ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( S "AB1" 1  ) ( R U1 "I2" I ) 
+`J ( P I "B1" ) ( R U2 "I0" I ) 
+`J ( R U1 "O" O ) ( P O "EQ" ) 
+`J ( R U3 "O" O ) ( S "AB2" 1  ) ( R U1 "I1" I ) 
+`J ( R U4 "O" O ) ( S "AB3" 1  ) ( R U1 "I0" I ) 
+`J ( P I "A2" ) ( R U3 "I1" I ) 
+`J ( P I "B2" ) ( R U3 "I0" I ) 
+`J ( P I "A3" ) ( R U4 "I1" I ) 
+`J ( P I "B3" ) ( R U4 "I0" I ) 

@@ -1,0 +1,156 @@
+# @(#)RG.TXT	3.4 Copyright(C)1992 Xilinx Inc. 5/4/94 23:55:46
+# file: rg.txt
+# date: 06/29/90
+# what: Xilinx EPLD reporter error messages - user                     
+#
+#  Z. K.
+# 0001:RG_ERR_PORT_NOT_PLACED
+# 0002:RG_ERR_INVALID_ARRAY_TYPE
+# 0003:No DESIGN loaded!
+# 0004:No target CHIP defined!
+# 0005:RG_INFO_ADDED_AND
+# 0006:RG_ERR_MALLOC_INST_PIN
+# 0007:Reporter: Incorrect bitmap id found.
+# 0008:Reporter: Incorrect device type id found.
+# 0009:Reporter: Bad transform.
+# 0010:Reporter: Invalid input data to procedure 1_dim_reorder.
+
+0001:[Internal Error - port not placed].
+0002:[Internal Error - invalid array type].
+0003:No design loaded.
+0004:[Internal Error - no target CHIP defined].
+0005:[Internal information: AND component added].
+0006:[Internal Error - may be out of memory].
+0007:[Internal Error - Incorrect bitmap ID found].
+0008:[Internal Error - Incorrect device type ID found].
+0009:[Internal Error - in transform].
+0010:[Internal Error: Invalid input data].
+#
+# 0011:Reporter: Invalid input data to procedure 2_dim_reorder.
+# 0012:Reporter: Invalid input data to procedure 1_to_2_dim.
+# 0013:Reporter: Invalid input data to procedure 2_to_1_dim.
+# 0014:Reporter: Invalid input data to procedure add_offset.
+# 0015:Reporter: Invalid input data to procedure add_fu_idx_offset.
+# 0016:Reporter: Invalid input data to procedure split_inot_bands.
+# 0017:Reporter: Invalid input data to procedure table_translate.
+# 0018:Reporter: Invalid input data to procedure fu_idx_translate.
+# 0019:Reporter: Invalid coordinate in procedure 1_dim_reorder.
+# 0020:Reporter: Invalid coordinate in procedure 2_dim_reorder.
+
+0011:[Internal Error - Invalid input data].
+0012:[Internal Error - Invalid input data].
+0013:[Internal Error - Invalid input data].
+0014:[Internal Error - Invalid input data].
+0015:[Internal Error - Invalid input data].
+0016:[Internal Error - Invalid input data].
+0017:[Internal Error - Invalid input data].
+0018:[Internal Error - Invalid input data].
+0019:[Internal Error - Invalid input data].
+0020:[Internal Error - Invalid input data].
+#
+# 0021:Reporter: Invalid coordinate in procedure 1_to__2_dim.
+# 0022:Reporter: Invalid coordinate in procedure 2_to_1_dim.
+# 0023:Reporter: Invalid coordinate in procedure add_offset.
+# 0024:Reporter: Invalid coordinate in procedure add_fu_idx_offset.
+# 0025:Reporter: Invalid coordinate in procedure split_into_bands.
+# 0026:Reporter: Invalid coordinate in procedure table_translate.
+# 0027:Reporter: Invalid coordinate in procedure fu_idx_translate.
+# 0028:Not enough memory!
+# 0029:Corrupt db: net %s reference instance %s pin %d but instance has %d pins.
+# 0030:Corrupt db: instance %s pin# %d attached to two different nets %s and %s.
+
+0021:[Internal Error - Invalid coordinate].
+0022:[Internal Error - Invalid coordinate].
+0023:[Internal Error - Invalid coordinate].
+0024:[Internal Error - Invalid coordinate].
+0025:[Internal Error - Invalid coordinate].
+0026:[Internal Error - Invalid coordinate].
+0027:[Internal Error - Invalid coordinate].
+0028:Out of memory. 
+0029:[Internal Error in net %s instance %s pin %d : instance has %d pins].
+0030:[Internal Error in instance %s pin# %d nets %s and %s].
+#
+
+# 0031:Unable to get bitmap data.
+# 0032:Internal Error: Bad pointer passed to procedure %s.
+# 0033:Out of memory. Aborting.
+# 0034:Internal Error: Cannot find bit position for a fuse.
+# 0035:Programmer tries to set the address 0x%04x.
+# 0036:Programmer tries to set the wrong bit %04x at address %04x.
+# 0037:The design has an unknown device type: %s.
+# 0038:The design has an unknown package type: %s.
+# 0039:Signature must have one of the following suffix: '.A', '.H' or '.D'
+
+0031: [Internal Error - cannot get data].
+0032: [Internal error in procedure %s].
+0033:Out of memory. Aborting.
+0034: [Internal Error - cannot find bit position for a fuse].
+0035: [Internal Error in address 0x%04x].
+0036: [Internal Error in bit %04x at address %04x].
+0037: Programming output for device type %s is not supported in this release.
+0038: [Internal error in package type: %s].
+0039:Valid signature suffixes are '.A', '.H' and '.D'. Default is '.A'.
+0040:Alphanumeric signature is too long. Only 8 characters allowed.
+#
+0041:Alphanumeric signature has one or more illegal characters.
+     Only alphabetic letters and digits are allowed.
+0042:Hexadecimal signature is too long. Only 16 characters allowed.
+0043:Hexadecimal signature has one or more illegal characters.
+0044:Decimal signature is out of range. Legal values are 0 - 1000000000.
+0045:Decimal signature has one or more illegal non-digit characters.
+
+0046:Components with pattern name %s, have different mix of fast/slow clocks.
+0047:Components with pattern name %s will be simulated with slow clocks only.
+0048: [Internal Error - NULL parameter passed to a procedure].
+0049:Unable to open Jedec simulation output file %s.
+0050:Component %s is too large to fit within our Jedec simulation model.\
+     Component size (before munching) should be less or equal to target chip.
+#
+0051: [Internal Error:  %ld fuses are written, but model is supposed to have %ld].
+0052:This program cannot be invoked with the -s option.
+0053:Directory path must end with a slash.
+0054:This database has no components to make jedec simulation files for.
+0055:This report can only be done on a database made by Plusasm.
+0056:Carry-In enabled for Function Block %d. Config item %s is set ON.
+# 0057:Property PL_CARRYIN for instance %s is set to an invalid value.
+0057:Configuration item %s is set to an invalid value.
+#
+# new in 3.0
+0058:[Internal Error] Bad tables for programmer report.
+0059:Internal Error: Bad pointer passed to a procedure.
+#
+0100:Net '%s' renamed to '%s' in simulation output, to avoid\
+     padname - netname clash.\
+     During simulation the net will be shown with incorrect values, \
+     which belong to the pad with the same name.\
+     To avoid confusion rename this net in your schematic.
+0101:Cannot open netlist output file '%s'.
+0102:Cannot open timing model file '%s'.
+0103:Unexpected end-of-file after 'MODEL' keyword, in timing file.
+0104:No timing data found for model '%s', in timing file.
+0105:Bad timing value '%s' in timing file. Supposed to be a number.
+0106:Cannot find 'END' keyword for the model, in the timing file.
+0107:Parameter '%s' for component '%s' has already a defined value.
+0108:Simulation component '%s' found in timing file, is NOT supported.
+0109:[Internal Error]: Component '%s' is not defined.
+0110: Component '%s' has no timing parameters.
+#
+0111:Pad '%s' in <design_name>.fi file, is not a pad which can have\
+     a fast input connection to a  normal FB, for the current target chip !
+0112:Fast input pad '%s' in <design_name>.fi file, does not connect\
+     directly to any logic placed in the adjoining Function Block.\
+     This pad is either connected to logic placed in other function blocks\
+     or there is an UIM-AND before reaching the adjoining Function Block.
+0113:Pad '%s' in <design_name>.fi file, now uses fast-input connection !
+#
+0114:The following net is visible in the simulation: %s
+0115:The Chip memory reset pin is called '%s' in the simulation netlist.
+     The usual name '%s' is already used in the design.
+#
+# end of file
+#
+
+
+
+
+

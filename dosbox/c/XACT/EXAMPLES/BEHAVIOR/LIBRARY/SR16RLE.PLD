@@ -1,0 +1,105 @@
+TITLE           Shift Register: 16-bit, left, sync-reset, loadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            7/29/93
+
+CHIP            SR16RLE  COMPONENT
+ 
+;Inputs
+d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 d12 d13 d14 d15 sli l ce c r
+
+; d[15:0]       parallel-load data
+; sli           shift-left serial input
+; l             parallel-load enable
+; ce            shift clock enable
+; c             clock (optional FastCLK)
+; r             sync reset
+ 
+;Outputs
+q0 q1 q2 q3 q4 q5 q6 q7 q8 q9 q10 q11 q12 q13 q14 q15
+
+; q[15:0]       counter output
+
+EQUATIONS 
+
+q15     := ce*/l*/r*q14
+         + /ce*/l*/r*q15
+         + l*/r*d15
+q15.clkf = c
+
+q14     := ce*/l*/r*q13
+         + /ce*/l*/r*q14
+         + l*/r*d14
+q14.clkf = c
+
+q13     := ce*/l*/r*q12
+         + /ce*/l*/r*q13
+         + l*/r*d13
+q13.clkf = c
+
+q12     := ce*/l*/r*q11
+         + /ce*/l*/r*q12
+         + l*/r*d12
+q12.clkf = c
+
+q11     := ce*/l*/r*q10
+         + /ce*/l*/r*q11
+         + l*/r*d11
+q11.clkf = c
+
+q10     := ce*/l*/r*q9
+         + /ce*/l*/r*q10
+         + l*/r*d10
+q10.clkf = c
+
+q9      := ce*/l*/r*q8
+         + /ce*/l*/r*q9 
+         + l*/r*d9 
+q9.clkf  = c
+
+q8      := ce*/l*/r*q7
+         + /ce*/l*/r*q8 
+         + l*/r*d8 
+q8.clkf  = c
+
+q7      := ce*/l*/r*q6
+         + /ce*/l*/r*q7 
+         + l*/r*d7 
+q7.clkf  = c
+
+q6      := ce*/l*/r*q5
+         + /ce*/l*/r*q6 
+         + l*/r*d6 
+q6.clkf  = c
+
+q5      := ce*/l*/r*q4
+         + /ce*/l*/r*q5 
+         + l*/r*d5 
+q5.clkf  = c
+
+q4      := ce*/l*/r*q3
+         + /ce*/l*/r*q4 
+         + l*/r*d4 
+q4.clkf  = c
+
+q3      := ce*/l*/r*q2
+         + /ce*/l*/r*q3 
+         + l*/r*d3 
+q3.clkf  = c
+
+q2      := ce*/l*/r*q1
+         + /ce*/l*/r*q2 
+         + l*/r*d2 
+q2.clkf  = c
+
+q1      := ce*/l*/r*q0
+         + /ce*/l*/r*q1 
+         + l*/r*d1 
+q1.clkf  = c
+
+q0      := ce*/l*/r*sli
+         + /ce*/l*/r*q0 
+         + l*/r*d0 
+q0.clkf  = c

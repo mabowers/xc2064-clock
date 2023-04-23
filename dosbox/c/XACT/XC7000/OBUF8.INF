@@ -1,0 +1,64 @@
+`F  1.00 OBUF8
+`B "1" "1" "A" "  October  1, 1993" "" "A" 
+"XC4000 Family OBUF8 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "O0"
+`P O "O1"
+`P O "O2"
+`P O "O3"
+`P O "O4"
+`P O "O5"
+`P O "O6"
+`P O "O7"
+`P I "I0"
+`P I "I1"
+`P I "I2"
+`P I "I3"
+`P I "I4"
+`P I "I5"
+`P I "I6"
+`P I "I7"
+`E XC7000.LIB
+`I R "OBUF" XC7000.LIB "OBUF" c7c50f56  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "OBUF" XC7000.LIB "OBUF" c7c50ff7  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "OBUF" XC7000.LIB "OBUF" c7c5103a  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "OBUF" XC7000.LIB "OBUF" c7c5106b  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "OBUF" XC7000.LIB "OBUF" c7c52338  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "OBUF" XC7000.LIB "OBUF" c7c52338  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "OBUF" XC7000.LIB "OBUF" c7c52338  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "OBUF" XC7000.LIB "OBUF" c7c52338  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "I0" ) ( R U5 "I" I ) 
+`J ( P O "O0" ) ( R U5 "O" O ) 
+`J ( P I "I1" ) ( R U6 "I" I ) 
+`J ( P O "O1" ) ( R U6 "O" O ) 
+`J ( P I "I2" ) ( R U7 "I" I ) 
+`J ( P O "O2" ) ( R U7 "O" O ) 
+`J ( P I "I3" ) ( R U8 "I" I ) 
+`J ( P O "O3" ) ( R U8 "O" O ) 
+`J ( P I "I4" ) ( R U1 "I" I ) 
+`J ( P O "O4" ) ( R U1 "O" O ) 
+`J ( P I "I5" ) ( R U2 "I" I ) 
+`J ( P O "O5" ) ( R U2 "O" O ) 
+`J ( P I "I6" ) ( R U3 "I" I ) 
+`J ( P O "O6" ) ( R U3 "O" O ) 
+`J ( P I "I7" ) ( R U4 "I" I ) 
+`J ( P O "O7" ) ( R U4 "O" O ) 

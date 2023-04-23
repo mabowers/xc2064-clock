@@ -1,0 +1,39 @@
+# This table describes tutorial or example designs available under this
+#   directory.  It is automatically updated by the Xilinx Install program
+#   using the file.des file in each design directory.
+# Each design is located in the directory <Interface>/<Design>.
+# The Family entry indicates which Xilinx product families are supported by
+#   the design.
+# If ABL is marked, the design contains Xilinx ABEL logic blocks
+# If BLX is marked, the design contains X-BLOX components
+# If PAL is marked, the design contains PAL components
+# If SYN is marked, the design contains synthesized logic other than Xilinx ABEL
+# If PRF is marked, the design demonstrates XACT-Performance timing specs
+# Most Interface directories are self-explanatory.  The behavior directory
+#   contains behavioral designs that are independent of interface.
+
+--------------------------------------------------------------------------------
+ Design   | Interface | Family    | ABL | BLX | PAL | SYN | PRF |
+--------------------------------------------------------------------------------
+ bjxepld  | xabel     | 7         |  X  |     |     |     |     |
+ counter  | mentor    | 3a,4      |     |  X  |     |     |     |
+ counter  | orcad     | 3a,4      |     |  X  |     |     |     |
+ counter  | vwlogic   | 3a,4      |     |  X  |     |     |     |
+ dataio   | xabel     | 7         |  X  |     |     |     |     |
+ designs  | xabel     | 2,3,3a,4  |  X  |     |     |     |     |
+ designs  | xabel     | 4a,4h     |  X  |     |     |     |     |
+ dp2      | mentor    | 3a,4      |     |  X  |     |     |     |
+ dp2      | orcad     | 3a,4      |     |  X  |     |     |     |
+ dp2      | vwlogic   | 3a,4      |     |  X  |     |     |     |
+ fib-4a   | vwlogic   | 4a        |     |  X  |     |     |     |
+ fibgen   | mentor    | 4a        |     |  X  |     |     |     |
+ fibgen   | orcad     | 4a        |     |  X  |     |     |     |
+ fibgen   | vwlogic   | 4a        |     |  X  |     |     |     |
+ gcd      | mentor    | 3a,4      |     |  X  |     |     |     |
+ gcd      | orcad     | 3a,4      |     |  X  |     |     |     |
+ gcd      | vwlogic   | 3a,4      |     |  X  |     |     |     |
+ library  | behavior  | 7         |     |     |     |     |     |
+ lite4ka  | core      | 4,4a      |     |     |     |     |     |
+ litefpga | core      | 4a        |     |     |     |     |     |
+ port_4   | behavior  | 7         |  X  |     |     |     |     |
+ rolldice | core      | 3,3a      |     |     |     |     |     |

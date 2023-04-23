@@ -1,0 +1,37 @@
+`F  1.00 XNOR7
+`B "1" "1" "A" "    March 16, 1993" "" "A" 
+"XC4000 Family XNOR7 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "I6"
+`P I "I5"
+`P I "I4"
+`P O "O"
+`P I "I3"
+`P I "I2"
+`P I "I1"
+`P I "I0"
+`S "I46" 1 
+`S "I13" 1 
+`E XC7000.LIB
+`I R "XNOR3" XC7000.LIB "XNOR3" cadcfb06  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XOR3" XC7000.LIB "XOR3" cadcfbd0  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XOR3" XC7000.LIB "XOR3" cadcfbe3  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`J ( P I "I6" ) ( R U2 "I2" I ) 
+`J ( P I "I5" ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( S "I46" 1  ) ( R U1 "I2" I ) 
+`J ( P I "I4" ) ( R U2 "I0" I ) 
+`J ( R U3 "O" O ) ( S "I13" 1  ) ( R U1 "I1" I ) 
+`J ( R U1 "O" O ) ( P O "O" ) 
+`J ( P I "I0" ) ( R U1 "I0" I ) 
+`J ( P I "I3" ) ( R U3 "I2" I ) 
+`J ( P I "I2" ) ( R U3 "I1" I ) 
+`J ( P I "I1" ) ( R U3 "I0" I ) 

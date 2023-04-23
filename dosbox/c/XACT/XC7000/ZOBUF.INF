@@ -1,0 +1,17 @@
+`F  1.00 ZOBUF
+`B "1" "1" "A" " December 21, 1993" "" "" 
+"XC7000 ZOBUF Model" ""
+""
+""
+""
+""
+`P I "E"
+`P I "I"
+`P O "O"
+`E XC7000.LIB
+`I R "OBUFEX1" XC7000.LIB "OBUFEX1" e822e563  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( P I "E" ) ( R U1 "E" I ) 
+`J ( P I "I" ) ( R U1 "I" I ) 
+`J ( R U1 "O" T ) ( P O "O" ) 

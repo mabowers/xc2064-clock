@@ -1,0 +1,97 @@
+`F  1.00 decode16
+`B "1" "1" "B" " February 13, 1994" "" "A" 
+"XC4000 Family DECODE16 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "A0"
+`P O "O"
+`P I "A1"
+`P I "A2"
+`P I "A3"
+`P I "A4"
+`P I "A5"
+`P I "A6"
+`P I "A7"
+`P I "A8"
+`P I "A9"
+`P I "A10"
+`P I "A11"
+`P I "A12"
+`P I "A13"
+`P I "A14"
+`P I "A15"
+`E XC4000.LIB
+`E XBLOX.LIB
+`I R "WAND1" XC4000.LIB "WAND1" CC6B2D2E  U1  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B2D44  U2  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B2D6E  U3  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B2D7F  U4  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6BA10A  U5  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6BA10A  U6  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6BA10A  U7  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6BA10A  U8  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6BA14D  U9  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6BA14D  U10  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6BA14D  U11  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6BA14E  U12  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6BA1BC  U13  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6BA1BC  U14  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6BA1BC  U15  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6BA1BC  U16  []
+"DECODE" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "PULLUP" XC4000.LIB "PULLUP" EBCBD503  XR1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" P ) 
+`J ( R U1 "O" C ) ( R U2 "O" C ) ( R XR1 "O" P ) ( P O "O" ) 
+( R U3 "O" C ) ( R U4 "O" C ) ( R U5 "O" C ) ( R U6 "O" C ) ( R U7 "O" C ) 
+( R U8 "O" C ) ( R U9 "O" C ) ( R U10 "O" C ) ( R U11 "O" C ) ( R U12 "O" C ) 
+( R U13 "O" C ) ( R U14 "O" C ) ( R U15 "O" C ) ( R U16 "O" C ) 
+`J ( P I "A0" ) ( R U1 "I" I ) 
+`J ( P I "A1" ) ( R U2 "I" I ) 
+`J ( P I "A2" ) ( R U3 "I" I ) 
+`J ( P I "A3" ) ( R U4 "I" I ) 
+`J ( P I "A4" ) ( R U5 "I" I ) 
+`J ( P I "A5" ) ( R U6 "I" I ) 
+`J ( P I "A6" ) ( R U7 "I" I ) 
+`J ( P I "A7" ) ( R U8 "I" I ) 
+`J ( P I "A8" ) ( R U9 "I" I ) 
+`J ( P I "A9" ) ( R U10 "I" I ) 
+`J ( P I "A10" ) ( R U11 "I" I ) 
+`J ( P I "A11" ) ( R U12 "I" I ) 
+`J ( P I "A12" ) ( R U13 "I" I ) 
+`J ( P I "A13" ) ( R U14 "I" I ) 
+`J ( P I "A14" ) ( R U15 "I" I ) 
+`J ( P I "A15" ) ( R U16 "I" I ) 

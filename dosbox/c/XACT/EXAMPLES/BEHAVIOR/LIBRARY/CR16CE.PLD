@@ -1,0 +1,142 @@
+TITLE           Counter: binary, up, 16-bit, async-clear, negative edge clock
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/30/93
+
+CHIP            CR16CE  COMPONENT
+ 
+;Inputs
+ce /c clr
+
+; ce            count enable
+; c             clock (optional FastCLK)
+; clr           async clear
+ 
+;Outputs
+q0 q1 q2 q3 q4 q5 q6 q7 q8 q9 q10 q11 q12 q13 q14 q15
+
+; q[15:0]       counter output
+
+;Nodes
+ce8
+
+NODE (UIM) ce8
+
+EQUATIONS 
+
+q15.d1   = ce8*q8*q9*q10*q11*q12*q13*q14
+q15.fbk  = VCC
+q15     := q15.d1 xor q15.d2
+q15.clkf = c
+q15.rstf = clr
+
+q14.d1   = ce8*q8*q9*q10*q11*q12*q13
+q14.fbk  = VCC
+q14     := q14.d1 xor q14.d2
+q14.clkf = c
+q14.rstf = clr
+
+q13.d1   = ce8*q8*q9*q10*q11*q12
+q13.fbk  = VCC
+q13     := q13.d1 xor q13.d2
+q13.clkf = c
+q13.rstf = clr
+
+q12.d1   = ce8*q8*q9*q10*q11
+q12.fbk  = VCC
+q12     := q12.d1 xor q12.d2
+q12.clkf = c
+q12.rstf = clr
+
+q11.d1   = ce8*q8*q9*q10
+q11.fbk  = VCC
+q11     := q11.d1 xor q11.d2
+q11.clkf = c
+q11.rstf = clr
+
+q10.d1   = ce8*q8*q9
+q10.fbk  = VCC
+q10     := q10.d1 xor q10.d2
+q10.clkf = c
+q10.rstf = clr
+
+q9.d1    = ce8*q8
+q9.fbk   = VCC
+q9      := q9.d1 xor q9.d2
+q9.clkf  = c
+q9.rstf  = clr
+
+q8.d1    = ce8
+q8.fbk   = VCC
+q8      := q8.d1 xor q8.d2
+q8.clkf  = c
+q8.rstf  = clr
+
+ce8      = ce*q0*q1*q2*q3*q4*q5*q6*q7
+
+q7.d1    = ce*q0*q1*q2*q3*q4*q5*q6
+q7.fbk   = VCC
+q7      := q7.d1 xor q7.d2
+q7.clkf  = c
+q7.rstf  = clr
+
+q6.d1    = ce*q0*q1*q2*q3*q4*q5
+q6.fbk   = VCC
+q6      := q6.d1 xor q6.d2
+q6.clkf  = c
+q6.rstf  = clr
+
+q5.d1    = ce*q0*q1*q2*q3*q4
+q5.fbk   = VCC
+q5      := q5.d1 xor q5.d2
+q5.clkf  = c
+q5.rstf  = clr
+
+q4.d1    = ce*q0*q1*q2*q3
+q4.fbk   = VCC
+q4      := q4.d1 xor q4.d2
+q4.clkf  = c
+q4.rstf  = clr
+
+q3.d1    = ce*q0*q1*q2
+q3.fbk   = VCC
+q3      := q3.d1 xor q3.d2
+q3.clkf  = c
+q3.rstf  = clr
+
+q2.d1    = ce*q0*q1
+q2.fbk   = VCC
+q2      := q2.d1 xor q2.d2
+q2.clkf  = c
+q2.rstf  = clr
+
+q1.d1    = ce*q0
+q1.fbk   = VCC
+q1      := q1.d1 xor q1.d2
+q1.clkf  = c
+q1.rstf  = clr
+
+q0.d1    = ce
+q0.fbk   = VCC
+q0      := q0.d1 xor q0.d2
+q0.clkf  = c
+q0.rstf  = clr
+
+q0.prld  = gnd
+q1.prld  = gnd
+q2.prld  = gnd
+q3.prld  = gnd
+q4.prld  = gnd
+q5.prld  = gnd
+q6.prld  = gnd
+q7.prld  = gnd
+q8.prld  = gnd
+q9.prld  = gnd
+q10.prld = gnd
+q11.prld = gnd
+q12.prld = gnd
+q13.prld = gnd
+q14.prld = gnd
+q15.prld = gnd

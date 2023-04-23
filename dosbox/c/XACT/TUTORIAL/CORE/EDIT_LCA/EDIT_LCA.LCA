@@ -1,0 +1,277 @@
+;: examples.lca (3030PC84-70), xact 4.8.5, Thu Mar 31 14:01:13 1994
+Version 2
+Design 3030PC84 9 0
+Speed -70
+Addnet bc_out BC.X P5.O 
+Netdelay bc_out P5.O 3.4 
+Program bc_out {96G315} {96G291} {96G285} {96G273} 
+NProgram bc_out col.D.local.1:PAD7.O BD.20.1.0 BD.20.1.14 col.D.local.1:BC.X 
+Addnet net0 BB.X BC.E 
+Netdelay net0 BC.E 2.5 
+Program net0 {77G260} {84G260} 
+NProgram net0 row.C.local.1:BC.E row.C.local.1:BB.X 
+Addnet net1 BB.Y BC.B 
+Netdelay net1 BC.B 2.5 
+Program net1 {91G287} {77G287} 
+NProgram net1 row.B.local.4:BC.B row.B.local.4:BB.Y 
+Addnet net2 P19.I DB.C 
+Netdelay net2 DB.C 3.6 
+Program net2 {54G198} {49G198} {43G197} {31G197} 
+NProgram net2 row.E.local.3:DB.C EB.20.1.7 EB.20.1.16 row.E.local.4:PAD73.I 
+Addnet net3 DB.X DA.E 
+Netdelay net3 DA.E 4.7 
+Program net3 {32G200} {43G200} {49G200} {69G200} {70G201} {70G213} 
+NProgram net3 row.E.local.1:DA.E EB.20.1.19 EB.20.1.5 EC.20.1.19 EC.20.1.0 col.C.local.1:DB.X 
+Addnet net4 DB.Y DA.B 
+Netdelay net4 DA.B 4.6 
+Program net4 {22G227} {43G227} {49G226} {69G226} {74G225} {74G210} 
+NProgram net4 row.D.local.4:DA.B DB.20.1.16 DB.20.1.9 DC.20.1.15 DC.20.1.10 col.C.local.5:DB.Y 
+Addnet net5 DA.Y P20.O 
+Netdelay net5 P20.O 3.3 
+Program net5 {34G196} {43G196} {48G201} {48G210} 
+NProgram net5 row.E.local.5:PAD72.O EB.20.1.15 EB.20.1.4 col.B.local.5:DA.Y 
+Addnet net6 P18.I DB.D 
+Netdelay net6 DB.D 4.5 
+Program net6 {47G207} {47G225} {46G231} {46G231} {43G228} {32G228} 
+NProgram net6 col.B.local.4:DB.D DB.20.1.11 DB.20.1.2 DB.20.1.2 DB.20.1.17 row.D.local.3:PAD74.I 
+Addnet net7 
+Addnet net8 FA.X FB.D 
+Addnet net9 FB.X P25.O 
+Netdelay net9 P25.O 5.3 
+Program net9 {34G138} {43G138} {49G138} {69G138} {73G141} {73G153} 
+NProgram net9 row.G.local.3:PAD68.O GB.20.1.17 GB.20.1.7 GC.20.1.17 GC.20.1.3 col.C.local.4:FB.X 
+Addnet net10 FB.Y FD.B 
+Addnet net11 FD.X P26.O 
+Netdelay net11 P26.O 14.3 
+Program net11 {13G117} {13G111} {17G110} {43G110} {49G110} {69G110} {75G110} {76G110} {95G110} {101G110} {121G110} {123G111} {123G135} {127G140} {128G140} {136G140} 
+NProgram net11 col.A.local.2:PAD67.O HA.20.1.1 HA.20.1.5 HB.20.1.19 HB.20.1.5 HC.20.1.19 HC.20.1.5 col.C.local.8:row.H.local.1 HD.20.1.19 HD.20.1.5 HE.20.1.19 HE.20.1.1 GE.20.1.13 GE.20.1.5 col.E.local.8:row.G.local.1 row.G.local.1:FD.X 
+Addnet net12 P84.I AF.A 
+Netdelay net12 AF.A 1.0 
+Program net12 {167G313} 
+NProgram net12 AF.A:PAD11.I 
+Addnet net13 AF.Y AH.D 
+Program net13 {201G297} {179G289} {175G291} {175G300} 
+NProgram net13 col.H.local.2:AH.D BG.20.1.6 BG.20.1.1 col.G.local.2:AF.Y 
+Addnet net14 AH.Y P79.O 
+Netdelay net14 P79.O 1.0 
+Program net14 {223G316} 
+NProgram net14 AH.Y:PAD16.O 
+Addnet net15 P76.I AJ.B EJ.B FJ.B GJ.B HJ.B IJ.B CJ.C BI.B DJ.C JJ.A 
+Netdelay net15 AJ.B 4.5 EJ.B 9.9 FJ.B 14.3 GJ.B 15.0 HJ.B 15.4 IJ.B 19.4 CJ.C 8.6 BI.B 5.6 DJ.C 9.4 JJ.A 20.0 
+Program net15 {247G290} {251G290} {252G291} {253G211} {253G225} {253G231} {271G48} {257G48} {254G51} {254G62} {254G75} {254G81} {254G82} {254G92} {254G105} {254G111} {254G122} {254G135} {254G141} {254G152} {254G165} {254G171} {254G172} {254G182} {254G195} {254G201} {254G225} {253G231} {253G241} {253G255} {252G261} {252G285} {252G291} {252G302} {252G313} 
+NProgram net15 row.B.local.1:BI.B BJ.20.1.19 BJ.20.1.0 col.J.local.2:DJ.C DJ.20.1.13 DJ.20.1.1 row.J.local.3:JJ.A JJ.20.1.7 JJ.20.1.2 col.J.local.3:IJ.B IJ.20.1.12 IJ.20.1.2 col.J.local.3:row.I.local.0 col.J.local.3:HJ.B HJ.20.1.12 HJ.20.1.2 col.J.local.3:GJ.B GJ.20.1.12 GJ.20.1.2 col.J.local.3:FJ.B FJ.20.1.12 FJ.20.1.2 col.J.local.3:row.F.local.0 col.J.local.3:EJ.B EJ.20.1.12 EJ.20.1.2 DJ.20.1.12 DJ.20.1.1 col.J.local.2:CJ.C CJ.20.1.13 CJ.20.1.0 BJ.20.1.14 BJ.20.1.0 col.J.local.1:AJ.B col.J.local.1:PAD19.I 
+Addnet net16 AJ.X P72.O 
+Netdelay net16 P72.O 1.0 
+Program net16 {285G303} 
+NProgram net16 PAD22.O:AJ.X 
+Addnet net17 BI.X P70.O 
+Netdelay net17 P70.O 5.1 
+Program net17 {290G269} {290G262} {290G261} {285G256} {266G256} 
+NProgram net17 col.K.local.5:PAD24.O col.K.local.5:row.C.local.0 CK.20.1.4 CK.20.1.15 row.C.local.5:BI.X 
+Addnet net18 CJ.X P69.O 
+Netdelay net18 P69.O 1.0 
+Program net18 {285G243} 
+NProgram net18 PAD26.O:CJ.X 
+Addnet net19 DJ.X P67.O 
+Netdelay net19 P67.O 1.0 
+Program net19 {285G213} 
+NProgram net19 PAD28.O:DJ.X 
+Addnet net20 EJ.X P65.O 
+Netdelay net20 P65.O 1.0 
+Program net20 {285G183} 
+NProgram net20 PAD30.O:EJ.X 
+Addnet net21 FJ.X P62.O 
+Netdelay net21 P62.O 1.0 
+Program net21 {285G153} 
+NProgram net21 PAD32.O:FJ.X 
+Addnet net22 GJ.X P60.O 
+Netdelay net22 P60.O 1.0 
+Program net22 {285G123} 
+NProgram net22 PAD34.O:GJ.X 
+Addnet net23 HJ.X P59.O 
+Netdelay net23 P59.O 1.0 
+Program net23 {285G93} 
+NProgram net23 PAD36.O:HJ.X 
+Addnet net24 IJ.X P58.O 
+Netdelay net24 P58.O 1.0 
+Program net24 {285G63} 
+NProgram net24 PAD38.O:IJ.X 
+Addnet net25 JJ.X P57.O 
+Netdelay net25 P57.O 2.6 
+Program net25 {289G37} {289G33} 
+NProgram net25 col.K.local.4:PAD39.O col.K.local.4:JJ.X 
+Addnet net26 CD.X CE.C CF.A CF.D 
+Editblk JJ
+Base FG
+Config X:F Y: F:A G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = A
+Endblk
+Editblk IJ
+Base FG
+Config X:F Y: F:B G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = B
+Endblk
+Editblk HJ
+Base FG
+Config X:F Y: F:B G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = B
+Endblk
+Editblk GJ
+Base FG
+Config X:F Y: F:B G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = B
+Endblk
+Editblk FA
+Base FG
+Config X:F Y: F: G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = 1
+Endblk
+Editblk FB
+Base FG
+Config X:F Y:G F:D G:D DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = D
+Equate G = ~D
+Endblk
+Editblk FD
+Base FG
+Config X:F Y: F:B G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = B
+Endblk
+Editblk FJ
+Base FG
+Config X:F Y: F:B G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = B
+Endblk
+Editblk EJ
+Base FG
+Config X:F Y: F:B G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = B
+Endblk
+Editblk DA
+Base FG
+Config X: Y:G F: G:B:E DX: DY: ENCLK: RSTDIR: CLK: 
+Equate G = ~E+B
+Endblk
+Editblk DB
+Base FG
+Config X:F Y:G F:C:D G:D DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = ~C+D
+Equate G = ~D
+Endblk
+Editblk DJ
+Base FG
+Config X:F Y: F:C G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = C
+Endblk
+Editblk CJ
+Base FG
+Config X:F Y: F:C G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = C
+Endblk
+Editblk BB
+Base FG
+Config X:F Y:G F: G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = 1
+Equate G = 0
+Endblk
+Editblk BC
+Base FG
+Config X:F Y: F:B:E G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = B*E
+Endblk
+Editblk BI
+Base FG
+Config X:F Y: F:B G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = B
+Endblk
+Editblk AF
+Base FG
+Config X: Y:G F: G:A DX: DY: ENCLK: RSTDIR: CLK: 
+Equate G = A
+Endblk
+Editblk AH
+Base FG
+Config X: Y:G F: G:D DX: DY: ENCLK: RSTDIR: CLK: 
+Equate G = D
+Endblk
+Editblk AJ
+Base FG
+Config X:F Y: F:B G: DX: DY: ENCLK: RSTDIR: CLK: 
+Equate F = B
+Endblk
+Editblk P57
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P58
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P59
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P26
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P60
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P25
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P62
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P65
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P20
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P19
+Base IO
+Config IN:I OUT: TRI: 
+Endblk
+Editblk P67
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P18
+Base IO
+Config IN:I OUT: TRI: 
+Endblk
+Editblk P69
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P70
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P72
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P5
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P84
+Base IO
+Config IN:I OUT: TRI: 
+Endblk
+Editblk P79
+Base IO
+Config IN: OUT:O TRI: 
+Endblk
+Editblk P76
+Base IO
+Config IN:I OUT: TRI: 
+Endblk

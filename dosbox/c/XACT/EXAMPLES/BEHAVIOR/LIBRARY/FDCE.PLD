@@ -1,0 +1,22 @@
+TITLE           Flip-flop: D-type, 1-bit, async clear, clock-enable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/23/93
+
+CHIP            FDCE  COMPONENT
+ 
+;Inputs
+c d ce clr
+
+;Outputs
+q
+
+EQUATIONS 
+
+q.d1   = d*ce
+q.fbk  = /ce
+q     := q.d1 or q.d2
+q.clkf = c
+q.rstf = clr

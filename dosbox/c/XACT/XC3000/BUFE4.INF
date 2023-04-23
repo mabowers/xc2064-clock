@@ -1,0 +1,44 @@
+`F  1.00 bufe4
+`B "1" "1" "A" "     July 28, 1993" "" "A" 
+"XC3000 Family BUFE4 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P I "I0"
+`P O "O0"
+`P I "I1"
+`P O "O1"
+`P I "I2"
+`P O "O2"
+`P I "I3"
+`P O "O3"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "INV" XC3000.LIB "INV" D8DBF1D8  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUFT" XC3000.LIB "BUFT" D8DE053A  XU1  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" D8DE0553  XU2  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" D8DE057E  XU3  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" D8DE0597  XU4  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( P I "E" ) ( R U1 "I" I ) 
+`J ( R U1 "O" O ) ( R XU2 "T" I ) ( R XU1 "T" I ) ( R XU3 "T" I ) 
+( R XU4 "T" I ) 
+`J ( P I "I0" ) ( R XU1 "I" I ) 
+`J ( R XU1 "O" T ) ( P O "O0" ) 
+`J ( P I "I1" ) ( R XU2 "I" I ) 
+`J ( R XU2 "O" T ) ( P O "O1" ) 
+`J ( P I "I2" ) ( R XU3 "I" I ) 
+`J ( R XU3 "O" T ) ( P O "O2" ) 
+`J ( P I "I3" ) ( R XU4 "I" I ) 
+`J ( R XU4 "O" T ) ( P O "O3" ) 

@@ -1,0 +1,11 @@
+Configure CRC Enable
+Configure ConfigRate Slow
+Configure DonePin Pullup
+Configure ReadCapture Enable
+Configure ReadAbort Disable
+Configure ReadClk Cclk
+Configure StartupClk Cclk
+Configure SyncToDone No
+Configure DoneActive C1
+Configure OutputsActive C2
+Configure GSRInactive C3

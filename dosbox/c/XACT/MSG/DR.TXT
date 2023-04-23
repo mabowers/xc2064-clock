@@ -1,0 +1,155 @@
+# @(#)DR.TXT	3.23 Copyright(C)1992 Xilinx Inc. 5/4/94 23:55:26
+# file: dr.txt
+# date: 6/27/90
+# what: Xilinx EPLD DRC  error messages: User text.
+# Z. Krasnovsky
+#
+0001:Schematic is not loaded.
+0002:Chip not loaded.
+0003:%d Fast Clock drivers are used in the schematic. 
+     Only %d are allowed.
+0004:Output of Fast Clock driver '%s' connected to 
+     external port '%s'.
+# 0005:Bad parameter found. (internal error)!
+0005: [Internal Error - Call Xilinx]
+#	message #6 is not in use
+0007:Port component pins (%s:%s) and (%s:%s) 
+     are connected together.
+0008:Ports '%s' and '%s' are connected together.
+0009:Port component pins (%s:%s) and (%s:%s) are connected
+     to the same output (%s:%s).
+0010:Outputs (%s:%s) and (%s:%s) are connected 
+     to one port (%s:%s).
+# 0011:Pin (%s:%s) doesn't have corresponding pin in a component. (db corruption!)
+0011:Pin (%s:%s) is not found in the component.
+# If custom component - check equations; if standard - possible data base corruption.
+0012:Output of port (%s:%s) is connected to external port '%s'.
+#	message #13 is not in use
+0014:Pin (%s:%s) is connected to POWER.
+0015:Pin (%s:%s) is connected to GROUND.
+0016:Pad pin (%s:%s) is connected to POWER.
+0017:Pad pin (%s:%s) is connected to GROUND.
+0018:Port component pin (%s:%s) is connected to IO/Output port '%s'.
+0019:Fast comparator output (%s:%s) connected to
+     non-port component (%s:%s).
+0020:Fast comparator signal input (%s:%s) is connected to 
+     non-port component (%s:%s).
+0021:Fast comparator signal input (%s:%s) is connected to 
+     IO/Output port (%s:%s).
+0022:Clock pin in port '%s' is connected to (%s:%s). 
+     Must be fast clock driver.
+0023:Fast clock driver (%s:%s) is connected to 
+     non-fast clock pin (%s:%s).
+0024:Fast clock driver (%s:%s) is connected to port '%s'.
+0025:Hanging input (%s:%s).
+0026:Fast clock pin (%s:%s) connected to (%s:%s). 
+     Must be fast clock driver.
+0027:Fast comparator output (%s:%s) connected to (%s:%s). 
+     Must be inverter, IO port, or output port.
+0028:Invalid device type in component '%s'. (internal error)!
+0029:Invalid fast clock assignment: %d to FB, %d to input ports, 
+     %d to both. The fast clock distribution should be: <= 2 to FB,
+     <= 2 to input ports and <= 1 each to both FB and input ports.
+0030:%d fast clocks in a schematic. Only %d are allowed.
+0031:P-Term clock pin (%s:%s) is connected to GROUND.
+0032:P-Term clock pin (%s:%s) is connected to POWER.
+0033:Clock pin (%s:%s) is unconnected.
+0034:Invalid instance parameters: instance-id = %d, pin-id = %d.  
+    (internal error!)
+0035:The SET product term for component '%s', output '%s' 
+     has %d signals. Only %d is allowed in the %s device.
+0036:The RESET product term for component '%s', output '%s' 
+     has %d signals.  Only %d is allowed in the %s device.
+0037:Fast-clock pin (%s:%s) is connected to GROUND.
+0038:Fast-clock pin (%s:%s) is connected to POWER.
+0039:Pad-clock pin (%s:%s) is connected to GROUND.
+0040:Pad-clock pin (%s:%s) is connected to POWER.
+0041:Clock pin (%s:%s) is unconnected.  You must connect it to 
+     power, ground or a signal.
+0042:Incorrect pin assignment symbol '%s'  for target device '%s'.
+     Please change pin assignment symbol or choose another XC7000 device.
+0043:Component '%s' is NOT supported in the %s device.
+0044:More than one instance with the same name '%s' exists.
+0045:Hanging fast compare input (%s:%s). Connect to signal/GND/VDD.
+0046:Fast compare output (%s:%s) connected to more that one pin.
+0047:Fast compare input (%s:%s) connected to more that one pin.
+0048:Pin (%s:%s) connected to more than one fast compare input.
+0049:Pin (%s:%s) connected to more than one fast compare output.
+0050:Instance '%s' and instance '%s' are assigned to the same
+     pin '%s'. 
+0051:Pad control pin (%s:%s) connected to GROUND.
+0052:Pad fast-clock control pin (%s:%s) connected to POWER.
+0053:%d Fast Output Enable drivers used in the schematic. 
+     Only %d (is)are allowed.
+0054:%d Pad Clock Enable drivers used in the schematic. 
+     Only %d (is)are allowed.
+0055:Non-fastclock driver (%s:%s) is connected to fastclock pin
+     (%s:%s)!
+0056:Fast Output Enable driver (%s:%s) is connected to 
+     non-foe pin (%s:%s).
+0057:Pad Clock Enable driver (%s:%s) is connected to 
+     non-clock enable pin (%s:%s).
+0058:Non-fast output enable (foe) driver (%s:%s) is connected to 
+     foe pin (%s:%s)!
+0059:Non-pad clock enable (ce) driver (%s:%s) is connected to 
+     ce pin (%s:%s)!
+0060:Global driver %s input pin (%s:%s) is unconnected.
+0061:Output pin (%s:%s) on component pad '%s' is unconnected.
+0062:Fast Input-only pin (%s:%s) is connected to standard
+     Input-only pin (%s:%s).
+0063:Standard Input-only pin (%s:%s) is connected to Fast Input-only
+     pin (%s:%s).
+0064:Fast Block output pin (%s:%s) is connected to IO pad pin (%s:%s).
+0065:IO pad pin (%s:%s) is connected to Fast Input-only pin (%s:%s) 
+     of Fast Block.
+0066:%d sources used for Fast Input-only pin (%s:%s). Only 1 is allowed.
+0067:%d Fast Block components used. Only %d are allowed.
+0068:%d fast inputs to the Fast Function Blocks used. 
+     Only %d are allowed for this XC7000 device. 
+0069:Invalid property value found on instance '%s'.  
+     '%s' = '%s' is not allowed. The valid property values 
+     are '%s'.
+0070:Instance '%s' is missing property value for
+     the '%s' attribute. The valid property values are '%s'.
+0071:Conflicting global property '%s' = '%s' found on 
+     instance '%s'.
+0072:The pad associated with the instance '%s' has an input register. 
+     This can not be used with the XC7336/XC7318 devices which have no input
+     registers. Choose a new component or use another XC7000 device.
+0073:The instance '%s' uses SET and RESET together, which is not
+     allowed for the XC7336/XC7318 devices. Choose a new component or use 
+     another XC7000 device.
+0074:The instance '%s' uses arithmetic mode. This can not be used with
+     the XC7336/XC7318 devices which do not support arithmetic carry-in from 
+     previous macrocells. Choose a new component or use another XC7000 device.
+0075:The instance '%s' uses local shift. This can not be used with the 
+     XC7336/XC7318 devices which do not support shift-in from previous
+     macrocells. Choose a new component or use another XC7000 device.
+0076:The Fast Compare component '%s' is not yet supported by the software
+     at this time. Please use another component.
+0077:The equation file '%s' last assembled for the XC7336 or XC7318
+     device uses extended logic features unavailable on the currently selected
+     device. To use this equation file for the current device, select a  
+     non-XC7336/XC7318 device and run PLUSASM. If using XEMAKE, use the -r 
+     option to force reassembly of this equation file.
+0078:The component '%s' is not supported on the XC7336/XC7318 device. 
+     Please use another component or choose another XC7000 device.
+0079:The component '%s' is not supported on the XC7272 device. 
+     Please use another component or choose another XC7000 device.
+0080:The carry-in component '%s' has no carry-out connection!
+0081:The instance '%s' must have an .ADDMODE equation to enable arithmetic
+     carry-in.
+#
+# 	Info messages, like headers, dash-lines, etc.
+#
+0500:*
+*     D E S I G N   R U L E S   C H E C K I N G    S T A R T .
+*
+0501:*
+*     D E S I G N   R U L E S   C H E C K I N G    E N D .
+*
+0502:*
+0503:No DRC's done.
+#
+# end of file
+#

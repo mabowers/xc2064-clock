@@ -1,0 +1,130 @@
+`F  1.00 ofde16
+`B "1" "1" "B" "    March  8, 1993" "" "A" 
+"XC4000 Family OFDE16 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P I "C"
+`P O "O0"
+`P O "O1"
+`P O "O2"
+`P O "O3"
+`P O "O4"
+`P O "O5"
+`P O "O6"
+`P O "O7"
+`P O "O8"
+`P O "O9"
+`P O "O10"
+`P O "O11"
+`P O "O12"
+`P O "O13"
+`P O "O14"
+`P O "O15"
+`P I "D0"
+`P I "D1"
+`P I "D2"
+`P I "D3"
+`P I "D4"
+`P I "D5"
+`P I "D6"
+`P I "D7"
+`P I "D8"
+`P I "D9"
+`P I "D10"
+`P I "D11"
+`P I "D12"
+`P I "D13"
+`P I "D14"
+`P I "D15"
+`E XC4000.LIB
+`I R "OFDE" XC4000.LIB "OFDE" C8666C65  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C8666C79  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C8666CA0  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C8666CBA  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C866C1B8  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C866C1B8  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C866C1B9  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C866C1B9  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C866E91F  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C866E91F  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C866E91F  U11  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C866E91F  U12  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C866E91F  U13  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C866E91F  U14  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C866E91F  U15  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDE" XC4000.LIB "OFDE" C866E91F  U16  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`J ( R U1 "E" I ) ( R U2 "E" I ) ( R U3 "E" I ) ( R U4 "E" I ) 
+( R U5 "E" I ) ( R U6 "E" I ) ( R U7 "E" I ) ( R U8 "E" I ) ( P I "E" ) 
+( R U9 "E" I ) ( R U10 "E" I ) ( R U11 "E" I ) ( R U12 "E" I ) ( R U13 "E" I ) 
+( R U14 "E" I ) ( R U15 "E" I ) ( R U16 "E" I ) 
+`J ( R U1 "D" I ) ( P I "D0" ) 
+`J ( P O "O0" ) ( R U1 "O" T ) 
+`J ( R U9 "D" I ) ( P I "D8" ) 
+`J ( P O "O8" ) ( R U9 "O" T ) 
+`J ( R U1 "C" I ) ( R U2 "C" I ) ( R U3 "C" I ) ( R U4 "C" I ) 
+( R U5 "C" I ) ( R U6 "C" I ) ( R U7 "C" I ) ( R U8 "C" I ) ( P I "C" ) 
+( R U9 "C" I ) ( R U10 "C" I ) ( R U11 "C" I ) ( R U12 "C" I ) ( R U13 "C" I ) 
+( R U14 "C" I ) ( R U15 "C" I ) ( R U16 "C" I ) 
+`J ( R U2 "D" I ) ( P I "D1" ) 
+`J ( P O "O1" ) ( R U2 "O" T ) 
+`J ( R U10 "D" I ) ( P I "D9" ) 
+`J ( P O "O9" ) ( R U10 "O" T ) 
+`J ( R U3 "D" I ) ( P I "D2" ) 
+`J ( P O "O2" ) ( R U3 "O" T ) 
+`J ( R U11 "D" I ) ( P I "D10" ) 
+`J ( P O "O10" ) ( R U11 "O" T ) 
+`J ( R U4 "D" I ) ( P I "D3" ) 
+`J ( P O "O3" ) ( R U4 "O" T ) 
+`J ( R U12 "D" I ) ( P I "D11" ) 
+`J ( P O "O11" ) ( R U12 "O" T ) 
+`J ( R U5 "D" I ) ( P I "D4" ) 
+`J ( P O "O4" ) ( R U5 "O" T ) 
+`J ( R U13 "D" I ) ( P I "D12" ) 
+`J ( P O "O12" ) ( R U13 "O" T ) 
+`J ( R U6 "D" I ) ( P I "D5" ) 
+`J ( P O "O5" ) ( R U6 "O" T ) 
+`J ( R U14 "D" I ) ( P I "D13" ) 
+`J ( P O "O13" ) ( R U14 "O" T ) 
+`J ( R U7 "D" I ) ( P I "D6" ) 
+`J ( P O "O6" ) ( R U7 "O" T ) 
+`J ( R U15 "D" I ) ( P I "D14" ) 
+`J ( P O "O14" ) ( R U15 "O" T ) 
+`J ( R U8 "D" I ) ( P I "D7" ) 
+`J ( P O "O7" ) ( R U8 "O" T ) 
+`J ( R U16 "D" I ) ( P I "D15" ) 
+`J ( P O "O15" ) ( R U16 "O" T ) 

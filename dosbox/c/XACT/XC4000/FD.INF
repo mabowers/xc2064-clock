@@ -1,0 +1,26 @@
+`F  1.00 fd
+`B "1" "1" "A" "     July  2, 1993" "" "A" 
+"XC4000 Family FD MACRO" "Xilinx"
+""
+""
+""
+""
+`P I "D"
+`P O "Q"
+`P I "C"
+`E XC4000.LIB
+`I R "VCC" XC4000.LIB "VCC" C793AB11  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "P" "P" O ) 
+`I R "GND" XC4000.LIB "GND" C793AC34  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "G" "G" O ) 
+`I R "FDCE" XC4000.LIB "FDCE" C793A823  U3  []
+"RLOC=R0C0" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "CLR" "CLR" I ) 
+( "Q" "Q" O ) 
+`J ( R U1 "P" O ) ( R U3 "CE" I ) 
+`J ( P I "D" ) ( R U3 "D" I ) 
+`J ( R U3 "Q" O ) ( P O "Q" ) 
+`J ( P I "C" ) ( R U3 "C" I ) 
+`J ( R U3 "CLR" I ) ( R U2 "G" O ) 

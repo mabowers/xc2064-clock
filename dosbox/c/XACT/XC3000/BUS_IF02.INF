@@ -1,0 +1,21 @@
+`F  1.00 bus_if02
+`B "1" "1" "A" " February 13, 1992" "BUS_IF02" "01" 
+"BLOX Bus Interface Module" "Xilinx Inc."
+""
+""
+""
+""
+`P I "XBLOX_BUS"
+`P I "E00"
+`P I "E01"
+`E XC4000.LIB
+`E XBLOX.LIB
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b3e  BX1  []
+"ELEM=0" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b48  BX2  []
+"ELEM=1" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`J ( P I "XBLOX_BUS" ) ( R BX2 "XBLOX_BUS" I ) ( R BX1 "XBLOX_BUS" I ) 
+`J ( P I "E00" ) ( R BX1 "ELEM" I ) 
+`J ( P I "E01" ) ( R BX2 "ELEM" I ) 

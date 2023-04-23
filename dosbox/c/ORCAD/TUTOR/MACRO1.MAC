@@ -1,0 +1,11 @@
+F1:  Place Wire     {F1}=pwb{}
+F2:  Place Bus      {F2}=pbb{}
+F3:  Place Junction {F3}=pjp{ESC}{}
+F4:  Place Power    {F4}=ppp{ESC}{}
+F5:  Move Object    {F5}=bmbe{}
+F6:  Drag Object    {F6}=bdbe{}
+F7:  Edit Reference {F7}=eern{}
+F8:  Edit Value     {F8}=ee{D}{ENTER}{ENTER}{}
+F9:  Zoom In        {F9}=zi{}
+F10: Zoom Out       {F10}=zo{}
+

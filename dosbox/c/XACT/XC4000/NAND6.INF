@@ -1,0 +1,35 @@
+`F  1.00 nand6
+`B "1" "1" "A" "    March 16, 1993" "" "A" 
+"XC4000 Family NAND6 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "I5"
+`P I "I4"
+`P I "I3"
+`P O "O"
+`P I "I2"
+`P I "I1"
+`P I "I0"
+`S "I35" 1 
+`S "I12" 1 
+`E XC4000.LIB
+`I R "NAND3" XC4000.LIB "NAND3" CADC5412  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND2" XC4000.LIB "AND2" CADC54CD  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND3" XC4000.LIB "AND3" CADC5532  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`J ( P I "I5" ) ( R U3 "I2" I ) 
+`J ( P I "I4" ) ( R U3 "I1" I ) 
+`J ( R U3 "O" O ) ( S "I35" 1  ) ( R U1 "I2" I ) 
+`J ( P I "I3" ) ( R U3 "I0" I ) 
+`J ( R U2 "O" O ) ( S "I12" 1  ) ( R U1 "I1" I ) 
+`J ( R U1 "O" O ) ( P O "O" ) 
+`J ( P I "I0" ) ( R U1 "I0" I ) 
+`J ( P I "I2" ) ( R U2 "I1" I ) 
+`J ( P I "I1" ) ( R U2 "I0" I ) 

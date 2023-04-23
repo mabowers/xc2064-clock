@@ -1,0 +1,22 @@
+`F  1.00 readback
+`B "1" "1" "A" "    March 31, 1993" "" "A" 
+"XC4000 Family READBACK Macro" "Xilinx"
+""
+""
+""
+""
+`P I "CLK"
+`P I "TRIG"
+`P O "DATA"
+`P O "RIP"
+`E XC4000.LIB
+`I R "RDCLK" XC4000.LIB "RDCLK" CC6B1C4A  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) 
+`I R "RDBK" XC4000.LIB "RDBK" CC6B1D59  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "DATA" "DATA" O ) ( "RIP" "RIP" O ) ( "TRIG" "TRIG" I ) 
+`J ( P I "CLK" ) ( R U1 "I" I ) 
+`J ( P I "TRIG" ) ( R U2 "TRIG" I ) 
+`J ( R U2 "DATA" O ) ( P O "DATA" ) 
+`J ( R U2 "RIP" O ) ( P O "RIP" ) 

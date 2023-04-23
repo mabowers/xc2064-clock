@@ -1,0 +1,24 @@
+`F  1.00 fds
+`B "1" "1" "A" "   August 12, 1993" "" "A" 
+"XC3000 Family FDS Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D"
+`P I "S"
+`P O "Q"
+`P I "C"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "OR2" XC3000.LIB "OR2" C8814E65  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "FD" XC3000.LIB "FD" C8814BCC  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`J ( P I "D" ) ( R U1 "I1" I ) 
+`J ( R U1 "O" O ) ( R U2 "D" I ) 
+`J ( P I "S" ) ( R U1 "I0" I ) 
+`J ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( P I "C" ) ( R U2 "C" I ) 

@@ -1,0 +1,55 @@
+TITLE           Shift Register: 8-bit, left, sync-reset
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/30/93
+
+CHIP            SR8RE  COMPONENT
+ 
+;Inputs
+sli ce c r
+
+; sli           shift-left serial input
+; ce            shift clock enable
+; c             clock (optional FastCLK)
+; r             sync reset
+ 
+;Outputs
+q0 q1 q2 q3 q4 q5 q6 q7
+
+; q[7:0]        counter output
+
+EQUATIONS 
+
+q7      := ce*/r*q6
+         + /ce*/r*q7 
+q7.clkf  = c
+
+q6      := ce*/r*q5
+         + /ce*/r*q6 
+q6.clkf  = c
+
+q5      := ce*/r*q4
+         + /ce*/r*q5 
+q5.clkf  = c
+
+q4      := ce*/r*q3
+         + /ce*/r*q4 
+q4.clkf  = c
+
+q3      := ce*/r*q2
+         + /ce*/r*q3 
+q3.clkf  = c
+
+q2      := ce*/r*q1
+         + /ce*/r*q2 
+q2.clkf  = c
+
+q1      := ce*/r*q0
+         + /ce*/r*q1 
+q1.clkf  = c
+
+q0      := ce*/r*sli
+         + /ce*/r*q0 
+q0.clkf  = c

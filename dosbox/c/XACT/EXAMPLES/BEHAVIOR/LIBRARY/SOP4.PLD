@@ -1,0 +1,18 @@
+TITLE           Sum-Of-Products Gate: 2+2 inputs
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            7/22/93
+
+CHIP            SOP4  COMPONENT
+ 
+;Inputs
+i0 i1 i2 i3
+
+;Outputs
+o
+
+EQUATIONS 
+
+o = i0*i1 + i2*i3

@@ -1,0 +1,181 @@
+The following node(s) were inverted to give them the capability to be 
+     placed in fast function blocks; the logic appearing on external pins is
+     unaffected. The names of the inverted nodes have been 
+     appended with '_INV': 
+     C3   C4   C5   PAR   
+
+ 
+XEPLD, Version 5.0                                          Xilinx Inc.
+                            Partitioning Report
+ Circuit name: UART
+Target Device: XC7354-10PC68                  Integrated:  2- 7-94,  8:39PM
+
+Part        #  of    # of Input  Signal   # of        O/IO    O/IO   Size
+Name        Outputs  Lines Used  Inputs   Shared Pt   Req     Avail  Factor
+FB1           1          4          7        0         0/0     0/9     2
+FB2           5          8          8        0         0/0     0/9     5
+FB3           9         20         20        0         7/0     4/3     9
+FB4           9         11         11        0         6/0     0/6     9
+FB5           0          0          0        0         0/0     0/9     0
+FB6           6         12         12        0         2/0     2/6     6
+             ---                                       ---     ---    ---
+             30                                       15/0     6/42   31
+
+Part                            Inputs Used by Each Partition
+Name
+                              |----+----1----+----2----+----3
+FB1                            ....X.............@@@X@X..X
+FB2                            X...X.X...........XXXX..X..
+FB3                            X.XXXXXXXXXX.....XXXXXXXXX.
+FB4                            ..XX.XX....XXXXXXX.........
+FB5                            ...........................
+FB6                            X.XXXXX....X.XXX..XX.......
+                              |----+----1----+----2----+----3
+
++++++++++++++++++++++++++++++++++  FB1  +++++++++++++++++++++++++++++++++
+                           Signals Used:
+  5: START             21: C2                23: C4_INV           
+ 19: C0                22: C3_INV            24: C5_INV           
+ 20: C1               
+Anded UIM Inputs Used
+ 27: UIM_0 = C0 * C1 * C2 * /C4_INV
+
+MC Output         Pin  Pin  Sh
+No Name           Req  Avl  Pt
+                              |----+----1----+----2----+----3
+1  C5_INV         -    I/O  1  ....X.............@@@X@X..X
+2  Unused              I/O     ...........................
+3  Unused              I/O     ...........................
+4  Unused              I/O     ...........................
+5  Unused              I/O     ...........................
+6  Unused              I/O     ...........................
+7  Unused              I/O     ...........................
+8  Unused              I/O     ...........................
+9  Unused              I/O     ...........................
+                              |----+----1----+----2----+----3
+
++++++++++++++++++++++++++++++++++  FB2  +++++++++++++++++++++++++++++++++
+                           Signals Used:
+  1: SDIN              19: C0                22: C3_INV           
+  5: START             20: C1                25: PAR_INV          
+  7: BITCLK            21: C2               
+
+MC Output         Pin  Pin  Sh
+No Name           Req  Avl  Pt
+                              |----+----1----+----2----+----3
+1  C0             -    I/O  0  ....X.............X........
+2  C1             -    I/O  0  ....X.............XX.......
+3  C2             -    I/O  0  ....X.............XXX......
+4  C3_INV         -    I/O  0  ....X.............XXXX.....
+5  PAR_INV        -    I/O  0  X...X.X.................X..
+6  Unused              I/O     ...........................
+7  Unused              I/O     ...........................
+8  Unused              I/O     ...........................
+9  Unused              I/O     ...........................
+                              |----+----1----+----2----+----3
+
++++++++++++++++++++++++++++++++++  FB3  +++++++++++++++++++++++++++++++++
+                           Signals Used:
+  1: SDIN               9: PARITY            21: C2               
+  3: RD                10: OVERUN            22: C3_INV           
+  4: CS                11: READY             23: C4_INV           
+  5: START             12: D0                24: C5_INV           
+  6: BYTECLK           18: D6                25: PAR_INV          
+  7: BITCLK            19: C0                26: D7               
+  8: FRAMING           20: C1               
+
+MC Output         Pin  Pin  Sh
+No Name           Req  Avl  Pt
+                              |----+----1----+----2----+----3
+1  D7             -    -    0  ......X..........X.........
+2  C4_INV         -    -    0  ....X.............XXXXX....
+3  DOUT7          O    CKEN 0  ..XX.X...................X.
+4  START          O    CKEN 0  X...X.............XXXXXX...
+5  BYTECLK        O    FOE  0  ..........X.......XXXXXX...
+6  FRAMING        O    FOE  0  X.XX...X...X......XXXXXX...
+7  PARITY         O    I/O  0  ..XX....X.........XXXXXXX..
+8  OVERUN         O    I/O  0  ..XX.....XX.......XXXXXX...
+9  READY          O    I/O  0  ..XX...XXXX.......XXXXXX...
+                              |----+----1----+----2----+----3
+
++++++++++++++++++++++++++++++++++  FB4  +++++++++++++++++++++++++++++++++
+                           Signals Used:
+  3: RD                12: D0                16: D4               
+  4: CS                13: D1                17: D5               
+  6: BYTECLK           14: D2                18: D6               
+  7: BITCLK            15: D3               
+
+MC Output         Pin  Pin  Sh
+No Name           Req  Avl  Pt
+                              |----+----1----+----2----+----3
+1  DOUT6          O    I/O  0  ..XX.X...........X.........
+2  DOUT5          O    I/O  0  ..XX.X..........X..........
+3  DOUT4          O    I/O  0  ..XX.X.........X...........
+4  D6             -    -    0  ......X.........X..........
+5  D2             -    -    0  ......X.....X..............
+6  D1             -    -    0  ......X....X...............
+7  DOUT3          O    I/O  0  ..XX.X........X............
+8  DOUT2          O    I/O  0  ..XX.X.......X.............
+9  DOUT1          O    I/O  0  ..XX.X......X..............
+                              |----+----1----+----2----+----3
+
++++++++++++++++++++++++++++++++++  FB6  +++++++++++++++++++++++++++++++++
+                           Signals Used:
+  1: SDIN               6: BYTECLK           15: D3               
+  3: RD                 7: BITCLK            16: D4               
+  4: CS                12: D0                19: C0               
+  5: START             14: D2                20: C1               
+
+MC Output         Pin  Pin  Sh
+No Name           Req  Avl  Pt
+                              |----+----1----+----2----+----3
+1  D5             -    I/O  0  ......X........X...........
+2  D4             -    I/O  0  ......X.......X............
+3  D3             -    FCLK 0  ......X......X.............
+4  DOUT0          O    FCLK 0  ..XX.X.....X...............
+5  BITCLK         O    FCLK 0  ....X.............XX.......
+6  D0             -    I/O  0  X.....X....................
+7  Unused              I/O     ...........................
+8  Unused              I/O     ...........................
+9  Unused              I/O     ...........................
+                              |----+----1----+----2----+----3
+
+
+All outputs placed in a partition.
+
+
+In   Input Name
+No 
+
+  1   SDIN                
+  2   X4CLK               
+  3   RD                  
+  4   CS                  
+  5   START               
+  6   BYTECLK             
+  7   BITCLK              
+  8   FRAMING             
+  9   PARITY              
+ 10   OVERUN              
+ 11   READY               
+ 12   D0                  
+ 13   D1                  
+ 14   D2                  
+ 15   D3                  
+ 16   D4                  
+ 17   D5                  
+ 18   D6                  
+ 19   C0                  
+ 20   C1                  
+ 21   C2                  
+ 22   C3_INV              
+ 23   C4_INV              
+ 24   C5_INV              
+ 25   PAR_INV             
+ 26   D7                  
+ 27   UIM_0 = C0 * C1 * C2 * /C4_INV
+
+
+
+ End of Partitioning Report
+

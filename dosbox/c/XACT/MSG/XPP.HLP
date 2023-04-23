@@ -1,0 +1,410 @@
+#=======================================================================#
+# XPP.HLP								#
+#									#	
+# Original Text by KTL- 01/25/90					#   					
+# Version 3.10 by ASM - 02/09/90					#
+# Version 3.20 (No changes)						#
+# Version 3.30 by ASM - 09/10/92					#
+#-----------------------------------------------------------------------#
+# This file defines indexes for context-sensitive help using in XPP.	#
+# There are three line classes in this file:				#
+#									#
+#    COMMAND:  identifies by a '.' in column 1 of a line. The current	#
+#	       available command set is:				#
+#		   .INDEX id code					#
+#			defines a new index for a help id		#
+#									#
+#    COMMENT:  identifies by a '#' in column 1 of a line. Comment lines #
+#	       are ignored and not to be displayed			#
+#									#
+#    TEXT:     lines to be displayed to screen. A text line may have	#
+#	       some attribute's control as:                             #
+#		   `r reverve attr					#
+#		   `n normal attr					#
+#		   `u underline attr					#
+#		   `b blinking atrr					#
+#		   `0## where the first # is for background color and	#
+#			the second one is for foreground color. On a	#
+#			EGA monitor, the color is defined as:		#
+#			     0 Black  1 Blue	2 Green   3 Cyan	#
+#			     4 Red    5 Magenta 6 Brown   7 White	#
+#			     8 Grey   9-13 Light			#
+#			    14 Yellow 15 Hwhite 			#
+#									#
+#	       An attribute will terminate at the end of a line and	#
+#	       reverse back to normal attribute 			#
+#									#
+#  Notes:								#
+#      TABS are not expanded so do not use TAB when preparing this	#
+#      file OR the file should	be filtered  by some filter programs	#
+#      to expand the tabs to space					#
+#=======================================================================#
+.INDEX TUTOR 0 - Tutorial Page 1
+                `r                 XPP HELP                 `n 
+         
+`n
+`047FUNCTION`n
+    To program Xilinx Serial Configuration PROM Devices. The DS112
+    Configuration PROM Programmer is required.
+
+`047SYNOPSIS`n
+    `rxpp`n [-ahs] [-b design] [-d device] design
+
+`047OPERANDS`n
+    -a          to inform XPP that the system can only handle ANSI
+                video interface (ansi.sys must be configured)
+
+    -h          to display this help file
+
+    -s          to change the profile information which XPP defaults to
+
+    -b file     to execute a batch file named "file.bat"; this file
+                must be created from within XPP using Option 9
+
+    -d device   to specify the device type for this session; the XACT
+                directory will be searched for the device driver file.
+                More than one device type may be specified by separating
+                each device with a space.
+
+                Example:
+
+                     Enter the new device list: XC1765 XC17128 XC1765                
+
+    design      to indicate the default name of the file to be programmed.
+                Enter the full name of the .BIT or HEX file to be programmed,
+                including the file extension (.BIT, .MCS, .TEK, .EXO, etc.); 
+                .BIT and PROM file for all FPGA families (XC2000, XC3000, 
+                XC3100 and XC4000 are supported.
+
+`047ASSOCIATED FILES`n
+    xpp.exe - XPP executable file
+    xpp.pro - profile information which may be changed by specifying "XPP -s"
+    xpp.hlp - XPP help file
+    *.dsf   - device driver files
+
+`047ENVIRONMENTS`n
+    PATH        must include the fully-specified directory where XPP.EXE
+                is located (PATH=directory_name)
+
+    XACT        must include the fully-specified directory where the
+                following files are located (SET XACT=directory_name):
+                 
+                        xpp.hlp
+                        xpp.pro
+                        xpp.dat
+                        *.dsf
+
+    MACHINE     may be used to indicate that the system is 100% IBM
+                or NEC compatible (SET MACHINE=[IBMPC,NECXX]).
+                Most PC compatible platforms do not need this parameter.
+
+Please see the XPP chapter in the XACT Development System Reference Guide
+for further information.
+
+.INDEX MAIN 1 - Program the device from a file
+`047Program the device from a file`n
+This option is used to program serial PROMs with the contents of
+an existing .BIT or PROM hex file.
+  
+Enter "1" or highlight to select this option.
+
+Enter the full name of the .BIT or HEX file to be programmed,
+including the file extension (.BIT, .MCS, .TEK, .EXO, etc.).
+
+Typing "?" and pressing the Enter key will display the contents of
+the current directory. 
+ 
+The default number of devices to be programmed will be displayed; 
+press Enter to accept the current number of devices, or select a
+new value and press Enter.
+
+Be sure the device(s) to be programmed match the device list 
+defined in the profile information (XPP.PRO).  Use Option 8 to change the 
+device list if needed. More than one type of PROM may be programmed in a 
+single session (this applies to Option 1 only). This procedure is 
+explained below:
+
+XPP requires that the exact PROM device name be specified in order to program
+a PROM.  One or more device names may be specified, although the full
+name of the device must be used.  For example, if only an XC1736A PROM was
+to be programmed in a session, you would only enter "XC1736A" when prompted
+for a new device list.  
+
+If more than one device type is to be programmed in a single session
+(for example, an XC1765, XC17128, and XC1765), the following would be 
+entered when prompted for a new device list:
+
+                Enter the new device list: XC1765 XC17128 XC1765
+
+The default setting is one device type, XC1736A.
+
+.INDEX MAIN 2 - Program device from an existing device
+`047Program from an exisiting device`n 
+This option makes a duplicate of an existing serial PROM; data is
+read from a previously programmed serial PROM and programmed into a blank one.
+
+Highlight or enter "2" to select this option.  
+
+Place the programmed serial PROM into the ZIF socket and press Enter.  
+
+
+Enter the number of repetitions (copies) of the original PROM to
+be made; press Enter to accept the default value.  
+
+Upon completion, remove the original PROM and replace it with a
+blank serial PROM.  
+
+Be sure the blank PROM is the same device type as defined in the
+profile information.  Use Option 8 to change the device type if needed. 
+ 
+.INDEX MAIN 3 - Check if the device is blank
+`047Check if a device is blank`n
+This option is used to test if a serial PROM is blank.
+
+Highlight or enter "3" to select this option.
+
+Enter the number of repetitions to be performed, or press Enter to accept 
+the default value.  
+
+Insert the PROM to be tested and press the Enter key.  
+
+The result of the test will be displayed.
+
+If more than one PROM is to be tested, insert the next PROM and press Enter.  
+
+Be sure the PROM to be tested is the same device type as defined in the 
+profile information.  Use Option 8 to change the device type if needed.
+.INDEX MAIN 4 - Calculate device check sum
+`047Calculate the checksum of a device`n
+This option calculates the checksum of a device, not of a file.  
+
+Highlight or enter "4" to select this option.
+
+Enter the number of repetitions to be performed, or press Enter to
+accept the default value.  
+
+Insert the serial PROM to be checked into the ZIF socket and press Enter.  
+
+The result of the test will be displayed on the screen.  
+
+If more than one PROM is to be checked, insert the next PROM and press Enter.  
+
+Be sure the device to be checked is the same device type as defined in
+the profile information.  Use Option 8 to change the device type if needed.
+.INDEX MAIN 5 - Compare device
+`047Compare a programmed device to a file`n
+This option is used to test the integrity of the data within a 
+programmed device. 
+ 
+Highlight or enter "5" to select this option.  
+
+The data from a .BIT or HEX file is compared to the data in a programmed PROM; 
+if the data file is large enough to spread across multiple PROM devices, 
+XPP will compare one device at a time against its expected contents.
+
+Enter the full name of the .BIT or HEX file to be compared,
+including the file extension (.BIT, .MCS, etc).
+
+Typing "?" and pressing the Enter key will display the contents of
+the current directory.  
+
+Enter the number of repetitions to be performed, or press Enter 
+to accept the default value.  
+
+The pattern to be tested is displayed on the screen.  
+
+Insert the device to be tested into the ZIF socket.  
+
+Be sure the PROM to be tested is the same device type as defined
+in the profile information.  Use Option 8 to change the device type
+if needed.  
+.INDEX MAIN 6 - Read the device
+`047Read the device and create a file`n
+
+This option reads the contents of a serial PROM and saves it as a file.
+
+Highlight or enter "6" to select this option.  
+
+Insert the programmed PROM into the ZIF socket.  
+
+
+Select one of the following output formats by entering the
+corresponding number and pressing Enter:
+(1)  ASCII ones and zeros (binary)
+(2)  ASCII HEX characters
+(3)  Comparison against a file (XPP will prompt for a .BIT or HEX file)
+     Differences between the files will be written to the output file,
+     and are described by the following notations:
+     '/' The device bit is a zero, but the source file is a one.
+     '.' The device bit is a one, but the source file is a zero.
+
+Enter the output filename and press Enter (the extension will default to .TXT).
+
+The design file will be written to the specified output filename.
+
+.INDEX MAIN 7 - Append device
+`047Append data to a programmed device`n
+This option allows additional configuration data to be appended to
+a partiallyp rogrammed PROM.  A second design file will be added to a PROM
+already containing a design.
+
+Highlight or enter "7" to select this option.
+
+Enter the name of the design file which already exists in the PROM. 
+The design file must exist in the current directory of the hard disk.
+
+Enter the name of the design file to be appended to the PROM. 
+Include the full file extension (.BIT, .MCS, etc).  If there is not enough
+memory in the PROM for the design file, a second device will be required to
+complete the operation.  XPP will indicate the number of patterns generated
+before the actual programming starts.
+
+Enter the number of repetitions to be performed, or press Enter to
+accept the default value.
+
+Place the partially programmed PROM in the ZIF socket.  
+
+Be sure the PROM to be checked is the same device type as defined
+in the profile information.  Use Option 8 to change the device type if
+needed.
+
+.INDEX MAIN 8 - Change profile
+`047Change the Profile information`n
+This option is used to change the profile information XPP defaults
+to upon startup.  
+
+Highlight or enter "8" to select this option.
+
+
+
+
+The following options may be changed:
+(1)  serial port (COM1 or COM2)
+(2)  Baud rate (300, 1200, 2400, 9600, 19200)
+(3)  Sound ON/OFF
+(4)  Repetition count
+(5)  Device list (all devices must have a *.dsf driver file in the 
+     XACT environment seach path)
+
+
+The user will be prompted for confirmation on each option.  Enter
+"Y" (Yes) to update the profile; hit the ESC key or type "N" (No) to cancel.
+
+XPP will use the new information entered, even if the configuration
+is not saved.
+
+
+.INDEX MAIN 9 - Create batch file
+`047Create a batch file for a design`n
+This option is used to create a batch file to simplify PROM
+programming process during manufacturing.  The batch file is created and
+then executed from the DOS prompt.  
+
+Highlight or enter "9" to select this process.
+ 
+Enter the name of the design file to program (e.g. filename.BIT
+(.MCS, .TEK, .EXO) and press Enter.
+
+Enter the name of the batch file to be created. (e.g. filename.BAT)
+and press Enter.
+
+The settings in the Profile information file (XPP.PRO) will
+determine the settings used at batch file execution.
+
+Batch file execution will bypass the main menu and begin the
+programming session immediately.  To operate XPP in batch mode, the following
+files must be in the current directory:
+(1)  .BAT file previously created
+(2)  XPP.PRO with the desired settings of operation
+(3)  Design file specified in the .BAT file
+
+XPP will load the input file to the programmer and prompt for a device.
+
+Be sure the PROM to be programmed is the same device type as defined in the 
+profile information.  Use Option 8 to change the device type if needed.
+
+Place the first device in the ZIF socket and press Enter.
+
+If XPP detects a non-blank device, it will halt programming and
+display an error message.  To ignore this condition and overprogram the
+device press I (Ignore).
+
+When the repetition count is reached, the program will terminate
+and exit to DOS.
+
+Pressing ESC at any time will also terminate XPP and exit to DOS.
+
+.INDEX COLOR 0 - Help screen for Color setup
+
+Select one of four possible color palettes for XPP.
+	
+.INDEX FILE 0 - Help session for Output File format
+`047Output File Format`n
+Select one of the following output formats by entering the
+corresponding number and pressing Enter:
+
+(1)  ASCII ones and zeros (binary)
+(2)  ASCII HEX characters
+(3)  Comparison against a file (XPP will prompt for a .BIT or HEX file)
+     Differences between the files will be written to the output file,
+     and are described by the following notations:
+     '/' The device bit is a zero, but the source file is a one.
+     '.' The device bit is a one, but the source file is a zero.
+
+Enter the output filename and press Enter (the extension will default to .TXT).
+
+The design file will be written to the specified output filename.
+
+.INDEX SECURITY 0 - Security Mode for XC3720 device
+`047Security Mode for XC3720 Device`n
+The XC3720 may be programmed in one of five modes. These modes are described
+below:
+
+(1) NORMAL MODE
+In Normal mode, the XC3720 loads its configuration data from its own on-board
+serial EPROM. The data in the on-chip serial EPROM is not secure, and may
+be read back in this mode.
+
+(2) ENCODED MODE
+In Encoded mode, the XC3720 loads its configuration bitstream from an 
+external storage device such as an XC1736A or XC1765. During configuration
+the XC3720 decrypts the encoded bitstream by using a key file that is
+programmed into its on-chip serial EPROM. The on-chip serial EPROM can be
+read back in this mode. 
+
+(3) SECURED MODE
+In the Secured mode, the XC3720 loads its configuration data from its
+on-chip serial EPROM. The EPROM cannot be read back, making this mode 
+and the Safe mode the most secure.
+
+(4) SAFE MODE
+The Safe mode forces the XC3720 to load an encoded bitstream from an external
+storage device, such as an XC1736A or XC1765. During configuration the XC3720
+decrypts the encoded bitstream by using a key file programmed into its on-chip
+serial EPROM. The EPROM key file cannot be read back, although the '-r0'
+option in MakeBits must be set to prevent LCA readback.  This mode and the 
+Secure mode are the most secure.
+
+(5) SALVAGE MODE
+In the Savlage mode the XC3720 on-chip serial EPROM is disabled, such that 
+the device becomes an XC3020. 
+
+See the XPP manual for detailed instructions on programming the XC3270 in
+any of the above modes. The procedure for producing an encoded bitstream
+(.EBT) is also described in the XPP manual.
+
+.INDEX POLARITY 0 - RESET Polarity bit for XC1765 or XC17128
+`047RESET Polarity bit for XC1765 or XC17128`n
+
+The XC1765 or XC17128 RESET line may be set as an active LOW or active HIGH
+signal. The default setting is an active HIGH enable, or a logic "1."  The
+RESET line may be set as an active LOW enable, or a logic "0."
+
+The following menu is displayed:
+
+RESET POLARITY MODE:
+(1) high enable <- default
+(2) low enable
+
+Enter "1" to select the high enable, "2" to select the low enable.
+.INDEX MAIN 10 - END of this MAIN MENU

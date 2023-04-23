@@ -1,0 +1,197 @@
+TITLE           Counter: binary, 16-bit, async-clear, loadable, up/down
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            8/24/93
+
+CHIP            CB16CLED  COMPONENT
+ 
+;Inputs
+d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 d12 d13 d14 d15 up l ce c clr
+
+; d[15:0]       parallel-load data
+; up            direction: 1=up, 0=down
+; l             parallel-load enable
+; ce            count enable
+; c             clock (optional FastCLK)
+; clr           async clear
+ 
+;Outputs
+q0 q1 q2 q3 q4 q5 q6 q7 q8 q9 q10 q11 q12 q13 q14 q15 tc ceo
+
+; q[15:0]       counter output
+; tc            terminal count
+; ceo           chip enable output
+
+;Nodes
+tcu7 tcd7 ceu8 ced8
+
+NODE (UIM) tcu7 ceu8 ced8
+
+EQUATIONS 
+
+tc       = up*tcu7*q8*q9*q10*q11*q12*q13*q14*q15
+         + /up*tcd7*/q8*/q9*/q10*/q11*/q12*/q13*/q14*/q15
+
+ceo      = ceu8*up*q8*q9*q10*q11*q12*q13*q14*q15
+         + ced8*/up*/q8*/q9*/q10*/q11*/q12*/q13*/q14*/q15
+
+q15.d1   = ceu8*up*/l*q8*q9*q10*q11*q12*q13*q14
+         + ced8*/up*/l*/q8*/q9*/q10*/q11*/q12*/q13*/q14
+q15.d2   = l*d15
+q15.fbk  = /l
+q15     := q15.d1 xor q15.d2
+q15.clkf = c
+q15.rstf = clr
+
+q14.d1   = ceu8*up*/l*q8*q9*q10*q11*q12*q13
+         + ced8*/up*/l*/q8*/q9*/q10*/q11*/q12*/q13
+q14.d2   = l*d14
+q14.fbk  = /l
+q14     := q14.d1 xor q14.d2
+q14.clkf = c
+q14.rstf = clr
+
+q13.d1   = ceu8*up*/l*q8*q9*q10*q11*q12
+         + ced8*/up*/l*/q8*/q9*/q10*/q11*/q12
+q13.d2   = l*d13
+q13.fbk  = /l
+q13     := q13.d1 xor q13.d2
+q13.clkf = c
+q13.rstf = clr
+
+q12.d1   = ceu8*up*/l*q8*q9*q10*q11
+         + ced8*/up*/l*/q8*/q9*/q10*/q11
+q12.d2   = l*d12
+q12.fbk  = /l
+q12     := q12.d1 xor q12.d2
+q12.clkf = c
+q12.rstf = clr
+
+q11.d1   = ceu8*up*/l*q8*q9*q10
+         + ced8*/up*/l*/q8*/q9*/q10
+q11.d2   = l*d11
+q11.fbk  = /l
+q11     := q11.d1 xor q11.d2
+q11.clkf = c
+q11.rstf = clr
+
+q10.d1   = ceu8*up*/l*q8*q9
+         + ced8*/up*/l*/q8*/q9
+q10.d2   = l*d10
+q10.fbk  = /l
+q10     := q10.d1 xor q10.d2
+q10.clkf = c
+q10.rstf = clr
+
+q9.d1    = ceu8*up*/l*q8
+         + ced8*/up*/l*/q8
+q9.d2    = l*d9
+q9.fbk   = /l
+q9      := q9.d1 xor q9.d2
+q9.clkf  = c
+q9.rstf  = clr
+
+q8.d1    = ceu8*up*/l
+         + ced8*/up*/l
+q8.d2    = l*d8
+q8.fbk   = /l
+q8      := q8.d1 xor q8.d2
+q8.clkf  = c
+q8.rstf  = clr
+
+ceu8     = ce*tcu7
+
+ced8     = ce*tcd7
+
+tcu7     = q0*q1*q2*q3*q4*q5*q6*q7
+
+tcd7    := ce*up*/l*q0*q1*q2*q3*q4*q5*q6*q7
+         + ce*/up*/l*q0*/q1*/q2*/q3*/q4*/q5*/q6*/q7
+         + l*/d0*/d1*/d2*/d3*/d4*/d5*/d6*/d7
+         + /ce*/l*/q0*/q1*/q2*/q3*/q4*/q5*/q6*/q7
+tcd7.setf= clr
+tcd7.clkf= c
+
+q7.d1    = ce*up*/l*q0*q1*q2*q3*q4*q5*q6
+         + ce*/up*/l*/q0*/q1*/q2*/q3*/q4*/q5*/q6
+q7.d2    = l*d7
+q7.fbk   = /l
+q7      := q7.d1 xor q7.d2
+q7.clkf  = c
+q7.rstf  = clr
+
+q6.d1    = ce*up*/l*q0*q1*q2*q3*q4*q5
+         + ce*/up*/l*/q0*/q1*/q2*/q3*/q4*/q5
+q6.d2    = l*d6
+q6.fbk   = /l
+q6      := q6.d1 xor q6.d2
+q6.clkf  = c
+q6.rstf  = clr
+
+q5.d1    = ce*up*/l*q0*q1*q2*q3*q4
+         + ce*/up*/l*/q0*/q1*/q2*/q3*/q4
+q5.d2    = l*d5
+q5.fbk   = /l
+q5      := q5.d1 xor q5.d2
+q5.clkf  = c
+q5.rstf  = clr
+
+q4.d1    = ce*up*/l*q0*q1*q2*q3
+         + ce*/up*/l*/q0*/q1*/q2*/q3
+q4.d2    = l*d4
+q4.fbk   = /l
+q4      := q4.d1 xor q4.d2
+q4.clkf  = c
+q4.rstf  = clr
+
+q3.d1    = ce*up*/l*q0*q1*q2
+         + ce*/up*/l*/q0*/q1*/q2
+q3.d2    = l*d3
+q3.fbk   = /l
+q3      := q3.d1 xor q3.d2
+q3.clkf  = c
+q3.rstf  = clr
+
+q2.d1    = ce*up*/l*q0*q1
+         + ce*/up*/l*/q0*/q1
+q2.d2    = l*d2
+q2.fbk   = /l
+q2      := q2.d1 xor q2.d2
+q2.clkf  = c
+q2.rstf  = clr
+
+q1.d1    = ce*up*/l*q0
+         + ce*/up*/l*/q0
+q1.d2    = l*d1
+q1.fbk   = /l
+q1      := q1.d1 xor q1.d2
+q1.clkf  = c
+q1.rstf  = clr
+
+q0.d1    = ce*up*/l
+         + ce*/up*/l
+q0.d2    = l*d0
+q0.fbk   = /l
+q0      := q0.d1 xor q0.d2
+q0.clkf  = c
+q0.rstf  = clr
+
+q0.prld  = gnd
+q1.prld  = gnd
+q2.prld  = gnd
+q3.prld  = gnd
+q4.prld  = gnd
+q5.prld  = gnd
+q6.prld  = gnd
+q7.prld  = gnd
+q8.prld  = gnd
+q9.prld  = gnd
+q10.prld  = gnd
+q11.prld  = gnd
+q12.prld  = gnd
+q13.prld  = gnd
+q14.prld  = gnd
+q15.prld  = gnd
+tcd7.prld= vcc

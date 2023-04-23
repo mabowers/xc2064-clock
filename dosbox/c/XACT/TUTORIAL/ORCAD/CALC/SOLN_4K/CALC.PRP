@@ -1,0 +1,480 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                         XNFPREP For Design calc.xff
+                        From XNFPREP Version pre5.0.0x
+                                       
+
+                             1994/03/16 07:57:07
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 Xilinx, Inc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  (c) Copyright 1994.  All Rights Reserved. 
+
+    XNFPREP For Design calc.xff                                      Page   i
+
+    Table of Contents
+    -----------------
+    
+    XNFPREP Errors  ..................................................   1
+     
+    XNFPREP Warnings  ................................................   2
+     
+    Clock Signals Report  ............................................   3
+     
+    Timing Specification Summary  ....................................   6
+     
+    Logic Trimming  ..................................................   7
+     
+
+    XNFPREP For Design calc.xff                                      Page   1
+
+    XNFPREP Errors 
+    -------------- 
+      No XNFPREP errors were issued. 
+      
+
+    XNFPREP For Design calc.xff                                      Page   2
+
+    XNFPREP Warnings 
+    ---------------- 
+    XNFPREP: WARNING 4082: 
+      Double pullups were found on TBUF-driven longlines and/or edge
+      decoder longlines. Requiring two pullups would prevent half-length
+      longlines from being used, and design placement and resource
+      utilization would be adversely affected.
+      
+      One pullup is being removed from each of these longlines. PPR will 
+      activate both pullups if the signal is routed using a complete
+      longline.
+      
+    XNFPREP: WARNING 4037: 
+      These inverters could not be absorbed and each will be implemented 
+      in a single function generator.  This will introduce additional 
+      delay and use resources inefficiently. (Note that some of the
+      symbols listed below may have been reduced to inverters by earlier
+      trimming.)
+      
+      Inverter Name = ALU/U64
+      Output Signal = ALU/$U64_O
+       
+      Inverter Name = DEBOUNCE/U17
+      Output Signal = DEBOUNCE/$U17_O
+       
+      Inverter Name = CONTROL/U124/U1/U2/U1
+      Output Signal = CONTROL/U124/U1/MD
+       
+
+    XNFPREP For Design calc.xff                                      Page   3
+
+    Clock Signals Report 
+    -------------------- 
+      
+      The table below summarizes the clock signals and/or global buffers 
+      contained in your design. The purpose of this information is to
+      assist you in determining how to best use the XC4000 family global
+      buffers. The interpretation of this information is given below,
+      along with some guidelines to follow when assigning signals to
+      global buffers.
+      
+      
+      -------------------------------------------------------------------
+                    Number of Load Pins
+      Driver      ------------------------  Signal Name
+                  Clock  Cntl  Gate  Other
+      ----------  -----  ----  ----  -----  ----------------------------- 
+      BUFGS          20     0     0      0  CLK 
+      ----------  -----  ----  ----  -----  -----------------------------
+      
+      
+      The columns of this table are interpreted as follows:
+      
+      Driver  The type of symbol that sources the signal. This shows which
+              signals are already routed through global buffers, and which
+              are driven directly from the source.
+      
+      Clock   The number of flip-flop clock pins (and input latch enable
+              pins) that the signal drives. These pins can be reached
+              directly from any of the 8 global buffers (however, see
+              item (1) below about using more than 4 global buffers).
+      
+      Cntl    The number of control pins (CE, CLR/RD, PRE/SD and WE) that
+              the signal drives. These can be accessed through the C1 or
+              C3 CLB inputs, which can be reached directly from 2 primary
+              global buffers (in the top-right corner for C1 or the
+              bottom-right corner for C3) or from any secondary global
+              buffer. (Control pins can also connect through C2 and C4,
+              but these are not directly accessible from any global
+              buffer.)
+      
+      Gate    The number of gate inputs that the signal drives. After
+              being mapped, gates will be placed in F, G or H function
+              generators. One primary global buffer (in the top-left
+              corner) can directly connect to the F function, and another
+              (in the bottom-left corner) can directly connect to the G
+              function. The H1 function generator input can be accessed
+              through the C1 or C3 CLB input, as with control pins
+              (described above).
+      
+      Other   The number of load pins not included in any of the above
+              categories. With two exceptions, none of these other pins
+              can be reached directly from global buffers. One exception
+              is the D input on a CLB flip-flop, which can be accessed
+              through the C1 or C3 CLB inputs (as with control pins),
+              or through an empty function generator (as with gates).
+              The other exception is the T pin of an IOB: see item (6)
+              below.
+      
+      In the above descriptions, a pin is said to be directly connectable 
+      if that connection can be made without leaving the dedicated global 
+
+    XNFPREP For Design calc.xff                                      Page   4
+
+      buffer network. In fact, any pin can be reached from a global
+      buffer by routing through another block, but this introduces skew
+      and uses additional routing resources.
+      
+      Following are some general guidelines to consider when assigning 
+      signals to global buffers. Depending on the timing requirements of 
+      your design, you may need to use a different set of priorities.
+      
+      (1) Avoid using more than 4 global buffers TOTAL, unless you have
+          mapped and floorplanned your design. Although there are 8 global
+          buffers, they share 4 global vertical longlines in each column.
+          If any given column contains load pins for more than 4 different
+          global buffers, some signals will not be routed via the
+          dedicated connections. The only guaranteed way to avoid this
+          problem is to floorplan the design so that no more than 4 global
+          buffer outputs have loads in the same column.
+      
+      (2) Choose a secondary global buffer over a primary global buffer,
+          unless you have floorplanned the global buffer and its loads
+          to ensure direct connections. Secondary global buffers are
+          more flexible than primary global buffers, and incur only 1-2ns
+          of additional delay.
+      
+      (3) Give high-fanout clock signals first priority for global
+          buffers. This is the best way to assure low-skew clock
+          distribution. If your design has many low-fanout clock
+          signals which are divided versions of a fast clock, consider
+          clocking the flip-flops from the fast clock and using clock
+          enables to control loading: this will be less sensitive to skew.
+      
+      (4) If a clock signal also sources some CLB control pins, you should
+          use either a BUFGP locked to the top-right or bottom-right
+          corner (use LOC=TR or LOC=BR on the symbol), or any BUFGS.
+          Alternatively, consider sourcing the non-clock pins from the
+          input side of the global buffer.
+      
+      (5) If a clock signal also sources some gate inputs, consider
+          sourcing these pins from the input side of the global buffer.
+          Unless you have mapped and floorplanned the design, you will
+          not be able to control which function generator is used for
+          a particular gate, and there is little chance that any single
+          global buffer will be able to reach ALL of the correct function
+          generator inputs directly.
+      
+      (6) If a clock signal also sources non-control or non-gate inputs,
+          you should source these pins from the input side of the
+          global buffer, with two possible exceptions. Since the D pin
+          on a CLB flip-flop can normally be accessed from any global
+          buffer, one or two such pins should be easily connectible.
+          Also, the T pins on IOBs can be reached by the BUFGP in the
+          top-left corner (use LOC=TL on the symbol) or any BUFGS.
+      
+      (7) After clock signals, CLB control pins should be given next
+          priority, subject to the restrictions in item (1) above.
+          Use either a BUFGP locked to the top-right or bottom-right
+          corner (use LOC=TR or LOC=BR on the symbol), or any BUFGS.
+      
+      (8) For the reasons discussed in item (4), signals driving gate
+          inputs should be assigned to global buffers only if the
+          design has been mapped and floorplanned.
+
+    XNFPREP For Design calc.xff                                      Page   5
+
+      
+      The connectivity of specific global buffers is summarized below:
+      
+      ----------------   -----------------  --------------------------
+      Corner of Device   BUFGP Connects To  BUFGS Connects To
+      ----------------   -----------------  --------------------------
+      TL (top-left)      CLK, F3, IOB-T     CLK, F3, G1, C3, C1, IOB-T
+      BL (bottom-left)   CLK, G1            CLK, F3, G1, C3, C1, IOB-T
+      BR (bottom-right)  CLK, C3            CLK, F3, G1, C3, C1, IOB-T
+      TR (top-right)     CLK, C1            CLK, F3, G1, C3, C1, IOB-T
+      ----------------   -----------------  --------------------------
+      
+      NOTE: CLK includes both CLB and IOB clock pins (K, IK and OK).
+            IOB-T is the 3-state control pin on the IOB output buffer.
+      
+      For more information on XC4000 global buffers, refer to the
+      application note "Improving XC4000 Design Performance" (XAPP 043)
+      in the Programmable Logic Data Book.
+      
+
+    XNFPREP For Design calc.xff                                      Page   6
+
+    Timing Specification Summary 
+    ----------------------------
+    
+      All timing specifications will be processed.
+      
+          
+
+    XNFPREP For Design calc.xff                                      Page   7
+
+    Logic Trimming 
+    -------------- 
+        
+    This chapter shows the logic removed from your design due to
+    sourceless or loadless signals and VCC or ground connections.  If the
+    removal of a signal or symbol results in the subsequent removal of an
+    additional signal or symbol, the message explaining that second
+    removal will be indented.  This indentation will be repeated as a
+    chain of related logic is removed.
+    
+    To quickly locate the original cause for the removal of a chain of 
+    logic, look at the lines which begin at the leftmost edge of the page 
+    below. 
+        
+    Logically reduced WAND symbol 'CONTROL/STATMACH/U140/U2' removed. 
+        
+    Logically reduced WAND symbol 'CONTROL/STATMACH/U140/U1' removed. 
+        
+    Loadless signal 'CONTROL/U124/CEO' removed. 
+      Unused pin 'O' on AND symbol 'CONTROL/U124/U8' removed. 
+        Disabled AND symbol 'CONTROL/U124/U8' removed. 
+          Loadless signal 'CONTROL/U124/TC' removed. 
+            Unused pin 'O' on OR symbol 'CONTROL/U124/U5/U1' removed. 
+              Disabled OR symbol 'CONTROL/U124/U5/U1' removed. 
+                Loadless signal 'CONTROL/U124/U5/$U3_O' removed. 
+                  Unused pin 'O' on AND symbol 'CONTROL/U124/U5/U3'
+                  removed. 
+                    Disabled AND symbol 'CONTROL/U124/U5/U3' removed. 
+                      Loadless signal 'CONTROL/U124/$U7_O' removed. 
+                        Unused pin 'O' on AND symbol 'CONTROL/U124/U7'
+                        removed. 
+                          Disabled AND symbol 'CONTROL/U124/U7' removed. 
+                Loadless signal 'CONTROL/U124/U5/$U2_O' removed. 
+                  Unused pin 'O' on AND symbol 'CONTROL/U124/U5/U2'
+                  removed. 
+                    Disabled AND symbol 'CONTROL/U124/U5/U2' removed. 
+                      Loadless signal 'CONTROL/U124/$U6_O' removed. 
+                        Unused pin 'O' on AND symbol 'CONTROL/U124/U6'
+                        removed. 
+                          Disabled AND symbol 'CONTROL/U124/U6' removed. 
+        
+    Sourceless signal 'CONTROL/U124/D1' removed. 
+      Unused pin 'I0' on AND symbol 'CONTROL/U124/U2/U2/U3' removed. 
+        
+    Sourceless signal 'CONTROL/U124/D0' removed. 
+      Unused pin 'I0' on AND symbol 'CONTROL/U124/U1/U2/U3' removed. 
+        
+    Loadless signal 'ALU/U60/OFL' removed. 
+      Unused pin 'O' on XOR symbol 'ALU/U60/U25' removed. 
+        Disabled XOR symbol 'ALU/U60/U25' removed. 
+          Loadless signal 'ALU/U60/$U22_O' removed. 
+            Unused pin 'O' on OR symbol 'ALU/U60/U22' removed. 
+              Disabled OR symbol 'ALU/U60/U22' removed. 
+                Loadless signal 'ALU/U60/OOR3' removed. 
+                  Unused pin 'O' on AND symbol 'ALU/U60/U19' removed. 
+                    Disabled AND symbol 'ALU/U60/U19' removed. 
+                Loadless signal 'ALU/U60/OOR2' removed. 
+                  Unused pin 'O' on AND symbol 'ALU/U60/U20' removed. 
+                    Disabled AND symbol 'ALU/U60/U20' removed. 
+                Loadless signal 'ALU/U60/OOR1' removed. 
+
+    XNFPREP For Design calc.xff                                      Page   8
+
+                  Unused pin 'O' on AND symbol 'ALU/U60/U21' removed. 
+                    Disabled AND symbol 'ALU/U60/U21' removed. 
+                      Loadless signal 'ALU/U60/B3_M1' removed. 
+                        Unused pin 'O' on XNOR symbol 'ALU/U60/U15'
+                        removed. 
+                          Disabled XNOR symbol 'ALU/U60/U15' removed. 
+      Unused pin 'O' on FMAP symbol 'ALU/U60/U28' removed. 
+        Disabled FMAP symbol 'ALU/U60/U28' removed. 
+        
+    Due to VCC signal on pin 'I' of WAND symbol 'CONTROL/STATMACH/U147/U1
+    ': 
+      Logically reduced WAND symbol 'CONTROL/STATMACH/U147/U1' removed. 
+        
+    Due to VCC signal on pin 'I' of WAND symbol 'CONTROL/STATMACH/U143/U1
+    ': 
+      Logically reduced WAND symbol 'CONTROL/STATMACH/U143/U1' removed. 
+        
+    Due to VCC signal on pin 'I' of WAND symbol 'CONTROL/STATMACH/U140/U3
+    ': 
+      Logically reduced WAND symbol 'CONTROL/STATMACH/U140/U3' removed. 
+        
+    VCC input pin 'I0' on AND symbol 'CONTROL/U124/U1/U2/U2' removed. 
+      AND symbol 'CONTROL/U124/U1/U2/U2' absorbed. 
+        Signal 'CONTROL/U124/U1/U2/$U2_O' merged into signal
+        'CONTROL/U124/U1/TQ'. 
+        
+    Due to GND signal on pin 'I1' of AND symbol 'CONTROL/U124/U1/U2/U3': 
+      Signal 'CONTROL/U124/U1/U2/$U3_O' tied to GND. 
+        Logically reduced AND symbol 'CONTROL/U124/U1/U2/U3' removed. 
+        
+    Grounded input pin 'I1' on OR symbol 'CONTROL/U124/U1/U3' removed. 
+      OR symbol 'CONTROL/U124/U1/U3' absorbed. 
+        Signal 'CONTROL/U124/U1/L_CE' merged into signal 'CONTROL/CE_ADDR
+        '. 
+        
+    VCC input pin 'I0' on AND symbol 'CONTROL/U124/U2/U2/U2' removed. 
+      AND symbol 'CONTROL/U124/U2/U2/U2' absorbed. 
+        Signal 'CONTROL/U124/U2/U2/$U2_O' merged into signal
+        'CONTROL/U124/U2/TQ'. 
+        
+    Due to GND signal on pin 'I1' of AND symbol 'CONTROL/U124/U2/U2/U3': 
+      Signal 'CONTROL/U124/U2/U2/$U3_O' tied to GND. 
+        Logically reduced AND symbol 'CONTROL/U124/U2/U2/U3' removed. 
+        
+    Grounded input pin 'I1' on OR symbol 'CONTROL/U124/U2/U3' removed. 
+      OR symbol 'CONTROL/U124/U2/U3' absorbed. 
+        Signal 'CONTROL/U124/U2/L_CE' merged into signal 'CONTROL/CE_ADDR
+        '. 
+        
+    VCC input pin 'I0' on XOR symbol 'CONTROL/U124/U1/U1' removed. 
+      Output pin of XOR symbol 'CONTROL/U124/U1/U1' inverted. 
+        Single input XOR symbol 'CONTROL/U124/U1/U1' changed to INV
+        symbol. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U81/U3/U1' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U81/U3/U2' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U82/U3/U1' removed. 
+        
+
+    XNFPREP For Design calc.xff                                      Page   9
+
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U82/U3/U2' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U83/U3/U1' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U83/U3/U2' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U84/U3/U1' removed. 
+        
+    VCC input pin 'I1' on AND symbol 'ALU/MUXBLK5/U84/U3/U2' removed. 
+        
+    Grounded input pin 'I0' on OR symbol 'CONTROL/U124/U2/U2/U1' removed. 
+      OR symbol 'CONTROL/U124/U2/U2/U1' absorbed. 
+        Signal 'CONTROL/U124/U2/TQ' merged into signal 'CONTROL/U124/U2/MD
+        '. 
+        
+    Grounded input pin 'I0' on OR symbol 'CONTROL/U124/U1/U2/U1' removed. 
+        Single input OR symbol 'CONTROL/U124/U1/U2/U1' changed to INV
+        symbol. 
+        
+    
+    
+    Buffers were found in the design and were removed.  The following
+    signals have been merged together as a result:
+    
+    (Note that the merged signal name is used in the output netlist.) 
+        
+    Signal = CLK
+    Replaces Signal = STACK/NC 
+        
+    Signal = CTL3
+    Replaces Signal = CONTROL/STATMACH/SEL_OP 
+        
+    
+    
+    Inverters were found in the design and were optimized by merging them
+    with adjacent functions.  The following signals were removed as a 
+    result of this optimization:
+    
+    (Note that the replaced signal will not appear in the output netlist,
+    and that the signal which replaces it is the opposite sense.) 
+        
+    Signal = SW5
+     Replaces Inverted Signal = CONTROL/STATMACH/$U146_O 
+        
+    Signal = ADD_SUB
+     Replaces Inverted Signal = CONTROL/STATMACH/OP_CTL2 
+        
+    Signal = G
+     Replaces Inverted Signal = 7SEG/G_INV 
+        
+    Signal = F
+     Replaces Inverted Signal = 7SEG/F_INV 
+        
+    Signal = E
+     Replaces Inverted Signal = 7SEG/E_INV 
+        
+    Signal = D
+     Replaces Inverted Signal = 7SEG/D_INV 
+        
+    Signal = C
+
+    XNFPREP For Design calc.xff                                      Page  10
+
+     Replaces Inverted Signal = 7SEG/C_INV 
+        
+    Signal = B
+     Replaces Inverted Signal = 7SEG/B_INV 
+        
+    Signal = A
+     Replaces Inverted Signal = 7SEG/A_INV 
+        
+    Signal = OFL
+     Replaces Inverted Signal = 7SEG/O_INV 
+        
+    Signal = STACK0
+     Replaces Inverted Signal = LED/LED0 
+        
+    Signal = STACK1
+     Replaces Inverted Signal = LED/LED1 
+        
+    Signal = STACK2
+     Replaces Inverted Signal = LED/LED2 
+        
+    Signal = STACK3
+     Replaces Inverted Signal = LED/LED3 
+        
+    Signal = ADDR0
+     Replaces Inverted Signal = CONTROL/U124/U1/TQ 

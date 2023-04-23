@@ -1,0 +1,84 @@
+
+    Thu Nov  8 11:10:30 PST 1990
+
+    The gl16mode.xct file is used to describe basic capabilities of a
+    graphics adapter to the XACT graphics code.  This file is NOT
+    capable of describing all of the capabilities of every graphics
+    adapter;  quite the opposite is in fact true.  It is capable of
+    describing the few simple attributes of graphics adapters which are
+    needed to specify the information needed for graphics modes which
+    store bit plane data the same way the vga adapter does.
+
+    Some video adapters which support resolutions beyond the VGA 640 by
+    480 resolution do so by organizing video memory in ways that are
+    different from the IBM VGA standard.  Such graphics modes are not
+    currently supported, although they may be in the future.
+
+    The gl16mode.xct file consists on one line per supported video
+    mode.  Each line is considered to be a string of colon (':')
+    separated tokens.  These tokens specify the video mode, and data
+    concerning that video mode.  Some tokens are simple keywords,
+    others are keyword=value pairs.
+
+    The first token in each line is a name.  This name is the name used
+    on the XACT command line, or as the value of the GRMODE environment
+    variable.
+
+    The following keywords are supported:
+
+    mode	This keyword is used to specify the video mode passed
+		to the adapter BIOS.  It is of the form mode=<value>.
+		<Value> may be decimal or hex, hex indicated by a leading
+		"0x" in the value.
+
+		For example, some third party super VGA adapters use mode
+		0x54 to specify 800x600 16 color VGA mode.  Others use
+		0x58.  The entries for these two video modes would differ
+		only in this value.  (They must of course have different
+		names.)
+			
+    egamem	This is the amount of memory which must be installed on the
+		video adapter to support this video mode.  If this number is
+		0 no checking for memory will be done.  Otherwise the
+		graphics code will interpret this number as a number of K
+		bytes of memory, and will query the adapter to see if that
+		amount of memory is present.  Specified as egamem=<value>
+		where <value> is a decimal number of K bytes.
+
+    planes	Specifies the number of bit planes required by this mode.
+		Specified as planes=<value> where <value> is a decimal number.
+
+    colors	Specifies the number of colors allowed by this mode.
+		Specified as colors=<value> where <value> is a decimal number.
+
+    charw	Character width in pixels.
+		Specified as charw=<value> where <value> is a decimal number.
+
+    charh	Character hight in pixels.
+		Specified as charw=<value> where <value> is a decimal number.
+
+    screenw	Screen width in pixels.
+		Specified as screenw=<value> where <value> is a decimal number.
+
+    screenh	Screen hight in pixels.
+		Specified as screenw=<value> where <value> is a decimal number.
+
+    vga		States that this is a VGA video mode.  No value.
+		If this is specified, graphics will check to make sure
+		that a VGA capable adapter is installed.
+
+    ega		States that this is an EGA video mode.  No value.
+		If this is specified, graphics will check to make sure
+		that an EGA capable adapter is installed.
+
+    cga		States that this is a CGA video mode.  No value.
+		If this is specified, graphics will check to make sure
+		that a CGA capable adapter is installed.
+
+    maskfile	Specifies one of cgamask.xcb, egamask.xcb, or vgamask.xcb.
+
+    description Text which will be printed as help by the graphics system
+		All text to the next colon or to the end of line is taken
+		as the value of this keyword.
+
+    The gl16mode.xct file itself can be checked for examples.

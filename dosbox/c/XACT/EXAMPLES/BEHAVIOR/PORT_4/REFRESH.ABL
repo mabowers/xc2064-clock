@@ -1,0 +1,38 @@
+module refresh
+ 
+ title 'Refresh timer for DRAM controller 
+        Equation file included in port_4.abl design example
+        Jeffrey Goldberg 
+        Xilinx';
+
+
+
+   refresh device;
+
+" Inputs
+ Clk                          pin;
+ clr_rfrq                     pin;  " low active clear refresh request flag
+
+" Outputs
+
+ qj,qi,qh,qg,qf,qe,qd,qc,qb,qa pin istype 'reg,xor'; " counter bits
+ restart                      pin istype 'com'; " restart counter start from 0 
+ rfrq                         pin istype 'reg'; " refresh request flag
+
+" Variables     
+
+  count = [qj,qi,qh,qg,qf,qe,qd,qc,qb,qa];
+
+  xor_factors count := count & !restart;  " q.D2 = q & !restart 
+
+  equations
+  
+  restart = (count == 937);        " restart counter every 15 microseconds
+  
+  count := (count + 1) & !restart; " count up
+  
+  rfrq := restart                  " set refresh request flag
+        # rfrq & clr_rfrq;         " flag remains set until clr_rfrq goes low
+
+     
+end

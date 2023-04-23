@@ -1,0 +1,19 @@
+TITLE           Multiplexer: 2-input
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/23/93
+
+CHIP            M2_1B2  COMPONENT
+ 
+;Inputs
+/d0 /d1 s0
+
+;Outputs
+o
+
+EQUATIONS 
+
+o = d0* /s0
+  + d1*  s0

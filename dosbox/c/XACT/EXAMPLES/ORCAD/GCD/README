@@ -1,0 +1,23 @@
+This design computes the greatest common divisor of two numbers. It is a
+classic "High Level Synthesis" benchmark.
+
+The algorithm is:
+
+	while (x != y) {
+		if (x < y) { 
+			y = y - x;
+		} else {
+			x = x - y;
+		}
+	}
+
+The external input LOAD is used to latch values into the X and Y
+registers. The output DONE goes high for one clock cycle when the X
+register, and thus the output bus GCD, contains the GCD of the two
+numbers.
+
+The file gcd.cmd is a ViewSim command file which will verify the correct
+operation of the design. It loads X with the value 32, and Y with 12.
+The GCD of these two numbers is 4. The steps executed by the command
+file verify the contents of the X or Y register after each clock cycle.
+

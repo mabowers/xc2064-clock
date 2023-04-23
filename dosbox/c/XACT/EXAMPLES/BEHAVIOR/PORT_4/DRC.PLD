@@ -1,0 +1,87 @@
+
+TITLE DRC
+
+CHIP   DRC   COMPONENT;
+
+;Pins (not in pin number order)
+      Clk reset access_req rfrq write byte0 byte1 byte2 byte3 burst ras 
+      column_address cas0 cas1 cas2 cas3 we done ready clr_rfrq dram0 dram1 dram2 dram3 
+;Nodes
+      
+
+;DRAM Controller with burst access mode.  
+;        Equation file included in port_4.abl design example
+;        Jeffrey Goldberg  
+;        Xilinx
+
+
+
+EQUATIONS
+
+/ras := (/dram3 * /dram2 * dram1 * /reset
+     + /dram2 * dram0 * /reset
+     + /dram3 * dram1 * dram0 * /reset
+     + dram2 * /dram1 * /dram0 * /reset
+     + /dram1 * /dram0 * /reset * /rfrq * access_req
+     + /dram3 * dram0 * /reset * burst);
+
+/column_address := (/dram3 * /dram2 * dram0 * /reset
+     + /dram3 * dram1 * dram0 * /reset
+     + /dram3 * dram2 * /dram1 * /dram0 * /reset
+     + /dram3 * dram0 * /reset * burst);
+
+/we := (/dram3 * /dram2 * dram0 * /reset * /write
+     + /dram3 * dram1 * dram0 * /reset * /write
+     + /dram3 * dram2 * /dram1 * /dram0 * /reset * /write
+     + /dram3 * dram0 * /reset * /write * burst);
+
+/cas0 := (/dram3 * /dram2 * dram1 * /dram0 * /reset
+     + dram3 * /dram2 * dram0 * /reset
+     + dram3 * dram2 * /dram1 * /dram0 * /reset
+     + /dram2 * /dram1 * /dram0 * /reset * rfrq
+     + /dram3 * dram1 * dram0 * /reset * /byte0
+     + dram2 * /dram1 * /dram0 * /reset * /byte0);
+
+/cas1 := (/dram3 * /dram2 * dram1 * /dram0 * /reset
+     + dram3 * /dram2 * dram0 * /reset
+     + dram3 * dram2 * /dram1 * /dram0 * /reset
+     + /dram2 * /dram1 * /dram0 * /reset * rfrq
+     + /dram3 * dram1 * dram0 * /reset * /byte1
+     + dram2 * /dram1 * /dram0 * /reset * /byte1);
+
+/cas2 := (/dram3 * /dram2 * dram1 * /dram0 * /reset
+     + dram3 * /dram2 * dram0 * /reset
+     + dram3 * dram2 * /dram1 * /dram0 * /reset
+     + /dram2 * /dram1 * /dram0 * /reset * rfrq
+     + /dram3 * dram1 * dram0 * /reset * /byte2
+     + dram2 * /dram1 * /dram0 * /reset * /byte2);
+
+/cas3 := (/dram3 * /dram2 * dram1 * /dram0 * /reset
+     + dram3 * /dram2 * dram0 * /reset
+     + dram3 * dram2 * /dram1 * /dram0 * /reset
+     + /dram2 * /dram1 * /dram0 * /reset * rfrq
+     + /dram3 * dram1 * dram0 * /reset * /byte3
+     + dram2 * /dram1 * /dram0 * /reset * /byte3);
+
+ready := (/dram3 * dram2 * /dram1 * /dram0);
+
+done := (/dram3 * dram2 * /dram1 * dram0 * /reset * /burst);
+
+/clr_rfrq := (/dram2 * /dram1 * /dram0 * /reset * rfrq);
+
+dram0 := (dram2 * /dram1 * /reset
+     + /dram1 * dram0 * /reset
+     + /dram3 * /dram2 * dram1 * /dram0 * /reset
+     + /dram1 * /reset * /rfrq * access_req);
+
+dram1 := (dram3 * dram2 * dram0 * /reset
+     + /dram1 * dram0 * /reset
+     + /dram2 * /dram1 * /reset * rfrq);
+
+dram2 := (dram2 * /dram1 * /reset
+     + dram1 * dram0 * /reset);
+
+dram3 := (dram3 * dram2 * /reset
+     + dram3 * dram0 * /reset
+     + /dram3 * /dram2 * dram1 * /dram0 * /reset
+     + dram2 * /dram1 * dram0 * /reset * /burst);

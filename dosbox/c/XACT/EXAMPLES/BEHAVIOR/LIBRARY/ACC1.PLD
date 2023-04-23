@@ -1,0 +1,50 @@
+TITLE           Accumulator: 1-bit, reset, load, +/-
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrickp Phung
+COMPANY         Xilinx EPLD
+DATE            9/16/93
+
+CHIP            ACC1  COMPONENT
+ 
+;Inputs
+b0 d0 l add ce c r ci
+
+; b0            accumulator B-operand
+; d0            parallel-load data
+; l             parallel-load enable
+; add           function select: 1=add, 0=subtract
+; ce            accumulator clock-enable
+; c             clock (optional FastCLK)
+; r             sync reset
+; ci            carry-in (from UIM)
+ 
+;Nodes
+cin
+
+;Outputs
+q0 co
+
+; q0            accumulator output
+; co            carry-out from q0 (ordinary macrocell output)
+
+PARTITION q0_0 cin q0 co
+
+EQUATIONS 
+
+;cin generates carry into q0
+
+cin.D1  = ce*/l*/r          ; always generate carry
+cin.D2  = ci                ; generated carry-in = ci
+cin     = cin.D1 gnd cin.D2 ; cin macrocell output not used
+
+q0.D1   = b0*add*ce*/l*/r
+        + /b0*/add*ce*/l*/r
+        + d0*l*/r
+q0.fbk  = /l*/r
+q0     := q0.D1 xor q0.D2
+q0.add  = vcc
+q0.clkf = c
+
+co      = co.D1 GND co.D2 ; pass carry-in to MC output
+co.add  = vcc

@@ -1,0 +1,29 @@
+TITLE           XNOR Gate: 9 inputs
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/26/93
+
+CHIP            XNOR9  COMPONENT
+ 
+;Inputs
+i0 i1 i2 i3 i4 i5 i6 i7 i8
+
+;Nodes
+xor6
+
+;Outputs
+/o
+
+PARTITION xnor9 xor6 o
+
+EQUATIONS 
+
+xor6.d1 = i0*/i1*/i2 + /i0*i1*/i2 + /i0*/i1*i2 + i0*i1*i2
+xor6.d2 = i3*/i4*/i5 + /i3*i4*/i5 + /i3*/i4*i5 + i3*i4*i5
+xor6    = xor6.d1 xor xor6.d2
+
+o.d1    = i6*/i7*/i8 + /i6*i7*/i8 + /i6*/i7*i8 + i6*i7*i8
+o.shift = vcc
+o       = o.d1 xor o.d2

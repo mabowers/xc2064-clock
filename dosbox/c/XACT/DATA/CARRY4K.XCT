@@ -1,0 +1,800 @@
+; @(#)carry4k.xct	3.8 3/3/94
+
+version 2 3
+
+; DRC GUIDELINES
+
+; possible DRC responses for each <tag>:<setting> state are as follows:
+;   OK     no warning or error
+;   FATAL  carry-in sourced by CIN pin but CIN pin not activated
+;   WARN1  <tag>:<setting> not consistent with function of carry mode
+;   WARN2  <tag>:CIN but carry mode does not use CIN pin
+;   WARN3  carry-out generated but COUT pin not activated
+;   WARN4  COUT pin activated but carry mode does not use carry-out
+;   WARN5  WARN1 + WARN2
+
+drc_tags ( F4:F4I F4:CIN G2:G2I G2:COUT0 G3:G3I G3:CIN CIN: CIN:CINI COUT: COUT:COUTI )
+
+; CARRY CONFIGURATIONS
+
+; parameters for each carry logic mode are:
+;   cin        CLB pin sourcing carry-in signal (CIN, F1 or F3)
+;   f          default F equation
+;   g          default G equation
+;   h          default H equation
+;   code       carry logic code (CL7 -> CL0) 
+;   vbls_used  CLB input pins used in carry logic (CIN, F1, F2, F3, G1, G4)
+;   drc_flags  DRC responses for each <tag>:<setting> state
+;   dflt_cfg   default setting for each carry tag
+
+
+; Adders
+
+carrymode ADD-F-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( (F1@F2)@F4 )
+	g ( - )
+	h ( - )
+	code ( 0xba )
+	vbls_used ( F1 F2 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:CIN CIN:CINI COUT: )
+	onebit_equivalent ( - )
+        cout0 ( (F1*F2)+CIN*(F1+F2) )
+        cout1 ( COUT0 )
+	f1_delay ( T_opcy )
+	f3_delay ( - )
+	symbol ( cy4_01 )
+end
+
+carrymode ADD-FG-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( (F1@F2)@F4 )
+	g ( (G4@G1)@G2 )
+	h ( - )
+	code ( 0xfa )
+	vbls_used ( F1 F2 G1 G4 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:CIN CIN:CINI COUT:COUTI )
+	onebit_equivalent ( ADD-F-CI )
+        cout0 ( (F1*F2)+CIN*(F1+F2) )
+        cout1 ( (G4*G1)+COUT0*(G4+G1) )
+	f1_delay ( T_opcy )
+	f3_delay ( - )
+	symbol ( cy4_02 )
+end
+
+carrymode ADD-G-F1
+	cin ( F1 )
+	cmt ( - )
+	f ( - )
+	g ( (G4@G1)@G2 )
+	h ( - )
+	code ( 0xf2 )
+	vbls_used ( F1 G1 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( F1 )
+        cout1 ( (G4*G1)+COUT0*(G4+G1) )
+	f1_delay ( T_incy )
+	f3_delay ( - )
+	symbol ( cy4_03 )
+end
+
+carrymode ADD-G-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( - )
+	g ( (G4@G1)@G2 )
+	h ( - )
+	code ( 0xc6 )
+	vbls_used ( G1 G4 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN:CINI COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( CIN )
+        cout1 ( (G4*G1)+COUT0*(G4+G1) )
+	f1_delay ( - )
+	f3_delay ( - )
+	symbol ( cy4_04 )
+end
+
+carrymode ADD-G-F3-
+	cin ( F3 )
+	cmt ( - )
+	f ( - )
+	g ( (G4@G1)@G2 )
+	h ( - )
+	code ( 0xe2 )
+	vbls_used ( F3 G1 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( ~F3 )
+        cout1 ( (G4*G1)+COUT0*(G4+G1) )
+	f1_delay ( -  )
+	f3_delay ( T_incy )
+	symbol ( cy4_05 )
+end
+
+; Adder/Subtractors
+
+carrymode ADDSUB-F-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( ~(F1@F2@F4@F3) )
+	g ( - )
+	h ( - )
+	code ( 0xb9 )
+	vbls_used ( F1 F2 F3 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:CIN CIN:CINI COUT: )
+	onebit_equivalent ( - )
+        cout0 ( F3*((F1*F2)+CIN*(F1+F2))+~F3*((F1*~F2)+CIN*(F1+~F2)) )
+        cout1 ( COUT0 )
+	f1_delay ( T_opcy )
+	f3_delay ( T_ascy )
+	symbol ( cy4_12 )
+end
+
+carrymode ADDSUB-FG-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( ~(F1@F2@F4@F3) )
+	g ( ~(G4@G1@G2@G3) )
+	h ( - )
+	code ( 0xf9 )
+	vbls_used ( F1 F2 F3 G1 G4 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:CIN CIN:CINI COUT:COUTI )
+	onebit_equivalent ( ADDSUB-F-CI )
+ 	cout0 ( F3*((F1*F2)+CIN*(F1+F2))+~F3*((F1*~F2)+CIN*(F1+~F2)) )
+        cout1 ( F3*((G4*G1)+COUT0*(G4+G1))+~F3*((G4*~G1)+COUT0*(G4+~G1)) )
+	f1_delay ( T_opcy )
+	f3_delay ( T_ascy )
+	symbol ( cy4_13 )
+end
+
+carrymode ADDSUB-G-F1
+	cin ( F1 )
+	cmt ( - )
+	f ( - )
+	g ( ~(G4@G1@G2@G3) )
+	h ( - )
+	code ( 0xf1 )
+	vbls_used ( F1 F3 G1 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( F1 )
+        cout1 ( F3*((G4*G1)+COUT0*(G4+G1))+~F3*((G4*~G1)+COUT0*(G4+~G1)) )
+	f1_delay ( T_incy )
+	f3_delay ( T_ascy )
+	symbol ( cy4_14 )
+end
+
+carrymode ADDSUB-G-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( - )
+	g ( ~(G4@G1@G2@G3) )
+	h ( - )
+	code ( 0xc5 )
+	vbls_used ( F3 G1 G4 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN:CINI COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( CIN )
+        cout1 ( F3*((G4*G1)+CIN*(G4+G1))+~F3*((G4*~G1)+CIN*(G4+~G1)) )
+	f1_delay ( - )
+	f3_delay ( T_ascy )
+	symbol ( cy4_15 )
+end
+
+carrymode ADDSUB-G-F3-
+	cin ( F3 )
+	cmt ( - )
+	f ( - )
+	g ( G4@G1 )
+	h ( - )
+	code ( 0xe1 )
+	vbls_used ( F3 G1 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( ~F3 )
+        cout1 ( F3*(G4*G1)+~F3*(G4+~G1) )
+	f1_delay ( - )
+	f3_delay ( T_ascy )
+	symbol ( cy4_16 )
+end
+
+; Force & Examine Carry
+
+carrymode FORCE-0
+	cin ( - )
+	cmt ( - )
+	f ( - )
+	g ( - )
+	h ( - )
+	code ( 0x00 )
+	vbls_used ( )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( 0 )
+        cout1 ( 0 )
+	f1_delay ( - )
+	f3_delay ( - )
+	symbol ( cy4_37 )
+end
+
+carrymode FORCE-1
+	cin ( - )
+	cmt ( - )
+	f ( - )
+	g ( - )
+	h ( - )
+	code ( 0x80 )
+	vbls_used ( )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( 1 )
+        cout1 ( 1 )
+	f1_delay ( - )
+	f3_delay ( - )
+	symbol ( cy4_38 )
+end
+
+carrymode FORCE-F1
+	cin ( F1 )
+	cmt ( - )
+	f ( - )
+	g ( - )
+	h ( - )
+	code ( 0x30 )
+	vbls_used ( F1 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( F1 )
+        cout1 ( F1 )
+	f1_delay ( T_incy )
+	f3_delay ( - )
+	symbol ( cy4_39 )
+end
+
+carrymode FORCE-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( - )
+	g ( - )
+	h ( - )
+	code ( 0x04 )
+	vbls_used ( CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:F4I CIN:CINI COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( CIN )
+        cout1 ( CIN )
+	f1_delay ( - )
+	f3_delay ( - )
+	symbol ( cy4_40 )
+end
+
+carrymode FORCE-F3-
+	cin ( F3 )
+	cmt ( - )
+	f ( - )
+	g ( - )
+	h ( - )
+	code ( 0x20 )
+	vbls_used ( F3 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( ~F3 )
+        cout1 ( ~F3 )
+	f1_delay ( - )
+	f3_delay ( T_incy )
+	symbol ( cy4_41 )
+end
+
+carrymode EXAMINE-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( - )
+	g ( - )
+	h ( - )
+	code ( 0x04 )
+	vbls_used ( CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK WARN4 )
+	dflt_cfg ( G3:G3I G2:G2I F4:F4I CIN:CINI COUT: )
+	onebit_equivalent ( - )
+        cout0 ( CIN )
+        cout1 ( - )
+	f1_delay ( - )
+	f3_delay ( - )
+	symbol ( cy4_42 )
+end
+
+; Decrementers
+
+carrymode DEC-F-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( ~(F1@F4) )
+	g ( - )
+	h ( - )
+	code ( 0x38 )
+	vbls_used ( F1 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:CIN CIN:CINI COUT: )
+	onebit_equivalent ( - )
+        cout0 ( F1+CIN*~F1 )
+        cout1 ( COUT0 )
+	f1_delay ( T_opcy )
+	f3_delay ( - )
+	symbol ( cy4_24 )
+end
+
+carrymode DEC-FG-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( ~(F1@F4) )
+	g ( ~(G4@G2) )
+	h ( - )
+	code ( 0x78 )
+	vbls_used ( F1 G4 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:CIN CIN:CINI COUT:COUTI )
+	onebit_equivalent ( DEC-F-CI )
+        cout0 ( F1+CIN*~F1 )
+        cout1 ( G4+COUT0*~G4 )
+	f1_delay ( T_opcy )
+	f3_delay ( - )
+	symbol ( cy4_25 )
+end
+
+carrymode DEC-FG-0
+	cin ( - )
+	cmt ( - )
+	f ( ~(F1) )
+	g ( ~(G4@G2) )
+	h ( - )
+	code ( 0x70 )
+	vbls_used ( F1 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( F1 )
+        cout1 ( (COUT0*~G4)+G4 )
+	f1_delay ( T_incy )
+	f3_delay ( - )
+	symbol ( cy4_26 )
+end
+
+carrymode DEC-G-0
+	cin ( - )
+	cmt ( - )
+	f ( - )
+	g ( ~(G4) )
+	h ( - )
+	code ( 0x40 )
+	vbls_used ( G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( 0 )
+        cout1 ( G4 )
+	f1_delay ( - )
+	f3_delay ( - )
+	symbol ( cy4_27 )
+end
+
+carrymode DEC-G-F1
+	cin ( F1 )
+	cmt ( - )
+	f ( - )
+	g ( ~(G4@G2) )
+	h ( - )
+	code ( 0x70 )
+	vbls_used ( F1 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( F1 )
+        cout1 ( COUT0+G4 )
+	f1_delay ( T_incy )
+	f3_delay ( - )
+	symbol ( cy4_28 )
+end
+
+carrymode DEC-G-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( - )
+	g ( ~(G4@G2) )
+	h ( - )
+	code ( 0x44 )
+	vbls_used ( G4 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN:CINI COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( CIN )
+        cout1 ( G4+COUT0*~G4 )
+	f1_delay ( - )
+	f3_delay ( - )
+	symbol ( cy4_29 )
+end
+
+carrymode DEC-G-F3-
+	cin ( F3 )
+	cmt ( - )
+	f ( - )
+	g ( ~(G4@G2) )
+	h ( - )
+	code ( 0x60 )
+	vbls_used ( F3 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( ~F3 )
+        cout1 ( COUT0+G4 )
+	f1_delay ( - )
+	f3_delay ( T_incy )
+	symbol ( cy4_30 )
+end
+
+; Incrementers
+
+carrymode INC-F-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( (F1@F4) )
+	g ( - )
+	h ( - )
+	code ( 0x3a )
+	vbls_used ( F1 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:CIN CIN:CINI COUT: )
+	onebit_equivalent ( - )
+        cout0 ( CIN*F1 )
+        cout1 ( COUT0 )
+	f1_delay ( T_opcy )
+	f3_delay ( - )
+	symbol ( cy4_17 )
+end
+
+carrymode INC-FG-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( (F1@F4) )
+	g ( (G4@G2) )
+	h ( - )
+	code ( 0x7a )
+	vbls_used ( F1 G4 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:CIN CIN:CINI COUT:COUTI )
+	onebit_equivalent ( INC-F-CI )
+        cout0 ( CIN*F1 )
+        cout1 ( COUT0*G4 )
+	f1_delay ( T_opcy )
+	f3_delay ( - )
+	symbol ( cy4_18 )
+end
+
+carrymode INC-FG-1
+	cin ( - )
+	cmt ( - )
+	f ( ~(F1) )
+	g ( (G2@G4) )
+	h ( - )
+	code ( 0x72 )
+	vbls_used ( F1 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( F1 )
+        cout1 ( COUT0*G4 )
+	f1_delay ( T_incy )
+	f3_delay ( - )
+	symbol ( cy4_19 )
+end
+
+carrymode INC-G-1
+	cin ( - )
+	cmt ( - )
+	f ( - )
+	g ( ~(G4) )
+	h ( - )
+	code ( 0x40 )
+	vbls_used ( G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( 0 )
+        cout1 ( G4 )
+	f1_delay ( - )
+	f3_delay ( - )
+	symbol ( cy4_20 )
+end
+
+carrymode INC-G-F1
+	cin ( F1 )
+	cmt ( - )
+	f ( - )
+	g ( (G4@G2) )
+	h ( - )
+	code ( 0x72 )
+	vbls_used ( F1 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( F1 )
+        cout1 ( COUT0*G4 )
+	f1_delay ( T_incy )
+	f3_delay ( - )
+	symbol ( cy4_21 )
+end
+
+carrymode INC-G-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( - )
+	g ( (G4@G2) )
+	h ( - )
+	code ( 0x46 )
+	vbls_used ( G4 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN:CINI COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( CIN )
+        cout1 ( COUT0*G4 )
+	f1_delay ( - )
+	f3_delay ( - )
+	symbol ( cy4_22 )
+end
+
+carrymode INC-G-F3-
+	cin ( F3 )
+	cmt ( - )
+	f ( - )
+	g ( (G4@G2) )
+	h ( - )
+	code ( 0x62 )
+	vbls_used ( F3 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( ~F3 )
+        cout1 ( COUT0*G4 )
+	f1_delay ( - )
+	f3_delay ( T_incy )
+	symbol ( cy4_23 )
+end
+
+; Subtractors
+
+carrymode SUB-F-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( ~(F1@F2@F4) )
+	g ( - )
+	h ( - )
+	code ( 0xb8 )
+	vbls_used ( F1 F2 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:CIN CIN:CINI COUT: )
+	onebit_equivalent ( - )
+        cout0 ( (F1*~F2)+CIN*(F1+~F2) )
+        cout1 ( COUT0 )
+	f1_delay ( T_opcy )
+	f3_delay ( - )
+	symbol ( cy4_06 )
+end
+
+carrymode SUB-FG-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( ~(F1@F2@F4) )
+	g ( ~(G4@G1@G2) )
+	h ( - )
+	code ( 0xf8 )
+	vbls_used ( F1 F2 G1 G4 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:CIN CIN:CINI COUT:COUTI )
+	onebit_equivalent ( SUB-F-CI )
+        cout0 ( (F1*~F2)+CIN*(F1+~F2) )
+        cout1 ( (G4*~G1)+COUT0*(G4+~G1) )
+	f1_delay ( T_opcy )
+	f3_delay ( - )
+	symbol ( cy4_07 )
+end
+
+carrymode SUB-G-1
+	cin ( - )
+	cmt ( - )
+	f ( - )
+	g ( (G4@G1) )
+	h ( - )
+	code ( 0xc0 )
+	vbls_used ( G1 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( 1 )
+        cout1 ( G4+~G1 )
+	f1_delay ( - )
+	f3_delay ( - )
+	symbol ( cy4_08 )
+end
+
+carrymode SUB-G-F1
+	cin ( F1 )
+	cmt ( - )
+	f ( - )
+	g ( ~(G4@G1@G2) )
+	h ( - )
+	code ( 0xf0 )
+	vbls_used ( F1 G1 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( F1 )
+        cout1 ( (G4*~G1)+COUT0*(G4+~G1) )
+	f1_delay ( T_incy )
+	f3_delay ( - )
+	symbol ( cy4_10 )
+end
+
+carrymode SUB-G-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( - )
+	g ( ~(G4@G1@G2) )
+	h ( - )
+	code ( 0xc4 )
+	vbls_used ( G1 G4 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN:CINI COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( CIN )
+        cout1 ( (G4*~G1)+COUT0*(G4+~G1) )
+	f1_delay ( - )
+	f3_delay ( - )
+	symbol ( cy4_09 )
+end
+
+carrymode SUB-G-F3-
+	cin ( F3 )
+	cmt ( - )
+	f ( - )
+	g ( ~(G4@G1@G2) )
+	h ( - )
+	code ( 0xe0 )
+	vbls_used ( F3 G1 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( ~F3 )
+        cout1 ( (G4*~G1)+COUT0*(G4+~G1) )
+	f1_delay ( - )
+	f3_delay ( T_incy )
+	symbol ( cy4_11 )
+end
+
+; Incrementer/Decrementers
+
+carrymode INCDEC-F-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( (F1@F4)@~F3 )
+	g ( - )
+	h ( - )
+	code ( 0x39 )
+	vbls_used ( F1 F3 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:CIN CIN:CINI COUT: )
+	onebit_equivalent ( - )
+        cout0 ( ~F3*(F1+CIN)+F3*F1*CIN )
+        cout1 ( COUT0 )
+	f1_delay ( T_opcy )
+	f3_delay ( T_ascy )
+	symbol ( cy4_31 )
+end
+
+carrymode INCDEC-FG-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( (F1@F4)@~F3 )
+	g ( (G4@G2)@~G3 )
+	h ( - )
+	code ( 0x79 )
+	vbls_used ( F1 F3 G4 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:CIN CIN:CINI COUT:COUTI )
+	onebit_equivalent ( INCDEC-F-CI )
+ 	cout0 ( ~F3*(F1+CIN)+F3*F1*CIN )
+        cout1 ( ~F3*(G4+COUT0)+F3*G4*COUT0 )
+	f1_delay ( T_opcy )
+	f3_delay ( T_ascy )
+	symbol ( cy4_32 )
+end
+
+carrymode INCDEC-FG-1
+	cin ( - )
+	cmt ( - )
+	f ( ~(F1)  )
+	g ( (G4@G2)@~G3 )
+	h ( - )
+	code ( 0x71 )
+	vbls_used ( F1 F3 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( F1 )
+        cout1 ( ~F3*((COUT0*~G4)+G4)+F3*(G4*COUT0) )
+	f1_delay ( T_incy )
+	f3_delay ( T_ascy )
+	symbol ( cy4_33 )
+end
+
+carrymode INCDEC-G-0
+	cin ( - )
+	cmt ( - )
+	f ( - )
+	g ( ~(G4) )
+	h ( - )
+	code ( 0x40 )
+	vbls_used ( G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:G2I F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( 0 )
+        cout1 ( G4 )
+	f1_delay ( - )
+	f3_delay ( - )
+	symbol ( cy4_34 )
+end
+
+carrymode INCDEC-G-F1
+	cin ( F1 )
+	cmt ( - )
+	f ( - )
+	g ( (G4@G2)@~G3 )
+	h ( - )
+	code ( 0x71 )
+	vbls_used ( F1 F3 G4 )
+	drc_flags ( OK OK OK OK OK OK OK OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN: COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( F1 )
+        cout1 ( F3*G4*COUT0+~F3*(G4+COUT0) )
+	f1_delay ( T_incy )
+	f3_delay ( T_ascy )
+	symbol ( cy4_35 )
+end
+
+carrymode INCDEC-G-CI
+	cin ( CIN )
+	cmt ( - )
+	f ( - )
+	g ( (G4@G2)@~G3 )
+	h ( - )
+	code ( 0x45 )
+	vbls_used ( F3 G4 CIN )
+	drc_flags ( OK OK OK OK OK OK FATAL OK OK OK )
+	dflt_cfg ( G3:G3I G2:COUT0 F4:F4I CIN:CINI COUT:COUTI )
+	onebit_equivalent ( - )
+        cout0 ( CIN )
+        cout1 ( ~F3*(G4+COUT0)+F3*G4*COUT0 )
+	f1_delay ( - )
+	f3_delay ( T_ascy )
+	symbol ( cy4_36 )
+end
+

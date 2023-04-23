@@ -1,0 +1,55 @@
+TITLE        UART Reciever Controller
+AUTHOR       Applications
+COMPANY      Xilinx
+DATE         February 1993
+
+CHIP    RCVR    PL22V10
+
+; 1      2   3   4   5   6   7   8     9     10  11  12 
+  x4clk  c0  c1  c2  c3  c4  c5  read  sdin  d0  nc  gnd
+
+; 13  14  15    16     17      18  19      20     21     22    23  24 
+  nc  nc  start bitclk byteclk par framing parity overun ready nc  vcc
+
+EQUATIONS
+
+/start := /start * sdin
+        + c5*/c4*c3*/c2*/c1*c0
+                                ; start goes high when sdin goes low
+                                ; and stays high until count=41.
+
+bitclk := /c0 * /c1 * start
+                                ; bitclk pulses every 4 clock cycles
+                                ; to strobe deserializer.
+
+ready := c5*/c4*c3*/c2*/c1*c0 * /parity * /framing * /overun
+       + ready * /read
+                                ; ready goes high at count=41 if no errors
+                                ; and stays high until read.
+
+byteclk := c5*/c4*/c3*/c2*c1*/c0 * /ready
+                                ; byteclk strobes output_reg at count=34
+                                ; only if ready not still active.
+
+overun := c5*/c4*/c3*/c2*c1*/c0 * ready
+        + overun * /read
+                                ; overrun error at count=34 if ready still
+                                ; active; stays on until read.
+
+par := par * /sdin * bitclk * start
+     + /par * sdin * bitclk * start
+     + par * /bitclk * start
+                                ; accumulate parity on sdin on each bitclk;
+                                ; reset while start=0.
+
+parity := c5*/c4*/c3*/c2*c1*/c0 * par
+        + parity * /read
+                                ; parity error at count=34 if par odd (1);
+                                ; stays on until read.
+
+framing := c5*/c4*c3*/c2*/c1*/c0 * /sdin
+         + c5*/c4*c3*/c2*/c1*/c0 * /d0
+         + framing * /read
+                                ; framing error at count=40 if either stop
+                                ; bit is low; stays on until read.
+

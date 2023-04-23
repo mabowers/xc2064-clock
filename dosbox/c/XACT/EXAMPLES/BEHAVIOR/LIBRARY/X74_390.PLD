@@ -1,0 +1,44 @@
+TITLE           Counter: 4 bit BCD/Biquinary, negative edge clock, async clear
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            9/17/93
+
+CHIP            X74_390  COMPONENT
+ 
+;Inputs
+/cka /ckb clr
+
+; cka           a clock
+; ckb           b clock
+; clr           async clear
+
+;Outputs
+qa qb qc qd
+
+; qa..qd        counter output
+
+EQUATIONS 
+
+qa     := /qa
+qa.clkf = cka
+qa.rstf = clr
+
+qb.d1   = qd
+qb.fbk  = vcc
+qb     := qb.d1 nor qb.d2
+qb.clkf = ckb
+qb.rstf = clr
+
+qc.d1   = qb*/qd
+qc.fbk  = vcc
+qc     := qc.d1 xor qc.d2
+qc.clkf = ckb
+qc.rstf = clr
+
+qd.d1   = qb*qc + qd
+qd.fbk  = vcc
+qd     := qd.d1 xor qd.d2
+qd.clkf = ckb
+qd.rstf = clr

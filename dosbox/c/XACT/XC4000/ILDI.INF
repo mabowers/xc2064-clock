@@ -1,0 +1,23 @@
+`F  1.00 ildi
+`B "1" "1" "A" " February  1, 1994" "" "A" 
+"XC4000 Family ILDI Macro" ""
+""
+""
+""
+""
+`P I "D"
+`P O "Q"
+`P I "G"
+`S "GB" 1 
+`E XC4000.LIB
+`E XBLOX.LIB
+`I R "INV" XC4000.LIB "INV" D523F12A  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "ILDI_1" XC4000.LIB "ILDI_1" EC748A28  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "G" "G" I ) ( "Q" "Q" O ) 
+`J ( P I "D" ) ( R U2 "D" I ) 
+`J ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( P I "G" ) ( R U1 "I" I ) 
+`J ( R U1 "O" O ) ( S "GB" 1  ) ( R U2 "G" I ) 

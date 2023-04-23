@@ -1,0 +1,69 @@
+`F  1.00 M8_1E
+`B "1" "1" "A" "     June  5, 1993" "" "A" 
+"XC4000 Family M8_1E Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D0"
+`P I "D1"
+`P I "D2"
+`P I "D3"
+`P O "O"
+`P I "D4"
+`P I "D5"
+`P I "D6"
+`P I "D7"
+`P I "S0"
+`P I "S1"
+`P I "S2"
+`P I "E"
+`S "M01" 1 
+`S "M23" 1 
+`S "M03" 1 
+`S "M47" 1 
+`S "M45" 1 
+`S "M67" 1 
+`E XC7000.LIB
+`I R "M2_1" XC7000.LIB "M2_1" c7c8ae73  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "M2_1" XC7000.LIB "M2_1" c7c8aeb9  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "M2_1E" XC7000.LIB "M2_1E" c7c8b083  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+( "E" "E" I ) 
+`I R "M2_1" XC7000.LIB "M2_1" c7c8d8cd  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "M2_1" XC7000.LIB "M2_1" c7c8db1c  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "M2_1" XC7000.LIB "M2_1" c7c8db80  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "M2_1" XC7000.LIB "M2_1" c7c8dbe1  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`J ( P I "D0" ) ( R U4 "D0" I ) 
+`J ( R U4 "O" O ) ( R U1 "D0" I ) ( S "M01" 1  ) 
+`J ( P I "D1" ) ( R U4 "D1" I ) 
+`J ( R U4 "S0" I ) ( R U5 "S0" I ) ( R U6 "S0" I ) ( R U7 "S0" I ) 
+( P I "S0" ) 
+`J ( R U1 "O" O ) ( R U3 "D0" I ) ( S "M03" 1  ) 
+`J ( S "M23" 1  ) ( R U1 "D1" I ) ( R U5 "O" O ) 
+`J ( R U1 "S0" I ) ( R U2 "S0" I ) ( P I "S1" ) 
+`J ( P I "D2" ) ( R U5 "D0" I ) 
+`J ( P I "D3" ) ( R U5 "D1" I ) 
+`J ( R U3 "O" O ) ( P O "O" ) 
+`J ( S "M47" 1  ) ( R U3 "D1" I ) ( R U2 "O" O ) 
+`J ( P I "S2" ) ( R U3 "S0" I ) 
+`J ( P I "E" ) ( R U3 "E" I ) 
+`J ( P I "D4" ) ( R U6 "D0" I ) 
+`J ( R U6 "O" O ) ( R U2 "D0" I ) ( S "M45" 1  ) 
+`J ( P I "D5" ) ( R U6 "D1" I ) 
+`J ( S "M67" 1  ) ( R U2 "D1" I ) ( R U7 "O" O ) 
+`J ( P I "D6" ) ( R U7 "D0" I ) 
+`J ( P I "D7" ) ( R U7 "D1" I ) 

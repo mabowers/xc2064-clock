@@ -1,0 +1,29 @@
+`F  1.00 ipad4
+`B "1" "1" "A" "  January 28, 1994" "" "A" 
+"XC4000 Family IPAD4 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "I0"
+`P O "I1"
+`P O "I2"
+`P O "I3"
+`E XC4000.LIB
+`E XBLOX.LIB
+`I R "IPAD" XC4000.LIB "IPAD" EC04A2AB  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC4000.LIB "IPAD" EC04A2B9  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC4000.LIB "IPAD" EC04A2D0  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC4000.LIB "IPAD" EC04A2E8  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`J ( R U1 "I" O ) ( P O "I0" ) 
+`J ( R U2 "I" O ) ( P O "I1" ) 
+`J ( R U3 "I" O ) ( P O "I2" ) 
+`J ( R U4 "I" O ) ( P O "I3" ) 

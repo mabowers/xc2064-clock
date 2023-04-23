@@ -1,0 +1,40 @@
+`F  1.00 ftple
+`B "1" "1" "A" "     July  2, 1993" "" "A" 
+"XC4000 Family FTPLE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "T"
+`P I "D"
+`P I "L"
+`P I "PRE"
+`P O "Q"
+`P I "CE"
+`P I "C"
+`S "TQ" 1 
+`S "MD" 1 
+`E XC4000.LIB
+`I R "M2_1" XC4000.LIB "M2_1" CAE02E87  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+`I R "OR2" XC4000.LIB "OR2" CAE0301A  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "XOR2" XC4000.LIB "XOR2" CAE03166  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "FDPE" XC4000.LIB "FDPE" CAE02C8C  U4  []
+"RLOC=R0C0" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "PRE" "PRE" I ) 
+( "Q" "Q" O ) 
+`J ( R U3 "I1" I ) ( R U4 "Q" O ) ( P O "Q" ) 
+`J ( R U3 "O" O ) ( S "TQ" 1  ) ( R U1 "D0" I ) 
+`J ( P I "T" ) ( R U3 "I0" I ) 
+`J ( R U1 "O" O ) ( S "MD" 1  ) ( R U4 "D" I ) 
+`J ( P I "D" ) ( R U1 "D1" I ) 
+`J ( P I "L" ) ( R U2 "I1" I ) ( R U1 "S0" I ) 
+`J ( P I "PRE" ) ( R U4 "PRE" I ) 
+`J ( R U4 "CE" I ) ( R U2 "O" O ) 
+`J ( P I "C" ) ( R U4 "C" I ) 
+`J ( P I "CE" ) ( R U2 "I0" I ) 

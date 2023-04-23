@@ -1,0 +1,45 @@
+`F  1.00 cb2re
+`B "1" "1" "A" "   August 25, 1993" "" "A" 
+"XC3000 Family CB2RE Macro" "Xilinx"
+""
+""
+""
+""
+`P O "Q0"
+`P O "Q1"
+`P I "CE"
+`P I "C"
+`P I "R"
+`P O "TC"
+`P O "CEO"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "AND2" XC3000.LIB "AND2" CA0A2106  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "VCC" XC3000.LIB "VCC" CA0A2FA7  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "P" "P" O ) 
+`I R "FTRSE" XC3000.LIB "FTRSE" CADC11A0  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "S" "S" I ) 
+( "Q" "Q" O ) ( "R" "R" I ) 
+`I R "FTRSE" XC3000.LIB "FTRSE" CADC11C6  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "S" "S" I ) 
+( "Q" "Q" O ) ( "R" "R" I ) 
+`I R "GND" XC3000.LIB "GND" CADC16DC  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "G" "G" O ) 
+`I R "AND2" XC3000.LIB "AND2" DBBD44B0  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`J ( R U2 "P" O ) ( R U4 "T" I ) 
+`J ( R U4 "S" I ) ( R U3 "S" I ) ( R U5 "G" O ) 
+`J ( R U4 "Q" O ) ( R U3 "T" I ) ( P O "Q0" ) ( R U1 "I1" I ) 
+`J ( P I "CE" ) ( R U4 "CE" I ) ( R U3 "CE" I ) ( R U6 "I0" I ) 
+`J ( P I "C" ) ( R U4 "C" I ) ( R U3 "C" I ) 
+`J ( P I "R" ) ( R U4 "R" I ) ( R U3 "R" I ) 
+`J ( R U3 "Q" O ) ( R U1 "I0" I ) ( P O "Q1" ) 
+`J ( R U1 "O" O ) ( R U6 "I1" I ) ( P O "TC" ) 
+`J ( R U6 "O" O ) ( P O "CEO" ) 

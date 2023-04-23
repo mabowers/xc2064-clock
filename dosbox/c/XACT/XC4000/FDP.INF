@@ -1,0 +1,24 @@
+`F  1.00 fdp
+`B "1" "1" "A" "     July  2, 1993" "" "A" 
+"XC4000 Family FDP Macro" "Xilinx"
+""
+""
+""
+""
+`P I "PRE"
+`P I "D"
+`P O "Q"
+`P I "C"
+`E XC4000.LIB
+`I R "VCC" XC4000.LIB "VCC" C7C0C2F5  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "P" "P" O ) 
+`I R "FDPE" XC4000.LIB "FDPE" C7C0BF1D  U2  []
+"RLOC=R0C0" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "PRE" "PRE" I ) 
+( "Q" "Q" O ) 
+`J ( R U1 "P" O ) ( R U2 "CE" I ) 
+`J ( P I "PRE" ) ( R U2 "PRE" I ) 
+`J ( P I "D" ) ( R U2 "D" I ) 
+`J ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( P I "C" ) ( R U2 "C" I ) 

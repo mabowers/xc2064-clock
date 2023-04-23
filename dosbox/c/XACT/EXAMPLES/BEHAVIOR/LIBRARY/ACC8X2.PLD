@@ -1,0 +1,106 @@
+TITLE           Accumulator: high-order 8-bit, reset, load, +/-, cascadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            8/3/93
+
+CHIP            ACC8X2  COMPONENT
+ 
+;Inputs
+b0 b1 b2 b3 b4 b5 b6 b7 d0 d1 d2 d3 d4 d5 d6 d7 l add ce c r
+
+; b[7:0]        accumulator B-operand
+; d[7:0]        parallel-load data
+; l             parallel-load enable
+; add           function select: 1=add, 0=subtract
+; ce            accumulator clock-enable
+; c             clock (optional FastCLK)
+; r             sync reset
+; ci            carry-in to q0 via MC carry chain
+;               (ci may only connect to co output of arith component or PLD)
+ 
+;Nodes
+cin             ;unused LSB MC to continue carry-in chain
+
+;Outputs
+q0 q1 q2 q3 q4 q5 q6 q7
+
+; q[7:0]        accumulator output
+; co            carry-out from q7 via MC carry chain 
+;               (co may only connect to ci input of arith component or PLD)
+
+PARTITION q7_0 cin q0 q1 q2 q3 q4 q5 q6 q7
+
+EQUATIONS 
+
+;cin propagates FB carry-in to q0 carry-in
+cin.D1  = vcc
+cin.D2  = gnd
+cin.add = vcc
+cin     = cin.D1 gnd cin.D2  ; cin MC output not used
+
+q0.D1   = b0*add*ce*/l*/r
+        + /b0*/add*ce*/l*/r
+        + d0*l*/r
+q0.fbk  = /l*/r
+q0     := q0.D1 xor q0.D2
+q0.add  = vcc
+q0.clkf = c
+
+q1.D1   = b1*add*ce*/l*/r
+        + /b1*/add*ce*/l*/r
+        + d1*l*/r
+q1.fbk  = /l*/r
+q1     := q1.D1 xor q1.D2
+q1.add  = vcc
+q1.clkf = c
+
+q2.D1   = b2*add*ce*/l*/r
+        + /b2*/add*ce*/l*/r
+        + d2*l*/r
+q2.fbk  = /l*/r
+q2     := q2.D1 xor q2.D2
+q2.add  = vcc
+q2.clkf = c
+
+q3.D1   = b3*add*ce*/l*/r
+        + /b3*/add*ce*/l*/r
+        + d3*l*/r
+q3.fbk  = /l*/r
+q3     := q3.D1 xor q3.D2
+q3.add  = vcc
+q3.clkf = c
+
+q4.D1   = b4*add*ce*/l*/r
+        + /b4*/add*ce*/l*/r
+        + d4*l*/r
+q4.fbk  = /l*/r
+q4     := q4.D1 xor q4.D2
+q4.add  = vcc
+q4.clkf = c
+
+q5.D1   = b5*add*ce*/l*/r
+        + /b5*/add*ce*/l*/r
+        + d5*l*/r
+q5.fbk  = /l*/r
+q5     := q5.D1 xor q5.D2
+q5.add  = vcc
+q5.clkf = c
+
+q6.D1   = b6*add*ce*/l*/r
+        + /b6*/add*ce*/l*/r
+        + d6*l*/r
+q6.fbk  = /l*/r
+q6     := q6.D1 xor q6.D2
+q6.add  = vcc
+q6.clkf = c
+
+q7.D1   = b7*add*ce*/l*/r
+        + /b7*/add*ce*/l*/r
+        + d7*l*/r
+q7.fbk  = /l*/r
+q7     := q7.D1 xor q7.D2
+q7.add  = vcc
+q7.clkf = c
+

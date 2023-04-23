@@ -1,0 +1,19 @@
+`F  1.00 gxtl
+`B "1" "1" "A" "     June 28, 1993" "" "" 
+"XC3000 Family GXTL Macro" ""
+""
+""
+""
+""
+`P O "O"
+`S "OSC_OUT" 1 
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "OSC" XC3000.LIB "OSC" D5AE3C85  IO1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) 
+`I R "ACLK" XC3000.LIB "ACLK" D5AE3D4C  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( R IO1 "O" O ) ( S "OSC_OUT" 1  ) ( R U1 "I" I ) 
+`J ( R U1 "O" O ) ( P O "O" ) 

@@ -1,0 +1,1633 @@
+VERSION 5.0.0
+HELP THIS IS THE XILINX XSIMMAKE UTILIY.
+HELP The XILINX XSIMMAKE utility is used to create simulation files
+HELP for different simulators. The different flows required to
+HELP create these simulation files are defined in the xsimmake.xfw 
+HELP file.
+HELP 
+HELP To obtain a list of the available flows and their aliases type
+HELP 
+HELP  'xsimmake -l'
+HELP 
+HELP     on the command line.
+HELP 
+HELP To access any of these flows, type 
+HELP 
+HELP  'xsimmake -f <flow_name> <input base name>'
+HELP 
+HELP     on the command line.
+HELP 
+HELP To obtain help on any of these flows, type 
+HELP 
+HELP  'xsimmake -f <flow_name> -h'
+HELP 
+HELP     on the command line.
+HELP 
+HELP  For a complete list of all the options availible to xsimmake
+HELP  type 'xsimmake' with no options.
+HELP 
+HELP ---
+
+DEFINE parttype
+DEFINE oldlibrary
+DEFINE unilibrary
+DEFINE force_complete_exe
+
+FVARB xgs_files
+FVARB xmm_files
+FVARB sim_dir
+FVARB inp_file
+
+FVARB savexnf
+FVARB otherxnf
+FVARB xbloxxnf
+
+PROG orcad_asctovst(inpfile) 
+ {
+    PROGNAME asctovst
+    INPFILE |inpfile| SUBDIR "."
+    PROGSYNOP INPFILE 
+ }
+
+PROG orcad_time_xnf2inf(inpfile,outfile) 
+ { 
+    PROGNAME xnf2inf
+    INPFILE |inpfile|
+    OUTFILE |outfile| 
+    PROGSYNOP INPFILE OUTFILE 
+ }
+
+PROG orcad_func_xnf2inf(inpfile,outfile) 
+ {
+    PROGNAME xnf2inf
+    DEFOPT1 u=true
+    INPFILE |inpfile|
+    OUTFILE |outfile|
+    PROGSYNOP INPFILE OUTFILE DEFOPT1
+ }
+
+PROG orcad_time_xnf2vst(inpfile,outfile) 
+ { 
+    PROGNAME xnf2vst
+    INPFILE |inpfile|
+    OUTFILE |outfile| 
+    PROGSYNOP INPFILE OUTFILE 
+ }
+
+PROG orcad_func_xnf2vst(inpfile,outfile) 
+{
+    PROGNAME xnf2vst
+    DEFOPT1 -u 
+    INPFILE |inpfile|
+    OUTFILE |outfile|
+    PROGSYNOP DEFOPT1 INPFILE OUTFILE 
+}
+
+PROG orcad_inet(inpfile)
+{
+    PROGNAME inet
+    DEFOPT /t
+    INPFILE |inpfile|.sch STRIPEXT
+    PROGSYNOP INPFILE DEFOPT
+}
+
+PROG orcad_annotate(inpfile)
+  {
+    PROGNAME annotate
+    INPFILE |inpfile|.sch STRIPEXT
+    PROGSYNOP INPFILE
+  }
+
+PROG orcad_sdt2xnf_for_epld(inpfile,outdir)
+  {
+    PROGNAME sdt2xnf
+    INPFILE |inpfile|
+    DEFOPT  -m
+    OUTDIR  |outdir| OPTION -d
+    PROGSYNOP INPFILE OUTDIR DEFOPT
+  }
+
+PROG orcad_sdt2xnf(inpfile,outdir)
+  {
+    PROGNAME sdt2xnf
+    INPFILE |inpfile|
+    OUTDIR  |outdir| OPTION -d
+    PROGSYNOP INPFILE OUTDIR
+  }
+
+PROG orcad_inf2xnf(inpfile,outdir)
+  {
+    PROGNAME inf2xnf
+    INPFILE |inpfile|
+    OUTDIR  |outdir| OPTION d=
+    PROGSYNOP INPFILE OUTDIR
+  }
+
+PROG orcad_inf2xnf_for_epld(inpfile,outdir)
+  {
+    PROGNAME inf2xnf
+    INPFILE |inpfile|
+    DEFOPT  m=true
+    OUTDIR  |outdir| OPTION d=
+    PROGSYNOP INPFILE OUTDIR DEFOPT
+  }
+
+PROG vmh2xnf(inpfile,outfile)
+  {
+    PROGNAME vmh2xnf
+    INPFILE |inpfile|
+    OUTFILE |outfile| OPTION -o
+    PROGSYNOP INPFILE OUTFILE
+  }
+
+PROG hm2rpm(inpfile)
+  {
+    PROGNAME hm2rpm
+    INPFILE |inpfile|.hm STRIPEXT
+    PROGSYNOP INPFILE 
+  }
+
+PROG abl2xnf_unified_w_parttype(inpfile)
+  {
+    PROGNAME abl2xnf
+    DEFOPT1 output_directory=|otherxnf|
+    PARTTYPE parttype=%parttype%
+    INPFILE |inpfile|.abl STRIPEXT
+    PROGSYNOP INPFILE DEFOPT1 PARTTYPE
+  }
+
+PROG abl2xnf_oldlib_w_parttype(inpfile)
+  {
+    PROGNAME abl2xnf
+    DEFOPT1 output_directory=|otherxnf|
+    DEFOPT2 -old_library
+    PARTTYPE parttype=%parttype%
+    INPFILE |inpfile|.abl STRIPEXT
+    PROGSYNOP INPFILE DEFOPT1 DEFOPT2 PARTTYPE
+  }
+
+PROG abl2xnf_unified(inpfile)
+  {
+    PROGNAME abl2xnf
+    DEFOPT1 output_directory=|otherxnf|
+    INPFILE |inpfile|.abl STRIPEXT
+    PROGSYNOP INPFILE DEFOPT1
+  }
+
+PROG abl2xnf_oldlib(inpfile)
+  {
+    PROGNAME abl2xnf
+    DEFOPT1 output_directory=|otherxnf|
+    DEFOPT2 -old_library
+    INPFILE |inpfile|.abl STRIPEXT
+    PROGSYNOP INPFILE DEFOPT1 DEFOPT2 
+  }
+
+PROG memgen_unified_w_parttype(inpfile)
+  {
+    PROGNAME memgen
+    DEFOPT output_directory=|otherxnf|
+    PARTTYPE parttype=%parttype%
+    INPFILE |inpfile|.mem STRIPEXT
+    PROGSYNOP INPFILE DEFOPT PARTTYPE
+  }
+
+PROG memgen_oldlib_w_parttype(inpfile)
+  {
+    PROGNAME memgen
+    DEFOPT1 output_directory=|otherxnf|
+    DEFOPT2 -old_library
+    PARTTYPE parttype=%parttype%
+    INPFILE |inpfile|.mem STRIPEXT
+    PROGSYNOP INPFILE DEFOPT1 DEFOPT2 PARTTYPE
+  }
+
+
+PROG memgen_unified(inpfile)
+  {
+    PROGNAME memgen
+    DEFOPT output_directory=|otherxnf|
+    INPFILE |inpfile|.mem STRIPEXT
+    PROGSYNOP INPFILE DEFOPT 
+  }
+
+PROG memgen_oldlib(inpfile)
+  {
+    PROGNAME memgen
+    DEFOPT output_directory=|otherxnf|
+    DEFOPT1 -old_library
+    INPFILE |inpfile|.mem STRIPEXT
+    PROGSYNOP INPFILE DEFOPT DEFOPT1
+  }
+
+PROG xdelay(inpfile)
+  {
+    PROGNAME xdelay
+    OPTION1 -w
+    OPTION2 -d
+    INPFILE |inpfile|.lca STRIPEXT
+    PROGSYNOP OPTION1 OPTION2  INPFILE 
+  }
+
+PROG lca2xnf(inpfile,outfile)
+  {
+    PROGNAME lca2xnf
+    DEFOPT -g
+    INPFILE |inpfile|.lca STRIPEXT
+    OUTFILE |outfile|.xnf STRIPEXT
+    PROGSYNOP DEFOPT INPFILE OUTFILE 
+  }
+
+PROG vsmupd(fncvsmfile,timvsmfile,xnffile,outfile)
+  {
+    PROGNAME vsmupd
+    NOSTSLNE -b
+    XNFFILE  |xnffile|     OPTION -x
+    VSMFILE1 |fncvsmfile|
+    VSMFILE2 |timvsmfile|
+    OUTFILE  |outfile| OPTION -o
+    PROGSYNOP NOSTSLNE VSMFILE1 VSMFILE2 XNFFILE OUTFILE
+  }
+
+PROG vsmupd_use_bxa(fncvsmfile,timvsmfile,xnffile,bxafile,outfile)
+  {
+    PROGNAME vsmupd
+    NOSTSLNE -b
+    XNFFILE  |xnffile|     OPTION -x
+    BXAFILE  |bxafile|     OPTION -y
+    VSMFILE1 |fncvsmfile|
+    VSMFILE2 |timvsmfile|
+    OUTFILE  |outfile| OPTION -o
+    PROGSYNOP NOSTSLNE VSMFILE1 VSMFILE2 XNFFILE BXAFILE OUTFILE
+  }
+
+PROG xnfba(inpfile,outfile)
+  {
+    PROGNAME xnfba
+    INPFILE |inpfile|
+    OUTFILE |outfile|
+    PROGSYNOP INPFILE OUTFILE
+  }
+
+#xnfmerge forced to look in -d directory first.
+PROG xnfmerge_preclude_inputdir(inpfile,outfile,inputdir)
+  {
+    PROGNAME xnfmerge
+    DEFOPT1 -z
+    DEFOPT2 |inputdir| OPTION -d
+    DEFOPT3 xnf OPTION -d
+    DEFOPT4 "." OPTION -d
+    INPFILE |inpfile|.xnf STRIPEXT
+    OUTFILE |outfile|.xff STRIPEXT
+    PROGSYNOP DEFOPT1 DEFOPT2 DEFOPT3 DEFOPT4 INPFILE OUTFILE 
+  }
+
+#xnfmerge forced to look only in -d directory.
+PROG xnfmerge_exclusive_inputdir(inpfile,outfile,inputdir)
+  {
+    PROGNAME xnfmerge
+    DEFOPT1 -y
+    DEFOPT2 |inputdir| OPTION -d
+    DEFOPT3 -q
+    INPFILE |inpfile|.xnf STRIPEXT
+    OUTFILE |outfile|.xff STRIPEXT
+    PROGSYNOP DEFOPT1 DEFOPT2 DEFOPT3 INPFILE OUTFILE 
+  }
+
+PROG xnfmerge_inputdir_orcad(inpfile,outfile,inputdir)
+  {
+    PROGNAME xnfmerge
+    DEFOPT1 |inputdir| OPTION -d
+    DEFOPT2 -q
+    INPFILE |inpfile|
+    OUTFILE |outfile|.xff STRIPEXT
+    PROGSYNOP DEFOPT1 DEFOPT2 INPFILE OUTFILE 
+  }
+
+PROG xnfmerge_inputdir(inpfile,outfile,inputdir)
+  {
+    PROGNAME xnfmerge
+    DEFOPT1 |inputdir| OPTION -d
+    DEFOPT2 . OPTION -d
+    DEFOPT3 xnf OPTION -d
+    INPFILE |inpfile|
+    OUTFILE |outfile|.xff STRIPEXT
+    PROGSYNOP DEFOPT1 DEFOPT2 DEFOPT3 INPFILE OUTFILE 
+  }
+
+
+PROG xnfprep(inpfile,outfile)
+  {
+    PROGNAME xnfprep
+    INPFILE |inpfile|.xff STRIPEXT
+    OUTFILE |outfile|.xtg STRIPEXT
+    PROGSYNOP INPFILE OUTFILE 
+  }
+
+PROG vsm_2_outfile(inpfile,outfile)
+ {
+   PROGNAME vsm
+   SCREEN_DUMP vsm.dmp 
+   INPFILE |inpfile| STRIPEXT
+   OUTFILE |outfile| STRIPEXT OPTION -f
+   PROGSYNOP INPFILE OUTFILE
+ }
+
+PROG vsm(inpfile)
+ {
+   PROGNAME vsm
+   SCREEN_DUMP vsm.dmp 
+   INPFILE |inpfile| STRIPEXT
+   PROGSYNOP INPFILE 
+ }
+
+PROG check(inpfile)
+ {
+    PROGNAME check
+    DEFOPT1 -p
+    INPFILE |inpfile| 
+    PROGSYNOP DEFOPT1 INPFILE 
+ }
+
+PROG xdraw(inpfile,outfile,outdir,xgsfiles) 
+ {
+    PROGNAME xdraw
+    INPFILE |inpfile| OPTION -i
+    OUTFILE |outfile| OPTION -o
+    OUTDIR  |outdir|  OPTION -a
+    DEFOPT  -v
+    XGSFILES |xgsfiles| 
+    PROGSYNOP INPFILE OUTFILE OUTDIR XGSFILES 
+ }
+
+PROG x2w_2_simdir(inpfile,outfile,simdir) 
+  {
+    PROGNAME xnf2wir
+    DEFOPT1 -b 
+    INPFILE |inpfile|
+    OUTFILE |outfile| STRIPEXT SUBDIR |simdir| SUBDIR wir 
+    PROGSYNOP DEFOPT1 INPFILE OUTFILE 
+  }
+
+PROG x2w_io_subdir(inpfile,outfile,inpdir,outdir) 
+ {
+    PROGNAME xnf2wir
+    DEFOPT1 -b
+    INPFILE |inpfile| SUBDIR |inpdir|
+    OUTFILE |outfile| SUBDIR |outdir| SUBDIR wir STRIPEXT
+    PROGSYNOP DEFOPT1 INPFILE OUTFILE 
+ }
+
+
+PROG x2w_rom(inpfile)
+  {
+    PROGNAME xnf2wir
+    DEFOPT1 -b 
+    DEFOPT2 -r
+    INPFILE |inpfile|
+    PROGSYNOP DEFOPT1 DEFOPT2 INPFILE 
+  }
+
+PROG x2w_gen(inpfile,outfile)
+  {
+    PROGNAME xnf2wir
+    DEFOPT1 -b 
+    INPFILE |inpfile| STRIPEXT
+    OUTFILE |outfile| STRIPEXT SUBDIR wir 
+    PROGSYNOP DEFOPT1 INPFILE OUTFILE 
+  }
+
+PROG w2x_simu(inpfile,outfile) 
+  {
+    PROGNAME wir2xnf
+    DEFOPT1 -b
+    DEFOPT2 -f
+    DEFOPT3 -v
+    OUTDIR  |otherxnf| OPTION -od
+    INPFILE |inpfile|
+    OUTFILE |outfile|.xnf STRIPEXT
+    PROGSYNOP DEFOPT1 DEFOPT3 OUTDIR INPFILE OUTFILE 
+  }
+
+PROG w2x_simu_w_parttype(inpfile,outfile) 
+  {
+    PROGNAME wir2xnf
+    DEFOPT1 -b
+    DEFOPT2 -f
+    DEFOPT3 -v
+    OUTDIR   |otherxnf| OPTION -od
+    INPFILE  |inpfile|
+    PARTTYPE %parttype% OPTION -p
+    OUTFILE |outfile|.xnf STRIPEXT
+    PROGSYNOP DEFOPT1 DEFOPT3 OUTDIR INPFILE OUTFILE PARTTYPE
+  }
+
+PROG xnfprep_xff(inpfile,outfile)
+  {
+    PROGNAME xnfprep
+    DEFOPT1 ignore_timespec=all
+    INPFILE |inpfile|.xff STRIPEXT
+    OUTFILE |outfile|.xtg STRIPEXT
+    RPTFILE |inpfile|.prx STRIPEXT STRIPATH OPTION report=
+    PROGSYNOP INPFILE OUTFILE RPTFILE DEFOPT1 
+  }
+
+PROG xnfprep_xff_drc(inpfile,outfile)
+  {
+    PROGNAME xnfprep
+    DEFOPT1 drc_only=true
+    INPFILE |inpfile|.xff STRIPEXT
+    OUTFILE |outfile|.xtg STRIPEXT
+    RPTFILE |inpfile|.prx STRIPEXT STRIPATH OPTION report=
+    PROGSYNOP INPFILE OUTFILE DEFOPT1 RPTFILE
+  }
+
+PROG xfind(inpfile,outfile)
+  {
+    PROGNAME xfind
+    INPFILE |inpfile|
+    XFWFILE |outfile|.xfw STRIPEXT
+    XGSFILE |outfile|.xgs STRIPEXT
+    PROGSYNOP INPFILE XFWFILE XGSFILE
+  }
+
+PROG xfind_comp(inpfile,cmpfile,block)
+  {
+    PROGNAME xfind
+    INPFILE |inpfile|
+    CMPFILE |cmpfile| OPTION -c
+    BLOCK   |block| OPTION -s
+    PROGSYNOP INPFILE CMPFILE BLOCK
+  }
+
+PROG xfind_noxgs(inpfile,outfile)
+  {
+    PROGNAME xfind
+    INPFILE |inpfile|
+    XFWFILE |outfile|.xfw STRIPEXT
+    PROGSYNOP INPFILE XFWFILE 
+  }
+
+PROG Orcad_xblox_simu(inpfile,outfile)
+  {
+    PROGNAME xblox
+    DEFOPT1 archopt=false
+    DEFOPT2 mergeio=false
+    INPFILE |inpfile|.xtg STRIPEXT
+    OUTFILE |outfile|.xg  STRIPEXT
+    RPTFILE |inpfile|.blx STRIPEXT STRIPATH OPTION blxfile=
+    PROGSYNOP INPFILE OUTFILE DEFOPT1 DEFOPT2 RPTFILE
+  }
+
+PROG Viewlogic_xblox_simu_with_rerun(inpfile,outfile)
+  {
+    PROGNAME xblox
+    DEFOPT1 sim=xnf
+    DEFOPT2 simdir=|xbloxxnf| 
+    DEFOPT3 sim_rerun=true
+    INPFILE |inpfile|.xtg STRIPEXT
+    RPTFILE |inpfile|.blx STRIPEXT STRIPATH OPTION blxfile=
+    PROGSYNOP INPFILE DEFOPT1 DEFOPT2 DEFOPT3 RPTFILE
+  }
+
+PROG Viewlogic_xblox_simu(inpfile,outfile)
+  {
+    PROGNAME xblox
+    DEFOPT1 sim=xnf
+    DEFOPT2 simdir=|xbloxxnf| 
+    INPFILE |inpfile|.xtg STRIPEXT
+    RPTFILE |inpfile|.blx STRIPEXT STRIPATH OPTION blxfile=
+    PROGSYNOP INPFILE DEFOPT1 DEFOPT2 RPTFILE
+  }
+
+
+MODEL_CREATE_DECL Viewlogic_handle_eqns(defval,fileval,symname,symtype,filename)
+{
+    SCR2FLE XSIMMAKE ERROR  --- Your design contains EQNS. The functional simulation
+    SCR2FLE XSIMMAKE ERROR  --- of these bloxs is NOT supported by XSIMMAKE. You
+    SCR2FLE XSIMMAKE ERROR  --- must run your design through APR/PPR and LCA2XNF
+    SCR2FLE XSIMMAKE ERROR  --- to obtain the flattened file to run through XNF2WIR.
+    INCERRS
+    EXIT
+}
+
+MODEL_CREATE_DECL Viewlogic_handle_clbs(defval,fileval,symname,symtype,filename)
+{
+    SCR2FLE XSIMMAKE ERROR  --- Your design contains CLBS. The functional simulation
+    SCR2FLE XSIMMAKE ERROR  --- of these bloxs is NOT supported by XSIMMAKE. You
+    SCR2FLE XSIMMAKE ERROR  --- must run your design through APR/PPR and LCA2XNF
+    SCR2FLE XSIMMAKE ERROR  --- to obtain the flattened file to run through XNF2WIR.
+    INCERRS
+    EXIT
+}
+
+MODEL_CREATE_DECL Viewlogic_handle_iobs(defval,fileval,symname,symtype,filename)
+{
+    SCR2FLE XSIMMAKE ERROR --- Your design contains IOBS. The functional simulation
+    SCR2FLE XSIMMAKE ERROR --- of these bloxs is NOT supported by XSIMMAKE. You
+    SCR2FLE XSIMMAKE ERROR --- must run your design through APR/PPR and LCA2XNF
+    SCR2FLE XSIMMAKE ERROR --- to obtain the flattened file to run through XNF2WIR.
+    INCERRS
+    EXIT
+}
+
+MODEL_CREATE_DECL Orcad_handle_eqns(defval,fileval,symname,symtype,filename)
+{
+    SCR2FLE XSIMMAKE ERROR  --- Your design contains EQNS. The functional simulation
+    SCR2FLE XSIMMAKE ERROR  --- of these bloxs is NOT supported by XSIMMAKE. You
+    SCR2FLE XSIMMAKE ERROR  --- must run your design through APR/PPR and LCA2XNF
+    SCR2FLE XSIMMAKE ERROR  --- to obtain the flattened file to run through XNF2VST.
+    INCERRS
+    EXIT
+}
+
+MODEL_CREATE_DECL Orcad_handle_clbs(defval,fileval,symname,symtype,filename)
+{
+    SCR2FLE XSIMMAKE ERROR  --- Your design contains CLBS. The functional simulation
+    SCR2FLE XSIMMAKE ERROR  --- of these bloxs is NOT supported by XSIMMAKE. You
+    SCR2FLE XSIMMAKE ERROR  --- must run your design through APR/PPR and LCA2XNF
+    SCR2FLE XSIMMAKE ERROR  --- to obtain the flattened file to run through XNF2VST.
+    INCERRS
+    EXIT
+}
+
+MODEL_CREATE_DECL Orcad_handle_iobs(defval,fileval,symname,symtype,filename)
+{
+    SCR2FLE XSIMMAKE ERROR  --- Your design contains IOBS. The functional simulation
+    SCR2FLE XSIMMAKE ERROR  --- of these bloxs is NOT supported by XSIMMAKE. You
+    SCR2FLE XSIMMAKE ERROR  --- must run your design through APR/PPR and LCA2XNF
+    SCR2FLE XSIMMAKE ERROR  --- to obtain the flattened file to run through XNF2VST.
+    INCERRS
+    EXIT
+}
+
+MODEL_CREATE_DECL Orcad_epld_handle_blox(defval,fileval,symname,symtype,filename)
+{
+    SCR2FLE XSIMMAKE ERROR  --- Your design contains XBLOX symbols. The functional 
+    SCR2FLE XSIMMAKE ERROR  --- simulation of these bloxs is NOT supported by XSIMMAKE.
+    SCR2FLE XSIMMAKE ERROR  --- You must run your design through APR/PPR and LCA2XNF
+    SCR2FLE XSIMMAKE ERROR  --- to obtain the flattened file to run through XNF2VST.
+    INCERRS
+    EXIT
+}
+
+MODEL_CREATE_DECL Orcad_func_memory(defval,fileval,symname,symtype,filename)
+{
+   FVARB file_base
+   FVARB target_file
+   FVARB save_file
+   CLRFVARB file_base
+   CLRFVARB save_file
+   CLRFVARB target_file
+
+   ADDFVARB file_base |fileval| STRIPEXT STRIPPATH
+   ADDFVARB save_file |fileval| STRIPEXT STRIPPATH SUBDIR |savexnf|
+   ADDFVARB target_file |fileval| STRIPEXT STRIPPATH SUBDIR |otherxnf|
+
+   IF_DEFINE force_complete_exe RUNFLOW SUB_MEMGEN_mem_exist(|file_base|)
+
+   #Does the file exist in the present directory?
+   # IF_NEWER |file_base|.xnf THAN |target_file|.xnf COPYFILE |file_base|.xnf |target_file|.xnf
+   # IF_NEWER |file_base|.xnf THAN |save_file|.xnf COPYFILE |file_base|.xnf |save_file|.xnf
+
+   #Create it if it doesn't exist
+   IF_NOT_EXIST |save_file|.xnf RUNFLOW SUB_MEMGEN_mem_exist(|file_base|)
+
+   IF_NEWER |target_file|.xnf THAN |save_file|.xnf COPYFILE |target_file|.xnf |save_file|.xnf
+
+   #Create it if its older
+   IF_NEWER |file_base|.mem THAN |save_file|.xnf RUNFLOW SUB_MEMGEN_mem_exist(|file_base|)
+
+
+   IF_NOT_EXIST |target_file|.xnf COPYFILE |save_file|.xnf |target_file|.xnf
+}
+
+MODEL_CREATE_DECL Orcad_func_rom(defval,fileval,symname,symtype,filename)
+{
+RETURN
+}
+MODEL_CREATE_DECL Orcad_func_xnf(defval,fileval,symname,symtype,filename)
+{
+  FVARB file_base
+  FVARB target_file
+  FVARB save_file
+  CLRFVARB file_base
+  CLRFVARB target_file
+
+  ADDFVARB file_base |fileval| STRIPEXT 
+  ADDFVARB save_file   |fileval| STRIPEXT STRIPPATH SUBDIR |savexnf|
+  ADDFVARB target_file |fileval| STRIPEXT STRIPPATH SUBDIR |otherxnf|
+
+IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE ERROR : The file |file_base|.xnf does not exist
+IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE ERROR : though it was specifed for |symname|.
+IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE ERROR : Please create this file before running XSIMMAKE.
+IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE ERROR : If this symbol is described by an XABEL or MEMGEN file, please run the  
+IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE ERROR :  proper programs to create the XNF file
+IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE ERROR :  or add the appropriate DEF to the symbol;
+IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE ERROR :  DEF=XABEL for XABEL symbols or DEF=MEM
+IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE ERROR :  for MEMGEN modules.
+IF_NOT_EXIST |file_base|.xnf  INCERRS
+IF_NOT_EXIST |file_base|.xnf  EXIT
+
+    IF_NEWER |file_base|.xnf THAN |target_file|.xnf COPYFILE |file_base|.xnf |target_file|.xnf
+    IF_NEWER |file_base|.xnf THAN |save_file|.xnf COPYFILE |file_base|.xnf |save_file|.xnf
+}
+
+MODEL_CREATE_DECL Orcad_func_xabel(defval,fileval,symname,symtype,filename)
+{
+   FVARB save_file
+   FVARB file_base
+   FVARB target_file
+   FVARB source_xnfdir_file
+   FVARB source_prsdir_file
+
+   CLRFVARB file_base
+   CLRFVARB save_file
+   CLRFVARB file_base
+   CLRFVARB target_file
+   CLRFVARB source_xnfdir_file
+   CLRFVARB source_prsdir_file
+
+   ADDFVARB file_base |fileval| STRIPEXT STRIPPATH
+   ADDFVARB save_file   |fileval| STRIPEXT STRIPPATH SUBDIR |savexnf|
+   ADDFVARB target_file |file_base| STRIPEXT STRIPPATH SUBDIR |otherxnf|
+   ADDFVARB source_prsdir_file |file_base|
+   ADDFVARB source_xnfdir_file |file_base| STRIPEXT STRIPPATH SUBDIR xnf
+
+   IF_DEFINE force_complete_exe RUNFLOW SUB_ABL2XNF_abl_exist(|file_base|)
+
+   IF_NEWER |source_prsdir_file|.xas THAN |save_file|.xnf COPYFILE |source_prsdir_file|.xas |save_file|.xnf
+   IF_NEWER |source_xnfdir_file|.xas THAN |save_file|.xnf COPYFILE |source_xnfdir_file|.xas |save_file|.xnf
+
+   #Create it if it doesn't exist
+   IF_NOT_EXIST |save_file|.xnf DELFILE |target_file|.xas
+   IF_NOT_EXIST |save_file|.xnf RUNFLOW SUB_ABL2XNF_abl_exist(|file_base|)
+   IF_EXIST |target_file|.xas COPYFILE |target_file|.xas |target_file|.xnf
+   IF_EXIST |target_file|.xas COPYFILE |target_file|.xas |save_file|.xnf
+   IF_EXIST |target_file|.xas DELFILE |target_file|.xas
+
+   #Create it if its older
+   IF_NEWER |file_base|.abl THAN |save_file|.xnf DELFILE |target_file|.xas
+   IF_NEWER |file_base|.abl THAN |save_file|.xnf RUNFLOW SUB_ABL2XNF_abl_exist(|file_base|)
+   IF_EXIST |target_file|.xas COPYFILE |target_file|.xas |target_file|.xnf
+   IF_EXIST |target_file|.xas COPYFILE |target_file|.xas |save_file|.xnf
+   IF_EXIST |target_file|.xas DELFILE |target_file|.xas
+
+   IF_NOT_EXIST |target_file|.xnf COPYFILE |save_file|.xnf |target_file|.xnf
+}
+
+MODEL_CREATE_DECL Orcad_func_xblox(defval,fileval,symname,symtype,filename)
+{
+   FVARB orcad_xnf_file
+   FVARB orcad_xff_file
+   CLRFVARB orcad_xnf_file
+   CLRFVARB orcad_xff_file
+   ADDFVARB orcad_xnf_file |filename|.xnf STRIPEXT
+   ADDFVARB orcad_xff_file |filename|.xff STRIPEXT
+
+    EXEPROG xnfmerge_preclude_inputdir(|orcad_xnf_file|,|orcad_xff_file|,|otherxnf|)
+    EXEPROG  xnfprep_xff_drc(|filename|,|filename|)
+    EXEPROG  Orcad_xblox_simu(|filename|,|filename|)
+}
+
+MODEL_CREATE_DECL Viewlogic_func_rom(defval,fileval,symname,symtype,filename)
+{
+    ADDFVARB xmm_files |filename|.xmm STRIPEXT
+    EXEPROG x2w_rom(|filename|)
+#    SCREEN ROMS were found in your design. A file |xmm_files| containing 
+#    SCREEN the required LOADM statements for your ROM will be created in your
+#    SCREEN directory. Use a text editor to attach this file to your simulation 
+#    SCREEN command file, in order to load the ROM when simulation is run.
+}
+
+
+MODEL_CREATE_DECL Viewlogic_func_xabel(defval,fileval,symname,symtype,filename)
+{
+   FVARB wir_file
+   FVARB file_base
+   FVARB target_file
+   FVARB save_target_file
+   FVARB source_xnfdir_file
+   FVARB source_prsdir_file
+
+   CLRFVARB wir_file
+   CLRFVARB file_base
+   CLRFVARB target_file
+   CLRFVARB save_target_file
+   CLRFVARB source_xnfdir_file
+   CLRFVARB source_prsdir_file
+
+   ADDFVARB file_base |fileval| STRIPEXT STRIPPATH
+   ADDFVARB wir_file |file_base|.1 SUBDIR |sim_dir| SUBDIR wir
+   ADDFVARB target_file |file_base| STRIPEXT STRIPPATH SUBDIR |otherxnf|
+   ADDFVARB save_target_file |file_base| STRIPEXT STRIPPATH SUBDIR |savexnf|
+   ADDFVARB source_prsdir_file |file_base|
+   ADDFVARB source_xnfdir_file |file_base| STRIPEXT STRIPPATH SUBDIR xnf
+
+   IF_DEFINE force_complete_exe RUNFLOW SUB_ABL2XNF_abl_exist(|file_base|)
+
+   IF_NEWER |source_prsdir_file|.xas THAN |target_file|.xnf COPYFILE |source_prsdir_file|.xas |target_file|.xnf
+   IF_NEWER |source_xnfdir_file|.xas THAN |target_file|.xnf COPYFILE |source_xnfdir_file|.xas |target_file|.xnf
+   IF_NEWER |save_target_file|.xas THAN |target_file|.xnf COPYFILE |save_target_file|.xas |target_file|.xnf
+
+   #Create it if it doesn't exist
+   IF_NOT_EXIST |target_file|.xnf DELFILE |target_file|.xas
+   IF_NOT_EXIST |target_file|.xnf RUNFLOW SUB_ABL2XNF_abl_exist(|file_base|)
+   IF_EXIST |target_file|.xas COPYFILE |target_file|.xas |target_file|.xnf
+   IF_EXIST |target_file|.xas COPYFILE |target_file|.xas |save_target_file|.xas
+   IF_EXIST |target_file|.xas DELFILE |target_file|.xas
+
+   #Create it if its older
+   IF_NEWER |file_base|.abl THAN |target_file|.xnf DELFILE |target_file|.xas
+   IF_NEWER |file_base|.abl THAN |target_file|.xnf RUNFLOW SUB_ABL2XNF_abl_exist(|file_base|)
+   IF_EXIST |target_file|.xas COPYFILE |target_file|.xas |target_file|.xnf
+   IF_EXIST |target_file|.xas COPYFILE |target_file|.xas |save_target_file|.xas
+   IF_EXIST |target_file|.xas DELFILE |target_file|.xas
+
+   IF_NOT_EXIST |target_file|.xnf RETURN
+
+   IF_NEWER |target_file|.xnf THAN |wir_file| EXEPROG x2w_io_subdir(|file_base|,|file_base|,|otherxnf|,|sim_dir|)
+}
+
+MODEL_CREATE_DECL Viewlogic_func_hm(defval,fileval,symname,symtype,filename)
+{
+   FVARB file_base
+   FVARB wir_file
+   CLRFVARB file_base
+   CLRFVARB wir_file
+
+   ADDFVARB file_base |symtype| STRIPEXT STRIPPATH LOWERCASE
+   ADDFVARB wir_file  |symtype|.1 STRIPEXT STRIPPATH LOWERCASE SUBDIR |sim_dir| SUBDIR wir 
+
+#  IF_NEWER |wir_file| THAN |file_base|.xnf RETURN
+
+   #Create it if it doesn't exist
+#   IF_NOT_EXIST |file_base|.xnf EXEPROG hm2rpm(|file_base|)
+
+   #Create it if its older
+#   IF_NEWER |file_base|.hm THAN |file_base|.xnf EXEPROG hm2prm(|file_base|)
+
+   IF_EXIST |file_base|.xnf EXEPROG x2w_2_simdir(|file_base|,|file_base|,|sim_dir|)
+
+   IF_NOT_EXIST |file_base|.xnf SCR2FLE ----------------------------------------------------------------
+   IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE WARNING : The symbol |symname| has a DEF=HM, indicating that it is
+   IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE WARNING : a hardmacro, but an XNF file could not be found for it.
+   IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE WARNING : We are assuming that this is a standard XILINX hardmacro.
+   IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE WARNING : In which case, please ensure that you are using the HARD
+   IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE WARNING : MACRO REPLACEMENT LIBRARY. This library MUST be specified
+   IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE WARNING : FIRST, right after the primary directory, in your
+   IF_NOT_EXIST |file_base|.xnf SCR2FLE XSIMMAKE WARNING : viewdraw.ini file.
+   IF_NOT_EXIST |file_base|.xnf SCR2FLE ----------------------------------------------------------------
+   IF_NOT_EXIST |file_base|.xnf INCWRNS
+   SCREEN 
+   SCREEN 
+}
+
+MODEL_CREATE_DECL Viewlogic_func_memory(defval,fileval,symname,symtype,filename)
+{
+   FVARB wir_file
+   FVARB file_base
+   FVARB target_file
+   FVARB save_target_file
+
+   CLRFVARB wir_file
+   CLRFVARB file_base
+   CLRFVARB target_file
+   CLRFVARB save_target_file
+
+   ADDFVARB file_base |fileval| STRIPEXT STRIPPATH
+   ADDFVARB target_file |file_base| SUBDIR |otherxnf|
+   ADDFVARB save_target_file |file_base| SUBDIR |savexnf|
+   ADDFVARB wir_file |file_base|.1 SUBDIR |sim_dir| SUBDIR wir
+
+   IF_DEFINE force_complete_exe RUNFLOW SUB_MEMGEN_mem_exist(|file_base|)
+
+   #Does the file exist in the present directory?
+   IF_NEWER |file_base|.xnf THAN |target_file|.xnf COPYFILE |file_base|.xnf |target_file|.xnf
+   
+   IF_NEWER |save_target_file|.xnf THAN |target_file|.xnf COPYFILE |save_target_file|.xnf |target_file|.xnf
+
+   #Create it if it doesn't exist
+   IF_NOT_EXIST |target_file|.xnf RUNFLOW SUB_MEMGEN_mem_exist(|file_base|)
+
+   #Create it if its older
+   IF_NEWER |file_base|.mem THAN |target_file|.xnf RUNFLOW SUB_MEMGEN_mem_exist(|file_base|)
+
+   IF_NOT_EXIST |target_file|.xnf RETURN
+   IF_NEWER |target_file|.xnf THAN |save_target_file|.xnf COPYFILE |target_file|.xnf |save_target_file|.xnf
+
+   EXEPROG x2w_io_subdir(|file_base|,|file_base|,|otherxnf|,|sim_dir|)
+}
+
+LOCAL FLOW Compare_xff_files(xff_file1,xff_file2,bloxname)
+{
+IF_DEFINE force_complete_exe RETURN
+EXEPROG xfind_comp(|xff_file1|,|xff_file2|,|bloxname|)
+}
+
+MODEL_CREATE_DECL Viewlogic_func_xblox(defval,fileval,symname,symtype,filename)
+{
+    MODEL_CREATE_DEF XNF, EXCL, x2w_xbloxxnf
+    MODEL_DELETE_DEF XNF, EXCL, remove_bsm_wir
+
+    FVARB xff_file
+    FVARB xgs_file
+    FVARB sav_xgs_file
+    FVARB sav_xff_file
+
+    CLRFVARB xff_file
+    CLRFVARB xgs_file
+    CLRFVARB sav_xgs_file
+    CLRFVARB sav_xff_file
+
+    ADDFVARB xgs_file |inp_file|.xgs SUBDIR |xbloxxnf|
+    ADDFVARB xff_file |inp_file|.xff SUBDIR |otherxnf|
+    ADDFVARB sav_xgs_file |inp_file|.xgs SUBDIR |savexnf|
+    ADDFVARB sav_xff_file |inp_file|.xff SUBDIR |savexnf|
+
+    EXEPROG xnfmerge_preclude_inputdir(|filename|,|filename|,|otherxnf|)
+    
+    DELFILE xfind.cmp 
+    IF_EXIST |sav_xff_file| RUNFLOW Compare_xff_files(|xff_file|,|sav_xff_file|,BLOX)
+    IF_EXIST xfind.cmp SCREEN -----------------------------------------------------------
+    IF_EXIST xfind.cmp SCREEN XSIMMAKE INFO : The XBLOX symbols in |xff_file| and
+    IF_EXIST xfind.cmp SCREEN XSIMMAKE INFO : |sav_xff_file| are identical. No changes
+    IF_EXIST xfind.cmp SCREEN XSIMMAKE INFO : to XBLOX symbols have been made. Therefore
+    IF_EXIST xfind.cmp SCREEN XSIMMAKE INFO : we do not need to rerun XBLOX.
+    IF_EXIST xfind.cmp ADDFVARB xgs_files |sav_xgs_file|
+    IF_EXIST xfind.cmp SCREEN -----------------------------------------------------------
+    IF_EXIST xfind.cmp RETURN
+
+    EXEPROG xnfprep_xff(|filename|,|filename|)
+    IF_NOT_DEFINE force_complete_exe EXEPROG Viewlogic_xblox_simu(|filename|)
+    IF_DEFINE force_complete_exe EXEPROG Viewlogic_xblox_simu_with_rerun(|filename|)
+    EXEPROG xfind_noxgs(|xgs_file|,|inp_file|,|inp_file|)
+    IF_EXIST |inp_file|.xfw RUNXFW |inp_file|.xfw
+    IF_EXIST |inp_file|.xfw ADDFVARB xgs_files |inp_file|.xgs SUBDIR |xbloxxnf|
+    IF_NEWER |xgs_file| THAN |sav_xgs_file| COPYFILE |xgs_file| |sav_xgs_file|
+}
+
+MODEL_CREATE_DECL Viewlogic_func_file(defval,fileval,symname,symtype,filename)
+{
+FVARB inp_file_in_xnf
+FVARB inp_file_in_dir
+FVARB outfile
+
+CLRFVARB inp_file_in_dir
+CLRFVARB inp_file_in_xnf
+CLRFVARB outfile
+
+ADDFVARB inp_file_in_dir |fileval|.xnf STRIPEXT
+ADDFVARB outfile |fileval|.xnf STRIPPATH STRIPEXT
+
+IF_EXIST |inp_file_in_dir| EXEPROG x2w_2_simdir(|inp_file_in_dir|,|outfile|,|sim_dir|)
+IF_EXIST |inp_file_in_dir| RETURN
+
+
+IF_NOT_EXIST |inp_file_in_dir| ADDFVARB inp_file_in_xnf |fileval|.xnf STRIPPATH SUBDIR xnf
+
+IF_NOT_EXIST |inp_file_in_xnf| SCR2FLE XSIMMAKE ERROR : An XNF file describing the FILE=|inp_file_in_dir|  MODULE could not be found.
+IF_NOT_EXIST |inp_file_in_xnf| SCR2FLE XSIMMAKE ERROR : If this symbol is described by an XABEL or MEMGEN file, please run the  
+IF_NOT_EXIST |inp_file_in_xnf| SCR2FLE XSIMMAKE ERROR :  proper programs to create the XNF file.
+IF_NOT_EXIST |inp_file_in_xnf| SCR2FLE XSIMMAKE ERROR :  or add the appropriate DEF to the symbol;
+IF_NOT_EXIST |inp_file_in_xnf| SCR2FLE XSIMMAKE ERROR :  DEF=XABEL for XABEL symbols or DEF=MEM
+IF_NOT_EXIST |inp_file_in_xnf| SCR2FLE XSIMMAKE ERROR :  for MEMGEN modules.
+IF_NOT_EXIST |inp_file_in_xnf| INCERRS
+IF_NOT_EXIST |inp_file_in_xnf| EXIT
+
+IF_EXIST |inp_file_in_xnf| EXEPROG x2w_2_simdir(|inp_file_in_xnf|,|outfile|,|sim_dir|)
+}
+
+MODEL_CREATE_DECL x2w_xbloxxnf(defval,fileval,symname,symtype,filename)
+{
+   FVARB xnf_file
+   FVARB wir_file
+   CLRFVARB xnf_file
+   CLRFVARB wir_file
+
+   ADDFVARB wir_file |fileval|.1 STRIPEXT SUBDIR |sim_dir| SUBDIR wir
+   ADDFVARB xnf_file |fileval|.xnf STRIPEXT SUBDIR |xbloxxnf|
+
+#    SCREEN This is the wir file : |wir_file|
+#    SCREEN This is the xnf file : |xnf_file|
+
+IF_NEWER |xnf_file| THAN |wir_file| EXEPROG x2w_io_subdir(|fileval|,|fileval|,|xbloxxnf|,|sim_dir|)
+DELFILE |fileval|.x2w STRIPEXT STRIPPATH
+}
+
+
+MODEL_CREATE_DECL x2w_gen(defval,fileval,symname,symtype,filename)
+{
+    EXEPROG x2w_gen(|fileval|,|fileval|)
+}
+
+MODEL_DELETE_DECL remove_bsm_wir(defval,fileval,symname,symtype,filename)
+{
+ FVARB wir_file
+ CLRFVARB wir_file
+ ADDFVARB wir_file |fileval|.1 STRIPEXT SUBDIR |sim_dir| SUBDIR wir
+
+ DELFILE |wir_file|
+}
+
+LOCAL FLOW SUB_ABL2XNF_unified_parttype_exist(infile)
+{
+IF_DEFINE parttype EXEPROG abl2xnf_unified_w_parttype(|infile|)
+IF_NOT_DEFINE parttype EXEPROG abl2xnf_unified(|infile|)
+}
+
+LOCAL FLOW SUB_ABL2XNF_oldlib_parttype_exist(infile)
+{
+IF_DEFINE parttype EXEPROG abl2xnf_oldlib_w_parttype(|infile|)
+IF_NOT_DEFINE parttype EXEPROG abl2xnf_oldlib(|infile|)
+}
+
+LOCAL FLOW SUB_ABL2XNF_abl_exist(infile)
+{
+IF_NOT_EXIST |infile|.abl SCR2FLE XSIMMAKE ERROR : THE FILE |infile|.abl does not exist. Please
+IF_NOT_EXIST |infile|.abl SCR2FLE XSIMMAKE ERROR : create this file before running XSIMMAKE.
+IF_NOT_EXIST |infile|.abl  INCERRS
+IF_NOT_EXIST |infile|.abl  EXIT
+
+IF_DEFINE oldlibrary RUNFLOW SUB_ABL2XNF_oldlib_parttype_exist(|infile|)
+IF_DEFINE unilibrary RUNFLOW SUB_ABL2XNF_unified_parttype_exist(|infile|)
+}
+
+LOCAL FLOW SUB_MEMGEN_unified_parttype_exist(infile)
+{
+IF_DEFINE parttype EXEPROG memgen_unified_w_parttype(|infile|)
+IF_NOT_DEFINE parttype EXEPROG memgen_unified(|infile|)
+}
+
+LOCAL FLOW SUB_MEMGEN_oldlib_parttype_exist(infile)
+{
+IF_DEFINE parttype EXEPROG memgen_oldlib_w_parttype(|infile|)
+IF_NOT_DEFINE parttype EXEPROG memgen_oldlib(|infile|)
+}
+
+LOCAL FLOW SUB_MEMGEN_mem_exist(infile)
+{
+   FVARB target_file
+   FVARB save_target_file
+
+   CLRFVARB target_file
+   CLRFVARB save_target_file
+
+   ADDFVARB target_file |infile| SUBDIR |otherxnf|
+   ADDFVARB save_target_file |infile| SUBDIR |savexnf|
+
+IF_NOT_EXIST |infile|.mem SCR2FLE XSIMMAKE ERROR : THE FILE |infile|.mem does not exist. Please
+IF_NOT_EXIST |infile|.mem SCR2FLE XSIMMAKE ERROR : create this file before running XSIMMAKE.
+IF_NOT_EXIST |infile|.mem  INCERRS
+IF_NOT_EXIST |infile|.mem  EXIT
+
+IF_DEFINE oldlibrary RUNFLOW SUB_MEMGEN_oldlib_parttype_exist(|infile|)
+IF_DEFINE unilibrary RUNFLOW SUB_MEMGEN_unified_parttype_exist(|infile|)
+COPYFILE |target_file|.xnf |save_target_file|.xnf
+}
+
+
+#---------------------------Viewlogic FLOWS-----------------
+FLOW Viewlogic_Fpga_Func(inpfile):VFF
+{
+  FVARB infile
+  FVARB xff_file
+  FVARB sav_xff_file
+  CLRFVARB infile
+  CLRFVARB xff_file
+  CLRFVARB sav_xff_file
+  ADDFVARB infile |inpfile| STRIPPATH STRIPEXT
+
+
+#  EXEPROG x2w_io_subdir(bsm1,bsm1,ssmalltest/xbloxxnf,ssmalltest)
+#  EXIT
+  HELP ---------------------------------------------
+  HELP The Viewlogic_func_simulation flow is used to 
+  HELP create a new vsm file and schematic for
+  HELP performing functional simulation on designs
+  HELP that cannot be simulated using Export-Wirelist-VSM
+  HELP within the VIEWlogic enviroment. Examples of such
+  HELP designs are designs which contain XBLOX or XPAL symbols.
+  HELP ---------------------------------------------
+  HELP    
+  HELP    
+
+  MODEL_CREATE_DEF XNF,  EXCL, Viewlogic_func_file,1
+  MODEL_CREATE_DEF HM,   EXCL, Viewlogic_func_hm,1
+  MODEL_CREATE_DEF ROM,  COLL, Viewlogic_func_rom,1
+  MODEL_CREATE_DEF BLOX, COLL, Viewlogic_func_xblox,2
+  MODEL_CREATE_DEF CLB,  COLL, Viewlogic_handle_clbs,3
+  MODEL_CREATE_DEF IOB,  COLL, Viewlogic_handle_iobs,3
+  MODEL_CREATE_DEF EQN,  COLL, Viewlogic_handle_eqns,3
+  MODEL_CREATE_DEF XABEL,EXCL, Viewlogic_func_xabel,1
+  MODEL_CREATE_DEF ABEL, EXCL, Viewlogic_func_xabel,1
+  MODEL_CREATE_DEF MEM,  EXCL, Viewlogic_func_memory,1
+
+  VARB xgs_files
+
+  SCR2FLE  Running XSIMMAKE.XFW version 5.0.0
+  SCR2FLE --------------------------------------------------------------------
+  SCR2FLE   RUNNING [Viewlogic_Fpga_Func] FLOW.
+  SCR2FLE --------------------------------------------------------------------
+  SCR2FLE ---
+  SCR2FLE --------------------------------------------------------------------
+
+  SCREEN XSIMMAKE INFO :  This flow will create a new directory called s|infile|
+  SCREEN XSIMMAKE INFO : under your project directory, and modify your viewdraw.ini
+  SCREEN XSIMMAKE INFO : file to add an alias of this name so it can be accessed.
+  SCREEN XSIMMAKE INFO :   All of the files created by this flow, except the error
+  SCREEN XSIMMAKE INFO : and screen output files, will be placed in the 
+  SCREEN XSIMMAKE INFO : s|infile| directory.
+  SCREEN XSIMMAKE INFO :   The output schematic and the vsm file will both
+  SCREEN XSIMMAKE INFO : be named s|infile|.
+  SCREEN --------------------------------------------------------------------
+  SCREEN ---
+  SCREEN ---
+  SCREEN
+
+    
+  FVARB xnf_file
+  ADDFVARB sim_dir s|infile|
+  ADDFVARB inp_file |infile|
+
+  ADDFVARB xff_file |infile|.xff SUBDIR s|infile| STRIPEXT STRIPPATH SUBDIR otherxnf 
+  ADDFVARB sav_xff_file |infile|.xff SUBDIR s|infile| STRIPEXT STRIPPATH SUBDIR savexnf 
+
+  ADDFVARB savexnf  savexnf  SUBDIR s|infile|
+  ADDFVARB otherxnf otherxnf SUBDIR s|infile|
+  ADDFVARB xbloxxnf xbloxxnf SUBDIR s|infile|
+  ADDFVARB xnf_file |infile|.xnf SUBDIR |otherxnf|
+
+  DELFILE s|infile|.xmm 
+
+  IF_DEFINE force_complete_exe DELETEDIR s|infile|
+  CREATEDIR s|infile|
+
+  DELETEDIR sch SUBDIR s|infile|
+  DELETEDIR sym SUBDIR s|infile|
+  DELETEDIR otherxnf SUBDIR s|infile|
+
+  CREATEDIR sch SUBDIR s|infile|
+  CREATEDIR sym SUBDIR s|infile|
+  CREATEDIR wir SUBDIR s|infile|
+
+  CREATEDIR |savexnf|
+  CREATEDIR |xbloxxnf|
+  CREATEDIR |otherxnf|
+
+  EXEPROG check(|infile|)
+  IF_DEFINE parttype EXEPROG w2x_simu_w_parttype(|infile|,|infile|)
+  IF_NOT_DEFINE parttype EXEPROG w2x_simu(|infile|,|infile|)
+
+  EXEPROG xnfmerge_exclusive_inputdir(|xnf_file|,|xff_file|,|otherxnf|)
+  EXEPROG xfind(|xff_file|,|infile|,|infile|);
+
+  IF_EXIST |infile|.xgs ADDFVARB xgs_files |infile|.xgs
+  IF_EXIST |infile|.xfw RUNXFW |infile|.xfw
+
+  IF_NOT_EXIST |xff_file| EXEPROG xnfmerge_preclude_inputdir(|xnf_file|,|xff_file|,|otherxnf|)
+  IF_NEWER |xff_file| THAN |sav_xff_file| COPYFILE |xff_file| |sav_xff_file|
+
+  EXEPROG xdraw(|infile|,s|infile|,s|infile|,|xgs_files|)
+  EXEPROG check(s|infile|)
+
+
+  SCR2FLE ----------------------------------------------------------------
+  SCR2FLE XSIMMAKE INFO : The output of the  next command will not
+  SCR2FLE XSIMMAKE INFO : be written into the xsimmake.out file, possibly
+  SCR2FLE XSIMMAKE INFO : because of a long status line. Look in the
+  SCR2FLE XSIMMAKE INFO : file vsm.dmp to find the output of this program.
+  SCR2FLE ----------------------------------------------------------------
+
+  EXEPROG vsm(s|infile|)
+
+IF_EXIST s|infile|.xmm SCR2FLE -------------------------------------------------------
+IF_EXIST s|infile|.xmm SCR2FLE XSIMMAKE INFO : A file s|infile|.xmm has been created, indicating that
+IF_EXIST s|infile|.xmm SCR2FLE XSIMMAKE INFO : your design contains ROM symbols. This xmm file
+IF_EXIST s|infile|.xmm SCR2FLE XSIMMAKE INFO : contains the LOADM statements to initialize your ROMS.
+IF_EXIST s|infile|.xmm SCR2FLE XSIMMAKE INFO : Please prepend this file to the BEGINNING of your
+IF_EXIST s|infile|.xmm SCR2FLE XSIMMAKE INFO : simulation command file, or run it on its own 
+IF_EXIST s|infile|.xmm SCR2FLE XSIMMAKE INFO : BEFORE your command file in order to load your ROMS.
+IF_EXIST s|infile|.xmm SCR2FLE -------------------------------------------------------
+
+ IF_EXIST |infile|.xgs DELFILE |infile|.xgs
+ IF_EXIST |infile|.xfw DELFILE |infile|.xfw
+SCREEN  Run completed successfully. Please look in xsimmake.out and 
+SCREEN  also in individual log files for program warnings.
+} 
+
+LOCAL FLOW VFT_use_xg(xg_file,xnffile)
+{
+FVARB xg_file_in_xnf
+
+ IF_EXIST xnfba.xnf RETURN
+
+ CLRFVARB xg_file_in_xnf
+
+ ADDFVARB xg_file_in_xnf |xg_file| SUBDIR xnf
+
+ IF_EXIST |xg_file| EXEPROG xnfba(|xg_file|,|xnffile|)
+
+ IF_EXIST xnfba.xnf RETURN
+ IF_EXIST |xg_file_in_xnf| EXEPROG xnfba(|xg_file_in_xnf|,|xnffile|)
+}
+
+LOCAL FLOW VFT_use_xff(xff_file,xnffile)
+{
+FVARB xff_file_in_xnf
+
+ IF_EXIST xnfba.xnf RETURN
+
+ CLRFVARB xff_file_in_xnf
+
+ ADDFVARB xff_file_in_xnf |xff_file| SUBDIR xnf
+
+ IF_EXIST |xff_file| EXEPROG xnfba(|xff_file|,|xnffile|)
+
+ IF_EXIST xnfba.xnf RETURN
+ IF_EXIST |xff_file_in_xnf| EXEPROG xnfba(|xff_file_in_xnf|,|xnffile|)
+}
+
+LOCAL FLOW VFT_run_vsmupd(infile,xnf_file)
+{
+FVARB pre_route_vsm
+CLRFVARB pre_route_vsm
+
+ IF_EXIST  s|infile|.vsm ADDFVARB pre_route_vsm s|infile|
+ IF_NOT_EXIST  s|infile|.vsm ADDFVARB pre_route_vsm |infile|
+
+ IF_EXIST |infile|.bxa EXEPROG vsmupd_use_bxa(|pre_route_vsm|,xnfba,xnfba.xnf,|infile|.bxa,|pre_route_vsm|)
+ IF_NOT_EXIST |infile|.bxa EXEPROG vsmupd(|pre_route_vsm|,xnfba,xnfba.xnf,|pre_route_vsm|)
+}
+
+LOCAL FLOW VFT_find_func_vsm(infile)
+{
+  IF_NOT_EXIST |infile|.vsm SCR2FLE -------------------------------------------------------
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : Could not find |infile|.vsm.
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : Could not find s|infile|.vsm.
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR :   XSIMMAKE requires that the vsm file from functional
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : simulation be present, in order to return hierarchy
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : to the timing vsm file. If your design contained any type
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : of special symbols like XBLOX, XABEL or 
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : MEMGEN symbols, then this file will be s|infile|.vsm
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : and to create it you must either run XSIMMAKE in the
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : functional mode before attempting timing 
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : simulation, or if you have already run a functional
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : simulation, then just make sure that a s|infile|.vsm file
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR :  is in the directory.
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR :   If your design does not contain any special symbols,
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : then |infile|.vsm will be used. It also must be in
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : the directory before timing simulation can be attempted.
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR :   In both cases, when it has located the vsm file
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : it needs, XSIMMAKE will try to recreate it to ensure
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : that it is not just a timing vsm file from a
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : previous timing run. This means that the wir
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : files |infile|.1 must be be in the present wir directory
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : or s|infile|.1 must be in the wir directory 
+  IF_NOT_EXIST |infile|.vsm SCR2FLE XSIMMAKE ERROR : under s|infile|.
+  IF_NOT_EXIST |infile|.vsm SCR2FLE -------------------------------------------------------
+  IF_NOT_EXIST |infile|.vsm INCERRS
+  IF_NOT_EXIST |infile|.vsm EXIT
+  
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE -------------------------------------------------------
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : The file s|infile|.vsm does not exist,
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : indicating that you have not run 
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : XSIMMAKE in the functional simulation
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : mode. This means that your design 
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : CANNOT contain any XBLOX, XABEL, MEMGEN 
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : or any other special symbols. If it does, 
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : you MUST run a functional simulation BEFORE
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : attempting a timing simulation.
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : If your design does NOT contain any of
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : these symbols, please ignore this message,
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : and |infile|.vsm will be used
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : as the pre-routed vsm file.
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE WARNING : The output vsm file will be |infile|.vsm
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE -------------------------------------------------------
+  IF_NOT_EXIST s|infile|.vsm INCWRNS
+}
+
+FLOW Viewlogic_Fpga_Timing(inpfile):VFT
+ {
+  FVARB infile
+  FVARB xg_file
+  FVARB xff_file
+  FVARB xnf_file
+  FVARB xmm_file
+
+  FVARB pres_xg_file
+  FVARB pres_xff_file
+  FVARB pres_xnf_file
+
+  CLRFVARB infile
+  CLRFVARB xg_file
+  CLRFVARB xff_file
+  CLRFVARB xnf_file
+  CLRFVARB xmm_file
+
+  ADDFVARB infile |inpfile| STRIPPATH STRIPEXT
+
+   HELP ----------------------------------------------------------------
+   HELP  This flow creates a new vsm file for performing
+   HELP  timing simulation on designs.Timing simulation starts AFTER the
+   HELP  design has been routed, i.e. after PPR. It will start by looking for
+   HELP <input file>.lca.  This flow will NOT create a new schematic, and 
+   HELP  if your design contains XBLOX or XPAL like symbols, you should use 
+   HELP  the schematic that was created during functional simulation to perform
+   HELP  simulation. 
+   HELP ----------------------------------------------------------------
+   HELP    
+   HELP    
+
+  SCR2FLE  Running XSIMMAKE.XFW version 5.0.0
+  SCR2FLE --------------------------------------------------------------------
+  SCR2FLE   RUNNING [Viewlogic_Fpga_Timing] FLOW.
+  SCR2FLE --------------------------------------------------------------------
+  SCR2FLE ---
+  SCR2FLE --------------------------------------------------------------------
+    
+  IF_NOT_EXIST s|infile|.vsm RUNFLOW VFT_find_func_vsm(|infile|)
+
+    #Create the wir directory if it doesn't exist.
+
+    CREATEDIR s|infile| 
+    CREATEDIR otherxnf SUBDIR s|infile|
+
+    ADDFVARB xg_file |infile|.xg 
+    ADDFVARB xff_file |infile|.xff
+    ADDFVARB xmm_file s|infile|.xmm
+    ADDFVARB xnf_file |infile|.xnf
+
+    EXEPROG xdelay(|infile|)
+    EXEPROG lca2xnf(|infile|,|xnf_file|)
+
+    DELFILE xnfba.xnf
+
+
+#    IF_NEWER |infile|.xg THAN |xg_file|   COPYFILE |infile|.xg  |xg_file|
+#    IF_NEWER |infile|.xff THAN |xnf_file| COPYFILE |infile|.xff |xff_file|
+
+  #Back annotate delays and such using xnfba
+
+  #First, if it is an XBLOX thingy, use the xg file in otherxnf
+   RUNFLOW VFT_use_xg(|xg_file|,|xnf_file|)
+
+  #Second, if its not an XBLOX thingy, use the the xff file.
+   RUNFLOW VFT_use_xff(|xff_file|,|xnf_file|)
+    
+  IF_NOT_EXIST xnfba.xnf SCR2FLE XSIMMAKE ERROR : |xg_file|  could not be found.
+  IF_NOT_EXIST xnfba.xnf SCR2FLE XSIMMAKE ERROR : |xff_file| could not be found.
+  IF_NOT_EXIST xnfba.xnf SCR2FLE XSIMMAKE ERROR : The Viewlogic_Fpga_Timing flow requires that you run a functional
+  IF_NOT_EXIST xnfba.xnf SCR2FLE XSIMMAKE ERROR : simulation first. Please do so and rerun the Timing simulation.
+  IF_NOT_EXIST xnfba.xnf INCERRS
+  IF_NOT_EXIST xnfba.xnf EXIT
+
+  IF_EXIST s|infile|.vsm SCR2FLE ----------------------------------------------------------
+  IF_EXIST s|infile|.vsm SCR2FLE A s|infile|.vsm exists. We will attempt to recreate
+  IF_EXIST s|infile|.vsm SCR2FLE it from your simulation schematic, because you may have 
+  IF_EXIST s|infile|.vsm SCR2FLE over written it during a previous timing simulation flow.
+  IF_EXIST s|infile|.vsm SCR2FLE ----------------------------------------------------------
+  IF_EXIST s|infile|.vsm  EXEPROG check(s|infile|)
+  IF_EXIST s|infile|.vsm  EXEPROG vsm(s|infile|)
+
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE ----------------------------------------------------------
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE A |infile|.vsm exists. We will attempt to recreate
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE it from your simulation schematic, because you may have 
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE over written it during a previous timing simulation flow.
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE ----------------------------------------------------------
+  IF_NOT_EXIST s|infile|.vsm  EXEPROG check(|infile|)
+
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE ----------------------------------------------------------------
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE INFO : The output of the next command will not
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE INFO : be written into the xsimmake.out file, possibly
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE INFO : because of a long status line. Look in the
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE XSIMMAKE INFO : file vsm.dmp to find the output of this program
+  IF_NOT_EXIST s|infile|.vsm SCR2FLE ----------------------------------------------------------------
+  IF_NOT_EXIST s|infile|.vsm EXEPROG vsm(|infile|)
+
+    DELFILE xnfba.xmm
+    EXEPROG x2w_gen(xnfba.xnf,xnfba)
+  SCR2FLE ----------------------------------------------------------------
+  SCR2FLE XSIMMAKE INFO : The output of the next command will not
+  SCR2FLE XSIMMAKE INFO : be written into the xsimmake.out file, possibly
+  SCR2FLE XSIMMAKE INFO : because of a long status line. Look in the
+  SCR2FLE XSIMMAKE INFO : file vsm.dmp to find the output of this program
+  SCR2FLE ----------------------------------------------------------------
+  EXEPROG vsm(xnfba)
+
+IF_EXIST xnfba.xmm SCR2FLE -------------------------------------------------------
+IF_EXIST xnfba.xmm SCR2FLE XSIMMAKE INFO : A file s|infile|.xmm has been created, indicating that
+IF_EXIST xnfba.xmm SCR2FLE XSIMMAKE INFO : your design contains ROM symbols. This xmm file
+IF_EXIST xnfba.xmm SCR2FLE XSIMMAKE INFO : contains the LOADM statements to initialize your ROMS.
+IF_EXIST xnfba.xmm SCR2FLE XSIMMAKE INFO : Please prepend this file to the BEGINNING of your
+IF_EXIST xnfba.xmm SCR2FLE XSIMMAKE INFO : simulation command file, or run it on its own 
+IF_EXIST xnfba.xmm SCR2FLE XSIMMAKE INFO : BEFORE your command file in order to load your ROMS.
+IF_EXIST xnfba.xmm SCR2FLE -------------------------------------------------------
+IF_EXIST xnfba.xmm COPYFILE xnfba.xmm |xmm_file|
+DELFILE xnfba.xmm
+
+#    IF_EXIST  s|infile|.vsm EXEPROG vsmupd(s|infile|,xnfba,xnfba.xnf,s|infile|)
+#    IF_NOT_EXIST s|infile|.vsm EXEPROG vsmupd(|infile|,xnfba,xnfba.xnf,|infile|)
+
+RUNFLOW VFT_run_vsmupd(|infile|,xnfba,xnfba.xnf,|infile|)
+
+#    IF_EXIST  xnfba.xnf    DELFILE xnfba.xnf
+     IF_EXIST  xnfba.vsm    DELFILE xnfba.vsm
+SCREEN  Run completed successfully. Please look in xsimmake.out and 
+SCREEN  also in individual log files for program warnings.
+ } 
+
+LOCAL FLOW VET_use_vsmupd(infile,xnf_file)
+{
+  SCR2FLE ----------------------------------------------------------------
+  SCR2FLE XSIMMAKE INFO : The output of the next command will not
+  SCR2FLE XSIMMAKE INFO : be written into the xsimmake.out file, possibly
+  SCR2FLE XSIMMAKE INFO : because of a long status line. Look in the
+  SCR2FLE XSIMMAKE INFO : file vsm.dmp to find the output of this program
+  SCR2FLE ----------------------------------------------------------------
+  EXEPROG vsm(xsimmake)
+  EXEPROG vsmupd(|infile|,xsimmake,|xnf_file|,|infile|)
+}
+
+LOCAL FLOW VET_dont_use_vsmupd(infile)
+{
+  EXEPROG vsm_2_outfile(xsimmake,|infile|)
+}
+
+FLOW Viewlogic_Epld_Timing(infile):VET
+ {
+
+    HELP ----------------------------------------------------------------
+    HELP This flow creates a new vsm file for
+    HELP performing timing simulation on EPLD designs.
+    HELP Timing simulation starts AFTER the design has been mapped,
+    HELP i.e. after FITEQN or FITNET. It will start by looking for a
+    HELP |infile|.[vhm|vmd]  file.
+    HELP This flow will NOT create a new schematic.
+    HELP The nodes in the vsm file correspond to the names in the 
+    HELP original schematic.
+    HELP ----------------------------------------------------------------
+    HELP    
+    HELP    
+
+    FLOWDEF "Create simulation files for the Viewlogic timing simulation path"
+    FILEDEF infile   "Input pre-routed file name"
+
+    SCR2FLE  Running XSIMMAKE.XFW version 5.0.0
+    SCR2FLE --------------------------------------------------------------------
+    SCR2FLE XSIMMAKE INFO : RUNNING [Viewlogic_Epld_Timing] FLOW.
+    SCR2FLE --------------------------------------------------------------------
+    SCR2FLE ---
+    SCR2FLE
+
+  FVARB file_base
+  FVARB xnf_file
+  FVARB vst_file
+  CLRFVARB file_base
+  CLRFVARB xnf_file
+
+# Init global variables
+  ADDFVARB otherxnf otherxnf
+
+# Init local variables
+  ADDFVARB  file_base |infile| STRIPEXT 
+  ADDFVARB  xnf_file |infile|.xnf STRIPEXT SUBDIR |otherxnf|
+
+  CREATEDIR |otherxnf|
+
+  EXEPROG vmh2xnf(|infile|,|xnf_file|)
+  EXEPROG x2w_gen(|xnf_file|,xsimmake)
+
+   IF_EXIST |infile|.vsm SCREEN ----------------------------------------------------------
+   IF_EXIST |infile|.vsm SCREEN XSIMMAKE INFO : A |infile|.vsm exists. Running VSMUPD to attempt
+   IF_EXIST |infile|.vsm SCREEN XSIMMAKE INFO : to recover hierarchy information from a 
+   IF_EXIST |infile|.vsm SCREEN XSIMMAKE INFO : functional simulation.
+   IF_EXIST |infile|.vsm SCREEN ----------------------------------------------------------
+   IF_EXIST |infile|.vsm RUNFLOW VET_use_vsmupd(|infile|,|xnf_file|)
+   IF_NOT_EXIST |infile|.vsm RUNFLOW VET_dont_use_vsmupd(|infile|)
+   DELFILE xsimmake.vsm
+SCREEN  Run completed successfully. Please look in xsimmake.out and 
+SCREEN  also in individual log files for program warnings.
+ } 
+
+#---------------------------ORCAD FLOWS-----------------
+FLOW Orcad_Fpga_Func(inpfile):OFF
+  {
+  FVARB infile
+  CLRFVARB infile
+  ADDFVARB infile |inpfile| STRIPPATH STRIPEXT
+
+    FLOWDEF "Create simulation files for the Orcad functional simulation path"
+   
+    HELP ----------------------------------------------------------------
+    HELP This flow creates a new vst file for
+    HELP performing functional simulation on Orcad designs.
+    HELP ----------------------------------------------------------------
+    HELP    
+
+    MODEL_CREATE_DEF XNF,EXCL,   Orcad_func_xnf,1
+    MODEL_CREATE_DEF ROM,EXCL,   Orcad_func_rom,1
+    MODEL_CREATE_DEF MEM,EXCL,   Orcad_func_memory,1
+    MODEL_CREATE_DEF XABEL,EXCL, Orcad_func_xabel,1
+    MODEL_CREATE_DEF BLOX, COLL, Orcad_func_xblox,2
+    MODEL_CREATE_DEF CLB,  COLL, Orcad_handle_clbs,1
+    MODEL_CREATE_DEF IOB,  COLL, Orcad_handle_iobs,1
+    MODEL_CREATE_DEF EQN,  COLL, Orcad_handle_eqns,1
+
+    SCR2FLE  Running XSIMMAKE.XFW version 5.0.0
+    SCR2FLE --------------------------------------------------------------------
+    SCR2FLE XSIMMAKE INFO : RUNNING [Orcad_Fpga_Func] FLOW.
+    SCR2FLE --------------------------------------------------------------------
+    SCR2FLE ---
+    SCR2FLE
+    
+    FVARB xg_file
+    FVARB xff_file
+    FVARB xnf_file
+    FVARB vst_file
+
+    ADDFVARB otherxnf otherxnf
+    ADDFVARB savexnf savexnf
+
+    ADDFVARB  xg_file |infile|.xg STRIPEXT SUBDIR |otherxnf|
+    ADDFVARB  xff_file |infile|.xff STRIPEXT SUBDIR |otherxnf|
+    ADDFVARB  xnf_file |infile|.xnf STRIPEXT SUBDIR |otherxnf|
+    ADDFVARB  vst_file |infile|.vst STRIPEXT 
+
+    CREATEDIR |savexnf|
+    DELETEDIR |otherxnf|
+    CREATEDIR |otherxnf|
+
+    EXEPROG orcad_annotate(|infile|)
+    EXEPROG orcad_inet(|infile|)
+
+    EXEPROG orcad_inf2xnf(|infile|,|otherxnf|)
+    EXEPROG xnfmerge_exclusive_inputdir(|xnf_file|,|xff_file|,|otherxnf|)
+    EXEPROG xfind(|xff_file|,|infile|,|infile|)
+    IF_EXIST |infile|.xfw RUNXFW |infile|.xfw
+
+    DELFILE |vst_file|
+    IF_NOT_EXIST |xg_file| EXEPROG xnfmerge_preclude_inputdir(|xnf_file|,|xff_file|,|otherxnf|)
+    IF_EXIST |xg_file|   EXEPROG orcad_func_xnf2inf(|xg_file|,|vst_file|)
+    IF_NOT_EXIST |vst_file|  EXEPROG orcad_func_xnf2inf(|xff_file|,|vst_file|)
+
+#    IF_EXIST |infile|.ast EXEPROG orcad_asctovst(|infile|.ast)
+#    IF_EXIST |infile|.atr EXEPROG orcad_asctovst(|infile|.atr)
+SCREEN  Run completed successfully. Please look in xsimmake.out and 
+SCREEN  also in individual log files for program warnings.
+ } 
+
+LOCAL FLOW OFT_use_xff(xff_file,outfile)
+{
+ IF_EXIST xnfba.xnf RETURN
+ IF_EXIST |xff_file| EXEPROG xnfba(|xff_file|,|outfile|)
+}
+
+LOCAL FLOW OFT_use_xnf(xnf_file,outfile)
+{
+ IF_EXIST xnfba.xnf RETURN
+ IF_EXIST |xnf_file| EXEPROG xnfba(|xnf_file|,|outfile|)
+}
+
+FLOW Orcad_Fpga_Timing(inpfile):OFT
+ {
+  FVARB infile
+  CLRFVARB infile
+  ADDFVARB infile |inpfile| STRIPPATH STRIPEXT
+    HELP ----------------------------------------------------------------
+    HELP  This flow creates a new vst file for performing
+    HELP  timing simulation on Orcad designs. Timing simulation starts AFTER the
+    HELP  design has been routed, i.e. after PPR. It will start by looking for
+    HELP <input file>.lca. 
+    HELP ----------------------------------------------------------------
+    HELP    
+    HELP    
+
+    FLOWDEF "Create simulation files for the Orcad timing simulation path"
+
+    SCR2FLE  Running XSIMMAKE.XFW version 5.0.0
+    SCR2FLE --------------------------------------------------------------------
+    SCR2FLE   RUNNING [Orcad_Timing_Simulation] FLOW.
+    SCR2FLE --------------------------------------------------------------------
+    SCR2FLE ---
+    SCR2FLE ---
+    
+    DELFILE xnfba.xnf
+    EXEPROG xdelay(|infile|)
+    EXEPROG lca2xnf(|infile|,|infile|)
+
+    #Back annotate delays and such.
+    #First, if it is an XBLOX thingy, use the xg file.
+    IF_NEWER |infile|.xg THAN |infile|.xff EXEPROG xnfba(|infile|.xg,|infile|.xnf)
+
+    #Third, if its not an XBLOX thingy, use the the xff file.
+    IF_EXIST |infile|.xff RUNFLOW OFT_use_xff(|infile|.xff,|infile|.xnf)
+
+     IF_NOT_EXIST xnfba.xnf SCREEN XSIMMAKE ERROR : |infile|.xg could not be found.
+     IF_NOT_EXIST xnfba.xnf SCREEN XSIMMAKE ERROR : |infile|.xff could not be found.
+     IF_NOT_EXIST xnfba.xnf SCREEN XSIMMAKE ERROR : The Orcad_Fpga_Timing flow requires that you run a functional
+     IF_NOT_EXIST xnfba.xnf SCREEN XSIMMAKE ERROR : simulation first. Please do so and rerun the Timing simulation.
+     IF_NOT_EXIST xnfba.xnf INCERRS
+     IF_NOT_EXIST xnfba.xnf EXIT
+
+    EXEPROG orcad_time_xnf2inf(xnfba.xnf,|infile|)
+#   IF_EXIST |infile|.ast EXEPROG orcad_asctovst(|infile|.ast)
+#   IF_EXIST |infile|.atr EXEPROG orcad_asctovst(|infile|.atr)
+    IF_EXIST  xnfba.xnf    DELFILE xnfba.xnf
+SCREEN  Run completed successfully. Please look in xsimmake.out and 
+SCREEN  also in individual log files for program warnings.
+ } 
+
+FLOW Orcad_Epld_Func(inpfile):OEF
+  {
+  FVARB infile
+  CLRFVARB infile
+  ADDFVARB infile |inpfile| STRIPPATH STRIPEXT
+
+   
+    HELP ----------------------------------------------------------------
+    HELP This flow creates a new vst file for
+    HELP performing functional simulation on Orcad 
+    HELP epld designs.
+    HELP ----------------------------------------------------------------
+    HELP    
+
+    MODEL_CREATE_DEF BLOX, COLL, Orcad_epld_handle_blox 
+    MODEL_CREATE_DEF CLB,  COLL, Orcad_handle_clbs
+    MODEL_CREATE_DEF IOB,  COLL, Orcad_handle_iobs
+    MODEL_CREATE_DEF EQN,  COLL, Orcad_handle_eqns
+
+    SCR2FLE  Running XSIMMAKE.XFW version 5.0.0
+    SCR2FLE --------------------------------------------------------------------
+    SCR2FLE XSIMMAKE INFO : RUNNING [Orcad_Epld_Func] FLOW.
+    SCR2FLE --------------------------------------------------------------------
+    SCR2FLE ---
+    
+    FVARB xff_file
+    FVARB xnf_file
+    FVARB vst_file
+
+    ADDFVARB otherxnf otherxnf
+
+    ADDFVARB  xff_file |infile|.xff STRIPEXT SUBDIR |otherxnf|
+    ADDFVARB  xnf_file |infile|.xnf STRIPEXT SUBDIR |otherxnf|
+    ADDFVARB  vst_file |infile|.vst STRIPEXT 
+
+    DELETEDIR |otherxnf|
+    CREATEDIR |otherxnf|
+
+    EXEPROG orcad_annotate(|infile|)
+    EXEPROG orcad_inet(|infile|)
+    EXEPROG orcad_sdt2xnf_for_epld(|infile|,|otherxnf|)
+
+    EXEPROG xnfmerge_inputdir(|xnf_file|,|xff_file|,|otherxnf|)
+    EXEPROG orcad_func_xnf2inf(|xff_file|,|infile|)
+
+#   IF_EXIST |infile|.ast EXEPROG orcad_asctovst(|infile|.ast)
+#   IF_EXIST |infile|.atr EXEPROG orcad_asctovst(|infile|.atr)
+SCREEN  Run completed successfully. Please look in xsimmake.out and 
+SCREEN  also in individual log files for program warnings.
+ } 
+
+
+FLOW Orcad_Epld_Timing(infile):OET
+ {
+    HELP ----------------------------------------------------------------
+    HELP  This flow creates a new vst file for performing
+    HELP  timing simulation on Orcad Epld designs. 
+    HELP  Timing simulation starts AFTER the
+    HELP  design has been routed, i.e. after FITNET. It will start by 
+    HELP looking for <input file>.vmh. 
+    HELP ----------------------------------------------------------------
+    HELP    
+    HELP    
+
+    SCR2FLE  Running XSIMMAKE.XFW version 5.0.0
+    SCR2FLE --------------------------------------------------------------------
+    SCR2FLE   RUNNING [Orcad_Epld_Timing] FLOW.
+    SCR2FLE --------------------------------------------------------------------
+    SCR2FLE ---
+    SCR2FLE ---
+
+  FVARB file_base
+  FVARB xnf_file
+  FVARB vst_file
+  CLRFVARB file_base
+  CLRFVARB xnf_file
+  CLRFVARB vst_file
+ 
+  ADDFVARB otherxnf otherxnf
+  ADDFVARB  file_base |infile| STRIPEXT 
+  ADDFVARB  xnf_file |infile|.xnf STRIPEXT SUBDIR |otherxnf|
+  ADDFVARB  vst_file |infile|.vst STRIPEXT 
+
+  DELETEDIR |otherxnf|
+  CREATEDIR |otherxnf|
+
+  EXEPROG vmh2xnf(|infile|,|xnf_file|)
+  EXEPROG orcad_time_xnf2inf(|xnf_file|,|vst_file|)
+SCREEN  Run completed successfully. Please look in xsimmake.out and 
+SCREEN  also in individual log files for program warnings.
+ } 
+
+DEFAULT_FLOW Viewlogic_Fpga_Func

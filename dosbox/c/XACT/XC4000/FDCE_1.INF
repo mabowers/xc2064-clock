@@ -1,0 +1,28 @@
+`F  1.00 fdce_1
+`B "1" "1" "A" "     July  2, 1993" "" "A" 
+"XC4000 Family FDCE_1 MACRO" "Xilinx"
+""
+""
+""
+""
+`P I "D"
+`P I "CE"
+`P O "Q"
+`P I "C"
+`P I "CLR"
+`S "CB" 1 
+`E XC4000.LIB
+`E XBLOX.LIB
+`I R "INV" XC4000.LIB "INV" C9B60302  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "FDCE" XC4000.LIB "FDCE" C9B5E02C  U2  []
+"RLOC=R0C0" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "CLR" "CLR" I ) 
+( "Q" "Q" O ) 
+`J ( P I "D" ) ( R U2 "D" I ) 
+`J ( P I "CE" ) ( R U2 "CE" I ) 
+`J ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( P I "C" ) ( R U1 "I" I ) 
+`J ( R U1 "O" O ) ( S "CB" 1  ) ( R U2 "C" I ) 
+`J ( P I "CLR" ) ( R U2 "CLR" I ) 

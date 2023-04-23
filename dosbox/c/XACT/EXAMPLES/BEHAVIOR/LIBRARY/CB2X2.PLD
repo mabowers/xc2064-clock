@@ -1,0 +1,62 @@
+TITLE           Counter: binary, 2-bit, sync-reset, loadable, up/down
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/24/93
+
+CHIP            CB2X2  COMPONENT
+ 
+;Inputs
+d0 d1 ceu ced l c r
+
+; d[1:0]        parallel-load data
+; ceu           count-up enable
+; ced           count-down enable
+; l             parallel-load enable
+; c             clock (optional FastCLK)
+; r             sync reset
+ 
+;Outputs
+q0 q1 tcu tcd ceou ceod
+
+; q[1:0]        counter output
+; tcu           terminal count-up (optimizable AND)
+; tcd           terminal count-down
+; ceou          chip enable output up (optimizable AND)
+; ceod          chip enable output down (optimizable AND)
+
+NODE (UIM) tcu ceou ceod
+
+EQUATIONS 
+
+tcu      = q0*q1
+
+tcd     := ceu*/l*q0*q1
+         + ced*/ceu*/l*q0*/q1
+         + l*/d0*/d1
+         + /ceu*/ced*/l*/q0*/q1
+         + r
+tcd.clkf = c
+
+ceou     = ceu*q0*q1
+
+ceod     = ced*tcd
+
+q1.d1    = ceu*/l*/r*q0
+         + ced*/ceu*/l*/r*/q0
+q1.d2    = l*/r*d1
+q1.fbk   = /l*/r
+q1      := q1.d1 xor q1.d2
+q1.clkf  = c
+
+q0.d1    = ceu*/l*/r
+         + ced*/ceu*/l*/r
+q0.d2    = l*/r*d0
+q0.fbk   = /l*/r
+q0      := q0.d1 xor q0.d2
+q0.clkf  = c
+
+q0.prld  = gnd
+q1.prld  = gnd
+tcd.prld  = vcc

@@ -1,0 +1,94 @@
+`F  1.00 CD4CE
+`B "1" "1" "B" "  October  5, 1993" "" "A" 
+"XC7000 Family CD4CE Model" "Xilinx"
+""
+""
+""
+""
+`P O "Q0"
+`P O "Q1"
+`P O "Q2"
+`P O "Q3"
+`P I "CE"
+`P I "C"
+`P I "CLR"
+`P O "TC"
+`P O "CEO"
+`S "T2" 1 
+`S "T3" 1 
+`E XC7000.LIB
+`I R "VCC" XC7000.LIB "VCC" ca0aa86d  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "P" "P" O ) 
+`I R "AND2" XC7000.LIB "AND2" cc995d90  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND3" XC7000.LIB "AND3" cc995e34  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND2" XC7000.LIB "AND2" dbbea200  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "AND4B2" XC7000.LIB "AND4B2" e0151ff3  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "I3" "I3" I ) 
+( "O" "O" O ) 
+`I R "OR3" XC7000.LIB "OR3" e0152130  U11  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND3" XC7000.LIB "AND3" e0152240  U12  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "FTCLE" XC7000.LIB "FTCLE" e0152829  U13  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "L" "L" I ) ( "T" "T" I ) ( "CE" "CE" I ) 
+( "C" "C" I ) ( "Q" "Q" O ) ( "CLR" "CLR" I ) 
+`I R "GND" XC7000.LIB "GND" e0152829  U14  []
+"" "" "" "" "" "" "" ""  ""
+( "G" "G" O ) 
+`I R "FTCLE" XC7000.LIB "FTCLE" e015285c  U15  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "L" "L" I ) ( "T" "T" I ) ( "CE" "CE" I ) 
+( "C" "C" I ) ( "Q" "Q" O ) ( "CLR" "CLR" I ) 
+`I R "GND" XC7000.LIB "GND" e015285c  U16  []
+"" "" "" "" "" "" "" ""  ""
+( "G" "G" O ) 
+`I R "FTCLE" XC7000.LIB "FTCLE" e0152882  U17  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "L" "L" I ) ( "T" "T" I ) ( "CE" "CE" I ) 
+( "C" "C" I ) ( "Q" "Q" O ) ( "CLR" "CLR" I ) 
+`I R "GND" XC7000.LIB "GND" e0152882  U18  []
+"" "" "" "" "" "" "" ""  ""
+( "G" "G" O ) 
+`I R "FTCLE" XC7000.LIB "FTCLE" e01528c2  U19  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "L" "L" I ) ( "T" "T" I ) ( "CE" "CE" I ) 
+( "C" "C" I ) ( "Q" "Q" O ) ( "CLR" "CLR" I ) 
+`I R "GND" XC7000.LIB "GND" e01528c2  U20  []
+"" "" "" "" "" "" "" ""  ""
+( "G" "G" O ) 
+`J ( R U5 "P" O ) ( R U13 "T" I ) 
+`J ( R U13 "D" I ) ( R U14 "G" O ) 
+`J ( R U13 "L" I ) ( R U15 "L" I ) ( R U17 "L" I ) ( R U19 "L" I ) 
+( R U12 "O" O ) 
+`J ( R U13 "Q" O ) ( R U15 "T" I ) ( P O "Q0" ) ( R U6 "I1" I ) 
+( R U7 "I2" I ) ( R U10 "I2" I ) ( R U11 "I0" I ) 
+`J ( R U13 "CE" I ) ( R U15 "CE" I ) ( R U17 "CE" I ) ( P I "CE" ) 
+( R U19 "CE" I ) ( R U9 "I0" I ) ( R U12 "I0" I ) 
+`J ( R U13 "C" I ) ( R U15 "C" I ) ( R U17 "C" I ) ( P I "C" ) 
+( R U19 "C" I ) 
+`J ( R U13 "CLR" I ) ( R U15 "CLR" I ) ( R U17 "CLR" I ) ( P I "CLR" ) 
+( R U19 "CLR" I ) 
+`J ( R U15 "D" I ) ( R U16 "G" O ) 
+`J ( R U15 "Q" O ) ( R U6 "I0" I ) ( P O "Q1" ) ( R U7 "I1" I ) 
+( R U10 "I1" I ) ( R U11 "I1" I ) 
+`J ( R U6 "O" O ) ( S "T2" 1  ) ( R U17 "T" I ) 
+`J ( R U17 "D" I ) ( R U18 "G" O ) 
+`J ( R U17 "Q" O ) ( R U7 "I0" I ) ( P O "Q2" ) ( R U10 "I0" I ) 
+( R U11 "I2" I ) 
+`J ( R U7 "O" O ) ( S "T3" 1  ) ( R U19 "T" I ) 
+`J ( R U19 "D" I ) ( R U20 "G" O ) 
+`J ( R U19 "Q" O ) ( R U10 "I3" I ) ( P O "Q3" ) ( R U12 "I1" I ) 
+`J ( R U10 "O" O ) ( R U9 "I1" I ) ( P O "TC" ) 
+`J ( R U9 "O" O ) ( P O "CEO" ) 
+`J ( R U11 "O" O ) ( R U12 "I2" I ) 

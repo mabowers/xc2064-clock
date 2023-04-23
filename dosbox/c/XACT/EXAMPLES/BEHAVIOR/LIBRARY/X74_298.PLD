@@ -1,0 +1,36 @@
+TITLE           Mux Register: Quad 2-input, negative edge clock
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/27/93
+
+CHIP            X74_298  COMPONENT
+ 
+;Inputs
+/ck a1 a2 b1 b2 c1 c2 d1 d2 ws
+
+; ck            clock
+; a1..d1        source 1
+; a2..d2        source 2
+; ws            common word select
+
+;Outputs
+qa qb qc qd
+
+; qa..qd        output register
+
+EQUATIONS 
+
+qa     := a1*/ws + a2*ws
+qa.clkf = ck
+
+qb     := b1*/ws + b2*ws
+qb.clkf = ck
+
+qc     := c1*/ws + c2*ws
+qc.clkf = ck
+
+qd     := d1*/ws + d2*ws
+qd.clkf = ck
+

@@ -1,0 +1,25 @@
+`F  1.00 sop3b3
+`B "1" "1" "A" "     June 28, 1993" "" "A" 
+"XC3000 Family SOP3B3 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "I1"
+`P I "I0"
+`P O "O"
+`P I "I2"
+`S "I0B1B" 1 
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "OR2B1" XC3000.LIB "OR2B1" C9B7C85E  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "AND2B2" XC3000.LIB "AND2B2" C9B7D91C  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`J ( P I "I1" ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( S "I0B1B" 1  ) ( R U1 "I1" I ) 
+`J ( P I "I0" ) ( R U2 "I0" I ) 
+`J ( R U1 "O" O ) ( P O "O" ) 
+`J ( P I "I2" ) ( R U1 "I0" I ) 

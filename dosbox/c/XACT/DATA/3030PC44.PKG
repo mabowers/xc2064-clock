@@ -1,0 +1,88 @@
+package 3030pc44 1 0 1 0
+pin PAD1 P6
+pin PAD2
+pin PAD3 P5
+pin PAD4 P4
+pin PAD5
+pin PAD6
+pin PAD7 P3
+pin PAD8
+pin PAD9 P2
+pin PAD10
+
+pin PAD11
+pin PAD12
+pin PAD13 P44
+pin PAD14
+pin PAD15
+pin PAD16
+pin PAD17
+pin PAD18 P43
+pin PAD19 P42
+pin PAD20 P41
+
+pin PAD21 P39
+pin PAD22 P38
+pin PAD23
+pin PAD24 P37
+pin PAD25
+pin PAD26
+pin PAD27
+pin PAD28 P36
+pin PAD29
+pin PAD30 P35
+
+pin PAD31
+pin PAD32 P33
+pin PAD33
+pin PAD34 P32
+pin PAD35
+pin PAD36
+pin PAD37
+pin PAD38 P31
+pin PAD39 P30
+pin PAD40 P29
+
+pin PAD41 P26
+pin PAD42
+pin PAD43 P25
+pin PAD44
+pin PAD45
+pin PAD46
+pin PAD47 P24
+pin PAD48
+pin PAD49
+pin PAD50
+
+pin PAD51 P22
+pin PAD52
+pin PAD53 P21
+pin PAD54
+pin PAD55
+pin PAD56
+pin PAD57 P20
+pin PAD58
+pin PAD59 P19
+pin PAD60 P18
+
+pin PAD61 P15
+pin PAD62 P14
+pin PAD63
+pin PAD64
+pin PAD65
+pin PAD66 P13
+pin PAD67
+pin PAD68
+pin PAD69
+pin PAD70
+
+pin PAD71
+pin PAD72
+pin PAD73 P11
+pin PAD74 P10
+pin PAD75
+pin PAD76
+pin PAD77
+pin PAD78 P9
+pin PAD79
+pin PAD80 P8

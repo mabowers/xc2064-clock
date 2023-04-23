@@ -1,0 +1,29 @@
+TITLE           Equality comparator: 8-bit
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/4/93
+
+CHIP            COMP8  COMPONENT
+ 
+;Inputs
+a0 a1 a2 a3 a4 a5 a6 a7
+b0 b1 b2 b3 b4 b5 b6 b7
+
+; a[7:0]        comparator A-operand
+; b[7:0]        comparator B-operand
+ 
+;Outputs
+eq             ;A=B output 
+
+EQUATIONS 
+
+/eq     = a0*/b0 + /a0*b0
+        + a1*/b1 + /a1*b1
+        + a2*/b2 + /a2*b2
+        + a3*/b3 + /a3*b3
+        + a4*/b4 + /a4*b4
+        + a5*/b5 + /a5*b5
+        + a6*/b6 + /a6*b6
+        + a7*/b7 + /a7*b7

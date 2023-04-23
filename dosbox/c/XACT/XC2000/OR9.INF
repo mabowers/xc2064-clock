@@ -1,0 +1,43 @@
+`F  1.00 or9
+`B "1" "1" "A" "     June 29, 1993" "" "A" 
+"XC2000 Family OR9 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "I8"
+`P I "I7"
+`P I "I6"
+`P I "I5"
+`P I "I4"
+`P I "I3"
+`P I "I2"
+`P O "O"
+`P I "I1"
+`P I "I0"
+`S "I58" 1 
+`S "I24" 1 
+`E XC2000.LIB
+`I R "OR4" XC2000.LIB "OR4" D5C7940E  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`I R "OR3" XC2000.LIB "OR3" D5C7946D  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "OR4" XC2000.LIB "OR4" D5C7CF61  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I3" "I3" I ) ( "I2" "I2" I ) ( "I1" "I1" I ) ( "I0" "I0" I ) 
+( "O" "O" O ) 
+`J ( P I "I8" ) ( R U1 "I3" I ) 
+`J ( P I "I7" ) ( R U1 "I2" I ) 
+`J ( R U1 "O" O ) ( S "I58" 1  ) ( R U3 "I3" I ) 
+`J ( P I "I6" ) ( R U1 "I1" I ) 
+`J ( P I "I5" ) ( R U1 "I0" I ) 
+`J ( P I "I4" ) ( R U2 "I2" I ) 
+`J ( P I "I3" ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( S "I24" 1  ) ( R U3 "I2" I ) 
+`J ( P I "I2" ) ( R U2 "I0" I ) 
+`J ( R U3 "O" O ) ( P O "O" ) 
+`J ( P I "I1" ) ( R U3 "I1" I ) 
+`J ( P I "I0" ) ( R U3 "I0" I ) 

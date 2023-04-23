@@ -1,0 +1,545 @@
+# @(#)CL.TXT	3.46.1.2 5/4/94 23:55:18
+# what: PLUSASM COMPILER error messages
+#
+0001:Duplicate library component '%s' found. Not allowed !
+#
+# 0101: Null pointer passed to cl procedure
+0101: [Internal Error - null pointer]
+0102:Out of Memory. Cannot continue !
+0103:Out of Memory. Cannot continue !
+# 104:Bad error tree structure.
+0104: [Internal Error in error tree structure]
+0105:Cannot open or find input file !
+# 106: This node is not an identifier but treated as such.
+0106: [Internal Error in node processing]
+0107:The input pin '%s' is declared twice !
+# 108: Expression input array overflow.
+0108: [Internal Error - expression input array overflow].
+# 109: Expression output array overflow.
+0109: [Internal Error - expression output array overflow].
+0110:The output pin '%s' is assigned in two different equations !
+0111:Unknown device type '%s'! Check the chip statement has format:
+    CHIP <file name> <device type>
+# 0112:[Internal Error] Adjusting config defaults failed !
+0112: [Internal Error in configuration defaults].
+# 0113:[Internal Error] Corrupt parser tree !
+0113: [Internal Error in parser].
+# 0114:[Internal Error] No configuration default for this pin !
+0114: [Internal Error in configuration defaults].
+0115:Setting ADDMODE for undeclared output pin '%s' !
+0116:Setting PRLD for undeclared output pin '%s' !
+0117:Unknown extension '%s' !
+# 0118:[Internal Error] Semantic error reporting routine expects an ident node !
+0118: [Internal Error - Semantic error reported]
+0119:Error limit reached - aborting !
+0120:Expected either VCC or GND for preload expression for output '%s' !
+0121:Pin name should be same as the output pin name, not '%s' !
+0122:Found '%s' where either 'D1' or 'D2' is expected !
+     Use D1 or D2 to differentiate this equation.
+0123:'%s' used twice. Both 'D1' and 'D2' should occur in this equation !
+# 0124:[Internal Error] Expected a Boolean_or_node !
+0124: [Internal Error - OR function is expected]
+# 0125:[Internal Error] Expected a Boolean_and_node !
+0125: [Internal Error - AND function is expected]
+0126:The equation input '%s' is not declared !
+# 0127:[Internal Error] Invalid expander operator used !
+0127: [Internal Error - Invalid Expander function used]
+0128:A '%s.D1' equation is missing from this design !
+0129:A '%s.D2' equation is missing from this design !
+0130:'%s.TRST' has more than one input. Only one FB input is allowed to 
+    drive XC7272 tristate equations . Redeclare using UIM and gate.
+0131:The output '%s' is latched. The latch operator (*=) is not
+     supported in this release. Redeclare latch assignment for D-type flipflop
+     or try implement latch in input or i/o pads.
+# 0132:[Internal Error] Input signal index out of range !
+0132: [Internal Error - index out of range]
+# 0133:[Internal Error] Component Loader call with Null Pointers !
+0133: [Internal Error - Null Pointer].
+0134:Only one product term is allowed for the '%s.TRST' equation !
+     Redeclare tri-state using UIM-and gate or try implementing equation in 2
+     separate macrocells or using FOE in i/o pad.
+0135:Only one product term is allowed for the '%s.SETF' equation !
+     Redeclare equation using UIM-and gate or try implementing equation in 2
+     separate macrocells.
+0136:Only one product term is allowed for the '%s.RSTF' equation !
+     Redeclare equation using UIM-and gate or try implementing equation in 2
+     separate macrocells.
+0137:Only one product term is allowed for the '%s.CLKF' equation !
+     Redeclare clock equation using UIM-and gate or try implementing equation
+     in 2 separate macrocells or using RCLK in i/o pad.
+0138:'%s.ADDMODE' has more than one product term !
+0139:This component has too many D2 product terms !
+0140:Found more than one output signal with an add mode product term !
+0141:This component has too many output signals !
+0142:This component has too many input signals !
+# 0143:[Internal Error] Expected really to find a product term here !
+0143: [Internal Error - Cannot find product term]
+# 0144:[Internal Error] In expression d1,d2,output signal conflict !
+0144: [Internal Error in signal expression].
+0145:Output '%s.D1' has too many D1 product terms !
+0146:Running out of shareable D1 product terms !
+# 0147:[Internal Error] Illegal number of d1 share product terms requested !
+0147: [Internal Error - too many D1 share terms requested].
+# 0148:[Internal Error] Running out of d1 product terms !
+0148: [Internal Error - Running out of D1 product terms]. 
+# 0149:[Internal Error] Running out of d2 product terms !
+0149: [Internal Error - Running out of D2 product terms]. 
+0150:Sorry. Addmode product terms are not yet implemented !
+0151:The pld file has contradicting '%s.PRLD' assignments !
+0152:This component attribute '%s' is unknown !
+0153:This component attribute cannot be used with device type '%s' !
+0154:Pld file has '%s' declared more than once !
+0155:Plusasm reader aborting !
+0156:Unknown PIN_ATTRIBUTE type '%s' !
+0157:Cannot use PIN_ATTRIBUTE '%s' with current device type !
+0158:Incomplete PIN_ATTRIBUTE statement !
+0159:Signal '%s' is an output signal and cannot have a pin attribute !
+# 0160:Second signal '%s' found for PIN_ATTRIBUTE CLOCK. Only one allowed !
+0160: [ This error code is not used ]
+0161:ROUTE statement is obsolete !
+0162:Fast clock pin must be non-inverted and alone in a clock equation !
+0163:Registered equation '%s' is missing a .CLKF equation !
+     Declare default clock for this design or add a .CLKF equation.
+#0164:Output signal '%s' has .CLKF equation but is missing the := equation !
+0164:Non-registered equation output '%s' has a .CLKF equation !
+     Redeclare as registered equation ':=' or remove .CLKF equation.
+# 0165:Cannot find array of input pins in fast comparator.
+0165: [Internal error: Fast comparator input pins not found].
+# 0166:Cannot find first child in a tree.
+0166: [Internal Error in tree processing].
+# 0167:Cannot find next_child_in a tree.
+0167: [Internal Error in tree processing].
+0168:More than one equation for fast comparator.
+0169:Equation for fast comparator can only have simple assignment.
+# 0170:Invalid token.
+0170: [Internal Error - Invalid token].
+0171:Input signal %s on the left side of equation.
+0172:Unknown signal name '%s'.
+0173:Empty left side of the equation.
+0174:Empty right side of the equation.
+0175:Only one product term allowed on the right side for fast comparator.
+0176:Output name on the right side of equation in fast comparator.
+0177:This route pin '%s' is not used in any equation below !
+0178:This input route pin '%s' is used in more than one route statement !
+0179:Second input pin '%s' found in one route statement !
+0180:ADDMODE equation can only be set to VCC !
+# 0181:Frame with user array is not in a data base. (probably data base corruption).
+0181: [Internal Error - data base corrupted, or out of memory].
+# 0182:No component compiler environment structure. (probably data base corruption).
+0182: [Internal Error - data base corrupted, or out of memory].
+0183:Invalid component file '%s' - please delete it.
+0184:Component compiler failed. (Internal error).
+0185:Compiling file '%s' -- component '%s'.
+0186:Cannot open file '%s' !
+    (Check disk space, write protection, FILES=20 in config.sys)
+0187:Failed to load component '%s'. 
+# 0188:Failed to get file handle of the current data base.
+0188: [Internal  Data base error]
+# 0189:Failure in component loading.
+0189: [Internal Error - Cannot load component]
+0190:1:Unrecognized pldtype '%s' in design file. Using 'GENERIC' pldtype.
+0191:Too many pin names in pld file. This pld may only have %s pins !
+0192:Pin '%s' is not declared as an output pin !
+0193:Inputs statement is not allowed for pld components !
+0194:No equation outputs listed in the pinlist.
+0195: [Internal Error in replacing PLD pin names ]
+0196:Program terminated due to fatal errors found in the design !
+0197:GND is illegal in this equation !
+0198:VCC is illegal in this equation !
+0199:GND or VCC cannot be combined with other equation inputs !
+#
+#     	/* iopad errors */
+#
+0200:Expected either 0 or 1 inputs and 1 output for an input component.
+0201:Expected either 1 or 2 inputs and 1 output for an iopad component.
+0202:Expected 1 input and 1 output for a fastclock component.
+0203:Expected 1 input and 0 outputs for an output component.
+0204:Expected 0 signals with clock attribute.
+0205:Expected 1 signal to have a clock attribute.
+#
+0210:Registered equation '%s' is missing .CLKF equation or default clock
+     declaration.
+0211:Registered pld output is missing tri-state declaration !
+     Check pld pinlist for correct tri-state pin declaration.
+# 0212:[Internal Error] Trying to set a p-term with an unknown input pin name !
+0212: [	Internal error]. Required input pin is not declared. (Check default clock or control pins for the PLD). 
+0213:Output '%s' has two .CLKF equations !
+# 0214:[Internal Error] Problems with .CLKF = GND !
+0214: [Internal Error - .CLKF = GND]
+0215:Unable to open output JEDEC file (check disk space, write protection, FILES=20 in config.sys)
+0216: [Internal error: JEDEC buffer overflow]
+0217:This component has no input pins. Aborting !
+0218:Jedec files are only written for PLDs and FU1 components !
+0219:Illegal use of keyword '%s' in equation !
+0220:Contradicting equation statements for equation name '%s' !
+0221:Output '%s' has .SETF and .TRST equations!
+    Only one of these is allowed in the XC7272 macrocell. Redefine equation
+    or target another device.
+0222:Failed to allocate p-term for output %s. Rearrange equations !
+0223:       Used input pin %s.
+0224:       Used output pin %s.
+0225:Fast clock input pins are only allowed in .CLKF equations !
+# 0226:[Internal Error] No component given to Plusasm2 !
+0226: [Internal Error - No component found]
+# 0227:[Internal Error] Wrong component device type read by Plusasm2 !
+0227: [Internal Error - Wrong component type]
+# 0228:[Internal Error] Second part of Plusasm called despite first part failed !
+0228: [Internal Error - Plusasm failed]
+0229:Expected either 'ON' or 'OFF' after 'MINIMIZE' !
+0230:Input pin '%s' can not be placed in MINIMIZE statement !
+# 0231:[Internal Error] found second pin for feedback !
+0231: [Internal Error in pin assignment].
+0232:Plusasm invoked with an incorrect command line !
+0233:Product term: '%s' !
+#
+0234:Negate the output name, not the assignment operator !
+0235:Partition name expected after keyword 'PARTITION' !
+0236:Expected a list of equation output names after keyword 'PARTITION' !
+0237:Too many output signals listed after 'PARTITION' !
+0238:Since '%s' is not used as an equation output it is not allowed in
+     a partition statement !
+0239:You cannot use the partition statement for non-PLD components !
+0240:Partition Name '%s' already used in a previous partition statement !
+0241:Pin '%s' already assigned to a partition !
+0242:More than two pins with attribute fastclock declared !
+0243:[Internal Error] Plusasm2 cannot find partition data !
+0244:[Internal Error] Corrupt partition product term !
+0245:[Internal Error] Found a partition with too many fast clocks !
+0246:[Internal Error] Found a partition with too many input pins !
+0247:Output '%s' is only allowed to have .RSTF and  .SETF equations for this PLD !
+0248:Output '%s' is not allowed to have .RSTF/.SETF equations. Use special pin !
+0249:Do not use D1,D2-notation and preset together for equation output '%s' ! 
+0250:[Internal Error in  output order for  partition expression !]
+0251:Fast clock pin '%s' must be non-inverted and alone in clock equations only !
+0252:More than two fast clocks are being used for this component !
+0253:This type of equation can only have one product term !
+#0254:Error message obsolete
+0255:I/O pin '%s' is redeclared to a fast clock input only pin !
+0256:Plusasm part 2 aborts because the partitioner/minimizer has not been run !
+0257:Plusasm part 2 aborts because the partitioner/minimizer failed !
+# 0258:CL_ERR_COMP_NOT_FOUND ??? Ask Leonard.
+0258:[Internal Error]
+0259:[Internal Error] Composite component & instance pin mismatch !
+0260:[Internal Error] Composite component & expression split output mismatch !
+0261:1:This pin is not used in any equation:  %s !
+0262:Only one MINIMIZE statement is allowed !
+       List all signals you don't want minimized in one statement, e.g.,
+          MINIMIZE OFF x1 x2
+                       x3 x4 ;continued on the next line if necessary
+0263:String %s is declared more than once !
+0264:Recursive STRING statements are not allowed. Eliminate string dependency !
+0265:   string: '%s'
+0266:Too many products terms, for this PLD. See overflow table below !
+0267:[ Disregard this message !]
+0268: Parser: %s
+
+0269:No registered ':=' equation for '%s.RSTF' equation !
+0270:No registered ':=' equation for '%s.SETF' equation !
+0271:No registered ':=' or non-registered '=' equation for '%s.SETF'
+     equation !
+#
+0272:EXTERNAL pin attribute is not allowed for this component type !
+0273:Pin name '%s' can not be declared both as an internal NODE
+     and external pin !
+#
+# new for 3.0
+0274:Equation output '%s' can not have both .SHIFT and .FBK equations !
+0275:Equation output '%s' requires 'X = X.D1 <op> X.D2' equation !
+0276:'%s.ADD' has more than three product terms !
+0277:'%s.FBK/SHIFT' can not have more than three product terms !
+0278:[Internal Error] Running out of addmode product terms for '%s' !
+0279:[Internal Error] Running out of feedback product terms for '%s' !
+0280:Fast compare components must not have negative polarity !
+0281:Not allowed to negate pad pins !
+0282:Pad equation written for pin '%s', which is not declared as a pad !
+0283:This kind of pad pin cannot have this kind of extension '%s' !
+0284:This extension '%s' is not valid for a pad pin !
+0285:Expected a pad equation here !
+0286:The right side must be a pin declared as a fast_clock pin !
+0287:Second LCLK or RCLK declaration or equation found for one pin !
+0288:The right side must be one pin declared as a foe pin !
+0289:Second FOE equation found for one pin !
+0290:For an input pad, a .FOE equation is not allowed !
+0291:More than one foe pin in this component !
+0292:Foe pin is declared but not used !
+0293:For this component type, clock pins are not allowed !
+0294:Not allowed to declare more than one clock pin !
+0295:Clock pin is declared but not used !
+0296:Not allowed to declare more than one pad !
+0297:An output pin is required for this component type !
+0298:An output pad component may not have an output pin !
+0299:Too many inputs for this component !
+0300:An input pin is required for this component type !
+0301:An input pad component may not have an input pin !
+0302:[Internal Error] Partition has too many fast inputs !
+0303:1:Include file '%s' had no CHIP statement, so cannot determine
+       pin-list to include!  Define pin names in your main file.
+0304:Can not open include file '%s' !
+0305:1:Design is probably too large for the chip. Type C-Break to quit!
+0306:[Internal Error]: Corrupt tristated pad net !
+0307:Pld device type '%s' is used in hierarchical behavioral designs or
+     schematic designs. Redeclare device type or run PLUSASM.
+0308:Pld device type '%s' is for a toplevel behavioral files !
+     Redeclare device type or run FITEQN.
+0309:1:Pin(s) have been found dangling and redefined as INPUTPINs 
+   (or FOEs, FASTCLOCKs, CEPINs) !
+0310:1:Pin(s) have been found dangling and redefined as OUTPUTPINs !
+0311:No output pin declared in this design !
+0312:Equation output '%s' is not allow to have more than 3 product terms !
+0313:Output '%s' has both dynamic and normal addmode set. Not allowed !
+0314:Pal uses default tristate for all registered output !
+0315:You are trying to assemble a file which has a pld type which denotes
+  a whole design ! 
+  For included pld files or when assembling an individual pld,
+  use a different pld type.
+  For whole designs, invoke the command 'FITEQN' to integrate.
+0316:'%s.ADD' can only be set to VCC !
+0317: .SETF/.RSTF equation may only have a one-pin product term !
+0318:Only 2 fastclock pins are allowed to clock input pad registers !
+0319:Only 3 fastclock pins are allowed in the design !
+0320:Only 2 fastclocks are allowed to clock macrocell registers !
+0321:Equation output.add = '%s' is not allowed !
+     VCC is the only input allowed for .ADD equations.
+0322:Pin '%s' is a input pin and cannot have this pin attribute !
+0323:Incorrect equation type for UIM equation output '%s' !
+0324:Delay introduced, since '%s' appear with both polarities in UIM eq. !
+0325:UIM equation has input pin '%s' occurring with both polarities !
+0326:UIM equation output '%s' has input with the same name !
+0327:UIM Equation for '%s' will have a delay, it goes directly to a pad !
+0328:NODE (UIM) is NOT allowed for this pld type !
+0329:More than one pin is declared as a foe pin !
+0330:Pin '%s' is a fast output enable pin, cannot be used as input pin !
+0331:Pin '%s' is declared both as fast clock pin and as foe pin !
+0332:FOE pin NOT allowed for this kind of pal !
+0333:FOE, RCLK and LCLK equations not allowed for this pal !
+0334:Non-registered '=' equation output '%s' has .setf or .rstf declared !
+0335:UIM equation output '%s' cannot be listed in an minimize statement !
+0336:UIM equation output '%s' cannot be listed in a partition statement !
+0337:Internal PLD design name '%s' does not match equation filename !
+0338:1:Output pin '%s', declared as NODE, is dangling !
+0339:[Internal Error]: Clock input pin not found !
+0340:Global signal '%s' may not be inverted !
+0341:[Internal Error]: Both TRST and PINTRST used !
+0342:Can NOT find registered ':=' or non-registered '=' equation for
+     '%s.TRST' equation !
+0343:TRST equation found on NODE '%s'!  Please declare as
+ OUTPUTPIN or IOPIN, or declare as NODE (NODETRST), or remove TRST equation.
+0344:A FOE input pin is not allowed in this equation !
+0345:FOEPIN '%s' is active high only . Remove negation!
+0346:CEPIN '%s' is active low only . Add negation !
+0347:Pin '%s' already declared as FAST_CLOCK !
+0348:Pin '%s' already declared as FOE !
+0349:Pin '%s' already declared as ENABLE !
+0350:Cannot use .PRLD equation for Fast Function Block output '%s' !
+0351:Cannot use .ADD equation for Fast Function Block output '%s' !
+0352:Illegal equation for FFB output '%s'. Only .SETF, .RSTF, .CLKF and
+     .EXPORT allowed ! .TRST, .D1, .D2, .FBK and :+: are also allowed when 
+     integrating a whole design.
+0353:Fast Function Block output '%s' must be active-low !
+0354:Output '%s' uses .EXPORT, which leaves only one pterm for this equation !
+0355:.EXPORT equation is not allowed with a '%s.SETF/.RSTF' equation !
+      Cannot have both !
+0356:.SETF or .RSTF equation is not allowed with a '%s.EXPORT' equation !
+     Cannot have both !
+0357:Cannot use .EXPORT equation for High-Density FB output '%s' !
+0358:'%s'.CLKF uses a product-term clock, for a FFB component!
+     Redefine as FASTCLOCK !
+0359:Can NOT use .EXPORT equation in last macrocell for Fast Function
+     Block output '%s' !
+0360:FASTINPUT pins are not allowed for this device type !
+0361:Too many fast inputs. %s fast inputs are used !
+0362:This pal type can have no more than %s fast inputs !
+0363:I/O pin '%s' is used as input, but equation defining output
+              is missing !
+0364:Only one PWR statement is allowed in the design !
+       List all signals you  want to have low power in one statement, e.g.,
+          PWR LOW  x1 x2
+                       x3 x4 ;continued on the next line if necessary
+0365:Too many product terms for output %s. You can use up to 4 p-terms only!
+0366:[Internal Error] Null value!
+0367:Unknown option or this option should NOT be followed by '=' !
+0368:Unknown option or this option should be followed by '=' !
+0369:Option 'FI' can only be used in INPUTPIN and IOPIN statements !
+0370:Option 'PINFBK' can only be used in IOPIN statements !
+0371:Option 'UIM' can only be used in NODE statements !
+0372:Option 'PINTRST' can only be used in IOPIN and OUTPUTPIN statements !
+0373:Option 'FOE' can only be used in IOPIN and OUTPUTPIN statements !
+0374:Pin '%s' is use in option ( FOE = ) but does not appear in
+     FOEPIN declaration !
+0375:Pin '%s' has been declared with multiple FOEs !
+0376:Pin '%s' must be declared with a FASTCLOCK statement !
+0377:Options 'RCLK','CE' and 'LE' can only be used for IOPINs and INPUTPINs !
+0378:Duplicate 'RCLK' or 'LE' declarations for pin '%s' !
+0379:Pin '%s' must be declared with a CEPIN statement !
+0380:Duplicate 'CE' declared for pin '%s' !
+0381:Pin '%s' has been declared with different polarities !
+0382:Pin '%s' has been  declared with different pin types !
+0383:Pin '%s' is NOT declared in the pin-list of this pld !
+0384:This  pin statement is NOT allowed for PLD Components !
+0385:NODE pin '%s' is NOT used as an output. Cannot have UIM option !
+0386:Expected either 'STD' or 'LOW' after 'PWR' !
+0387:Uim equation output pin '%s' cannot be used in an PWR statement !
+0388:PWR statement pin '%s' is not an output with equations!
+     Remove from PWR statement.
+0389:Expected either 'ON' or 'OFF' after 'PINTRST' !
+0390:Uim equation output pin '%s' cannot be used in an PINTRST statement !
+0391:Pin '%s' used in NODETRST statement is not an output pin !
+0392:'PINTRST' statement is not allowed for whole designs !
+            Use 'PINTRST' as an option in 'OUTPUTPIN' and 'IOPIN' statements !
+0393:FASTINPUT pin '%s' is not used as an input in this equation file !
+0394:Pin '%s' can not be defined as both a FASTCLOCK and a FASTINPUT !
+0395:1:This pld type can not exceed the resources of one function block. 
+            PARTITION statement is redundant and therefore ignored !
+0396:INPUTPIN '%s' has CE declared but no RCLK !
+0397:1:Design contains PIN_ATTRIBUTE statement(s), which will be 
+       obsoleted in a later release. Use statements such as: INPUTPIN,
+       OUTPUTPIN, IOPIN, NODE, FASTCLOCK, CEPIN and FOEPIN !
+0398:1:Pal contains PIN_ATTRIBUTE statement(s), which will be obsoleted
+       in a later release. Use statements such as: NODE, FASTCLOCK,
+       FASTINPUT and NODETRST ON/OFF !
+0399:Pin '%s' has more than one pterm declared for UIM equation !
+0400:'%s' is NOT used as an output in any equation. Redeclare as an INPUTPIN !
+0401:1:PIN_ATTRIBUTE ignored for pin '%s' since it is declared
+     with a IOPIN, INPUTPIN, OUTPUTPIN, CEPIN, NODE, FASTCLOCK, or FOEPIN !
+0402:Pin '%s' declared as PINTRST, but is missing a '.TRST' equation !
+0403:Found a second PINTRST statement. Only one such statement allowed !
+0404:This statement is NOT supported for the target device !
+0405:1:Statement NOT supported for the target device and is being ignored !
+0406:Pin statement option is NOT supported for the target device !
+0407:'NODE (UIM) %s' is declared, but that pin has no proper
+          '<pin_name>  =  <one_product_term>' equation !
+0408:1:Extensions .FI and .PIN are not allowed for NODE '%s'.
+     The extension is ignored !
+0409:'%s.PIN' is not declared with an IOPIN or an INPUTPIN statement !
+0410:1:IOPIN '%s' is not used as I/O and is being redeclared as OUTPUTPIN !
+0411:[Internal Testing] Net '%s' has no sinks ! 
+0412:[Internal Testing] Net '%s' has no sources ! 
+0413:[Internal Error] Global pin id '%s' doesn't exist !
+0414:Fast input pins are not available in target device !
+0415:Fast input pin '%s' may only be used by an output pin, which is
+     targeted for a Fast Function Block !
+0416:Pin-statement can only be used in top-level files!
+   INPUTPIN, OUTPUTPIN, IOPIN, CEPIN and FOEPIN can not be used in a
+   schematic pld and pld include file.
+0417:MRINPUT statement can only be used in top-level files !
+        Use schematic component attribute "MRINPUT=ON" instead.
+0418:MRINPUT input statement is not available on target device !
+0419:Output '%s' uses both :+: and .ADDMODE. Please use .D1 XOR .D2 notation
+     to declare which pterms go one each side of the :+: operator.
+0420:Output '%s' uses both :+: and .SHIFT. Please use .D1 XOR .D2 notation
+     to declare which pterms go one each side of the :+: operator.
+0421:Output '%s' uses both :+: and .FBK. Please use .D1 XOR .D2 notation
+     to declare which pterms go one each side of the :+: operator.
+0422:1:The .RCLK and the .LCLK syntax will be obsoleted in a later
+  release. RCLK and LE can be specified in the declaration section where pins
+  are declared.
+0423:OPTIONS statements are ignored in PLD files.
+0424:Expected either 'ON' or 'OFF' after 'OPTIONS' statement !
+0425:Option '%s' has been declared both 'OFF' and 'ON' !
+0426:Missing or unknown option ! Valid options are CLOCK_OPT, FOE_OPT,
+  UIM_OPT and REG_OPT.
+0427:Option 'FOE_OPT' is not available on target device !
+0428:CEPIN pins are not allowed in this equation !
+0429:Dot extensions '.FI' and '.PIN' are NOT allowed in PLD files.
+     Use  FASTINPUT statement for fast-inputs !
+0430:Included PLD file (or PALCONVT file) '%s' contains fatal errors !
+0431:Unable to open a temporary file. System Error???!!! Check available
+     disk space.
+0432:The top level file '%s' has identical filename in 
+    an INCLUDE_EQN statement.
+0433:INCLUDE_EQN statements are only allowed in top-level files.
+     Remove the INCLUDE_EQN statements from any of the "included" files.
+0434:%s
+0435:1:Top-level file pintype declaration for pin '%s' overrides FASTCLOCK
+    declaration in include file !
+0436:Unable to create equation output file '%s' ! System Error???!!!
+     Check available disk space.
+0437:Identifier '%s' has a non-printable character !
+0438:Only one LOGIC_OPT statement is allowed in the design !
+0439:PARTITION FB, PARTITION FFB and LOGIC_OPT statements are only allowed in
+    top-level files. Removed from pld or include files !
+0440:Unknown pin '%s'. It needs to be declared !
+0441:Pin '%s' is specified to be put both in a High Density Function
+     Block and in a Fast Function Block !
+0442:1:PARTITION FFB is not valid for target device and is being ignored !
+0443:Expected either 'ON' or 'OFF' after 'LOGIC_OPT' !
+0444:Pin '%s' used in LOGIC_OPT statement is not an output with equations!
+0445:1:This equation can not start with a slash '/' and the slash is being
+    ignored.
+0446:FFB output '%s' has been declared with both a .RSTF and 
+     a .SETF equation. Only one is allowed or redeclared for high-density FB.
+0447:FFB output '%s' has a .RSTF equation which is not allowed
+    for target device !
+0448:Pin assignments can not be used in NODE statements !
+0449:Pin '%s' has been assigned to more than one pad pin !
+0450:Pin assignment do not match the number of pin names in this statement !
+0451:Conflicts exist between pal outputs.
+Look for CONFLICTs in the Connectivity column in the Interconnect Report !
+(If Log Report has other fatal errors, the Interconnect Report may not exist.)
+0452:No conflicts found between included pal outputs !
+0453:The FBKINVERT equation can only be set to VCC !
+0454:FFB output '%s' cannot have a FBKINVERT equation !
+0455:Cannot set FBKINVERT for a non-equation output '%s' !
+0456:obsolete message
+0457:T-flipflop for '%s' is declared active-low and targeted for a
+    Fast Function Block, which is not supported. Rewrite it active-high.
+0458: &= syntax is obsolete! Redeclare signal as NODE (UIM).
+0459:1:FASTCLOCK '%s' is not used to clock anything in this design !
+0460:1:FOEPIN '%s' is not used to enable anything in this design !
+0461:1:CEPIN '%s' is not used to enable anything in this design !
+0462:Output '%s' has %d product terms !
+     This equation will increase the collapser and minimizer runtime and
+     may also cause the system to run out of memory. Consider factoring
+     your logic into multiple equations.
+0463:The pin list must begin directly after the pldtype in the CHIP statement!
+      Example:     CHIP  DESIGN_A    COMPONENT 
+                   IN1  IN2  IN3  IN4  OUT1  OUT2  OUT3
+0464:Expected either 'ON' or 'OFF' after 'NODETRST' !
+0465:'NODETRST' statement is not allowed for top-level pld files !
+     Use 'NODETRST' as an option in 'NODE','OUTPUTPIN' and 'IOPIN' statements !
+0466:Only one NODETRST statement is allowed for PLD files.
+0467:1:The PINTRST statement is no longer supported and is being ignored.
+     Pin-tristated outputs are now default.
+     To tristate internal feedbacks, use the new syntax NODETRST.
+     To run old designs with old PINTRST syntax, add this line to
+     the 'xepld.cfg' config file:
+         ( alias NODETRST  ON ) 
+  
+0468:1:NODETRST is overridden by ( alias NODETRST ON ) found in 
+  the 'xepld.cfg' config file.
+0469:NODETRST alias value '%s' found in 'xepld.cfg' config file
+    is unknown ! Change it to ON  or OFF.
+0470:Option 'NODETRST' can only be used in NODE, IOPIN and OUTPUTPIN 
+  statements !
+0471:1:Tristate set to ground ! It will permanently disable the signal.
+0472:1:The design has tristated equation output(s) which are not 
+     declared with 'NODETRST'. These equation outputs will be treated
+     as if they where declared with 'NODETRST' since the target device
+     supports only 'NODETRST'.
+0473:Pin '%s' is used as a fast input. Fast inputs are not supported
+     on the current device!
+0474:Running out of memory in the lower 640KB conventional memory area.
+     Try again after removing TSRs, network drivers, etc.
+     If called from XEMAKE, choose instead commands FITEQN and MAKEPRG, which
+     use less of the 640KB memory area.
+     Use the EMM386 program to move TSRs, drivers, etc. to the upper memory
+     area may also help. See the MS-DOS manual.
+0475:Pin '%s' uses pad latch or pad register.
+     Not allowed for the target device!
+0476:Equation output '%s' using arithmetic mode must be in 
+     a PARTITION statement defining order relative other equation outputs.
+0477:Equation output '%s' using .EXPORT or .SHIFT must be in 
+     a PARTITION statement defining order relative other equation outputs.
+0478:1:PWR statement is ignored! Target device has no power control.
+#
+# general component compiler messages
+0500:Incorrect command line !
+0501:Number out of range !
+0502:Abort due to Errors !
+0503:Bitmaps must be defined with hex or binary numbers !
+0504:Bitmap does not have this many rows !
+0505:Bitmap does not have this many inputs (columns) !
+#
+# end of file
+#
+

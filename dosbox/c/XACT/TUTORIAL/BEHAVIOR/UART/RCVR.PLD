@@ -1,0 +1,55 @@
+
+TITLE RCVR
+
+CHIP   RCVR   P22V10;
+
+;PINLIST (Highest pin number = 24)
+      x4clk c0 c1 c2 c3 c4 c5 read sdin d0 NC NC NC NC start bitclk 
+      byteclk par framing parity overun ready NC NC 
+
+;Control Logic and Error Detector for UART Receiver Design
+;       Xilinx EPLD Applications, Feb. 93
+
+
+
+EQUATIONS
+
+/start := (/start * sdin
+     + c0 * /c1 * /c2 * c3 * /c4 * c5);
+
+start.CLKF = (x4clk);
+
+bitclk := (start * /c0 * /c1);
+
+bitclk.CLKF = (x4clk);
+
+ready := (c0 * /c1 * /c2 * c3 * /c4 * c5 * /parity * /framing * /overun
+     + ready * /read);
+
+ready.CLKF = (x4clk);
+
+byteclk := (/c0 * c1 * /c2 * /c3 * /c4 * c5 * /ready);
+
+byteclk.CLKF = (x4clk);
+
+overun := (/c0 * c1 * /c2 * /c3 * /c4 * c5 * ready
+     + overun * /read);
+
+overun.CLKF = (x4clk);
+
+par := (start * /sdin * par
+     + start * sdin * /par * bitclk
+     + start * par * /bitclk);
+
+par.CLKF = (x4clk);
+
+parity := (parity * /read
+     + /c0 * c1 * /c2 * /c3 * /c4 * c5 * par);
+
+parity.CLKF = (x4clk);
+
+framing := (/sdin * /c0 * /c1 * /c2 * c3 * /c4 * c5
+     + framing * /read
+     + /c0 * /c1 * /c2 * c3 * /c4 * c5 * /d0);
+
+framing.CLKF = (x4clk);

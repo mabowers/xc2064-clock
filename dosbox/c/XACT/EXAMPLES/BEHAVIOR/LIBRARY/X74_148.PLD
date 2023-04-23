@@ -1,0 +1,33 @@
+TITLE           Encoder: 8 - 3, active low inputs and outputs
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung   
+COMPANY         Xilinx EPLD
+DATE            8/5/93
+
+CHIP            X74_148  COMPONENT
+ 
+;Inputs
+/i0 /i1 /i2 /i3 /i4 /i5 /i6 /i7 /ei
+
+; i[7:0]        Encoder input
+; ei            enable
+
+;Outputs
+/a0 /a1 /a2 /eo /gs 
+
+; a[2:0]        binary output
+; eo            enable output
+; gs            group signal
+
+EQUATIONS 
+
+a2 = ei*i7 + ei*i6 + ei*i5 + ei*i4
+
+a1 = ei*i7 + ei*i6 + ei*/i5*/i4*i3 + ei*/i5*/i4*i2
+
+a0 = ei*i7 + ei*/i6*i5 + ei*/i6*/i4*i3 + ei*/i6*/i4*/i2*i1
+
+/gs = /ei + ei*/i7*/i6*/i5*/i4*/i3*/i2*/i1*/i0
+
+eo = ei*/i7*/i6*/i5*/i4*/i3*/i2*/i1*/i0

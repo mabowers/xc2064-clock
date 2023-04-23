@@ -1,0 +1,203 @@
+.Helphelp
+  If you need help with a particular menu item, point to it with the
+  cursor and press the %yF1%g key; a HELP file will appear on the
+  screen.  You can scroll up or down in this file with the UP
+  arrow, DOWN arrow, PgUp, PgDn, HOME and END keys. Try it.  For
+  your convenience, a HELP file is provided for every main menu and
+  submenu item.
+
+  To return to the Executive Screen, type %yEXIT%g on the command
+  line or use the mouse to select %yEXIT%g from the %yMisc%g menu
+  at the top of the screen.  To "select" a menu or a menu item,
+  point to it with the cursor (a box surrounds the item) and press
+  the "SELECT" mouse button.  The default profile (included with XDE)
+  programs the left mouse button to perform the "SELECT" function.
+  You can change the function of each mouse button with the %yMOUSE%g
+  command in the %yPROFILE%g menu.
+
+:Prom
+
+  The %yProm%g menu contains the commands that are needed to create  
+  a prom file.
+
+:Load
+
+  The %yLoad%g command is used to load bitstreams into the prom image  
+  memory. 
+
+  Load prompts for the starting address of the prom, the direction it  
+  should load, and the bitstream file(s) that will be put into the  
+  prom file.
+
+  If you plan on configuring your LCAs in a daisy-chain, enter the  
+  .BIT files in the order in which they will be configured when you  
+  are prompted for file names.
+ 
+:Delete
+
+  %yDelete%g removes the file(s) that is(are) located at the selected  
+  address.
+
+:Format
+
+  %yFormat%g is used to select the format of the prom file. Valid  
+  choices are
+
+             %yMCS86%g - Intel MCS-86 Hexadecimal Object
+            %yTekhex%g - Tektronix Hexadecimal
+           %yExormax%g - Motorola Exormax
+
+:Save
+
+  The %ySave%g command saves the prom data into a file.  
+
+:Clear
+
+  The %yClear%g command clears the prom data from memory.  
+
+:Misc
+
+  The %yMisc%g menu contains commands that don't fit into any other menu.
+ 
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+ 
+:Exit
+ 
+  %yExit%g leaves Makeprom and takes you back to the Executive screen.  
+ 
+:Help
+  If you need help with a particular menu item, point to it with the
+  cursor and press the %yF1%g key; a HELP file will appear on the
+  screen.  You can scroll up or down in this file with the UP
+  arrow, DOWN arrow, PgUp, PgDn, HOME and END keys. Try it.  For
+  your convenience, a HELP file is provided for every main menu and
+  submenu item.
+
+  To return to the Executive Screen, type %yEXIT%g on the command
+  line or use the mouse to select %yEXIT%g from the %yMisc%g menu
+  at the top of the screen.  To "select" a menu or a menu item,
+  point to it with the cursor (a box surrounds the item) and press
+  the "SELECT" mouse button.  The default profile (included with XDE)
+  programs the left mouse button to perform the "SELECT" function.
+  You can change the function of each mouse button with the %yMOUSE%g
+  command in the %yPROFILE%g menu.
+
+:DOS
+ 
+  %yDOS%g suspends XDE and enters the operating system.
+  If "DOS <command>" is entered, the command executes immediately.
+ 
+  When in DOS, type %yEXIT%g to return to the Design Editor.
+
+:Execute
+ 
+  %yExecute%g allows you to execute a file of commands.
+ 
+:Print
+  The %yPrint%g command allows you to print all or part of the EditLca
+  display screen. Before using this command you must use the %yPrinter%g
+  command to select the correct printer. If your printer doesn't
+  appear, refer to the Appendix in the Reference Manual Vol 1., which
+  describes how to add a printer to the PRINTCAP.XCT file.
+
+  The options for the print command are:
+
+        %yDisplay%g - Print the displayed portion of the LCA.
+        %yScreen%g  - Print the entire screen, including menus.
+        %yMap%g     - Print a map of the current prom image held in memory.  
+:Print-Display
+
+ %yDisplay%g prints the part of the LCA screen that currently
+  appears on the monitor. Menus are NOT printed.
+
+:Print-Screen
+
+  %yScreen%g prints exactly what is shown on the monitor,
+  including menus and the status lines.
+
+:Print-Map
+
+  %yMap%g prints a map of the current prom image held in memory.  
+
+:Query
+
+  %yQuery%g displays the set prom size.  
+
+:Set
+
+  %ySet%g is used to specify various attributes of the prom to be 
+  loaded, or of the daisychains to be assembled and loaded.
+
+:Set-Promsize
+
+  %ySet Promsize%g is used to specify the size of the prom to be loaded.
+
+  The size is assumed to be the number of K bytes.
+
+:Set-EndClocks
+
+  %ySet EndClocks%g is used to specify a number of additional clocks
+  that should be added to the length count that is embedded in each
+  daisychain.
+
+:Set-AlignedLengthCount
+
+  When %ySet AlignedLengthCount%g is used, the daisy chain's length 
+  count value is calculated so that the length count value is placed 
+  at bit zero of the last byte in the stream.
+
+:Set-AlignedDone
+
+  When %ySet AlignedDone%g is used, the daisy chain's length 
+  count value is calculated so that the DONE signal (DONE/~PROG for 
+  XC2000 and XC3000 devices) is placed at the end of the last byte 
+  in the stream.
+
+:Profile
+
+  The %yProfile%g menu contains the group of commands that can be used to
+  customize XDE to your personal tastes.
+ 
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+ 
+:Settings
+ 
+  %ySettings%g lists the current values for all of the user definable
+  options.
+ 
+:Saveprofile
+ 
+  %ySaveprofile%g saves the current settings into the makeprom.pro file.
+  This file contains the default settings for the MakeProm screen display.
+ 
+:Readprofile
+ 
+  %yReadprofile%g reads the makeprom.pro file and resets all user
+  definable options to these values.
+ 
+  This command is useful if you change some settings but want to
+  go back to the way the MakeProm screen was set up when you entered it.
+ 
+:Keydef
+
+  %yKeydef%g allows you to define the function keys.
+
+  Rather than having to repeatedly type command names or search through
+  menus, define the function keys to perform your most frequently used
+  commands.
+
+:Mouse
+
+  The %yMouse%g command allows you to define what functions
+  your mouse buttons should perform.
+
+  The options are:
+
+     %ySelect%g - Select the item which the cursor is currently on.
+     %yDone%g   - Finish a command.
+     %yMenu%g   - Return to the last selected menu item.
+     %ySwitch%g - Switch between the Editlca and Editblk screens.
+
+

@@ -1,0 +1,39 @@
+CGA:mode=4:egamem=0:planes=2:colors=4:charw=8:charh=8:screenw=320:screenh=200:cga:maskfile=cgamask.xcb:description=Original PC CGA Mode
+
+EGA4:mode=16:egamem=64:planes=2:colors=4:charw=8:charh=14:screenw=640:screenh=350:ega:maskfile=egamask.xcb:description=EGA, four colors
+
+EGA8:mode=16:egamem=128:planes=3:colors=8:charw=8:charh=14:screenw=640:screenh=350:ega:maskfile=egamask.xcb:description=EGA, eight colors
+
+EGA16:mode=16:egamem=128:planes=4:colors=16:charw=8:charh=14:screenw=640:screenh=350:ega:maskfile=egamask.xcb:description=EGA, sixteen colors
+
+VGA4:mode=18:egamem=128:planes=2:colors=4:charw=8:charh=16:screenw=640:screenh=480:vga:maskfile=vgamask.xcb:description=640x480 VGA, four colors
+
+VGA8:mode=18:egamem=256:planes=3:colors=8:charw=8:charh=16:screenw=640:screenh=480:vga:maskfile=vgamask.xcb:description=640x480 VGA, eight colors
+
+VGA16:mode=18:egamem=256:planes=4:colors=16:charw=8:charh=16:screenw=640:screenh=480:vga:maskfile=vgamask.xcb:description=640x480 VGA, sixteen colors
+
+VGAP4:mode=0x58:egamem=128:planes=2:colors=4:charw=8:charh=16:screenw=800:screenh=600:vga:maskfile=vgamask.xcb:description=800x600 VGA, four colors
+
+VGAP8:mode=0x58:egamem=256:planes=3:colors=8:charw=8:charh=16:screenw=800:screenh=600:vga:maskfile=vgamask.xcb:description=800x600 VGA, eight colors
+
+VGAP16:mode=0x58:egamem=256:planes=4:colors=16:charw=8:charh=16:screenw=800:screenh=600:vga:maskfile=vgamask.xcb:description=800x600 VGA, sixteen colors
+
+VESA4:mode=0x6a:egamem=128:planes=2:colors=4:charw=8:charh=16:screenw=800:screenh=600:vga:maskfile=vgamask.xcb:description=800x600 VESA VGA, four colors
+
+VESA8:mode=0x6a:egamem=256:planes=3:colors=8:charw=8:charh=16:screenw=800:screenh=600:vga:maskfile=vgamask.xcb:description=800x600 VESA VGA, eight colors
+
+VESA16:mode=0x6a:egamem=256:planes=4:colors=16:charw=8:charh=16:screenw=800:screenh=600:vga:maskfile=vgamask.xcb:description=800x600 VESA VGA, sixteen colors
+
+NEC640x200-4:mode=0:egamem=0:planes=2:colors=4:charw=8:charh=8:screenw=640:screenh=200:nec:maskfile=nec2mask.xcb:description=NEC9801 640x200, four colors
+
+NEC640x400-4:mode=0:egamem=0:planes=2:colors=4:charw=8:charh=16:screenw=640:screenh=400:nec:maskfile=necmask.xcb:description=NEC9801 640x400, four colors
+
+NEC640x200-8:mode=0:egamem=0:planes=3:colors=8:charw=8:charh=8:screenw=640:screenh=200:nec:maskfile=nec2mask.xcb:description=NEC9801 640x200, eight colors
+
+NEC640x400-8:mode=0:egamem=0:planes=3:colors=8:charw=8:charh=16:screenw=640:screenh=400:nec:maskfile=necmask.xcb:description=NEC9801 640x400, eight colors
+
+EGA:alias=EGA4
+VGA:alias=VGA4
+VGAP:alias=VGAP4
+NEC640x200:alias=NEC640x200-4
+NEC640x400:alias=NEC640x400-4

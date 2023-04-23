@@ -1,0 +1,27 @@
+TITLE           Flip-flop: JK-type, sync set/reset, clock-enable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            7/22/93
+
+CHIP            FJKSRE  COMPONENT
+ 
+;Inputs
+c j k s r ce
+
+;Outputs
+q
+
+EQUATIONS 
+
+q.d1   = /j*/k*/q*/s
+       + r*/s
+       + /ce*/q*/s
+q.d2   = /j*k*ce*/s
+q.fbk  = j*k*ce*/s
+q     := q.d1 nor q.d2
+q.clkf = c
+
+; q output logic defined active-low to allow j*k term onto q.fbk p-term
+; allowing divide-by-2 to toggle higher than fMAX while j,k,ce,r,s constant.

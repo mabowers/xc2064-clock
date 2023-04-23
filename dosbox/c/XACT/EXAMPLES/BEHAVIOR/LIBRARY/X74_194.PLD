@@ -1,0 +1,53 @@
+TITLE           Shift Register: 4-bit, left/right, async-clear, loadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/4/93
+
+CHIP            X74_194  COMPONENT
+ 
+;Inputs
+sli a b c d sri s0 s1 ck /clr
+
+; sli           shift-left serial input
+; a..d          parallel-load data
+; sri           shift-right serial input
+; s[1:0]        shift/load control
+; ck            clock (optional FastCLK)
+; clr           async clear
+ 
+;Outputs
+qa qb qc qd
+
+; qa..qd        counter output
+
+EQUATIONS 
+
+qd       := /s0*/s1*qd
+          +  s0*/s1*qc
+          + /s0* s1*sli
+          +  s0* s1*d
+qd.clkf   = ck
+qd.rstf   = clr
+
+qc       := /s0*/s1*qc
+          +  s0*/s1*qb
+          + /s0* s1*qd
+          +  s0* s1*c
+qc.clkf   = ck
+qc.rstf   = clr
+
+qb       := /s0*/s1*qb
+          +  s0*/s1*qa
+          + /s0* s1*qc
+          +  s0* s1*b
+qb.clkf   = ck
+qb.rstf   = clr
+
+qa       := /s0*/s1*qa
+          +  s0*/s1*sri
+          + /s0* s1*qb
+          +  s0* s1*a
+qa.clkf   = ck
+qa.rstf   = clr

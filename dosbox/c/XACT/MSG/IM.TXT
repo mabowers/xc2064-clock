@@ -1,0 +1,20 @@
+# @(#)IM.TXT	3.1 Copyright(C)1992 Xilinx Inc. 5/4/94 23:55:32
+# file: im.err
+# date: 6/28/90
+# what: Xilinx EPLD importer error messages -user file
+# Z. K.
+#
+0001:[Internal Error: chip model is not loaded].
+0002:Unable to find and open JEDEC input file.
+0003:Invalid JEDEC input filename.
+0004:Incorrect fuse count: %lu fuses found.
+0005:Too many fuses in JEDEC input file.
+0006:[Internal Error: bad parameter passed to a procedure].
+0007:Expected fuse number %lu, but instead found fuse number %lu.
+0008:Too few fuses in JEDEC input file, End-of-file found. 
+0009: Did not find fuse number %lu in JEDEC input file.
+0010: [Internal Error: Cannot find a bitmap in database].
+0011:The input file is for an unknown device '%s' !
+#
+# end of file
+#

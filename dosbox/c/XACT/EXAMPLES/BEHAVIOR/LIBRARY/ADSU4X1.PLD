@@ -1,0 +1,58 @@
+TITLE           Add/subtract: low-order 4-bit, cascadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/3/93
+
+CHIP            ADSU4X1  COMPONENT
+ 
+;Inputs
+a0 a1 a2 a3 b0 b1 b2 b3 add
+
+; a[3:0]        adder A-operand
+; b[3:0]        adder B-operand
+; add           function select: 1=add, 0=subtract(A-B)
+ 
+;Nodes
+cin
+
+;Outputs
+s0 s1 s2 s3
+
+; s[3:0]        adder output
+; co            carry-out from s3 via MC carry chain 
+;               (co may only connect to ci input of arith component or PLD)
+
+PARTITION s3_0 cin s0 s1 s2 s3
+
+EQUATIONS 
+
+;cin generates carry into s0 when subtracting
+cin.D1  = /add
+cin.D2  = /add
+cin     = cin.D1 gnd cin.D2 ; cin macrocell output not used
+
+s0.D1   = b0*add
+        + /b0*/add
+s0.D2   = a0
+s0      = s0.D1 xor s0.D2
+s0.add  = vcc
+
+s1.D1   = b1*add
+        + /b1*/add
+s1.D2   = a1
+s1      = s1.D1 xor s1.D2
+s1.add  = vcc
+
+s2.D1   = b2*add
+        + /b2*/add
+s2.D2   = a2
+s2      = s2.D1 xor s2.D2
+s2.add  = vcc
+
+s3.D1   = b3*add
+        + /b3*/add
+s3.D2   = a3
+s3      = s3.D1 xor s3.D2
+s3.add  = vcc

@@ -1,0 +1,342 @@
+.Helphelp
+  Welcome to the XDelay Program.  This program allows you to
+  analyze a design's timing information.
+
+  Extensive help files are provided with XDelay.  The %yHELP%g
+  command calls up the list of topics for which help is available.
+  Put the cursor on top of the desired item and press <ENTER> to
+  get help on that topic.  If you need help with a particular menu
+  item, you can point to it with the cursor and press the %yF1%g
+  key; a HELP file will appear on the screen.  You can scroll up
+  or down in this file with the UP arrow, DOWN arrow, PgUp, PgDn,
+  HOME and END keys. Try it.  For your convenience, a HELP file
+  is provided for every main menu and submenu item.
+
+  To quit the XDelay Program, type %yEXIT%g on the command line
+  or use the mouse to select %yEXIT%g from the %yMisc%g menu at
+  the top of the screen.  To "select" a menu or a menu item, point
+  to it with the cursor (a box surrounds the item) and press the
+  "SELECT" mouse button.  The default profile (included with XDM)
+  programs the left mouse button to perform the "SELECT" function.
+  You can change the function of each mouse button with the %yMOUSE%g
+  command in the %yPROFILE%g menu.
+
+:Dos
+  %yDos%g suspends XDelay and enters the operating system.  
+  If "DOS <command>" is entered, the command executes immediately.  
+
+  When in DOS, type %yEXIT%g to return to XDelay.
+
+:Exit
+
+  %yExit%g causes you to exit XDelay.
+
+:Design
+
+  The %yDesign%g menu consists of the group of commands which are 
+  related to designs, working directories and speeds.  
+
+  The first two items in this menu (%yDirectory%g and %yDesign%g)  
+  can be selected either by choosing them from the menu or by
+  clicking on the desired label at the bottom left part of the screen.
+
+:XDelay-Directory
+
+  The %yDirectory%g command allows you to change directories without  
+  having to exit XDelay.
+
+  Disk drives can be changed by typing "directory <drive>:" 
+
+:XDelay-Design
+
+  The %yDesign%g command is used to select the design which  
+  you will be working on.  The design will automatically be loaded
+  into memory after you select it.
+
+: XDelay-Speed
+
+  The %ySpeed%g command is used to change the speed grade for an 
+  existing design. XDelay will automatically calculate all the
+  delay information for the new speed grade.
+
+:Timing
+
+  The %yTiming%g menu contains the group of commands that
+  can be used to get worst-case net and path timing for
+  the currently loaded design.
+  
+#include xdfb
+#include qbqn
+
+:Drc
+
+  %yDRC%g is the Design Rules Checker.
+
+  It check for errors which would cause your design to not function
+  correctly.
+
+  Fatal errors must be fixed for your design to function properly.
+  Warnings should be fixed, but a bitstream can still be generated
+  for a design that has warnings.
+
+:DRC-Net
+
+  Selecting %yNet%g enables net DRC checks.
+
+:DRC-Nonet
+
+  Selecting %yNet%g disables net DRC checks.
+
+:DRC-Block
+
+  Selecting %yBlock%g enables CLB and IOB DRC checks.
+
+:DRC-Noblock
+
+  Selecting %yNoBlock%g disables CLB and IOB DRC checks.
+
+:DRC-Noroute
+
+  Selecting %yNoRoute%g disables routing DRC checks.
+
+:DRC-Verbose
+
+  Selecting %yVerbose%g provides a running comment about the
+  DRC as it proceeds.
+
+:DRC-Informational
+
+  Selecting %yInformational%g provides more details about which 
+  part of the LCA is being checked as the DRC proceeds.
+
+:Misc
+
+  The %yMisc%g menu contains commands that don't fit into any other menu.  
+  
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:Help
+  If you need help with a particular menu item, point to it with the
+  cursor and press the %yF1%g key; a HELP file will appear on the
+  screen.  You can scroll up or down in this file with the UP
+  arrow, DOWN arrow, PgUp, PgDn, HOME and END keys. Try it.  For
+  your convenience, a HELP file is provided for every main menu and
+  submenu item.
+
+  To "select" a menu or a menu item, point to it with the cursor
+  (a box surrounds the item) and press the  "SELECT" mouse button.
+  The default profile (included with XDelay) programs the left mouse
+  button to perform the "SELECT" function.  You can change the
+  function of each mouse button with the %yMOUSE%g command in the
+  %yPROFILE%g menu.
+
+:Report
+
+  %yReport%g redirects the output of certain commands to a file  
+  instead of displaying the information on the screen.
+
+:Report-QueryNet
+
+  %yQueryNet%g displays information about one or more nets.  
+  The QueryNet output uses the following format:
+
+          net         source   block           delay  load   block
+          name          pin    name             (ns)  pin    name
+   ----------------------------------------------------------------  
+   ----  $1-abc . . . . CC.X  (ASEL) . . . . . . 6.4  BC.C  (REG1)
+   --C-  $2-xyz . . . . FB.Y  (MUX)  . . . . . . 2.3  DE.E  (BA0)
+                                                 ***  AC.C  (BA1)
+                                               ~12.1  BC.E  (AOUT)
+
+  The first four spaces describe characteristics of the net.
+
+  Character 1:     S - Net has no source
+                   M - Net has multiple sources
+  Character 2:     L - Net has no loads
+  Character 3:     C - Net is marked critical
+  Character 4:     T - Net was modified by TIE.
+ 
+  In the Delay section, the symbol "***" means that the corresponding pin
+  is not routed. A tilde (~) means that the rise time to this pin can take  
+  up to 20 percent longer, and the fall time can be 20 percent faster.
+  To remove the tilde, re-route the net so that it passes through more
+  bi-directional buffers (BIDIs).
+ 
+:Report-QueryBlk
+
+  %yQueryBlk%g gives information on block configuration and placement.
+
+  For a detailed description of the options available for QueryBlk
+  refer to the XACT chapter in the Reference Guide.
+ 
+:Report-XDelay
+
+  The %yXDelay%g command allows you to obtain detailed timing 
+  information about your design.  The report contains the 
+  worst-case path delays for the selected of path sources 
+  and loads.  Sources and loads can be specified individually, 
+  or by clock nets.  There are also filters used to limit 
+  which types of paths are reported.  For example, have %yXDelay%g 
+  report only Clock to Setup paths, or only paths that use a 
+  specified net).
+
+  %yXDelay%g can also produce a perfomance analysis of a design.
+  The %yAnalyze%g option calculates the maximum clock frequency  
+  for each clock net in the design, and shows the limiting
+  delay paths for each clock net.
+
+:Report-DRC
+
+  %yDRC%g is the Design Rules Checker.
+
+  It check for errors which would cause your design to not function
+  correctly.
+
+  Fatal errors must be fixed for your design to function properly.
+  Warnings should be fixed, but a bitstream can still be generated
+  for a design that has warnings.
+
+:Execute
+
+  %yExecute%g will perform a list of XDelay commands which 
+  is stored in a disk file.
+  
+:Profile
+
+  The %yProfile%g menu contains the group of commands that can be used to  
+  customize XACT to your personal tastes. 
+
+  These commands allow you to define things such as which design XACT
+  should load as default, what information should be displayed when
+  the screen is first drawn, as well as many other default options.
+  
+  HELP can be used on the individual commands in this menu for more
+  information on their functionality and usage.
+
+:Settings
+
+  %ySettings%g lists the current values for all of the user definable  
+  options.
+
+:Saveprofile
+
+  %ySaveprofile%g saves the current settings into the XDelay.pro file.
+  This file contains the default settings for the XDelay program.  
+
+:Readprofile
+
+  %yReadprofile%g reads the XDelay.pro file and resets all user  
+  definable options to these values.  
+
+  This command is useful if you change some settings but want to  
+  go back to the way XDelay was set up when you entered it.
+
+:Palette
+
+  %yPalette%g allows the user to select which palette XDelay will
+  use to display the screen colors.
+
+:Keydef
+
+  %yKeydef%g allows you to define the function keys.  
+
+  Rather than having to repeatedly type command names or search through  
+  menus, define the function keys to perform your most frequently used
+  commands.
+
+:Mouse
+
+  The %yMouse%g command allows you to define what functions  
+  your mouse buttons should perform. 
+
+  The options are:
+
+     %ySelect%g - Select the item which the cursor is currently on.
+     %yDone%g   - Finish a command.
+     %yMenu%g   - Return to the last selected menu item.
+     %ySwitch%g - Switch between the Editlca and Editblk screens.  
+                  
+:Mouse-B1
+
+  Selecting %yB1%g selects the left button of the mouse.
+
+:Mouse-B2
+
+  Selecting %yB2%g selects the middle button of a 3-button mouse.
+  
+  On some 2-button mice this is equivalent to pressing both buttons.
+
+:Mouse-B3
+
+  Selecting %yB3%g selects the right button of the mouse.
+
+:Mouse-Select
+
+  Programming a mouse button to perform %ySelect%g will make a press
+  on that particular mouse button select the item which the cursor 
+  is currently on.
+
+:Mouse-Switch
+
+  Programming a mouse button to perform %ySwitch%g will make a press
+  on that particular mouse button switch between the Editlca and 
+  Editblk screens.
+
+:Mouse-Done
+
+  Programming a mouse button to perform %yDone%g will make a press
+  on that particular mouse button finish a command.
+
+
+:Mouse-Menu
+
+  Programming a mouse button to perform %yMenu%g will make a press
+  on that particular mouse button return to the last selected menu
+  item.
+
+:Print
+
+  The %yPrint%g command allows you to print all or part of the XDelay  
+  display screen. Before using this command you must use the %yPrinter%g  
+  command to select the correct printer. If your printer doesn't 
+  appear, refer to the XACT Design Editor chapter in the Reference Guide,
+  which describes how to add a printer to the PRINTCAP.XCT file.
+
+  The options for the print command are:
+
+        %yDisplay%g - Print the display, less the status line
+                  and any menus that might be present.
+        %yScreen%g  - Print the entire screen, including menus.
+
+:Print-Display
+
+  %yDisplay%g prints the part of the LCA screen that currently  
+  appears on the monitor.  Menus are NOT printed.
+
+:Print-Screen
+
+  %yScreen%g prints exactly what is shown on the monitor,  
+  including menus and the status lines.
+
+:Printer
+
+  Use the %yPrinter%g command to tell XDelay what type of printer you  
+  have. If your printer does not appear in the list of options,
+  refer to the XACT chapter in the Reference Guide.  This will show
+  you how to add your printer to the list.
+
+:Cursor
+
+  The %yCursor%g command allows you to change the shape of the cursor.  
+  The available cursor types are %yarrow%g, %ybug%g, %ycross%g and
+  %ygunsight%g.
+
+:Keycursor
+
+  If %yKeycursor%g is ON, the arrow keys will move the cursor
+  through pull-down menus and pressing <ENTER> will execute the  
+  selected option. If Keycursor is OFF, commands must be entered  
+  via the keyboard or selected from pull-down menus using the 
+  mouse. 
+

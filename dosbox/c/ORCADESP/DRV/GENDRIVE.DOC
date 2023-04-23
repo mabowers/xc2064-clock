@@ -1,0 +1,145 @@
+Title:  Gendrive - Description and Use              File: GENDRIVE.DOC
+Date:   May 5, 1989
+
+
+OVERVIEW
+
+GENDRIVE is a utility that allows OrCAD users to modify the internals
+of a generic driver so that a new driver can be created that provides
+the proper functionality and performance for the graphics card.
+GENDRIVE can handle most display adapters that claim to be EGA or VGA
+compatible with resolutions up to 800 horizontal x 600 vertical.
+
+
+CAUTION
+
+A GENDRIVE produced driver has limited checking for adapter compatibility.
+If video adapter and the new driver are not compatible, you may see either
+a blank screen or a screen that has random looking patterns on it that do
+not make sense. If you select one of the predefined driver configurations,
+this shouldn't happen to you, but if it does, you may need to re-boot your
+computer to get back to DOS by holding the Ctrl and Alt keys down and
+pressing the Del key.
+
+
+HOW TO USE
+
+1) Switch to the directory containing GENDRIVE.EXE, GENDRIVE.DAT and
+   GENDRIVE.DRV.  This will normally be your DRIVER directory.  If you set
+   up your directory structure as OrCAD recommends, this will be:
+       \ORCAD\DRIVER
+   Type:  cd \orcad\driver        and press the ENTER key.
+
+2) Invoke GENDRIVE.EXE
+   Type: gendrive                 and press the ENTER key.
+
+3) GENDRIVE.EXE will initialize itself and read in the OrCAD supported
+   set of configurations from GENDRIVE.DAT.  It will then display the
+   driver description part of this as a set of menu choices.
+
+  At this point, there are 4 things you can do:
+     1) Type the number associated with your display adapter and press ENTER.
+     2) Press the M key to see More menu choices.
+     3) Press the Q key to Quit the GENDRIVE program. No updates will occur.
+     4) Press the S key to define a Special set of parameters.
+
+  If you type a number and press ENTER, the file GENDRIVE.DRV will be modified
+  with the associated set of parameters. You will be asked for a new file name
+  for the modified driver.  After getting the name, GENDRIVE.EXE writes the
+  modified driver to the disk and exits.
+
+
+Title:  Gendrive - Description and Use                          Page 2
+
+  --------------------------------------------------------------------------
+  In most cases, you should be able to find a menu choice that supports
+  your display adapter. If you do, the rest of this document can be ignored.
+  --------------------------------------------------------------------------
+
+  If you press the S key, GENDRIVE.EXE will ask you to define the following
+  parameters:
+    1) The number of columns of pixels your display adapter supports.
+       Typical numbers here are 640, 752 and 800.
+    2) The number of rows of pixels your display adapter supports.
+       Typical numbers here are 350, 410, 480 and 600.
+    3) A value to be assigned to AX to set up for an Interrupt 10H.
+    4) A value to be assigned to BX to set up for an Interrupt 10H.
+       The AX and BX values must be consistent with the columns and rows
+       provided in 1 and 2 above.  The values for AX and BX can be gotten
+       from the technical reference or programmer's reference portion of
+       your display adapter's user manual.
+       Standard EGA/VGA values normally have AH=0 and AL equal either
+       10 (EGA 640x350) or 12 (VGA 640x480).   Hence, AX = 0010H or 0012H
+       for these.  Extended EGA cards often use AL=12H for 640x480 mode.
+       The values for sizes above 640x480 vary considerably.  In addition,
+       certain cards want to use a value for AH other than 0.
+
+
+  The GENDRIVE approach is designed to handle display adapters that follow
+  the general conventions of native mode EGA and VGA displays.
+    1) Display Buffer starts at address A000:0
+    2) There is less than 64K of addressable display memory.
+       Size of memory required by a display =  rows * cols / 8.
+       Example:  640x480 ==> 640 * 480 / 8 = 38400 bytes.
+       Note: 800x600 ==> 800 * 600 / 8 = 60000 bytes which is just less
+             than 64 kilobytes.  (1024x768 is too large.)
+    3) OrCAD uses 16 colors.  This implies that the Display Buffer
+       is really composed of 4 bit planes of 64K bytes each.
+    4) Pixels are stored 8 pixels per apparent byte. With the high order
+       bit of Byte A000:0 representing the upper left most bit on the screen.
+    5) The number of columns must be a multiple of 8. That is, no byte contains
+       bits from both the right end of a line and the left end of the next line.
+       (We know of no adapters that violate this rule.)
+    6) The mapping from bits on screen and in memory must be continuous.
+       For example, if byte n contains the last 8 bits on line m, then
+       byte (n+1) contains the first 8 bits on line (m+1).  (Various adapters
+       and modes violate this rule. For example, CGA and Hercules Graphics
+       modes.)
+
+
+Title:  Gendrive - Description and Use                          Page 3
+
+GENDRIVE Control File: GENDRIVE.DAT
+
+  GENDRIVE is controlled by an editable file called: GENDRIVE.DAT. You
+  may alter this file to make a Special (S) definition process into
+  menu choice.  You might do this if you have a large number of users
+  and a small variety of non-OrCAD-supported adapters.  If you choose
+  to edit the file, make sure your editor can output ASCII compatible
+  files containing only Carriage Return - Line Feed Sequences as line
+  separators.
+
+GENDRIVE.DAT Format
+
+  1) Any line that starts with a semicolon is a comment.  Any line that does
+     not start with a comment must be a mode specification.
+  2) A mode specification consists of 5 fields separated by commas:
+     Driver Description, Columns, Rows, AX value, BX value.
+     - Driver Description: text that will display during application
+       initialization.  Normally contains Columns x Rows and display adapter
+       description.   This field can be enclosed in either single or double
+       quotes.  If the field contains an embedded comma, then it must be
+       enclosed in quotes.  If the field contains an embedded comma and a
+       single/double quote, use double/single quotes to enclose it.
+       Example Driver Descriptions:
+          EGA 640x350 16 color                       no quotes
+          "EGA 640x350 16 color"                     optional quotes
+          'EGA 640x350 16 color'                     optional quotes
+          "EGA 640x350, 16 color"                    required quotes (,)
+          "John's Favorite Display Card"             optional double quotes
+          John's Favorite Display Card               enclosing quote not needed
+     - Columns: the number of columns of pixels the display will support.
+         Enter this number in decimal. Example values are: 640, 752 and 800.
+     - Rows: the number of rows of pixels that the display will support.
+         Enter this number in decimal. Example values are: 350, 480 and 600.
+     - AX value: The value to be MOVed into AX before doing an INT 10H to
+         initialize the card. Enter this number in hexadecimal. (Hexadecimal
+         is used here because most manuals show the numbers in hex.)
+         Example values are: 0010H (EGA 640x350) and 0012H (VGA 640x480)
+     - BX value: The value to be MOVed into BX before doing an INT 10H to
+         initialize the card. Enter this number in hexadecimal. (Hexadecimal
+         is used here because most manuals show the numbers in hex.)
+         Example values are: 0H (most cards/modes) or 0010H or 0012H. The
+         latter two values cause 640x350 and 640x480 modes for some extended
+         EGA cards.
+

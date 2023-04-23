@@ -1,0 +1,40 @@
+`F  1.00 obufe4
+`B "1" "1" "A" "     June 28, 1993" "" "A" 
+"XC3000 Family OBUFE4 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P I "I0"
+`P O "O0"
+`P I "I1"
+`P O "O1"
+`P I "I2"
+`P O "O2"
+`P I "I3"
+`P O "O3"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "OBUFE" XC3000.LIB "OBUFE" C8621DC3  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFE" XC3000.LIB "OBUFE" C8621DBF  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFE" XC3000.LIB "OBUFE" C8621DD1  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "OBUFE" XC3000.LIB "OBUFE" C8621DF7  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( P I "E" ) ( R U2 "E" I ) ( R U1 "E" I ) ( R U3 "E" I ) 
+( R U4 "E" I ) 
+`J ( P I "I0" ) ( R U1 "I" I ) 
+`J ( R U1 "O" T ) ( P O "O0" ) 
+`J ( P I "I1" ) ( R U2 "I" I ) 
+`J ( R U2 "O" T ) ( P O "O1" ) 
+`J ( P I "I2" ) ( R U3 "I" I ) 
+`J ( R U3 "O" T ) ( P O "O2" ) 
+`J ( P I "I3" ) ( R U4 "I" I ) 
+`J ( R U4 "O" T ) ( P O "O3" ) 

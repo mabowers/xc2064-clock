@@ -1,0 +1,107 @@
+
+                        The OrCAD Bulletin Board System
+----------------------------------------------------------------------------
+This note describes the OrCAD Bulletin Board System.  It is provided for your
+convenience.
+
+
+ABOUT THE BULLETIN BOARD
+
+OrCAD provides registered users with an electronic bulletin board service
+that operates 24 hours a day.  If you have a modem, you can retrieve the
+following:
+
+*  Software updates for new programmable devices, printers, plotters, 
+   graphics cards, and libraries.  These are placed on the bulletin board as
+   soon as they are released.
+
+*  Technical notes covering answers to the most frequently asked questions
+   about OrCAD products.
+
+*  General information about OrCAD, mail from other OrCAD users, and 
+   files submitted by customers.
+
+You can submit the following information to the bulletin board and share it
+with other OrCAD users:
+
+*  Mail for OrCAD or for other OrCAD customers.
+
+*  Technical questions and problems.
+
+*  Libraries you create.
+
+*  Custom netlists, programs, and drivers.
+
+
+COMMUNICATIONS REQUIREMENTS
+
+To access the OrCAD bulletin board you need:
+
+*  A 300, 1200, 2400, 9600, or 14400 baud modem set for 8 data bits, 
+   1 stop bit, and no parity.
+
+*  Communications software that is compatible with XMODEM, YMODEM, or 
+   ZMODEM protocol.
+
+
+MAKING A CONNECTION
+
+The OrCAD bulletin board phone number is:
+
+                              (503) 671-9401
+
+The bulletin board operates 24 hours a day except when it is shut down for
+maintenance.  If you do not establish communication after a few rings, the
+bulletin board may be undergoing maintenance.  In that case, please try
+again later.
+
+
+LOGGING ON
+
+The first time you log on to the bulletin board, you will see that the
+bulletin board is divided by product into file areas similar to the
+figure below.
+
+     ----------------------------------------------------------------
+    | File area #  1 ... Customer Contributed Drivers                |
+    | File area #  2 ... Customer Contributed Libraries              |
+    | File area #  3 ... Customer Contributed Programs               |
+    | File area #  4 ... Customer Contributed Netlists               |
+    | File area #  5 ... Customer Contributed Tek Notes              |
+    | File area #  6 ... Release IV Video Drivers                    |
+    | File area #  7 ... OrCAD Technical Notes                       |
+    | File area #  8 ... OrCAD Plotter Drivers                       |
+    | File area #  9 ... OrCAD Printer Drivers                       |
+    | File area # 10 ... The Latest Version of OrCADs Libraries      |
+    | File area # 11 ... The Latest Version of OrCADs Netlists       |
+    | File area # 12 ... Miscellaneous SDT Files                     |
+    | File area # 13 ... Download the Technical Q & A's              |
+     ----------------------------------------------------------------
+     SDT area of the Bulletin Board System.
+
+You can use many but not all bulletin board features.  You immediately have
+access to all technical notes, bulletins, and customer-contributed libraries
+and software. (file areas 1 through 7 in the figure above).  However, before
+accessing the OrCAD products (files areas 8 through 13 above), you must
+"officially" register by entering your password and registration number.
+
+The bulletin board system prompts you to enter all the necessary information.
+When you successfully answer the prompts, the bulletin board system operator
+(SYSOP) receives a message requesting your security level be raised to
+"registered user."  It takes two or three working days for the SYSOP to
+upgrade your security clearance.
+
+Once your security level is raised to "registered user," you can access
+all bulletin board features.  You are encouraged to explore what is
+available.
+
+
+USING 14400 BAUD
+
+The bulletin board system also features 14400 baud with V.42bis and MNP5.
+To access at 14400 baud, dial (503) 671-9401.
+==============================================================================
+All other brand and product names mentioned herein are used for
+identification purposes only, and are trademarks or registered trademarks
+of their respective holders.
+------------------------------------------------------------------------------

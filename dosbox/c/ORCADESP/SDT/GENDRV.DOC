@@ -1,0 +1,105 @@
+
+
+                     VIDEO CARDS SUPPORTED BY GENDRIVE
+
+
+_____________________________________________________________________________
+
+NOTE:
+All other brand and product names mentioned herein are used for identification
+purposes only, and are trademarks or registered trademarks of their respective
+holders.
+
+_____________________________________________________________________________
+
+The GENDRIVE process should support most cards up to 800x600 that store eight
+pixels per byte in 1-4 bit planes. Check your video card's owner's manual for
+the specifications on your card. It may also list similar cards that OrCAD
+does support if your specific card is not supported. For more information on
+the GENDRIVE process, read GENDRIVE.DOC, located in the directory with the
+other drivers.
+_____________________________________________________________________________
+
+   MANUFACTURER                      VIDEO CARD
+_____________________________________________________________________________
+
+    IBM VGA or Compatible 640x480 16 color
+    IBM EGA or Compatible 640x350 16 color
+    VESA      Super VGA 800x600 16 color
+    Ahead     VGA Wizard+VGA Wizard Deluxe
+    AST       VGA Plus 800x600 16 color
+    ATI       EGA Wonder 640x350 16 color
+    ATI       EGA Wonder 800x560 16 color
+    ATI       VGA Wonder 640x350 16 color
+    ATI       VGA Wonder 640x480 16 color
+    ATI       VGA Wonder 800x600 16 color
+    BOCA      Super VGA 800x600 16 color
+    Cardinal  VGA600 800x600 16 color
+    Chips and Technologies   Super VGA 800x600 16 color
+    Colorgraphics EGA-Squared 640x480 16 color
+    EIZO      MD-B07 VGA 640x350 16 color
+    EIZO      MD-B07 VGA 640x480 16 color
+    EIZO      MD-B10 VGA 640x350 16 color
+    EIZO      MD-B10 VGA 640x480 16 color
+    EIZO      MD-B10 VGA 800x600 16 color
+    EIZO      VA30/31 VGA 640x480 16 color
+    EIZO      VA30/31 VGA 800x600 16 color
+    EIZO      VA41/42 VGA 640x480 16 color
+    EIZO      VA41/42 VGA 800x600 16 color
+    EVEREX    Micro Enhancer EGA 640x480 16 color
+    EVEREX    Micro Enhancer EGA 752x410 16 color
+    EVEREX    Micro Enhancer EGA 800x600 16 color
+    EVEREX    ViewPoint 256 or 512 800x600 16 color
+    GENOA     SuperEGA  640x480 16 color
+    GENOA     SuperEGA  640x528 16 color
+    GENOA     SuperEGA  HiRes+ 752x410 16 color
+    GENOA     SuperEGA  HiRes+ 800x600 16 color
+    GENOA     SuperEGA  HiRes+ 912x480 16 color
+    GENOA     SuperVGA  640x350 16 color
+    GENOA     SuperVGA  640x480 16 color                                      2
+_____________________________________________________________________________
+
+           VIDEO CARDS SUPPORTED BY GENDRIVE (CONTINUED)
+_____________________________________________________________________________
+
+   MANUFACTURER                      VIDEO CARD
+_____________________________________________________________________________
+
+    GENOA     SuperVGA  800x600 16 color
+    Hewlett-Packard VGA 800x600 16 color
+    NEC       GB1 640x480 16 color
+    OAK Technology OTI-067   800x600 16 color
+    Orchid    (Pro)Designer VGA 800x600 16 color
+    Paradise  Autoswitch 480  EGA 640x480 16 color
+    Paradise  EGA or VGA 800x600 16 color
+    PCG       PHOTON MEGA PLUS VGA 640x480 16 color
+    PCG       PHOTON MEGA PLUS VGA 800x600 16 color
+    QUAD      EGA ProSync 640x480 16 color
+    QUAD      EGA ProSync 752x410 16 color
+    QUAD      GTI SuperVGA  640x350 16 color
+    QUAD      GTI SuperVGA  640x480 16 color
+    QUAD      GTI SuperVGA  800x600 16 color
+    Renaissance RVGA I/II 800x600 16 color
+    Samsung   SVGA16 800x600 16 color
+    Sigma     VGA/H  640x350 16 color
+    Sigma     VGA/H  640x480 16 color
+    Sigma     VGA/H  800x560 16 color
+    Sigma     VGA/H  800x600 16 color
+    SOTA      VGA/16 640x350 16 color
+    SOTA      VGA/16 640x480 16 color
+    SOTA      VGA/16 800x600 16 color
+    STB       VGA  800x600 16 color
+    Tatung    VGA  800x600 16 color
+    Tatung    TVGA-16 800x600 16 color
+    Tecmar    VGA/AD 640x350 16 color
+    Tecmar    VGA/AD 640x480 16 color
+    Tecmar    VGA/AD 800x600 16 color
+    Trident   TVGA VGA 800x600 16 color
+    Tseng Labs EVA 480 640x480 16 color
+    Video 7   VEGA Deluxe or VGA 640x350 16 color
+    Video 7   VEGA Deluxe or VGA 640x480 16 color
+    Video 7   VEGA Deluxe or VGA 752x410 16 color
+    Video 7   VGA 720x540 16 color
+    Video 7   VGA 800x600 16 color
+    Wizard    Deluxe EGA 800x600 16 color
+    ZyMOS     POACH 51 VGA 800x600 16 color

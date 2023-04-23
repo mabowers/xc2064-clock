@@ -1,0 +1,387 @@
+
+    OVERVIEW:
+
+    This note describes the format and meaning of the information in a
+    printer metafile.  These files are binary files that are used to
+    contain graphic information.  Using this note as a guide, it should
+    be possible to write a program that reads a printer metafile and
+    writes another file containing information suitable for other
+    graphics devices, such as plotters or other graphics printers.
+
+    Printer metafiles are created using the DRAW command in the XACT
+    editor.  The syntax of the DRAW command is:
+
+    DRAW <filename> <format> WORLD
+    DRAW <filename> <format> BLOCK <block>
+
+    The first form is used to draw an entire design:
+
+    DRAW <filename> PMF WORLD
+    
+    This command will print an entire design into a printer metafile.
+    When complete, the metafile contains all the data necessary to
+    re-construct the XACT LCA drawing in terms of individual lines.
+
+    (Older releases of XACT from version 1.40 on can create PMF files
+    using an option on the print command: PRINT DESIGN.  This will
+    eventually be removed.)
+
+    The file extension conventionally used for printer metafiles is
+    .pmf.
+
+    FILE FORMAT:
+
+    The first 33 bytes of a printer metafile file contain a unique
+    sequence of characters which identify the file as a printer
+    metafile file.  These characters are as follows:
+
+	Bytes	Value
+
+	0-15	"Printer metafile"
+	16	0
+	17	Metafile format revision, currently 2.
+	18-19	Number of pixels in x dimension
+	20-21	Number of pixels in y dimension
+	22-23	Minimum value of x in world coordinate system
+	24-25	Minimum value of y in world coordinate system
+	26-27	Maximum value of x in world coordinate system
+	28-29	Maximum value of y in world coordinate system
+	30-31	Scale factor
+	32	(reserved)
+
+    Any program which reads a printer metafile should check the version
+    read from the file (byte 17), and if that version is not current
+    the program shoule refuse to read the file.  
+
+    The main purpose of these 33 bytes, aside from identifying this as
+    a printer metafile, is to define the 2 coordinate systems used by
+    the commands which follow.  Each of these coordinate systems should
+    be mapped onto the entire page.  The first coordinate system is the
+    pixel coordinate system.  In this system, the lower lefthand corner
+    of the page is location (0, 0) and the upper right hand corner is
+    location (x size - 1, y size - 1).  The second coordinate system is
+    the world coordinate system.  In this system, the lower left hand
+    corner of the page is location (min x, min y) and the upper right
+    hand corner is location (max x, max y).
+
+    Starting with the 34th byte at offset 33 in the file there will be
+    a series of commands.  Each command will have a unique opcode
+    followed by 1 or more bytes of data which will be broken up into
+    arguments.  In some commands the number of data bytes will be
+    fixed.  In others, the number of data bytes will be variable.  In
+    the later case, the last data byte will be signified by a byte of
+    zero.  In cases where a command argument will consist of 2
+    consecutive bytes, the first byte will be the most significant byte
+    and the second byte will be the least significant.
+
+    The following is a list of all the possible commands:
+
+    Title
+
+	Byte		Value
+
+	0		1
+	1-n		Title string
+	n+1		0
+
+	This command should cause the title string to be placed along
+	the top of the page.
+
+    Printer
+
+	Byte		Value
+
+	0		2
+	1-n		Printer name string
+	n+1		0
+
+	This command tells the program which type of printer was
+	selected at the time the file was created.  This can be
+	ignored in the case of plotters.
+
+    Absolute line
+
+	Byte		Value
+
+	0		3
+	1-2		First endpoint x in pixels
+	3-4		First endpoint y in pixels
+	5-6		Second endpoint x in pixels
+	7-8		Second endpoint y in pixels
+	9-10		Drawing mode
+	11-12		Drawing color
+
+	This command tells the program to move the pen to the first
+	endpoint and draw line to the second endpoint using the pixel
+	coordinate system.  The pen is left at the second endpoint.
+
+    Absolute lineto
+
+	Byte		Value
+
+	0		4
+	1-2		Endpoint x in pixels
+	3-4		Endpoint y in pixels
+	5-6		Drawing mode
+	7-8		Drawing color
+
+	This command tells the program to draw line from the current
+	pen position to the endpoint using the pixel coordinate
+	system.  The pen is left at the endpoint.
+
+    Absolute move
+
+	Byte		Value
+
+	0		5
+	1-2		x in pixels
+	3-4		y in pixels
+
+	This command tells the program to move the pen to the new
+	position using the pixel coordinate system.
+
+    Absolute point
+
+	Byte		Value
+
+	0		6
+	1-2		x in pixels
+	3-4		y in pixels
+
+	This command tells the program to draw a dot at the specified
+	point using the pixel coordinate system.  The pen is left at
+	that point.
+
+    Box
+
+	Byte		Value
+
+	0		7
+	1-2		First corner x in world coordinate units
+	3-4		First corner y in world coordinate units
+	5-6		Second corner x in world coordinate units
+	7-8		Second corner y in world coordinate units
+	9-10		Drawing mode
+	11-12		Drawing color
+
+	This command tells the program to draw a box with corners at
+	the specified points using the world coordinate system.  The
+	pen is left at that the first corner point.
+
+    Circle
+
+	Byte		Value
+
+	0		8
+	1-2		Center x in world coordinate units
+	3-4		Center y in world coordinate units
+	5-6		Radius in world coordinate units
+	7-8		Drawing mode
+	9-10		Drawing color
+
+	This command tells the program to draw a circle at the
+	specified point using the world coordinate system.  The pen is
+	left at the center point.
+
+    Erase
+
+	Byte		Value
+
+	0		9
+
+	This command tells the program to erase the entire screen.
+	This command can be ignored for plotters.
+
+    Erasebox
+
+	Byte		Value
+
+	0		10
+	1-2		First corner x in world coordinate units
+	3-4		First corner y in world coordinate units
+	5-6		Second corner x in world coordinate units
+	7-8		Second corner y in world coordinate units
+
+	This command tells the program to erase the box with corners at
+	the specified points.  This command can be ignored for
+	plotters.
+
+    Fillbox
+
+	Byte		Value
+
+	0		11
+	1-2		First corner x in world coordinate units
+	3-4		First corner y in world coordinate units
+	5-6		Second corner x in world coordinate units
+	7-8		Second corner y in world coordinate units
+	9-10		Mode
+	11-12		Color
+
+	This command tells the program to fill in the box with corners
+	at the specified points with the specified mode and color.
+	This command can be ignored for plotters.
+
+    Label
+
+	Byte		Value
+
+	0		12
+	1-n		Label string
+	n+1		0
+	n+2-n+3		Height in world coordinate units
+	n+4-n+5		Width in world coordinate units
+	n+6-n+7		Orientation
+	n+8-n+9		Drawing mode
+	n+10-n+11	Drawing color
+
+	This command tells the program to draw the label specified with
+	the lower left hand corner of the first character at the
+	current pen position.  The characters should be drawn to the
+	height and width specified with the specified orientation.  The
+	meaning of the orientation is as follows:
+
+	    1	Up
+	    2	Left
+	    3	Down
+	    4	Right
+
+    Line
+
+	Byte		Value
+
+	0		13
+	1-2		First endpoint x in world coordinate units
+	3-4		First endpoint y in world coordinate units
+	5-6		Second endpoint x in world coordinate units
+	7-8		Second endpoint y in world coordinate units
+	9-10		Drawing mode
+	11-12		Drawing color
+
+	This command tells the program to move the pen to the first
+	endpoint and a draw line to the second endpoint using the world
+	coordinate system.  The pen is left at the second endpoint.
+
+    Lineto
+
+	Byte		Value
+
+	0		14
+	1-2		Endpoint x in world coordinate units
+	3-4		Endpoint y in world coordinate units
+	5-6		Drawing mode
+	7-8		Drawing color
+
+	This command tells the program to draw line from the current
+	pen position to the endpoint using the world coordinate
+	system.  The pen is left at the endpoint.
+
+    Linetype
+
+	Byte		Value
+
+	0		15
+	1-2		mode
+	3-4		color
+
+	This command tells the program to set the current line
+	attributes.  The mode can be ignored for plotters.  The color
+	can be ignored for plotters with less than 4 pens.
+
+    Logo
+
+	Byte		Value
+
+	0		16
+	1-2		x origin in world coordinate units
+	3-4		y origin in world coordinate units
+	5-n		file name of logo file
+	n+1		0
+
+	This command tells the program to copy a logo data file to the
+	screen.  This command can be ignored for plotters.
+
+    Move
+
+	Byte		Value
+
+	0		17
+	1-2		x in world coordinate units
+	3-4		y in world coordinate units
+
+	This command tells the program to move the pen to the new
+	position using the world coordinate system.
+
+    Point
+
+	Byte		Value
+
+	0		18
+	1-2		x in world coordinate units
+	3-4		y in world coordinate units
+	5-6		Drawing mode
+	7-8		Drawing color
+
+	This command tells the program to draw a dot at the specified
+	point using the world coordinate system.  The pen is left at
+	that point.
+
+    Text
+
+	Byte		Value
+
+	0		19
+	1-n		the text character string to be drawn
+	n+1		0
+	n+2-n+3		color
+
+	This command tells the program to draw a line of text.  The
+	size of text should be approximately 8 pixels wide by 16 pixels
+	tall.  The pen is left at the end of the string.
+
+    Triangle
+
+	Byte		Value
+
+	0		20
+	1-2		x origin in world coordinate units
+	3-4		y origin in world coordinate units
+	5-6		Orientation
+	7-8		Drawing mode
+	9-10		Drawing color
+
+	This command tells the program to draw a right triangle with
+	the center of the hypotenuse at x, y.  The length of the
+	hypotenuse is given by
+
+		len = (scale < -1) ? 4 : (scale + 2) * 4;
+
+	The orientation is as follows:
+
+	1		Up
+	2		Left
+	3		Down
+	4		Right
+
+    Via
+
+	Byte		Value
+
+	0		21
+	1-2		x origin in world coordinate units
+	3-4		y origin in world coordinate units
+	5-6		Drawing mode
+	7-8		Drawing color
+
+	This command tells the program to draw a box centered at the
+	specified point.  The size of the box is dependent on the scale
+	factor.  If the scale factor is less than -1, the box should be
+	a square 2 pixels on a side.  If the scale factor is -1 or
+	greater, the box should be (2 + scale) * 2 pixels on a side.
+	Position using the pixel coordinate system.
+
+	HISTORY
+
+	June 3 1993		Revised to correct errors in description
+				in coordinates used by BOX, CIRCLE, and
+				other commands.

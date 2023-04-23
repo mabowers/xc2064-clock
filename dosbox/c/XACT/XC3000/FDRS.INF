@@ -1,0 +1,27 @@
+`F  1.00 fdrs
+`B "1" "1" "A" "   August 12, 1993" "" "A" 
+"XC3000 Family FDRS Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D"
+`P I "S"
+`P O "Q"
+`P I "C"
+`P I "R"
+`S "D_S" 1 
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "OR2" XC3000.LIB "OR2" C880FC51  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "FDR" XC3000.LIB "FDR" C880FB71  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "R" "R" I ) ( "Q" "Q" O ) 
+`J ( P I "D" ) ( R U1 "I1" I ) 
+`J ( R U1 "O" O ) ( S "D_S" 1  ) ( R U2 "D" I ) 
+`J ( P I "S" ) ( R U1 "I0" I ) 
+`J ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( P I "C" ) ( R U2 "C" I ) 
+`J ( P I "R" ) ( R U2 "R" I ) 

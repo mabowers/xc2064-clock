@@ -1,0 +1,33 @@
+# @(#)se.bel	  2/27/92
+#
+# Southeast corner odds and ends
+#
+_BELS
+LCA3_ACLK ACLK,
+LCA3_OSC  OSC,
+;
+
+_NODES
+#
+# Input pins
+#
+ACLKI, 
+#
+# Output pins
+#
+
+ACLKO, OSCO,
+;
+
+_ARCS
+
+# Connections to primary buffer GCLK
+ACLKI  ACLK_I,
+ACLK_O ACLKO ,
+
+# Connections to OSC
+OSC_O OSCO,
+
+# Feedthru buffer 
+ACLK_I ACLK_O (is_gbuf_feedthru),
+;

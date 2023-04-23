@@ -1,0 +1,30 @@
+# @(#)VMHP.TXT	3.7 5/4/94 23:56:08
+# file: vmhp.txt
+# date: 8/23/93
+# what: vmh2p module error messages -user file
+# 
+#
+#
+0001:PRELOAD_OPT cannot be OFF in the targeted device (%s).
+0002:Cannot open file '%s' for writing.  Check disk space,\
+     write access, etc. 
+0003:TRST equation found on internal equation '%s' in PLD\
+     instance '%s'.  To express as tri-statable output,\
+     connect to OBUFX.  To express as internal tri-state,\
+     declare node as: NODE (NODETRST) %s.
+0004:Cannot open file '%s' for reading.  The schematic 
+     declares the file as aux property for inclusion in\
+     pldfile; please check spelling of file and make\
+     sure it exists. 
+0020:Changing IOPAD '%s' to IPAD.  An IOPAD was detected,\
+     but the pin is used only as input.  Check schematic\
+     for unconnected OBUF or mis-spelled label.
+0021:Changing IOPIN pad '%s' to OUTPUTPIN pad.
+0022:Constant value '%s' detected for control signal '%s.%s'
+#
+# end of file
+#
+
+
+
+

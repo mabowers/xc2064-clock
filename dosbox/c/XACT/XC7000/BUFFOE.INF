@@ -1,0 +1,15 @@
+`F  1.00 BUFFOE
+`B "1" "1" "A" " November 10, 1993" "" "A" 
+"XC7000 Family BUFFOE Model" "Xilinx"
+""
+""
+""
+""
+`P I "I"
+`P O "O"
+`E XC7000.LIB
+`I R "BUF" XC7000.LIB "BUF" dfa75a29  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "I" ) ( R U1 "I" I ) 
+`J ( R U1 "O" O ) ( P O "O" ) 

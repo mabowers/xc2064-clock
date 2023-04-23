@@ -1,0 +1,49 @@
+`F  1.00 opad8
+`B "1" "1" "A" "  January 28, 1994" "" "A" 
+"XC4000 Family OPAD8 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "O0"
+`P I "O1"
+`P I "O2"
+`P I "O3"
+`P I "O4"
+`P I "O5"
+`P I "O6"
+`P I "O7"
+`E XC4000.LIB
+`E XBLOX.LIB
+`I R "OPAD" XC4000.LIB "OPAD" EC04DC6A  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DC7C  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DCAB  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DCAD  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DD79  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DD7A  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DD7C  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`I R "OPAD" XC4000.LIB "OPAD" EC04DD7D  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" I ) 
+`J ( P I "O0" ) ( R U1 "O" I ) 
+`J ( P I "O1" ) ( R U2 "O" I ) 
+`J ( P I "O2" ) ( R U3 "O" I ) 
+`J ( P I "O3" ) ( R U4 "O" I ) 
+`J ( P I "O4" ) ( R U5 "O" I ) 
+`J ( P I "O5" ) ( R U6 "O" I ) 
+`J ( P I "O6" ) ( R U7 "O" I ) 
+`J ( P I "O7" ) ( R U8 "O" I ) 

@@ -1,0 +1,125 @@
+# @(#)hdiob4h.bel	6.9 1/30/94  
+# Belgraph definition for 4000 IOB Pair, south and north edge
+#
+
+# Bel pins imply nodes
+_BELS
+IOB4_PAD        APAD,
+IOB4_OBUFT      AOBUFT,
+IOB4_IBUF       AIBUF,
+IOB4_DEC        AD,
+IOB4_DEC        CD,
+IOB4_PAD        A1PAD,
+IOB4_OBUFT      A1OBUFT,
+IOB4_IBUF       A1IBUF,
+IOB4_PAD        BPAD,
+IOB4_OBUFT      BOBUFT,
+IOB4_IBUF       BIBUF,
+IOB4_DEC        BD,
+IOB4_PAD        B1PAD,
+IOB4_OBUFT      B1OBUFT,
+IOB4_IBUF       B1IBUF
+;
+
+
+# Additional node definitions
+_NODES
+AI, A1I, AO, A1O, ATP, A1TP, ATS, A1TS,
+BI, B1I, BO, B1O, BTP, B1TP, BTS, B1TS,
+AIU, BIU, A1IU, B1IU,	# For far connections only
+ADO1, ADI,
+ADO2,
+ADO3,
+ADO4,
+BDO1, BDI,
+BDO2,
+BDO3,
+BDO4,
+CDO1, CDI,
+CDO2,
+CDO3,
+CDO4,
+;
+
+# From-to connections
+_ARCS
+
+# AI, A1I, BI, B1I pin connections
+AIBUF_O  AI,
+A1IBUF_O  A1I,
+BIBUF_O  BI,
+B1IBUF_O  B1I,
+
+
+# Unbuffered and buffered inputs from pad
+APAD_I AIU, A1PAD_I A1IU,
+BPAD_I BIU, B1PAD_I B1IU,
+
+# AO, BO, A1O, B1O pin connections
+AO AOBUFT_I,
+A1O A1OBUFT_I,
+BO BOBUFT_I,
+B1O B1OBUFT_I,
+
+# ATP, BTP, A1TP, B1TP pin connections
+ATP  AOBUFT_T,
+A1TP A1OBUFT_T,
+ATS  AOBUFT_T,
+A1TS A1OBUFT_T,
+BTP  BOBUFT_T,
+B1TP B1OBUFT_T,
+BTS  BOBUFT_T,
+B1TS  B1OBUFT_T,
+
+# from pad to Ibuf
+APAD_I AIBUF_I, A1PAD_I A1IBUF_I,
+BPAD_I BIBUF_I, B1PAD_I B1IBUF_I,
+
+# Output buffer connections
+AOBUFT_O APAD_O,
+BOBUFT_O BPAD_O,
+A1OBUFT_O A1PAD_O,
+B1OBUFT_O B1PAD_O,
+
+
+# Register output connections
+# Register input connections
+# Decoder connections
+ADI AD_I,
+BDI BD_I,
+CDI CD_I,
+AD_O1 ADO1,
+AD_O2 ADO2,
+AD_O3 ADO3,
+AD_O4 ADO4,
+BD_O1 BDO1,
+BD_O2 BDO2,
+BD_O3 BDO3,
+BD_O4 BDO4,
+CD_O1 CDO1,
+CD_O2 CDO2,
+CD_O3 CDO3,
+CD_O4 CDO4,
+
+# Feedthru arcs thru pad
+APAD_O APAD_I ( is_iopad_feedthru), 
+BPAD_O BPAD_I ( is_iopad_feedthru),
+A1PAD_O A1PAD_I ( is_iopad_feedthru), 
+B1PAD_O B1PAD_I ( is_iopad_feedthru),
+AOBUFT_I AOBUFT_O (is_iobuf_feedthru is_iopadtoo_delay),
+BOBUFT_I BOBUFT_O (is_iobuf_feedthru is_iopadtoo_delay),
+A1OBUFT_I A1OBUFT_O (is_iobuf_feedthru is_iopadtoo_delay),
+B1OBUFT_I B1OBUFT_O (is_iobuf_feedthru is_iopadtoo_delay),
+AIBUF_I AIBUF_O (is_iobuf_feedthru is_iopadtoi_delay),
+BIBUF_I BIBUF_O (is_iobuf_feedthru is_iopadtoi_delay),
+A1IBUF_I A1IBUF_O (is_iobuf_feedthru is_iopadtoi_delay),
+B1IBUF_I B1IBUF_O (is_iobuf_feedthru is_iopadtoi_delay),
+
+
+# Special underpass to BUFGP_I only
+APAD_O AIU (is_bufgp_underpass),
+BPAD_O BIU (is_bufgp_underpass),
+A1PAD_O A1IU (is_bufgp_underpass),
+B1PAD_O B1IU (is_bufgp_underpass),
+;
+

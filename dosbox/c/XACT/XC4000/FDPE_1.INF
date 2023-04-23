@@ -1,0 +1,27 @@
+`F  1.00 fdpe_1
+`B "1" "1" "A" "     July  2, 1993" "" "A" 
+"XC4000 Family FDPE_1 MACRO" "Xilinx"
+""
+""
+""
+""
+`P I "PRE"
+`P I "D"
+`P I "CE"
+`P O "Q"
+`P I "C"
+`S "CB" 1 
+`E XC4000.LIB
+`I R "INV" XC4000.LIB "INV" C9B5E1AC  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "FDPE" XC4000.LIB "FDPE" C9B617EC  U2  []
+"RLOC=R0C0" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "CE" "CE" I ) ( "C" "C" I ) ( "PRE" "PRE" I ) 
+( "Q" "Q" O ) 
+`J ( P I "PRE" ) ( R U2 "PRE" I ) 
+`J ( P I "D" ) ( R U2 "D" I ) 
+`J ( P I "CE" ) ( R U2 "CE" I ) 
+`J ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( P I "C" ) ( R U1 "I" I ) 
+`J ( R U1 "O" O ) ( S "CB" 1  ) ( R U2 "C" I ) 

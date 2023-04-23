@@ -1,0 +1,63 @@
+# "@(#)ingroup.dat	6.12  9/29/93"
+
+# The 8 fields in each pattern line are:
+# type, source_belname, source_pin, load_belname, load_pin, max_sources,
+# max_pat_loads, value.
+
+#   "May" group patterns represent types of netlist connections between two symbols
+# that, when they occur, mean that it is highly desirable but not absolutely
+# necessary that the two symbols be grouped into one block.  By contrast,
+# a "must" group pattern indicates a connection between two symbols that are
+# REQUIRED to be in the same block.
+#   A '*' in a pin field means any pin qualifies the symbol for grouping.
+#   Max_sources is the maximum allowed number of symbols with the associated
+# source_belname that can be grouped with a symbol of the given load_belname.
+#   Max_pat_loads is the maximum allowed number of load symbols with the
+# associated load_belname and load_pin that can be grouped through a net driven
+# by a symbol of the given source_belname.
+#   "Value" indicates the relative importance of the grouping.
+#   The pin names below are matched by Mxnpin->archpin->name; these strings
+# are typically the same as the belpin names.  The only exceptions are
+# fg input pins.  Since wildcards are now used for these (see first "may group"),
+# this does not cause a problem.
+
+# "may" groups:
+# =======================================
+may	CLB4_RAM4W O	CLB4_RAM3  *	2	1	95
+may	CLB4_RAM4W O	CLB4_REG   D	1	2	60
+may	CLB4_RAM4W O	CLB4_TBUF  I	1	1	85
+
+may	CLB4_RAM3  O	CLB4_REG   D	1	2	50
+may	CLB4_RAM3  O	CLB4_TBUF  I	1	1	80
+
+may	CLB4_REG   Q	CLB4_TBUF  I	1	1	90
+
+may	IOB4_IBUF  O	IOB4_TBUF  I	1	1	70
+may	IOB4_IREG  Q	IOB4_TBUF  I	1	1	70
+
+may	IOB4_IBUF  O	IOB4_DEC   I	1	1	95
+may	IOB4_IREG  Q	IOB4_DEC   I	1	1	95
+
+may	IOB4_IBUF  O	IOB4_DEC_CLB1   I	1	1	95
+may	IOB4_IREG  Q	IOB4_DEC_CLB1   I	1	1	95
+
+# "must" groups:
+# =======================================
+must	CLB4_MEMWC *	CLB4_RAM4W *	2	1	99
+
+must	IOB4_PAD   I	IOB4_IBUF  I	1	1	99
+must	IOB4_PAD   I	IOB4_IREG  D	1	1	99
+
+must	IOB4_OREG  Q	IOB4_OBUFT I	1	1	99
+must	IOB4_OREG  Q	IOB4_PAD   O	1	1	99
+must	IOB4_OREG  Q	IOB4_IBUF  I	1	1	99
+must	IOB4_OREG  Q	IOB4_IREG  D	1	1	99
+
+must	IOB4_OBUFT O	IOB4_PAD   O	1	1	99
+must	IOB4_OBUFT O	IOB4_IBUF  I	1	1	99
+must	IOB4_OBUFT O	IOB4_IREG  D	1	1	99
+must	IOB4_OBUFT O	LCA4_MD1   O	1	1	99
+must	IOB4_OBUFT O	LCA4_TDO   O	1	1	99
+
+must	LCA4_MD0   I	IOB4_IBUF  I	1	1	99
+must	LCA4_MD2   I	IOB4_IBUF  I	1	1	99

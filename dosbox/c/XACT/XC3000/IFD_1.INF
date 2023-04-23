@@ -1,0 +1,23 @@
+`F  1.00 ifd_1
+`B "1" "1" "A" "     June 28, 1993" "" "A" 
+"XC3000 Family IFD_1 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D"
+`P O "Q"
+`P I "C"
+`S "CB" 1 
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "IFD" XC3000.LIB "IFD" C9B642B6  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "Q" "Q" O ) 
+`I R "INV" XC3000.LIB "INV" C9B644FF  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "D" ) ( R U1 "D" I ) 
+`J ( R U1 "Q" O ) ( P O "Q" ) 
+`J ( P I "C" ) ( R U2 "I" I ) 
+`J ( R U2 "O" O ) ( S "CB" 1  ) ( R U1 "C" I ) 

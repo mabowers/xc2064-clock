@@ -1,0 +1,51 @@
+`F  1.00 wand8
+`B "1" "1" "A" "    March 31, 1993" "" "A" 
+"XC4000 Family WAND8 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "O"
+`P I "I0"
+`P I "I1"
+`P I "I2"
+`P I "I3"
+`P I "I4"
+`P I "I5"
+`P I "I6"
+`P I "I7"
+`E XC4000.LIB
+`I R "WAND1" XC4000.LIB "WAND1" CC6B2D2E  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B2D44  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B2D6E  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B2D7F  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B6251  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B6251  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B6251  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`I R "WAND1" XC4000.LIB "WAND1" CC6B6251  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" I ) ( "O" "O" C ) 
+`J ( P I "I0" ) ( R U1 "I" I ) 
+`J ( R U1 "O" C ) ( R U2 "O" C ) ( P O "O" ) ( R U3 "O" C ) 
+( R U4 "O" C ) ( R U5 "O" C ) ( R U6 "O" C ) ( R U7 "O" C ) ( R U8 "O" C ) 
+`J ( P I "I1" ) ( R U2 "I" I ) 
+`J ( P I "I2" ) ( R U3 "I" I ) 
+`J ( P I "I3" ) ( R U4 "I" I ) 
+`J ( P I "I4" ) ( R U5 "I" I ) 
+`J ( P I "I5" ) ( R U6 "I" I ) 
+`J ( P I "I6" ) ( R U7 "I" I ) 
+`J ( P I "I7" ) ( R U8 "I" I ) 

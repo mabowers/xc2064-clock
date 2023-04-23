@@ -1,0 +1,45 @@
+TITLE           Shift Register: 4-bit, left, sync-reset, loadable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/30/93
+
+CHIP            SR4RLE  COMPONENT
+ 
+;Inputs
+d0 d1 d2 d3 sli l ce c r
+
+; d[3:0]        parallel-load data
+; sli           shift-left serial input
+; l             parallel-load enable
+; ce            shift clock enable
+; c             clock (optional FastCLK)
+; r             sync reset
+ 
+;Outputs
+q0 q1 q2 q3
+
+; q[3:0]        counter output
+
+EQUATIONS 
+
+q3      := ce*/l*/r*q2
+         + /ce*/l*/r*q3 
+         + l*/r*d3 
+q3.clkf  = c
+
+q2      := ce*/l*/r*q1
+         + /ce*/l*/r*q2 
+         + l*/r*d2 
+q2.clkf  = c
+
+q1      := ce*/l*/r*q0
+         + /ce*/l*/r*q1 
+         + l*/r*d1 
+q1.clkf  = c
+
+q0      := ce*/l*/r*sli
+         + /ce*/l*/r*q0 
+         + l*/r*d0 
+q0.clkf  = c

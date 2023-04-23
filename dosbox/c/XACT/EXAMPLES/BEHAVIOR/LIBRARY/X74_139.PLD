@@ -1,0 +1,26 @@
+TITLE           Decoder: 2-to-4, output-enable, active low outputs
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/26/93
+
+CHIP            X74_139  COMPONENT
+ 
+;Inputs
+a b /g
+
+; a..b          address
+; g             enable
+
+;Outputs
+/y0 /y1 /y2 /y3
+
+; y[3:0]        output
+
+EQUATIONS 
+
+y0  = /b*/a*g
+y1  = /b* a*g
+y2  =  b*/a*g
+y3  =  b* a*g

@@ -1,0 +1,112 @@
+TITLE           Flip-flop: D-type, 16-bit, async clear, clock-enable
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            7/22/93
+
+CHIP            FD16CE  COMPONENT
+ 
+;Inputs
+c d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 d12 d13 d14 d15 ce clr
+
+;Outputs
+q0 q1 q2 q3 q4 q5 q6 q7 q8 q9 q10 q11 q12 q13 q14 q15
+
+EQUATIONS 
+
+q0.d1   = d0*ce
+q0.fbk  = /ce
+q0     := q0.d1 or q0.d2
+q0.clkf = c
+q0.rstf = clr
+
+q1.d1   = d1*ce
+q1.fbk  = /ce
+q1     := q1.d1 or q1.d2
+q1.clkf = c
+q1.rstf = clr
+
+q2.d1   = d2*ce
+q2.fbk  = /ce
+q2     := q2.d1 or q2.d2
+q2.clkf = c
+q2.rstf = clr
+
+q3.d1   = d3*ce
+q3.fbk  = /ce
+q3     := q3.d1 or q3.d2
+q3.clkf = c
+q3.rstf = clr
+
+q4.d1   = d4*ce
+q4.fbk  = /ce
+q4     := q4.d1 or q4.d2
+q4.clkf = c
+q4.rstf = clr
+
+q5.d1   = d5*ce
+q5.fbk  = /ce
+q5     := q5.d1 or q5.d2
+q5.clkf = c
+q5.rstf = clr
+
+q6.d1   = d6*ce
+q6.fbk  = /ce
+q6     := q6.d1 or q6.d2
+q6.clkf = c
+q6.rstf = clr
+
+q7.d1   = d7*ce
+q7.fbk  = /ce
+q7     := q7.d1 or q7.d2
+q7.clkf = c
+q7.rstf = clr
+
+q8.d1   = d8*ce
+q8.fbk  = /ce
+q8     := q8.d1 or q8.d2
+q8.clkf = c
+q8.rstf = clr
+
+q9.d1   = d9*ce
+q9.fbk  = /ce
+q9     := q9.d1 or q9.d2
+q9.clkf = c
+q9.rstf = clr
+
+q10.d1   = d10*ce
+q10.fbk  = /ce
+q10     := q10.d1 or q10.d2
+q10.clkf = c
+q10.rstf = clr
+
+q11.d1   = d11*ce
+q11.fbk  = /ce
+q11     := q11.d1 or q11.d2
+q11.clkf = c
+q11.rstf = clr
+
+q12.d1   = d12*ce
+q12.fbk  = /ce
+q12     := q12.d1 or q12.d2
+q12.clkf = c
+q12.rstf = clr
+
+q13.d1   = d13*ce
+q13.fbk  = /ce
+q13     := q13.d1 or q13.d2
+q13.clkf = c
+q13.rstf = clr
+
+q14.d1   = d14*ce
+q14.fbk  = /ce
+q14     := q14.d1 or q14.d2
+q14.clkf = c
+q14.rstf = clr
+
+q15.d1   = d15*ce
+q15.fbk  = /ce
+q15     := q15.d1 or q15.d2
+q15.clkf = c
+q15.rstf = clr

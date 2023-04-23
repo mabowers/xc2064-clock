@@ -1,0 +1,21 @@
+`F  1.00 OBUFE
+`B "1" "1" "A" " December 23, 1993" "" "" 
+"XC7000 OBUFE Macro" ""
+""
+""
+""
+""
+`P I "E"
+`P I "I"
+`P O "O"
+`E XC7000.LIB
+`I R "BUFE" XC7000.LIB "BUFE" e3324d37  XU1  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "ZOBUF" XC7000.LIB "ZOBUF" e85268d0  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "E" "E" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( P I "E" ) ( R XU1 "E" I ) ( R U1 "E" I ) 
+`J ( P I "I" ) ( R XU1 "I" I ) 
+`J ( R XU1 "O" T ) ( R U1 "I" I ) 
+`J ( R U1 "O" T ) ( P O "O" ) 

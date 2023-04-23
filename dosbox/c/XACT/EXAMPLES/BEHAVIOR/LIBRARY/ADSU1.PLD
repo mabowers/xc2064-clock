@@ -1,0 +1,39 @@
+TITLE           Add/subtract: 1-bit
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            9/16/93
+
+CHIP            ADSU1  COMPONENT
+ 
+;Inputs
+a0 b0 add ci
+
+; a0            adder A-operand
+; b0            adder B-operand
+; add           function select: 1=add, 0=subtract(A-B)
+; ci            carry-in (from UIM)
+ 
+;Outputs
+s0 co
+
+; s0            adder output
+; co            carry-out from s0 (ordinary macrocell output)
+
+EQUATIONS 
+
+s0      =  a0* b0* ci* add
+        + /a0*/b0* ci* add
+        +  a0*/b0*/ci* add
+        + /a0* b0*/ci* add
+        +  a0*/b0* ci*/add
+        + /a0* b0* ci*/add
+        +  a0* b0*/ci*/add
+        + /a0*/b0*/ci*/add
+
+co      =  a0* b0* add
+        +  b0* ci* add
+        +  a0*/b0*/add
+        + /b0* ci*/add
+        +  a0* ci

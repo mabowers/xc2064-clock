@@ -1,0 +1,68 @@
+GENERAL INFORMATION:
+
+Design:              UART
+Compatible software: OrCAD SDT 386+ and VST 386+ (OrCAD IV is not compatible)
+                     XEPLD fitter from XACT v5.0
+                     XABEL v5.0 (optional)
+                     Xilinx OrCAD Interface v5.0
+
+Platform:            PC
+Target device:       XC7354-68 or larger (any speed)
+
+The UART tutorial demonstrates a typical EPLD schematic design flow.
+The logic of a UART receiver is expressed by an OrCAD schematic containing 
+standard library components and a PAL22V10. The PAL logic is defined using 
+an ABEL equation file, rcvr.abl. A PALASM version of the PAL file is also 
+provided (rcvr.pld) if you are not using the XABEL compiler. (For a 
+completely schematic-based version of the UART design, see the UARTTOP 
+tutorial.)
+
+DESIGN IMPLEMENTATION FLOW:
+
+The ABEL equation file is first translated to PLUSASM using the XABEL compiler. 
+You can compile the files under the XABEL interface, which can be invoked by 
+selecting DesignEntry -> XABEL in the XDM menu. You can also invoke the 
+ABEL-to-PLUSASM translator by entering the following command:
+
+  abl2pld -p 7354 rcvr
+
+The UART schematic is then converted into an xnf netlist and read into the 
+XEPLD software using the XEMAKE command as follows:
+
+  1. In XDM, select Translate -> XEMAKE.
+  2. Select Done when options are listed.
+  3. Select "uart.sch" from the list of design names.
+  4. Select "Make design database" as the target.
+
+XEMAKE automatically invokes the SDT interface, which generates the xnf 
+netlist file. It then invokes the EPLD fitter (FITNET) to implement the 
+design. The fitter generates a design database file (uart.vmh) representing 
+the implemented design. The fitter produces several report files, including 
+Resources (.res), Mapping (.map), Pinlist (.pin), and Partitioning (.par), all 
+provided in this directory as examples (uart.*).
+
+DESIGN VERIFICATION FLOW:
+
+The UART tutorial directory contains OrCAD VST stimulus and trace files for 
+running timing simulation on the UART design after it is implemented. A timing 
+simulation netlist is generated from the design database using the XSIMMAKE 
+command as follows:
+
+  1. In XDM, select Verify -> XSIMMAKE.
+  2. Select the "-F" option and select "Orcad_EPLD_Timing"; then select Done.
+  3. Select uart.vmh from the list of design names.
+
+XSIMMAKE generates an OrCAD simulation netlist, uart.vst. You can now invoke 
+the OrCAD VST simulator and apply the uart.stm (stimulus) and uart.trc (trace) 
+files. Be sure to specify uart.vst as the name of the connectivity database in 
+your VST configuration. To view the simulation results:
+
+  1. In VST, select Trace -> Change View and enter 1100.
+  2. Select Run Simulation and enter 110000 as the simulation length.
+
+DOCUMENTATION REFERENCE:
+
+A complete description of the UART design tutorial is provided in the XEPLD 
+OrCAD Tutorial chapter of the Xilinx OrCAD Interface User Guide.
+
+

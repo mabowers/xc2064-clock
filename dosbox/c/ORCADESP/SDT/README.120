@@ -1,0 +1,205 @@
+SDT 386+ v1.20 Release Notes
+Updated September 7, 1994
+*************************
+New In SDT 386+ v1.20
+*************************
+* ASCII Input/Output of schematic files
+You can now decompile entire designs into ASCII files for 
+editing with your choice of text 
+editors and then recompile them into SDT 386+ binary 
+schematic files.  This facilitates 
+global editing features such as substituting one part for 
+another throughout your design.
+
+* 32-bit printing and plotting
+SDT 386+ now supports 32-bit scaled printing and plotting 
+for faster operation and 
+increased capacity.  Printing and plotting also support new 
+font options allowing you to 
+use printer and plotter fonts or to always use fonts 
+identical to the display fonts.
+
+* On-line scaled printing
+The "Hardcopy" command in Draft allows you to perform scaled 
+printing, just like Plot Schematic's "Plot to Printer" option.  
+Now you don't have to leave Draft to print a C-sized 
+sheet on A-sized paper.
+
+* Print a selected block of your schematic
+You can use Draft's "Hardcopy" command to print a selected 
+block.  You can scale the printout and send the output to 
+the printer, or a file.
+
+* Enhanced forward ECO capability for OrCAD PCB 386+, EDIF 2 0 0 and 
+PADS
+Unlabeled nets will maintain the same name each time a 
+netlist is generated.  This facilitates improved forward ECO 
+capabilities 
+for OrCAD PCB 386+, PADS and other EDIF targets.
+
+* Comma-delimited Partlist output from Create Bill of Materials
+Create Bill of Materials can optionally produce a comma 
+delimited partlist for exporting to databases or spreadsheets 
+to create custom bill of materials.  Each part is listed on a 
+separate line with all eight part fields.
+
+* Create named properties in EDIF netlists.
+When generating an EDIF netlist, you can convert part fields 
+into named properties. Named properties are used by many systems 
+that read EDIF netlists as a mechanism for passing information 
+from the schematic designer.
+
+* Create hierarchical references to externally generated netlists
+Hierarchical symbols can now reference netlists as well as 
+schematics.  This is particularly useful when creating and 
+simulating "board-level" schematics for FPGA designs, where 
+one or more parts represents a synthesized or optimized 
+netlist.
+
+* Improved error checking for multi-page designs
+Check Design Integrity now checks for unmatched module ports 
+in flat (linked) designs as well as hierarchies.
+
+* Drag large blocks using the "Block Drag" command
+Drag as large a block as you wish without encountering "Out 
+of Memory" messages.
+
+************************************************
+SDT 386+ Features (Features not available in SDT Release IV)
+************************************************
+* Virtually unlimited capacity
+SDT 386+ uses 32-bit addressing and data structures, 
+accessing extended memory (not EMS) to overcome the 640K limit.  
+As a result, capacity has increased tremendously over SDT Release IV.
+
+* Text rotation options
+Comment text and label text may be rotated so that it is 
+sideways-readable or upside down.
+
+* Smart "Get Part" command
+When the menu of parts is on the screen, typing a character 
+causes the highlight bar snap to the first part whose name 
+begins with that character.  When each successive character is 
+typed, the highlight bar snaps to the next matching item.  
+You can also use the <Page Up>, <Page Down>, <Home> and <End> 
+keys to browse the part list.
+
+* Easy file selection for Draft and Edit Library
+Both Draft and Edit Library now have scrolling lists to make 
+selecting files easier.
+
+* Enhanced "Library Browse" command
+The Library browse command now includes a "Get" command 
+which retrieves the current part for placement.
+
+* "Pin Repeat" command for Edit Library
+A "Pin Repeat" command has been added to Edit Library.  This 
+command repeats placement of the last pin , with the specified X,Y 
+increment, automatically incrementing the pin name and pin number 
+(where applicable).
+
+* Easy "Block Copy" operations
+A "Block Copy" command has been added to Draft.
+
+* Easily move Sheet Nets
+A Move sheet net command has been added in Draft.
+
+* Enhanced "Block Import" command
+The block outline and contents of the block are shown to 
+allow accurate placement of the imported block.
+
+* Enhanced "Inquire" command
+The "Inquire" command now tells the original part name and 
+the library name which a part is loaded from.
+
+* Flexible graphic parts
+Graphic parts may now have virtually unlimited body sizes.  
+In addition, graphic grid arrays (i.e. single part per 
+package graphic parts with alphanumeric pin numbers) may now 
+be created.
+
+* Easier netlisting
+A new processor tool Check Design Integrity has been added 
+that combines Cleanup Schematic, Cross Reference Parts, and 
+Check Electrical Rules to perform all of the checks recommended 
+before netlisting.
+
+* Extended ASCII character support
+Extended ASCII can be placed anywhere text can be placed 
+except pin names and pin numbers.
+
+* Full-screen "crosshair" cursor option
+A new full screen "crosshair" cursor allows independent 
+movement of the horizontal and vertical crosshairs to allow 
+easier alignment during placement and editing functions.
+
+* Simplified custom netlist format file creation
+You create custom netlist format files for SDT 386+ using 
+"C".  These makes custom netlist formats faster and more 
+flexible than the interpreted formats of SDT Release IV.  In 
+addition, a single batch file may now be used to set up and 
+compile netlist format files.  This batch file is more 
+flexible, has improved error checking and also checks your 
+environment to make sure it is set up correctly.
+
+*******************************
+SDT 386+ system requirements
+*******************************
+* IBM 80386, 80486, Pentium or compatible
+* At least 2 megabytes of available RAM (4 to 8 megabytes 
+available RAM recommended for optimal performance).
+* 7-10 megabytes of hard disk space
+* SDT 386+ may be run in a full-screen DOS session under 
+Microsoft Windows 3.1.
+
+*******************************
+Performance notes
+*******************************
+
+1. Regarding single node nets. The netlist program INET 
+only includes unconnected pins in its output when the
+Assign a net name to all pins option (/I switch) is used. 
+The part with the unconnected pins must appear on the schematic. 
+When the unconnected pins belong to an unused gate in a 
+multiple part package (and so it does not appear on the 
+schematic), INET does not add these nets to its output.  
+
+The incremental netlist linker, ILINK, produces a report
+of all single net nodes when the Report single net nodes option 
+(/N switch) is used. It operates on the files produced by INET.
+If the single node net is not picked up by INET, it will not
+be shown in the report ILINK produces. 
+
+2. Plotting or printing to a COM port.
+
+Before using Plot Schematic (PLOTALL) or Print Schmatic (PRINTALL) 
+to print to one of the COM ports, be sure the COM port is set up 
+correctly by entering the following mode command at the DOS prompt:
+
+mode comx: 96,n,8,1,p
+
+If the port has not be set up correctly and your schematic is
+large enough to overflow the COM port buffer, you will see the
+message:
+
+Unable to write printpath. MS DOS Error #14 Disk is Full
+
+If you are running under Windows, you will need to enter this 
+command before invoking Windows. The most convenient way to make 
+sure that this command is issued is to put it into your AUTOEXEC.BAT
+file.
+
+If you prefer to enter the mode command after Windows is running, 
+you need to go to the Windows Control Panel for Ports. Click on the 
+COM port in question, and then Settings. Change the control flow 
+setting to hardware. Now entering the mode command in a DOS prompt
+window will change the setting.
+
+
+
+
+
+
+
+
+

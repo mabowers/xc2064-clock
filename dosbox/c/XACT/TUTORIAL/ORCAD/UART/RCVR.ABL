@@ -1,0 +1,59 @@
+module rcvr
+title 'Control Logic and Error Detector for UART Receiver Design
+       Xilinx EPLD Applications, Feb. 93'
+
+        rcvr  device  'p22v10';
+
+" Inputs
+  x4clk              pin 1;           " External clock (4x baud rate)
+  c0,c1,c2,c3,c4,c5  pin 2,3,4,5,6,7; " State counter outputs (from cntr6)
+  read               pin 8;           " Read enable (from cntr6,active-high)
+  sdin               pin 9;           " Serial data input (external)
+  d0                 pin 10;          " Shift register LSB output
+
+" Outputs
+  start              pin 15 istype 'reg'; " Start bit detector
+  bitclk             pin 16 istype 'reg'; " Bit clock (to shifter)
+  byteclk            pin 17 istype 'reg'; " Output data register clock
+  par                pin 18 istype 'reg'; " Parity accumulator
+  framing            pin 19 istype 'reg'; " Framing error output (external)
+  parity             pin 20 istype 'reg'; " Parity error output (external)
+  overun             pin 21 istype 'reg'; " Overrun error output (external)
+  ready              pin 22 istype 'reg'; " Receiver ready output (external)
+ 
+" Variables
+  count = [c5..c0]; " c5 is MSB
+
+Equations
+
+!start := !start & sdin           " Start goes high when sdin goes low;
+        # (count == 41);          " start stays high until count=41.
+start.clk = x4clk;
+
+bitclk := !c0 & !c1 & start;      " Bitclk pulses every 4 cycles.
+bitclk.clk = x4clk;
+
+ready := (count == 41) & !parity & !framing & !overun
+       # ready & !read;           " Ready goes high at count=41 if no errors
+ready.clk = x4clk;                " and stays high until register read.
+
+byteclk := (count == 34) & !ready; " Strobe data register at count=34
+byteclk.clk = x4clk;               " only if ready not still active.
+
+overun := (count == 34) & ready  " Overrun error at count=34 if ready still on;
+       # overun & !read;         " overun stays on until register read.
+overun.clk = x4clk;
+
+par := (par $ sdin) & bitclk & start
+     # par & !bitclk & start;       " Accumulate parity of sdin on each bitclk;
+par.clk = x4clk;                    " reset while start=0.
+
+parity := (count == 34) & par     " Parity error at count=34 if par odd (1);
+      # parity & !read;           " parity stays on until register read.
+parity.clk = x4clk;
+
+framing := (count == 40) & (!sdin # !d0) " Framing error at count=40 if either
+      # framing & !read;                 " stop bit low;
+framing.clk = x4clk;                    " framing stays on until register read.
+
+end

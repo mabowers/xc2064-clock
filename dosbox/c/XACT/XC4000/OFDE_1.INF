@@ -1,0 +1,29 @@
+`F  1.00 ofde_1
+`B "1" "1" "A" "    March  5, 1993" "" "A" 
+"XC4000 Family OFDE_1 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P I "D"
+`P O "O"
+`P I "C"
+`S "T" 1 
+`S "CB" 1 
+`E XC4000.LIB
+`I R "OFDT" XC4000.LIB "OFDT" C9B7774A  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "INV" XC4000.LIB "INV" C9B7789C  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC4000.LIB "INV" C9B7793E  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "E" ) ( R U2 "I" I ) 
+`J ( R U2 "O" O ) ( S "T" 1  ) ( R U1 "T" I ) 
+`J ( P I "D" ) ( R U1 "D" I ) 
+`J ( R U1 "O" T ) ( P O "O" ) 
+`J ( P I "C" ) ( R U3 "I" I ) 
+`J ( R U3 "O" O ) ( S "CB" 1  ) ( R U1 "C" I ) 

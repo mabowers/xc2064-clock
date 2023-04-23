@@ -1,0 +1,270 @@
+
+                       Plotting With OrCAD Plotter Drivers               OrCAD
+------------------------------------------------------------------------------
+This note describes special requirements and techniques for certain plotters
+and drivers.  It is provided for your convenience.
+
+OrCAD products use "drivers" to transfer files from the screen to paper.
+A driver is a communication media that transfers data between the OrCAD
+software and the hardware. OrCAD supports a wide range of plotter drivers.
+
+NOTE:
+
+* New drivers not listed in this note may be found on the OrCAD Bulletin
+  Board System (503) 690-9791.
+  
+  After 24 September 1993, the OrCAD bulletin board phone number will be
+  (503) 671-9401. For a period of one year, users calling (503) 690-9791
+  will be automatically forwarded to the new bulletin board phone number.
+
+See the OrCAD "Installation and Technical Support User's Guide" for 
+information about selected OrCAD drivers.
+
+The remainder of this note describes plotter driver requirements and
+techniques.                                                                    
+
+Page 2
+==============================================================================
+General notes          |   Be sure you are using the most current version
+                       |of the driver. The OrCAD 24-hour Bulletin Board
+                       |System (503) 690-9791 is a good source for OrCAD's
+                       |latest drivers.
+                       |   Read the manual to be sure that you use the
+                       |programs as intended. If you have difficulties that
+                       |these resources cannot solve, contact one of OrCAD's
+                       |Technical Support engineers at (503) 690-9722 
+                       |between the hours of 8 AM and 4 PM Pacific Time, or 
+                       |you may FAX (503) 690-9891 anytime.
+                       |
+                       |SPECIAL NOTE:
+                       |   After 24 September 1993, OrCAD's hours and phone 
+                       |numbers will be changed to the following:
+                       |
+                       |        OrCAD bulletin board (503) 671-9401
+                       |        still 24-hour access
+                       |
+                       |        Technical Support (503) 671-9400
+                       |        new hours 6 AM to 4 PM Pacific Time
+                       |
+                       |        FAX (503) 671-9501
+                       |        still 24-hour access
+                       |
+                       |For a period of one year, customers calling the old
+                       |phone numbers will automatically be forwarded to the
+                       |new phone numbers.
+                       |
+                       |        
+        ---------------+------------------------------------------------------
+        Emulation      |   Many plotters have emulation modes in which they
+                       |can behave like another plotter model. Consult your
+                       |plotter manual for more information about your
+                       |plotter's emulation mode. Many common modes are 
+                       |listed in this note.
+        ---------------+------------------------------------------------------
+        Application    |   Many software programs can read plot files created
+        Software       |by OrCAD drivers. Many common formats are listed in 
+                       |this note.
+        ---------------+------------------------------------------------------
+        Hardware       |   Set up the appropriate hardware settings so that 
+        Settings       |your plotter and host system can communicate. Be sure
+                       |that your cabling is correct for the hardware used.
+                       |Consult your plotter manual.
+        ---------------+------------------------------------------------------
+        Rotation       |   OrCAD does not provide for plot rotation. Using
+                       |Plot Schematic to create prints, however, will rotate
+                       |the schematic for best fit on the printer paper.
+        ---------------+------------------------------------------------------
+        Plotter        |   Pen width settings in the OrCAD software indicate
+        Pens           |what width of pen is used by the plotter. For
+                       |example, when sending a plot to a Hewlett-Packard
+                       |Laserjet printer using a printer driver of 300 x 300
+                       |dots per inch, specify a pen width of .002 inches,
+                       |which is the effective pen width of the printer.
+                       |  Some plotters have more than one pen and allow for
+                       |pen selection. Most OrCAD drivers support multiple
+                       |pens as defined in the appropriate configuration
+                       |screen.
+------------------------------------------------------------------------------ 
+                                                                              
+Page 3
+------------------------------------------------------------------------------
+AutoCad/DXF            |   The plot output files that OrCAD creates must have
+(DXF.DRV)              |extensions named ".DXF."  They are then ready for use
+                       |by AutoCad's dxfin command. Some application software
+                       |may require the file to be processed by AutoCad before
+                       |it can be read.
+-----------------------+------------------------------------------------------
+Calcomp                |   Because Calcomp plotters require direct communica-
+(CALCOMP1.DRV)         |tion, it is not possible to plot to a file and then
+(CALCOMP2.DRV)         |transfer the file to the plotter.
+                       |   Use the cable supplied by Calcomp.
+                       |   Some Calcomp plotters, such as the 1023, can
+                       |emulate a Hewlett-Packard plotter. See the section in
+                       |this note regarding Hewlett-Packard.
+                       | - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                       |Supported  |       Controllers     |  No Controller
+                       |Plotters   |                       |      Format
+                       |Non-       |-----------------------+------------------
+                       |Intelligent|906|970|907revG|951/953|PCI|960| Ext 960
+                       |-----------+---+---+-------+-------+---+---+----------
+                       |1012       |Xa | . |   .   |   .   | . | . |   .
+                       |1037       |Xa |Xc |  Xc   |   .   | . | . |   .
+                       |1038       |Xa |Xc |   .   |   .   | . | . |   .
+                       |1039       |Xa |Xc |   .   |   .   | . | . |   .
+                       |1051       |Xa |Xc |  Xc   |  Xc   | . | . |   .
+                       |1055       |Xa | 2 |   2   |   2   | . |Xa |   .
+                       |1060       |Xa | 2 |   2   |   2   | . |Xa |   .
+                       |1065       |Xa | 2 |   2   |   2   | . |Xa |   .
+                       | 960       |Xa | 2 |   2   |   2   | . |Xa |   .
+                       | 970       |Xa | 2 |   2   |   2   | . |Xa |   .
+                       |5200       | . | . |   .   |  Xc   | . |Xa |   .
+                       |5500       | . | . |   .   |  Xc   | . | . |   .
+                       |5732       | . | . |   .   |  Xc   | . | . |   .
+                       |5734       | . | . |   .   |  Xc   | . | . |   .
+                       |5742       | . | . |   .   |  Xc   | . | . |   .
+                       |5744       | . | . |   .   |  Xc   | . | . |   .
+                       |5754       | . | . |   .   |  Xc   | . | . |   .
+                       | - - - - - + - + - + - - - + - - - + - + - + - - - - -
+                       |Intelligent|   |   |       |       |   |   |
+                       | - - - - - + - + - + - - - + - - - + - + - + - - - - -
+                       | 945       | . | . |   1   |   1   | 1 | . |  Xb
+                       | 945A      | . | . |   1   |   1   | 1 | . |  Xb
+                       | 965       | . | . |   1   |   1   | 1 | . |  Xb
+                       | 965A      | . | . |   1   |   1   | 1 | . |  Xb
+                       |1023       | . | . |   .   |   1   | 1 | . |  Xb
+                       |1042       | . | . |   .   |   1   | 1 | . |  Xb
+                       |1042GT     | . | . |   .   |   1   | 1 | . |  Xb
+                       |1043       | . | . |   .   |   1   | 1 | . |  Xb
+                       |1043GT     | . | . |   .   |   1   | 1 | . |  Xb
+                       |1044       | . | . |   .   |   1   | 1 | . |  Xb
+                       |1044GT     | . | . |   .   |   1   | 1 | . |  Xb
+                       |1073       | . | . |   1   |   1   | 1 | . |  Xb
+                       |1075       | . | . |   1   |   1   | 1 | . |  Xb
+                       |1076       | . | . |   1   |   1   | 1 | . |  Xb
+                       |1077       | . | . |   1   |   1   | 1 | . |  Xb
+                       | - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                              [Continued...]                   
+Page 4
+------------------------------------------------------------------------------
+Calcomp   [Continued]  |                      Chart Legend:
+(CALCOMP1.DRV)         |1 Use CALCOMP1.DRV
+(CALCOMP2.DRV)         |2 Use CALCOMP2.DRV
+                       |X Plotter and Controller configuration supported by
+                       |   Calcomp Company. No OrCAD driver support.
+                       |a The 906 controller and 960 format lack built-in
+                       |   commands to draw circles, arcs and dashed lines.
+                       |b The extended 960 format is not supported.
+                       |c The remaining unsupported configurations are due to
+                       |   differences in plotter step size. The two CALCOMP
+                       |   drivers use a step size of 2032. The plotter noted
+                       |   uses a step size not supported by OrCAD drivers.
+                       | - - - - - - - - - - - - - - - - - - - - - - - - - - 
+                       |   When using Calcomp models 1023, 1041GT, 1043, 1044
+                       |or compatibles, use CALCOMP1.DRV, with OrCAD's baud
+                       |rate set at 9600 baud.
+                       |   Also, the following parameters should be config_
+                       |ured on the plotter through the LCD panel:
+                       |
+                       |    8 data bits, 1 stop bit, even parity.
+                       |    Serial interface.
+                       |    Host baud rate 9600.  
+                       |    Cksum enable:  NO
+                       |    EOM: 03  
+                       |    Direct Control:  YES
+                       |    Term baud rate 9600.
+                       |    Sync Codes: 1  Sync Code Value: 002
+                       |
+                       |    In addition, some dip switch settings may need to
+                       |be set:
+                       |         Switch           Position 
+                       |                 (Normal DTE) (Direct Mode)
+                       |           1 --------- 0 ---------- 0
+                       |           2 --------- 0 ---------- 1
+                       |           3 --------- 0 ---------- 0
+                       |           4 --------- 0 ---------- 1
+                       |           5 --------- 1 ---------- 0
+                       |           6 --------- 0 ---------- 0
+                       |           7 --------- 0 ---------- 0
+                       |           8 --------- 0 ---------- 0
+                       |              non-OrCAD^            ^use with OrCAD
+-----------------------+------------------------------------------------------
+Encapsulated Postscript|   The EPS drivers create encapsulated Postscript
+EPSF                   |commands used by a variety of application software
+(EPS1.DRV)             |packages, such as word processors, and are ready for
+(EPS2.DRV)             |transport to a variety of hardware platforms. Most 
+(EPS3.DRV)             |often, the EPS files that OrCAD creates need to be
+(EPS4.DRV)             |edited before they can be directly processed by the
+                       |application software. The necessary modifications can
+ [see also Postscript] |range from simply renaming the files to the deletion
+                       |and addition of crucial characters in the body of the
+                       |files. The specific changes necessary depend on the
+                       |application software. For more information, consult
+                       |your application software manual.
+------------------------------------------------------------------------------ 
+                                                                              
+Page 5
+------------------------------------------------------------------------------
+Hewlett-Packard        |   On larger (C-sized and above) Hewlett-Packard
+                       |plotters, the picture origin (0,0) is at the center
+HPGL                   |of the picture, while OrCAD's origin is at the top
+(HP.DRV)               |left. Offsets need to be introduced into the plot
+(HP2.DRV)              |coordinates. These need to be manually set in the
+(HPI.DRV)              |configuration menu for the OrCAD product. For example,
+(HP2I.DRV)             |Plot Schematic in Schematic Design Tools uses
+(HPX.DRV)              |the offsets established in Configure Schematic
+                       |Design Tools.
+HPGL/2                 |   The offsets need to be a negative value that is
+(HPGL-2.DRV)           |one half of the sheet size being plotted. Using the
+                       |example just mentioned, the offsets when plotting
+                       |a standard C sized schematic need to be "-10.1" and
+                       |"-7.6," since the worksheet is 20.2 by 15.2 inches.
+                       |See the appropriate OrCAD manual for more information
+                       |about configuration menus.
+                       |   Some older HP plotters may not support the full
+                       |Hewlett-Packard Graphics Language (HPGL) command set.
+                       |Most often, these older models cannot draw circles or
+                       |arcs. OrCAD does not support these older models.
+                       |Hardware upgrades should be available from Hewlett-
+                       |Packard.
+                       |   A similar situation occurs with some HP-compatible
+                       |plotters when they try to plot dashed lines. They
+                       |are unable to interpret the HPGL dashed line commands
+                       |that OrCAD sends to the plotter. Try using HPX.DRV.
+                       |   The HPI and HP2I drivers issue an IN (initialize)
+                       |command, rather than the DF (default) command. This
+                       |may help when plotting over a network.
+-----------------------+------------------------------------------------------
+Houston Instruments    |   If the plotter plots extra or strange characters,
+DMPL                   |you may want to try using HI29.DRV or ZERICON.DRV, 
+(HI.DRV)               |which handle end of text commands differently.
+(HI29.DRV) (ZERICON.DRV|
+-----------------------+------------------------------------------------------
+Initial Graphics       |   To create a file in the IGES (Initial Graphics
+Exchange Specification |Exchange Specification) format, first create a plot
+IGES                   |file using the GENERIC.DRV driver. Then run the
+(GENERIC.DRV           |Convert Plot To IGES (PLT2IGES.EXE) program on that
+    and                |file, creating a destination file. The destination
+ PLT2IGES.EXE)         |file will be in the IGES format.
+-----------------------+------------------------------------------------------
+Postscript             |   The PostScript drivers are Plotter drivers, not
+(PSCRIPT.DRV)          |Printer drivers. Use Plot Schematic to create the
+(PSCRIPT2.DRV)         |plot or plot file. Select a pen width of .003".
+------------------------------------------------------------------------------ 
+                                                                              
+Page 6
+------------------------------------------------------------------------------
+Versatec               |   The VERSATEC.DRV driver is a Printer driver, not a
+(VERSATEC.DRV)         |Plotter driver. Create a plot with the printer as the
+                       |destination device (which uses the currently-
+                       |configured printer driver).
+                       |   VERCABLE.SCH and VERCABLE.LIB describes the cable
+                       |used to connect to the Versatec plotter.
+==============================================================================
+Although every effort has been made to ensure the accuracy of this note, OrCAD
+drivers may change without notification. Those changes may not be reflected in
+this listing.
+
+All other brand and product names mentioned herein are used for identification
+purposes only, and are trademarks or registered trademarks of their respective
+holders.
+------------------------------------------------------------------------------

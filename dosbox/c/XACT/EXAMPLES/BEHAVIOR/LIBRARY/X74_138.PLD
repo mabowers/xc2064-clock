@@ -1,0 +1,32 @@
+TITLE           Decoder: 3-to-8, 3 output-enable, active low outputs
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/26/93
+
+CHIP            X74_138  COMPONENT
+ 
+;Inputs
+a b c /g2a /g2b g1
+
+; a..c          address 
+; g2a,g2b       active low enable
+; g1            active high enable
+
+;Outputs
+/y0 /y1 /y2 /y3 /y4 /y5 /y6 /y7
+
+; y[7:0]        output
+
+EQUATIONS 
+
+y0  = /c*/b*/a*g2a*g2b*g1
+y1  = /c*/b* a*g2a*g2b*g1
+y2  = /c* b*/a*g2a*g2b*g1
+y3  = /c* b* a*g2a*g2b*g1
+y4  =  c*/b*/a*g2a*g2b*g1
+y5  =  c*/b* a*g2a*g2b*g1
+y6  =  c* b*/a*g2a*g2b*g1
+y7  =  c* b* a*g2a*g2b*g1
+

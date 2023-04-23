@@ -1,0 +1,29 @@
+# "@(#)nw.bel	2.3  3/4/91"
+#
+# Northwest corner logic
+#
+_BELS
+LCA3_GCLK GCLK,
+;
+
+_NODES
+#
+# Input pins
+#
+GCLKI,
+#
+# Output pins
+#
+
+GCLKO,
+;
+
+_ARCS
+
+# Connections to primary buffer ACLK
+GCLKI  GCLK_I,
+GCLK_O GCLKO ,
+
+# Feedthru buffer 
+GCLK_I GCLK_O (is_gbuf_feedthru),
+;

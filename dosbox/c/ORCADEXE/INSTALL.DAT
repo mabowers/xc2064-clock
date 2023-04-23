@@ -1,0 +1,383 @@
+/* Installation for IBM OrCAD/Install */
+
+@DefineProject
+    @Name       = "OrCAD/INSTALL"
+    @Version    = "V1.30"
+    @InDrive    = A
+    @OutDrive   = C
+    @SubDir     = "\\ORCADESP\\"
+@EndProject
+
+@DefineVars
+    @Dir @ORCADPROJ = "\\ORCAD"
+    @Dir @ORCADEXE = "\\ORCADEXE"
+    @Dir @ORCADESP = "\\ORCADESP"
+@EndVars
+
+@If ( (@Exists "@OutDrive:@ORCADEXE\\SDT_C.EXE"
+||     @Exists "@OutDrive:@ORCADEXE\\VST_C.EXE"
+||     @Exists "@OutDrive:@ORCADEXE\\PLD_C.EXE"
+||     @Exists "@OutDrive:@ORCADEXE\\PCB_C.EXE")
+&&   ( @Exists "@OutDrive:@ORCADEXE\\ORINSTAL.EXE") )
+    @DefineVars
+        @Integer @ProductFlag = 1
+    @EndVars
+@Else 
+    @DefineVars
+        @Integer @ProductFlag = 0
+    @EndVars
+@EndIf
+
+@If (@ProductFlag == 0)
+    @Display
+        @Cls
+
+
+        Welcome to OrCAD's product installation program. With this
+        installation you will be able to load any or all of OrCAD's
+        EDA tools.
+
+        If you select a tool that you have not yet purchased please 
+        press the <Esc> key when you are prompted for the first 
+        disk of the product you don't have. This will allow you to
+        abort the installation process. You can restart this
+        installation by changing to the directory where you installed
+        the executable files (from the Install/driver disk), typing
+        INSTALL, and pressing the <Enter> key.
+
+        
+        @Pause
+    @EndDisplay
+
+    @GetOption
+        @CheckBox
+        @Cls
+               Select the tool sets to install on your system.
+                                OrCAD TOOL SETS
+
+
+
+
+
+
+
+
+
+
+    ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+    ³Arrows/PgUp/PgDn: Move selection bar.      Enter: Accept settings.   ³
+    ³       Space Bar: Toggle selection.          Esc: Abort installation.³
+    ³             Y/N: Set all selections.                                ³
+    ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+        @Option 10 = "     OrCAD ESP Design Environment    "
+        @Option 11 = "     OrCAD Schematic Design Tools    "
+        @Option 12 = "    OrCAD Digital Simulation Tools   "
+        @Option 13 = "      OrCAD PC Board Layout Tools    "
+        @Option 14 = "OrCAD Programmable Logic Design Tools"
+        @Option 15 = "       OrCAD PLD Modeling Tools      "
+    @EndOption
+    @GetOption
+        @CheckBox
+        @Cls       If you allow the product installation to proceed with the default
+       settings the directory structures for your OrCAD products will more
+       closely resemble the structures used in the documentation.
+
+
+
+      The current defaults are:
+
+        Your @InDrive: drive be used to load your OrCAD products.
+
+        Your @OutDrive: drive will be used to store OrCAD product files.
+
+        @OutDrive:@ORCADEXE will contain executables.
+        @OutDrive:@ORCADPROJ will contain design files.
+        @OutDrive:@ORCADESP will contain global product files.
+
+
+
+    ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+    ³       Space Bar: Toggle selection.        Enter: Accept setting.    ³
+    ³             Y/N: Set selection.             Esc: Abort installation.³
+    ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+        @Option 8 = "Do you want to customize installation settings?"
+    @EndOption
+@Else
+    @GetOption
+        @CheckBox
+        @Cls
+        Select ONE or MORE items to install or update on your system.
+                               Available Items
+
+
+
+
+
+
+
+
+
+
+    ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+    ³Arrows/PgUp/PgDn: Move selection bar.      Enter: Accept settings.   ³
+    ³       Space Bar: Toggle selection.          Esc: Abort installation.³
+    ³             Y/N: Set all selections.                                ³
+    ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+        @Option 16 = "OrCAD Printer, Plotter and Display Drivers   "
+        @Option 10 = "       OrCAD ESP Design Environment          "
+        @Option 11 = "       OrCAD Schematic Design Tools          "
+        @Option 12 = "      OrCAD Digital Simulation Tools         "
+        @Option 13 = "        OrCAD PC Board Layout Tools          "
+        @Option 14 = "   OrCAD Programmable Logic Device Tools     "
+        @Option 15 = "         OrCAD PLD Modeling Tools            "
+    @EndOption
+@EndIf
+
+@If ( 10 [! @Option
+&&    11 [! @Option
+&&    12 [! @Option
+&&    13 [! @Option        /* If no products were chosen abort install */
+&&    14 [! @Option
+&&    15 [! @Option
+&&    16 [! @Option )
+
+    @Display
+        @Cls
+
+
+
+
+
+
+
+    *** ERROR - No installation options were chosen. INSTALL aborting...
+
+
+
+
+
+        @Abort
+    @EndDisplay
+
+@EndIf
+ 
+@If ( (@ProductFlag == 1) || 8 [= @Option )
+    @GetOption
+        @CheckBox
+        @Cls
+           Do you want to modify any of the following items?
+                     CURRENT INSTALLATION PARAMETERS
+
+
+
+
+
+
+
+
+
+
+
+
+    ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+    ³Arrows/PgUp/PgDn: Move selection bar.      Enter: Accept settings.   ³
+    ³       Space Bar: Toggle selection.          Esc: Abort installation.³
+    ³             Y/N: Set all selections.                                ³
+    ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+        @Option 1 = "Change source floppy drive from:           @InDrive: "
+        @Option 2 = "Change target hard drive from:             @OutDrive:"
+        @Option 3 = "Change main driver/library directory from: @ORCADESP "
+        @Option 4 = "Change project directory from:             @ORCADPROJ"
+        @Option 5 = "Change executable program directory from:  @ORCADEXE "
+        @Option 6 = "Check and/or modify AUTOEXEC.BAT                     "
+    @EndOption
+
+    @If ( 1 [= @Option )
+        @GetInDrive
+            @CLS
+
+    Which disk drive will contain the floppy disk?
+        @EndInDrive
+    @EndIf
+
+    @If ( 2 [= @Option )
+        @GetOutDrive
+            @CLS
+
+    Where do you want to install the software?
+        @EndOutDrive
+    @EndIf
+
+    @If ( 3 [= @Option )
+        @GetSubdir @ORCADESP  
+    The @ORCADESP directory contains a subdirectory for each of the OrCAD
+    tools.  Those subdirectories contain files that are not particular
+    to a specific design, but are global in nature like libraries and
+    device models.  The default name for this directory is @ORCADESP.
+            @Prompt = "What directory for ORCADESP (<Enter> = @ORCADESP) ?"
+        @EndSubDir
+    @EndIf
+
+    @If ( 4 [= @Option )
+        @GetSubdir @ORCADPROJ
+    The @ORCADPROJ directory contains a subdirectory for each design
+    that you will be working with.  It will also contain the TEMPLATE
+    design directory.  The default name for this directory is @ORCADPROJ 
+            @Prompt = "What subdirectory for OrCAD designs (<Enter> = @ORCADPROJ) ?"
+        @EndSubDir
+    @EndIf
+
+    @If ( 5 [= @Option )
+        @GetSubdir @ORCADEXE
+    The @ORCADEXE directory contains the executable files for every OrCAD
+    tool you have (or will have) installed.  The default name for this
+    directory is @ORCADEXE
+            @Prompt = "What subdirectory for ALL OrCAD executables (<Enter> = @ORCADEXE) ?"
+        @EndSubDir
+    @EndIf
+
+    @If ( 6 [= @Option )
+        @Display
+            @Cls
+    If your AUTOEXEC.BAT file needs to be updated, this installation
+    process can update it for you.  If you choose to update your
+    AUTOEXEC.BAT file yourself, this installation will show you 
+    what to add to the file.  If you choose to have the installation
+    update your AUTOEXEC.BAT file, a backup file AUTOEXEC.BAK will
+    be created before any changes are implemented.
+            @Pause
+        @EndDisplay
+
+        @SetAutoexec
+            @AskOverwrite
+            @Verbatim "SET ORCADEXE=@OutDrive:@ORCADEXE\\"
+            @Verbatim "SET ORCADESP=@OutDrive:@ORCADESP\\"
+            @Verbatim "SET ORCADPROJ=@OutDrive:@ORCADPROJ\\"
+            @Verbatim "SET ORCADUSER=@OutDrive:@ORCADESP\\"
+            @Path "@OutDrive:@ORCADEXE"
+        @EndAutoexec
+    @EndIf
+
+    @If ( @Exists "@OutDrive:@ORCADEXE\\SDT_C.EXE"     /* SDT installed */
+    ||    @Exists "@OutDrive:@ORCADEXE\\VST_C.EXE"     /* VST installed */
+    ||    @Exists "@OutDrive:@ORCADEXE\\PLD_C.EXE"     /* PLD installed */
+    ||    @Exists "@OutDrive:@ORCADEXE\\PCB_C.EXE"     /* PCB installed */
+    ||    6 [= @Option                                 /* User selected check */
+    ||    @Exists "@OutDrive:@ORCADEXE\\ORINSTAL.EXE"  /* INSTALL installed */
+    ||   (@ProductFlag == 1) )                         /* Product previously
+                                                          found before menu
+                                                          choices */
+
+    @Else
+        @Display
+            @Cls
+
+    Be sure that the OrCAD environment variables are added to your 
+    AUTOEXEC.BAT file. To do this you must have a text editor available.
+    A typical set of variables will look as follows:
+
+        Set ORCADEXE=@OutDrive:@ORCADEXE\
+        Set ORCADESP=@OutDrive:@ORCADESP\
+        Set ORCADPROJ=@OutDrive:@ORCADPROJ\
+
+    To make the variables take effect, reboot your PC.
+
+    Or if you'd prefer, run this installation again and change the
+    "Check and/or modify AUTOEXEC batch file" selection to yes.   
+
+            @Pause
+        @EndDisplay
+    @EndIf
+@EndIf
+
+@If ( @ProductFlag == 1 || 8 [= @Option )
+    @Display
+        @Cls
+
+
+    The OrCAD tool sets you selected will be loaded from floppy disk
+    drive @InDrive to disk drive @OutDrive.
+    
+    The directory @ORCADEXE will contain executables.
+    The directory @ORCADPROJ will contain designs.
+    The directory @ORCADESP will contain global files.
+
+        @If ( 6 [= @Option )
+    NOTE:  This install process may update your AUTOEXEC.BAT file 
+           You must reboot your system after the installation is
+           completed to make these changes take effect.
+        @EndIf
+
+
+
+
+
+
+        @Pause
+    @EndDisplay
+@EndIf
+
+@DefineDisk
+    @Label = "Install Master Disk"
+    @File   INSTALL.DAT @Option 999
+@EndDisk
+
+@Finish
+    @ChDrive    @InDrive
+
+    @Cls
+    @If (10 [= @Option)
+        @Install "OrCAD/ESP" "ESP Disk (PC platform)"
+    @EndIf
+
+    @Cls
+    @If (11 [= @Option)
+        @Install "OrCAD/SDT" "SDT Disk 1"
+    @EndIf
+
+    @Cls
+    @If (12 [= @Option)
+        @Install "OrCAD/VST" "VST Disk 1"
+    @EndIf
+
+    @Cls
+    @If (13 [= @Option)
+        @Install "OrCAD/PCB" "PCB Disk 1"
+    @EndIf
+    
+    @Cls
+    @If (14 [= @Option)
+        @Install "OrCAD/PLD" "PLD Disk 1"
+    @EndIf
+
+    @Cls
+    @If (15 [= @Option)
+        @Install "OrCAD/MOD" "MOD Disk 1"
+    @EndIf
+
+    @Cls
+    @If (16 [= @Option)
+        @Install "OrCAD/Install" "Install disk (PC platform)"
+    @EndIf
+
+    @Cls
+
+
+
+
+
+
+                              Installation complete
+
+
+
+
+    @If ( 6 [= @Option )
+    NOTE: If this installation updated your AUTOEXEC.BAT file, you must 
+          reboot your machine to make those changes take effect.
+    @EndIf
+
+
+    @Pause
+    @ChDrive    @OutDrive
+@EndFinish

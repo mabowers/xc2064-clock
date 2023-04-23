@@ -1,0 +1,120 @@
+`F  1.00 INV16
+`B "1" "1" "C" "  October 22, 1993" "" "A" 
+"XC4000 Family INV16 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "O0"
+`P O "O1"
+`P O "O2"
+`P O "O3"
+`P O "O4"
+`P O "O5"
+`P O "O6"
+`P O "O7"
+`P O "O8"
+`P O "O9"
+`P O "O10"
+`P O "O11"
+`P O "O12"
+`P O "O13"
+`P O "O14"
+`P O "O15"
+`P I "I0"
+`P I "I1"
+`P I "I2"
+`P I "I3"
+`P I "I4"
+`P I "I5"
+`P I "I6"
+`P I "I7"
+`P I "I8"
+`P I "I9"
+`P I "I10"
+`P I "I11"
+`P I "I12"
+`P I "I13"
+`P I "I14"
+`P I "I15"
+`E XC7000.LIB
+`I R "INV" XC7000.LIB "INV" c96b92b6  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b92ca  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b92ec  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b9312  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b9325  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b9342  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b9354  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b9383  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b9398  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b93aa  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b93be  U11  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b93c9  U12  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b93df  U13  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b9421  U14  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b9436  U15  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "INV" XC7000.LIB "INV" c96b9446  U16  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "I0" ) ( R U1 "I" I ) 
+`J ( P O "O0" ) ( R U1 "O" O ) 
+`J ( P I "I1" ) ( R U2 "I" I ) 
+`J ( P O "O1" ) ( R U2 "O" O ) 
+`J ( P I "I2" ) ( R U3 "I" I ) 
+`J ( P O "O2" ) ( R U3 "O" O ) 
+`J ( P I "I3" ) ( R U4 "I" I ) 
+`J ( P O "O3" ) ( R U4 "O" O ) 
+`J ( P I "I4" ) ( R U5 "I" I ) 
+`J ( P O "O4" ) ( R U5 "O" O ) 
+`J ( P I "I5" ) ( R U6 "I" I ) 
+`J ( P O "O5" ) ( R U6 "O" O ) 
+`J ( P I "I6" ) ( R U7 "I" I ) 
+`J ( P O "O6" ) ( R U7 "O" O ) 
+`J ( P I "I7" ) ( R U8 "I" I ) 
+`J ( P O "O7" ) ( R U8 "O" O ) 
+`J ( P I "I8" ) ( R U9 "I" I ) 
+`J ( P O "O8" ) ( R U9 "O" O ) 
+`J ( P I "I9" ) ( R U10 "I" I ) 
+`J ( P O "O9" ) ( R U10 "O" O ) 
+`J ( P I "I10" ) ( R U11 "I" I ) 
+`J ( P O "O10" ) ( R U11 "O" O ) 
+`J ( P I "I11" ) ( R U12 "I" I ) 
+`J ( P O "O11" ) ( R U12 "O" O ) 
+`J ( P I "I12" ) ( R U13 "I" I ) 
+`J ( P O "O12" ) ( R U13 "O" O ) 
+`J ( P I "I13" ) ( R U14 "I" I ) 
+`J ( P O "O13" ) ( R U14 "O" O ) 
+`J ( P I "I14" ) ( R U15 "I" I ) 
+`J ( P O "O14" ) ( R U15 "O" O ) 
+`J ( P I "I15" ) ( R U16 "I" I ) 
+`J ( P O "O15" ) ( R U16 "O" O ) 

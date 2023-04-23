@@ -1,0 +1,78 @@
+TITLE           Counter: binary, 4-bit, sync-reset, loadable, up/down
+PATTERN         vmh
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            8/24/93
+
+CHIP            CB4X2  COMPONENT
+ 
+;Inputs
+d0 d1 d2 d3 ceu ced l c r
+
+; d[3:0]        parallel-load data
+; ceu           count-up enable
+; ced           count-down enable
+; l             parallel-load enable
+; c             clock (optional FastCLK)
+; r             sync reset
+ 
+;Outputs
+q0 q1 q2 q3 tcu tcd ceou ceod
+
+; q[3:0]        counter output
+; tcu           terminal count-up (optimizable AND)
+; tcd           terminal count-down
+; ceou          chip enable output up (optimizable AND)
+; ceod          chip enable output down (optimizable AND)
+
+NODE (UIM) tcu ceou ceod
+
+EQUATIONS 
+
+tcu      = q0*q1*q2*q3
+
+tcd     := ceu*/l*q0*q1*q2*q3
+         + ced*/ceu*/l*q0*/q1*/q2*/q3
+         + l*/d0*/d1*/d2*/d3
+         + /ceu*/ced*/l*/q0*/q1*/q2*/q3
+         + r
+tcd.clkf = c
+
+ceou     = ceu*q0*q1*q2*q3
+
+ceod     = ced*tcd
+
+q3.d1    = ceu*/l*/r*q0*q1*q2
+         + ced*/ceu*/l*/r*/q0*/q1*/q2
+q3.d2    = l*/r*d3
+q3.fbk   = /l*/r
+q3      := q3.d1 xor q3.d2
+q3.clkf  = c
+
+q2.d1    = ceu*/l*/r*q0*q1
+         + ced*/ceu*/l*/r*/q0*/q1
+q2.d2    = l*/r*d2
+q2.fbk   = /l*/r
+q2      := q2.d1 xor q2.d2
+q2.clkf  = c
+
+q1.d1    = ceu*/l*/r*q0
+         + ced*/ceu*/l*/r*/q0
+q1.d2    = l*/r*d1
+q1.fbk   = /l*/r
+q1      := q1.d1 xor q1.d2
+q1.clkf  = c
+
+q0.d1    = ceu*/l*/r
+         + ced*/ceu*/l*/r
+q0.d2    = l*/r*d0
+q0.fbk   = /l*/r
+q0      := q0.d1 xor q0.d2
+q0.clkf  = c
+
+q0.prld  = gnd
+q1.prld  = gnd
+q2.prld  = gnd
+q3.prld  = gnd
+tcd.prld  = vcc

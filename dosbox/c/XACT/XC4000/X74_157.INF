@@ -1,0 +1,59 @@
+`F  1.00 x74_157
+`B "1" "1" "A" "     June  7, 1993" "" "A" 
+"XC4000 Family X74_157 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "A1"
+`P O "Y1"
+`P I "B1"
+`P I "A2"
+`P O "Y2"
+`P I "B2"
+`P I "A3"
+`P O "Y3"
+`P I "B3"
+`P I "A4"
+`P O "Y4"
+`P I "B4"
+`P I "S"
+`P I "G"
+`S "E" 1 
+`E XC4000.LIB
+`I R "M2_1E" XC4000.LIB "M2_1E" CA24322B  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+( "E" "E" I ) 
+`I R "M2_1E" XC4000.LIB "M2_1E" CA243249  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+( "E" "E" I ) 
+`I R "M2_1E" XC4000.LIB "M2_1E" CA243262  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+( "E" "E" I ) 
+`I R "M2_1E" XC4000.LIB "M2_1E" CA243280  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "D0" "D0" I ) ( "D1" "D1" I ) ( "S0" "S0" I ) ( "O" "O" O ) 
+( "E" "E" I ) 
+`I R "INV" XC4000.LIB "INV" CA243543  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "A1" ) ( R U1 "D0" I ) 
+`J ( R U1 "O" O ) ( P O "Y1" ) 
+`J ( P I "B1" ) ( R U1 "D1" I ) 
+`J ( R U1 "S0" I ) ( R U2 "S0" I ) ( R U3 "S0" I ) ( P I "S" ) 
+( R U4 "S0" I ) 
+`J ( R U1 "E" I ) ( R U2 "E" I ) ( R U3 "E" I ) ( R U5 "O" O ) 
+( S "E" 1  ) ( R U4 "E" I ) 
+`J ( P I "A2" ) ( R U2 "D0" I ) 
+`J ( R U2 "O" O ) ( P O "Y2" ) 
+`J ( P I "B2" ) ( R U2 "D1" I ) 
+`J ( P I "A3" ) ( R U3 "D0" I ) 
+`J ( R U3 "O" O ) ( P O "Y3" ) 
+`J ( P I "B3" ) ( R U3 "D1" I ) 
+`J ( P I "A4" ) ( R U4 "D0" I ) 
+`J ( R U4 "O" O ) ( P O "Y4" ) 
+`J ( P I "B4" ) ( R U4 "D1" I ) 
+`J ( P I "G" ) ( R U5 "I" I ) 

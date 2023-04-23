@@ -1,0 +1,65 @@
+`F  1.00 ibuf8
+`B "1" "1" "A" "     June 28, 1993" "" "A" 
+"XC3000 Family IBUF8 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "O0"
+`P O "O1"
+`P O "O2"
+`P O "O3"
+`P O "O4"
+`P O "O5"
+`P O "O6"
+`P O "O7"
+`P I "I0"
+`P I "I1"
+`P I "I2"
+`P I "I3"
+`P I "I4"
+`P I "I5"
+`P I "I6"
+`P I "I7"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "IBUF" XC3000.LIB "IBUF" C7C78EB5  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC3000.LIB "IBUF" C7C78ED9  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC3000.LIB "IBUF" C7C78EED  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC3000.LIB "IBUF" C7C78EFF  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC3000.LIB "IBUF" C7C78F0B  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC3000.LIB "IBUF" C7C78F21  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC3000.LIB "IBUF" C7C78F33  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "IBUF" XC3000.LIB "IBUF" C7C78F42  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( R U8 "I" I ) ( P I "I0" ) 
+`J ( R U8 "O" O ) ( P O "O0" ) 
+`J ( R U7 "I" I ) ( P I "I1" ) 
+`J ( R U7 "O" O ) ( P O "O1" ) 
+`J ( R U6 "I" I ) ( P I "I2" ) 
+`J ( R U6 "O" O ) ( P O "O2" ) 
+`J ( R U5 "I" I ) ( P I "I3" ) 
+`J ( R U5 "O" O ) ( P O "O3" ) 
+`J ( R U4 "I" I ) ( P I "I4" ) 
+`J ( R U4 "O" O ) ( P O "O4" ) 
+`J ( R U3 "I" I ) ( P I "I5" ) 
+`J ( R U3 "O" O ) ( P O "O5" ) 
+`J ( R U2 "I" I ) ( P I "I6" ) 
+`J ( R U2 "O" O ) ( P O "O6" ) 
+`J ( R U1 "I" I ) ( P I "I7" ) 
+`J ( R U1 "O" O ) ( P O "O7" ) 

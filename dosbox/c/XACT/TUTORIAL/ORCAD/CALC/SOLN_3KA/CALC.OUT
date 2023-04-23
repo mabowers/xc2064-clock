@@ -1,0 +1,907 @@
+XMAKE Version pre5.0.0m
+Copyright (c) 1989-1994 Xilinx Inc. All rights reserved
+386|DOS-Extender 4.1 - Copyright (C) 1986-1993 Phar Lap Software, Inc.
+
+XMAKE: Generating makefile 'calc.mak'...
+XMAKE: Profile used is 'n:\data\xdm.pro'.
+
+XMAKE: Execute command 'annotate calc.sch '.
+******************************************************************************
+Loading configuration file
+Annotation
+"OrCAD/SDT 386+ v1.10    03-SEP-93"
+(C)Copyright 1991,1992,1993 OrCAD, Inc. ALL RIGHTS RESERVED.
+Reading Configuration Data File: sdt.bcf
+Initial memory allocation: 2000K.
+Reading Library: j:\xc3000\XC3000.LIB
+Reading Library: j:\xc3000\XC3000O.LIB
+Reading Library: j:\xc3000\XBLOX.LIB
+Opening "calc.sch"
+Opening "OSC_3K.sch"
+Opening "LED_INV.sch"
+Opening "DEBOUNCE.sch"
+Opening "STACK.sch"
+Opening "7SEG_INV.sch"
+Opening "SW7.sch"
+Opening "ALU.sch"
+Opening "ANDBLK2.sch"
+Opening "ORBLK2.sch"
+Opening "XORBLK2.sch"
+Opening "MUXBLK5.sch"
+Opening "MUXBLK2.sch"
+Opening "7SEGDEC.sch"
+Opening "CONTROL.sch"
+Opening "STATMACH.sch"
+Opening "calc.sch"
+Opening "calc.sch"
+Opening "OSC_3K.sch"
+Opening "LED_INV.sch"
+Opening "DEBOUNCE.sch"
+Opening "STACK.sch"
+Opening "7SEG_INV.sch"
+Opening "SW7.sch"
+Opening "ALU.sch"
+Opening "ANDBLK2.sch"
+Opening "ORBLK2.sch"
+Opening "XORBLK2.sch"
+Opening "MUXBLK5.sch"
+Opening "MUXBLK2.sch"
+Opening "7SEGDEC.sch"
+Opening "CONTROL.sch"
+Opening "STATMACH.sch"
+Annotating "calc.sch"
+Annotating "OSC_3K.sch"
+Annotating "LED_INV.sch"
+Annotating "DEBOUNCE.sch"
+Annotating "STACK.sch"
+Annotating "7SEG_INV.sch"
+Annotating "SW7.sch"
+Annotating "ALU.sch"
+Annotating "ANDBLK2.sch"
+Annotating "ORBLK2.sch"
+Annotating "XORBLK2.sch"
+Annotating "MUXBLK5.sch"
+Annotating "MUXBLK2.sch"
+Annotating "7SEGDEC.sch"
+Annotating "CONTROL.sch"
+Annotating "STATMACH.sch"
+
+XMAKE: Execute command 'inet calc.sch '.
+******************************************************************************
+Incremental NetList
+"OrCAD/SDT 386+ v1.10    03-SEP-93"
+
+(C)Copyright 1991,1992,1993 OrCAD, Inc. ALL RIGHTS RESERVED.
+Reading Configuration Data File: sdt.bcf
+Initial memory allocation: 2000K.
+Reading Library: j:\xc3000\XC3000.LIB
+Reading Library: j:\xc3000\XC3000O.LIB
+Reading Library: j:\xc3000\XBLOX.LIB
+Opening "calc.sch"
+Opening "OSC_3K.sch"
+Opening "LED_INV.sch"
+Opening "DEBOUNCE.sch"
+Opening "STACK.sch"
+Opening "7SEG_INV.sch"
+Opening "SW7.sch"
+Opening "ALU.sch"
+Opening "ANDBLK2.sch"
+Opening "ORBLK2.sch"
+Opening "XORBLK2.sch"
+Opening "MUXBLK5.sch"
+Opening "MUXBLK2.sch"
+Opening "7SEGDEC.sch"
+Opening "CONTROL.sch"
+Opening "STATMACH.sch"
+Opening "OSC_3K.sch"
+Opening "LED_INV.sch"
+Opening "DEBOUNCE.sch"
+Opening "STACK.sch"
+Opening "7SEG_INV.sch"
+Opening "SW7.sch"
+Opening "ALU.sch"
+Opening "ANDBLK2.sch"
+Opening "ORBLK2.sch"
+Opening "XORBLK2.sch"
+Opening "MUXBLK5.sch"
+Opening "MUXBLK2.sch"
+Opening "7SEGDEC.sch"
+Opening "CONTROL.sch"
+Opening "STATMACH.sch"
+
+Opening "OSC_3K.sch"
+Building Network "OSC_3K.sch"
+
+"OSC_3K.sch"
+***.......*******
+Building Network - 54856 Available Nodes.
+**************.****.*.......
+.***
+
+Write INF file for : OSC_3K.sch
+
+"OSC_3K.sch"
+**.*........*...**............*...*..*....*..
+.....*...*..*...*...*....*....**
+
+WriteInetList: complete
+
+Opening "LED_INV.sch"
+Building Network "LED_INV.sch"
+
+"LED_INV.sch"
+**********
+Building Network - 54856 Available Nodes.
+**************....****....*........
+***
+
+Write INF file for : LED_INV.sch
+
+"LED_INV.sch"
+**....*........*...**............*..*...*...*
+..*...*...*..*...*...*..*...*...**
+
+WriteInetList: complete
+
+Opening "DEBOUNCE.sch"
+Building Network "DEBOUNCE.sch"
+
+"DEBOUNCE.sch"
+**********
+Building Network - 54856 Available Nodes.
+**************...****...*...***
+
+Write INF file for : DEBOUNCE.sch
+
+"DEBOUNCE.sch"
+**...*...*...**.....*....*....*..*...*..*..*.
+...**
+
+WriteInetList: complete
+
+Opening "STACK.sch"
+Building Network "STACK.sch"
+
+"STACK.sch"
+***........................*******
+Building Network - 54856 Available Nodes.
+***********
+***..............****............*....***
+
+Write INF file for : STACK.sch
+
+"STACK.sch"
+**............*....*...**..............*.....
+*.....*.....*.....*..*..*..*..*..*..*..*..*..
+*..*..*..*..*..*..*..*...*...*...*...*.....*.
+....*..*..*..*..*..*......*......*..*..*..*..
+**
+
+WriteInetList: complete
+
+Opening "7SEG_INV.sch"
+Building Network "7SEG_INV.sch"
+
+"7SEG_INV.sch"
+**********
+Building Network - 54856 Available Nodes.
+**************........****........*
+................***
+
+Write INF file for : 7SEG_INV.sch
+
+"7SEG_INV.sch"
+**........*................*...**............
+............*..*...*...*..*...*...*..*...*...
+*..*...*...*..*...*...*..*...*...*..*...*...*
+..*...*...**
+
+WriteInetList: complete
+
+Opening "SW7.sch"
+Building Network "SW7.sch"
+
+"SW7.sch"
+***......*******
+Building Network - 54856 Available Nodes.
+**************........****...
+.....*.......***
+
+Write INF file for : SW7.sch
+
+"SW7.sch"
+**........*.......*...**..............*...*..
+.*...*...*........*...*...*...*...*...*...*..
+.*...*...*...*.......*
+
+WriteInetList: complete
+
+Opening "ALU.sch"
+Building Network "ALU.sch"
+
+"ALU.sch"
+***...*******
+Building Network - 54856 Available Nodes.
+*****....******.................
+.........***.................................
+..........................................*..
+.............................................
+.............................................
+.............................................
+.............................................
+................***.....................*....
+......................***
+
+Write INF file for : ALU.sch
+
+"ALU.sch"
+**.....................*.....................
+.....*...**.....*.....*......*......*......*.
+.....*.......*.......*.......*.......*...*...
+*...*...*...*...*...*...*..*...*...*...*...*.
+..*...*..*...*...*...*..*...*...*...*...*...*
+...*...*...*...*...*...*...*..*..*..*..*..*..
+*..*..**
+
+WriteInetList: complete
+
+Opening "ANDBLK2.sch"
+Building Network "ANDBLK2.sch"
+
+"ANDBLK2.sch"
+**********
+Building Network - 54856 Available Nodes.
+**************............****.....
+.......****
+
+Write INF file for : ANDBLK2.sch
+
+"ANDBLK2.sch"
+**............**...**....*..*..*..*..*..*..*.
+.*..*..*..*..*..**
+
+WriteInetList: complete
+
+Opening "ORBLK2.sch"
+Building Network "ORBLK2.sch"
+
+"ORBLK2.sch"
+**********
+Building Network - 54856 Available Nodes.
+**************............****.....
+.......****
+
+Write INF file for : ORBLK2.sch
+
+"ORBLK2.sch"
+**............**...**....*..*..*..*..*..*..*.
+.*..*..*..*..*..**
+
+WriteInetList: complete
+
+Opening "XORBLK2.sch"
+Building Network "XORBLK2.sch"
+
+"XORBLK2.sch"
+**********
+Building Network - 54856 Available Nodes.
+**************............****.....
+.......****
+
+Write INF file for : XORBLK2.sch
+
+"XORBLK2.sch"
+**............**...**....*..*..*..*..*..*..*.
+.*..*..*..*..*..**
+
+WriteInetList: complete
+
+Opening "MUXBLK5.sch"
+Building Network "MUXBLK5.sch"
+
+"MUXBLK5.sch"
+**********
+Building Network - 54856 Available Nodes.
+*****..........******..............
+.***.........................................
+...........*.................................
+.............................................
+..........................................***
+...........................*....***
+
+Write INF file for : MUXBLK5.sch
+
+"MUXBLK5.sch"
+**...........................*....*...**.....
+....*.....*..*...*..*..*..*..*.....*..*.....*
+.....*..*...*..*..*..*..*..*..*...*..*..*..*.
+.*..*..*...*..*..*..*..*..**
+
+WriteInetList: complete
+
+Opening "MUXBLK2.sch"
+Building Network "MUXBLK2.sch"
+
+"MUXBLK2.sch"
+**********
+Building Network - 54856 Available Nodes.
+**************.............****....
+.........****
+
+Write INF file for : MUXBLK2.sch
+
+"MUXBLK2.sch"
+**.............**...**....*..*..*..*.....*..*
+..*..*..*..*..*..*..*..**
+
+WriteInetList: complete
+
+Opening "7SEGDEC.sch"
+Building Network "7SEGDEC.sch"
+
+"7SEGDEC.sch"
+**********
+Building Network - 54856 Available Nodes.
+**************.....................
+.............................................
+..............****...........****
+
+Write INF file for : 7SEGDEC.sch
+
+"7SEGDEC.sch"
+**...........**...**.........................
+.........*.....................*..*..........
+..........*..*.................*.............
+......*..*..*..*..*..*..*..*..*..*..*..*..*..
+*..*..*..*..*..*..*..*..*..*..*..*..*..*..*..
+*..*..*..*..**
+
+WriteInetList: complete
+
+Opening "CONTROL.sch"
+Building Network "CONTROL.sch"
+
+"CONTROL.sch"
+**********
+Building Network - 54856 Available Nodes.
+*****..******...***................
+.......*........................***..........
+........*..***
+
+Write INF file for : CONTROL.sch
+
+"CONTROL.sch"
+**..................*..*...**..*.*..*..*..*..
+*..*..*..*..*..*..*..*...*..*..*...*..*..*...
+*...*..*..**
+
+WriteInetList: complete
+
+Opening "STATMACH.sch"
+Building Network "STATMACH.sch"
+
+"STATMACH.sch"
+**********
+Building Network - 54856 Available Nodes.
+*****..******...***................
+......................................*......
+..............................***............
+......*.........***
+
+Write INF file for : STATMACH.sch
+
+"STATMACH.sch"
+**..................*.........*...**.........
+..........*....*......*.....*....*.........*.
+...*....*....*....*.....*....*..*...*.....*..
+..*...*...*..*..*..*..*..*..*...*..*..*...**
+
+WriteInetList: complete
+
+XMAKE: Execute command 'sdt2xnf calc.inf calc.xnf -D xnf'.
+******************************************************************************
+inf2xnf [PRE-5.0.0i-02/03/1994]  --  Xilinx Automatic CAE Tools
+Copyright (c) 1994 Xilinx Inc.  All Rights Reserved. 
+386|DOS-Extender 4.1 - Copyright (C) 1986-1993 Phar Lap Software, Inc.
+
++ inf2xnf  @ 1994/03/06 11:28:22 [00:00:06]
+  
+  + Parameters 
+    ----------------------- 
+    inffile   = calc.inf 
+    xnffile   = calc.xnf 
+    p         = 3020APC68-7 
+    s         = j:\xc3000\  
+    u         = .\  
+    d         = xnf\ 
+    logfile   = sdt2xnf.log 
+    ----------------------- 
+  
+  Reading the root INF file 'calc.inf' ..... 
+  Reading the child-sheet INF file '.\osc_3k.inf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\cb4ce.inf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\ftce.inf' ..... 
+  Writing the XNF file 'xnf\ftce.xnf' ..... 
+  Writing the XNF file 'xnf\cb4ce.xnf' ..... 
+  Writing the XNF file 'xnf\osc_3k.xnf' ..... 
+  Reading the child-sheet INF file '.\led_inv.inf' ..... 
+  Writing the XNF file 'xnf\led_inv.xnf' ..... 
+  Reading the child-sheet INF file '.\debounce.inf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\fd.inf' ..... 
+  Writing the XNF file 'xnf\fd.xnf' ..... 
+  Writing the XNF file 'xnf\debounce.xnf' ..... 
+  Reading the child-sheet INF file '.\stack.inf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\fd4re.inf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\fdre.inf' ..... 
+  Writing the XNF file 'xnf\fdre.xnf' ..... 
+  Writing the XNF file 'xnf\fd4re.xnf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\m4_1e.inf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\m2_1.inf' ..... 
+  Writing the XNF file 'xnf\m2_1.xnf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\m2_1e.inf' ..... 
+  Writing the XNF file 'xnf\m2_1e.xnf' ..... 
+  Writing the XNF file 'xnf\m4_1e.xnf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\d2_4e.inf' ..... 
+  Writing the XNF file 'xnf\d2_4e.xnf' ..... 
+  Writing the XNF file 'xnf\stack.xnf' ..... 
+  Reading the child-sheet INF file '.\7seg_inv.inf' ..... 
+  Writing the XNF file 'xnf\7seg_inv.xnf' ..... 
+  Reading the child-sheet INF file '.\sw7.inf' ..... 
+  Writing the XNF file 'xnf\sw7.xnf' ..... 
+  Reading the child-sheet INF file '.\alu.inf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\adsu4.inf' ..... 
+  Writing the XNF file 'xnf\adsu4.xnf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\fd4ce.inf' ..... 
+  Writing the XNF file 'xnf\fd4ce.xnf' ..... 
+  Reading the child-sheet INF file '.\andblk2.inf' ..... 
+  Writing the XNF file 'xnf\andblk2.xnf' ..... 
+  Reading the child-sheet INF file '.\orblk2.inf' ..... 
+  Writing the XNF file 'xnf\orblk2.xnf' ..... 
+  Reading the child-sheet INF file '.\xorblk2.inf' ..... 
+  Writing the XNF file 'xnf\xorblk2.xnf' ..... 
+  Reading the child-sheet INF file '.\muxblk5.inf' ..... 
+  Writing the XNF file 'xnf\muxblk5.xnf' ..... 
+  Reading the child-sheet INF file '.\muxblk2.inf' ..... 
+  Writing the XNF file 'xnf\muxblk2.xnf' ..... 
+  Writing the XNF file 'xnf\alu.xnf' ..... 
+  Reading the child-sheet INF file '.\7segdec.inf' ..... 
+  Writing the XNF file 'xnf\7segdec.xnf' ..... 
+  Reading the child-sheet INF file '.\control.inf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\cb2cled.inf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\ftcle.inf' ..... 
+  Writing the XNF file 'xnf\ftcle.xnf' ..... 
+  Reading the xilinx macro INF file 'j:\xc3000\m2_1b1.inf' ..... 
+  Writing the XNF file 'xnf\m2_1b1.xnf' ..... 
+  Writing the XNF file 'xnf\cb2cled.xnf' ..... 
+  Reading the child-sheet INF file '.\statmach.inf' ..... 
+  Writing the XNF file 'xnf\statmach.xnf' ..... 
+  Writing the XNF file 'xnf\control.xnf' ..... 
+  Writing the XNF file 'xnf\calc.xnf' ..... 
+- inf2xnf  @ 1994/03/06 11:28:36 [00:00:20]
+= -------- @ 1994/03/06 00:00:14 [00:00:14]
+
++ inf2xnf required [717.078] Kbytes of dynamic/allocated memory 
+SDT2XNF Version PRE-5.0.0i-02/02/1994 -- XILINX CONFIDENTIAL
+Copyright (c) 1993 Xilinx Inc. All Right Reserved.
+
+Executing 'inf2xnf calc.inf calc.xnf d=xnf logfile=sdt2xnf.log' .....
+
+Return code from 'inf2xnf calc.inf calc.xnf d=xnf logfile=sdt2xnf.log' = 0
+
+XMAKE: Set the part type to '3020APC68-7' from 'xnf\calc.xnf'.
+XMAKE: Running with the following XMAKE options: (none)
+  >>>  XDELAY is run always with '-D' and '-W' options by XMAKE.
+XMAKE: Makefile saved in 'calc.mak'.
+
+XMAKE: Making 'calc.bit'...
+
+XMAKE: Execute command 'xnfmerge -A -D xnf -D . -P 3020APC68-7 xnf\calc.xnf calc.xff'.
+******************************************************************************
+XNFMERGE Ver. pre-5.0.0r
+(c) Copyright 1987-1994 Xilinx Inc. All rights reserved
+386|DOS-Extender 4.1 - Copyright (C) 1986-1993 Phar Lap Software, Inc.
+
+
+List of files read
+    Read file xnf\calc.xnf
+    Read file xnf\control.xnf
+    Read file xnf\statmach.xnf
+    Read file xnf\m2_1.xnf
+    Read file xnf\fd.xnf
+    Read file xnf\cb2cled.xnf
+    Read file xnf\m2_1b1.xnf
+    Read file xnf\ftcle.xnf
+    Read file xnf\7segdec.xnf
+    Read file xnf\alu.xnf
+    Read file xnf\muxblk2.xnf
+    Read file xnf\muxblk5.xnf
+    Read file xnf\m4_1e.xnf
+    Read file xnf\m2_1e.xnf
+    Read file xnf\xorblk2.xnf
+    Read file xnf\orblk2.xnf
+    Read file xnf\andblk2.xnf
+    Read file xnf\fd4ce.xnf
+    Read file xnf\adsu4.xnf
+    Read file xnf\sw7.xnf
+    Read file xnf\7seg_inv.xnf
+    Read file xnf\stack.xnf
+    Read file xnf\d2_4e.xnf
+    Read file xnf\fd4re.xnf
+    Read file xnf\fdre.xnf
+    Read file xnf\debounce.xnf
+    Read file xnf\led_inv.xnf
+    Read file xnf\osc_3k.xnf
+    Read file xnf\cb4ce.xnf
+    Read file xnf\ftce.xnf
+Netlist written to file calc.xff
+
+XMAKE: Execute command 'xnfprep calc.xff calc.xtf parttype=3020APC68-7'.
+******************************************************************************
+xnfprep [pre5.0.0w]  --  Xilinx Automatic CAE Tools
+Copyright (c) 1994 Xilinx Inc.  All Rights Reserved. 
+386|DOS-Extender 4.1 - Copyright (C) 1986-1993 Phar Lap Software, Inc.
+
++ xnfprep  @ 1994/03/06 11:29:36 [00:00:39]
+  
+  + Parameters 
+    ----------------------- 
+    design          = calc.xff 
+    outfile         = calc.xtf 
+    report          = *** 
+    savesig         = FALSE 
+    parttype        = 3020APC68-7 
+    cstfile         = *** 
+    logfile         = xnfprep.log 
+    ----------------------- 
+  
+  xnfprep:  running design rule checker ...
+  
+  
+  xnfprep:  checking XACT-Performance specifications ...
+  
+  
+  xnfprep:  trimming unnecessary and redundant logic...
+  
+  
+  xnfprep:  running design rule checker on trimmed design...
+  
+  
+  xnfprep:  reverifying XACT-Performance specifications in trimmed design ...
+  
+  
+  XNFPREP SUMMARY 
+  ---------------
+  0 Errors found
+  1 Warnings found
+  17 Unnecessary inverters and buffers removed
+  20 Unnecessary or disabled symbols removed
+  17 Sourceless or loadless signals removed
+  
+  Refer to the calc.prp file for details.
+  
+  Output netlist written to file calc.xtf.
+  
+  
+- xnfprep  @ 1994/03/06 11:30:32 [00:01:35]
+= -------- @ 1994/03/06 00:00:56 [00:00:56]
+
++ xnfprep required [1253.470] Kbytes of dynamic/allocated memory 
+
++ Data Manager Auto Save 
+  Saving MAP_XNF_TRIM cell "calc" 
+- Data Manager Auto Save 
+
+XMAKE: Execute command 'xnfmap -P 3020APC68-7 calc.xtf calc.map'.
+******************************************************************************
+XNFMAP Ver. pre-5.0.0r
+(c) Copyright 1987-1994 Xilinx Inc. All rights reserved
+386|DOS-Extender 4.1 - Copyright (C) 1986-1993 Phar Lap Software, Inc.
+Reading file calc.xtf...
+
+Checking network for logical errors...
+
+Preparing design...
+
+Assigning logic to LCA elements...
+
+Preparing GUIDE file...
+
+Checking mapped logic blocks...
+
+DESIGN SUMMARY:
+	Part type=3020APC68-7
+	52 of 64 CLBs used
+	22 of 58 I/O pins used
+	0 of 6 internal IOBs used
+	0 of 16 internal three-state signals used (0 TBUFS used)
+
+	33  CLB flipflops used
+
+	Total number of WARNINGS generated during mapping = 0.
+	Total number of ERRORS generated during mapping = 0.
+
+Writing design file calc.map...
+
+Writing guide file calc.pgf...
+
+XMAKE: Execute command 'ppr calc.map parttype=3020APC68-7'.
+******************************************************************************
+ppr [pre-5.0.0o]  --  Xilinx Automatic CAE Tools
+Copyright (c) 1994 Xilinx Inc.  All Rights Reserved. 
+386|DOS-Extender 4.1 - Copyright (C) 1986-1993 Phar Lap Software, Inc.
+
+*** Warning [EXPIRE:WARNING]
+    This version of the ppr program has a built-in expiration date.  
+    It will stop running 66 days from today.
+
+
+
++ ppr  @ 1994/03/06 11:31:44 [00:00:38]
+  
+  + Parameters 
+    ----------------------- 
+    design            = calc.map 
+    outfile           = <design name> 
+    parttype          = 3020APC68-7 
+    estimate          = FALSE 
+    logfile           = ppr.log 
+    ----------------------- 
+  
+  + Additional Specified or Non-Default Parameters 
+    ----------------------- 
+    seed              = 762953504 
+    ----------------------- 
+    
+    Parameter values from the xactinit.dat files
+    [Environment Variable XACT = j:\;k:\;o:\;l:\;n:\]
+    --------------------------------------------
+    no xactinit.dat parameter values defined
+    --------------------------------------------
+    
+  
+  ppr:  Reading input design data...
+  
+  Speedfile version 3000A.1, revision 3020A.4.
+  
+  
+  ppr:  Placing logic...
+  
+
+    *** PPR: WARNING 6811: 
+          This design has 1 purely combinational loop.  Such loops should be
+          avoided.  If at all possible, please modify the design to eliminate 
+          all unclocked feedback paths. 
+          
+          To permit path analysis during design implementation, all loops will
+          be broken by cutting out the last source-to-load connection. A
+          consequence is that the analyzer will not account for ANY paths
+          through that connection.  This may cause the final performance of
+          your design to be sub-optimal. 
+          
+          You can instruct the path analyzer to cut out connections of your
+          choice, by using timespec "ignore" attributes.  For details, consult
+          the PPR documentation. 
+    A loop of 1 source-to-load connections: 
+      FG4 FG_OSC_3K/Q          (Net OSC_3K/Q) to 
+    first gate again.
+    
+
+    *** PPR: WARNING 7035: 
+          To suppress the listing of paths for categories with no timing 
+          specifications, set PPR parameter tsi_show_all=FALSE. 
+    
+       Score    @   Time 
+    
+        8387  ....  00:01:53 
+    
+        8387  ....  00:01:56 
+    
+        8387  ....  00:01:57 
+    
+        8347  ....  00:01:59 
+    
+        7946  ....  00:02:02 
+    
+        7619  ....  00:02:05 
+    
+        7370  ....  00:02:09 
+    
+        6881  ....  00:02:13 
+    
+        6540  ....  00:02:17 
+    
+        6053  ....  00:02:22 
+    
+        5889  ....  00:02:26 
+    
+        5549  ....  00:02:30 
+    
+        5259  ....  00:02:35 
+    
+        5232  ....  00:02:39 
+    
+        4856  ....  00:02:43 
+    
+        4367  ....  00:02:48 
+    
+        4367  ....  00:02:52 
+    
+        4362  ....  00:02:56 
+    
+        4282  ....  00:03:00 
+    
+        4254  ....  00:03:04 
+    
+        4194  ....  00:03:09 
+    
+        4144  ....  00:03:13 
+  
+  ppr:  Routing signals...
+  
+    Begin pre-routing, Phase 1, TIMING=OFF; 36 connections. 
+    Begin pre-routing, Phase 2, TIMING=OFF; 10 connections. 
+    Begin pre-routing, Phase 3, TIMING=OFF; 229 connections. 
+    
+    + Begin routing, NO_RIP, TIMING=OFF; 239 connections. 
+       10% @ 11:36:10
+       20% @ 11:36:12
+       30% @ 11:36:15
+       40% @ 11:36:16
+       50% @ 11:36:17
+       60% @ 11:36:18
+       70% @ 11:36:21
+       80% @ 11:36:21
+       90% @ 11:36:24
+      100% @ 11:36:26
+
+Saving result with 4 unroutes
+    Begin fixing 4 unroutes on 3 nets, (0 VCC/GND), TIMING=OFF;  
+
+Saving result with 3 unroutes
+    Begin fixing 3 unroutes on 2 nets, (0 VCC/GND), TIMING=OFF;  
+
+Saving result with 1 unroutes
+    Begin fixing 1 unroutes on 1 nets, (0 VCC/GND), TIMING=OFF;  
+    Begin fixing 2 unroutes on 1 nets, (0 VCC/GND), TIMING=OFF;  
+
+No more unroutes
+    
+    Design has  0  unroutes.
+    
+
+  
+  ppr:  Generating .LCA File...
+  
+
+    *** PPR: WARNING 10604: 
+          A .LCA file already exists.  The old .LCA file will be saved as
+          'calc.lcb'. 
+
+    *** PPR: WARNING 10601: 
+          The block name 'WE' associated with the instance
+          'CONTROL/STATMACH/U235/U3' has already been used to name another
+          block.  Another block name will be created for this block. 
+
+    *** PPR: WARNING 10609: 
+          The new block name 'CONTROL/STATMACH/OTHER' is assigned to the
+          instance 'CONTROL/STATMACH/U235/U3'. 
+  
+  ppr:  Making Report File...
+  
+  Wrote report on the result without delay optimization to calc.rpf. 
+  
+  ppr:  Routing signals...
+  
+    Begin pre-routing, Phase 1, TIMING=PATH; 36 connections. 
+    Begin pre-routing, Phase 2, TIMING=PATH; 10 connections. 
+    Begin pre-routing, Phase 3, TIMING=PATH; 229 connections. 
+    
+    + Begin routing, NO_RIP, TIMING=PATH; 238 connections. 
+       10% @ 11:38:13
+       20% @ 11:38:19
+       30% @ 11:38:21
+       40% @ 11:38:23
+       50% @ 11:38:24
+       60% @ 11:38:26
+       70% @ 11:38:29
+       80% @ 11:38:30
+       90% @ 11:38:36
+      100% @ 11:38:49
+
+Saving result with 5 unroutes
+    Begin fixing 5 unroutes on 3 nets, (0 VCC/GND), TIMING=PATH; (First LCA
+    made) 
+
+Saving result with 3 unroutes
+    Begin fixing 3 unroutes on 2 nets, (0 VCC/GND), TIMING=PATH; (First LCA
+    made) 
+
+No more unroutes
+    Improving a   68.0ns  path with 9 pins. 
+
+No more unroutes
+    Improving a   67.3ns  path with 9 pins. 
+
+No more unroutes
+    Improving a   66.8ns  path with 9 pins. 
+    
+    Design has  0  unroutes.
+    
+    ----------------------------------------------------------------------
+    Timing analysis summary
+    ----------------------------------------------------------------------
+    
+        Deadline  Actual(*)  Specification
+        --------  ---------  ------------- 
+          <auto>   66.8ns    DEFAULT_FROM_FFS_TO_FFS=FROM:ffs:TO:ffs 
+          <auto>   21.7ns    DEFAULT_FROM_PADS_TO_FFS=FROM:pads:TO:ffs 
+          <auto>   52.5ns    DEFAULT_FROM_FFS_TO_PADS=FROM:ffs:TO:pads 
+    (*) Note: please run xdelay to confirm the actual path delays computed by
+    PPR. 
+
+    *** PPR: WARNING 7028: 
+          The design has flip-flops with asynchronous set/reset controls
+          (PRE/SD or CLR/RD pins).  When PPR analyzes design timing, it does
+          not trace paths through the asynchronous set/reset input and on
+          through the Q output.
+          
+          If you want PPR to control the delay on paths through asynchronous
+          set/reset pins, you must split the delay requirement into two
+          segments: one ending at the set/reset input, and the other beginning
+          at the flip-flop output.
+          If you want PPR not to analyze paths that lead to asynchronous
+          set/reset pins, attach an IGNORE specification to the pin(s) or
+          signal(s).
+          
+          By default, XDelay reports all paths through asynchronous set/reset
+          pins. To prevent XDelay from showing these paths, use FlagBlk
+          CLB_Disable_SR_Q on the appropriate flip-flops. 
+
+  
+  ppr:  Generating .LCA File...
+  
+
+    *** PPR: WARNING 10604: 
+          A .LCA file already exists.  The old .LCA file will be saved as
+          'calc.lcb'. 
+  
+  ppr:  Making Report File...
+  
+- ppr  @ 1994/03/06 11:39:53 [00:08:47]
+= ---- @ 1994/03/06 00:08:09 [00:08:09]
+
++ ppr required [3851.381] Kbytes of dynamic/allocated memory 
+
++ Data Manager Auto Save 
+  Saving NOTH_PREP cell "calc" 
+- Data Manager Auto Save 
+
+XMAKE: Execute command 'xdelay -D -W calc.lca'.
+******************************************************************************
+Xilinx LCA xdelay Ver. 4.8.0
+Copyright 1985-1994 Xilinx Inc.  All Rights Reserved.
+xdelay: writing calc.lca with delay information...
+Loading die/package file...
+Loading design file...
+
+
+Timing nets...
+
+xdelay: No paths traced for design calc.lca...
+
+Xilinx LCA xdelay Ver. 4.8.0 ended normally
+
+XMAKE: Execute command 'makebits -S0 -R2 -XB -YA calc.lca'.
+******************************************************************************
+Xilinx LCA MAKEBITS Ver. 4.8.0
+Copyright 1985-1994 Xilinx Inc.  All Rights Reserved.
+makebits: Making bitstream..
+Loading die/package file...
+Loading design file...
+
+
+Timing nets...
+
+Xilinx LCA MAKEBITS Ver. 4.8.0 ended normally
+
+XMAKE: 'calc.bit' has been made.

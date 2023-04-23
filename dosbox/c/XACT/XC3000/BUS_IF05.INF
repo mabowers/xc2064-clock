@@ -1,0 +1,37 @@
+`F  1.00 bus_if05
+`B "1" "1" "A" " February 13, 1992" "BUS_IF05" "01" 
+"BLOX Bus Interface Module" "Xilinx Inc."
+""
+""
+""
+""
+`P I "XBLOX_BUS"
+`P I "E00"
+`P I "E01"
+`P I "E02"
+`P I "E03"
+`P I "E04"
+`E XC4000.LIB
+`E XBLOX.LIB
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b3e  BX1  []
+"ELEM=0" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b48  BX2  []
+"ELEM=1" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b49  BX3  []
+"ELEM=2" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b4a  BX4  []
+"ELEM=3" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`I R "ELEMENT" XBLOX.LIB "ELEMENT" 9adc5b4b  BX5  []
+"ELEM=4" "" "" "" "" "" "" ""  ""
+( "ELEM" "ELEM" I ) ( "XBLOX_BUS" "XBLOX_BUS" I ) 
+`J ( P I "XBLOX_BUS" ) ( R BX2 "XBLOX_BUS" I ) ( R BX1 "XBLOX_BUS" I ) ( R BX3 "XBLOX_BUS" I ) 
+( R BX4 "XBLOX_BUS" I ) ( R BX5 "XBLOX_BUS" I ) 
+`J ( P I "E00" ) ( R BX1 "ELEM" I ) 
+`J ( P I "E01" ) ( R BX2 "ELEM" I ) 
+`J ( P I "E02" ) ( R BX3 "ELEM" I ) 
+`J ( P I "E03" ) ( R BX4 "ELEM" I ) 
+`J ( P I "E04" ) ( R BX5 "ELEM" I ) 

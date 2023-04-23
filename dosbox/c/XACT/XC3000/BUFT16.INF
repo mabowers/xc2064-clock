@@ -1,0 +1,126 @@
+`F  1.00 buft16
+`B "1" "1" "C" " February 14, 1994" "" "A" 
+"XC3000 Family BUFT16 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "T"
+`P O "O0"
+`P O "O1"
+`P O "O2"
+`P O "O3"
+`P O "O4"
+`P O "O5"
+`P O "O6"
+`P O "O7"
+`P O "O8"
+`P O "O9"
+`P O "O10"
+`P O "O11"
+`P O "O12"
+`P O "O13"
+`P O "O14"
+`P O "O15"
+`P I "I0"
+`P I "I1"
+`P I "I2"
+`P I "I3"
+`P I "I4"
+`P I "I5"
+`P I "I6"
+`P I "I7"
+`P I "I8"
+`P I "I9"
+`P I "I10"
+`P I "I11"
+`P I "I12"
+`P I "I13"
+`P I "I14"
+`P I "I15"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "BUFT" XC3000.LIB "BUFT" C9BE2505  XU1  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE2531  XU2  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE2543  XU3  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE2574  XU4  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE2589  XU5  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE259B  XU6  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE25B0  XU7  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE25D7  XU8  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE25D5  XU9  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE261F  XU10  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE263E  XU11  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE266E  XU12  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE2680  XU13  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE2688  XU14  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE269D  XU15  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" C9BE26CE  XU16  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( R XU1 "T" I ) ( R XU2 "T" I ) ( R XU3 "T" I ) ( R XU4 "T" I ) 
+( R XU5 "T" I ) ( R XU6 "T" I ) ( R XU7 "T" I ) ( R XU8 "T" I ) ( R XU9 "T" I ) 
+( R XU10 "T" I ) ( R XU11 "T" I ) ( R XU12 "T" I ) ( R XU13 "T" I ) ( R XU14 "T" I ) 
+( R XU15 "T" I ) ( R XU16 "T" I ) ( P I "T" ) 
+`J ( P I "I0" ) ( R XU1 "I" I ) 
+`J ( P O "O0" ) ( R XU1 "O" T ) 
+`J ( P I "I1" ) ( R XU2 "I" I ) 
+`J ( P O "O1" ) ( R XU2 "O" T ) 
+`J ( P I "I2" ) ( R XU3 "I" I ) 
+`J ( P O "O2" ) ( R XU3 "O" T ) 
+`J ( P I "I3" ) ( R XU4 "I" I ) 
+`J ( P O "O3" ) ( R XU4 "O" T ) 
+`J ( P I "I4" ) ( R XU5 "I" I ) 
+`J ( P O "O4" ) ( R XU5 "O" T ) 
+`J ( P I "I5" ) ( R XU6 "I" I ) 
+`J ( P O "O5" ) ( R XU6 "O" T ) 
+`J ( P I "I6" ) ( R XU7 "I" I ) 
+`J ( P O "O6" ) ( R XU7 "O" T ) 
+`J ( P I "I7" ) ( R XU8 "I" I ) 
+`J ( P O "O7" ) ( R XU8 "O" T ) 
+`J ( P I "I8" ) ( R XU9 "I" I ) 
+`J ( P O "O8" ) ( R XU9 "O" T ) 
+`J ( P I "I9" ) ( R XU10 "I" I ) 
+`J ( P O "O9" ) ( R XU10 "O" T ) 
+`J ( P I "I10" ) ( R XU11 "I" I ) 
+`J ( P O "O10" ) ( R XU11 "O" T ) 
+`J ( P I "I11" ) ( R XU12 "I" I ) 
+`J ( P O "O11" ) ( R XU12 "O" T ) 
+`J ( P I "I12" ) ( R XU13 "I" I ) 
+`J ( P O "O12" ) ( R XU13 "O" T ) 
+`J ( P I "I13" ) ( R XU14 "I" I ) 
+`J ( P O "O13" ) ( R XU14 "O" T ) 
+`J ( P I "I14" ) ( R XU15 "I" I ) 
+`J ( P O "O14" ) ( R XU15 "O" T ) 
+`J ( P I "I15" ) ( R XU16 "I" I ) 
+`J ( P O "O15" ) ( R XU16 "O" T ) 

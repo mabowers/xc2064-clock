@@ -1,0 +1,28 @@
+`F  1.00 and5b4
+`B "1" "1" "A" "     June 29, 1993" "" "A" 
+"XC2000 Family AND5B4 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "I4"
+`P I "I3"
+`P I "I2"
+`P I "I1"
+`P O "O"
+`P I "I0"
+`S "I24" 1 
+`E XC2000.LIB
+`I R "AND3B2" XC2000.LIB "AND3B2" D5AD9B75  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND3B2" XC2000.LIB "AND3B2" D5ADA2D2  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`J ( P I "I4" ) ( R U2 "I2" I ) 
+`J ( P I "I3" ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( S "I24" 1  ) ( R U1 "I2" I ) 
+`J ( P I "I2" ) ( R U2 "I0" I ) 
+`J ( P I "I1" ) ( R U1 "I1" I ) 
+`J ( R U1 "O" O ) ( P O "O" ) 
+`J ( P I "I0" ) ( R U1 "I0" I ) 

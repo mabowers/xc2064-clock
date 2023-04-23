@@ -1,0 +1,49 @@
+`F  1.00 ipad8
+`B "1" "1" "A" "  January 28, 1994" "" "A" 
+"XC4000 Family IPAD8 Macro" "Xilinx"
+""
+""
+""
+""
+`P O "I0"
+`P O "I1"
+`P O "I2"
+`P O "I3"
+`P O "I4"
+`P O "I5"
+`P O "I6"
+`P O "I7"
+`E XC4000.LIB
+`E XBLOX.LIB
+`I R "IPAD" XC4000.LIB "IPAD" EC04A2AB  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC4000.LIB "IPAD" EC04A2B9  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC4000.LIB "IPAD" EC04A2D0  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC4000.LIB "IPAD" EC04A2E8  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC4000.LIB "IPAD" EC04A390  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC4000.LIB "IPAD" EC04A392  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC4000.LIB "IPAD" EC04A393  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`I R "IPAD" XC4000.LIB "IPAD" EC04A395  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "I" "I" O ) 
+`J ( P O "I0" ) ( R U1 "I" O ) 
+`J ( P O "I1" ) ( R U2 "I" O ) 
+`J ( P O "I2" ) ( R U3 "I" O ) 
+`J ( P O "I3" ) ( R U4 "I" O ) 
+`J ( P O "I4" ) ( R U5 "I" O ) 
+`J ( P O "I5" ) ( R U6 "I" O ) 
+`J ( P O "I6" ) ( R U7 "I" O ) 
+`J ( P O "I7" ) ( R U8 "I" O ) 

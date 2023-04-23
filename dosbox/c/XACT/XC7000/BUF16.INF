@@ -1,0 +1,120 @@
+`F  1.00 BUF16
+`B "1" "1" "C" "  October  1, 1993" "" "A" 
+"XC7000 Family BUF16 Model" "Xilinx"
+""
+""
+""
+""
+`P O "O0"
+`P O "O1"
+`P O "O2"
+`P O "O3"
+`P O "O4"
+`P O "O5"
+`P O "O6"
+`P O "O7"
+`P O "O8"
+`P O "O9"
+`P O "O10"
+`P O "O11"
+`P O "O12"
+`P O "O13"
+`P O "O14"
+`P O "O15"
+`P I "I0"
+`P I "I1"
+`P I "I2"
+`P I "I3"
+`P I "I4"
+`P I "I5"
+`P I "I6"
+`P I "I7"
+`P I "I8"
+`P I "I9"
+`P I "I10"
+`P I "I11"
+`P I "I12"
+`P I "I13"
+`P I "I14"
+`P I "I15"
+`E XC7000.LIB
+`I R "BUF" XC7000.LIB "BUF" dfa7867a  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa786ad  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa786ec  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa78736  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa78845  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa78845  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa78845  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa78845  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa78880  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa78880  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa78880  U11  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa78880  U12  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa788d1  U13  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa788d1  U14  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa788d1  U15  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUF" XC7000.LIB "BUF" dfa788d1  U16  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`J ( P I "I0" ) ( R U1 "I" I ) 
+`J ( P O "O0" ) ( R U1 "O" O ) 
+`J ( P I "I1" ) ( R U2 "I" I ) 
+`J ( P O "O1" ) ( R U2 "O" O ) 
+`J ( P I "I2" ) ( R U3 "I" I ) 
+`J ( P O "O2" ) ( R U3 "O" O ) 
+`J ( P I "I3" ) ( R U4 "I" I ) 
+`J ( P O "O3" ) ( R U4 "O" O ) 
+`J ( P I "I4" ) ( R U5 "I" I ) 
+`J ( P O "O4" ) ( R U5 "O" O ) 
+`J ( P I "I5" ) ( R U6 "I" I ) 
+`J ( P O "O5" ) ( R U6 "O" O ) 
+`J ( P I "I6" ) ( R U7 "I" I ) 
+`J ( P O "O6" ) ( R U7 "O" O ) 
+`J ( P I "I7" ) ( R U8 "I" I ) 
+`J ( P O "O7" ) ( R U8 "O" O ) 
+`J ( P I "I8" ) ( R U9 "I" I ) 
+`J ( P O "O8" ) ( R U9 "O" O ) 
+`J ( P I "I9" ) ( R U10 "I" I ) 
+`J ( P O "O9" ) ( R U10 "O" O ) 
+`J ( P I "I10" ) ( R U11 "I" I ) 
+`J ( P O "O10" ) ( R U11 "O" O ) 
+`J ( P I "I11" ) ( R U12 "I" I ) 
+`J ( P O "O11" ) ( R U12 "O" O ) 
+`J ( P I "I12" ) ( R U13 "I" I ) 
+`J ( P O "O12" ) ( R U13 "O" O ) 
+`J ( P I "I13" ) ( R U14 "I" I ) 
+`J ( P O "O13" ) ( R U14 "O" O ) 
+`J ( P I "I14" ) ( R U15 "I" I ) 
+`J ( P O "O14" ) ( R U15 "O" O ) 
+`J ( P I "I15" ) ( R U16 "I" I ) 
+`J ( P O "O15" ) ( R U16 "O" O ) 

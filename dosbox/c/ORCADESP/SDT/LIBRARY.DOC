@@ -1,0 +1,863 @@
+
+    0                       Schematic Design Tools                       OrCAD
+			    Library Documentation
+------------------------------------------------------------------------------
+This note lists libraries supplied with your SDT 386+ software.
+It is provided for your convenience.
+
+NOTES:
+
+* New libraries not listed in this note and a listing of their contents may
+  be found on the OrCAD Bulletin Board System (503) 690-9791. 
+  
+  After 24 September 1993, the bulletin board phone number will be 
+  (503) 671-9401. For a period of one year, users calling (503) 690-9791 
+  will be automatically forwarded to the new bulletin board phone number.
+
+* You can use OrCAD utilities to list and view libraries to verify their
+  content.
+
+See "Chapter 14: About libraries" in the "Schematic Design Tools Reference
+Guide" for more information about libraries.
+
+The remainder of this note describes the libraries.
+
+==============================================================================
+
+LIBRARY NAME: ALTERA_M.LIB
+PART COUNT  : 116
+REFERENCES  : ALTERA CORPORATION
+		TTL MACROFUNCTIONS  V. 1.2                         1986,1987
+CONTENT     : EPLD MACROFUNCTIONS
+______________________________________________________________________________
+
+LIBRARY NAME: ALTERA_P.LIB
+PART COUNT  : 56
+REFERENCES  : ALTERA CORPORATION
+		A+ PLUS REFERENCE GUIDE                                 1987
+CONTENT     : EPLD PRIMITIVE FUNCTIONS
+______________________________________________________________________________
+
+LIBRARY NAME: AMD.LIB
+PART COUNT  : 312                              
+REFERENCES  : ADVANCED MICRO DEVICES
+		PERSONAL COMPUTER PRODUCTS                              1989
+		29K FAMILY DATA BOOK                                    1990
+		EIGHT_BIT 80C51 EMBEDDED PROCESSORS                     1990
+		HIGH PERFORMANCE CMOS BUS INTERFACE PRODUCTS            1989
+		ISDN DATA BOOK                                     1989/1990
+		DYNAMIC MEMORY DESIGN                                   1990
+		MEMORY PRODUCTS                                    1989/1990
+CONTENT     : FIFO'S, EPROMS, SRAMS, PROMS, MEMORY CONTROLLERS, CLOCK
+	      GENERATORS, DRAM DRIVER, CMOS BUS BUFFER, SWITCH PRODUCTS,
+	      TERMINAL PRODUCTS, SUPPORT TOOLS, BUS INTERFACES, EIGHT
+	      BIT EMBEDDED PROCESSORS, PROCESSORS, COPROCESSORS, VIDEO
+	      AND MASS STORAGE
+______________________________________________________________________________2
+
+LIBRARY NAME: ANALOG.LIB             ANALOG.LIB LIBRARY MODIFIED 8/3/1990
+	      ANALOG1.LIB
+	      ANALOG2.LIB
+	      ANALOG3.LIB
+	      ANALOG4.LIB
+PART COUNT  : ANALOG.LIB   ( 975 PARTS )
+	      ANALOG1.LIB  ( 962 PARTS )
+	      ANALOG2.LIB  (1020 PARTS )
+	      ANALOG3.LIB  ( 837 PARTS )
+	      ANALOG4.LIB  ( 161 PARTS )
+REFERENCES  : ANALOG DEVICES
+		DATA CONVERSION PRODUCTS DATABOOK                  1989/1990
+		LINEAR PRODUCTS DATABOOK                                1988
+	      BURR-BROWN
+		INTEGRATED CIRCUITS DATA BOOK  VOL. 33                  1989
+	      TEXAS INSTRUMENTS
+		LINEAR CIRCUITS DATABOOK                                1984
+		LINEAR CIRCUITS DATABOOK  VOL 1                         1989
+		LINEAR CIRCUITS DATABOOK  VOL 2                         1989
+		LINEAR CIRCUITS DATABOOK  VOL 3                         1989
+	      RCA SOLID STATE 
+		LINEAR INTEGRATED CIRCUITS AND MOS/FET'S                1982
+	      MICRO LINEAR
+		SEMI-STANDARD ANALOG DATA BOOK                          1990
+	      MICRO NETWORKS
+		DATA CONVERSION PRODUCTS                           1988/1989  
+	      MOTOROLA INC.
+		LINEAR AND INTERFACE INTEGRATED CIRCUITS  REV 3         1990
+		LINEAR/SWITCHMODE VOLTAGE REGULATOR HANDBOOK            1989
+		TELECOMMUNICATIONS DEVICE DATA                          1989
+	      NATIONAL SEMICONDUCTOR
+		LINEAR DATA BOOK  1                                     1988
+		LINEAR DATA BOOK  2                                     1988
+		LINEAR DATA BOOK  3                                     1988
+		DATA ACQUISITION LINEAR DEVICES DATABOOK                1989
+		GENERAL PURPOSE LINEAR DEVICES DATABOOK                 1989
+	      PRECISION MONOLITHICS INC
+		LINEAR AND CONVERSIONS PRODUCTS                         1986
+CONTENT     : OPAMPS, COMPARATORS, TIMERS, REGULATORS, DATA ACQUISITION
+	      COMPONENTS, ISOLATION AMPLIFIERS, INSTRUMENTATION AMPLIFIERS,
+	      ANALOG CIRCUIT MULTIPLEXERS, SAMPLE/HOLD AMPLIFIERS, ACTIVE
+	      FILTERS, ANALOG SWITCHES, A/D CONVERTORS, D/A CONVERTORS,
+	      TEMPERATURE SENSORS, VOLTAGE REFERENCES, SURFACE MOUNT, 
+	      BUFFERS, TELECOMMUNICATIONS DEVICES                             
+______________________________________________________________________________
+
+LIBRARY NAME: ANLG_DEV.LIB
+PART COUNT  : 21
+REFERENCES  : ANALOG DEVICES INC.
+		DSP PRODUCTS DATA BOOK                                  1989
+CONTENT     : DSP PROCESSORS, MICROCODED SUPPORT COMPONENTS, FLOATING_POINT
+	      COMPONENTS, FIXED POINT COMPONENTS
+______________________________________________________________________________3
+									      
+LIBRARY NAME: ASSEMBLY.LIB
+PART COUNT  : 17
+REFERENCES  : OrCAD GENERIC LIBRARY     
+CONTENT     : PACKAGE OUTLINES FOR ASSEMBLY DRAWINGS TO SPECIFY POSITION
+	      OF DEVICES FOR BOARD PLACEMENT
+______________________________________________________________________________
+
+LIBRARY NAME: ATMEL.LIB
+PART COUNT  : 50
+REFERENCES  : ATMEL CORPORATION
+		INTERGRATED CIRCUIT DATA BOOK                           1989
+CONTENT     : CMOS EEPROMS, CMOS PEROMS, CMOS EPROMS, HIGH SPEED CMOS PROMS,
+	      CMOS SRAMS, CMOS EPLDS, CMOS ANALOG
+______________________________________________________________________________
+
+LIBRARY NAME: BIT.LIB
+PART COUNT  : 8
+REFERENCES  : BIPOLAR INTEGRATED TECHNOLOGIES
+		BIT.LIB
+CONTENT     : BIPOLAR INTEGRATED TECHNOLOGIES SUPPLIED THIS LIBRARY OF
+	      BIT COMPONENTS.
+______________________________________________________________________________
+
+LIBRARY NAME: BROKTREE.LIB
+PART COUNT  : 38
+REFERENCES  : BROOKTREE CORPORATION
+		BROOKTREE PRODUCT DATABOOK  2ND ED.                     1989
+CONTENT     : VIDEODAC'S, RAMDAC'S, PERIPHERALS, IMAGING PRODUCTS, AUTOMATIC
+	      TEST EQUIPMENT, MILITARY 883C PRODUCTS
+______________________________________________________________________________
+
+LIBRARY NAME: CHIPS.LIB
+PART COUNT  : 83
+REFERENCES  : LIBRARY PROVIDED BY CHIPS AND TECHNOLOGIES INC.
+CONTENT     : CHIPS AND TECHNOLOGIES PRODUCTS, EXCLUDING MICRO CHANNEL 
+	      SPECIFIC PARTS.  
+______________________________________________________________________________
+
+LIBRARY NAME: CHIPSMC.LIB
+PART COUNT  : 29
+REFERENCES  : LIBRARY PROVIDED BY CHIPS AND TECHNOLOGIES INC.
+CONTENT     : CHIPS AND TECHNOLOGIES PARTS WHICH ARE MICRO CHANNEL SPECIFIC
+______________________________________________________________________________4
+
+LIBRARY NAME: CMOS.LIB                          LIBRARY MODIFIED 8/24/1990
+PART COUNT  : 311
+REFERENCES  : MOTOROLA 
+		CMOS LOGIC DATA                                         1985
+		HIGH-SPEED CMOS LOGIC DATA                              1986
+		CMOS/NMOS SPECIAL FUNCTION DATA                         1988
+		CMOS LOGIC DATA                                         1988
+	      CYPRESS SEMICONDUCTORS
+		CMOS RAMS-PROMS, EPLD'S, LOGIC, RISC                    1988
+	      SMOS SYSTEMS INC.
+		1988/1989 CMOS DATA BOOK                                1988
+	      NATIONAL SEMICONDUCTOR 
+		CMOS LOGIC DATA BOOK                                    1988
+CONTENT     : CMOS DIGITAL LOGIC DEVICES, REFER TO CONTENT OF TTL.LIB
+______________________________________________________________________________
+
+LIBRARY NAME: DALLAS.LIB
+PART COUNT  : 120
+REFERENCES  : DALLAS SEMICONDUCTOR
+		DALLAS SEMICONDUCTOR DATA BOOK                          1989
+CONTENT     : SILICON TIMED CIRCUITS, MULTIPORT MEMORY, MICROCONTROLLERS,
+	      NONVOLATILE SRAM, INTELLIGENT SOCKETS, TIMEKEEPING, USER 
+	      INSERTABLE MEMORY, SECURITY PRODUCTS, INTEGRATED BATTERY
+	      BACKUP, TELECOMMUNICTIONS, MODEMS
+______________________________________________________________________________
+
+LIBRARY NAME: DCLOCK.LIB
+PART COUNT  : (9)
+CONTENT     : COMPILATION OF PARTS FROM OTHER LIBRARIES, USED WITH OrCAD/SDT
+	      TUTORIAL.
+______________________________________________________________________________
+
+LIBRARY NAME: DCLOCK2.LIB
+PART COUNT  : (10)
+CONTENT     : COMPILATION OF PARTS FROM OTHER LIBRARIES, USED WITH OrCAD/SDT
+	      TUTORIAL.
+______________________________________________________________________________
+
+LIBRARY NAME: DEVICE.LIB                        LIBRARY MODIFIED 9/7/1990
+PART COUNT  : 287
+REFERENCES  : ORCAD GENERIC LIBRARY
+	      THORDARSON
+		POWER TRANSFORMERS DATA SHEETS  
+	      CHIPS AND TECHNOLOGIES INC.
+		CONNECTOR LIBRARY FILE
+CONTENT     : A GENERIC LIBRARY BY ORCAD CONTAINING THE FOLLOWING DEVICES:
+	      CONNECTORS, HEADERS, CAPACITORS, SWITCHES, TRANSFORMERS,
+	      TRANSISTORS, FET'S, SOURCES, RESISTORS, LAMPS, PHOTODEVICES,
+	      RELAYS, ELECTRON TUBE DEVICES, GND'S, DIODES, FUSES, AND OTHER
+	      DEVICES.          
+	      CHIPS AND TECHNOLOGIES INC.  CONTRIBUTED A CONNECTOR LIBRARY
+	      FILE THAT HAS BEEN INCORPORATED INTO THE DEVICE.LIB FILE. 
+	      SEVERAL CONNECTORS WERE SUPPLIED.  THESE INCLUDE A SET OF
+	      SINGLE ROW, SEVERAL SETS OF DOUBLE ROW, AT, MICRO CHANNEL, 
+	      EISA CONNECTORS, AND SOME OTHER SPECIAL CONNECTORS.
+______________________________________________________________________________5
+
+LIBRARY NAME: ECL.LIB                           LIBRARY MODIFIED 8/25/1990
+PART COUNT  : 293
+REFERENCES  : MOTOROLA
+		MECL HIGH-SPEED INTEGRATED CIRCUITS                     1978
+	      FAIRCHILD
+		F100K ECL DATA BOOK                                     1985
+CONTENT     : ECL DIGITAL LOGIC DEVICES, REFER TO CONTENT OF TTL.LIB
+______________________________________________________________________________
+
+LIBRARY NAME: EXEL.LIB
+PART COUNT  : 12
+REFERENCES  : EXEL MICROELECTRONICS INC.
+		EE DATABOOK                                             1988
+CONTENT     : EEPLDS AND EEPROMS
+______________________________________________________________________________
+
+LIBRARY NAME: FLOWCHT.LIB
+PART COUNT  : 23
+REFERENCES  : IBM
+		IBM 6x20_8020_2 U/M 010 TEMPLATE
+CONTENT     : PROGRAMMING FLOWCHART SYMBOLS 
+______________________________________________________________________________
+
+LIBRARY NAME: FUJITSU.LIB
+PART COUNT  : 490
+REFERENCES  : FUJITSU LIMITED
+		ECL RAM PRODUCTS                                        1990
+		STATIC RAM PRODUCTS                                     1990
+		MEMORY MODULES PRODUCT HANDBOOK                         1990
+		DYNAMIC RAM PRODUCTS                                    1990
+		PROGRAMMABLE MEMORY PRODUCTS                            1990
+CONTENT     : CMOS MASK-PROGRAMMABLE ROMS, PROGRAMMABLE ROMS, CMOS ONE-TIME
+	      PROGRAMMABLE ROMS, CMOS ERASABLE PROMS, NMOS ERASABLE PROMS,
+	      CMOS EEPROMS, NMOS NON-VOLATILE RAMS, HIGH RELIABILITY PROMS,
+	      NMOS DRAMS, CMOS DRAMS, APPLICATION SPECIFIC RAMS, MOS RAM
+	      MODULES, CMOS DRAM MODULES, DRAM MODULES, CMOS SRAM MODULES,
+	      HIGH-SPEED CMOS SRAMS, HIGH-SPEED BICMOS SRAMS, LOW POWER
+	      CMOS SRAMS, APPLICATION SPECIFIC SRAM, HIGH TEMPATURE RANGE
+	      SRAMS, CMOS SRAM MODULES, ECL RAMS, BICMOS ECL RAMS, 
+	      APPLICATION SPECIFIC ECL BIPOLAR RAMS
+______________________________________________________________________________
+
+LIBRARY NAME: GOLDSTAR.LIB
+PART COUNT  : 17
+REFERENCES  : GOLDSTAR SEMICONDUCTOR GROUP
+		GS MOS MEMORY DATA BOOK                                 1989
+CONTENT     : SRAM, DRAM, VIDEO RAM, MASK ROM
+______________________________________________________________________________
+
+LIBRARY NAME: HARRIS.LIB
+PART COUNT  : 63
+REFERENCES  : HARRIS SEMICONDUCTORS
+		DIGITAL PRODUCT DATA BOOK                               1989
+CONTENT     : CMOS MEMORY, CMOS MICROPROCESSORS, CMOS PERIPHERALS, CMOS 
+	      DATA COMMUNICATIONS, DIGITAL STANDARD CELL, CMOS HARRIS
+	      PROGRAMMABLE LOGIC, 64XX BUS INTERFACE CIRCUITS
+______________________________________________________________________________6
+
+LIBRARY NAME: HITACHI.LIB
+PART COUNT  : 68
+REFERENCES  : HITACHI AMERICA LTD.
+		4 MEGABIT DRAM DATA BOOK                                1990
+CONTENT     : MOS DYNAMIC RAM, MOS DYNAMIC RAM MODULES
+______________________________________________________________________________
+
+LIBRARY NAME: HUGHES.LIB
+PART COUNT  : 47
+REFERENCES  : HUGHES MICROELECTRONIC CENTER
+		CMOS DATA BOOK                                          1988
+CONTENT     : CMOS PROMS, CMOS LCD DRIVERS, 1800 MICROPROCESSOR FAMILY,
+	      CMOS RAM, CMOS ROM
+______________________________________________________________________________
+
+LIBRARY NAME: HYUNDAI.LIB
+PART COUNT  : 12
+REFERENCES  : HYUNDAI ELECTRONIC IND. LTD.
+		DATA BOOK                                               1989
+CONTENT     : CMOS DRAM, CMOS SRAM, CMOS EEPROM, CMOS EEPLD
+______________________________________________________________________________
+
+LIBRARY NAME: IEEE1.LIB
+	      IEEE2.LIB
+	      IEEE3.LIB
+	      IEEE4.LIB
+PART COUNT  : IEEE1.LIB ( 1004 PARTS )
+	      IEEE2.LIB (  454 PARTS )
+	      IEEE3.LIB (  271 PARTS )
+	      IEEE4.LIB (  385 PARTS )
+REFERENCES  : FAIRCHILD
+		FACT LOGIC DATA BOOK                                    1985
+		FAST LOGIC DATA BOOK                               1984/1985
+	      HARRIS
+		RCA HIGH-SPEED CMOS LOGIC IC'S                          1989
+	      INTEGRATED DEVICE TECHNOLOGY
+		HIGH PERFORMANCE CMOS DATA BOOK                         1988
+	      MOTOROLA
+		CMOS DATA                                               1978
+		FACT DATA                                               1989
+		FAST AND LS TTL DATA                                    1989
+		HIGH-SPEED CMOS LOGIC DATA                              1989
+		SCHOTTKY TTL DATA                                       1983
+	      NATIONAL SEMICONDUCTOR CORPORATION
+		ALS/AS LOGIC DATABOOK                                   1987
+		CMOS LOGIC DATABOOK                                     1988
+		FACT ADVANCED CMOS LOGIC DATABOOK                       1989
+		LS/S/TTL LOGIC DATABOOK                                 1987
+		TTL DATABOOK                                            1976
+	      SAMSUNG
+		AHCT/HCTLS  (HIGH SPEED CMOS LOGIC IC)                  1989  7
+
+				   [IEEE CONTINUED]
+	      SIGNETICS
+		FAST DATA MANUAL                                        1986
+		HIGH-SPEED CMOS DATA MANUAL                             1986
+		HIGH-SPEED CMOS DATA MANUAL                             1988
+		HIGH-SPEED CMOS DESIGNER'S GUIDE                        1988
+		SIGNETICS FAST LOGIC                                    1989
+		TTL DATA MANUAL                                         1986
+	      TEXAS INSTRUMENTS
+		2-uM CMOS STANDARD CELL DATA BOOK                       1986
+		ALS/AS LOGIC DATA BOOK                                  1986
+		F LOGIC DATA BOOK (SN54/74F)                            1987
+		HIGH-SPEED CMOS LOGIC DATA BOOK                         1989
+		LSI LOGIC DATA BOOK                                     1986
+		MASTER SELECTION GUIDE                                  1986
+		THE TTL DATA BOOK    VOLUME 2                           1985
+		THE TTL DATA BOOK    VOLUME 3                           1984
+		TTL LOGIC                                               1988
+
+CONTENT     : IEEE SYMBOLS OF TTL PARTS CONTAINED IN THE TTL LIBRARY FILES.
+	      DIGITAL LOGIC DEVICES, INCLUDING GATES, INVERTERS, EXPANDERS,
+	      BUFFERS, DRIVERS, TRANSCEIVERS, CLOCK GENERATORS, FLIP_FLOPS,
+	      LATCHES, MULTIVIBRATORS, REGISTERS, COUNTERS, DECODERS, 
+	      ENCODERS, DATA SELECTORS/MULTIPLEXERS, SHIFTERS, DISPLAY 
+	      DRIVERS/DECODERS, MEMORY/MICROPROCESSOR CONTROLLERS, VOLTAGE
+	      CONTROLLED OSCILLATORS, COMPARATORS, ERROR DETECTION CIRCUITS,
+	      ARITHMETIC CIRCUITS, AND PROCESSOR ELEMENTS.                    
+______________________________________________________________________________
+
+LIBRARY NAME: INMOS.LIB
+PART COUNT  : 24
+REFERENCES  : INMOS LIMITED
+		THE MEMORY DATA BOOK                                    1989
+CONTENT     : COMMERCIAL SRAM, MILITARY SRAM, CMOS SRAM, NMOS SRAM
+______________________________________________________________________________
+
+LIBRARY NAME: INTEL.LIB                         LIBRARY MODIFIED 9/7/1990
+PART COUNT  : 118       
+REFERENCES  : INTEL
+		MICROSYSTEM COMPONENTS HANDBOOK MICROPROCESSORS  VOL. I 1986
+		MICROSYSTEM COMPONENTS HANDBOOK PERIPHERALS      VOL. I 1986
+		MICROCONTROLLER HANDBOOK                                1986
+		MEMORY COMPONENTS HANDBOOK                              1986
+		PRODUCT GUIDE                                           1988
+		MICROCOMMUNICATIONS HANDBOOK                            1986
+	      CHIPS AND TECHNOLOGIES INC
+		BIGCHIPS LIBRARY FILE
+CONTENT     : MICROPROCESSORS, PERIPHERALS, MICROCONTROLLERS, RAMS, ROMS,
+	      SRAM, DRAM, EPROMS, AND PROMS     
+	      CHIPS AND TECHNOLOGIES INC CONTRIBUTED A BIGCHIPS LIBRARY FILE
+	      CONTAINING INTEL CPU'S AND PERIPHERALS.  THE INTEL PARTS FROM
+	      BIGCHIPS.LIB WERE INCORPORATED INTO THE INTEL.LIB FILE.         
+______________________________________________________________________________8
+
+LIBRARY NAME: INTEL_M.LIB
+PART COUNT  : 176
+REFERENCES  : INTEL
+		PROGRAMMABLE LOGIC                                      1990
+		INTEL DATA SHEETS
+		INTEL SCHEMATICS
+CONTENT     : EPLD MACROFUNCTIONS
+______________________________________________________________________________
+
+LIBRARY NAME: INTEL_P.LIB
+PART COUNT  : 57
+REFERENCES  : INTEL
+		IPLS II USERS GUIDE                                     1985
+CONTENT     : EPLD PRIMITIVES
+______________________________________________________________________________
+
+LIBRARY NAME: IR.LIB
+PART COUNT  : 31
+REFERENCES  : INTERNATIONAL RECTIFIER
+		POWER INTERFACE PRODUCTS                                1990
+		IGBT PRODUCT CATALOG                                    1990
+		MICROELECTRONIC                                         1990
+CONTENT     : CHIP SWITCH RELAYS, PHOTOVOLTAIC RELAYS, PHOTOVOLTAIC
+	      ISOLATORS, INSULATED GATE BIPOLAR TRANSISTORS, POWER
+	      INTERFACE MODULES
+______________________________________________________________________________
+
+LIBRARY NAME: LADDER.LIB
+PART COUNT  : 66
+REFERENCES  : ANSI, CSA, IEEE STANDARD
+		GRAPHIC SYMBOLS FOR ELECTRICAL AND ELECTRONIC DIAGRAMS  1975
+CONTENT     : SWITCHES
+______________________________________________________________________________
+
+LIBRARY NAME: MAXIM.LIB
+PART COUNT  : 245
+REFERENCES  : MAXIM INTEGRATED PRODUCTS INC.
+		MAXIM 1989 INTEGRATED CIRCUITS DATA BOOK                1989
+CONTENT     : A/D CONVERTORS, D/A CONVERTORS, TRUE RMS_TO_DC CONVERTORS,
+	      VOLTAGE REFERENCES, OP AMPS AND BUFFERS, POWER SUPPLY
+	      CIRCUITS, DISPLAY DRIVERS/COUNTERS, TIMERS/COUNTERS,
+	      INTERFACE, SWITCHED CAPACITOR FILTERS, ANALOG MULTIPLEXERS,
+	      ANALOG SWITCHES
+______________________________________________________________________________9
+
+LIBRARY NAME: MEMORY.LIB
+PART COUNT  : 350
+REFERENCES  : NEC
+		MEMORY PRODUCTS DATA BOOK                               1989
+	      MOTOROLA
+		MEMORY DATA                                             1989
+	      TOSHIBA
+		MOS MEMORY                                              1988
+	      TEXAS INSTRUMENTS INC
+		MOS MEMORY DATA BOOK                                    1986  
+	      AMD
+		BIPOLAR/MOS MEMORIES                                    1984
+	      INTEL
+		MEMORY COMPONENTS HANDBOOK                    1983,1985,1986  
+	      NATIONAL SEMICONDUCTOR
+		RANDOM ACCESS DATABOOK                                  1987
+		NON-VOLATILE MEMORY DATA BOOK                           1987
+	      FAIRCHILD
+		MEMORY DATA BOOK                                        1986
+	      VARIOUS PROGRAMMABLE LOGIC DEVICES DATA BOOKS, SUCH AS
+	      ALTERA, AMD, ETC.
+CONTENT     : MEMORY DEVICES, RAMS, ROMS, EPROMS, PROMS, SRAMS, DRAMS
+	      PROGRAMMABLE ARRAY LOGIC (PAL'S), GATE ARRAY LOGIC (GAL'S)
+______________________________________________________________________________
+
+LIBRARY NAME: METER.LIB
+PART COUNT  : 43
+REFERENCES  : ANSI, CSA, IEEE STANDARD
+		GRAPHIC SYMBOLS FOR ELECTRICAL AND ELECTRONIC DIAGRAMS  1975
+CONTENT     : METERS
+______________________________________________________________________________
+
+LIBRARY NAME: MICRON.LIB
+PART COUNT  : 58
+REFERENCES  : MICRON TECHNOLOGY INC.
+		MOS DATA BOOK                                           1990
+CONTENT     : DRAM, DRAM MODULES, MULTIPORT DRAM, SRAM, SRAM MODULES,
+	      CACHE DATA RAM, FIFO MEMORIES
+______________________________________________________________________________
+
+LIBRARY NAME: MITSUBIS.LIB
+PART COUNT  : 355
+REFERENCES  : MITSUBISHI ELECTRIC
+		MITSUBISHI SEMICONDUCTORS MEMORIES                      1989
+CONTENT     : MOS DRAM, MOS DRAM MODULES, VIDEO MEMORY, CMOS SRAM, CMOS
+	      SRAM MODULE, MOS MASK ROM, MOS EPROM, MOS EEPROM, MOS OTPROM,
+	      VERSATILE ROM, MOS EAROM
+______________________________________________________________________________
+
+LIBRARY NAME: MOSEL.LIB
+PART COUNT  : 53
+REFERENCES  : MOSEL CORPORATION
+		CMOS DATA BOOK                                          1990
+CONTENT     : SRAM, ROM, VOICE ROMS, CACHE PRODUCTS, SPECIALTY MEMORIES,
+	      LATCH RAM, DUAL PORT, FIFO
+______________________________________________________________________________10
+
+LIBRARY NAME: MOTO.LIB
+PART COUNT  : 119
+REFERENCES  : MOTOROLA
+		SINGLE-CHIP MICROCOMPUTER DATA                          1984
+		8-BIT MICROPROCESSOR & PERIPHERAL DATA                  1983
+CONTENT     : MOTOROLA MPU'S AND PERIPHERALS
+______________________________________________________________________________
+
+LIBRARY NAME: MOTO1.LIB   
+	      MOTO2.LIB   
+PART COUNT  : MOTO1 ( 464 PARTS )
+	      MOTO2 ( 577 PARTS )
+REFERENCES  : MOTOROLA INC.  
+		RECTIFIERS AND ZENER DIODE DATA   REV. 4                1988
+CONTENT     : SCHOTTKY, ULTRAFAST RECOVERY, FAST RECOVERY, BRIDGES, ZENER,
+	      AVALANCHE, VOLTAGE REFERENCE, TRANSIENT SUPPRESSORS,
+	      SURFACE MOUNT RECTIFIERS
+_____________________________________________________________________________
+
+LIBRARY NAME: MOTO3.LIB   
+	      MOTO4.LIB   
+PART COUNT  : MOTO3 ( 1011 PARTS )
+	      MOTO4 (  957 PARTS )
+REFERENCES  : MOTOROLA INC.  
+		SMALL SIGNAL TRANSISTORS, FETS AND DIODES  REV.2        1989
+CONTENT     : PLASTIC ENCPSULATED TRANSISTORS, METAL CAN TRANSISTORS,
+	      FIELD EFFECT TRANSISTORS, SMALL SIGNAL TUNING, SWITCH AND
+	      ZENER DIODES.
+______________________________________________________________________________
+
+LIBRARY NAME: MOTO5.LIB
+PART COUNT  : 949
+REFERENCES  : MOTOROLA INC.
+		POWER MOSFET TRANSISTOR DATA  REV. 3                    1989
+CONTENT     : TMOS POWER MOSFETS, P CHANNEL, N CHANNEL, N AND P ISOLATED,
+	      PLASTIC PACKAGED, METAL PACKAGED, LOGIC LEVEL POWER, 
+	      INSULATED GATE BIPOLAR TRANSISTORS, TMOS SENSEFETS, CHIP
+	      PRODUCTS, AND SMALL SIGNAL MOSFETS
+______________________________________________________________________________
+
+LIBRARY NAME: MOTO7.LIB
+PART COUNT  : 580
+REFERENCES  : MOTOROLA INC.
+		OPTOELECTRONICS DEVICE DATA   REV 3                     1989
+		THYRISTOR DEVICE DATA   REV 2                           1989
+CONTENT     : SCR, TRIAC, UJT, PUT, SBS, SIDAC, GTO LED, PHOTODIODE,
+	      PHOTOTRANSITORS, PHOTO SCHMITT TRIGGERS, PHOTO DARLINGTON,
+	      PHOTO SCR, TRIAC DRIVER, ZERO CROSS TRIAC DETECTORS,
+	      OPTOISOLATOR ASSEMBLIES AND CHIPS
+______________________________________________________________________________
+
+LIBRARY NAME: MPS.LIB
+PART COUNT  : 80
+REFERENCES  : MICRO POWER SYSTEMS
+		MICRO POWER SYSTEMS FOR DATA ACQUISTION AND CONVERSION  1989
+CONTENT     : D/A CONVERTORS, A/D CONVERTORS, ANALOG MULTIPLEXERS, OP AMPS,
+	      ANALOG SWITCHES, VOLTAGE REFERENCES, DUAL TRANSISTORS, JFET,
+	      FULL DUPLEX MODEM                                               11
+______________________________________________________________________________
+
+LIBRARY NAME: OKI.LIB
+PART COUNT  : 267
+REFERENCES  : OKI SEMICONDUCTOR
+		MICROCONTROLLER DATA BOOK  4TH ED.                      1989
+		VACUUM FLUORESCENT DRIVER DATA BOOK                     1989
+		MEMORY DATA BOOK                                        1988
+		LCD DRIVER / CONTOLLER DATA BOOK                        1988
+		TELECOM LSI DATA BOOK                                   1989
+		MSM6992 DATA SHEET                                      1988
+		MSM77C20 DATA SHEET                                     1986
+		MSM699210 DATA SHEET                                    1989
+		MICROPROCESSOR DATA BOOK                                1990
+		OKI VOICE SYNTHESIS LSI DATA BOOK                       1989
+CONTENT     : LCD DRIVERS, LCD CONTROLLERS, DRAM, SRAM, MASK ROM, EPROM,
+	      EEPROM,   FLUORSCENT DISPLAY DRIVERS, MICROCONTROLLERS, SPEECH
+	      SYNTHESIS IC'S, MICROPROCESSOR'S, I/O, PERIPHERALS, DSP, 
+	      MODEM, TELEPHONE APPLICATIONS, PABX APPLICATIONS, WIRELESS
+	      SYSTEM APPLICATIONS, COMBO CODEC
+______________________________________________________________________________
+
+LIBRARY NAME: OPTOISOL.LIB
+PART COUNT  : 206
+REFERENCES  : MOTOROLA
+		OPTOELECTRONICS DEVICE DATA                   1982,1987,1989  
+	      TEXAS INSTRUMENTS
+		OPTOELECTRONICS AND IMAGE SENSOR DATA BOOK              1987
+CONTENT     : OPTOELECTRONIC DEVICES, OPTO COUPLERS, IR EMITTERS, AND
+	      PHOTO TRANSISTORS
+______________________________________________________________________________
+
+LIBRARY NAME: PANASONC.LIB
+PART COUNT  : 175
+REFERENCES  : PANASONIC INDUSTRIAL GROUP
+		MOS MEMORY DEVICES                                      1989
+CONTENT     : DRAM, VIDEO DRAM, SRAM, MASK ROM, EPROM, EAROM
+______________________________________________________________________________
+
+LIBRARY NAME: PANASON2.LIB
+PART COUNT  : 474
+REFERENCES  : PANASONIC ELECTRONIC COMPONENTS
+		OPTOELECTRONIC DEVICES                                  1990
+CONTENT     : LIGHT EMITTING DIODES AND DISPLAYS
+______________________________________________________________________________12
+
+LIBRARY NAME: PCBDEV.LIB
+PART COUNT  : 246
+REFERENCES  : ORCAD GENERIC LIBRARY (DEVICE.LIB)
+	      THORDARSON
+		POWER TRANSFORMERS DATA SHEETS  
+	      CHIPS AND TECHNOLOGIES INC.
+		CONNECTOR LIBRARY FILE
+CONTENT     : A GENERIC LIBRARY BY ORCAD (DEVICE.LIB) CONTAINING THE FOLLOWING
+	      DEVICES: CONNECTORS, HEADERS, CAPACITORS, SWITCHES, TRANSFORMERS
+	      TRANSISTORS, FET'S, SOURCES, RESISTORS, LAMPS, PHOTODEVICES,
+	      RELAYS, ELECTRON TUBE DEVICES, GND'S, DIODES, FUSES, AND OTHER
+	      DEVICES, WHICH HAVE BEEN MODIFIED SO THAT THE PIN IDENTIFIERS
+	      (NUMBERS) ARE DIRECTLY COMPATIBLE WITH ORCAD/PCB.
+	      CHIPS AND TECHNOLOGIES INC.  CONTRIBUTED A CONNECTOR LIBRARY
+	      FILE THAT HAS BEEN INCORPORATED INTO THE DEVICE.LIB FILE. 
+	      SEVERAL CONNECTORS WERE SUPPLIED.  THESE INCLUDE A SET OF
+	      SINGLE ROW, SEVERAL SETS OF DOUBLE ROW, AT, MICRO CHANNEL, 
+	      EISA CONNECTORS, AND SOME OTHER SPECIAL CONNECTORS.
+______________________________________________________________________________
+
+LIBRARY NAME: PLDGATES.LIB
+PART COUNT  : 38
+REFERENCES  : OrCAD
+		OrCAD/PLD USERS MANUAL
+CONTENT     : OrCAD SUPPLIED LIBRARY FOR USE WITH OrCAD/PLD
+______________________________________________________________________________
+
+LIBRARY NAME: POWER.LIB
+PART COUNT  : 965
+REFERENCES  : TEXAS INSTRUMENTS
+		POWER PRODUCTS DATA BOOK                                1985
+CONTENT     : POWER TRANSISTORS, POWER DARLINGTONS, TRIACS, AND THYRISTORS
+______________________________________________________________________________
+
+LIBRARY NAME: PSPICE.LIB
+PART COUNT  : 140
+REFERENCES  : MICROSIM CORPORATION
+		PSPICE USERS MANUAL
+CONTENT     : MICROSIM SUPPLIED LIBRARY FOR USE WITH OrCAD/SDT AND PSPICE
+______________________________________________________________________________
+
+LIBRARY NAME: RF.LIB
+PART COUNT  : 35
+REFERENCES  : ANSI, CSA, IEEE STANDARD
+		GRAPHIC SYMBOLS FOR ELECTRICAL AND ELECTRONIC DIAGRAMS  1975
+CONTENT     : ANTENNAS, INDUCTORS, ELECTRON TUBES, RF CONNECTORS, AND OTHER
+	      RF COMPONENTS
+______________________________________________________________________________
+
+LIBRARY NAME: SAMSUNG.LIB
+PART COUNT  : 58
+REFERENCES  : SAMSUNG ELECTRONICS
+		SAMSUNG MOS MEMORY DATA BOOK                            1989
+CONTENT     : DRAM, SRAM, EEPROM, MASK ROM                             
+______________________________________________________________________________13
+
+LIBRARY NAME: SEEQ.LIB
+PART COUNT  : 77
+REFERENCES  : SEEQ TECHNOLOGY INC.
+		SEEQ DATA BOOK                                          1989
+CONTENT     : EEPROMS, FLASH, EPROMS, DATA COMMUNICATIONS, EEPLD
+______________________________________________________________________________
+
+LIBRARY NAME: SGSTHOM.LIB
+PART COUNT  : 236
+REFERENCES  : SGS_THOMSON MICROELECTRONICS
+		MEMORY PRODUCTS DATA BOOK   1ST ED.                     1988
+CONTENT     : NMOS UV PROM, CMOS UV EPROM, NMOS OTP ROM, CMOS OTP ROM,
+	      NMOS EEPROM, CMOS EEPROM, ROM, SRAM, CACHE TAG RAM, FIFO,
+	      VERY FAST CMOS SRAM
+______________________________________________________________________________
+
+LIBRARY NAME: SHAPES.LIB
+PART COUNT  : 33
+REFERENCES  : OrCAD GENERIC SHAPES
+CONTENT     : OrCAD GENERIC LIBRARY CONTAINING CIRCLES, SQUARES, 90 DEGREE
+	      ARCS, AND DIAMONDS        
+______________________________________________________________________________
+
+LIBRARY NAME: SIPEX.LIB
+PART COUNT  : 301
+REFERENCES  : SIPEX CORPORATION
+		1990 PRODUCT CATALOG                                    1990
+CONTENT     : ANALOG ARRAY PRODUCTS, RS232/422 INTERFACE PRODUCTS,
+	      OP AMPS, VOLTAGE REFERENCES, HIGH SPEED SAMPLE AND HOLD,
+	      D/A CONVERTORS, FLASH A/D SUBSYSTEMS, A/D CONVERTORS,
+	      SAMPLING A/D CONVERTOR, DATA ACQUISITION SYSTEMS, 
+	      CUSTOM HYBRID PRODUCTS
+______________________________________________________________________________
+
+LIBRARY NAME: SMOS.LIB
+PART COUNT  : 107
+REFERENCES  : S_MOS SYSTEMS INC.
+		CMOS DATA BOOK                                     1988/1989
+CONTENT     : MEMORIES, MICROCOMPUTERS, PERIPHERALS, GATE ARRAYS, DRIVERS,
+	      STANDARD CELLS, CONTROLLERS, TELECOMMUNICATIONS PRODUCTS,
+	      MELODY IC'S, AND SUB ASSEMBLIES
+______________________________________________________________________________
+
+LIBRARY NAME: SONY.LIB
+PART COUNT  : 106
+REFERENCES  : SONY CORPORATION
+		SEMICONDUCTOR   IC                                      1989
+		DISCRETER SEMICONDUCTOR                                 1988
+		ULTRA HIGH SPEED ECL LOGIC FAMILY                       1988
+CONTENT     : VARIABLE CAPACITANCE DIODES, LASER DIODES, FETS, MAGNETO
+	      RESISTANCE ELEMENTS, SRAM, APPLICATION SPECIFIC MEMORY,
+	      ECL LOGIC, D/A AND A/D CONVERTORS
+______________________________________________________________________________14
+
+LIBRARY NAME: SPICE.LIB
+PART COUNT  : 18
+REFERENCES  : MICROSIM CORPORATION
+		PSPICE USERS MANUAL
+		PSPICE.LIB
+CONTENT     : OrCAD GENERIC PSPICE LIBRARY FOR USE WITH OrCAD/SDT AND PSPICE
+______________________________________________________________________________
+
+LIBRARY NAME: TI1.LIB                    
+PART COUNT  : 397
+REFERENCES  : TEXAS INSTRUMENTS
+		INTERFACE CIRCUITS DATABOOK                             1989  
+CONTENT     : DATA ACQUISTION AND CONVERTORS, DISPLAY DRIVERS, 
+	      LINE DRIVERS / RECIEVERS, PERIPHERAL DRIVERS / ACTUATORS, 
+	      MEMORY INTERFACES, SPEECH SYNTHESIS CIRCUITS
+______________________________________________________________________________
+
+LIBRARY NAME: TI2.LIB
+PART COUNT  : 189
+REFERENCES  : TEXAS INSTRUMENTS
+		MOS MEMORY                                              1989
+		BICMOS BUS INTERFACE LOGIC                              1989
+CONTENT     : DRAM, DRAM MODULES, EPROMS, PROMS, EEPROMS, FIFO MEMORIES,
+	      DYNAMIC MEMORY CONTROLLERS, ACCESS DETECTORS, BUS DRIVERS,
+	      SRAMS, CACHE ADDRESS COMPARATORS, LINE DRIVERS, FLIP_FLOPS,
+	      BUS TRANSCEIVERS, REGISTERS, AND LATCHES
+______________________________________________________________________________
+
+LIBRARY NAME: TILSI.LIB
+PART COUNT  : 95
+REFERENCES  : TEXAS INSTRUMENTS INC
+		LSI LOGIC DATA BOOK                                     1986
+CONTENT     : BIPOLAR LSI/VLSI DIGITAL LOGIC DEVICES    
+
+______________________________________________________________________________15
+
+LIBRARY NAME: TTL.LIB                  TTL.LIB  LIBRARY MODIFIED 8/23/1990
+	      TTL1.LIB
+PART COUNT  : TTL.LIB  ( 2366 PARTS )
+	      TTL1.LIB (  251 PARTS )
+REFERENCES  : FAIRCHILD                
+		FACT LOGIC DATA BOOK                                    1985
+		FAST LOGIC DATA BOOK                               1984/1985
+	      HARRIS
+		RCA HIGH-SPEED CMOS LOGIC IC'S                          1989
+	      INTEGRATED DEVICE TECHNOLOGY
+		HIGH PERFORMANCE CMOS DATA BOOK                         1988
+	      MOTOROLA
+		CMOS DATA                                               1978
+		FACT DATA                                               1989
+		FAST AND LS TTL DATA                                    1989
+		HIGH-SPEED CMOS LOGIC DATA                              1989
+		SCHOTTKY TTL DATA                                       1983
+	      NATIONAL SEMICONDUCTOR CORPORATION
+		ALS/AS LOGIC DATABOOK                                   1987
+		CMOS LOGIC DATABOOK                                     1988
+		FACT ADVANCED CMOS LOGIC DATABOOK                       1989
+		LS/S/TTL LOGIC DATABOOK                                 1987
+		TTL DATABOOK                                            1976
+	      SAMSUNG
+		AHCT/HCTLS  (HIGH SPEED CMOS LOGIC IC)                  1989
+	      SIGNETICS
+		FAST DATA MANUAL                                        1986
+		HIGH-SPEED CMOS DATA MANUAL                             1986
+		HIGH-SPEED CMOS DATA MANUAL                             1988
+		HIGH-SPEED CMOS DESIGNER'S GUIDE                        1988
+		SIGNETICS FAST LOGIC                                    1989
+		TTL DATA MANUAL                                         1986
+	      TEXAS INSTRUMENTS
+		2-uM CMOS STANDARD CELL DATA BOOK                       1986
+		ALS/AS LOGIC DATA BOOK                                  1986
+		F LOGIC DATA BOOK (SN54/74F)                            1987
+		HIGH-SPEED CMOS LOGIC DATA BOOK                         1989
+		LSI LOGIC DATA BOOK                                     1986
+		MASTER SELECTION GUIDE                                  1986
+		STANDARD TTL VOLUME 2                                   1985
+		THE TTL DATA BOOK    VOLUME 2                           1985
+		THE TTL DATA BOOK    VOLUME 3                           1984
+		TTL LOGIC                                               1988
+CONTENT     : DIGITAL LOGIC DEVICES, INCLUDING GATES, INVERTERS, EXPANDERS,
+	      BUFFERS, DRIVERS, TRANSCEIVERS, CLOCK GENERATORS, FLIP_FLOPS,
+	      LATCHES, MULTIVIRATORS, REGISTERS, COUNTERS, DECODERS, 
+	      ENCODERS, DATA SELECTORS/MULTIPLEXERS, SHIFTERS, DISPLAY 
+	      DRIVERS/DECODERS, MEMORY/MICROPROCESSOR CONTROLLERS, VOLTAGE
+	      CONTROLLED OSCILLATORS, COMPARATORS, ERROR DETECTION CIRCUITS,
+	      ARITHMETIC CIRCUITS, AND PROCESSOR ELEMENTS.                    
+______________________________________________________________________________
+
+LIBRARY NAME: TUTORPLD.LIB
+PART COUNT  : 11
+CONTENT     : COMPILATION OF PARTS FROM OTHER LIBRARIES, USED WITH OrCAD/PLD
+	      TUTORIAL. (PINS DEFINED ON THE 22V10 TO AGREE WITH EQUATION)
+______________________________________________________________________________16
+		     
+LIBRARY NAME: VLSITEC.LIB
+PART COUNT  : 92
+REFERENCES  : VLSI TECHNOLOGY   INC.
+		APPLICATION SPECIFIC LOGIC                              1988
+		APPLICATION SPECIFIC MEMORY                             1989
+		COMPUTER PRODUCTS                                       1989
+CONTENT     : PC/AT COMPATIBLE DEVICES, PS/2 COMPATIBLE DEVICES, PERIPHERALS,
+	      SRAM, FIFO, CACHE TAG RAM, DATA COMMUNICATION DEVICES,
+	      TELECOMMUNICATIONS DEVICES, PROCESSORS, AND COPROCESSORS
+______________________________________________________________________________
+
+LIBRARY NAME: VSTGATES.LIB
+PART COUNT  : 372
+REFERENCES  : OrCAD
+		OrCAD/VST USERS MANUAL
+CONTENT     : OrCAD LIBRARY FOR USE WITH OrCAD/VST
+______________________________________________________________________________
+
+LIBRARY NAME: VSTOTHER.LIB
+PART COUNT  : 21
+REFERENCES  : OrCAD
+		OrCAD/VST USERS MANUAL
+CONTENT     : OrCAD LIBRARY FOR USE WITH OrCAD/VST
+______________________________________________________________________________
+
+LIBRARY NAME: VSTRAM.LIB
+PART COUNT  : 60
+REFERENCES  : OrCAD
+		OrCAD/VST USERS MANUAL
+CONTENT     : OrCAD LIBRARY FOR USE WITH OrCAD/VST
+______________________________________________________________________________
+
+LIBRARY NAME: VSTROM.LIB
+PART COUNT  : 60
+REFERENCES  : OrCAD
+		OrCAD/VST USERS MANUAL
+CONTENT     : OrCAD LIBRARY FOR USE WITH OrCAD/VST
+______________________________________________________________________________
+
+LIBRARY NAME: WEITEK.LIB
+PART COUNT  : 2
+REFERENCES  : LIBRARY PROVIDED BY CHIPS AND TECHNOLOGIES INC.
+CONTENT     : WEITEK COPROCCESSORS
+______________________________________________________________________________
+
+LIBRARY NAME: WSI.LIB
+PART COUNT  : 39
+REFERENCES  : WAFERSCALE INTEGRATION INC.
+		HIGH PERFORMANCE CMOS PRODUCTS                          1988
+CONTENT     : CMOS PROM, CMOS EPROM, BIT SLICE PROCESSOR, PIPELINE REGISTER,
+	      BUS INTERFACE REGISTER
+______________________________________________________________________________17
+
+LIBRARY NAME: XICOR.LIB
+PART COUNT  : 54
+REFERENCES  : XICOR INC
+		XICOR DATA BOOK                                         1988
+CONTENT     : NOVRAM, SERIAL I/O, EEPROM, EEPOT DIGITALLY CONTROLLED 
+	      POTENTIOMETER
+______________________________________________________________________________
+
+LIBRARY NAME: ZILOG.LIB
+PART COUNT  : 9
+REFERENCES  : ZILOG INC
+		Z80 FAMILY DATA BOOK                                    1989 
+CONTENT     : MICROPROCESSOR, COUNTER/TIMER CONTROLLER, DUAL ASYNCHRONOUS
+	      RECIEVER/TRANSMITTER, DIRECT MEMORY ACCESS CONTROLLER, PARALLEL
+	      INPUT/OUTPUT CONTROLLER, SERIAL INPUT/OUTPUT CONTROLLER
+==============================================================================
+Although every effort has been made to ensure the accuracy of this note, OrCAD
+supplied libraries may change without notification. Those changes may not be
+reflected in this listing.
+
+All other brand and product names mentioned herein are used for identification
+purposes only, and are trademarks or registered trademarks of their respective
+holders.
+------------------------------------------------------------------------------

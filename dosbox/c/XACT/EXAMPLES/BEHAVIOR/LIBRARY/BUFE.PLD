@@ -1,0 +1,21 @@
+TITLE           Buffer: 3-state, 1-bit
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung
+COMPANY         Xilinx EPLD
+DATE            7/28/93
+
+CHIP            BUFE  COMPONENT
+
+;Inputs
+i e
+
+;Outputs
+o
+
+NODE (NODETRST) o
+
+EQUATIONS 
+
+o = i
+o.trst = e

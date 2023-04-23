@@ -1,0 +1,46 @@
+`F  1.00 CB2CLE
+`B "1" "1" "A" "   August 25, 1993" "" "A" 
+"XC4000 Family CB2CLE Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D0"
+`P O "Q0"
+`P I "D1"
+`P I "L"
+`P O "Q1"
+`P I "CE"
+`P I "C"
+`P I "CLR"
+`P O "TC"
+`P O "CEO"
+`E XC7000.LIB
+`I R "AND2" XC7000.LIB "AND2" ca0a2106  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`I R "VCC" XC7000.LIB "VCC" ca0a2fa7  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "P" "P" O ) 
+`I R "FTCLE" XC7000.LIB "FTCLE" ca0a68a6  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "L" "L" I ) ( "T" "T" I ) ( "CE" "CE" I ) 
+( "C" "C" I ) ( "Q" "Q" O ) ( "CLR" "CLR" I ) 
+`I R "FTCLE" XC7000.LIB "FTCLE" ca0a697a  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "L" "L" I ) ( "T" "T" I ) ( "CE" "CE" I ) 
+( "C" "C" I ) ( "Q" "Q" O ) ( "CLR" "CLR" I ) 
+`I R "AND2" XC7000.LIB "AND2" dbbe96f6  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`J ( R U2 "P" O ) ( R U3 "T" I ) 
+`J ( P I "D0" ) ( R U3 "D" I ) 
+`J ( P I "L" ) ( R U3 "L" I ) ( R U4 "L" I ) 
+`J ( R U3 "Q" O ) ( R U4 "T" I ) ( P O "Q0" ) ( R U1 "I1" I ) 
+`J ( P I "CE" ) ( R U3 "CE" I ) ( R U4 "CE" I ) ( R U5 "I0" I ) 
+`J ( P I "C" ) ( R U3 "C" I ) ( R U4 "C" I ) 
+`J ( P I "CLR" ) ( R U3 "CLR" I ) ( R U4 "CLR" I ) 
+`J ( P I "D1" ) ( R U4 "D" I ) 
+`J ( R U4 "Q" O ) ( R U1 "I0" I ) ( P O "Q1" ) 
+`J ( R U1 "O" O ) ( R U5 "I1" I ) ( P O "TC" ) 
+`J ( R U5 "O" O ) ( P O "CEO" ) 

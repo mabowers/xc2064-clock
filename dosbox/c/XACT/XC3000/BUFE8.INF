@@ -1,0 +1,72 @@
+`F  1.00 bufe8
+`B "1" "1" "A" "     July 28, 1993" "" "A" 
+"XC3000 Family BUFE8 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "E"
+`P O "O0"
+`P O "O1"
+`P O "O2"
+`P O "O3"
+`P O "O4"
+`P O "O5"
+`P O "O6"
+`P O "O7"
+`P I "I0"
+`P I "I1"
+`P I "I2"
+`P I "I3"
+`P I "I4"
+`P I "I5"
+`P I "I6"
+`P I "I7"
+`E XC3000.LIB
+`E XBLOX.LIB
+`I R "INV" XC3000.LIB "INV" D8DBEF39  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "O" "O" O ) ( "I" "I" I ) 
+`I R "BUFT" XC3000.LIB "BUFT" D8DE00CA  XU1  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" D8DE00E3  XU2  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" D8DE00FB  XU3  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" D8DE011A  XU4  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" D8DE0132  XU5  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" D8DE013A  XU6  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" D8DE016B  XU7  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`I R "BUFT" XC3000.LIB "BUFT" D8DE0278  XU8  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "I" "I" I ) ( "O" "O" T ) 
+`J ( R XU1 "T" I ) ( R XU2 "T" I ) ( R XU3 "T" I ) ( R XU4 "T" I ) 
+( R XU5 "T" I ) ( R XU6 "T" I ) ( R XU7 "T" I ) ( R XU8 "T" I ) ( R U1 "O" O ) 
+`J ( P I "I0" ) ( R XU1 "I" I ) 
+`J ( P O "O0" ) ( R XU1 "O" T ) 
+`J ( P I "I1" ) ( R XU2 "I" I ) 
+`J ( P O "O1" ) ( R XU2 "O" T ) 
+`J ( P I "I2" ) ( R XU3 "I" I ) 
+`J ( P O "O2" ) ( R XU3 "O" T ) 
+`J ( P I "I3" ) ( R XU4 "I" I ) 
+`J ( P O "O3" ) ( R XU4 "O" T ) 
+`J ( P I "I4" ) ( R XU5 "I" I ) 
+`J ( P O "O4" ) ( R XU5 "O" T ) 
+`J ( P I "I5" ) ( R XU6 "I" I ) 
+`J ( P O "O5" ) ( R XU6 "O" T ) 
+`J ( P I "I6" ) ( R XU7 "I" I ) 
+`J ( P O "O6" ) ( R XU7 "O" T ) 
+`J ( P I "I7" ) ( R XU8 "I" I ) 
+`J ( P O "O7" ) ( R XU8 "O" T ) 
+`J ( P I "E" ) ( R U1 "I" I ) 

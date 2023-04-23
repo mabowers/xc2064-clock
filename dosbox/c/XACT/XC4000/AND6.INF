@@ -1,0 +1,35 @@
+`F  1.00 and6
+`B "1" "1" "A" "    March 16, 1993" "" "A" 
+"XC4000 Family AND6 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "I5"
+`P I "I4"
+`P I "I3"
+`P O "O"
+`P I "I2"
+`P I "I1"
+`P I "I0"
+`S "I35" 1 
+`S "I12" 1 
+`E XC4000.LIB
+`I R "AND3" XC4000.LIB "AND3" CADBBE4E  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND3" XC4000.LIB "AND3" CADBC046  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "I2" "I2" I ) ( "O" "O" O ) 
+`I R "AND2" XC4000.LIB "AND2" CADBC69C  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "I0" "I0" I ) ( "I1" "I1" I ) ( "O" "O" O ) 
+`J ( P I "I5" ) ( R U1 "I2" I ) 
+`J ( P I "I4" ) ( R U1 "I1" I ) 
+`J ( R U1 "O" O ) ( S "I35" 1  ) ( R U2 "I2" I ) 
+`J ( P I "I3" ) ( R U1 "I0" I ) 
+`J ( R U3 "O" O ) ( S "I12" 1  ) ( R U2 "I1" I ) 
+`J ( R U2 "O" O ) ( P O "O" ) 
+`J ( P I "I0" ) ( R U2 "I0" I ) 
+`J ( P I "I2" ) ( R U3 "I1" I ) 
+`J ( P I "I1" ) ( R U3 "I0" I ) 

@@ -1,0 +1,33 @@
+TITLE           Multiplexer: 16-input, output-enable
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Jeff Seltzer 
+COMPANY         Xilinx EPLD
+DATE            7/22/93
+
+CHIP            M16_1E  COMPONENT
+ 
+;Inputs
+d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 d12 d13 d14 d15 s0 s1 s2 s3 e
+
+;Outputs
+o
+
+EQUATIONS 
+
+o = d0* /s3*/s2*/s1*/s0*e
+  + d1* /s3*/s2*/s1* s0*e
+  + d2* /s3*/s2* s1*/s0*e
+  + d3* /s3*/s2* s1* s0*e
+  + d4* /s3* s2*/s1*/s0*e
+  + d5* /s3* s2*/s1* s0*e
+  + d6* /s3* s2* s1*/s0*e
+  + d7* /s3* s2* s1* s0*e
+  + d8*  s3*/s2*/s1*/s0*e
+  + d9*  s3*/s2*/s1* s0*e
+  + d10* s3*/s2* s1*/s0*e
+  + d11* s3*/s2* s1* s0*e
+  + d12* s3* s2*/s1*/s0*e
+  + d13* s3* s2*/s1* s0*e
+  + d14* s3* s2* s1*/s0*e
+  + d15* s3* s2* s1* s0*e

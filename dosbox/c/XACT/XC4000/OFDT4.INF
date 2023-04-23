@@ -1,0 +1,42 @@
+`F  1.00 ofdt4
+`B "1" "1" "A" "    March  5, 1993" "" "A" 
+"XC4000 Family OFDT4 Macro" "Xilinx"
+""
+""
+""
+""
+`P I "D0"
+`P O "O0"
+`P I "D1"
+`P O "O1"
+`P I "D2"
+`P O "O2"
+`P I "D3"
+`P O "O3"
+`P I "T"
+`P I "C"
+`E XC4000.LIB
+`I R "OFDT" XC4000.LIB "OFDT" C866480E  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDT" XC4000.LIB "OFDT" C8664872  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDT" XC4000.LIB "OFDT" C866497D  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`I R "OFDT" XC4000.LIB "OFDT" C86649C3  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "T" "T" I ) ( "D" "D" I ) ( "C" "C" I ) ( "O" "O" T ) 
+`J ( R U1 "T" I ) ( R U2 "T" I ) ( R U3 "T" I ) ( R U4 "T" I ) 
+( P I "T" ) 
+`J ( P I "D0" ) ( R U1 "D" I ) 
+`J ( R U1 "O" T ) ( P O "O0" ) 
+`J ( R U1 "C" I ) ( R U2 "C" I ) ( R U3 "C" I ) ( R U4 "C" I ) 
+( P I "C" ) 
+`J ( P I "D1" ) ( R U2 "D" I ) 
+`J ( R U2 "O" T ) ( P O "O1" ) 
+`J ( P I "D2" ) ( R U3 "D" I ) 
+`J ( R U3 "O" T ) ( P O "O2" ) 
+`J ( P I "D3" ) ( R U4 "D" I ) 
+`J ( R U4 "O" T ) ( P O "O3" ) 

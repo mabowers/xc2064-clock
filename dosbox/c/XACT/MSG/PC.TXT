@@ -1,0 +1,69 @@
+# @(#)PC.TXT	3.6.1.1 Copyright(C)1992 Xilinx Inc. 5/4/94 23:55:34
+# file: pc.err
+# date: 06/28/1990; 07/10/90
+# what: Xilinx EPLD port_copy system error messages -user text
+# Z. K.
+0001: [Internal Error - no pin assignment file specified].
+0004:Restoring pinout from a %s device and targeting a %s device.
+     Please check that you've selected the correct target device.
+0005:Cannot copy pin assignment.
+0006:Cannot restore pinout from device '%s' onto device '%s'.
+     If you want to restore the pinout using a pin-save file,
+     please target a device with the same package type and pin count.
+0007: [Internal Error in device type '%s'].
+0008:Nameless instance found. Placement is not copied.
+0009: [Internal Error - user array in environment].
+0010:Out of memory.  Cannot continue.
+0011:[Internal error: port '%s' placed more than once].
+0012:Port '%s' from the pin-save file is no longer in the design.
+0015: [Internal Error - design not loaded].
+0016: [Internal Error - chip is not loaded].
+0017:No pins copied.
+0019: [Internal Error - Schematic is already placed].
+0020: [Internal Error - One option: PROCESS,IGNORE,RESTORE or FREEZE allowed].
+0021: [Internal Error - No option: PROCESS,IGNORE,FREEZE or RESTORE found].
+0022:Can't open output file '%s'.
+     Please check you have write permission to this file.
+0023:Can't open input file '%s'.
+0025: [Internal Error. Cannot find  pin '%s' in component '%s'].
+0027:Signal '%s' assigned to invalid pin location '%s'.
+0032:Unrecognized syntax in pin-save file %s, at line %03d: '%s'.
+0033:Port '%s' is specified more than once in the pin-save file %s.
+     You can assign it only once.
+0034:Assigned pin '%s' does not exist on the target device.
+     Please specify a valid pin name.
+0035:Physical pin '%s' occurs more than once in pin-save file %s.
+     If you edited the file, please assign only one signal to this pin.
+0036:Port '%s'(type %s) cannot be placed on pin '%s'(type %s).
+0038:Do NOT attach the Pin-assignment Property to non-port '%s',
+     attach it to port components only!
+0039:Signal '%s' assigned to pin '%s' in the design file, 
+     ignoring assignment to pin '%s' in the .vmf file.
+0040:Fast Input signal '%s' assigned to non-fast-input pin '%s'.
+0041:Signals '%s' and '%s' both assigned to the same pin '%s'.
+#
+#          Info messages, like headers, dash-lines, etc.
+
+0500:*
+*      P I N    C O P Y I N G    S T A R T 
+*
+0501:*
+*        P I N    C O P Y I N G    E N D 
+*
+0507:*
+*      M A N U A L    P I N    A S S I G N M E N T    S T A R T .
+*
+0508:*
+*      M A N U A L    P I N    A S S I G N M E N T    E N D .
+*
+0509:*
+0510:Processed %d port assignments using a pin-assigner symbol
+0512:Pin assignment %s in instance %s is overwritten with %s.
+0513:Number of saved pins:  %d
+0516:Processed %d port assignments using properties
+#
+# end of file
+#
+
+
+

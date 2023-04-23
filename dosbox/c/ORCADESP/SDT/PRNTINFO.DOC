@@ -1,0 +1,176 @@
+
+                        Printing With OrCAD Printer Drivers              OrCAD
+------------------------------------------------------------------------------
+This note describes special requirements and techniques for certain printers
+and drivers.  It is provided for your convenience.
+
+OrCAD products use "drivers" to transfer files from the screen to paper.
+A driver is a communication media that transfers data between the OrCAD
+software and the hardware. OrCAD supports a wide range of printer drivers.
+
+NOTE:
+
+* New drivers not listed in this note may be found on the OrCAD Bulletin
+  Board System (503) 690-9791.
+
+  After 24 September 1993, the OrCAD bulletin board phone number will be 
+  (503) 671-9401. For a period of one year, users calling (503) 690-9791
+  will be automatically forwarded to the new bulletin board phone number.
+
+See the OrCAD "Installation and Technical Support User's Guide" for 
+information about selected OrCAD drivers.
+
+The remainder of this note describes printer driver requirements and
+techniques.                                                                    
+
+Page 2
+==============================================================================
+General notes          |   Be sure that you are using the most current
+                       |version of the driver. The OrCAD 24-hour Bulletin
+                       |Board System (503) 690-9791 is a good source for 
+                       |OrCAD's latest drivers.
+                       |   Read the manual to be sure that you use the
+                       |programs as intended. If you have difficulties that
+                       |these resources cannot solve, contact one of OrCAD's
+                       |Technical Support engineers, at (503) 690-9722, 
+                       |between the hours of 8 AM and 4 PM, Pacific Time, or 
+                       |you may fax (503) 690-9891 anytime.
+                       |
+                       |SPECIAL NOTE:
+                       |   After 24 September 1993, OrCAD's hours and phone 
+                       |numbers will be changed to the following:
+                       |
+                       |        OrCAD bulletin board (503) 671-9401
+                       |        still 24-hour access
+                       |
+                       |        Technical Support (503) 671-9400
+                       |        new hours 6 AM to 4 PM Pacific Time
+                       |
+                       |        FAX (503) 671-9501
+                       |        still 24-hour access
+                       |
+                       |For a period of one year, customers calling the old
+                       |phone numbers will automatically be forwarded to the
+                       |new phone numbers.
+                       |
+        ---------------+------------------------------------------------------
+        Scaled         |   The Print Schematic Tool (PRINTALL), prints a quick
+        Prints         |rough draft copy of a schematic. For speed, the 
+                       |unscaled schematic prints at approximately 100 dots
+                       |per inch. If your printer driver is not also 100
+                       |dots per inch, the print will not be scaled 1:1. To
+                       |create a 1:1 scaled print, use a 100 dpi driver.
+                       |    Another way to get a scaled print is to use the
+                       |Plot Schematic Tool and specify the printer as the
+                       |destination (do this in Plot Schematic - Local
+                       |Configuration). This creates a correctly scaled print
+                       |without being affected by the resolution of the
+                       |printer driver. 
+                       |   If some items, such as buses or filled parts,
+                       |appear as striped lines rather than solid objects,
+                       |you must specify a thinner pen width. The same is 
+                       |true when small objects, such as junctions, disappear
+                       |from the print. (See "Pen Width" in this note.)
+        ---------------+------------------------------------------------------
+        Rotation       |   Prints are automatically rotated so they will fit
+                       |the paper as well as possible. The program first tries
+                       |to fit a schematic on the paper in portrait mode
+                       |(i.e., X axis on the 8.5" dimension). If it cannot
+                       |fit that way, it will rotate to landscape mode
+                       |(i.e., X axis on the 11" dimension). If it is still
+                       |too large for one sheet, it will rotate to portrait
+                       |mode and print the schematic across several pages.
+        ---------------+------------------------------------------------------
+        Emulation      |   Many printers have emulation modes in which they
+                       |can behave like another printer model. Consult your
+                       |printer manual for more information about your
+                       |printer's emulation mode.
+        ---------------+------------------------------------------------------
+        Hardware       |   Set up the appropriate hardware settings so that 
+        Settings       |your printer and host system can communicate. Be sure
+                       |that your cabling is correct for the hardware you are
+                       |using. Consult your printer manual.
+        ---------------+------------------------------------------------------
+        Destination    |  To print from a Print Schematic destination file,
+        Files          |copy the file to the printer. Using DOS COPY, you
+                       |must use the /B switch to specify that the file being
+                       |copied to the printer is a binary file.
+------------------------------------------------------------------------------ 
+
+Page 3
+------------------------------------------------------------------------------
+General notes          |   
+(Continued)            |
+        ---------------+------------------------------------------------------
+        Pen            |   Pen width settings in the OrCAD software indicate
+        Width          |what width of pen is being used by a plotter. For
+                       |example, when sending a plot to a Hewlett-Packard
+                       |Laserjet printer, using a printer driver of 300 x 300
+                       |dots per inch, specify a pen width of .002 inches.
+                       |This is the effective pen width of the printer.
+                       |   If some items, such as buses or filled parts,
+                       |appear as striped lines rather than solid objects,
+                       |you must specify a thinner pen width. The same is 
+                       |true when small objects, such as junctions, disappear
+                       |from the print.
+        ---------------+------------------------------------------------------
+        Paper          |   Most drivers that support different paper sizes
+        Size           |have several renditions of the same driver, each with
+                       |different characteristics. An example is the HPLASER
+                       |series for the Hewlett-Packard (or compatible) laser-
+                       |jet printers:
+                       |
+                       |    DRIVER      PAPER SIZE     RESOLUTION
+                       |
+                       |  HPLASER1.DRV  Letter size   75x75  Dots Per Inch
+                       |  HPLASER2.DRV  Letter size  100x100 Dots Per Inch
+                       |  HPLASER3.DRV  Letter size  150x150 Dots Per Inch
+                       |  HPLASER4.DRV  Letter size  300x300 Dots Per Inch
+                       |  HPLASER5.DRV  Legal size    75x75  Dots Per Inch
+                       |  HPLASER6.DRV  Legal size   100x100 Dots Per Inch
+                       |  HPLASER7.DRV  Legal size   150x150 Dots Per Inch
+                       |  HPLASER8.DRV  Legal size   300x300 Dots Per Inch
+        ---------------+------------------------------------------------------
+        Color          |   Since print outputs contain no color informa-
+        Printers       |tion, OrCAD printer drivers will not work with color
+                       |printers. Some third party software companies provide
+                       |programs to translate plot files to color printers.
+        ---------------+------------------------------------------------------
+        Wide           |   All OrCAD programs that output to a printer allow
+        Carriage       |the use of wide carriage printers. Consult the manual
+        Printers       |for the correct way to configure the specific tool.
+-----------------------+------------------------------------------------------
+OKIDATA                |   An Okidata printer may need to use an Epson driver
+(OKI192.DRV)           |to operate correctly. If the printer uses a 9 pin
+(OKI2410.DRV)          |print head, try using the EPSONFX/FX2 or EPSONMX
+(OKI92.DRV)            |drivers. If the printer uses a 24 pin print head, try
+(EPSON.DRV)            |using The LQ1000 OR LQ1000_2 drivers.
+(EPSONFX.DRV)          |
+(EPSONFX2.DRV)         |
+(EPSONMX.DRV)          |
+(EPSONVP.DRV)          |
+(LQ1000.DRV)           |
+(LQ1000_2.DRV)         |
+------------------------------------------------------------------------------
+                                                                              
+Page 4
+-----------------------+------------------------------------------------------
+Postscript             |   The PostScript drivers are Plotter drivers, not
+(PSCRIPT.DRV)          |Printer drivers. Use Plot Schematic to create the
+(PSCRIPT2.DRV)         |plot or plot file. Configure pen widths to .003".
+-----------------------+------------------------------------------------------
+Versatec               |   The VERSATEC.DRV driver is a Printer driver, not a
+(VERSATEC.DRV)         |Plotter driver. Create a plot with the printer as the
+                       |destination device (which will use the currently
+                       |configured printer driver).
+                       |   VERCABLE.SCH and VERCABLE.LIB describes the cable
+                       |used to connect to the Versatec plotter.
+==============================================================================
+Although every effort has been made to ensure the accuracy of this note, OrCAD
+drivers may change without notification. Those changes may not be reflected in
+this listing.
+
+All other brand and product names mentioned herein are used for identification
+purposes only, and are trademarks or registered trademarks of their respective
+holders.
+------------------------------------------------------------------------------

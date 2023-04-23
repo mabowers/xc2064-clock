@@ -1,0 +1,27 @@
+`F  1.00 FTCP
+`B "1" "1" "A" "     June 29, 1993" "" "A" 
+"XC4000 Family FTCP Macro" "Xilinx"
+""
+""
+""
+""
+`P I "PRE"
+`P I "T"
+`P O "Q"
+`P I "C"
+`P I "CLR"
+`S "TQ" 1 
+`E XC7000.LIB
+`I R "XOR2" XC7000.LIB "XOR2" cfcdaa29  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "I1" "I1" I ) ( "I0" "I0" I ) ( "O" "O" O ) 
+`I R "FDCP" XC7000.LIB "FDCP" d5c4d0cb  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "D" "D" I ) ( "C" "C" I ) ( "PRE" "PRE" I ) ( "Q" "Q" O ) 
+( "CLR" "CLR" I ) 
+`J ( P I "PRE" ) ( R U2 "PRE" I ) 
+`J ( R U1 "I1" I ) ( R U2 "Q" O ) ( P O "Q" ) 
+`J ( R U1 "O" O ) ( S "TQ" 1  ) ( R U2 "D" I ) 
+`J ( P I "T" ) ( R U1 "I0" I ) 
+`J ( P I "C" ) ( R U2 "C" I ) 
+`J ( P I "CLR" ) ( R U2 "CLR" I ) 

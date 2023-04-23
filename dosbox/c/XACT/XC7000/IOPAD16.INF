@@ -1,0 +1,98 @@
+`F  1.00 iopad16
+`B "1" "1" "B" " February  1, 1994" "" "A" 
+"XC4000 Family IOPAD16 Macro" "Xilinx"
+""
+""
+""
+""
+`P B "IO0"
+`P B "IO1"
+`P B "IO2"
+`P B "IO3"
+`P B "IO4"
+`P B "IO5"
+`P B "IO6"
+`P B "IO7"
+`P B "IO8"
+`P B "IO9"
+`P B "IO10"
+`P B "IO11"
+`P B "IO12"
+`P B "IO13"
+`P B "IO14"
+`P B "IO15"
+`S "IO16" 1 
+`S "IO17" 1 
+`S "IO18" 1 
+`S "IO19" 1 
+`S "IO20" 1 
+`S "IO21" 1 
+`S "IO22" 1 
+`S "IO23" 1 
+`S "IO24" 1 
+`S "IO25" 1 
+`E XC7000.LIB
+`I R "IOPAD" XC7000.LIB "IOPAD" c861369a  U1  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c86136b6  U2  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c86136b8  U3  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c86136e2  U4  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c8618090  U5  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c8618090  U6  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c8618090  U7  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c8618090  U8  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c8619984  U9  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c8619984  U10  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c8619984  U11  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c8619984  U12  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c8619984  U13  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c8619984  U14  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c8619984  U15  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`I R "IOPAD" XC7000.LIB "IOPAD" c8619984  U16  []
+"" "" "" "" "" "" "" ""  ""
+( "IO" "IO" B ) 
+`J ( P B "IO0" ) ( R U1 "IO" B ) 
+`J ( P B "IO1" ) ( R U2 "IO" B ) 
+`J ( P B "IO2" ) ( R U3 "IO" B ) 
+`J ( P B "IO3" ) ( R U4 "IO" B ) 
+`J ( P B "IO4" ) ( R U5 "IO" B ) 
+`J ( P B "IO5" ) ( R U6 "IO" B ) 
+`J ( P B "IO6" ) ( R U7 "IO" B ) 
+`J ( P B "IO7" ) ( R U8 "IO" B ) 
+`J ( P B "IO8" ) ( R U9 "IO" B ) 
+`J ( P B "IO9" ) ( R U10 "IO" B ) 
+`J ( P B "IO10" ) ( R U11 "IO" B ) 
+`J ( P B "IO11" ) ( R U12 "IO" B ) 
+`J ( P B "IO12" ) ( R U13 "IO" B ) 
+`J ( P B "IO13" ) ( R U14 "IO" B ) 
+`J ( P B "IO14" ) ( R U15 "IO" B ) 
+`J ( P B "IO15" ) ( R U16 "IO" B ) 

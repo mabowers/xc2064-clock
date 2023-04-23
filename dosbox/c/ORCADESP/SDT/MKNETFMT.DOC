@@ -1,0 +1,300 @@
+
+                          M K N E T F M T . B A T
+                          =======================
+                               
+MKNETFMT is a DOS batch job that compiles and links a flat or hierarchical 
+netlist format source file, creating a compiled netlist format file for use 
+with Schematic Design Tools 386+. MKNETFMT is designed to assume your system 
+has the OrCAD-recommended directory structure, but to accept nonstandard 
+directories if you specify them on the command line.
+
+
+                                Getting Help
+                                ============
+
+If you enter "MKNETFMT ?" at the DOS prompt, MKNETFMT displays this file.
+If you enter "MKNETFMT" at the DOS prompt, MKNETFMT displays a usage summary. 
+MKNETFMT also validates command-line parameters and displays the usage
+summary if you invoke it incorrectly.
+
+
+                                Requirements
+                                ============
+
+For the Microsoft C v7.x compiler, MKNETFMT checks whether the compiler is 
+available by testing the presence of certain environment variables added to 
+your AUTOEXEC.BAT file when you installed the Microsoft C v7.x compiler.
+
+For the Microsoft C v7.x compiler, MKNETFMT also checks that you have set an 
+additional environment variable, BINB, pointing to the directory that 
+contains the Microsoft C v7.x linker (typically \C700\BINB).
+
+NOTE:  If you use version 6.x of the Microsoft compiler, MKNETFMT may appear 
+       to stop after the message "Linking object files ..." displays.  If so, 
+       just press Enter to continue and finish the process. 
+
+
+                              About This File
+                              ===============
+
+The rest of this file describes MKNETFMT, in increasing detail, in the
+following sections:
+
+Usage Summary       What you see if you invoke MKNETFMT with inappropriate 
+                    parameters or with no parameters.
+
+Usage Details       A thorough explanation of the parameters to MKNETFMT and
+                    the various assumptions it makes about those parameters.
+
+How MKNETFMT Works  A step-by-step description of MKNETFMT's operation.
+
+
+                               Usage Summary
+                               =============
+
+MKNETFMT displays the following usage summary if you invoke it with missing
+or inappropriate parameters:
+
+ Usage:
+   MKNETFMT compiler type fmtName [ srcPath [ objPath [ cmpPath [ libPath ]]]]
+   MKNETFMT [ ? ]
+ 
+ Parameters:
+   compiler   M specifies the Microsoft C v7.x compiler and 
+              B specifies the Borland C v3.x compiler 
+              (specify exactly one, M or B)
+   type       F specifies a flat format and 
+              H specifies a hierarchical format 
+              (specify exactly one, F or H)
+   fmtName    Name of the netlist format source code file, excluding the 
+              dot and extension (.C)
+   srcPath    Relative or absolute path to the directory containing the 
+              netlist format source file, 'fmtName'.C
+              (optional; defaults to \ORCADESP\SDT\NETFORMS\NETSRCF 
+              for flat formats, and to \ORCADESP\SDT\NETFORMS\NETSRCH 
+              for hierarchical formats [as specified in the 'type' parameter])
+   objPath    Relative or absolute path to the directory containing the 
+              required object files 
+              (optional; defaults to \ORCADESP\SDT\NETFORMS\OBJ)
+   cmpPath    Relative or absolute path to the directory in which the 
+              compiled netlist format and map files are to be stored 
+              (optional; defaults to \ORCADESP\SDT\NETFORMS)
+   libPath    Relative or absolute path to the directory containing the 
+              Borland library files (checked if 'compiler' is set to B, above) 
+              (optional; defaults to \BORLANDC\LIB)
+   ?          Display additional information about MKNETFMT's operation.
+ 
+ Notes:
+ * Do not include a backslash (\) at the end of any directories you specify in
+   the optional path parameters or at the end of the BINB environment variable.
+ * If you use version 6.x of the Microsoft C compiler, MKNETFMT may appear to
+   stop after the message "Linking object files ..." displays.  If so, just
+   press Enter to continue and finish the process. 
+ * Check the file MKNETFMT.OUT for messages from the compiler and linker.
+
+For more detailed information about MKNETFMT, read the following section.
+
+
+                               Usage Details
+                               =============
+
+The netlist format source file must be called fmtName.C.
+
+The 'compiler' parameter must be either "M" or "B" (uppercase or lowercase).
+
+* If the 'compiler' parameter is "M," MKNETFMT expects the path to the 
+  Microsoft C v7.0 compiler to be included in the search path, and the 
+  path to the linker to be named in the BINB environment variable.
+
+* If the 'compiler' parameter is "B," MKNETFMT expects the path to the
+  Borland C v3.x compiler to be included in the search path.
+
+The 'type' parameter must be either "F" or "H" (uppercase or lowercase).
+
+* If the 'type' parameter is "F," MKNETFMT expects to find 'fmtName'.C 
+  (and places the object file it creates) in the directory
+  \ORCADESP\SDT\NETFORMS\NETSRCF, unless you specify a different 
+  directory in 'srcPath' (in which case MKNETFMT uses that name instead).
+
+* If the type parameter is "H," MKNETFMT expects to find fmtName.C 
+  (and places the object file it creates) in the directory
+  \ORCADESP\SDT\NETFORMS\NETSRCH, unless you specify a different 
+  directory in srcPath (in which case MKNETFMT uses that name instead).
+
+Unless you specify a different directory in 'objPath', MKNETFMT expects to 
+find the required object files in \ORCADESP\SDT\NETFORMS\OBJ for the
+Microsoft compiler, or \ORCADESP\SDT\NETFORMS\BRLNDOBJ for the Borland
+compiler.  The appropriate version of FORMAT.H--flat or hierarchical--must 
+be in the same directory as the required object files.
+
+Unless you specify a different directory in 'cmpPath', MKNETFMT places the 
+compiled netlist format files and map file it creates in the directory
+\ORCADESP\SDT\NETFORMS.
+
+If you specify the Borland compiler and unless you specify a different 
+directory in 'libPath', MKNETFMT expects to find the Borland small-memory-
+model object file (C0S.OBJ) in the directory \BORLANDC\LIB.
+
+If you want to specify 'objPath', 'cmpPath', or 'libPath', you must specify 
+all preceding parameters. (Unless you are requesting the usage summary, the 
+first three parameters are always required.)
+
+For a detailed description of MKNETFMT's operation, read the following 
+section.
+
+
+                             How MKNETFMT Works
+                             ==================
+
+If you run it without parameters or with missing or incorrect parameters, 
+MKNETFMT displays a usage summary.  If ? is the first parameter, MKNETFMT 
+displays the information in this file.
+
+When you run MKNETFMT with the correct parameters, these are the steps it 
+performs:
+
+ 1. MKNETFMT checks that the 'compiler' parameter is "M" or "B" (lowercase 
+    or uppercase).  If it is not, MKNETFMT displays a message and the usage 
+    summary.
+
+ 2. MKNETFMT checks that the 'type' parameter is "F" or "H" (lowercase or 
+    uppercase).  If it is not, MKNETFMT displays a message and the usage 
+    summary.
+
+ 3. MKNETFMT checks that you specified a netlist format ('fmtName' is not 
+    empty).  If you did not, MKNETFMT displays a message and the usage 
+    summary.
+
+ 4. If 'compiler' is "M," MKNETFMT verifies that the Microsoft C v7.0 
+    environment variables--LIB, INIT, INCLUDE and BINB--are set.  If any is 
+    not set, MKNETFMT displays an error message and explanation.
+
+ 5. If you specify an alternate pathname in 'srcPath', MKNETFMT looks there 
+    for 'fmtName'.C.  Note that MKNETFMT also places the object file that 
+    it creates in the directory specified in 'srcPath'.
+
+    If you don't specify 'srcPath', MKNETFMT looks for 'fmtName'.C in one 
+    of these directories:
+
+     *  If 'type' is "F," MKNETFMT looks in \ORCADESP\SDT\NETFORMS\NETSRCF.
+
+     *  If 'type' is "H," MKNETFMT looks in \ORCADESP\SDT\NETFORMS\NETSRCH.
+
+    If MKNETFMT doesn't find 'fmtName'.C, it displays an error message and 
+    the usage summary.
+
+ 6. If you specify an alternate pathname in 'objPath', MKNETFMT looks there 
+    for these four object files:
+
+     *  TSR.OBJ (if 'type' is "F") or HTSR.OBJ (if 'type' is "H")
+
+     *  CONTEXT.OBJ
+
+     *  RESIDENT.OBJ
+
+     *  STUBS.OBJ
+
+    If you don't specify 'objPath', MKNETFMT looks for these four files in 
+    one of these directories:
+
+     *  If 'compiler' is "M," MKNETFMT looks in 
+        \ORCADESP\SDT\NETFORMS\OBJ.
+
+     *  If 'compiler' is "B," MKNETFMT looks in 
+        \ORCADESP\SDT\NETFORMS\BRLNDOBJ.
+
+    If MKNETFMT doesn't find all four of these files, it displays an error 
+    message and the usage summary.
+
+ 7. If you specify an alternate pathname in 'cmpPath', MKNETFMT stores the 
+    executable (.EXE) and map (.MAP) files it creates there.
+
+    If you don't specify 'cmpPath', MKNETFMT stores these files in 
+    \ORCADESP\SDT\NETFORMS.
+
+ 8. If 'compiler' is "B":
+
+    If you specify an alternate pathname in 'libPath', MKNETFMT looks there 
+    for the Borland small-memory-model object file, C0S.OBJ.
+
+    If you don't specify 'libPath', MKNETFMT looks for C0S.OBJ in 
+    \BORLANDC\LIB.
+
+    If it does not find C0S.OBJ, MKNETFMT displays an error message and the 
+    usage summary.
+
+ 9. MKNETFMT deletes any previous version of the file MKNETFMT.OUT that it 
+    finds in the current directory (the directory from which you invoke 
+    MKNETFMT).
+
+10. MKNETFMT deletes any previous version of the file 'fmtName'.OBJ that it 
+    finds in the current directory.
+
+11. MKNETFMT invokes the specified compiler with the appropriate command:
+
+     *  If 'compiler' is "M":
+
+        cl /c /Zp1 /W3 /DLINT_ARGS 'srcPath'\'fmtName'.C
+
+     *  If 'compiler' is "B": 
+
+        bcc -c 'srcPath'\'fmtName'.C
+
+    MKNETFMT redirects any compiler messages to the file MKNETFMT.OUT, 
+    which it creates in the current directory.
+
+    If the compiler returns a 0, indicating successful completion, MKNETFMT 
+    copies the resulting object file to the source directory.
+
+    If the compiler returns any other value, indicating a problem, MKNETFMT 
+    displays an error message and terminates (see step 17).
+
+12. MKNETFMT deletes any previous version of the file TMP.LNK that it finds 
+    in the current directory.
+
+13. MKNETFMT creates the appropriate linker response file, TMP.LNK, for the 
+    format type (flat or hierarchical) you specified in 'type' and for the 
+    compiler (Microsoft or Borland) you specified in 'compiler'.  TMP.LNK 
+    contains the path (relative or absolute) and filenames of the netlist 
+    format source file, the required object files, and the executable and 
+    map files.
+
+    If the 'compiler' parameter is "B," TMP.LNK also contains the names of 
+    Borland library files and an additional command expected by the Borland 
+    linker.
+
+    If there is a problem creating TMP.LNK, MKNETFMT displays an error 
+    message and terminates (see step 17).
+
+14. MKNETFMT deletes any previous versions of the files 'fmtName'.MAP and 
+    'fmtName'.EXE that it finds in the current directory.
+
+15. MKNETFMT invokes the specified linker with the appropriate command:
+
+     *  If 'compiler' is "M": 
+
+        'valueOfBINB'\link /st:4096 /MA /CODEVIEW @TMP.LNK 
+
+     *  If 'compiler' is "B":
+
+        tlink -L'libPath' @TMP.LNK
+
+    MKNETFMT redirects any linker messages to the file MKNETFMT.OUT.
+
+    If the linker returns a 0, indicating successful completion, MKNETFMT 
+    copies the resulting compiled netlist format file and map files to the 
+    appropriate directory (\ORCADESP\SDT\NETFORMS, unless you specify an 
+    alternate directory in 'cmpPath').
+
+    If the linker returns any other value, indicating a problem, MKNETFMT 
+    displays an error message and terminates (see step 17).
+
+16. If it hasn't detected any problems, MKNETFMT displays a message and 
+    terminates (see step 17).
+
+17. Before it terminates for any reason, MKNETFMT deletes the temporary 
+    files (TMP.*) it creates in the current directory and clears any 
+    variables it has set (except BINB).
+
+For even more detailed information about MKNETFMT, see the file MKNETFMT.BAT.
+

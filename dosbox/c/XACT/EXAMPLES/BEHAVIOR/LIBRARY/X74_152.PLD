@@ -1,0 +1,30 @@
+TITLE           Multiplexer: 8-input, active low output
+PATTERN         vmh/vmd
+REVISION        5.0.0
+AUTHOR          Patrick Phung   
+COMPANY         Xilinx EPLD
+DATE            7/26/93
+
+CHIP            X74_152  COMPONENT
+ 
+;Inputs
+d0 d1 d2 d3 d4 d5 d6 d7 a b c
+
+; d[7:0]        source
+; a..c          selector
+
+;Outputs
+/w
+
+; w             output
+
+EQUATIONS 
+
+w =  d0*/c*/b*/a
+  +  d1*/c*/b* a
+  +  d2*/c* b*/a
+  +  d3*/c* b* a
+  +  d4* c*/b*/a
+  +  d5* c*/b* a
+  +  d6* c* b*/a
+  +  d7* c* b* a

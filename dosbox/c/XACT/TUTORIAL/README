@@ -1,0 +1,31 @@
+# This table describes tutorial or example designs available under this
+#   directory.  It is automatically updated by the Xilinx Install program
+#   using the file.des file in each design directory.
+# Each design is located in the directory <Interface>/<Design>.
+# The Family entry indicates which Xilinx product families are supported by
+#   the design.
+# If ABL is marked, the design contains Xilinx ABEL logic blocks
+# If BLX is marked, the design contains X-BLOX components
+# If PAL is marked, the design contains PAL components
+# If SYN is marked, the design contains synthesized logic other than Xilinx ABEL
+# If PRF is marked, the design demonstrates XACT-Performance timing specs
+# Most Interface directories are self-explanatory.  The behavior directory
+#   contains behavioral designs that are independent of interface.
+
+--------------------------------------------------------------------------------
+ Design   | Interface | Family    | ABL | BLX | PAL | SYN | PRF |
+--------------------------------------------------------------------------------
+ calc     | orcad     | 3,3a,4,4a |  X  |  X  |     |     |  X  |
+ calc     | vwlogic   | 3,3a,4,4a |  X  |  X  |     |     |  X  |
+ calc_3k  | mentor    | 3         |  X  |  X  |     |     |  X  |
+ calc_3ka | mentor    | 3a        |  X  |  X  |     |     |  X  |
+ calc_4k  | mentor    | 4,4a      |  X  |  X  |     |     |  X  |
+ calc_da  | mentor    | 3,3a,4,4a |  X  |  X  |     |     |  X  |
+ edit_lca | core      | 3         |     |     |     |     |     |
+ uart     | behavior  | 7         |  X  |     |  X  |     |     |
+ uart     | mentor    | 7         |  X  |     |  X  |     |     |
+ uart     | orcad     | 7         |  X  |     |  X  |     |     |
+ uart     | vwlogic   | 7         |  X  |     |  X  |     |     |
+ uarttop  | mentor    | 7         |     |     |     |     |     |
+ uarttop  | orcad     | 7         |     |     |     |     |     |
+ uarttop  | vwlogic   | 7         |     |     |     |     |     |

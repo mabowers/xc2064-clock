@@ -1,0 +1,182 @@
+LCANET, 5
+PROG, LCA2XNF, PRE-5.0.0C, "COMMAND=-q ../lca/encpr8h.lca encpr8h.xnf  TIME=Tue Nov  2 14:43:50 1993"
+PART, 4005PG156-7
+PWR, 0, HMDFLT_GND_NET
+SYM, XSYM6, HMAP, RLOC=R0C0
+    PIN, O, I, EO
+    PIN, I3, I, EI
+    PIN, I2, I, YSIG2
+    PIN, I1, I, YSIG1
+END
+SYM, XSYM5, NAND
+    PIN, 3, I, EI$FLOAT_HMINPUT_LOW, 0, INV
+    PIN, O, O, EO
+    PIN, 1, I, YSIG1
+    PIN, 2, I, YSIG2
+END
+SYM, XSYM4, FMAP, RLOC=R0C0.G
+    PIN, O, I, YSIG2
+    PIN, I4, I, I6
+    PIN, I3, I, I7
+    PIN, I2, I, I5
+    PIN, I1, I, I0
+END
+SYM, XSYM3, AND
+    PIN, O, O, YSIG2
+    PIN, 1, I, I0
+    PIN, 2, I, I5
+    PIN, 3, I, I7
+    PIN, 4, I, I6
+END
+SYM, XSYM2, FMAP, RLOC=R0C0.F
+    PIN, O, I, YSIG1
+    PIN, I4, I, I1
+    PIN, I3, I, I4
+    PIN, I2, I, I3
+    PIN, I1, I, I2
+END
+SYM, XSYM1, AND
+    PIN, O, O, YSIG1
+    PIN, 1, I, I2
+    PIN, 2, I, I3
+    PIN, 3, I, I4
+    PIN, 4, I, I1
+END
+SYM, XSYM12, HMAP, RLOC=R1C1
+    PIN, O, I, A2
+    PIN, I2, I, EI
+    PIN, I1, I, YSIG3
+END
+SYM, XSYM11, NAND
+    PIN, 2, I, EI$FLOAT_HMINPUT_LOW, 0, INV
+    PIN, O, O, A2
+    PIN, 1, I, YSIG3
+END
+SYM, XSYM10, FMAP, RLOC=R1C1.G
+    PIN, O, I, ENCPRI4ANDI6
+    PIN, I2, I, I6
+    PIN, I1, I, I4
+END
+SYM, XSYM9, AND
+    PIN, O, O, ENCPRI4ANDI6
+    PIN, 1, I, I4
+    PIN, 2, I, I6
+END
+SYM, XSYM8, FMAP, RLOC=R1C1.F
+    PIN, O, I, YSIG3
+    PIN, I4, I, I7
+    PIN, I3, I, I6
+    PIN, I2, I, I5
+    PIN, I1, I, I4
+END
+SYM, XSYM7, OR
+    PIN, O, O, YSIG3
+    PIN, 1, I, I4, 0, INV
+    PIN, 2, I, I5, 0, INV
+    PIN, 3, I, I6, 0, INV
+    PIN, 4, I, I7, 0, INV
+END
+SYM, XSYM20, HMAP, RLOC=R1C0
+    PIN, O, I, A1
+    PIN, I3, I, EI
+    PIN, I2, I, YSIG5
+    PIN, I1, I, YSIG4
+END
+SYM, XSYM19, NAND
+    PIN, 2, I, EI$FLOAT_HMINPUT_LOW, 0, INV
+    PIN, O, O, A1
+    PIN, 1, I, YSIG7
+END
+SYM, XSYM18, OR
+    PIN, O, O, YSIG7
+    PIN, 1, I, YSIG4
+    PIN, 2, I, YSIG5
+END
+SYM, XSYM17, FMAP, RLOC=R1C0.G
+    PIN, O, I, YSIG5
+    PIN, I2, I, I7
+    PIN, I1, I, I6
+END
+SYM, XSYM16, OR
+    PIN, O, O, YSIG5
+    PIN, 1, I, I6, 0, INV
+    PIN, 2, I, I7, 0, INV
+END
+SYM, XSYM15, FMAP, RLOC=R1C0.F
+    PIN, O, I, YSIG4
+    PIN, I4, I, I3
+    PIN, I3, I, I2
+    PIN, I2, I, I5
+    PIN, I1, I, I4
+END
+SYM, XSYM14, AND
+    PIN, O, O, YSIG4
+    PIN, 1, I, I4
+    PIN, 2, I, I5
+    PIN, 3, I, YSIG6
+END
+SYM, XSYM13, OR
+    PIN, O, O, YSIG6
+    PIN, 1, I, I2, 0, INV
+    PIN, 2, I, I3, 0, INV
+END
+SYM, XSYM30, HMAP, RLOC=R0C1
+    PIN, O, I, A0
+    PIN, I3, I, EI
+    PIN, I2, I, YSIG9
+    PIN, I1, I, YSIG8
+END
+SYM, XSYM29, NAND
+    PIN, 2, I, EI$FLOAT_HMINPUT_LOW, 0, INV
+    PIN, O, O, A0
+    PIN, 1, I, YSIG13
+END
+SYM, XSYM28, OR
+    PIN, O, O, YSIG13
+    PIN, 1, I, YSIG8
+    PIN, 2, I, YSIG9
+END
+SYM, XSYM27, FMAP, RLOC=R0C1.G
+    PIN, O, I, YSIG9
+    PIN, I3, I, I7
+    PIN, I2, I, I6
+    PIN, I1, I, I5
+END
+SYM, XSYM26, OR
+    PIN, O, O, YSIG9
+    PIN, 1, I, YSIG12
+    PIN, 2, I, I7, 0, INV
+END
+SYM, XSYM25, AND
+    PIN, O, O, YSIG12
+    PIN, 1, I, I5, 0, INV
+    PIN, 2, I, I6
+END
+SYM, XSYM24, FMAP, RLOC=R0C1.F
+    PIN, O, I, YSIG8
+    PIN, I4, I, I3
+    PIN, I3, I, I2
+    PIN, I2, I, I1
+    PIN, I1, I, ENCPRI4ANDI6
+END
+SYM, XSYM23, AND
+    PIN, O, O, YSIG8
+    PIN, 1, I, ENCPRI4ANDI6
+    PIN, 2, I, YSIG11
+END
+SYM, XSYM22, OR
+    PIN, O, O, YSIG11
+    PIN, 1, I, YSIG10
+    PIN, 2, I, I3, 0, INV
+END
+SYM, XSYM21, AND
+    PIN, O, O, YSIG10
+    PIN, 1, I, I1, 0, INV
+    PIN, 2, I, I2
+END
+SYM, EI$FLOAT_HMINPUT, OR
+    PIN, 2, I, EI
+    PIN, 1, I, HMDFLT_GND_NET
+    PIN, O, O, EI$FLOAT_HMINPUT_LOW
+END
+EOF

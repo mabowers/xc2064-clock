@@ -1,0 +1,747 @@
+;: calc.lca (4003APC84-6), xdelay 4.8.2, Wed Mar 16 08:45:16 1994
+Version 2
+Design 4003APC84 4 0
+Speed -6
+Addnet $VCC_207 HJ.X IJ.G1 IJ.F1 II.F3 II.G3 
+Netdelay $VCC_207 IJ.G1 1.6 IJ.F1 1.6 II.F3 1.6 II.G3 1.6 
+Program $VCC_207 {319G170} {319G171} {319G175} {319G176} {317G206} 
+NProgram $VCC_207 col.J.local.7:IJ.F1 col.J.local.7:II.F3 col.J.local.7:IJ.G1 col.J.local.7:II.G3 col.J.local.6:HJ.X 
+Addnet $VCC_209 IK.X IJ.F3 IJ.G3 
+Netdelay $VCC_209 IJ.F3 1.6 IJ.G3 1.6 
+Program $VCC_209 {352G176} {352G171} {352G168} 
+NProgram $VCC_209 col.K.local.3:IJ.G3 col.K.local.3:IJ.F3 col.K.local.3:IK.X 
+Addnet $VCC_210 IH.Y II.F1 II.G1 
+Netdelay $VCC_210 II.F1 1.6 II.G1 1.6 
+Program $VCC_210 {277G170} {277G175} {277G177} 
+NProgram $VCC_210 col.I.local.4:II.F1 col.I.local.4:II.G1 col.I.local.4:IH.Y 
+Addnet A KK.X P49.O 
+Netdelay A P49.O 2.3 
+Program A {386G27} {388G73} {387G74} {364G72} 
+NProgram A col.L.local.0:PAD43.O LL.24.1.17 LL.24.1.18 row.L.local.7:KK.X 
+Addnet ADD_SUB HD.X EE.F3 EE.G3 CE.F2 DF.F1 DE.F3 DE.G3 EF.F1 IE.F3 HE.F2 
+Netdelay ADD_SUB EE.F3 4.0 EE.G3 4.0 CE.F2 5.8 DF.F1 4.0 DE.F3 4.0 DE.G3 4.0 EF.F1 4.0 IE.F3 3.7 HE.F2 2.2 
+Program ADD_SUB {189G171} {175G352} {189G352} {189G339} {189G334} {189G333} {189G301} {189G296} {189G295} {189G242} {189G189} {175G189} {161G189} {154G189} {131G189} 
+NProgram ADD_SUB col.F.long.0:IE.F3 row.D.local.5:CE.F2 col.F.long.0:row.D.local.5-l col.F.long.0:DE.G3 col.F.long.0:DE.F3 col.F.long.0:DF.F1 col.F.long.0:EE.G3 col.F.long.0:EE.F3 col.F.long.0:EF.F1 col.F.long.0:row.G.local.1 col.F.long.0:row.I.local.5-s row.I.local.5:HE.F2 IE.24.1.10 IE.24.1.19 row.I.local.5:HD.X 
+Addnet ADDR0 HI.XQ HI.F2 IJ.F4 IJ.G4 II.F4 II.G4 IH.F4 
+Netdelay ADDR0 HI.F2 2.9 IJ.F4 2.9 IJ.G4 2.9 II.F4 2.9 II.G4 2.9 IH.F4 2.9 
+Program ADDR0 {257G185} {337G185} {333G185} {299G185} {295G185} {294G185} {278G185} {278G187} {280G192} {292G192} 
+NProgram ADDR0 row.I.long.0:IH.F4 row.I.long.0:IJ.G4 row.I.long.0:IJ.F4 row.I.long.0:II.G4 row.I.long.0:II.F4 row.I.long.0:HI.F2 col.I.local.5:row.I.long.0-l II.24.1.13 II.24.1.7 row.I.local.2:HI.XQ 
+Addnet ADDR1 IH.XQ IH.F2 II.F2 II.G2 IJ.F2 IJ.G2 
+Netdelay ADDR1 IH.F2 2.0 II.F2 2.7 II.G2 2.7 IJ.F2 3.0 IJ.G2 3.0 
+Program ADDR1 {336G154} {332G154} {318G154} {311G154} {298G154} {294G154} {280G154} {273G154} {256G154} {254G154} 
+NProgram ADDR1 row.J.local.2:IJ.G2 row.J.local.2:IJ.F2 JJ.24.1.7 JJ.24.1.22 row.J.local.2:II.G2 row.J.local.2:II.F2 JI.24.1.7 JI.24.1.22 row.J.local.2:IH.F2 row.J.local.2:IH.XQ 
+Addnet ALU/$U64_O HE.X FE.F1 
+Netdelay ALU/$U64_O FE.F1 2.3 
+Program ALU/$U64_O {157G257} {157G232} {157G225} {157G206} 
+NProgram ALU/$U64_O col.E.local.3:FE.F1 HE.24.1.2 HE.24.1.15 col.E.local.3:HE.X 
+Addnet ALU/ADSU0 EE.X EH.G2 
+Netdelay ALU/ADSU0 EH.G2 2.3 
+Program ALU/ADSU0 {260G273} {199G275} {192G275} {169G273} 
+NProgram ALU/ADSU0 row.F.local.7:EH.G2 FF.24.1.11 FF.24.1.18 row.F.local.7:EE.X 
+Addnet ALU/ADSU1 EE.Y FF.G1 
+Netdelay ALU/ADSU1 FF.G1 2.3 
+Program ALU/ADSU1 {196G262} {196G274} {196G281} {196G302} 
+NProgram ALU/ADSU1 col.F.local.4:FF.G1 FF.24.1.14 FF.24.1.3 col.F.local.4:EE.Y 
+Addnet ALU/ADSU2 DE.X DH.G2 
+Netdelay ALU/ADSU2 DH.G2 2.3 
+Program ALU/ADSU2 {260G311} {199G313} {192G313} {169G311} 
+NProgram ALU/ADSU2 row.E.local.7:DH.G2 EF.24.1.11 EF.24.1.18 row.E.local.7:DE.X 
+Addnet ALU/ADSU3 DE.Y CH.G2 
+Netdelay ALU/ADSU3 CH.G2 2.3 
+Program ALU/ADSU3 {260G356} {242G356} {235G356} {184G356} 
+NProgram ALU/ADSU3 row.D.local.1:CH.G2 DH.24.1.6 DH.24.1.23 row.D.local.1:DE.Y 
+Addnet ALU/DATA0 FD.X EE.F2 EI.F2 EH.F4 EH.G4 
+Netdelay ALU/DATA0 EE.F2 3.1 EI.F2 3.3 EH.F4 3.7 EH.G4 3.7 
+Program ALU/DATA0 {294G272} {229G272} {175G272} {261G310} {257G310} {229G310} {121G310} {121G281} {121G274} {121G272} {121G255} 
+NProgram ALU/DATA0 row.F.long.0:EI.F2 col.G.local.1:row.F.long.0 row.F.long.0:EE.F2 row.E.long.0:EH.G4 row.E.long.0:EH.F4 col.G.local.1:row.E.long.0 col.D.local.5:row.E.long.0-l FD.24.1.4 FD.24.1.13 col.D.local.5:row.F.long.0-l col.D.local.5:FD.X 
+Addnet ALU/DATA1 IF.X EE.G1 FF.F4 FF.G4 FH.F2 
+Netdelay ALU/DATA1 EE.G1 7.0 FF.F4 6.3 FF.G4 6.3 FH.F2 4.6 
+Program ALU/DATA1 {157G300} {157G281} {161G277} {192G277} {195G274} {218G277} {214G277} {199G277} {195G274} {195G232} {195G225} {195G194} {195G187} {195G168} {256G229} {242G229} {239G225} {239G194} {239G187} {239G156} {235G153} {207G153} 
+NProgram ALU/DATA1 col.E.local.3:EE.G1 FE.24.1.2 FE.24.1.9 FF.24.1.20 FF.24.1.15 row.F.local.4:FF.G4 row.F.local.4:FF.F4 FF.24.1.9 FF.24.1.15 HF.24.1.2 HF.24.1.15 IF.24.1.2 IF.24.1.15 col.F.local.3:IF.X row.H.local.3:FH.F2 HH.24.1.8 HH.24.1.14 IH.24.1.3 IH.24.1.14 JH.24.1.3 JH.24.1.21 row.J.local.3:IF.X 
+Addnet ALU/DATA2 JF.X DE.F2 DH.F3 DH.G3 DI.F3 
+Netdelay ALU/DATA2 DE.F2 7.6 DH.F3 7.6 DH.G3 7.6 DI.F3 6.4 
+Program ALU/DATA2 {175G320} {123G318} {122G312} {122G232} {122G225} {122G156} {123G155} {192G155} {198G149} {281G339} {281G334} {279G319} {279G312} {279G232} {279G225} {279G156} {273G155} {199G155} {198G149} {198G130} {312G334} {312G281} {312G274} {312G194} {312G187} {312G118} {311G112} {242G112} {235G112} {207G110} 
+NProgram ALU/DATA2 row.E.local.0:DE.F2 ED.24.1.6 ED.24.1.12 HD.24.1.5 HD.24.1.12 JD.24.1.5 JD.24.1.6 JF.24.1.23 JF.24.1.12 col.I.local.7:DH.G3 col.I.local.7:DH.F3 EI.24.1.5 EI.24.1.12 HI.24.1.5 HI.24.1.12 JI.24.1.5 JI.24.1.23 JF.24.1.6 JF.24.1.12 col.F.local.6:JF.X col.J.local.1:DI.F3 FJ.24.1.0 FJ.24.1.17 IJ.24.1.0 IJ.24.1.17 KJ.24.1.0 KJ.24.1.18 KH.24.1.11 KH.24.1.18 row.K.local.7:JF.X 
+Addnet ALU/DATA3 HH.X DE.G1 CI.F4 CH.G4 CE.F1 CH.F2 
+Netdelay ALU/DATA3 DE.G1 6.4 CI.F4 7.8 CH.G4 7.8 CE.F1 6.4 CH.F2 6.0 
+Program ALU/DATA3 {256G355} {242G355} {240G350} {240G319} {240G312} {240G281} {240G274} {240G232} {240G225} {240G206} {295G396} {261G394} {242G394} {235G394} {161G394} {160G388} {160G371} {162G338} {160G319} {160G312} {160G232} {161G231} {235G231} {241G225} {241G206} 
+NProgram ALU/DATA3 row.D.local.2:CH.F2 DH.24.1.7 DH.24.1.13 EH.24.1.4 EH.24.1.13 FH.24.1.4 FH.24.1.13 HH.24.1.4 HH.24.1.13 col.H.local.5:HH.X row.C.local.0:CI.F4 row.C.local.1:CH.G4 CH.24.1.6 CH.24.1.23 CE.24.1.6 CE.24.1.12 col.E.local.6:CE.F1 col.E.local.7:DE.G1 EE.24.1.5 EE.24.1.12 HE.24.1.5 HE.24.1.6 HH.24.1.23 HH.24.1.12 col.H.local.6:HH.X 
+Addnet ALU/ENOV CF.X CE.C2 
+Netdelay ALU/ENOV CE.C2 1.6 
+Program ALU/ENOV {177G351} {207G349} 
+NProgram ALU/ENOV row.D.local.6:CE.C2 row.D.local.7:CF.X 
+Addnet ALU/MUXBLK5/M40 EH.Y EI.F1 
+Netdelay ALU/MUXBLK5/M40 EI.F1 1.6 
+Program ALU/MUXBLK5/M40 {277G295} {277G302} 
+NProgram ALU/MUXBLK5/M40 col.I.local.4:EI.F1 col.I.local.4:EH.Y 
+Addnet ALU/MUXBLK5/M41 FF.Y FH.F1 
+Netdelay ALU/MUXBLK5/M41 FH.F1 1.6 
+Program ALU/MUXBLK5/M41 {239G257} {239G264} 
+NProgram ALU/MUXBLK5/M41 col.H.local.4:FH.F1 col.H.local.4:FF.Y 
+Addnet ALU/MUXBLK5/M42 DH.Y DI.F1 
+Netdelay ALU/MUXBLK5/M42 DI.F1 1.6 
+Program ALU/MUXBLK5/M42 {277G333} {277G340} 
+NProgram ALU/MUXBLK5/M42 col.I.local.4:DI.F1 col.I.local.4:DH.Y 
+Addnet ALU/MUXBLK5/M43 CH.Y CI.F1 
+Netdelay ALU/MUXBLK5/M43 CI.F1 1.6 
+Program ALU/MUXBLK5/M43 {277G371} {277G378} 
+NProgram ALU/MUXBLK5/M43 col.I.local.4:CI.F1 col.I.local.4:CH.Y 
+Addnet ALU/U60/C_IN FE.COUT EE.CIN 
+Netdelay ALU/U60/C_IN EE.CIN 0.0 
+Program ALU/U60/C_IN {170G266} 
+NProgram ALU/U60/C_IN EE.CIN:FE.COUT 
+Addnet ALU/U60/C1 EE.COUT DE.CIN 
+Netdelay ALU/U60/C1 DE.CIN 0.0 
+Program ALU/U60/C1 {170G304} 
+NProgram ALU/U60/C1 DE.CIN:EE.COUT 
+Addnet ALU/U60/C3 DE.COUT CE.CIN 
+Netdelay ALU/U60/C3 CE.CIN 0.0 
+Program ALU/U60/C3 {170G342} 
+NProgram ALU/U60/C3 CE.CIN:DE.COUT 
+Addnet ALU0 EI.XQ KJ.F1 KK.F2 JK.F4 EH.F3 EH.G3 II.C1 JI.F1 KI.F1 KH.F3 EE.F1 DJ.F3 
+Netdelay ALU0 KJ.F1 6.2 KK.F2 9.5 JK.F4 6.5 EH.F3 7.0 EH.G3 7.0 II.C1 6.7 JI.F1 6.7 KI.F1 6.7 KH.F3 6.7 EE.F1 6.0 DJ.F3 3.3 
+Program ALU0 {270G94} {270G95} {270G132} {270G173} {270G301} {270G296} {270G242} {270G227} {273G227} {275G232} {371G161} {275G161} {275G187} {275G194} {275G225} {275G232} {370G75} {356G75} {349G75} {318G75} {311G75} {308G75} {308G94} {308G227} {280G227} {275G232} {275G274} {275G281} {275G288} {159G295} {159G281} {161G279} {192G279} {199G279} {235G279} {242G279} {273G279} {280G279} {350G334} {350G281} {349G275} {292G275} {292G279} 
+NProgram ALU0 col.I.long.0:KI.F1 col.I.long.0:KH.F3 col.I.long.0:JI.F1 col.I.long.0:II.C1 col.I.long.0:EH.G3 col.I.long.0:EH.F3 col.I.long.0:row.G.local.1 col.I.long.0:row.H.local.5-s HI.24.1.19 HI.24.1.1 row.I.long.3:JK.F4 col.I.local.2:row.I.long.3-l II.24.1.16 II.24.1.1 HI.24.1.16 HI.24.1.1 row.L.local.5:KK.F2 LK.24.1.10 LK.24.1.19 LJ.24.1.10 LJ.24.1.19 col.J.long.0:row.L.local.5-l col.J.long.0:KJ.F1 col.J.long.0:row.H.local.5-s HI.24.1.10 HI.24.1.1 FI.24.1.16 FI.24.1.1 col.I.local.2:EI.XQ col.E.local.5:EE.F1 FE.24.1.4 FE.24.1.7 FF.24.1.22 FF.24.1.7 FH.24.1.22 FH.24.1.7 FI.24.1.22 FI.24.1.7 col.K.local.1:DJ.F3 FK.24.1.0 FK.24.1.18 row.F.local.6:EI.XQ row.F.local.2:EI.XQ 
+Addnet ALU1 FH.XQ EE.G4 KK.F3 JK.F3 DJ.F1 KJ.F2 KI.F3 JI.F3 II.C3 FF.F2 FF.G2 KH.F1 
+Netdelay ALU1 EE.G4 4.6 KK.F3 5.0 JK.F3 5.0 DJ.F1 5.3 KJ.F2 7.5 KI.F3 5.0 JI.F3 5.0 II.C3 5.0 FF.F2 2.9 FF.G2 2.9 KH.F1 3.1 
+Program ALU1 {180G314} {192G314} {199G314} {235G314} {237G312} {237G281} {237G274} {237G250} {213G230} {217G230} {235G230} {242G230} {245G94} {245G230} {332G76} {318G76} {311G76} {309G76} {309G95} {309G133} {309G174} {385G95} {385G133} {385G228} {356G228} {349G228} {318G228} {311G228} {309G333} {309G242} {309G228} {280G228} {273G228} {254G228} {254G230} 
+NProgram ALU1 row.E.local.5:EE.G4 EF.24.1.19 EF.24.1.10 EH.24.1.19 EH.24.1.16 FH.24.1.1 FH.24.1.16 col.H.local.2:FH.XQ row.H.local.2:FF.F2 row.H.local.2:FF.G2 HH.24.1.22 HH.24.1.7 col.H.long.3:KH.F1 col.H.long.3:row.H.local.2-s row.L.local.4:KJ.F2 LJ.24.1.9 LJ.24.1.20 col.J.long.1:row.L.local.4-l col.J.long.1:KI.F3 col.J.long.1:JI.F3 col.J.long.1:II.C3 col.L.long.1:KK.F3 col.L.long.1:JK.F3 col.L.long.1:row.H.local.4-s HK.24.1.9 HK.24.1.20 HJ.24.1.9 HJ.24.1.20 col.J.long.1:DJ.F1 col.J.long.1:row.G.local.1 col.J.long.1:row.H.local.4-s HI.24.1.9 HI.24.1.20 row.H.local.4:FH.XQ row.H.local.2:FH.XQ 
+Addnet ALU2 DI.XQ DH.F4 DH.G4 DE.F1 DJ.F2 JK.F1 KK.F1 KI.F2 KH.F2 KJ.F3 JI.F4 IJ.C3 
+Netdelay ALU2 DH.F4 3.5 DH.G4 3.5 DE.F1 6.2 DJ.F2 3.9 JK.F1 7.3 KK.F1 7.3 KI.F2 8.2 KH.F2 8.8 KJ.F3 7.3 JI.F4 7.0 IJ.C3 6.1 
+Program ALU2 {257G352} {261G352} {273G352} {275G350} {275G326} {157G333} {157G319} {161G315} {192G315} {199G315} {235G315} {242G315} {273G315} {280G315} {295G150} {349G150} {350G156} {256G72} {273G74} {280G74} {294G74} {349G74} {350G80} {348G94} {348G95} {350G132} {350G149} {350G156} {348G174} {350G225} {350G232} {350G312} {349G313} {332G311} {292G313} {292G315} 
+NProgram ALU2 row.D.local.5:DH.F4 row.D.local.5:DH.G4 DI.24.1.19 DI.24.1.16 col.I.local.2:DI.XQ col.E.local.3:DE.F1 EE.24.1.2 EE.24.1.9 EF.24.1.20 EF.24.1.9 EH.24.1.20 EH.24.1.9 EI.24.1.20 EI.24.1.9 row.J.local.6:JI.F4 JK.24.1.18 JK.24.1.0 row.L.local.7:KH.F2 LI.24.1.18 LI.24.1.11 row.L.local.6:KI.F2 LK.24.1.18 LK.24.1.0 col.K.local.0:KK.F1 col.K.local.0:KJ.F3 col.K.local.1:JK.F1 JK.24.1.17 JK.24.1.0 col.K.local.0:IJ.C3 HK.24.1.17 HK.24.1.0 EK.24.1.17 EK.24.1.18 row.E.local.7:DJ.F2 row.E.local.6:DI.XQ row.E.local.4:DI.XQ 
+Addnet ALU3 CI.XQ IJ.C4 JK.F2 KK.F4 KJ.F4 JI.F2 KI.F4 KH.F4 DJ.F4 CE.F3 DE.G4 CH.F3 CH.G3 
+Netdelay ALU3 IJ.C4 8.8 JK.F2 14.0 KK.F4 14.0 KJ.F4 14.0 JI.F2 14.0 KI.F4 14.0 KH.F4 14.0 DJ.F4 2.9 CE.F3 5.0 DE.G4 3.2 CH.F3 1.6 CH.G3 1.6 
+Program ALU3 {180G362} {194G372} {194G362} {229G362} {335G199} {257G108} {294G108} {295G108} {333G108} {370G108} {371G108} {459G108} {459G199} {459G242} {459G362} {333G362} {275G362} {275G377} {275G372} {275G364} 
+NProgram ALU3 row.C.long.3:DE.G4 col.F.local.2:CE.F3 col.F.local.2:row.C.long.3-s col.G.local.1:row.C.long.3 row.H.long.3:IJ.C4 row.K.long.1:KH.F4 row.K.long.1:JI.F2 row.K.long.1:KI.F4 row.K.long.1:KJ.F4 row.K.long.1:JK.F2 row.K.long.1:KK.F4 col.M.long.10:row.K.long.1-l col.M.long.10:row.H.long.3-l col.M.long.10:row.G.local.1 col.M.long.10:row.C.long.3-s row.C.long.3:DJ.F4 col.I.local.2:row.C.long.3-l col.I.local.2:CH.G3 col.I.local.2:CH.F3 col.I.local.2:CI.XQ 
+Addnet B KI.X P48.O 
+Netdelay B P48.O 3.2 
+Program B {371G39} {356G39} {349G39} {280G39} {279G40} {279G92} 
+NProgram B row.M.local.1:PAD44.O MK.24.1.6 MK.24.1.23 MI.24.1.6 MI.24.1.5 col.I.local.6:KI.X 
+Addnet C JI.X P47.O 
+Netdelay C P47.O 2.7 
+Program C {346G27} {346G113} {318G113} {311G113} {288G113} 
+NProgram C col.K.long.0:PAD45.O col.K.long.0:row.K.local.5-s KJ.24.1.10 KJ.24.1.19 row.K.local.5:JI.X 
+Addnet CE_ALU EC.Y CI.C2 CF.F2 DI.C2 EI.C4 FH.C1 
+Netdelay CE_ALU CI.C2 4.6 CF.F2 4.1 DI.C2 4.0 EI.C4 4.0 FH.C1 4.0 
+Program CE_ALU {296G351} {280G351} {273G351} {213G351} {199G351} {192G351} {123G351} {117G350} {115G302} {243G260} {241G312} {235G318} {297G320} {296G320} {242G318} {235G318} {161G318} {154G318} {108G318} 
+NProgram CE_ALU row.D.local.6:CI.C2 DI.24.1.11 DI.24.1.18 row.D.local.6:CF.F2 DF.24.1.11 DF.24.1.18 DD.24.1.11 DD.24.1.17 col.D.local.0:EC.Y col.H.local.7:FH.C1 EH.24.1.12 EH.24.1.23 row.E.local.0:EI.C4 row.E.local.0:DI.C2 EH.24.1.6 EH.24.1.23 EE.24.1.6 EE.24.1.23 row.E.local.1:EC.Y 
+Addnet CLK bufgs_tr.O IC.K FC.K FB.K P24.IK P23.IK P26.IK P25.IK P27.IK P28.IK P20.IK ID.K FD.K IE.K CE.K IH.K FH.K HI.K CI.K DI.K EI.K 
+Netdelay CLK IC.K 3.1 FC.K 3.1 FB.K 3.1 P24.IK 3.1 P23.IK 3.1 P26.IK 3.1 P25.IK 3.1 P27.IK 3.1 P28.IK 3.1 P20.IK 3.1 ID.K 3.1 FD.K 3.1 IE.K 3.1 CE.K 3.1 IH.K 3.1 FH.K 3.1 HI.K 3.1 CI.K 3.1 DI.K 3.1 EI.K 3.1 
+Program CLK {20G63} {20G101} {20G131} {20G139} {20G207} {20G215} {20G256} {20G245} {54G259} {54G245} {89G172} {89G259} {89G245} {127G172} {127G259} {127G245} {166G172} {166G373} {166G245} {249G172} {249G259} {249G245} {284G210} {284G373} {284G335} {284G297} {284G245} 
+NProgram CLK col.A.long.4:PAD62.IK col.A.long.4:PAD64.IK col.A.long.4:PAD65.IK col.A.long.4:PAD66.IK col.A.long.4:PAD69.IK col.A.long.4:PAD70.IK col.A.long.4:PAD71.IK col.A.long.4:bufgs_tr.O col.B.long.7:FB.K col.B.long.7:bufgs_tr.O col.C.long.4:IC.K col.C.long.4:FC.K col.C.long.4:bufgs_tr.O col.D.long.4:ID.K col.D.long.4:FD.K col.D.long.4:bufgs_tr.O col.E.long.5:IE.K col.E.long.5:CE.K col.E.long.5:bufgs_tr.O col.H.long.7:IH.K col.H.long.7:FH.K col.H.long.7:bufgs_tr.O col.I.long.4:HI.K col.I.long.4:CI.K col.I.long.4:DI.K col.I.long.4:EI.K col.I.long.4:bufgs_tr.O 
+Addnet CONTROL/CE_ADDR HC.X IH.C4 HI.C2 
+Netdelay CONTROL/CE_ADDR IH.C4 3.9 HI.C2 4.3 
+Program CONTROL/CE_ADDR {296G188} {280G188} {273G188} {259G186} {199G188} {192G188} {123G188} {116G188} {93G186} 
+NProgram CONTROL/CE_ADDR row.I.local.6:HI.C2 II.24.1.11 II.24.1.18 row.I.local.7:IH.C4 IF.24.1.11 IF.24.1.18 ID.24.1.11 ID.24.1.18 row.I.local.7:HC.X 
+Addnet CONTROL/STATMACH/INT1 PULLUP.AA.2.O DEC.EA.2.O1 DEC.JA.1.O1 DEC.JA.2.O1 DEC.KA.3.O1 DEC.LA.2.O1 PULLUP.MA.2.O EC.G2 
+Netdelay CONTROL/STATMACH/INT1 EC.G2 3.3 
+Program CONTROL/STATMACH/INT1 {11G29} {11G60} {11G93} {11G136} {11G141} {11G242} {103G286} {11G286} {11G299} {11G444} 
+NProgram CONTROL/STATMACH/INT1 row.M.local.14:PULLUP.MA.2.O col.A.long.2:DEC.LA.2.O1 col.A.long.2:DEC.KA.3.O1 col.A.long.2:DEC.JA.2.O1 col.A.long.2:DEC.JA.1.O1 col.A.long.2:row.G.local.1 row.E.long.3:EC.G2 col.A.long.2:row.E.long.3-l col.A.long.2:DEC.EA.2.O1 row.A.local.6:PULLUP.AA.2.O 
+Addnet CONTROL/STATMACH/INT2 PULLUP.MA.3.O DEC.JA.3.O2 DEC.JA.1.O2 DEC.KA.3.O2 HC.F4 
+Netdelay CONTROL/STATMACH/INT2 HC.F4 2.7 
+Program CONTROL/STATMACH/INT2 {100G223} {12G223} {12G140} {12G130} {12G92} {12G29} 
+NProgram CONTROL/STATMACH/INT2 row.H.long.0:HC.F4 col.A.long.3:row.H.long.0-l col.A.long.3:DEC.JA.1.O2 col.A.long.3:DEC.JA.3.O2 col.A.long.3:DEC.KA.3.O2 row.M.local.14:PULLUP.MA.3.O 
+Addnet CONTROL/STATMACH/OP_CTL1 HF.X DF.F2 EF.F4 
+Netdelay CONTROL/STATMACH/OP_CTL1 DF.F2 4.4 EF.F4 4.4 
+Program CONTROL/STATMACH/OP_CTL1 {214G317} {213G317} {199G317} {197G312} {197G281} {197G274} {197G232} {197G225} {197G206} 
+NProgram CONTROL/STATMACH/OP_CTL1 row.E.local.2:EF.F4 row.E.local.2:DF.F2 EF.24.1.7 EF.24.1.13 FF.24.1.4 FF.24.1.13 HF.24.1.4 HF.24.1.13 col.F.local.5:HF.X 
+Addnet CONTROL/STATMACH/OTHER IC.XQ EC.G3 
+Netdelay CONTROL/STATMACH/OTHER EC.G3 3.0 
+Program CONTROL/STATMACH/OTHER {114G301} {114G242} {114G152} {97G152} 
+NProgram CONTROL/STATMACH/OTHER col.D.long.1:EC.G3 col.D.long.1:row.G.local.1 col.D.long.1:row.J.local.4-s row.J.local.4:IC.XQ 
+Addnet CONTROL/STATMACH/PUSH ID.XQ IE.C2 IC.F2 
+Netdelay CONTROL/STATMACH/PUSH IE.C2 2.5 IC.F2 2.5 
+Program CONTROL/STATMACH/PUSH {99G154} {116G154} {123G154} {177G154} {161G154} {154G154} {135G154} 
+NProgram CONTROL/STATMACH/PUSH row.J.local.2:IC.F2 JD.24.1.22 JD.24.1.7 row.J.local.2:IE.C2 JE.24.1.7 JE.24.1.22 row.J.local.2:ID.XQ 
+Addnet CONTROL/UP_DN_1 ID.X IC.F3 
+Netdelay CONTROL/UP_DN_1 IC.F3 1.6 
+Program CONTROL/UP_DN_1 {121G171} {121G168} 
+NProgram CONTROL/UP_DN_1 col.D.local.5:IC.F3 col.D.local.5:ID.X 
+Addnet CONTROL/UP_DN_2 ID.Y IH.F1 
+Netdelay CONTROL/UP_DN_2 IH.F1 3.2 
+Program CONTROL/UP_DN_2 {234G170} {236G225} {235G226} {161G226} {155G225} {153G177} 
+NProgram CONTROL/UP_DN_2 col.H.local.0:IH.F1 HH.24.1.17 HH.24.1.18 HE.24.1.11 HE.24.1.17 col.E.local.0:ID.Y 
+Addnet CTL0 IE.X EH.G1 EH.F1 CH.F1 CH.G1 CF.F3 DH.F1 DH.G1 FF.F3 FF.G3 
+Netdelay CTL0 EH.G1 3.9 EH.F1 3.9 CH.F1 3.9 CH.G1 3.9 CF.F3 3.9 DH.F1 3.9 DH.G1 3.9 FF.F3 3.9 FF.G3 3.9 
+Program CTL0 {232G376} {232G372} {232G371} {232G338} {232G333} {232G300} {232G295} {232G263} {232G258} {232G242} {232G151} {199G151} {192G151} {169G151} 
+NProgram CTL0 col.H.long.0:CH.G1 col.H.long.0:CF.F3 col.H.long.0:CH.F1 col.H.long.0:DH.G1 col.H.long.0:DH.F1 col.H.long.0:EH.G1 col.H.long.0:EH.F1 col.H.long.0:FF.G3 col.H.long.0:FF.F3 col.H.long.0:row.G.local.1 col.H.long.0:row.J.local.5-s JF.24.1.10 JF.24.1.19 row.J.local.5:IE.X 
+Addnet CTL1 EF.X EH.F2 FF.C4 CH.F4 CH.C4 CF.F1 DH.F2 DH.C2 EH.C4 FF.F1 
+Netdelay CTL1 EH.F2 2.5 FF.C4 2.2 CH.F4 3.8 CH.C4 3.8 CF.F1 3.3 DH.F2 3.2 DH.C2 3.2 EH.C4 3.2 FF.F1 2.5 
+Program CTL1 {200G257} {259G320} {258G320} {256G320} {199G318} {198G312} {259G396} {257G396} {199G394} {198G388} {198G371} {198G319} {198G312} {198G293} {256G278} {242G278} {235G278} {216G278} {207G278} 
+NProgram CTL1 col.F.local.7:FF.F1 row.E.local.0:EH.C4 row.E.local.0:DH.C2 row.E.local.0:DH.F2 EF.24.1.6 EF.24.1.12 row.C.local.0:CH.C4 row.C.local.0:CH.F4 CF.24.1.6 CF.24.1.12 col.F.local.6:CF.F1 EF.24.1.5 EF.24.1.12 col.F.local.6:EF.X row.F.local.3:EH.F2 FH.24.1.8 FH.24.1.21 row.F.local.3:FF.C4 row.F.local.3:EF.X 
+Addnet CTL2 DF.X EI.F4 DI.F2 CF.F4 CI.F2 FH.F4 
+Netdelay CTL2 EI.F4 2.9 DI.F2 2.9 CF.F4 3.6 CI.F2 4.0 FH.F4 3.5 
+Program CTL2 {214G391} {199G391} {195G388} {195G357} {195G350} {195G331} {257G282} {199G280} {198G281} {294G356} {280G356} {273G356} {199G356} {198G350} {198G331} {295G311} {294G311} {242G313} {235G313} {207G311} 
+NProgram CTL2 row.C.local.4:CF.F4 CF.24.1.9 CF.24.1.15 DF.24.1.2 DF.24.1.15 col.F.local.3:DF.X row.F.local.0:FH.F4 FF.24.1.6 FF.24.1.5 row.D.local.1:CI.F2 DI.24.1.6 DI.24.1.23 DF.24.1.6 DF.24.1.12 col.F.local.6:DF.X row.E.local.7:EI.F4 row.E.local.7:DI.F2 EH.24.1.11 EH.24.1.18 row.E.local.7:DF.X 
+Addnet CTL3 PULLUP.AA.1.O DEC.AF.2.O1 DEC.AD.2.O1 DEC.AB.2.O1 HD.F1 ID.C1 HC.F3 HH.F2 IF.F1 IE.F4 FD.F3 HF.F1 JF.F1 
+Netdelay CTL3 HD.F1 3.8 ID.C1 3.8 HC.F3 3.8 HH.F2 8.1 IF.F1 7.6 IE.F4 7.0 FD.F3 3.7 HF.F1 3.7 JF.F1 3.7 
+Program CTL3 {126G173} {126G208} {126G209} {126G242} {197G170} {197G187} {192G192} {256G192} {242G192} {235G192} {199G192} {192G192} {176G192} {164G192} {164G242} {164G258} {190G132} {190G208} {190G242} {215G460} {190G460} {164G460} {139G460} {126G460} {63G460} {29G460} 
+NProgram CTL3 col.D.long.3:ID.C1 col.D.long.3:HD.F1 col.D.long.3:HC.F3 col.D.long.3:row.G.local.1 col.F.local.5:IF.F1 IF.24.1.13 IF.24.1.22 row.I.local.2:HH.F2 IH.24.1.7 IH.24.1.22 IF.24.1.7 IF.24.1.22 row.I.local.2:IE.F4 col.E.long.3:row.I.local.2-l col.E.long.3:row.G.local.1 col.E.long.3:FD.F3 col.F.long.1:JF.F1 col.F.long.1:HF.F1 col.F.long.1:row.G.local.1 row.A.long.2:DEC.AF.2.O1 col.F.long.1:row.A.long.2-s col.E.long.3:row.A.long.2-s row.A.long.2:DEC.AD.2.O1 col.D.long.3:row.A.long.2-s row.A.long.2:DEC.AB.2.O1 col.A.local.6:PULLUP.AA.1.O 
+Addnet D DJ.X P46.O 
+Netdelay D P46.O 3.0 
+Program D {320G28} {320G242} {320G316} {326G316} 
+NProgram D col.J.long.2:PAD46.O col.J.long.2:row.G.local.1 col.J.long.2:row.E.local.3-s row.E.local.3:DJ.X 
+Addnet DEBOUNCE/DELAY1 FB.XQ FC.C2 FC.F2 
+Netdelay DEBOUNCE/DELAY1 FC.C2 1.6 FC.F2 1.6 
+Program DEBOUNCE/DELAY1 {101G224} {99G224} {59G226} 
+NProgram DEBOUNCE/DELAY1 row.H.local.7:FC.C2 row.H.local.7:FC.F2 row.H.local.6:FB.XQ 
+Addnet DEBOUNCE/DELAY2 FC.XQ FD.C2 FC.F1 
+Netdelay DEBOUNCE/DELAY2 FD.C2 1.7 FC.F1 1.7 
+Program DEBOUNCE/DELAY2 {80G257} {80G250} {139G224} {97G226} 
+NProgram DEBOUNCE/DELAY2 col.C.local.2:FC.F1 col.C.local.2:FC.XQ row.H.local.7:FD.C2 row.H.local.6:FC.XQ 
+Addnet DEBOUNCE/DELAY3 FD.XQ FC.F3 
+Netdelay DEBOUNCE/DELAY3 FC.F3 1.6 
+Program DEBOUNCE/DELAY3 {120G258} {120G250} 
+NProgram DEBOUNCE/DELAY3 col.D.local.4:FC.F3 col.D.local.4:FD.XQ 
+Addnet E KH.X P45.O 
+Netdelay E P45.O 2.3 
+Program E {261G39} {242G39} {241G40} {241G92} 
+NProgram E row.M.local.1:PAD49.O MH.24.1.6 MH.24.1.5 col.H.local.6:KH.X 
+Addnet EIN P19.I2 FB.F1 
+Netdelay EIN FB.F1 1.6 
+Program EIN {45G257} {45G266} 
+NProgram EIN col.B.local.5:FB.F1 col.B.local.5:PAD72.I2 
+Addnet EXC FC.X DEC.AI.2.I EC.G1 HC.F1 ID.F4 
+Netdelay EXC DEC.AI.2.I 8.0 EC.G1 4.6 HC.F1 3.2 ID.F4 4.0 
+Program EXC {138G195} {85G193} {84G194} {86G208} {296G434} {242G432} {235G432} {161G432} {154G432} {85G432} {84G426} {84G357} {84G350} {86G300} {84G281} {84G274} {84G255} 
+NProgram EXC row.I.local.0:ID.F4 IC.24.1.6 IC.24.1.5 col.C.local.7:HC.F1 row.B.local.0:DEC.AI.2.I BH.24.1.6 BH.24.1.23 BE.24.1.6 BE.24.1.23 BC.24.1.6 BC.24.1.12 DC.24.1.5 DC.24.1.12 col.C.local.7:EC.G1 FC.24.1.5 FC.24.1.12 col.C.local.6:FC.X 
+Addnet F JK.X P50.O 
+Netdelay F P50.O 2.7 
+Program F {396G28} {396G115} {394G115} {387G115} {364G115} 
+NProgram F col.L.long.2:PAD42.O col.L.long.2:row.K.local.3-s KL.24.1.8 KL.24.1.21 row.K.local.3:JK.X 
+Addnet G KJ.X P51.O 
+Netdelay G P51.O 3.2 
+Program G {413G39} {394G39} {387G39} {318G39} {317G40} {317G92} 
+NProgram G row.M.local.1:PAD41.O ML.24.1.6 ML.24.1.23 MJ.24.1.6 MJ.24.1.5 col.J.local.6:KJ.X 
+Addnet OFL CE.XQ P41.O 
+Netdelay OFL P41.O 3.6 
+Program OFL {233G27} {233G242} {233G353} {199G353} {192G353} {173G353} 
+NProgram OFL col.H.long.1:PAD51.O col.H.long.1:row.G.local.1 col.H.long.1:row.D.local.4-s DF.24.1.9 DF.24.1.20 row.D.local.4:CE.XQ 
+Addnet OSC_3K/F osc.F15 bufgs_tr.I 
+Netdelay OSC_3K/F bufgs_tr.I 6.6 
+Program OSC_3K/F {463G460} {462G428} {435G428} {442G451} 
+NProgram OSC_3K/F col.M.local.10:bufgs_tr.I col.M.local.9:row.B.local.5-s col.M.local.15:row.B.local.5-l row.A.long.6:osc.F15 
+Addnet RST PULLUP.AA.0.O PULLUP.AM.0.O DEC.AI.2.O2 DEC.AF.2.O2 DEC.AD.2.O2 DEC.AB.2.O2 CE.C3 CI.C1 DI.C1 EI.C1 FH.C3 
+Netdelay RST CE.C3 4.0 CI.C1 3.6 DI.C1 3.6 EI.C1 3.6 FH.C3 3.6 
+Program RST {202G375} {202G431} {235G431} {240G433} {282G261} {282G298} {282G336} {282G374} {435G459} {297G459} {282G459} {240G459} {229G459} {216G459} {140G459} {64G459} {29G459} 
+NProgram RST col.F.long.3:CE.C3 col.F.long.3:row.B.local.2-s BH.24.1.22 BH.24.1.4 col.I.long.2:FH.C3 col.I.long.2:EI.C1 col.I.long.2:DI.C1 col.I.long.2:CI.C1 col.M.local.15:PULLUP.AM.0.O row.A.long.3:DEC.AI.2.O2 col.I.long.2:row.A.long.3-s col.H.local.5:row.A.long.3-s col.G.local.1:row.A.long.3 row.A.long.3:DEC.AF.2.O2 row.A.long.3:DEC.AD.2.O2 row.A.long.3:DEC.AB.2.O2 col.A.local.6:PULLUP.AA.0.O 
+Addnet STACK0 II.Y P60.O FD.F2 
+Netdelay STACK0 P60.O 3.6 FD.F2 7.5 
+Program STACK0 {137G228} {154G228} {161G228} {192G228} {199G228} {235G228} {238G225} {238G194} {242G190} {273G190} {280G190} {432G137} {430G187} {424G193} {356G193} {349G193} {303G193} {303G190} 
+NProgram STACK0 row.H.local.4:FD.F2 HE.24.1.20 HE.24.1.9 HF.24.1.20 HF.24.1.9 HH.24.1.20 HH.24.1.15 IH.24.1.2 IH.24.1.9 II.24.1.20 II.24.1.9 col.M.local.7:PAD35.O IM.24.1.12 IM.24.1.23 IK.24.1.6 IK.24.1.23 row.I.local.1:II.Y row.I.local.4:II.Y 
+Addnet STACK1 II.X P59.O IF.F4 
+Netdelay STACK1 P59.O 2.9 IF.F4 2.4 
+Program STACK1 {214G193} {273G193} {279G187} {279G168} {441G123} {313G123} {313G149} {311G151} {288G151} 
+NProgram STACK1 row.I.local.1:IF.F4 II.24.1.23 II.24.1.12 col.I.local.6:II.X row.J.long.3:PAD36.O col.J.local.2:row.J.long.3-l JJ.24.1.16 JJ.24.1.19 row.J.local.5:II.X 
+Addnet STACK2 IJ.Y P58.O JF.F3 
+Netdelay STACK2 P58.O 3.8 JF.F3 3.4 
+Program STACK2 {422G94} {422G190} {394G190} {387G190} {356G190} {349G190} {243G133} {241G187} {242G193} {311G193} {318G193} {341G193} {341G190} 
+NProgram STACK2 col.M.long.1:PAD38.O col.M.long.1:row.I.local.4-s IL.24.1.9 IL.24.1.20 IK.24.1.9 IK.24.1.20 col.H.local.7:JF.F3 IH.24.1.12 IH.24.1.6 IJ.24.1.23 IJ.24.1.6 row.I.local.1:IJ.Y row.I.local.4:IJ.Y 
+Addnet STACK3 IJ.X P57.O HH.F4 
+Netdelay STACK3 P57.O 3.7 HH.F4 2.9 
+Program STACK3 {257G223} {316G223} {316G194} {316G187} {316G168} {421G61} {421G151} {394G151} {387G151} {356G151} {349G151} {326G151} 
+NProgram STACK3 row.H.long.0:HH.F4 col.J.local.5:row.H.long.0-l IJ.24.1.4 IJ.24.1.13 col.J.local.5:IJ.X col.M.long.0:PAD39.O col.M.long.0:row.J.local.5-s JL.24.1.10 JL.24.1.19 JK.24.1.10 JK.24.1.19 row.J.local.5:IJ.X 
+Addnet SW0 P28.I1 FD.F1 
+Netdelay SW0 FD.F1 4.4 
+Program SW0 {113G257} {113G242} {113G75} {85G75} {78G75} {47G75} {40G75} {25G75} 
+NProgram SW0 col.D.long.0:FD.F1 col.D.long.0:row.G.local.1 col.D.long.0:row.L.local.5-s LC.24.1.10 LC.24.1.19 LB.24.1.10 LB.24.1.19 row.L.local.5:PAD62.I1 
+Addnet SW1_1 P27.I2 U63.O ID.F2 IE.F2 IF.F2 
+Netdelay SW1_1 U63.O 1.9 ID.F2 2.9 IE.F2 2.9 IF.F2 2.9 
+Program SW1_1 {45G95} {213G147} {175G147} {137G147} {45G147} {45G118} {45G111} {45G103} 
+NProgram SW1_1 col.B.local.5:PAD63.O row.J.long.0:IF.F2 row.J.long.0:IE.F2 row.J.long.0:ID.F2 col.B.local.5:row.J.long.0-l KB.24.1.4 KB.24.1.13 col.B.local.5:PAD64.I2 
+Addnet SW1_2 U63.I1 DEC.KA.3.I 
+Netdelay SW1_2 DEC.KA.3.I 0.0 
+Program SW1_2 {19G92} 
+NProgram SW1_2 PAD63.I1:DEC.KA.3.I 
+Addnet SW2_1 P26.I1 DEC.JA.3.I 
+Netdelay SW2_1 DEC.JA.3.I 0.0 
+Program SW2_1 {19G130} 
+NProgram SW2_1 PAD65.I1:DEC.JA.3.I 
+Addnet SW2_2 P26.I2 ID.F1 HF.F2 JF.F2 
+Netdelay SW2_2 ID.F1 5.8 HF.F2 6.6 JF.F2 3.0 
+Program SW2_2 {213G123} {213G189} {199G189} {194G187} {194G156} {194G149} {194G123} {118G170} {118G156} {118G149} {118G123} {34G123} 
+NProgram SW2_2 row.J.long.3:JF.F2 row.I.local.5:HF.F2 IF.24.1.10 IF.24.1.16 JF.24.1.1 JF.24.1.16 col.F.local.2:row.J.long.3-s col.D.local.2:ID.F1 JD.24.1.1 JD.24.1.16 col.D.local.2:row.J.long.3-s row.J.long.3:PAD65.I2 
+Addnet SW3_1 P25.I1 HH.F3 DEC.JA.1.I 
+Netdelay SW3_1 HH.F3 5.8 DEC.JA.1.I 0.3 
+Program SW3_1 {17G140} {274G209} {274G156} {273G150} {199G150} {192G150} {123G150} {116G150} {47G150} {40G150} {25G150} 
+NProgram SW3_1 PAD66.I1:DEC.JA.1.I col.I.local.1:HH.F3 JI.24.1.0 JI.24.1.18 JF.24.1.11 JF.24.1.18 JD.24.1.11 JD.24.1.18 JB.24.1.11 JB.24.1.18 row.J.local.6:PAD66.I1 
+Addnet SW3_2 P25.I2 HD.F3 ID.F3 
+Netdelay SW3_2 HD.F3 3.2 ID.F3 3.2 
+Program SW3_2 {160G209} {162G171} {160G156} {154G155} {85G155} {78G155} {33G157} 
+NProgram SW3_2 col.E.local.6:HD.F3 col.E.local.7:ID.F3 JE.24.1.5 JE.24.1.23 JC.24.1.6 JC.24.1.23 row.J.local.0:PAD66.I2 
+Addnet SW4_1 P24.I1 IE.F1 
+Netdelay SW4_1 IE.F1 3.2 
+Program SW4_1 {155G170} {155G187} {154G188} {85G188} {78G188} {24G186} 
+NProgram SW4_1 col.E.local.1:IE.F1 IE.24.1.17 IE.24.1.18 IC.24.1.11 IC.24.1.18 row.I.local.7:PAD69.I1 
+Addnet SW4_2 P24.I2 DEC.EA.2.I DEC.AF.2.I 
+Netdelay SW4_2 DEC.EA.2.I 3.9 DEC.AF.2.I 7.4 
+Program SW4_2 {215G441} {9G441} {9G278} {40G278} {44G274} {44G299} {44G281} {44G274} {44G232} {44G225} {44G215} 
+NProgram SW4_2 row.A.long.9:DEC.AF.2.I col.A.long.0:row.A.long.9-l col.A.long.0:row.F.local.3-s FB.24.1.21 FB.24.1.14 col.B.local.4:DEC.EA.2.I FB.24.1.3 FB.24.1.14 HB.24.1.3 HB.24.1.14 col.B.local.4:PAD69.I2 
+Addnet SW5 P23.I2 DEC.JA.2.I DEC.AD.2.I HF.F4 
+Netdelay SW5 DEC.JA.2.I 2.8 DEC.AD.2.I 6.9 HF.F4 8.0 
+Program SW5 {41G136} {41G149} {41G156} {41G217} {214G222} {139G424} {45G424} {45G395} {40G393} {6G393} {6G312} {7G230} {33G230} {33G222} 
+NProgram SW5 col.B.local.1:DEC.JA.2.I JB.24.1.17 JB.24.1.0 col.B.local.1:PAD70.I2 row.H.long.1:HF.F4 row.B.long.0:DEC.AD.2.I col.B.local.5:row.B.long.0-l CB.24.1.4 CB.24.1.22 col.A.local.3:row.C.local.2-l col.A.local.3:row.E.local.9-l col.A.local.4:row.H.local.2-s row.H.local.2:PAD70.I2 row.H.long.1:PAD70.I2 
+Addnet SW6 P20.I2 DEC.LA.2.I DEC.AB.2.I HD.F4 
+Netdelay SW6 DEC.LA.2.I 2.3 DEC.AB.2.I 4.6 HD.F4 2.5 
+Program SW6 {37G60} {37G227} {34G227} {138G248} {42G248} {63G428} {75G428} {75G276} {47G276} {42G274} {42G264} 
+NProgram SW6 col.B.long.0:DEC.LA.2.I col.B.long.0:row.H.local.5-s row.H.local.5:PAD71.I2 row.F.long.3:HD.F4 col.B.local.2:row.F.long.3-l row.B.local.5:DEC.AB.2.I col.C.long.0:row.B.local.5-l col.C.long.0:row.F.local.5-s FB.24.1.10 FB.24.1.16 col.B.local.2:PAD71.I2 
+Addnet WE IE.XQ II.C2 IJ.C2 
+Netdelay WE II.C2 2.8 IJ.C2 3.1 
+Program WE {334G150} {318G150} {311G150} {296G148} {242G150} {235G150} {173G150} 
+NProgram WE row.J.local.6:IJ.C2 JJ.24.1.11 JJ.24.1.18 row.J.local.7:II.C2 JH.24.1.11 JH.24.1.18 row.J.local.6:IE.XQ 
+Beginpath CONTROL/UP_DN
+Pathnet CONTROL/UP_DN_1
+Pathnet CONTROL/UP_DN_2
+Endpath
+Beginpath SW1
+Pathnet SW1_1
+Pathnet SW1_2
+Endpath
+Beginpath SW2
+Pathnet SW2_1
+Pathnet SW2_2
+Endpath
+Beginpath SW3
+Pathnet SW3_1
+Pathnet SW3_2
+Endpath
+Beginpath SW4
+Pathnet SW4_1
+Pathnet SW4_2
+Endpath
+Editblk KH
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F3:F1:F4:F2 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ~((~F2*~F1*F3)+(~F4*F2*~F1)+(~F4*F1*F3))
+Endblk
+Editblk KI
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F1:F3:F4:F2 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ~((F4*F2*~F3*~F1)+(F4*~F2*F3*F1)+(F4*F2*F3)+(~F4*F2*(F3@F1)))
+Endblk
+Editblk KJ
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F1:F2:F4:F3 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ~((F4*F3*~F2*~F1)+(~F4*F3*F2*F1)+(~F4*~F3*~F2))
+Endblk
+Editblk KK
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F2:F3:F4:F1 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ~((~F4*~F3*(F1@F2))+(F4*F2*(F1@F3)))
+Endblk
+Editblk JF
+Base FG
+Config F4: G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F3:F1:F2 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ((F3*F1)+(F2*~F1))
+Endblk
+Editblk JI
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F1:F3:F2:F4 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ~((~F2*~F4*F3*~F1)+(F2*F4*F3)+(F2*F4*~F3*~F1))
+Endblk
+Editblk JK
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F4:F3:F2:F1 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ~((F1*F4*(F2@F3))+(~F2*~F1*(F3+F4)))
+Endblk
+Editblk IC
+Base FG
+Config F4: G2: G3: X: Y: XQ:QX YQ: FFX:K:RESET FFY:RESET DX:F DY: F:F2:F3 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (~F3*~F2)
+Endblk
+Editblk ID
+Base FG
+Config F4:F4I G2: G3: X:H Y:H XQ:QX YQ: FFX:K:RESET FFY:RESET DX:H DY: F:F4:F3:F1:F2 G: H:F:H1 H1:C1 DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (F3*~F1*F2*F4)
+Equate H = (F*H1)
+Endblk
+Editblk IE
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ:QX YQ: FFX:K:RESET FFY:RESET DX:DIN DY: F:F4:F3:F2:F1 G: H: H1: DIN:C2 SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (((F2*F4)+(F1*~F4))*F3)
+Endblk
+Editblk IF
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F4:F1:F2 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ((F4*F1)+(F2*~F1))
+Endblk
+Editblk IH
+Base FG
+Config F4:F4I G2: G3: X: Y:G XQ:QX YQ: FFX:K:RESET:EC FFY:RESET DX:F DY: F:F4:F2:F1 G: H: H1: DIN: SR: EC:C4 RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (((F1*F4)+(~F1*~F4))@F2)
+Equate G = 1
+Endblk
+Editblk II
+Base FG
+Config F4:F4I G2:G2I G3:G3I X:F Y:G XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F4:F3:F2:F1 G:G4:G3:G2:G1 H: H1:C1 DIN:C3 SR:C2 EC: RAM:F:G CARRY: CIN: COUT: CDIR: 
+Endblk
+Editblk IJ
+Base FG
+Config F4:F4I G2:G2I G3:G3I X:F Y:G XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F4:F3:F2:F1 G:G4:G3:G2:G1 H: H1:C3 DIN:C4 SR:C2 EC: RAM:F:G CARRY: CIN: COUT: CDIR: 
+Endblk
+Editblk IK
+Base FG
+Config F4: G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F: G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = 1
+Endblk
+Editblk HC
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F3:F4:F1 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (F1*F3*~F4)
+Endblk
+Editblk HD
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F1:F3:F4 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ~((F3*F1)+(F4*~F1))
+Endblk
+Editblk HE
+Base FG
+Config F4: G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F2 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ~(F2)
+Endblk
+Editblk HF
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F1:F2:F4 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ((F2*F1)+(F4*~F1))
+Endblk
+Editblk HH
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F4:F2:F3 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ((F4*F2)+(F3*~F2))
+Endblk
+Editblk HI
+Base FG
+Config F4: G2: G3: X: Y: XQ:QX YQ: FFX:K:RESET:EC FFY:RESET DX:F DY: F:F2 G: H: H1: DIN: SR: EC:C2 RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ~(F2)
+Endblk
+Editblk HJ
+Base FG
+Config F4: G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F: G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = 1
+Endblk
+Editblk FB
+Base FG
+Config F4: G2: G3: X: Y: XQ:QX YQ: FFX:K:RESET FFY:RESET DX:F DY: F:F1 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ~(F1)
+Endblk
+Editblk FC
+Base FG
+Config F4: G2: G3: X:F Y: XQ:QX YQ: FFX:K:RESET FFY:RESET DX:DIN DY: F:F2:F1:F3 G: H: H1: DIN:C2 SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (~F3*F1*F2)
+Endblk
+Editblk FD
+Base FG
+Config F4: G2: G3: X:F Y: XQ:QX YQ: FFX:K:RESET FFY:RESET DX:DIN DY: F:F2:F3:F1 G: H: H1: DIN:C2 SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ((F2*F3)+(F1*~F3))
+Endblk
+Editblk FE
+Base FG
+Config F4: G2: G3: X: Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F: G: H: H1: DIN: SR: EC: RAM: CARRY:CB4:CB5 CIN: COUT:COUTI CDIR:UP 
+ConfigCarry FORCE-F1
+Endblk
+Editblk FF
+Base FG
+Config F4:F4I G2:G2I G3:G3I X: Y:H XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F2:F3:F1:F4 G:G2:G3:G4:G1 H:F:G:H1 H1:C4 DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (F1*((F3*(F2@F4))+(~F3*(F2+F4))))
+Equate G = ((G3*(G2*G4))+(~G3*G1))
+Equate H = (F+(~H1*G))
+Endblk
+Editblk FH
+Base FG
+Config F4:F4I G2: G3: X: Y: XQ:QX YQ: FFX:K:RESET:SR:EC FFY:RESET DX:F DY: F:F4:F2:F1 G: H: H1: DIN: SR:C3 EC:C1 RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ((F4*F2)+(~F4*F1))
+Endblk
+Editblk EC
+Base FG
+Config F4: G2:G2I G3:G3I X: Y:G XQ: YQ: FFX:RESET FFY:RESET DX: DY: F: G:G2:G1:G3 H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate G = (G1*G3*~G2)
+Endblk
+Editblk EE
+Base FG
+Config F4:CIN G2:COUT0 G3:G3I X:F Y:G XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F1:F3:F2:F4 G:G4:G3:G1:G2 H: H1: DIN: SR: EC: RAM: CARRY:CB0:CB3:CB4:CB5:CB6:CB7 CIN:CINI COUT:COUTI CDIR:UP 
+Equate F = ~(F4@F1@F2@F3)
+Equate G = ~(G2@G1@G4@G3)
+ConfigCarry ADDSUB-FG-CI
+Endblk
+Editblk EF
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F1:F4 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (F4*F1)
+Endblk
+Editblk EH
+Base FG
+Config F4:F4I G2:G2I G3:G3I X: Y:H XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F3:F1:F2:F4 G:G3:G1:G4:G2 H:F:G:H1 H1:C4 DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (F2*((F1*(F3@F4))+(~F1*(F3+F4))))
+Equate G = ((G1*(G3*G4))+(~G1*G2))
+Equate H = (F+(~H1*G))
+Endblk
+Editblk EI
+Base FG
+Config F4:F4I G2: G3: X: Y: XQ:QX YQ: FFX:K:RESET:SR:EC FFY:RESET DX:F DY: F:F4:F2:F1 G: H: H1: DIN: SR:C1 EC:C4 RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ((F4*F2)+(~F4*F1))
+Endblk
+Editblk DE
+Base FG
+Config F4:CIN G2:COUT0 G3:G3I X:F Y:G XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F1:F3:F2:F4 G:G4:G3:G1:G2 H: H1: DIN: SR: EC: RAM: CARRY:CB0:CB3:CB4:CB5:CB7 CIN:CINI COUT:COUTI CDIR:UP 
+Equate F = ~(F4@F1@F2@F3)
+Equate G = ~(G2@G1@G3@G4)
+ConfigCarry ADDSUB-F-CI
+Endblk
+Editblk DF
+Base FG
+Config F4: G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F1:F2 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (F2*~F1)
+Endblk
+Editblk DH
+Base FG
+Config F4:F4I G2:G2I G3:G3I X: Y:H XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F4:F1:F2:F3 G:G4:G1:G3:G2 H:F:G:H1 H1:C2 DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (F2*((F1*(F4@F3))+(~F1*(F4+F3))))
+Equate G = ((G1*(G4*G3))+(~G1*G2))
+Equate H = (F+(~H1*G))
+Endblk
+Editblk DI
+Base FG
+Config F4: G2: G3: X: Y: XQ:QX YQ: FFX:K:RESET:SR:EC FFY:RESET DX:F DY: F:F2:F3:F1 G: H: H1: DIN: SR:C1 EC:C2 RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ((F2*F3)+(~F2*F1))
+Endblk
+Editblk DJ
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F3:F1:F4:F2 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ~((F4*~F2*(F1@F3))+(~F4*~F1*(F2@F3))+(F2*F1*F3))
+Endblk
+Editblk CE
+Base FG
+Config F4:CIN G2: G3: X: Y: XQ:QX YQ: FFX:K:RESET:SR:EC FFY:RESET DX:F DY: F:F3:F2:F1:F4 G: H: H1: DIN: SR:C3 EC:C2 RAM: CARRY:CB2 CIN:CINI COUT: CDIR:UP 
+Equate F = ((F4*F3)+(~(F1@F2)*F4)+(~(F1@F2)*F3))
+ConfigCarry EXAMINE-CI
+Endblk
+Editblk CF
+Base FG
+Config F4:F4I G2: G3: X:F Y: XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F2:F3:F1:F4 G: H: H1: DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (~F4*~F1*~F3*F2)
+Endblk
+Editblk CH
+Base FG
+Config F4:F4I G2:G2I G3:G3I X: Y:H XQ: YQ: FFX:RESET FFY:RESET DX: DY: F:F3:F1:F4:F2 G:G3:G1:G4:G2 H:F:G:H1 H1:C4 DIN: SR: EC: RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = (F4*((F1*(F3@F2))+(~F1*(F3+F2))))
+Equate G = ((G1*(G3*G4))+(~G1*G2))
+Equate H = (F+(~H1*G))
+Endblk
+Editblk CI
+Base FG
+Config F4:F4I G2: G3: X: Y: XQ:QX YQ: FFX:K:RESET:SR:EC FFY:RESET DX:F DY: F:F2:F4:F1 G: H: H1: DIN: SR:C1 EC:C2 RAM: CARRY: CIN: COUT: CDIR: 
+Equate F = ((F2*F4)+(~F2*F1))
+Endblk
+Editblk DEC.AD.2
+Base DECODER
+Config O1: O2:NOT 
+Endblk
+Editblk P41
+Base IO
+Config INFF: I1: I2: O: OUT:O:NOT PAD: TRI: OSPEED:FAST 
+Endblk
+Editblk P45
+Base IO
+Config INFF: I1: I2: O: OUT:O:NOT PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P46
+Base IO
+Config INFF: I1: I2: O: OUT:O:NOT PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P47
+Base IO
+Config INFF: I1: I2: O: OUT:O:NOT PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P48
+Base IO
+Config INFF: I1: I2: O: OUT:O:NOT PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P49
+Base IO
+Config INFF: I1: I2: O: OUT:O:NOT PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P50
+Base IO
+Config INFF: I1: I2: O: OUT:O:NOT PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P51
+Base IO
+Config INFF: I1: I2: O: OUT:O:NOT PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P28
+Base IO
+Config INFF:RESET:IK:DELAY I1:IQ I2: O: OUT: PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P57
+Base IO
+Config INFF: I1: I2: O: OUT:O:NOT PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk U63
+Base IO
+Config INFF: I1:I I2: O: OUT:O PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P27
+Base IO
+Config INFF:RESET:IK:DELAY I1: I2:IQ O: OUT: PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P58
+Base IO
+Config INFF: I1: I2: O: OUT:O:NOT PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P26
+Base IO
+Config INFF:RESET:IK:DELAY I1:IQ I2:IQ O: OUT: PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P25
+Base IO
+Config INFF:RESET:IK:DELAY I1:IQ I2:IQ O: OUT: PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P59
+Base IO
+Config INFF: I1: I2: O: OUT:O:NOT PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P60
+Base IO
+Config INFF: I1: I2: O: OUT:O:NOT PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P24
+Base IO
+Config INFF:RESET:IK:DELAY I1:IQ I2:IQ O: OUT: PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P23
+Base IO
+Config INFF:RESET:IK:DELAY I1: I2:IQ O: OUT: PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P20
+Base IO
+Config INFF:RESET:IK:DELAY I1: I2:IQ O: OUT: PAD: TRI: OSPEED:SLOW 
+Endblk
+Editblk P19
+Base IO
+Config INFF: I1: I2:I O: OUT: PAD: TRI: OSPEED:SLOW 
+Endblk
+Nameblk P41 7SEG/OFL_P
+Nameblk P45 7SEG/E_P
+Nameblk P46 7SEG/D_P
+Nameblk P47 7SEG/C_P
+Nameblk P48 7SEG/B_P
+Nameblk P49 7SEG/A_P
+Nameblk P50 7SEG/F_P
+Nameblk P51 7SEG/G_P
+Nameblk P28 SW7/SW0_P
+Nameblk P57 LED/LED3_P
+Nameblk P27 SW7/SW1_P
+Nameblk KH E
+Nameblk KI B
+Nameblk KJ G
+Nameblk KK A
+Nameblk P58 LED/LED2_P
+Nameblk P26 SW7/SW2_P
+Nameblk P25 SW7/SW3_P
+Nameblk JF ALU/DATA2
+Nameblk JI C
+Nameblk JK F
+Nameblk P59 LED/LED1_P
+Nameblk P60 LED/LED0_P
+Nameblk IC CONTROL/STATMACH/OTHER
+Nameblk ID CONTROL/UP_DN
+Nameblk IE CTL0
+Nameblk IF CLB1
+Nameblk IH ADDR1
+Nameblk II STACK1
+Nameblk IJ STACK3
+Nameblk IK $VCC_209
+Nameblk P24 SW7/SW4_P
+Nameblk P23 SW7/SW5_P
+Nameblk HC CONTROL/CE_ADDR
+Nameblk HD ADD_SUB
+Nameblk HE ALU/$U64_O
+Nameblk HF CONTROL/STATMACH/OP_CTL1
+Nameblk HH ALU/DATA3
+Nameblk HI $VCC_208
+Nameblk HJ $VCC_207
+Nameblk P20 SW7/SW6_P
+Nameblk P19 EXC_P
+Nameblk FB DEBOUNCE/DELAY1
+Nameblk FC EXC
+Nameblk FD ALU/DATA0
+Nameblk FE ALU/DATA1
+Nameblk FF ALU/MUXBLK5/M41
+Nameblk FH ALU1
+Nameblk EC CE_ALU
+Nameblk EE ALU/ADSU0
+Nameblk EF CTL1
+Nameblk EH ALU/MUXBLK5/M40
+Nameblk EI ALU0
+Nameblk DE ALU/ADSU2
+Nameblk DF CTL2
+Nameblk DH ALU/MUXBLK5/M42
+Nameblk DI ALU2
+Nameblk DJ D
+Nameblk CE OFL
+Nameblk CF ALU/ENOV
+Nameblk CH ALU/MUXBLK5/M43
+Nameblk CI ALU3
+Intnet OFL F ALU/CO
+Intnet ALU/MUXBLK5/M43 F ALU/MUXBLK5/U84/U3/M1
+Intnet ALU/MUXBLK5/M43 G ALU/MUXBLK5/U84/M01
+Intnet ALU3 F ALU/MUX3
+Intnet ALU/MUXBLK5/M42 F ALU/MUXBLK5/U83/U3/M1
+Intnet ALU/MUXBLK5/M42 G ALU/MUXBLK5/U83/M01
+Intnet ALU2 F ALU/MUX2
+Intnet ALU/MUXBLK5/M40 F ALU/MUXBLK5/U81/U3/M1
+Intnet ALU/MUXBLK5/M40 G ALU/MUXBLK5/U81/M01
+Intnet ALU0 F ALU/MUX0
+Intnet DEBOUNCE/DELAY1 F DEBOUNCE/$U17_O
+Intnet ALU/MUXBLK5/M41 F ALU/MUXBLK5/U82/U3/M1
+Intnet ALU/MUXBLK5/M41 G ALU/MUXBLK5/U82/M01
+Intnet ALU1 F ALU/MUX1
+Intnet $VCC_208 F CONTROL/U124/U1/MD
+Intnet CONTROL/STATMACH/OTHER F CONTROL/STATMACH/NEXT_OTHER
+Intnet CONTROL/UP_DN F $FGDECOMP0198_CONTROL/UP_DN
+Intnet CONTROL/UP_DN H CONTROL/UP_DN
+Intnet ADDR1 F CONTROL/U124/U2/MD
+Intnet EXC_P PAD EXC_P
+Intnet SW7/SW6_P PAD SW7/SW6_P
+Intnet SW7/SW5_P PAD SW7/SW5_P
+Intnet SW7/SW4_P PAD SW7/SW4_P
+Intnet SW7/SW3_P PAD SW7/SW3_P
+Intnet SW7/SW2_P PAD SW7/SW2_P
+Intnet SW7/SW1_P PAD SW7/SW1_P
+Intnet SW7/SW0_P PAD SW7/SW0_P
+Intnet 7SEG/OFL_P PAD 7SEG/OFL_P
+Intnet 7SEG/E_P PAD 7SEG/E_P
+Intnet 7SEG/D_P PAD 7SEG/D_P
+Intnet 7SEG/C_P PAD 7SEG/C_P
+Intnet 7SEG/B_P PAD 7SEG/B_P
+Intnet 7SEG/A_P PAD 7SEG/A_P
+Intnet 7SEG/F_P PAD 7SEG/F_P
+Intnet 7SEG/G_P PAD 7SEG/G_P
+Intnet LED/LED3_P PAD LED/LED3_P
+Intnet LED/LED2_P PAD LED/LED2_P
+Intnet LED/LED1_P PAD LED/LED1_P
+Intnet LED/LED0_P PAD LED/LED0_P
+Intnet U63 PAD SW1
+System FGG 0 VERS 1 !
+System FGG 1 GD0 0 !
+System FGG 2 GD1 CTL0 CTL1 CTL2 CONTROL/STATMACH/OP_CTL1 !
+System FGG 3 GD3 1 M:SW3 M:CTL3 M:SW2 M:EXC M:SW1 K:CONTROL/UP_DN !
+System FGG 4 GD3A 1 M:SW3 M:SW2 M:SW1 M:EXC K:$FGDECOMP0198_CONTROL/UP_DN P:CONTROL/UP_DN !
+System FGG 5 GD3E !
+System FGG 6 GD5 STACK1 STACK0 !
+System FGG 7 GD5 STACK3 STACK2 !
+System FGG 8 GD6 $FGDECOMP0198_CONTROL/UP_DN CONTROL/UP_DN !
+System Xdelay TimeGroup ffs -FF ADDR0 ADDR1 ALU0 ALU1 ALU2 ALU3
+System Xdelay TimeGroup ffs -FF CONTROL/STATMACH/OTHER CONTROL/STATMACH/PUSH
+System Xdelay TimeGroup ffs -FF DEBOUNCE/DELAY1 DEBOUNCE/DELAY2 DEBOUNCE/DELAY3
+System Xdelay TimeGroup ffs -FF OFL SW0 SW1_1 SW2_1 SW2_2 SW3_1 SW3_2 SW4_1 SW4_2
+System Xdelay TimeGroup ffs -FF SW5 SW6 WE
+System Xdelay TimeGroup pads -IOB EXC_P LED/LED0_P LED/LED1_P LED/LED2_P
+System Xdelay TimeGroup pads -IOB LED/LED3_P SW7/SW0_P SW7/SW1_P SW7/SW2_P
+System Xdelay TimeGroup pads -IOB SW7/SW3_P SW7/SW4_P SW7/SW5_P SW7/SW6_P
+System Xdelay TimeGroup pads -IOB 7SEG/A_P 7SEG/B_P 7SEG/C_P 7SEG/D_P 7SEG/E_P
+System Xdelay TimeGroup pads -IOB 7SEG/F_P 7SEG/G_P 7SEG/OFL_P
+System Xdelay TimeSpec DEFAULT_FROM_FFS_TO_FFS ffs ffs 0.0
+System Xdelay TimeSpec DEFAULT_FROM_FFS_TO_PADS ffs pads 0.0
+System Xdelay TimeSpec DEFAULT_FROM_PADS_TO_FFS pads ffs 0.0
