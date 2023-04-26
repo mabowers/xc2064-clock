@@ -33,6 +33,54 @@ SDT_C /B
 Cd \ORCAD\TUTOR
 SDT_C /B
 Cd \ORCAD\TEMPLATE
+
+:CHKMRGEXE
+Cd C:\ORCADEXE
+If not exist C:MERGEDAT.EXE set NoMrgExe=TRUE
+
+:CHKCFG
+If %NoNewTmplt%. == TRUE. goto CHKDAT
+Cd C:\ORCAD\TEMPLATE
+If exist ESP.CFG goto CHKDAT
+If %NoOldTmplt%. == TRUE. set NoCfgFile=TRUE
+If %NoCfgFile%. == TRUE. goto CHKDAT
+Cd C:\ORCAD\TEMPLATE
+If not exist C:ESP.CFG set NoCfgFile=TRUE
+Cd C:\ORCAD\TEMPLATE
+If %NoCfgFile%. == TRUE. goto CHKDAT
+Copy C:\ORCAD\TEMPLATE\ESP.CFG .\*.*
+
+:CHKDAT
+If exist ORCADESP.DAT goto CHKMRG
+If not exist C:\ORCADESP\NUL goto CHKMRG
+Cd C:\ORCADESP
+If not exist C:ORCADESP.NEW set NoDatFile=TRUE
+If %NoNewTmplt%. == TRUE. goto CHKMRG
+If %NoDatFile%. == TRUE. goto CHKMRG
+Cd C:\ORCAD\TEMPLATE
+Copy C:\ORCADESP\ORCADESP.NEW .\ORCADESP.DAT
+Cd C:\ORCAD\TUTOR
+Copy C:\ORCADESP\ORCADESP.NEW .\ORCADESP.DAT
+Cd C:\ORCAD\TEMPLATE
+
+:CHKMRG
+If not exist C:\ORCADESP\SDT386.MRG set NoMrgFile=TRUE
+
+If %NoDatFile%. == TRUE. goto CHKPROJ
+If %NoMrgExe%. == TRUE. goto CHKPROJ
+If %NoMrgFile%. == TRUE. goto CHKPROJ
+If %NoTemplate%. == TRUE. goto CHKPROJ
+Cls
+Echo.
+Echo.
+Echo Updating ORCADESP.DAT files in design directories...
+Echo.
+Set ORCADPROJ=C:\ORCAD\
+If not %ORCADPROJ%. == C:\ORCAD\. Goto ENVERR
+MERGEDAT SDT386.MRG /P
+FIXDAT /U /A
+
+:CHKPROJ
 If %NoProj%. == FALSE. goto CHKTMPLT
 Cls
 Echo.

@@ -33,15 +33,16 @@ MD5: `37ac2af0c616ec3a569a43fcd7d28731`<br>
 8. The installer will ask if it can modify your `AUTOEXEC.BAT`. Press `Y` to allow this.
 9. Next, the installer will bring up a `Welcome to OrCAD's product installation program...` screen. After this screen, it will show a list of tool sets to install. We need `OrCAD ESP Design Environment` and `OrCAD Schematic Design Tools`, use the spacebar to select `YES` for both and press ENTER to continue.
 10. It will next ask you to place "ESP Disk" in drive A. Delete the existing contents of `~/workspace/xc2064-clock/dosbox/a` and replace them with the contents of `1991_1994_orcad_42_44/1994_44/sdt/disk1/`. Press CTRL-F4 to ask DOSBox to refresh the contents of the floppy.
-11. It will then ask for "SDT Disk 1", do the same thing using: `1991_1994_orcad_42_44/1994_44/sdt/disk1/`
-12. It will then ask for "SDT Disk 2", do the same thing using: `1991_1994_orcad_42_44/1994_44/sdt/disk2/`
-13. It will then ask for "SDT Disk 3", do the same thing using: `1991_1994_orcad_42_44/1994_44/sdt/disk3/`
-14. It will then ask for "SDT Disk 4, do the same thing using: `1991_1994_orcad_42_44/1994_44/sdt/disk4/`, but note that Disk 4 is missing the `disk.id` file! Copy the `disk.id` file from the Disk 3 contents, and replace `Disk 3 of 5` line with `Disk 4 of 5`, then continue.
-15. It will then ask for "SDT Disk 5, do the same thing using: `1991_1994_orcad_42_44/1994_44/sdt/disk5/`
-16. After the installation exits, it will complain about about "Not enough environment space left." It seems like this error can be safely ignored.
-17. Add the lines `C:` and `AUTOEXEC.BAT` to the end of `~/.dosbox/dosbox-0.74-3.conf` and restart DOSBox.
-18. Next, we will create a driver file for OrCAD to use 800x600 resolution. Do `cd C:\ORCADESP\DRV\`, then run `GENDRIVE`, select `41: Paradise EGA or VGA 800x600 16 color`, then select `U - Use Settings above` and enter the name `PARADISE.DRV`.
-19. Modify `~/workspace/xc2064-clock/dosbox/c/ORCAD/TEMPLATE/SDT.CFG` to `DD = 'PARADISE.DRV'`. (This is the template file for new OrCAD SDT projects.)
+11. It will ask `Is this a new installation of the ESP design environment?`, press `Y`, then press ENTER.
+12. It will then ask for "SDT Disk 1", do the same thing using: `1991_1994_orcad_42_44/1994_44/sdt/disk1/`
+13. It will then ask for "SDT Disk 2", do the same thing using: `1991_1994_orcad_42_44/1994_44/sdt/disk2/`
+14. It will then ask for "SDT Disk 3", do the same thing using: `1991_1994_orcad_42_44/1994_44/sdt/disk3/`
+15. It will then ask for "SDT Disk 4, do the same thing using: `1991_1994_orcad_42_44/1994_44/sdt/disk4/`, but note that Disk 4 is missing the `disk.id` file! Copy the `disk.id` file from the Disk 3 contents, and replace `Disk 3 of 5` line with `Disk 4 of 5`, then continue.
+16. It will then ask for "SDT Disk 5, do the same thing using: `1991_1994_orcad_42_44/1994_44/sdt/disk5/`
+17. After the installation exits, it will complain about about "Not enough environment space left." It seems like this error can be safely ignored.
+18. Add the lines `C:` and `AUTOEXEC.BAT` to the end of `~/.dosbox/dosbox-0.74-3.conf` and restart DOSBox.
+19. Next, we will create a driver file for OrCAD to use 800x600 resolution. Do `cd C:\ORCADESP\DRV\`, then run `GENDRIVE`, select `41: Paradise EGA or VGA 800x600 16 color`, then select `U - Use Settings above` and enter the name `PARADISE.DRV`.
+20. Modify `~/workspace/xc2064-clock/dosbox/c/ORCAD/TEMPLATE/SDT.CFG` to `DD = 'PARADISE.DRV'`. (This is the template file for new OrCAD SDT projects.)
 
 ## Part III: Install Xilinx XACT 5.0.0
 

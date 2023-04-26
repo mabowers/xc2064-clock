@@ -1,2 +1,5 @@
 # ignore DOSBox floppy drive
 dosbox/a
+# ignore unzipped installers
+dosbox/install/1991_1994_orcad_42_44/
+dosbox/install/XACT.ver.5.0.0.English/
