@@ -1,0 +1,15 @@
+# color defines
+BOLD="\[\e[1m\]"
+NORMAL="\[\e[0m\]"
+GREEN="\[\e[92m\]"
+YELLOW="\[\e[93m\]"
+BLUE="\[\e[94m\]"
+MAGENTA="\[\e[95m\]"
+DEFAULT_COLOR="\[\e[39m\]"
+
+# customize prompt inside the docker shell
+export PS1="$BOLD[$MAGENTA$HOSTNAME$DEFAULT_COLOR] $BLUE\w$NORMAL$ "
+
+# enable colorful 'ls' and 'll' commands
+alias ls='ls --color=auto'
+alias ll='ls -alF'
