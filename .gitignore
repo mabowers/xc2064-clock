@@ -1,3 +1,4 @@
 # ignore DOSBox floppy drive
 dosbox/a
+# ignore footprint cache
 xc2064-clock-kicad/fp-info-cache
