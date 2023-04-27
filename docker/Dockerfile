@@ -11,7 +11,7 @@ RUN apt-get -y install dosbox
 RUN apt-get -y install locales tzdata
 
 # install Atmel AVR compiler and tools
-RUN apt-get -y install gcc-avr avr-libc unzip patch
+RUN apt-get -y install gcc-avr avr-libc make unzip patch
 
 # install stuff for newer ATtiny parts
 # See guide: http://leonerds-code.blogspot.com/2019/06/building-for-new-attiny-1-series-chips.html
