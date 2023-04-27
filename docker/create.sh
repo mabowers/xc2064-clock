@@ -29,7 +29,7 @@ echo " "
 
 # build the Docker image
 echo -e "\nBuilding Docker image..."
-docker build --rm --file Dockerfile --tag ${DOCKER_IMAGE}:${DOCKER_VERSION} --build-arg UID=$UID .
+docker build --rm --file Dockerfile --tag ${DOCKER_IMAGE}:${DOCKER_VERSION} $SCRIPT_DIR
 
 # restore original directory
 popd > /dev/null

@@ -1,0 +1,39 @@
+--- /usr/lib/avr/include/avr/io.h	2022-01-07 07:18:49.000000000 -0500
++++ /workspace/io.h.new	2023-04-26 21:01:24.177105877 -0400
+@@ -468,6 +468,36 @@
+ #  include <avr/iotn167.h>
+ #elif defined (__AVR_ATtiny1634__)
+ #  include <avr/iotn1634.h>
++#elif defined (__AVR_ATtiny212__)
++#  include <avr/iotn212.h>
++#elif defined (__AVR_ATtiny412__)
++#  include <avr/iotn412.h>
++#elif defined (__AVR_ATtiny214__)
++#  include <avr/iotn214.h>
++#elif defined (__AVR_ATtiny414__)
++#  include <avr/iotn414.h>
++#elif defined (__AVR_ATtiny814__)
++#  include <avr/iotn814.h>
++#elif defined (__AVR_ATtiny1614__)
++#  include <avr/iotn1614.h>
++#elif defined (__AVR_ATtiny3214__)
++#  include <avr/iotn3214.h>
++#elif defined (__AVR_ATtiny416__)
++#  include <avr/iotn416.h>
++#elif defined (__AVR_ATtiny816__)
++#  include <avr/iotn816.h>
++#elif defined (__AVR_ATtiny1616__)
++#  include <avr/iotn1616.h>
++#elif defined (__AVR_ATtiny3216__)
++#  include <avr/iotn3216.h>
++#elif defined (__AVR_ATtiny417__)
++#  include <avr/iotn417.h>
++#elif defined (__AVR_ATtiny817__)
++#  include <avr/iotn817.h>
++#elif defined (__AVR_ATtiny1617__)
++#  include <avr/iotn1617.h>
++#elif defined (__AVR_ATtiny3217__)
++#  include <avr/iotn3217.h>
+ #elif defined (__AVR_AT90SCR100__)
+ #  include <avr/io90scr100.h>
+ #elif defined (__AVR_ATxmega8E5__)
